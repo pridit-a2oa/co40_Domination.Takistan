@@ -3,4 +3,5 @@
 /**
  * Modules
  */
+__module(core);
 __module(boards);
