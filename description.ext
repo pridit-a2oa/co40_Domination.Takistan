@@ -1,0 +1,41 @@
+showGPS = 1;
+respawn = "BASE";
+debriefing = 1;
+disabledAI = 1;
+loadScreen = "";
+respawnDelay = 10;
+disableChannels[] = {2};
+enableItemsDropping = 0;
+
+onLoadMission = "DominationOA! One Team - West";
+onLoadIntroTime = 0;
+onLoadMissionTime = 0;
+
+class Header
+{
+    gameType                = DOM;
+    minPlayers              = 1;
+    maxPlayers              = 40;
+    playerCountMultipleOf   = 1;
+};
+
+class CfgIdentities {
+    class DHQ_EN1 {
+        name = "Winters, HQ";
+        face = "Default";
+        glasses = "None";
+        speaker = "Male03EN";
+        pitch = 1.0;
+    };
+    class DHQ_EN2: DHQ_EN1 {
+        name = "Meyers, HQ";
+    };
+    class DHQ_RU1: DHQ_EN1 {
+        name = "Aziz, HQ";
+        speaker = "Male03TK";
+    };
+    class DHQ_RU2: DHQ_EN1 {
+        name = "Horiz, HQ";
+        speaker = "Male03TK";
+    };
+};
