@@ -4,14 +4,16 @@
 
 #include "x_macros.sqf"
 
-_mpos = markerPos QGVAR(base_radar);
-_mpos set [2,0];
-GVAR(base_radar) = _mpos;
-
-[GVAR(base_radar), random 0, ["radar","us_army"], 0, [
+[markerPos QGVAR(base_radar), random 0, ["radar","us_army"], 0, [
     "76n6ClamShell_EP1",
     "US_WarfareBAntiAirRadar_EP1"
 ]] call FUNC(objectMapper);
+
+for "_i" from 1 to 2 do {
+    _marker = format [QGVAR(base_anti_air%1), _i];
+    [markerPos _marker, random 0, ["anti-air","us_army"]] call FUNC(objectMapper);
+    deleteVehicle ((nearestObjects [markerPos _marker, ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
+};
 
 // _dgrp = ["WEST"] call FUNC(creategroup);
 // _unit_array = ["basic", "WEST"] call FUNC(getunitliste);
