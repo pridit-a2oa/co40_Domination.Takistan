@@ -4997,7 +4997,7 @@ class Mission
         class Item128
         {
             position[]={8226.6572,296.04001,1957.4619};
-            name="d_base_radar_pos";
+            name="d_base_radar";
             type="Empty";
         };
         class Item129
