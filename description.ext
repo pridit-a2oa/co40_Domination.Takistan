@@ -11,6 +11,9 @@ onLoadMission = "DominationOA! One Team - West";
 onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
+#include "define.hpp"
+#include "perks\dialog\base.hpp"
+
 class Header
 {
     gameType                = DOM;

@@ -18,3 +18,6 @@
 
 #define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1
 #define __cppfln(xdfunc,xfile2) xdfunc = compile preprocessFileLineNumbers #xfile2
+
+#define __UI_Path(lfile) QUOTE(\ca\ui\data\lfile)
+#define __uiGetVar(uvarname) (uiNamespace getVariable #uvarname)

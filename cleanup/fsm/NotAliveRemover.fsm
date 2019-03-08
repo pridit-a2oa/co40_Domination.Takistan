@@ -1,0 +1,207 @@
+class FSM
+{
+  fsmName = "NotAliveRemover";
+  class States
+  {
+    class Start
+    {
+      name = "Start";
+      init = "private [""_allunits"",""_timenow""];" \n
+       "_allunits = [];" \n
+       "_timenow = time + 240;";
+      precondition = "";
+      class Links
+      {
+        class Delay
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Loop
+    {
+      name = "Loop";
+      init = "";
+      precondition = "";
+      class Links
+      {
+        class Is_MP
+        {
+          priority = 1.000000;
+          to="Sleep";
+          precondition = "";
+          condition="isMultiplayer && {(call d_fnc_PlayersNumber) == 0}";
+          action="";
+        };
+        class true
+        {
+          priority = 0.000000;
+          to="Add_new";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+    class Sleep
+    {
+      name = "Sleep";
+      init = "_timenow = time + 2.38;";
+      precondition = "";
+      class Links
+      {
+        class Delay2
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time >= _timenow";
+          action="";
+        };
+      };
+    };
+    class Add_new
+    {
+      name = "Add_new";
+      init = "private [""_counter""];" \n
+       "_counter = 0;" \n
+       "" \n
+       "if (count d_allunits_add > 0) then {" \n
+       "	d_allunits_add = d_allunits_add - [objNull, nil];" \n
+       "	[_allunits, d_allunits_add] call d_fnc_arrayPushStack;" \n
+       "	d_allunits_add = [];" \n
+       "	_allunits = _allunits - [objNull];" \n
+       "};" \n
+       "_timenow = time + 30;" \n
+       "";
+      precondition = "";
+      class Links
+      {
+        class count__allunits
+        {
+          priority = 1.000000;
+          to="Check_Loop";
+          precondition = "";
+          condition="count _allunits > 0";
+          action="";
+        };
+        class Delay
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Check_Loop
+    {
+      name = "Check_Loop";
+      init = "";
+      precondition = "";
+      class Links
+      {
+        class _counter____count
+        {
+          priority = 1.000000;
+          to="Clear_array";
+          precondition = "";
+          condition="_counter == count _allunits";
+          action="";
+        };
+        class true
+        {
+          priority = 0.000000;
+          to="Check_one_object";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+    class Clear_array
+    {
+      name = "Clear_array";
+      init = "_allunits = _allunits - [-1,objNull];" \n
+       "_timenow = time + 30;";
+      precondition = "";
+      class Links
+      {
+        class Delay
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Check_one_object
+    {
+      name = "Check_one_object";
+      init = "private ""_element"";" \n
+       "_element = _allunits select _counter;" \n
+       "" \n
+       "if (!isNil ""_element"") then {" \n
+       "	if (isNull _element) then {" \n
+       "		deleteVehicle _element;" \n
+       "		_allunits set [_counter, -1];" \n
+       "	} else {" \n
+       "		if (!alive _element) then {" \n
+       "			if (_element isKindOf ""CAManBase"") then {" \n
+       "				deleteVehicle _element;" \n
+       "				_allunits set [_counter, -1];" \n
+       "			} else {" \n
+       "				if (_element call d_fnc_GetVehicleEmpty) then {" \n
+       "					deleteVehicle _element;" \n
+       "					_allunits set [_counter, -1];" \n
+       "				};" \n
+       "			};" \n
+       "		} else {" \n
+       "			if !(_element isKindOf ""CAManBase"") then {" \n
+       "				private ""_hastime"";" \n
+       "				_hastime = _element getVariable ""d_end_time"";" \n
+       "				if (!isNil ""_hastime"" && {time > _hastime}) then {" \n
+       "					if (_element call d_fnc_GetVehicleEmpty) then {" \n
+       "						deleteVehicle _element;" \n
+       "						_allunits set [_counter, -1];" \n
+       "					} else {" \n
+       "						if (({isPlayer _x} count (crew _element)) > 0) then {" \n
+       "							_element setVariable [""d_end_time"", time + 600];" \n
+       "						};" \n
+       "					};" \n
+       "				};" \n
+       "			};" \n
+       "		};" \n
+       "	};" \n
+       "} else {" \n
+       "	_allunits set [_counter, -1];" \n
+       "};" \n
+       "" \n
+       "_counter = _counter + 1;" \n
+       "_timenow = time + 1 + random 1;";
+      precondition = "";
+      class Links
+      {
+        class Delay
+        {
+          priority = 0.000000;
+          to="Check_Loop";
+          precondition = "";
+          condition="time >= _timenow";
+          action="";
+        };
+      };
+    };
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
