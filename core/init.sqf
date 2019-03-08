@@ -4,10 +4,11 @@
 
 #include "x_macros.sqf"
 
-__cppfln(FUNC(objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
+// Modules
+__module(boards);
+__module(base_upgrades);
 
-GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
-GVAR(init_obj) addEventHandler ["killed", {__ccppfln(server.sqf);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
-GVAR(init_obj) setDamage 1;
+// Functions
+__cppfln(FUNC(objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 
 skipTime 5;
