@@ -6,13 +6,13 @@
 #include "x_macros.sqf"
 
 X_INIT = false;
-X_Server = isServer;
-X_Client = !isDedicated;
+X_SERVER = isServer;
+X_CLIENT = !isDedicated;
 X_JIP = false;
 X_SPE = false;
 X_MP = isMultiplayer;
 
-__ccppfln(core\scripts\common.sqf);
+__ccppfln(THIS_MODULE\scripts\common.sqf);
 
 // Functions
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
