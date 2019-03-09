@@ -65,7 +65,7 @@ class PerkButton_General_7: XD_LinkButtonUpgradeBase
     y = 0.216364;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduced ammo box load cooldown by 180s";
+    tooltip = "Reduced ammo box unload cooldown by 180s";
     action = "[7] call d_fnc_perkclicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
