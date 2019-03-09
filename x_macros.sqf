@@ -21,3 +21,6 @@
 
 #define __UI_Path(lfile) QUOTE(\ca\ui\data\lfile)
 #define __uiGetVar(uvarname) (uiNamespace getVariable #uvarname)
+
+#define __pGetVar(pvarname) (player getVariable #pvarname)
+#define __pSetVar player setVariable

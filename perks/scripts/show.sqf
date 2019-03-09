@@ -1,3 +1,4 @@
+#include "x_macros.sqf"
 #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
 #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
 private ["_ctrl","_XD_display","_unlocked"];
