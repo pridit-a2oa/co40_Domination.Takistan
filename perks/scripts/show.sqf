@@ -45,7 +45,7 @@ if (__pGetVar(GVAR(perk_points_available)) > 0) then {
     if (str(player) == _x) then {
          __ctrl2(504) ctrlSetText "\ca\ui\data\icon_task_ca";
     };
-} forEach GVAR(marksmen);
+} forEach GVAR(marksman);
 
 {
     if (str(player) == _x) then {

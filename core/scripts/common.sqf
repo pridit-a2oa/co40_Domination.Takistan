@@ -3,7 +3,7 @@
 GVAR(artillery) = [];
 GVAR(engineers) = [];
 GVAR(machine_gunners) = [];
-GVAR(marksmen) = [];
+GVAR(marksman) = [];
 GVAR(medics) = [];
 GVAR(pilots) = [];
 
@@ -20,7 +20,7 @@ for "_i" from 1 to 8 do {
 };
 
 for "_i" from 1 to 8 do {
-    GVAR(marksmen) = GVAR(marksmen) + ["MARKSMAN" + str _i];
+    GVAR(marksman) = GVAR(marksman) + ["MARKSMAN" + str _i];
 };
 
 for "_i" from 1 to 8 do {
@@ -31,4 +31,4 @@ for "_i" from 1 to 6 do {
     GVAR(pilots) = GVAR(pilots) + ["PILOT" + str _i];
 };
 
-GVAR(player_entities) = GVAR(artillery) + GVAR(engineers) + GVAR(machine_gunners) + GVAR(marksmen) + GVAR(medics) + GVAR(pilots);
+GVAR(player_entities) = GVAR(artillery) + GVAR(engineers) + GVAR(machine_gunners) + GVAR(marksman) + GVAR(medics) + GVAR(pilots);
