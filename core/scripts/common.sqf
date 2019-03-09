@@ -1,5 +1,10 @@
 #include "x_macros.sqf"
 
+FUNC(core,GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
+FUNC(core,RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
+FUNC(core,BlueText) = {"<t color='#f07f7f00'>" + _this + "</t>"}; //olive
+FUNC(core,YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
+
 GVAR(artillery) = [];
 GVAR(engineers) = [];
 GVAR(machine_gunners) = [];

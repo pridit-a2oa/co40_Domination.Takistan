@@ -14,11 +14,13 @@ X_MP = isMultiplayer;
 __ccppfln(core\scripts\common.sqf);
 
 // Functions
-__cppfln(FUNC(objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
+__cppfln(FUNC(core,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 
 // Modules
-__module(boards);
+__module(ammobox);
+__module(backpacks);
 __module(base_upgrades);
+__module(boards);
 __module(cleanup);
 __module(perks);
 __module(wrecks);

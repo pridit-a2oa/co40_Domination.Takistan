@@ -650,7 +650,7 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8230.1777,296.04001,2021.9932};
+					position[]={8270.252,296.04001,2119.1223};
 					azimut=149.85699;
 					special="NONE";
 					id=289;
@@ -1318,10 +1318,10 @@ class Mission
 		};
 		class Item5
 		{
-			position[]={8278.1396,296.04001,2110.4895};
+			position[]={8278.9395,296.04001,2110.3171};
 			id=5;
 			side="EMPTY";
-			vehicle="FlagCarrierUNO_EP1";
+			vehicle="FlagCarrierUSA_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="D_FLAG_BASE";
