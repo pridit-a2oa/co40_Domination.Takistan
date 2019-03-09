@@ -2,6 +2,7 @@
  * Core Module
  */
 
+#define THIS_MODULE "core"
 #include "x_macros.sqf"
 
 X_INIT = false;
