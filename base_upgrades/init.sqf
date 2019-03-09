@@ -2,7 +2,7 @@
  * Base Upgrades Module
  */
 
-#define THIS_MODULE "base_upgrades"
+#define THIS_MODULE base_upgrades
 #include "x_macros.sqf"
 
 [markerPos QGVAR(base_radar), random 0, ["radar","us_army"], 0, [

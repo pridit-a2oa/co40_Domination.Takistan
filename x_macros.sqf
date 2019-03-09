@@ -16,9 +16,9 @@
 
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
 
-#define __function(xname) format ["%1\functions\fn_%2.sqf", THIS_MODULE, #xname]
-#define __script(xname) format ["%1\scripts\%2.sqf", THIS_MODULE, #xname]
-#define __fsm(xname) execFSM format ["%1\fsm\%2.fsm", THIS_MODULE, #xname]
+#define __function(xname) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #xname]
+#define __script(xname) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #xname]
+#define __fsm(xname) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #xname]
 
 #define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1
 #define __cppfln(xdfunc,xfile2) xdfunc = compile preprocessFileLineNumbers #xfile2

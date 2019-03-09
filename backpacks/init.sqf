@@ -2,7 +2,7 @@
  * Backpacks Module
  */
 
-#define THIS_MODULE "backpacks"
+#define THIS_MODULE backpacks
 #include "x_macros.sqf"
 private ["_heap"];
 

@@ -2,7 +2,7 @@
  * Perks Module
  */
 
-#define THIS_MODULE "perks"
+#define THIS_MODULE perks
 #include "x_macros.sqf"
 
 __pSetVar [QGVAR(perk_points_available), 0];

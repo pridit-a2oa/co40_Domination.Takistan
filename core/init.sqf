@@ -2,7 +2,7 @@
  * Core Module
  */
 
-#define THIS_MODULE "core"
+#define THIS_MODULE core
 #include "x_macros.sqf"
 
 X_INIT = false;
@@ -15,7 +15,7 @@ X_MP = isMultiplayer;
 __ccppfln(core\scripts\common.sqf);
 
 // Functions
-__cppfln(FUNC(core,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
+__cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 
 // Modules
 __module(ammobox);
