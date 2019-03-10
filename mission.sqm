@@ -650,8 +650,8 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8270.252,296.04001,2119.1223};
-					azimut=149.85699;
+					position[]={8263.2129,296.04001,2122.5176};
+					azimut=150.392;
 					special="NONE";
 					id=289;
 					side="WEST";
@@ -1259,7 +1259,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=290;
+		items=292;
 		class Item0
 		{
 			position[]={8330.8545,296.04001,2045.4362};
@@ -1983,7 +1983,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Sign_Checkpoint";
 			skill=0.60000002;
-			init="this setObjectTexture [0, ""pics\release.paa""]; this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
+			init="this setPos [getPos this select 0, getPos this select 1,-0.1]; this enableSimulation false;";
 		};
 		class Item65
 		{
@@ -4140,6 +4140,25 @@ class Mission
 			skill=0.60000002;
 			text="atv8";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+		};
+		class Item290
+		{
+			position[]={8162.5923,296.04001,2016.2833};
+			azimut=150.23129;
+			id=359;
+			side="EMPTY";
+			vehicle="MQ9PredatorB_US_EP1";
+			skill=0.60000002;
+			text="mq9";
+		};
+		class Item291
+		{
+			position[]={8149.7559,296.04001,2009.1747};
+			azimut=-385;
+			id=360;
+			side="EMPTY";
+			vehicle="USMC_WarfareBUAVterminal";
+			skill=0.60000002;
 		};
 	};
 	class Markers

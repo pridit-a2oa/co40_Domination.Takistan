@@ -31,17 +31,18 @@ if (isMultiplayer && {!isDedicated}) then {
     titleText ["", "BLACK FADED"];
 };
 
-enableSaving [false,false];
-enableTeamSwitch false;
-
 if (!isDedicated) then {
     GVAR(client_init_trig) = createTrigger ["EmptyDetector", [0,0,0]];
     GVAR(client_init_trig) setTriggerArea [0,0,0,false];
     GVAR(client_init_trig) setTriggerActivation ["NONE", "PRESENT", false];
     GVAR(client_init_trig) setTriggerTimeout [1, 1, 1, false];
+    X_INIT = false;
     GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_init_processed'}", "call compile preprocessFileLineNumbers 'player\init.sqf'", ""];
     onPreloadFinished {GVAR(preloaddone) = true; onPreloadFinished {}};
 };
+
+enableSaving [false,false];
+enableTeamSwitch false;
 
 // process in one frame
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
