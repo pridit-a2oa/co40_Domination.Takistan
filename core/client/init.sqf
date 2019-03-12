@@ -9,9 +9,10 @@ if (!X_CLIENT) exitWith {};
 if (!isNil QGVAR(jip_started)) exitWith {};
 
 GVAR(jip_started) = true;
-GVAR(prevPFrame) = -999;
-GVAR(perframe_store) = GVAR(HeliHEmpty) createVehicleLocal [0,0,0];
+
+GVAR(perframe_store) = "HeliHEmpty" createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
+GVAR(perframe_previous) = -999;
 
 __ccppfln(core\THIS_MODULE\functions\fn_addPerFrame.sqf);
 __ccppfln(core\THIS_MODULE\functions\fn_perFrame.sqf);
@@ -19,11 +20,11 @@ __ccppfln(core\THIS_MODULE\functions\fn_removePerFrame.sqf);
 
 __ccppfln(core\THIS_MODULE\modules.sqf);
 
-onEachFrame {call d_fnc_player_perFrame};
+onEachFrame {call d_fnc_client_perFrame};
 
 ["init_vecs", {
     {
-        _x __module(vehicle);
+        [_x] __module(vehicle);
     } forEach vehicles;
     
     ["init_vecs"] call FUNC(THIS_MODULE,removePerFrame)

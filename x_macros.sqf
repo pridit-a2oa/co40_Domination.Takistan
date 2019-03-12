@@ -18,7 +18,7 @@
 
 #define __core(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
-#define __submodule(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", QUOTE(THIS_MODULE), #xname]
+#define __submodule(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", QUOTE(THIS_MODULE), #module]
 
 #define __function(xname) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #xname]
 #define __script(xname) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #xname]

@@ -1,6 +1,7 @@
+#define THIS_MODULE client
 #include "x_macros.sqf"
 
-FUNC(client,addPerFrame) = {
+FUNC(THIS_MODULE,addPerFrame) = {
     private ["_name", "_code", "_time", "_ar"];
     PARAMS_3(_name,_code,_time); //_time = 0 = every frame
     _name = toLower _name;

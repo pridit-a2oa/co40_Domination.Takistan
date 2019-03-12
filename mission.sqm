@@ -650,8 +650,8 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8263.2129,296.04001,2122.5176};
-					azimut=150.392;
+					position[]={8260.7783,296.04001,2125.0061};
+					azimut=149.61868;
 					special="NONE";
 					id=289;
 					side="WEST";
@@ -4257,7 +4257,7 @@ class Mission
 		};
 		class Item12
 		{
-			position[]={7851.9834,296.03845,1605.269};
+			position[]={7965.9063,296.14053,1933.8236};
 			name="d_base_anti_air2";
 			type="Empty";
 		};
