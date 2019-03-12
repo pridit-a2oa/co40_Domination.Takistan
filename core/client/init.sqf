@@ -13,7 +13,10 @@ GVAR(prevPFrame) = -999;
 GVAR(perframe_store) = GVAR(HeliHEmpty) createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
 
-__ccppfln(core\THIS_MODULE\functions.sqf);
+__ccppfln(core\THIS_MODULE\functions\fn_addPerFrame.sqf);
+__ccppfln(core\THIS_MODULE\functions\fn_perFrame.sqf);
+__ccppfln(core\THIS_MODULE\functions\fn_removePerFrame.sqf);
+
 __ccppfln(core\THIS_MODULE\modules.sqf);
 
 onEachFrame {call d_fnc_player_perFrame};

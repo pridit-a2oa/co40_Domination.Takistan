@@ -5,7 +5,8 @@
 #define THIS_MODULE server
 #include "x_macros.sqf"
 
-__ccppfln(core\THIS_MODULE\scripts.sqf);
+__ccppfln(core\THIS_MODULE\scripts\common.sqf);
+
 __ccppfln(core\THIS_MODULE\modules.sqf);
 
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
