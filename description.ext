@@ -12,7 +12,7 @@ onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
 #include "define.hpp"
-#include "perks\dialog\base.hpp"
+#include "perk\dialog\base.hpp"
 
 class Header
 {
