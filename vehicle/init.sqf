@@ -6,6 +6,6 @@
 #include "x_macros.sqf"
 PARAMS_1(_vehicle);
 
-hint format ["%1", __module(perk)];
-
-// [_vehicle] __submodule(perk);
+if (!isNil QUOTE(MODULE(client,perk))) then {
+    [_vehicle] __submodule(perk);
+};

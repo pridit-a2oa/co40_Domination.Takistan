@@ -1,5 +1,6 @@
 #define FUNC(module,funcname) d##_fnc_##module##_##funcname
-#define SCRIPT(module,funcname) d##_sct_##module##_##funcname
+#define MODULE(type,module) d##_mdl_##type##_##module
+#define SCRIPT(module,file) format ["%1\scripts\%2.sqf", #module, #file]
 
 #define GVAR(varname) d##_##varname
 #define QUOTE(qtext) #qtext
@@ -20,9 +21,9 @@
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
 #define __submodule(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", QUOTE(THIS_MODULE), #module]
 
-#define __function(xname) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #xname]
-#define __script(xname) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #xname]
-#define __fsm(xname) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #xname]
+#define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
+#define __script(file) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #file]
+#define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 
 #define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1
 #define __cppfln(xdfunc,xfile2) xdfunc = compile preprocessFileLineNumbers #xfile2
