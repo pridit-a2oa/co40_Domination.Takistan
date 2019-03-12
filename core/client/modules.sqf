@@ -6,5 +6,5 @@
 
 __module(ammobox);
 __module(backpack);
-__module(base_shield);
+__module(board);
 __module(perk);

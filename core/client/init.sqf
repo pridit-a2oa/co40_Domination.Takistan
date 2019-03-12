@@ -5,11 +5,6 @@
 #define THIS_MODULE client
 #include "x_macros.sqf"
 
-if (!X_CLIENT) exitWith {};
-if (!isNil QGVAR(jip_started)) exitWith {};
-
-GVAR(jip_started) = true;
-
 GVAR(perframe_store) = "HeliHEmpty" createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
 GVAR(perframe_previous) = -999;
@@ -30,9 +25,6 @@ onEachFrame {call d_fnc_client_perFrame};
     ["init_vecs"] call FUNC(THIS_MODULE,removePerFrame)
 }, 0] call FUNC(THIS_MODULE,addPerFrame);
 
-deleteVehicle GVAR(client_init_trig);
-GVAR(client_init_trig) = nil;
-
 0 spawn {
     if (isMultiplayer) then {
         waitUntil {sleep 0.112;!isNil QGVAR(preloaddone)};
@@ -41,3 +33,6 @@ GVAR(client_init_trig) = nil;
         titleText ["", "BLACK IN", 4];
     };
 };
+
+deleteVehicle GVAR(client_init_trig);
+GVAR(client_init_trig) = nil;

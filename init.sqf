@@ -1,30 +1,5 @@
 #include "x_macros.sqf"
 
-X_MP = isMultiplayer;
-X_CLIENT = !isDedicated;
-X_SERVER = isServer;
-
-X_JIP = false;
-X_SPE = false;
-X_INIT = false;
-
-#define __waitpl 0 spawn {scriptName "spawn_WaitForNotIsNullPlayer";waitUntil {!isNull player};X_INIT = true}
-if (isServer) then {
-    if (!isDedicated) then {
-        X_SPE = true;
-        __waitpl;
-    } else {
-        X_INIT = true;
-    };
-} else {
-    if (isNull player) then {
-        X_JIP = true;
-        __waitpl;
-    } else {
-        X_INIT = true;
-    };
-};
-
 if (isMultiplayer && {!isDedicated}) then {
     enableRadio false;
     0 fadeSound 0;
@@ -46,7 +21,5 @@ enableTeamSwitch false;
 
 // process in one frame
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
-GVAR(init_obj) addEventHandler ["killed", {__core(server);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
+GVAR(init_obj) addEventHandler ["killed", {__core(common);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
 GVAR(init_obj) setDamage 1;
-
-GVAR(init_processed) = true;
