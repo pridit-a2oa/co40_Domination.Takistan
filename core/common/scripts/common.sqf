@@ -1,4 +1,4 @@
-#define THIS_MODULE server
+#define THIS_MODULE common
 #include "x_macros.sqf"
 
 FUNC(THIS_MODULE,GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
