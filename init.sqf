@@ -37,7 +37,7 @@ if (!isDedicated) then {
     GVAR(client_init_trig) setTriggerActivation ["NONE", "PRESENT", false];
     GVAR(client_init_trig) setTriggerTimeout [1, 1, 1, false];
     X_INIT = false;
-    GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_init_processed'}", "call compile preprocessFileLineNumbers 'player\init.sqf'", ""];
+    GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_init_processed'}", "call compile preprocessFileLineNumbers 'core\client\init.sqf'", ""];
     onPreloadFinished {GVAR(preloaddone) = true; onPreloadFinished {}};
 };
 
@@ -46,7 +46,7 @@ enableTeamSwitch false;
 
 // process in one frame
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
-GVAR(init_obj) addEventHandler ["killed", {__module(core);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
+GVAR(init_obj) addEventHandler ["killed", {__core(server);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
 GVAR(init_obj) setDamage 1;
 
 GVAR(init_processed) = true;

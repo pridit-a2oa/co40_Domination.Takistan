@@ -1,19 +1,26 @@
 /**
- * Player Module (Core)
+ * Core Module - Client
  */
 
-#define THIS_MODULE player
+#define THIS_MODULE client
 #include "x_macros.sqf"
+
 if (!X_CLIENT) exitWith {};
 if (!isNil QGVAR(jip_started)) exitWith {};
 
 GVAR(jip_started) = true;
 
-// Modules
-__module(ammobox);
-__module(backpacks);
-__module(base_shield);
-__module(perks);
+__ccppfln(core\THIS_MODULE\scripts\perframe.sqf);
+
+__ccppfln(core\THIS_MODULE\modules.sqf);
+
+["init_vecs", {
+    {
+        _x __module(vehicle);
+    } forEach vehicles;
+    
+    ["init_vecs"] call FUNC(THIS_MODULE,removePerFrame)
+}, 0] call FUNC(THIS_MODULE,addPerFrame);
 
 deleteVehicle GVAR(client_init_trig);
 GVAR(client_init_trig) = nil;

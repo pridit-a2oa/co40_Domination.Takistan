@@ -1,4 +1,4 @@
-#define THIS_MODULE backpacks
+#define THIS_MODULE backpack
 #include "x_macros.sqf"
 PARAMS_1(_heap);
 

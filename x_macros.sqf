@@ -1,4 +1,6 @@
 #define FUNC(module,funcname) d##_fnc_##module##_##funcname
+#define SCRIPT(module,funcname) d##_sct_##module##_##funcname
+
 #define GVAR(varname) d##_##varname
 #define QUOTE(qtext) #qtext
 #define QGVAR(varname) QUOTE(GVAR(varname))
@@ -14,7 +16,9 @@
 #define PARAMS_7(param1,param2,param3,param4,param5,param6,param7) PARAMS_6(param1,param2,param3,param4,param5,param6); param7 = _this select 6
 #define PARAMS_8(param1,param2,param3,param4,param5,param6,param7,param8) PARAMS_7(param1,param2,param3,param4,param5,param6,param7); param8 = _this select 7
 
+#define __core(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
+#define __submodule(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", QUOTE(THIS_MODULE), #xname]
 
 #define __function(xname) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #xname]
 #define __script(xname) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #xname]
