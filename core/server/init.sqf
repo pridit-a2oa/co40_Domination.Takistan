@@ -7,9 +7,9 @@
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
 
-__ccppfln(core\THIS_MODULE\modules.sqf);
-
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
+
+__ccppfln(core\THIS_MODULE\modules.sqf);
 
 QGVAR(base_marker) setMarkerAlphaLocal 0;
 QGVAR(island_marker) setMarkerAlphaLocal 0;
