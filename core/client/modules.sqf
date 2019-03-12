@@ -1,3 +1,7 @@
+/**
+ * Core Module - Client
+ */
+
 #include "x_macros.sqf"
 
 __module(ammobox);

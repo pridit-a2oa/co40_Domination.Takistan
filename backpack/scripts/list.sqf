@@ -17,5 +17,5 @@ _backpacks = [
 
 {
     _name = getText (configFile >> "cfgVehicles" >> _x >> "displayName");
-    _heap addAction [format ["Take %1", _name], __function(take), _x];
+    _heap addAction [format ["Take %1", _name], __script(take), _x];
 } forEach _backpacks;

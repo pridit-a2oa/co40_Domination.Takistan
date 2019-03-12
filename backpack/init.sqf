@@ -11,4 +11,4 @@ _heap setDir (markerDir QGVAR(player_backpacks_pos));
 _heap setPos (markerPos QGVAR(player_backpacks_pos));
 player reveal _heap;
 
-[_heap] call compile preprocessFileLineNumbers __function(list);
+[_heap] call compile preprocessFileLineNumbers __script(list);

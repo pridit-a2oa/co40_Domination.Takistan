@@ -1,3 +1,7 @@
+/**
+ * Core Module - Server
+ */
+
 #include "x_macros.sqf"
 
 __module(base_shield);
