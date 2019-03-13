@@ -2,7 +2,7 @@
 
 _shield = "ProtectionZone_Ep1" createVehicleLocal (position GVAR(FLAG_BASE));
 _shield setDir -211;
-_shield setPos (position GVAR(FLAG_BASE));
+_shield setPos [(position GVAR(FLAG_BASE)) select 0, (position GVAR(FLAG_BASE)) select 1, -24];
 _shield setObjectTexture [0,"#(argb,8,8,3)color(0,0,0,0,ca)"];
 
 _shield = "ProtectionZone_Ep1" createVehicleLocal (position GVAR(FLAG_BASE));
