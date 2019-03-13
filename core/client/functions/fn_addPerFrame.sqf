@@ -1,7 +1,7 @@
 #include "x_macros.sqf"
-
 private ["_name", "_code", "_time", "_ar"];
 PARAMS_3(_name,_code,_time); //_time = 0 = every frame
+
 _name = toLower _name;
 _ar = GV2(GVAR(perframe_store),_name);
 if (isNil "_ar") then {_ar = []}; // workaround for getVariable default bug

@@ -1,6 +1,6 @@
 #include "x_macros.sqf"
-
 private ["_ar", "_wf", "_nt", "_cf"];
+
 _cf = diag_frameno;
 if (_cf == GVAR(perframe_previous)) exitWith {};
 GVAR(perframe_previous) = _cf;
