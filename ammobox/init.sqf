@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 private ["_box"];
 
-__cppfln(FUNC(THIS_MODULE,replenish),ammobox\functions\fn_replenish.sqf);
+__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 
 _box = "USVehicleBox_EP1" createVehicleLocal (markerPos QGVAR(player_ammobox_pos));
 _box setDir (markerDir QGVAR(player_ammobox_pos));

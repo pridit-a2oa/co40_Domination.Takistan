@@ -1,5 +1,6 @@
 #define THIS_MODULE backpack
 #include "x_macros.sqf"
+private ["_heap"];
 PARAMS_1(_heap);
 
 _backpacks = [
@@ -17,5 +18,5 @@ _backpacks = [
 
 {
     _name = getText (configFile >> "cfgVehicles" >> _x >> "displayName");
-    _heap addAction [format ["Take %1", _name], __script(take), _x];
+    _heap addAction [format ["Take %1", _name], __function(take), _x];
 } forEach _backpacks;
