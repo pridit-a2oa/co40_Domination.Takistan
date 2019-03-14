@@ -2,6 +2,7 @@
  * Vehicle Wreck Module
  */
 
+#define THIS_MODULE vehicle_wreck
 #include "x_macros.sqf"
 
 GVAR(wreck_hangars) = [];
@@ -28,3 +29,5 @@ for "_i" from 1 to 3 do {
     
     // GVAR(wreck_hangar_triggers) set [count GVAR(wreck_hangar_triggers), GVAR(_trigger)];
 };
+
+MODULE(client,THIS_MODULE) = true;
