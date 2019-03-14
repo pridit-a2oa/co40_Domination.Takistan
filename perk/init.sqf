@@ -10,4 +10,4 @@ __pSetVar [QGVAR(perks_unlocked), []];
 
 player addAction ["My Perks" call FUNC(common,GreyText), __script(dialog), [], -2, false, true, "", ""];
 
-MODULE(client,THIS_MODULE) = true;
+MODULE(THIS_MODULE) = true;

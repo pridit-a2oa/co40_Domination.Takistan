@@ -8,10 +8,8 @@ private ["_box"];
 
 __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 
-if (!isNil QUOTE(MODULE(client,base_ammobox))) then {
-    _box = __submodule(base_ammobox);
-    player reveal _box;
-    [_box] call FUNC(ammobox,replenish);
+if (!isNil QUOTE(MODULE(base_ammobox))) then {
+    __submodule(base_ammobox);
 };
 
-MODULE(client,THIS_MODULE) = true;
+MODULE(THIS_MODULE) = true;

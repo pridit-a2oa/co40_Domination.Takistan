@@ -14,3 +14,5 @@ _heap setPos (markerPos QGVAR(player_backpacks_pos));
 player reveal _heap;
 
 [_heap] call FUNC(THIS_MODULE,list);
+
+MODULE(THIS_MODULE) = true;

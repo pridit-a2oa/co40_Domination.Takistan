@@ -6,4 +6,3 @@
 
 __module(base_upgrade);
 __module(cleanup);
-__module(vehicle_wreck);

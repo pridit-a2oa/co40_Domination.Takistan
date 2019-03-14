@@ -6,3 +6,5 @@
 #include "x_macros.sqf"
 
 __fsm(NotAliveRemover);
+
+MODULE(THIS_MODULE) = true;

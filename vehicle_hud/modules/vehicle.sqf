@@ -6,14 +6,14 @@
 #include "x_macros.sqf"
 PARAMS_1(_vehicle);
 
-if (!isNil QUOTE(MODULE(client,ammobox))) then {
-    [_vehicle] __submodule(ammobox);
+if (!isNil QUOTE(MODULE(vehicle_ammobox))) then {
+    [_vehicle] __submodule(vehicle_ammobox);
 };
 
-if (!isNil QUOTE(MODULE(client,vehicle_lift))) then {
+if (!isNil QUOTE(MODULE(vehicle_lift))) then {
     [_vehicle] __submodule(vehicle_lift);
 };
 
-if (!isNil QUOTE(MODULE(client,vehicle_wreck))) then {
+if (!isNil QUOTE(MODULE(vehicle_wreck))) then {
     [_vehicle] __submodule(vehicle_wreck);
 };

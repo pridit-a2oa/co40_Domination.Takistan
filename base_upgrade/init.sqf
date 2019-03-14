@@ -16,7 +16,13 @@ for "_i" from 1 to 2 do {
     deleteVehicle ((nearestObjects [markerPos _marker, ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
 };
 
+if (!isNil QUOTE(MODULE(vehicle_wreck))) then {
+    __submodule(vehicle_wreck);
+};
+
 // _dgrp = ["WEST"] call FUNC(creategroup);
 // _unit_array = ["basic", "WEST"] call FUNC(getunitliste);
 // [GVAR(base_radar_pos), _unit_array select 0, _dgrp, true] call FUNC(makemgroup);
 // [_dgrp, GVAR(base_radar_pos)] call FUNC(taskDefend);
+
+MODULE(THIS_MODULE) = true;

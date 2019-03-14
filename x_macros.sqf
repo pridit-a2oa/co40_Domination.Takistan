@@ -1,5 +1,5 @@
 #define FUNC(module,funcname) d##_fnc_##module##_##funcname
-#define MODULE(type,module) d##_mdl_##type##_##module
+#define MODULE(module) d##_mdl_##module
 #define SCRIPT(module,file) format ["%1\scripts\%2.sqf", #module, #file]
 #define FSM(module,file) format ["%1\fsm\%2.fsm", #module, #file]
 

@@ -12,3 +12,5 @@ if (hasInterface) then {
 if (isServer) then {
     call compile preprocessFileLineNumbers __script(server);
 };
+
+MODULE(THIS_MODULE) = true;
