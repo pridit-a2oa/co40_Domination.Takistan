@@ -10,6 +10,10 @@ if (!isNil QUOTE(MODULE(perk))) then {
     [_vehicle] __submodule(perk);
 };
 
+if (!isNil QUOTE(MODULE(vehicle_protection))) then {
+    [_vehicle] __submodule(vehicle_protection);
+};
+
 if (!isNil QUOTE(MODULE(vehicle_hud))) then {
     [_vehicle] __submodule(vehicle_hud);
 };

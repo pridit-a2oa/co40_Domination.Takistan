@@ -1,13 +1,13 @@
 class FSM
 {
-  fsmName = "Respawn";
+  fsmName = "Invulnerable";
   class States
   {
     class Start
     {
       name = "Start";
-      init = "private [""_box"",""_timeend""];" \n
-       "_box = _this select 0;";
+      init = "private [""_vehicle"",""_range"",""_timeend""];" \n
+       "_vehicle = _this select 0;";
       precondition = "";
       class Links
       {
@@ -24,7 +24,7 @@ class FSM
     class Loop
     {
       name = "Loop";
-      init = "_timeend = time + 1500 + random 500;";
+      init = "_timeend = time + 15;";
       precondition = "";
       class Links
       {
@@ -41,13 +41,12 @@ class FSM
     class _
     {
       name = "_";
-      init = "if (!isNull _box) then {deleteVehicle _box;};" \n
-       "_box = ""USVehicleBox_EP1"" createVehicleLocal (markerPos ""d_player_ammobox_pos"");" \n
-       "_box setDir (markerDir ""d_player_ammobox_pos"");" \n
-       "_box setPos (markerPos ""d_player_ammobox_pos"");" \n
-       "_box setVariable [""immune"", true];" \n
-       "player reveal _box;" \n
-       "[_box] call d_fnc_ammobox_replenish;";
+      init = "_range = ((getMarkerPos ""d_base_marker"") distance _vehicle);" \n
+       "if (_range < 400) then {" \n
+       "    _vehicle allowDamage false;" \n
+       "} else {" \n
+       "    _vehicle allowDamage true;" \n
+       "};";
       precondition = "";
       class Links
       {
