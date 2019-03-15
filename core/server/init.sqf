@@ -6,3 +6,7 @@
 #include "x_macros.sqf"
 
 __ccppfln(core\THIS_MODULE\modules.sqf);
+
+{
+    [_x] __module(vehicle);
+} forEach vehicles;

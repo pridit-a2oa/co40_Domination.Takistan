@@ -6,4 +6,4 @@
 
 __module(base_upgrade);
 __module(cleanup);
-__module(vehicle_protection);
+__module(vehicle_respawn);

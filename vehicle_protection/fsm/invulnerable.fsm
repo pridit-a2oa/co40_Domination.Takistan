@@ -24,7 +24,7 @@ class FSM
     class Loop
     {
       name = "Loop";
-      init = "_timeend = time + 15;";
+      init = "_timeend = time + 20;";
       precondition = "";
       class Links
       {
