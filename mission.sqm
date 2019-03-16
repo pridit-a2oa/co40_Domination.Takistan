@@ -7,7 +7,6 @@ class Mission
 		"takistan",
 		"cacharacters_e",
 		"CAAir_E_UH60M",
-		"caair_e_ch_47f",
 		"CAWheeled_E_stryker",
 		"CAWheeled_E",
 		"camisc_e_wf",
@@ -24,7 +23,8 @@ class Mission
 		"ca_baf",
 		"warfarebuildings",
 		"cawheeled_d_baf",
-		"camp_armory_misc_info_board"
+		"camp_armory_misc_info_board",
+		"caair_e_ch_47f"
 	};
 	addOnsAuto[]=
 	{
@@ -650,7 +650,7 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8260.7783,296.04001,2125.0061};
+					position[]={8256.5479,296.04001,2108.927};
 					azimut=149.61868;
 					special="NONE";
 					id=288;
@@ -1287,7 +1287,6 @@ class Mission
 			vehicle="CH_47F_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="lift1";
 		};
 		class Item1
 		{
@@ -1298,7 +1297,6 @@ class Mission
 			vehicle="UH1H_TK_GUE_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="transport2";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item2
@@ -1310,7 +1308,6 @@ class Mission
 			vehicle="UH60M_MEV_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="wrk1";
 		};
 		class Item3
 		{
@@ -1321,7 +1318,6 @@ class Mission
 			vehicle="M1133_MEV_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="mhq1";
 		};
 		class Item4
 		{
@@ -1332,7 +1328,6 @@ class Mission
 			vehicle="M1133_MEV_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="mhq2";
 		};
 		class Item5
 		{
@@ -1365,7 +1360,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRepair_DES_EP1";
 			skill=0.33333331;
-			text="repair1";
 		};
 		class Item8
 		{
@@ -1376,7 +1370,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRepair_DES_EP1";
 			skill=0.33333331;
-			text="repair2";
 		};
 		class Item9
 		{
@@ -1387,7 +1380,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrReammo_DES_EP1";
 			skill=0.33333331;
-			text="ammo1";
 		};
 		class Item10
 		{
@@ -1398,7 +1390,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRefuel_DES_EP1";
 			skill=0.33333331;
-			text="fuel1";
 		};
 		class Item11
 		{
@@ -1409,7 +1400,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRefuel_DES_EP1";
 			skill=0.33333331;
-			text="fuel2";
 		};
 		class Item12
 		{
@@ -1420,7 +1410,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrReammo_DES_EP1";
 			skill=0.33333331;
-			text="ammo2";
 		};
 		class Item13
 		{
@@ -1431,7 +1420,6 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_Ambulance_DES_EP1";
 			skill=0.33333331;
-			text="ambulance1";
 		};
 		class Item14
 		{
@@ -1776,7 +1764,6 @@ class Mission
 			vehicle="CH_47F_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="lift2";
 		};
 		class Item45
 		{
@@ -1787,7 +1774,6 @@ class Mission
 			vehicle="MH6J_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="light2";
 		};
 		class Item46
 		{
@@ -1820,7 +1806,6 @@ class Mission
 			vehicle="MH6J_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="light1";
 		};
 		class Item49
 		{
@@ -1853,7 +1838,6 @@ class Mission
 			vehicle="BAF_Merlin_HC3_D";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="lift3";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item52
@@ -1937,7 +1921,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv3";
 		};
 		class Item59
 		{
@@ -1948,7 +1931,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv1";
 		};
 		class Item60
 		{
@@ -1959,7 +1941,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv2";
 		};
 		class Item61
 		{
@@ -1970,7 +1951,6 @@ class Mission
 			vehicle="UH1H_TK_GUE_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="transport1";
 		};
 		class Item62
 		{
@@ -1991,7 +1971,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MV22";
 			skill=0.60000002;
-			text="lift4";
 		};
 		class Item64
 		{
@@ -2002,7 +1981,6 @@ class Mission
 			side="EMPTY";
 			vehicle="C130J_US_EP1";
 			skill=0.33333331;
-			text="transport3";
 		};
 		class Item65
 		{
@@ -3497,7 +3475,6 @@ class Mission
 			side="EMPTY";
 			vehicle="BAF_Offroad_D";
 			skill=0.46666661;
-			text="offroad1";
 		};
 		class Item229
 		{
@@ -3508,7 +3485,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv4";
 		};
 		class Item230
 		{
@@ -3530,7 +3506,6 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.33333331;
-			text="humvee1";
 		};
 		class Item232
 		{
@@ -3541,7 +3516,6 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.33333331;
-			text="humvee2";
 		};
 		class Item233
 		{
@@ -3552,7 +3526,6 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.33333331;
-			text="humvee3";
 		};
 		class Item234
 		{
@@ -3563,7 +3536,6 @@ class Mission
 			side="EMPTY";
 			vehicle="BAF_Offroad_D";
 			skill=0.46666661;
-			text="offroad2";
 		};
 		class Item235
 		{
@@ -3734,7 +3706,6 @@ class Mission
 			vehicle="UH60M_MEV_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="wrk2";
 		};
 		class Item252
 		{
@@ -3813,7 +3784,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRefuel_DES_EP1";
 			skill=0.33333331;
-			text="fuel3";
 		};
 		class Item259
 		{
@@ -3824,7 +3794,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRepair_DES_EP1";
 			skill=0.33333331;
-			text="repair4";
 		};
 		class Item260
 		{
@@ -3835,7 +3804,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRepair_DES_EP1";
 			skill=0.33333331;
-			text="repair3";
 		};
 		class Item261
 		{
@@ -3846,7 +3814,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrRefuel_DES_EP1";
 			skill=0.33333331;
-			text="fuel4";
 		};
 		class Item262
 		{
@@ -3857,7 +3824,6 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_Ambulance_DES_EP1";
 			skill=0.33333331;
-			text="ambulance2";
 		};
 		class Item263
 		{
@@ -4110,7 +4076,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv5";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item286
@@ -4122,7 +4087,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv6";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item287
@@ -4134,7 +4098,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv7";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item288
@@ -4146,7 +4109,6 @@ class Mission
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
-			text="atv8";
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item289
@@ -4157,7 +4119,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MQ9PredatorB_US_EP1";
 			skill=0.60000002;
-			text="mq9";
 		};
 		class Item290
 		{

@@ -50,7 +50,7 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             };
         };
     
-        if (_empty && {_disabled} || {(_empty && {_dead})}) exitWith {
+        if (_empty && {_disabled} && {_vehicle distance _position > 10} || {(_empty && {_dead})}) exitWith {
             deleteVehicle _vehicle;
             
             _vehicle = objNull;
