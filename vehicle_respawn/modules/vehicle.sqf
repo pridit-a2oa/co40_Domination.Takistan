@@ -6,6 +6,8 @@
 private ["_vehicle", "_type", "_position", "_direction", "_empty", "_disabled", "_dead"];
 PARAMS_1(_vehicle);
 
+if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= 400) exitWith {};
+
 if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
     while {true} do {
         _type = typeOf _vehicle;
@@ -38,6 +40,6 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             [nil, nil, rEXECVM, __module2(vehicle), _vehicle] call RE;
         };
         
-        sleep 20;
+        sleep 30;
     };
 };
