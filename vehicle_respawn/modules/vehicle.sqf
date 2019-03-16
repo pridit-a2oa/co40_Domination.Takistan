@@ -2,17 +2,19 @@
  * Vehicle Respawn Module - Vehicle Submodule
  */
 
+#define THIS_MODULE vehicle_respawn
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_position", "_direction", "_empty", "_disabled", "_dead"];
+private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_empty", "_disabled", "_dead"];
 PARAMS_1(_vehicle);
 
-if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= 400) exitWith {};
+if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
 
 if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
     while {true} do {
         _type = typeOf _vehicle;
         _position = _vehicle getVariable QGVAR(position);
         _direction = _vehicle getVariable QGVAR(direction);
+        _threshold = _vehicle getVariable QGVAR(threshold);
         
         if (isNil "_position") then {
             _position = position _vehicle;
@@ -24,9 +26,29 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             _vehicle setVariable [QGVAR(direction), _direction];
         };
         
+        if (isNil "_threshold") then {
+            _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
+            
+            if (!isNil "_threshold") then {
+                _threshold = time + _threshold;
+                _vehicle setVariable [QGVAR(threshold), _threshold];
+            };
+        };
+        
         _empty = _vehicle call FUNC(server,empty);
         _disabled = !canMove _vehicle;
         _dead = !alive _vehicle;
+        
+        if (!isNil "_threshold") then {
+            if (time > _threshold && _empty) then {
+                _disabled = true;
+            };
+            
+            if (!_empty) then {
+                _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
+                _vehicle setVariable [QGVAR(threshold), time + _threshold];
+            };
+        };
     
         if (_empty && {_disabled} || {(_empty && {_dead})}) exitWith {
             deleteVehicle _vehicle;
@@ -40,6 +62,6 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             [nil, nil, rEXECVM, __module2(vehicle), _vehicle] call RE;
         };
         
-        sleep 30;
+        sleep 20;
     };
 };
