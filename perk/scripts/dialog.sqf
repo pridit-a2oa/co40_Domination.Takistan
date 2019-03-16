@@ -1,18 +1,18 @@
 #include "x_macros.sqf"
 #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
 #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
-private ["_ctrl","_XD_display","_unlocked"];
+private ["_ctrl", "_XD_display", "_unlocked"];
 if (!X_Client) exitWith {};
 
 disableSerialization;
 
 createDialog "XD_PerkDialog";
 
-_XD_display = __uiGetVar(X_PERK_DIALOG);
+_XD_display = uiNamespace getVariable "X_PERK_DIALOG";
 
-__ctrl(1) ctrlSetText (str __pGetVar(GVAR(perk_points_available)));
+__ctrl(1) ctrlSetText (str (player getVariable QGVAR(perk_points_available)));
 
-if (__pGetVar(GVAR(perk_points_available)) > 0) then {
+if (player getVariable QGVAR(perk_points_available) > 0) then {
     for "_i" from 1 to 10 do {
         __ctrl2(200 + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
     };
@@ -21,7 +21,7 @@ if (__pGetVar(GVAR(perk_points_available)) > 0) then {
 {
     __ctrl2(100 + _x) ctrlSetText "\ca\ui\data\cmdbar_selected_ca";
     __ctrl2(200 + _x) ctrlSetText "";
-} forEach __pGetVar(GVAR(perks_unlocked));
+} forEach (player getVariable QGVAR(perks_unlocked));
 
 {
     if (str(player) == _x) then {
@@ -61,6 +61,6 @@ if (__pGetVar(GVAR(perk_points_available)) > 0) then {
 
 0 spawn {
     scriptName "spawn_waitforperkdialogclose";
-    waitUntil {!GVAR(perk_dialog_open) || {!alive player} || {__pGetVar(xr_pluncon)}};
+    waitUntil {!GVAR(perk_dialog_open) || {!alive player}};
     if (GVAR(perk_dialog_open)) then {closeDialog 0};
 };

@@ -6,7 +6,7 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_allunits"",""_timenow""];" \n
+      init = "private [""_allunits"", ""_timenow""];" \n
        "_allunits = [];" \n
        "_timenow = time + 240;";
       precondition = "";

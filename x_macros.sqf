@@ -20,7 +20,8 @@
 
 #define __core(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
-#define __submodule(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
+#define __module2(module) format ["%1\init.sqf", #module]
+#define __submodule(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
 
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __script(file) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #file]
@@ -28,8 +29,3 @@
 
 #define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1
 #define __cppfln(xdfunc,xfile2) xdfunc = compile preprocessFileLineNumbers #xfile2
-
-#define __uiGetVar(uvarname) (uiNamespace getVariable #uvarname)
-
-#define __pGetVar(pvarname) (player getVariable #pvarname)
-#define __pSetVar player setVariable

@@ -6,7 +6,7 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_box"",""_timeend""];" \n
+      init = "private [""_box"", ""_timeend""];" \n
        "_box = _this select 0;";
       precondition = "";
       class Links
