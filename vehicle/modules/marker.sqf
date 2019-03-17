@@ -3,7 +3,7 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_marker"];
 PARAMS_1(_vehicle);
 
 if (_vehicle isKindOf "Air") then {

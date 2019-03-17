@@ -20,16 +20,6 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
         _threshold = _vehicle getVariable QGVAR(threshold);
         _expiration = _vehicle getVariable QGVAR(expiration);
         
-        if (isNil "_position") then {
-            _position = position _vehicle;
-            _vehicle setVariable [QGVAR(position), _position];
-        };
-        
-        if (isNil "_direction") then {
-            _direction = getDir _vehicle;
-            _vehicle setVariable [QGVAR(direction), _direction];
-        };
-        
         _empty = _vehicle call FUNC(server,empty);
         
         if (isNil "_threshold" || {!_empty}) then {

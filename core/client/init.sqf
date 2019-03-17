@@ -18,12 +18,12 @@ __ccppfln(core\THIS_MODULE\modules.sqf);
 onEachFrame {call d_fnc_client_perFrame};
 
 if (!isNil QUOTE(MODULE(vehicle))) then {
-    ["init_vecs", {
+    ["init_vehicles", {
         {
             [_x] __module(vehicle);
         } forEach vehicles;
         
-        ["init_vecs"] call FUNC(THIS_MODULE,removePerFrame)
+        ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
