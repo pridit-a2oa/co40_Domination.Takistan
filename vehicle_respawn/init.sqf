@@ -15,11 +15,14 @@ _extreme = 5400;    // 90 minutes
 // Maximum distance from base the vehicle can originate from
 GVAR(respawnable_base_distance) = 400;
 
-// Maximum time vehicle can be empty (abandoned)
+// Minimum time before a destroyed vehicle can respawn
+GVAR(respawnable_expiration) = 30;
+
+// Maximum time a vehicle type can be empty (abandoned)
 GVAR(respawnable_times) = [
     [_tiny, "ATV_US_EP1"],
-    [_medium, "BAF_Offroad_D"],
-    [_medium, "HMMWV_DES_EP1"],
+    [_short, "BAF_Offroad_D"],
+    [_short, "HMMWV_DES_EP1"],
     [_medium, "MH6J_EP1"],
     [_medium, "UH1H_TK_GUE_EP1"],
     [_medium, "UH60M_MEV_EP1"],

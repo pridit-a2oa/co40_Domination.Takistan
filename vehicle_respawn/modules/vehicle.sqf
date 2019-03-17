@@ -4,17 +4,17 @@
 
 #define THIS_MODULE vehicle_respawn
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_empty", "_disabled", "_dead"];
+private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_empty", "_disabled", "_dead"];
 PARAMS_1(_vehicle);
 
 if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
 
 if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
     while {true} do {
-        _type = typeOf _vehicle;
         _position = _vehicle getVariable QGVAR(position);
         _direction = _vehicle getVariable QGVAR(direction);
         _threshold = _vehicle getVariable QGVAR(threshold);
+        _expiration = _vehicle getVariable QGVAR(expiration);
         
         if (isNil "_position") then {
             _position = position _vehicle;
@@ -37,7 +37,6 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
         
         _empty = _vehicle call FUNC(server,empty);
         _disabled = !canMove _vehicle;
-        _dead = !alive _vehicle;
         
         if (!isNil "_threshold") then {
             if (time > _threshold && _empty) then {
@@ -49,8 +48,18 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
                 _vehicle setVariable [QGVAR(threshold), time + _threshold];
             };
         };
+        
+        _dead = !alive _vehicle;
+        
+        if (isNil "_expiration" && {_dead}) then {
+            _expiration = time + GVAR(respawnable_expiration);
+            _vehicle setVariable [QGVAR(expiration), _expiration];
+        };
+        
+        _moved = _vehicle distance _position > 10;
+        _type = typeOf _vehicle;
     
-        if (_empty && {_disabled} && {_vehicle distance _position > 10} || {(_empty && {_dead})}) exitWith {
+        if (_empty && {_disabled} && {_moved} && {!_dead} || {(_empty && {_dead} && {time > _expiration})}) exitWith {
             deleteVehicle _vehicle;
             
             _vehicle = objNull;
