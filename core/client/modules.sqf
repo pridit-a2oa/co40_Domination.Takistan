@@ -8,6 +8,7 @@ __module(base_ammobox);
 __module(ammobox);
 __module(backpack);
 __module(board);
+__module(marker);
 __module(perk);
 __module(vehicle_hud);
 __module(vehicle_lift);

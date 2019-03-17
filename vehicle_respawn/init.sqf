@@ -18,7 +18,11 @@ GVAR(respawnable_base_distance) = 400;
 // Minimum time before a destroyed vehicle can respawn
 GVAR(respawnable_expiration) = 30;
 
-// Maximum time a vehicle type can be empty (abandoned)
+// Minimum time before a disabled, but alive vehicle, can respawn without
+// an explicit respawnable_times set
+GVAR(respawnable_threshold) = 120;
+
+// Minimum time before specified type of vehicle can be respawned (abandoned)
 GVAR(respawnable_times) = [
     [_tiny, "ATV_US_EP1"],
     [_short, "BAF_Offroad_D"],

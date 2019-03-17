@@ -7,3 +7,4 @@
 __module(base_upgrade);
 // __module(cleanup);
 __module(vehicle_respawn);
+__module(vehicle_bonus);

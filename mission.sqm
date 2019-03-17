@@ -4287,6 +4287,7 @@ class Mission
 		{
 			position[]={8205.6885,296.04001,2038.1346};
 			name="d_bonus_air_1";
+			text="A10_US_EP1";
 			type="Empty";
 			angle=150.07401;
 		};
@@ -4294,6 +4295,7 @@ class Mission
 		{
 			position[]={8224.0322,296.0307,1774.4596};
 			name="d_bonus_air_2";
+			text="AW159_Lynx_BAF";
 			type="Empty";
 			angle=-27.133801;
 		};
@@ -4910,6 +4912,7 @@ class Mission
 		{
 			position[]={8180.4268,296.04001,1752.3551};
 			name="d_bonus_air_3";
+			text="AH64D_EP1";
 			type="Empty";
 			angle=-27.133801;
 		};

@@ -10,7 +10,9 @@ __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
 __ccppfln(core\THIS_MODULE\modules.sqf);
 
 if (isDedicated) then {
-    {
-        [_x] __module(vehicle);
-    } forEach vehicles;
+    if (!isNil QUOTE(MODULE(vehicle))) then {
+        {
+            [_x] __module(vehicle);
+        } forEach vehicles;
+    };
 };

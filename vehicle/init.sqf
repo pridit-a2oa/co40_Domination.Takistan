@@ -8,6 +8,10 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 if (hasInterface) then {
+    if (!isNil QUOTE(MODULE(marker))) then {
+        [_vehicle] __submodule(marker);
+    };
+    
     if (!isNil QUOTE(MODULE(perk))) then {
         [_vehicle] __submodule(perk);
     };

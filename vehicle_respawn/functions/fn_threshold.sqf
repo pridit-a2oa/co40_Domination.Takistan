@@ -6,6 +6,8 @@
     };
 } forEach GVAR(respawnable_times);
 
-if (isNil "_threshold") exitWith {};
+if (isNil "_threshold") then {
+    _threshold = GVAR(respawnable_threshold);
+};
 
-_threshold
+time + _threshold

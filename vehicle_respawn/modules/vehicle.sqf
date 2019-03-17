@@ -4,12 +4,16 @@
 
 #define THIS_MODULE vehicle_respawn
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_empty", "_disabled", "_dead"];
+private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_empty", "_disabled", "_dead", "_respawnable"];
 PARAMS_1(_vehicle);
 
 if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
 
 if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
+    _respawnable = _vehicle getVariable QGVAR(respawnable);
+    
+    if (!isNil "_respawnable" && {!_respawnable}) exitWith {};
+    
     while {true} do {
         _position = _vehicle getVariable QGVAR(position);
         _direction = _vehicle getVariable QGVAR(direction);
@@ -26,27 +30,11 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             _vehicle setVariable [QGVAR(direction), _direction];
         };
         
-        if (isNil "_threshold") then {
-            _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
-            
-            if (!isNil "_threshold") then {
-                _threshold = time + _threshold;
-                _vehicle setVariable [QGVAR(threshold), _threshold];
-            };
-        };
-        
         _empty = _vehicle call FUNC(server,empty);
-        _disabled = !canMove _vehicle;
         
-        if (!isNil "_threshold") then {
-            if (time > _threshold && _empty) then {
-                _disabled = true;
-            };
-            
-            if (!_empty) then {
-                _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
-                _vehicle setVariable [QGVAR(threshold), time + _threshold];
-            };
+        if (isNil "_threshold" || {!_empty}) then {
+            _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
+            _vehicle setVariable [QGVAR(threshold), _threshold];
         };
         
         _dead = !alive _vehicle;
@@ -56,10 +44,11 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             _vehicle setVariable [QGVAR(expiration), _expiration];
         };
         
+        _disabled = !canMove _vehicle;
         _moved = _vehicle distance _position > 10;
         _type = typeOf _vehicle;
     
-        if (_empty && {_disabled} && {_moved} && {!_dead} || {(_empty && {_dead} && {time > _expiration})}) exitWith {
+        if (_empty && {_disabled} && {_moved} && {!_dead} && {time > _threshold} || {(_empty && {_dead} && {time > _expiration})}) exitWith {
             deleteVehicle _vehicle;
             
             _vehicle = objNull;
