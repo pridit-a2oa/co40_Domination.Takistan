@@ -1297,7 +1297,6 @@ class Mission
 			vehicle="UH1H_TK_GUE_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item2
 		{
@@ -1838,7 +1837,6 @@ class Mission
 			vehicle="BAF_Merlin_HC3_D";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
 		class Item52
 		{

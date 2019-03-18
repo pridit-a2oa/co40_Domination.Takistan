@@ -17,11 +17,9 @@ if (!isNil QUOTE(MODULE(vehicle_mhq))) then {
 
 ["marker_vehicles", {
     {
-        if (!visibleMap) exitWith {};
-        
         _marker = [_x] call FUNC(THIS_MODULE,valid);
         
-        if (!isNil "_marker") then {
+        if (!isNil "_marker" && {visibleMap} && {alive _x}) then {
             _marker setMarkerPosLocal (getPosASL _x);
         };
     } forEach vehicles;

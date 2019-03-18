@@ -17,6 +17,10 @@ for "_i" from 1 to 3 do {
         [_vehicle] __submodule(vehicle_respawn);
     };
     
+    // if (!isNil QUOTE(MODULE(perk))) then {
+    //     [_vehicle] __submodule(perk);
+    // };
+    
     // if (!isNil QUOTE(MODULE(vehicle_wreck))) then {
     //     [_vehicle] __submodule(vehicle_wreck);
     // };
