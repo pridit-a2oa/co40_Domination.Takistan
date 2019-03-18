@@ -11,4 +11,5 @@ if (_vehicle isKindOf "Air" && {alive _vehicle}) then {
     _marker setMarkerColorLocal "ColorWhite";
     _marker setMarkerTextLocal (getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"));
     _marker setMarkerTypeLocal "o_air";
+    _marker setMarkerAlphaLocal 0;
 };

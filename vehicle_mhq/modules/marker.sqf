@@ -11,4 +11,5 @@ if (typeOf _vehicle == GVAR(vehicle_mhq) && {alive _vehicle}) then {
     _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerTextLocal (getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"));
     _marker setMarkerTypeLocal "o_uav";
+    _marker setMarkerAlphaLocal 0;
 };
