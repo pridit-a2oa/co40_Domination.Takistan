@@ -2,9 +2,18 @@
  * Vehicle Wreck - Vehicle HUD Submodule
  */
 
-#define THIS_MODULE vehicle_wreck
-#include "x_macros.sqf"
-PARAMS_1(_vehicle);
+ #include "x_macros.sqf"
+ #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
+ #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
+ private ["_vehicle"];
+ PARAMS_1(_vehicle);
 
-// defined array of compatible vehicles
-// lifting/releasing wrecks
+ disableSerialization;
+
+ _XD_display = uiNamespace getVariable "X_VEHICLE_HUD_DIALOG";
+
+ {
+     if (typeOf _vehicle == _x) then {
+         __ctrl2(1005) ctrlSetText "\ca\ui\data\igui_sidebriefing_indep_ca";
+     };
+ } forEach GVAR(vehicle_wreck_types);

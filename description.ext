@@ -42,3 +42,7 @@ class CfgIdentities {
         speaker = "Male03TK";
     };
 };
+
+class RscTitles { 
+    #include "vehicle_hud\dialog\titles.hpp"
+};

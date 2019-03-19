@@ -650,8 +650,8 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8256.5479,296.04001,2108.927};
-					azimut=149.61868;
+					position[]={8285.0381,296.04001,2030.1373};
+					azimut=149.619;
 					special="NONE";
 					id=288;
 					side="WEST";
@@ -5016,7 +5016,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=5;
+		items=7;
 		class Item0
 		{
 			position[]={8064.4131,296.04001,1866.6117};
@@ -5097,6 +5097,37 @@ class Mission
 			age="UNKNOWN";
 			expCond="((vehicle player) in thisList) && !(X_JIPH getVariable ""d_chopper_serviceH"") && ((vehicle player) isKindOf ""Helicopter"") && (count ([(vehicle player)] unitsBelowHeight 1) > 0)";
 			expActiv="0 = [(vehicle player)] spawn x_reload;";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={8353.0137,296.04001,2139.2563};
+			a=0;
+			b=0;
+			activationBy="ALPHA";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="Hello World";
+			expActiv="0 = createdialog ""UpgradeDialog""";
+			class Effects
+			{
+			};
+		};
+		class Item6
+		{
+			position[]={8363.126,296.04065,2137.0747};
+			a=0;
+			b=0;
+			activationBy="BRAVO";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			text="GUI Editor";
+			expCond="this && !isnil ""bis_fnc_init""";
+			expActiv="[] call BIS_fnc_GUIeditor";
 			class Effects
 			{
 			};

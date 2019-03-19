@@ -29,6 +29,7 @@ GVAR(respawnable_times) = [
     [_short, "HMMWV_DES_EP1"],
     [_medium, "MH6J_EP1"],
     [_medium, "UH1H_TK_GUE_EP1"],
+    [_medium, "UH60M_EP1"],
     [_medium, "UH60M_MEV_EP1"],
     [_long, "C130J_US_EP1"],
     [_extreme, "CH_47F_EP1"],

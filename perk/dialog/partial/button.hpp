@@ -5,7 +5,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One medkit";
+    tooltip = "One self-heal";
     action = "[1] call d_fnc_perkclicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
