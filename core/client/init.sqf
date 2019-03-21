@@ -17,7 +17,7 @@ __ccppfln(core\THIS_MODULE\modules.sqf);
 
 onEachFrame {call d_fnc_client_perFrame};
 
-if (!isNil QUOTE(MODULE(vehicle))) then {
+if (!isNil QMODULE(vehicle)) then {
     ["init_vehicles", {
         {
             [_x] __module(vehicle);

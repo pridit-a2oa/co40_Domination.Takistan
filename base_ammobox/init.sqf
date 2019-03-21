@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 private ["_box"];
 
-if (!isNil QUOTE(MODULE(ammobox))) then {
+if (!isNil QMODULE(ammobox)) then {
     _box = [
         markerPos QGVAR(player_ammobox_pos),
         markerDir QGVAR(player_ammobox_pos)

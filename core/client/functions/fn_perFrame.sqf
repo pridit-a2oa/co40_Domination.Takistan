@@ -6,7 +6,7 @@ if (_cf == GVAR(perframe_previous)) exitWith {};
 GVAR(perframe_previous) = _cf;
 if (count GVAR(perframe_array) > 0) then {
     {
-        _ar = GV2(GVAR(perframe_store),_x);
+        _ar = GVAR(perframe_store) getVariable _x;
         if (isNil "_ar") then {_ar = []};
         if (count _ar > 0) then {
             _wf = _ar select 1;

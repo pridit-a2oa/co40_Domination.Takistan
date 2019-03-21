@@ -6,7 +6,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "One self-heal";
-    action = "[1] call d_fnc_perkclicked";
+    action = "[1] call d_fnc_perk_clicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
 {
@@ -16,7 +16,7 @@ class PerkButton_General_2: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "One repair kit";
-    action = "[2] call d_fnc_perkclicked";
+    action = "[2] call d_fnc_perk_clicked";
 };
 class PerkButton_General_3: XD_LinkButtonUpgradeBase
 {
@@ -26,7 +26,7 @@ class PerkButton_General_3: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Fly attack aircraft";
-    action = "[3] call d_fnc_perkclicked";
+    action = "[3] call d_fnc_perk_clicked";
 };
 class PerkButton_General_4: XD_LinkButtonUpgradeBase
 {
@@ -36,7 +36,7 @@ class PerkButton_General_4: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Call air drop";
-    action = "[4] call d_fnc_perkclicked";
+    action = "[4] call d_fnc_perk_clicked";
 };
 class PerkButton_General_5: XD_LinkButtonUpgradeBase
 {
@@ -46,7 +46,7 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Save gear layout";
-    action = "[5] call d_fnc_perkclicked";
+    action = "[5] call d_fnc_perk_clicked";
 };
 class PerkButton_General_6: XD_LinkButtonUpgradeBase
 {
@@ -56,7 +56,7 @@ class PerkButton_General_6: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Teleport from MHQ";
-    action = "[6] call d_fnc_perkclicked";
+    action = "[6] call d_fnc_perk_clicked";
 };
 class PerkButton_General_7: XD_LinkButtonUpgradeBase
 {
@@ -66,7 +66,7 @@ class PerkButton_General_7: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Reduced ammo box unload cooldown by 180s";
-    action = "[7] call d_fnc_perkclicked";
+    action = "[7] call d_fnc_perk_clicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
 {
@@ -76,7 +76,7 @@ class PerkButton_General_8: XD_LinkButtonUpgradeBase
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "HALO jump from any aircraft";
-    action = "[8] call d_fnc_perkclicked";
+    action = "[8] call d_fnc_perk_clicked";
 };
 class PerkButton_General_9: XD_LinkButtonUpgradeBase
 {
@@ -85,8 +85,8 @@ class PerkButton_General_9: XD_LinkButtonUpgradeBase
     y = 0.216364;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Flip any vehicle that is immobilised";
-    action = "[9] call d_fnc_perkclicked";
+    tooltip = "Flip any vehicle that is overturned";
+    action = "[9] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_1: XD_LinkButtonUpgradeBase
 {

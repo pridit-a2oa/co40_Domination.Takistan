@@ -4,8 +4,15 @@
 
 #define THIS_MODULE perk
 #include "x_macros.sqf"
+private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["My Perks" call FUNC(common,GreyText), __script(dialog), [], -2, false, true, "", "player in _target"];
+_vehicle addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -2, false, true, "", "player in _target"];
 
-// Add actions for other perks to a vehicle, hidden under getVariable (unlocked state)
+if (!isNil QMODULE(vehicle_bonus)) then {
+    [_vehicle] __submodule(vehicle_bonus);
+};
+
+if (!isNil QMODULE(vehicle_flip)) then {
+    [_vehicle] __submodule(vehicle_flip);
+};

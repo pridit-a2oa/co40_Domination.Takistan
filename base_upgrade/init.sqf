@@ -16,7 +16,7 @@ for "_i" from 1 to 2 do {
     deleteVehicle ((nearestObjects [markerPos _marker, ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
 };
 
-if (!isNil QUOTE(MODULE(vehicle_wreck))) then {
+if (!isNil QMODULE(vehicle_wreck)) then {
     __submodule(vehicle_wreck);
 };
 

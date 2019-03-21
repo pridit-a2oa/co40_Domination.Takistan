@@ -1,13 +1,12 @@
-#define FUNC(module,funcname) d##_fnc_##module##_##funcname
 #define MODULE(module) d##_mdl_##module
+#define FUNC(module,function) d##_fnc_##module##_##function
 #define SCRIPT(module,file) format ["%1\scripts\%2.sqf", #module, #file]
 #define FSM(module,file) format ["%1\fsm\%2.fsm", #module, #file]
-
-#define GVAR(varname) d##_##varname
+#define GVAR(variable) d##_##variable
 #define QUOTE(qtext) #qtext
-#define QGVAR(varname) QUOTE(GVAR(varname))
-#define GV(obje,varname) (obje getVariable #varname)
-#define GV2(obje,varname) (obje getVariable varname)
+
+#define QMODULE(module) QUOTE(MODULE(module))
+#define QGVAR(variable) QUOTE(GVAR(variable))
 
 #define PARAMS_1(param1) param1 = _this select 0
 #define PARAMS_2(param1,param2) PARAMS_1(param1); param2 = _this select 1
@@ -27,5 +26,5 @@
 #define __script(file) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 
-#define __ccppfln(xfile1) call compile preprocessFileLineNumbers #xfile1
-#define __cppfln(xdfunc,xfile2) xdfunc = compile preprocessFileLineNumbers #xfile2
+#define __ccppfln(file) call compile preprocessFileLineNumbers #file
+#define __cppfln(function,file) function = compile preprocessFileLineNumbers #file

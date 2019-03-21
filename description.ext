@@ -46,3 +46,11 @@ class CfgIdentities {
 class RscTitles { 
     #include "vehicle_hud\dialog\titles.hpp"
 };
+
+class CfgSounds {
+    class PowerOfTheSun {
+        name="PowerOfTheSun";
+        sound[]={"\perk\sounds\powerofthesun.ogg",db,1.0};
+        titles[] = {};
+    };
+};

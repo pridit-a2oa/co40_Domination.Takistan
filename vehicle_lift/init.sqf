@@ -7,8 +7,9 @@
 
 // Set vehicle(s) as lift types
 GVAR(vehicle_lift_types) = [
-    "CH_47F_EP1",
     "BAF_Merlin_HC3_D",
+    "CH_47F_EP1",
+    "Mi17_TK_EP1",
     "MV22"
 ];
 

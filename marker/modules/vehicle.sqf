@@ -7,15 +7,15 @@
 private ["_vehicle", "_marker", "_range"];
 PARAMS_1(_vehicle);
 
-if (!isNil QUOTE(MODULE(vehicle))) then {
+if (!isNil QMODULE(vehicle)) then {
     [_vehicle] __submodule(vehicle);
 };
 
-if (!isNil QUOTE(MODULE(vehicle_mhq))) then {
+if (!isNil QMODULE(vehicle_mhq)) then {
     [_vehicle] __submodule(vehicle_mhq);
 };
 
-if (!isNil QUOTE(MODULE(vehicle_service))) then {
+if (!isNil QMODULE(vehicle_service)) then {
     [_vehicle] __submodule(vehicle_service);
 };
 
