@@ -24,10 +24,6 @@ if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submodule(perk);
     };
-    
-    if (!isNil QMODULE(vehicle_flip)) then {
-        [_vehicle] __submodule(vehicle_flip);
-    };
 
     if (!isNil QMODULE(vehicle_hud)) then {
         [_vehicle] __submodule(vehicle_hud);

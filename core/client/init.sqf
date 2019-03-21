@@ -36,5 +36,13 @@ if (!isNil QMODULE(vehicle)) then {
     };
 };
 
+player addEventHandler ["respawn", {
+    (_this select 0) setDir 240.214;
+    
+    if (!isNil QMODULE(perk)) then {
+        __module(perk);
+    };
+}];
+
 deleteVehicle GVAR(client_init_trig);
 GVAR(client_init_trig) = nil;

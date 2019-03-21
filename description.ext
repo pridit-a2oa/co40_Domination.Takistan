@@ -1,5 +1,5 @@
 showGPS = 1;
-respawn = "BASE";
+respawn = base;
 debriefing = 1;
 disabledAI = 1;
 loadScreen = "";

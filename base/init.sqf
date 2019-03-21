@@ -2,7 +2,7 @@
  * Base Upgrade Module
  */
 
-#define THIS_MODULE base_upgrade
+#define THIS_MODULE base
 #include "x_macros.sqf"
 
 [markerPos QGVAR(base_radar), random 0, ["radar","us_army"], 0, [
@@ -14,10 +14,6 @@ for "_i" from 1 to 2 do {
     _marker = format [QGVAR(base_anti_air%1), _i];
     [markerPos _marker, random 0, ["anti-air","us_army"]] call FUNC(common,objectMapper);
     deleteVehicle ((nearestObjects [markerPos _marker, ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
-};
-
-if (!isNil QMODULE(vehicle_wreck)) then {
-    __submodule(vehicle_wreck);
 };
 
 // _dgrp = ["WEST"] call FUNC(creategroup);
