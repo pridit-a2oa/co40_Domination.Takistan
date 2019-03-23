@@ -13,6 +13,7 @@ onLoadMissionTime = 0;
 
 #include "define.hpp"
 #include "perk\dialog\base.hpp"
+#include "vehicle_menu\dialog\base.hpp"
 
 class Header
 {
@@ -51,6 +52,10 @@ class CfgSounds {
     class PowerOfTheSun {
         name="PowerOfTheSun";
         sound[]={"\perk\sounds\powerofthesun.ogg",db,1.0};
+        titles[] = {};
+    };
+    class d_sound_repair {
+        sound[] = {"\vehicle_service\sounds\repair.wss",0.2,1,30};
         titles[] = {};
     };
 };

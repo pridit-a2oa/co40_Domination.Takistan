@@ -13,5 +13,6 @@ __module(perk);
 __module(vehicle_flip);
 __module(vehicle_hud);
 __module(vehicle_lift);
+__module(vehicle_menu);
 __module(vehicle_protection);
 __module(vehicle_service);

@@ -117,6 +117,44 @@ class RscNavButton:RscButton {
     w = 0.1; h = 0.04;
     x = 0.90;
 };
+class RscListBox
+{
+ access = 0;
+ type = 5;
+ style = 0;
+ w = 0.4;
+ h = 0.4;
+ font = "TahomaB";
+ sizeEx = 0.04;
+ rowHeight = 0;
+ colorText[] = {0.5,0.5,0.5,1};
+ colorScrollbar[] = {0.6,0.5,0.3,1};
+ colorSelect[] = {0,0,0,1};
+ colorSelect2[] = {1,0.5,0,1};
+ colorSelectBackground[] = {0.6,0.6,0.6,1};
+ colorSelectBackground2[] = {0.2,0.2,0.2,1};
+ colorBackground[] = {0.6,0.5,0.3,1};
+ maxHistoryDelay = 1.0;
+ soundSelect[] = {"",0.1,1};
+ period = 1;
+ autoScrollSpeed = -1;
+ autoScrollDelay = 5;
+ autoScrollRewind = 0;
+ arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+ arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+ shadow = 0;
+ class ScrollBar
+ {
+  color[] = {1,1,1,0.6};
+  colorActive[] = {1,1,1,1};
+  colorDisabled[] = {1,1,1,0.3};
+  thumb = "#(argb,8,8,3)color(1,1,1,1)";
+  arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
+  arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
+  border = "#(argb,8,8,3)color(0.6,0.5,0.3,1)";
+  shadow = 0;
+ };
+};
 class SXRscListBox {
     type = 5;
     style = 0;

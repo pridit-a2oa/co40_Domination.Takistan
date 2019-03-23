@@ -7,7 +7,7 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -2, false, true, "", "player in _target"];
+_vehicle addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -4, false, true, "", "player in _target"];
 
 if (!isNil QMODULE(vehicle_bonus)) then {
     [_vehicle] __submodule(vehicle_bonus);
