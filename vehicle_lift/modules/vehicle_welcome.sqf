@@ -1,5 +1,5 @@
 /**
- * Vehicle Lift - Vehicle HUD Submodule
+ * Vehicle Lift - Vehicle Welcome Submodule
  */
 
  #include "x_macros.sqf"

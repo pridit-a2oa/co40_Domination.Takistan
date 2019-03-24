@@ -1,5 +1,5 @@
 /**
- * Vehicle Wreck - Vehicle HUD Submodule
+ * Vehicle Wreck - Vehicle Welcome Submodule
  */
 
  #include "x_macros.sqf"

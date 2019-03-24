@@ -27,7 +27,15 @@ for "_i" from 1 to 3 do {
         };
         
         if (!isNil QMODULE(perk)) then {
-            [_vehicle] __submodule(perk);
+            _perk = player getVariable QGVAR(perkFullRepair);
+
+            if (!isNil "_perk") then {
+                _vehicle setDamage 0;
+                
+                if (fuel _vehicle < 0.6) then {
+                    _vehicle setFuel 0.6;
+                };
+            };
         };
         
         player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) - 1];

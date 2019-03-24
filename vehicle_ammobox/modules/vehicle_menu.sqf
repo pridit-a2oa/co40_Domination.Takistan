@@ -10,4 +10,16 @@ PARAMS_2(_vehicle,_XD_display);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 
-__ctrl2(1500) lbAdd "Load ammobox";
+_ammobox = _vehicle getVariable QGVAR(ammobox);
+_string = "ammobox";
+
+if (!isNil "_ammobox" && {_ammobox}) then {
+    _string = "Unload " + _string;
+    
+    __ctrl2(1202) ctrlSetTextColor [0.6, 0.5, 0.3, 1];
+} else {
+    _string = "Load " + _string;
+};
+
+_index = __ctrl2(1500) lbAdd _string;
+__ctrl2(1500) lbSetData [_index, "ammobox"];

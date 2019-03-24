@@ -1,5 +1,5 @@
 /**
- * Perk - Vehicle Service Submodule
+ * Perk Module - Vehicle Service Submodule
  */
 
 #define THIS_MODULE perk
@@ -7,12 +7,4 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_perk = player getVariable QGVAR(perkFullRepair);
-
-if (!isNil "_perk") then {
-    _vehicle setDamage 0;
-    
-    if (fuel _vehicle < 0.6) then {
-        _vehicle setFuel 0.6;
-    };
-};
+_vehicle addAction ["Use Repair Kit" call FUNC(common,YellowText), FUNCTION(vehicle_service,repair), _vehicle, -2, false, true, "", "!(player in _target) && {vehicle player == player} && {player getVariable 'd_perkRepairKits' > 0} && {!canMove _target || damage _target >= 0.3 || fuel _target < 0.25}"];

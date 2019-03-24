@@ -1,13 +1,11 @@
 /**
- * Vehicle Bonus Module - Perk Submodule
+ * Perk Module - Vehicle Bonus Submodule
  */
 
-#define THIS_MODULE vehicle_bonus
-#include "x_macros.sqf"
-private ["_vehicle", "_fly"];
-PARAMS_1(_vehicle);
-
-if (GVAR(bonus_vehicles) find (typeOf _vehicle) == -1) exitWith {};
+ #define THIS_MODULE perk
+ #include "x_macros.sqf"
+ private ["_vehicle", "_fly"];
+ PARAMS_1(_vehicle);
 
 while {true} do {
     waitUntil {!isNull player};
@@ -17,7 +15,7 @@ while {true} do {
     if (isNil "_fly" && {player == driver _vehicle}) then {
         player action ["Eject", _vehicle];
         hint "You do not have the required perk to pilot attack aircraft";
-        call FUNC(perk,show);
+        call __function(show);
         
         _vehicle addEventHandler ["getout", {
             (_this select 0) spawn {
@@ -34,4 +32,3 @@ while {true} do {
     
     sleep 1;
 };
-

@@ -4,13 +4,13 @@
 
 #include "x_macros.sqf"
 
-__module(ammobox);
+__module(perk);
 __module(loadout);
+__module(ammobox);
 __module(base_ammobox);
 __module(backpack);
 __module(board);
 __module(marker);
-__module(perk);
 __module(vehicle_flip);
 __module(vehicle_welcome);
 __module(vehicle_lift);

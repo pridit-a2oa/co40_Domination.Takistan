@@ -1,6 +1,6 @@
 #define MODULE(module) d##_mdl_##module
 #define FUNC(module,function) d##_fnc_##module##_##function
-#define SCRIPT(module,file) format ["%1\scripts\%2.sqf", #module, #file]
+#define FUNCTION(module,file) format ["%1\functions\fn_%2.sqf", #module, #file]
 #define FSM(module,file) format ["%1\fsm\%2.fsm", #module, #file]
 #define GVAR(variable) d##_##variable
 #define QUOTE(qtext) #qtext
@@ -19,8 +19,8 @@
 
 #define __core(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
-#define __module2(module) format ["%1\init.sqf", #module]
 #define __submodule(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
+#define __moduleRE(module) format ["%1\init.sqf", #module]
 
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __script(file) format ["%1\scripts\%2.sqf", QUOTE(THIS_MODULE), #file]

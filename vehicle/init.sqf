@@ -29,12 +29,20 @@ if (hasInterface) then {
         [_vehicle] __submodule(vehicle_welcome);
     };
     
-    if (!isNil QMODULE(vehicle_menu)) then {
-        [_vehicle] __submodule(vehicle_menu);
+    if (!isNil QMODULE(vehicle_flip)) then {
+        [_vehicle] __submodule(vehicle_flip);
+    };
+    
+    if (!isNil QMODULE(vehicle_bonus)) then {
+        [_vehicle] __submodule(vehicle_bonus);
     };
     
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submodule(vehicle_service);
+    };
+    
+    if (!isNil QMODULE(vehicle_menu)) then {
+        [_vehicle] __submodule(vehicle_menu);
     };
     
     if (!isNil QMODULE(vehicle_protection)) then {
