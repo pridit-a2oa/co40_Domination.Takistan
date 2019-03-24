@@ -14,4 +14,12 @@ GVAR(service_vehicles) = [
 
 __cppfln(FUNC(THIS_MODULE,repair),THIS_MODULE\functions\fn_repair.sqf);
 
+if (!isNil QMODULE(perk)) then {
+    __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
+    
+    {
+        _x addAction ["Replenish Repair Kits" call FUNC(common,OliveText), __function(replenish), [], 2, false, true, "", "player getVariable 'd_perkRepairKits' < 1 && {player getVariable 'd_perkRepairKitsMax' > 0}"];
+    } forEach [SERVICE_POINT1, SERVICE_POINT2, SERVICE_POINT3];
+};
+
 MODULE(THIS_MODULE) = true;

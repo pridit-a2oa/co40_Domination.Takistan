@@ -4,7 +4,6 @@
 
 #define THIS_MODULE base_ammobox
 #include "x_macros.sqf"
-private ["_box"];
 
 if (!isNil QMODULE(ammobox)) then {
     _box = [

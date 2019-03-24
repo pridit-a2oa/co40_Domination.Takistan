@@ -4,8 +4,8 @@ class XD_VehicleHudDialog {
     fadein = 1;
     fadeout = 1;
     duration = 11;
-    onLoad = "uiNamespace setVariable ['X_VEHICLE_HUD_DIALOG', _this select 0]";
-    onUnLoad = "uiNamespace setVariable ['X_VEHICLE_HUD_DIALOG', nil]";
+    onLoad = "uiNamespace setVariable ['X_VEHICLE_WELCOME_DIALOG', _this select 0]";
+    onUnLoad = "uiNamespace setVariable ['X_VEHICLE_WELCOME_DIALOG', nil]";
     objects[] = {};
     class controls {
         class RscText_1000: X3_RscText

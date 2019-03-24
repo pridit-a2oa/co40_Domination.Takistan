@@ -65,7 +65,6 @@ class XD_VehicleMenuDialog {
         class RscListbox_1500: RscListBox
         {
             idc = 1500;
-            action = "hint 'test'";
             x = 0.3125;
             y = 0.325;
             w = 0.380;

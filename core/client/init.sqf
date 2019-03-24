@@ -42,6 +42,10 @@ player addEventHandler ["respawn", {
     if (!isNil QMODULE(perk)) then {
         __module(perk);
     };
+    
+    if (!isNil QMODULE(loadout)) then {
+        call FUNC(loadout,restore);
+    };
 }];
 
 deleteVehicle GVAR(client_init_trig);

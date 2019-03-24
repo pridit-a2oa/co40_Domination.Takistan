@@ -45,7 +45,7 @@ class CfgIdentities {
 };
 
 class RscTitles { 
-    #include "vehicle_hud\dialog\titles.hpp"
+    #include "vehicle_welcome\dialog\titles.hpp"
 };
 
 class CfgSounds {

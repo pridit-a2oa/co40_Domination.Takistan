@@ -12,6 +12,6 @@ if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 
 disableSerialization;
 
-_XD_display = uiNamespace getVariable "X_VEHICLE_HUD_DIALOG";
+_XD_display = uiNamespace getVariable "X_VEHICLE_WELCOME_DIALOG";
 
 __ctrl2(1003) ctrlSetText "\ca\ui\data\igui_sidebriefing_indep_ca";

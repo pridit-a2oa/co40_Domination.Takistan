@@ -6,6 +6,8 @@
 #include "x_macros.sqf"
 
 // Set vehicle type to be designated as MHQ
-GVAR(vehicle_mhq) = "M1133_MEV_EP1";
+GVAR(vehicle_mhq_types) = [
+    "M1133_MEV_EP1"
+];
 
 MODULE(THIS_MODULE) = true;

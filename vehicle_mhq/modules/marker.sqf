@@ -6,10 +6,10 @@
 private ["_vehicle", "_marker"];
 PARAMS_1(_vehicle);
 
-if (typeOf _vehicle == GVAR(vehicle_mhq) && {alive _vehicle}) then {
-    _marker = createMarkerLocal [str ((position _vehicle) select 0), position _vehicle];
-    _marker setMarkerColorLocal "ColorYellow";
-    _marker setMarkerTextLocal (getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"));
-    _marker setMarkerTypeLocal "o_uav";
-    _marker setMarkerAlphaLocal 0;
-};
+if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};
+
+_marker = createMarkerLocal [str ((position _vehicle) select 0), position _vehicle];
+_marker setMarkerColorLocal "ColorYellow";
+_marker setMarkerTextLocal (getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"));
+_marker setMarkerTypeLocal "o_uav";
+_marker setMarkerAlphaLocal 0;
