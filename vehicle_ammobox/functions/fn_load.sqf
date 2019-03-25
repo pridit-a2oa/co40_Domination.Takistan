@@ -12,7 +12,9 @@ if (count _nearest == 0) exitWith {};
 
 deleteVehicle (_nearest select 0);
 
-_vehicle setVariable [QGVAR(ammobox), true];
+[nil, _vehicle, rSAY, QGVAR(sound_box), 20] call RE;
+
+_vehicle setVariable [QGVAR(ammobox), true, true];
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

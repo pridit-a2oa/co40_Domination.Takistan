@@ -13,8 +13,8 @@ if (!isNull _camo) then {
     deleteVehicle _camo;
 };
 
-_vehicle setVehicleLock "UNLOCKED";
-_vehicle setVariable [QGVAR(deployed), false];
+_vehicle lockDriver false;
+_vehicle setVariable [QGVAR(deployed), false, true];
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

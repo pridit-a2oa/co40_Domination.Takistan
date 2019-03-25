@@ -2,12 +2,12 @@
 private ["_box"];
 PARAMS_1(_box);
 
-clearMagazineCargo _box;
-clearWeaponCargo _box;
+[nil, nil, "per", rCLEARMAGAZINECARGO, _box] call RE;
+[nil, nil, "per", rCLEARWEAPONCARGO, _box] call RE;
 
 // Weapons: Operation Arrowhead - Rifles
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "AK_74_GL",
     "AK_74_GL_kobra",
@@ -54,7 +54,7 @@ clearWeaponCargo _box;
 
 // Weapons: Operation Arrowhead - Machine Guns
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "MG36_camo",
     "m240_scoped_EP1",
@@ -69,7 +69,7 @@ clearWeaponCargo _box;
 
 // Weapons: Operation Arrowhead - Sniper Rifles
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "KSVK",
     "m107",
@@ -84,7 +84,7 @@ clearWeaponCargo _box;
 
 // Weapons: Operation Arrowhead - Pistols
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "glock17_EP1",
     "Colt1911",
@@ -101,7 +101,7 @@ clearWeaponCargo _box;
 
 // Weapons: Operation Arrowhead - Launchers
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "Javelin",
     "Stinger",
@@ -117,7 +117,7 @@ clearWeaponCargo _box;
 
 // Weapons: Operation Arrowhead - Grenade Launchers
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "Mk13_EP1",
     "M32_EP1",
@@ -126,7 +126,7 @@ clearWeaponCargo _box;
 
 // Weapons: British Armed Forces
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "BAF_L85A2_RIS_Holo",
     "BAF_L85A2_UGL_Holo",
@@ -147,7 +147,7 @@ clearWeaponCargo _box;
 
 // Weapons: Private Military Company
 {
-    _box addWeaponCargo [_x, 10];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 10] call RE;
 } forEach [
     "AA12_PMC",
     "m8_Carbine",
@@ -159,7 +159,7 @@ clearWeaponCargo _box;
 
 // Ammo: Guns
 {
-    _box addMagazineCargo [_x, 100];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 100] call RE;
 } forEach [
     "200Rnd_556x45_M249",
     "200Rnd_556x45_L110A1",
@@ -207,7 +207,7 @@ clearWeaponCargo _box;
 
 // Ammo: Launchers
 {
-    _box addMagazineCargo [_x, 50];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 50] call RE;
 } forEach [
     "Javelin",
     "Stinger",
@@ -228,7 +228,7 @@ clearWeaponCargo _box;
 
 // Ammo: Grenade Launchers
 {
-    _box addMagazineCargo [_x, 50];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 50] call RE;
 } forEach [
     "6Rnd_HE_M203",
     "1Rnd_HE_M203"
@@ -236,7 +236,7 @@ clearWeaponCargo _box;
 
 // Ammo: Smoke Grenades
 {
-    _box addMagazineCargo [_x, 20];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 20] call RE;
 } forEach [
     "1Rnd_Smoke_GP25",
     "1Rnd_SmokeRed_GP25",
@@ -250,7 +250,7 @@ clearWeaponCargo _box;
 
 // Ammo: Flare Grenades
 {
-    _box addMagazineCargo [_x, 20];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 20] call RE;
 } forEach [
     "FlareWhite_GP25",
     "FlareGreen_GP25",
@@ -264,7 +264,7 @@ clearWeaponCargo _box;
 
 // Equipment
 {
-    _box addWeaponCargo [_x, 5];
+    [nil, nil, "per", rADDWEAPONCARGO, _box, _x, 5] call RE;
 } forEach [
     "Laserdesignator",
     "Binocular_Vector",
@@ -273,7 +273,7 @@ clearWeaponCargo _box;
 
 // Miscellaneous
 {
-    _box addMagazineCargo [_x, 20];
+    [nil, nil, "per", rADDMAGAZINECARGO, _box, _x, 20] call RE;
 } forEach [
     "HandGrenade",
     "HandGrenade_West",

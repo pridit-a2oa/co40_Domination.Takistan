@@ -13,9 +13,7 @@ if (!isNil QMODULE(ammobox)) then {
 
     _box setVariable ["immune", true];
 
-    [_box] call FUNC(ammobox,replenish);
     [_box] execFSM FSM(ammobox,respawn);
-    [_box] __module(ammobox);
 };
 
 MODULE(THIS_MODULE) = true;

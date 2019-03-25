@@ -7,7 +7,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 for "_i" from 1 to 3 do {
     sleep 2;
-    player say [QGVAR(sound_repair), 20];
+    [nil, player, rSAY, QGVAR(sound_repair), 20] call RE;
     
     if (_i == 3) then {
         if (!canMove _vehicle) then {

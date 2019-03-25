@@ -13,9 +13,12 @@ _box = [
 ] call FUNC(ammobox,create);
 
 [_box] call FUNC(ammobox,replenish);
-[_box] __module(ammobox);
 
-_vehicle setVariable [QGVAR(ammobox), false];
+[nil, nil, rEXECVM, __moduleRE(ammobox), _box] call RE;
+
+[nil, _box, rSAY, QGVAR(sound_box), 20] call RE;
+
+_vehicle setVariable [QGVAR(ammobox), false, true];
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

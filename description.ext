@@ -51,11 +51,15 @@ class RscTitles {
 class CfgSounds {
     class PowerOfTheSun {
         name="PowerOfTheSun";
-        sound[]={"\perk\sounds\powerofthesun.ogg",db,1.0};
+        sound[]={"\perk\sounds\powerofthesun.ogg",1,1.0};
         titles[] = {};
     };
     class d_sound_repair {
-        sound[] = {"\vehicle_service\sounds\repair.wss",0.2,1,30};
+        sound[] = {"\vehicle_service\sounds\repair.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_box {
+        sound[] = {"\vehicle_ammobox\sounds\box.wss",db,1,30};
         titles[] = {};
     };
 };

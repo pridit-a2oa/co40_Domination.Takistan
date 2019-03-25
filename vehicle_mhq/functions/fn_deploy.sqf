@@ -10,9 +10,9 @@ _camo setVectorUp (vectorUp _vehicle);
 _camo setPos [_position select 0, _position select 1, 0];
 _camo addEventHandler ["handleDamage", {0}];
 
-_vehicle setVehicleLock "LOCKED";
-_vehicle setVariable [QGVAR(camo), _camo];
-_vehicle setVariable [QGVAR(deployed), true];
+_vehicle lockDriver true;
+_vehicle setVariable [QGVAR(camo), _camo, true];
+_vehicle setVariable [QGVAR(deployed), true, true];
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

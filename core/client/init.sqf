@@ -27,6 +27,22 @@ if (!isNil QMODULE(vehicle)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
+["init_objects", {
+    if (!isNil QMODULE(ammobox)) then {
+        {
+            [_x] __module(ammobox);
+        } forEach (allMissionObjects "USVehicleBox_EP1");
+    };
+    
+    if (!isNil QMODULE(vehicle_mhq)) then {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects "Land_CamoNetB_NATO_EP1");
+    };
+    
+    ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
+}, 0] call FUNC(THIS_MODULE,addPerFrame);
+
 0 spawn {
     if (isMultiplayer) then {
         waitUntil {sleep 0.112;!isNil QGVAR(preloaddone)};

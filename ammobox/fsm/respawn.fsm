@@ -42,7 +42,7 @@ class FSM
     {
       name = "_";
       init = "if (!isNull _box) then {deleteVehicle _box;};" \n
-       "_box = ""USVehicleBox_EP1"" createVehicleLocal (markerPos ""d_player_ammobox_pos"");" \n
+       "_box = ""USVehicleBox_EP1"" createVehicle (markerPos ""d_player_ammobox_pos"");" \n
        "_box setDir (markerDir ""d_player_ammobox_pos"");" \n
        "_box setPos (markerPos ""d_player_ammobox_pos"");" \n
        "_box setVariable [""immune"", true];" \n
