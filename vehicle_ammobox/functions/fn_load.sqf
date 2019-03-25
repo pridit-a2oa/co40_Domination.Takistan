@@ -1,16 +1,22 @@
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_ammoload", "_nearest", "_ammobox"];
 PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 
-if (_vehicle getVariable QGVAR(immune)) exitWith {};
+_ammoload = getPos GVAR(ammoload);
+_nearest = nearestObjects [_vehicle, ["USVehicleBox_EP1"], 10];
 
-_nearest = nearestObjects [_vehicle, ["USVehicleBox_EP1"], 15];
+if (count _nearest == 0 && {_vehicle distance _ammoload > 5}) exitWith {};
 
-if (count _nearest == 0) exitWith {};
+_ammobox = _nearest select 0;
 
-deleteVehicle (_nearest select 0);
+if (_ammobox getVariable QGVAR(immune)) exitWith {};
+if (!alive _ammobox) exitWith {};
+
+if (!isNil "_nearest") then {
+    deleteVehicle _ammobox;
+};
 
 [nil, _vehicle, rSAY, QGVAR(sound_box), 20] call RE;
 

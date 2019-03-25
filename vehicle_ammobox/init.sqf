@@ -13,6 +13,7 @@ GVAR(vehicle_ammobox_types) = [
 ];
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);
+__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 __cppfln(FUNC(THIS_MODULE,unload),THIS_MODULE\functions\fn_unload.sqf);
 
 MODULE(THIS_MODULE) = true;

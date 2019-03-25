@@ -14,6 +14,10 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submodule(vehicle_respawn);
     };
+    
+    if (!isNil QMODULE(vehicle_mhq)) then {
+        [_vehicle] __submodule(vehicle_mhq);
+    };
 };
 
 if (hasInterface) then {
@@ -49,5 +53,7 @@ if (hasInterface) then {
         [_vehicle] __submodule(vehicle_protection);
     };
 };
+
+__cppfln(FUNC(THIS_MODULE,unlock),THIS_MODULE\functions\fn_unlock.sqf);
 
 MODULE(THIS_MODULE) = true;

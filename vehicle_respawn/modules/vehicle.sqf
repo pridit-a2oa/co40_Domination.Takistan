@@ -20,7 +20,7 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
         _threshold = _vehicle getVariable QGVAR(threshold);
         _expiration = _vehicle getVariable QGVAR(expiration);
         
-        _empty = _vehicle call FUNC(server,empty);
+        _empty = _vehicle call FUNC(common,empty);
         
         if (isNil "_threshold" || {!_empty}) then {
             _threshold = _vehicle call FUNC(THIS_MODULE,threshold);

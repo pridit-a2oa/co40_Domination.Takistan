@@ -18,7 +18,9 @@ __ctrl2(1201) ctrlSetText (getText (configFile >> "cfgVehicles" >> (typeOf _vehi
 __ctrl2(1202) ctrlSetText (getText (configFile >> "cfgVehicles" >> "USVehicleBox_EP1" >> "icon"));
 
 if (!isNil QMODULE(vehicle_mhq)) then {
-    [_vehicle, _XD_display] __submodule(vehicle_mhq);
+    if (_vehicle call FUNC(common,empty)) then {
+        [_vehicle, _XD_display] __submodule(vehicle_mhq);
+    };
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {

@@ -13,7 +13,8 @@ if (!isNull _camo) then {
     deleteVehicle _camo;
 };
 
-_vehicle lockDriver false;
+[nil, nil, rEXECVM, __functionRE(vehicle,unlock), _vehicle] call RE;
+
 _vehicle setVariable [QGVAR(deployed), false, true];
 
 closeDialog 0;

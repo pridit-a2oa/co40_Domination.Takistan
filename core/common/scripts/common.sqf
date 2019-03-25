@@ -5,6 +5,8 @@ FUNC(THIS_MODULE,GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
 FUNC(THIS_MODULE,OliveText) = {"<t color='#f07f7f00'>" + _this + "</t>"};
 FUNC(THIS_MODULE,YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
 
+GVAR(players) = if (isMultiplayer) then {playableUnits} else {switchableUnits};
+
 GVAR(artillery) = [];
 GVAR(engineers) = [];
 GVAR(machine_gunners) = [];

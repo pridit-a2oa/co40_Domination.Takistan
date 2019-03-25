@@ -9,10 +9,11 @@ _position = _vehicle modelToWorld [4,0,0];
 
 _box = [
     [_position select 0, _position select 1, 0],
-    direction _vehicle
+    direction _vehicle,
+    false
 ] call FUNC(ammobox,create);
 
-[_box] call FUNC(ammobox,replenish);
+[_box] call FUNC(vehicle_ammobox,replenish);
 
 [nil, nil, rEXECVM, __moduleRE(ammobox), _box] call RE;
 

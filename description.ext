@@ -54,12 +54,16 @@ class CfgSounds {
         sound[]={"\perk\sounds\powerofthesun.ogg",1,1.0};
         titles[] = {};
     };
-    class d_sound_repair {
-        sound[] = {"\vehicle_service\sounds\repair.wss",db,1,30};
-        titles[] = {};
-    };
     class d_sound_box {
         sound[] = {"\vehicle_ammobox\sounds\box.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_build {
+        sound[] = {"\vehicle_create\sounds\build.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_repair {
+        sound[] = {"\vehicle_service\sounds\repair.wss",db,1,30};
         titles[] = {};
     };
 };

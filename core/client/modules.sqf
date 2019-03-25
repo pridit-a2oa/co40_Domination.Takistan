@@ -4,8 +4,8 @@
 
 #include "x_macros.sqf"
 
+__module(base_ammobox);
 __module(perk);
-__module(ammobox);
 __module(loadout);
 __module(backpack);
 __module(board);

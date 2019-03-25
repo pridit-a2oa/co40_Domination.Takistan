@@ -650,8 +650,8 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8201.9541,296.04001,2133.0664};
-					azimut=191.57614;
+					position[]={8201.8066,296.04001,2133.698};
+					azimut=187.80545;
 					special="NONE";
 					id=288;
 					side="WEST";
@@ -1467,7 +1467,7 @@ class Mission
 			vehicle="HeliHRescue";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="D_AMMOLOAD";
+			text="d_ammoload";
 		};
 		class Item18
 		{
