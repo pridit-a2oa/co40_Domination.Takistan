@@ -48,4 +48,9 @@ if (!isNil QMODULE(vehicle_create)) then {
     };
 };
 
-__ctrl2(1500) lbSetCurSel -1;
+if (!isNil QMODULE(vehicle_teleport)) then {
+    if (_selection == "teleport") then {
+        closeDialog 0;
+        call FUNC(teleport,show);
+    };
+};

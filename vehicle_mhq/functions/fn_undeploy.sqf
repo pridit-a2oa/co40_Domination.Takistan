@@ -1,3 +1,4 @@
+#define THIS_MODULE vehicle_mhq
 #include "x_macros.sqf"
 private ["_vehicle"];
 PARAMS_1(_vehicle);
@@ -16,6 +17,10 @@ if (!isNull _camo) then {
 [nil, nil, rEXECVM, __functionRE(vehicle,unlock), _vehicle] call RE;
 
 _vehicle setVariable [QGVAR(deployed), false, true];
+
+if (!isNil QMODULE(marker)) then {
+    [_vehicle, false] __submodule(marker);
+};
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

@@ -1,4 +1,6 @@
 #include "x_macros.sqf"
 PARAMS_1(_vehicle);
 
-_vehicle setVectorUp [0,0,1];
+[_vehicle, surfaceNormal position _vehicle] call FUNC(network,setVectorUp);
+
+[nil, _vehicle, rSAY, QGVAR(sound_flip), 20] call RE;

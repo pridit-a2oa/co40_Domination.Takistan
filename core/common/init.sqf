@@ -41,6 +41,8 @@ if (isServer) then {
     __core(server);
 };
 
+__core(network);
+
 if (isDedicated) then {
     if (!isNil QMODULE(vehicle)) then {
         {

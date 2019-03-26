@@ -13,6 +13,7 @@ onLoadMissionTime = 0;
 
 #include "define.hpp"
 #include "perk\dialog\base.hpp"
+#include "teleport\dialog\base.hpp"
 #include "vehicle_menu\dialog\base.hpp"
 
 class Header
@@ -60,6 +61,10 @@ class CfgSounds {
     };
     class d_sound_build {
         sound[] = {"\vehicle_create\sounds\build.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_flip {
+        sound[] = {"\vehicle_flip\sounds\flip.wss",db,1,30};
         titles[] = {};
     };
     class d_sound_repair {

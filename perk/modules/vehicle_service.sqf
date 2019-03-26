@@ -7,4 +7,4 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["Use Repair Kit" call FUNC(common,YellowText), FUNCTION(vehicle_service,repair), _vehicle, -2, false, true, "", "!(player in _target) && {vehicle player == player} && {player getVariable 'd_perkRepairKits' > 0} && {!canMove _target || damage _target >= 0.3 || fuel _target < 0.25}"];
+_vehicle addAction ["Use Repair Kit" call FUNC(common,YellowText), FUNCTION(vehicle_service,repair), _vehicle, -2, false, true, "", "!(player in _target) && {vehicle player == player} && {player getVariable 'd_perkRepairKits' > 0} && {!canMove _target || damage _target >= 0.3 || fuel _target < 0.10}"];

@@ -11,29 +11,29 @@ for "_i" from 1 to 3 do {
     
     if (_i == 3) then {
         if (!canMove _vehicle) then {
-            _vehicle setHit ["motor", 0];
-            _vehicle setHit ["wheel_1_1_steering", 0];
-            _vehicle setHit ["wheel_1_2_steering", 0];
-            _vehicle setHit ["wheel_2_1_steering", 0];
-            _vehicle setHit ["wheel_2_2_steering", 0];
+            [_vehicle, "motor", 0] call FUNC(network,setHit);
+            [_vehicle, "wheel_1_1_steering", 0] call FUNC(network,setHit);
+            [_vehicle, "wheel_1_2_steering", 0] call FUNC(network,setHit);
+            [_vehicle, "wheel_2_1_steering", 0] call FUNC(network,setHit);
+            [_vehicle, "wheel_2_2_steering", 0] call FUNC(network,setHit);
         };
         
         if (damage _vehicle > 0.5) then {
-            _vehicle setDamage 0.5;
+            [_vehicle, 0.5] call FUNC(network,setDamage);
         };
         
         if (fuel _vehicle < 0.25) then {
-            _vehicle setFuel 0.25;
+            [_vehicle, 0.25] call FUNC(network,setFuel);
         };
         
         if (!isNil QMODULE(perk)) then {
             _perk = player getVariable QGVAR(perkFullRepair);
 
             if (!isNil "_perk") then {
-                _vehicle setDamage 0;
+                [_vehicle, 0] call FUNC(network,setDamage);
                 
                 if (fuel _vehicle < 0.6) then {
-                    _vehicle setFuel 0.6;
+                    [_vehicle, 0.6] call FUNC(network,setFuel);
                 };
             };
         };

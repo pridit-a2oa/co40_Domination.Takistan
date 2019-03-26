@@ -4,7 +4,10 @@ PARAMS_1(_vehicle);
 
 _occupied = nearestObjects [_vehicle, ["ATV_US_EP1"], 8];
 
-if (count _occupied > 0) exitWith {};
+if (count _occupied > 0) exitWith {
+    closeDialog 0;
+    call FUNC(vehicle_menu,show);
+};
 
 _position = _vehicle modelToWorld [-4,0,0];
 
@@ -33,3 +36,5 @@ _atv spawn {
         sleep 5;
     };
 };
+
+closeDialog 0;

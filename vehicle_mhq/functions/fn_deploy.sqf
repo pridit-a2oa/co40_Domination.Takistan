@@ -1,3 +1,4 @@
+#define THIS_MODULE vehicle_mhq
 #include "x_macros.sqf"
 private ["_vehicle"];
 PARAMS_1(_vehicle);
@@ -13,6 +14,10 @@ _camo addEventHandler ["handleDamage", {0}];
 _vehicle lock true;
 _vehicle setVariable [QGVAR(camo), _camo, true];
 _vehicle setVariable [QGVAR(deployed), true, true];
+
+if (!isNil QMODULE(marker)) then {
+    [_vehicle, true] __submodule(marker);
+};
 
 closeDialog 0;
 call FUNC(vehicle_menu,show);

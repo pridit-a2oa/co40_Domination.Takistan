@@ -56,7 +56,7 @@ class XD_VehicleMenuDialog {
         {
             idc = 1700;
             text = "OK";
-            action = "[vehicle player] call d_fnc_vehicle_menu_action"
+            action = "[vehicle player] call d_fnc_vehicle_menu_action";
             x = 0.537721;
             y = 0.630219;
             w = 0.171402;
@@ -73,6 +73,7 @@ class XD_VehicleMenuDialog {
             rowHeight = 0.05;
             style = ST_LEFT;
             borderSize = 1;
+            onLBDblClick = "[vehicle player] call d_fnc_vehicle_menu_action";
         };
     };
 };

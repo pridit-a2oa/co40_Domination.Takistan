@@ -32,3 +32,9 @@ if (!isNil QMODULE(vehicle_create)) then {
         [_vehicle, _XD_display] __submodule(vehicle_create);
     };
 };
+
+if (!isNil QMODULE(vehicle_teleport)) then {
+    if (_vehicle getVariable QGVAR(deployed)) then {
+        [_vehicle, _XD_display] __submodule(vehicle_teleport);
+    };
+};
