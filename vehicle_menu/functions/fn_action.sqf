@@ -1,25 +1,23 @@
 #include "x_macros.sqf"
-#define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
-#define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
-private ["_vehicle", "_XD_display", "_selected", "_selection"];
+private ["_vehicle", "_menu", "_lbCurSel", "_lbData"];
+
+disableSerialization;
 
 _vehicle = GVAR(vehicle_dialog);
 
 if (!alive _vehicle) exitWith {};
 
-disableSerialization;
+_menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
-_XD_display = uiNamespace getVariable "X_VEHICLE_MENU_DIALOG";
+_lbCurSel = lbCurSel _menu;
+_lbData = _menu lbData _lbCurSel;
 
-_selected = lbCurSel __ctrl2(1500);
-_selection = __ctrl2(1500) lbData _selected;
-
-if (_selected == -1) exitWith {
+if (_lbCurSel == -1) exitWith {
     closeDialog 0;
 };
 
 if (!isNil QMODULE(vehicle_mhq)) then {
-    if (_selection == "mhq") then {
+    if (_lbData == "mhq") then {
         _deployed = _vehicle getVariable QGVAR(deployed);
         
         if (!isNil "_deployed" && {_deployed}) exitWith {
@@ -31,7 +29,7 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {
-    if (_selection == "ammobox") then {
+    if (_lbData == "ammobox") then {
         _ammobox = _vehicle getVariable QGVAR(ammobox);
         
         if (!isNil "_ammobox" && {_ammobox}) exitWith {
@@ -43,13 +41,13 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
 };
 
 if (!isNil QMODULE(vehicle_create)) then {
-    if (_selection == "atv") then {
+    if (_lbData == "atv") then {
         [_vehicle] call FUNC(vehicle_create,atv);
     };
 };
 
 if (!isNil QMODULE(vehicle_teleport)) then {
-    if (_selection == "teleport") then {
+    if (_lbData == "teleport") then {
         closeDialog 0;
         call FUNC(teleport,show);
     };

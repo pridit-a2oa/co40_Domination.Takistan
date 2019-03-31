@@ -12,6 +12,7 @@ __module(vehicle_bonus);
 __module(vehicle_create);
 __module(vehicle_mhq);
 __module(vehicle_wreck);
+__module(base_wreck);
 
 0 spawn {
     __module(weather);

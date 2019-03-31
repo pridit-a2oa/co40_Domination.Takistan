@@ -5,7 +5,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One self-heal";
+    tooltip = "One medkit";
     action = "[0,1] call d_fnc_perk_clicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
@@ -305,7 +305,7 @@ class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Self-heal at any stage of injury";
+    tooltip = "Two medkits";
     action = "[5,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
@@ -315,7 +315,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two self-heals";
+    tooltip = "Give players up to 2 medkits";
     action = "[5,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
@@ -335,7 +335,7 @@ class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three self-heals";
+    tooltip = "Three medkits";
     action = "[5,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_1: XD_LinkButtonUpgradeBase

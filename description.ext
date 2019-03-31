@@ -12,6 +12,7 @@ onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
 #include "define.hpp"
+#include "halo\dialog\base.hpp"
 #include "perk\dialog\base.hpp"
 #include "teleport\dialog\base.hpp"
 #include "vehicle_menu\dialog\base.hpp"
@@ -53,6 +54,14 @@ class CfgSounds {
     class PowerOfTheSun {
         name="PowerOfTheSun";
         sound[]={"\perk\sounds\powerofthesun.ogg",1,1.0};
+        titles[] = {};
+    };
+    class d_sound_item {
+        sound[] = {"\inventory\sounds\item.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_tear {
+        sound[] = {"\medical\sounds\tear.wss",db,1,30};
         titles[] = {};
     };
     class d_sound_box {

@@ -7,4 +7,4 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["Flip" call FUNC(common,YellowText), FUNCTION(vehicle_flip,flip), _vehicle, -2, false, true, "", "player getVariable 'd_perkFlip' && {!(player in _target)} && {((vectorUp _target) select 2) < 0.6}"];
+_vehicle addAction ["Flip" call FUNC(common,YellowText), FUNCTION(vehicle_flip,flip), _vehicle, 10, false, true, "", "player getVariable 'd_perkFlip' && {!(player in _target)} && {((vectorUp _target) select 2) < 0.6}"];

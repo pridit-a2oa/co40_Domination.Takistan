@@ -7,13 +7,13 @@ switch (_tier) do {
     case 0: {
         switch (_perk) do {
             case 1: {
-                player setVariable [QGVAR(perkMedkitsMax), (player getVariable QGVAR(perkMedkitsMax)) + 1];
-                player setVariable [QGVAR(perkMedkits), (player getVariable QGVAR(perkMedkits)) + 1];
+                player setVariable [QGVAR(perkMedkitsMax), (player getVariable QGVAR(perkMedkitsMax)) + 1, true];
+                player setVariable [QGVAR(perkMedkits), (player getVariable QGVAR(perkMedkits)) + 1, true];
             };
             
             case 2: {
-                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1];
-                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1];
+                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1, true];
+                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1, true];
             };
             
             case 3: {
@@ -59,8 +59,8 @@ switch (_tier) do {
     case 2: {
         switch (_perk) do {
             case 1: {
-                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1];
-                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1];
+                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1, true];
+                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1, true];
             };
             
             case 2: {
@@ -68,8 +68,25 @@ switch (_tier) do {
             };
             
             case 4: {
-                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1];
-                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1];
+                player setVariable [QGVAR(perkRepairKitsMax), (player getVariable QGVAR(perkRepairKitsMax)) + 1, true];
+                player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) + 1, true];
+            };
+        };
+    };
+    case 5: {
+        switch (_perk) do {
+            case 2: {
+                player setVariable [QGVAR(perkMedkitsMax), (player getVariable QGVAR(perkMedkitsMax)) + 1, true];
+                player setVariable [QGVAR(perkMedkits), (player getVariable QGVAR(perkMedkits)) + 1, true];
+            };
+            
+            case 3: {
+                player setVariable [QGVAR(perkGiveMedkitsMax), 2];
+            };
+            
+            case 5: {
+                player setVariable [QGVAR(perkMedkitsMax), (player getVariable QGVAR(perkMedkitsMax)) + 1, true];
+                player setVariable [QGVAR(perkMedkits), (player getVariable QGVAR(perkMedkits)) + 1, true];
             };
         };
     };

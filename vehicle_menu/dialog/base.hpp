@@ -48,7 +48,7 @@ class XD_VehicleMenuDialog {
             idc = 1000;
             x = 0.295875;
             y = 0.222;
-            w = 0.171875;
+            w = 0.401875;
             h = 0.075;
             style = ST_LEFT;
         };

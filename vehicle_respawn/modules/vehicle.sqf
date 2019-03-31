@@ -47,7 +47,7 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
             _vehicle setPos _position;
             _vehicle setFuel 1;
             
-            [nil, nil, rEXECVM, __moduleRE(vehicle), _vehicle] call RE;
+            [nil, nil, rExecVM, __moduleRE(vehicle), _vehicle] call RE;
         };
         
         sleep 20;

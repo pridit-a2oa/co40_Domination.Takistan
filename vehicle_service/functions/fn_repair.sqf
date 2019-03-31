@@ -7,7 +7,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 for "_i" from 1 to 3 do {
     sleep 2;
-    [nil, player, rSAY, QGVAR(sound_repair), 20] call RE;
+    [nil, player, rSay, QGVAR(sound_repair), 20] call RE;
     
     if (_i == 3) then {
         if (!canMove _vehicle) then {
@@ -36,9 +36,9 @@ for "_i" from 1 to 3 do {
                     [_vehicle, 0.6] call FUNC(network,setFuel);
                 };
             };
+            
+            player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) - 1];
         };
-        
-        player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) - 1];
     };
 };
 

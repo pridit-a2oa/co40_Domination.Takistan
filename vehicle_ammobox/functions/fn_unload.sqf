@@ -15,9 +15,9 @@ _box = [
 
 [_box] call FUNC(vehicle_ammobox,replenish);
 
-[nil, nil, rEXECVM, __moduleRE(ammobox), _box] call RE;
+[nil, nil, rExecVM, __moduleRE(ammobox), _box] call RE;
 
-[nil, _box, rSAY, QGVAR(sound_box), 20] call RE;
+[nil, _box, rSay, QGVAR(sound_box), 20] call RE;
 
 _vehicle setVariable [QGVAR(ammobox), false, true];
 

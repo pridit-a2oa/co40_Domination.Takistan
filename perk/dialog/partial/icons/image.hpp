@@ -264,7 +264,7 @@ class PerkIcon_Role5_1_2: XD_RscPicture
 };
 class PerkIcon_Role5_2: XD_RscPicture
 {
-    text = "ca\ui\data\stats_infantry_ca";
+    text = "ca\ui\data\cursor_firstaid_ca";
     x = 0.59375;
     y = 0.475;
     w = 0.0419193;
@@ -272,7 +272,7 @@ class PerkIcon_Role5_2: XD_RscPicture
 };
 class PerkIcon_Role5_3: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_firstaid_ca";
+    text = "ca\ui\data\stats_infantry_ca";
     x = 0.59375;
     y = 0.575;
     w = 0.0419193;

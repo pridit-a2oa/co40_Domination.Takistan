@@ -17,9 +17,9 @@ _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];
 player reveal _atv;
 
-[nil, _atv, rSAY, QGVAR(sound_build), 20] call RE;
+[nil, _atv, rSay, QGVAR(sound_build), 20] call RE;
 
-[nil, nil, rEXECVM, __moduleRE(vehicle), _atv] call RE;
+[nil, nil, rExecVM, __moduleRE(vehicle), _atv] call RE;
 
 _atv setVariable [QGVAR(respawnable), false, true];
 

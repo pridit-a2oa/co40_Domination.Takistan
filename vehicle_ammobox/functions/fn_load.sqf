@@ -18,7 +18,7 @@ if (!isNil "_nearest") then {
     deleteVehicle _ammobox;
 };
 
-[nil, _vehicle, rSAY, QGVAR(sound_box), 20] call RE;
+[nil, _vehicle, rSay, QGVAR(sound_box), 20] call RE;
 
 _vehicle setVariable [QGVAR(ammobox), true, true];
 

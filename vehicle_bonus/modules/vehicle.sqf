@@ -1,5 +1,5 @@
 /**
- * Vehicle Bonus Module - Perk Submodule
+ * Vehicle Bonus Module - Vehicle Submodule
  */
 
 #define THIS_MODULE vehicle_bonus

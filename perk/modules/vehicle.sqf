@@ -7,4 +7,4 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -4, false, true, "", "player in _target"];
+_vehicle addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -10, false, true, "", "player in _target"];

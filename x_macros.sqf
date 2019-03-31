@@ -4,6 +4,7 @@
 #define FSM(module,file) format ["%1\fsm\%2.fsm", #module, #file]
 #define GVAR(variable) d##_##variable
 #define QUOTE(qtext) #qtext
+#define DIALOG(name,ctrl) (uiNamespace getVariable name) displayCtrl ctrl
 
 #define QMODULE(module) QUOTE(MODULE(module))
 #define QGVAR(variable) QUOTE(GVAR(variable))

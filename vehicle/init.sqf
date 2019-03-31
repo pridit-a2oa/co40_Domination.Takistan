@@ -28,6 +28,14 @@ if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submodule(perk);
     };
+    
+    if (!isNil QMODULE(halo)) then {
+        [_vehicle] __submodule(halo);
+    };
+    
+    if (!isNil QMODULE(vehicle_welcome)) then {
+        [_vehicle] __submodule(vehicle_welcome);
+    };
 
     if (!isNil QMODULE(vehicle_welcome)) then {
         [_vehicle] __submodule(vehicle_welcome);

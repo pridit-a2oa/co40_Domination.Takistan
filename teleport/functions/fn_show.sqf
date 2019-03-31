@@ -1,16 +1,14 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
-#define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
-#define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
-private ["_ctrl", "_XD_display", "_points", "_unlocked"];
+private ["_list", "_name", "_position", "_index"];
 
 disableSerialization;
 
 createDialog "XD_TeleportDialog";
 
-_XD_display = uiNamespace getVariable "X_TELEPORT_DIALOG";
+_list = DIALOG("X_TELEPORT_DIALOG", 1500);
 
-__ctrl2(1500) lbAdd "Base";
+_list lbAdd "Base";
 
 if (!isNil QMODULE(vehicle_mhq)) then {
     {
@@ -22,8 +20,8 @@ if (!isNil QMODULE(vehicle_mhq)) then {
                 _name = markerText (str((_position) select 0));
             };
             
-            _index = __ctrl2(1500) lbAdd _name;
-            __ctrl2(1500) lbSetData [_index, str(_position)];
+            _index = _list lbAdd _name;
+            _list lbSetData [_index, str(_position)];
         };
     } forEach (call FUNC(vehicle_teleport,valid));
 };

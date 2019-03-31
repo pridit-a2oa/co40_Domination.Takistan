@@ -14,6 +14,8 @@ GVAR(service_vehicles) = [
 
 __cppfln(FUNC(THIS_MODULE,repair),THIS_MODULE\functions\fn_repair.sqf);
 
+[nil, player, "per", rAddAction, "Give Repair Kit" call FUNC(common,OliveText), FUNCTION(inventory,transfer), "RepairKits", 10, false, true, "", "['RepairKits', _target] call d_fnc_inventory_valid"] call RE;
+
 if (!isNil QMODULE(perk)) then {
     __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
     

@@ -5,7 +5,7 @@ PARAMS_1(_vehicle);
 
 _camo = _vehicle getVariable QGVAR(camo);
 
-// edge case where it might still be destroyed somehow
+// just in case it might be destroyed
 if (isNil "_camo") then {
     _camo = objNull;
 };
@@ -14,7 +14,7 @@ if (!isNull _camo) then {
     deleteVehicle _camo;
 };
 
-[nil, nil, rEXECVM, __functionRE(vehicle,unlock), _vehicle] call RE;
+[nil, nil, rExecVM, __functionRE(vehicle,unlock), _vehicle] call RE;
 
 _vehicle setVariable [QGVAR(deployed), false, true];
 

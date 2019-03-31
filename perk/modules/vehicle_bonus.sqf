@@ -15,14 +15,14 @@ while {true} do {
     if (isNil "_fly" && {player == driver _vehicle}) then {
         player action ["Eject", _vehicle];
         hint "You do not have the required perk to pilot attack aircraft";
-        call __function(show);
+        call FUNC(THIS_MODULE,show);
         
         _vehicle addEventHandler ["getout", {
             (_this select 0) spawn {
                 if (canMove _this) then {
-                    _this setHit ["motor", 1];
+                    [_this, "motor", 1] call FUNC(network,setHit);
                     sleep 1;
-                    _this setHit ["motor", 0];
+                    [_this, "motor", 0] call FUNC(network,setHit);
                 };
     
                 _this engineOn false;

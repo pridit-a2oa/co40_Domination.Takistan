@@ -35,15 +35,18 @@ class XD_TeleportDialog {
             rowHeight = 0.05;
             style = ST_LEFT;
             borderSize = 1;
-            onLBSelChanged = "[(_this select 1)] call d_fnc_teleport_switch";
+            onLBSelChanged = "call d_fnc_teleport_switch";
+            onLBDblClick = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonAction: XD_ButtonBase
         {
+            idc = 2000;
             x = 0.734849;
             y = 0.72744;
             w = 0.237627;
             h = 0.113468;
             text = "Teleport";
+            action = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonClose: XD_ButtonBase
         {
