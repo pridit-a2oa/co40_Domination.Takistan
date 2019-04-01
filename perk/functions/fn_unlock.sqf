@@ -35,7 +35,7 @@ switch (_tier) do {
             };
             
             case 7: {
-                player setVariable [QGVAR(perkAmmoboxUnload), 120]; // maybe not a pvar?
+                player setVariable [QGVAR(perkBackpack), true];
             };
             
             case 8: {

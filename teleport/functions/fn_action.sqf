@@ -5,18 +5,18 @@ disableSerialization;
 
 _target = call FUNC(THIS_MODULE,target);
 
-if (isNil "_target") exitWith {};
-
 _target spawn {
-    titleText ["", "BLACK", 1];
+    player enableSimulation false;
     
+    titleText ["", "BLACK", 1];
     sleep 1;
     
     titleText ["You are being transported", "BLACK FADED"];
+    sleep 5;
     
-    sleep 8;
-    
-    player setPos _this;
+    player setDir (_this select 0);
+    player setPos [(_this select 1) select 0, (_this select 1) select 1, 0];
+    player enableSimulation true;
     
     1 fadeSound 1;
     titleText ["", "BLACK IN", 2];

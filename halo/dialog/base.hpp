@@ -23,7 +23,7 @@ class XD_HaloDialog {
             y = 0.231735;
             w = 0.955858;
             h = 0.501853;
-            onMouseButtonClick = "player setPos ((_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3]);[1000] call d_fnc_halo_jump;closeDialog 0";
+            onMouseButtonClick = "player setPos ((_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3]);[1500] call d_fnc_halo_jump;closeDialog 0";
         };
         class RscHaloButtonClose: XD_ButtonBase
         {

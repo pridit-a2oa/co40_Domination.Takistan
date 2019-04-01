@@ -32,7 +32,7 @@ class PerkIcon_General_4: XD_RscPicturePerkIcon
 };
 class PerkIcon_General_5: XD_RscPicture
 {
-    text = "\ca\ui\data\ui_action_reammo_ca";
+    text = "\ca\ui\data\ui_action_reload_ca";
     x = 0.671874;
     y = 0.134182;
     w = 0.0419193;
@@ -48,7 +48,7 @@ class PerkIcon_General_6: XD_RscPicture
 };
 class PerkIcon_General_7: XD_RscPicture
 {
-    text = "\ca\ui\data\cursor_editor_2d_loading_ca";
+    text = "\ca\ui\data\ui_action_reammo_ca";
     x = 0.421874;
     y = 0.216364;
     w = 0.0419193;

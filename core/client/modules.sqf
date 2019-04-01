@@ -4,11 +4,12 @@
 
 #include "x_macros.sqf"
 
-__module(base_ammobox);
-__module(perk);
-__module(medical);
 __module(loadout);
+__module(perk);
+__module(base_ammobox);
+__module(medical);
 __module(backpack);
+__module(base_backpack);
 __module(board);
 __module(halo);
 __module(base_halo);

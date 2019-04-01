@@ -650,8 +650,8 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={8255.1152,296.04001,2112.5166};
-					azimut=185.94771;
+					position[]={8263.7295,296.04001,2125.7275};
+					azimut=138.34399;
 					special="NONE";
 					id=288;
 					side="WEST";
@@ -665,8 +665,8 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={8266.208,296.04001,2127.2927};
-					azimut=149.85655;
+					position[]={8266.6162,296.04001,2127.4753};
+					azimut=153.44603;
 					special="NONE";
 					id=289;
 					side="WEST";
@@ -1065,8 +1065,8 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={8246.582,296.04001,2147.1025};
-					azimut=149.85655;
+					position[]={8246.3027,296.04001,2146.9795};
+					azimut=149.85699;
 					special="NONE";
 					id=313;
 					side="WEST";
@@ -1277,7 +1277,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=292;
+		items=291;
 		class Item0
 		{
 			position[]={8330.8545,296.04001,2045.4362};
@@ -4127,17 +4127,6 @@ class Mission
 			side="EMPTY";
 			vehicle="USMC_WarfareBUAVterminal";
 			skill=0.60000002;
-		};
-		class Item291
-		{
-			position[]={8254.4561,296.04001,2107.2673};
-			azimut=-155.355;
-			id=361;
-			side="EMPTY";
-			vehicle="ATV_US_EP1";
-			leader=1;
-			skill=0.60000002;
-			init="this setVectorUp [0,0,-1]";
 		};
 	};
 	class Markers

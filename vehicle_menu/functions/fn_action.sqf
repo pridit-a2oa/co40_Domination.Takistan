@@ -49,6 +49,6 @@ if (!isNil QMODULE(vehicle_create)) then {
 if (!isNil QMODULE(vehicle_teleport)) then {
     if (_lbData == "teleport") then {
         closeDialog 0;
-        call FUNC(teleport,show);
+        [_vehicle] call FUNC(teleport,show);
     };
 };

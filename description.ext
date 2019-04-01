@@ -60,10 +60,6 @@ class CfgSounds {
         sound[] = {"\inventory\sounds\item.wss",db,1,30};
         titles[] = {};
     };
-    class d_sound_tear {
-        sound[] = {"\medical\sounds\tear.wss",db,1,30};
-        titles[] = {};
-    };
     class d_sound_box {
         sound[] = {"\vehicle_ammobox\sounds\box.wss",db,1,30};
         titles[] = {};

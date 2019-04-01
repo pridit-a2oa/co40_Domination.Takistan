@@ -159,7 +159,7 @@ PARAMS_1(_box);
 
 // Ammo: Guns
 {
-    [nil, nil, "per", rAddWeaponCargo, _box, _x, 100] call RE;
+    [nil, nil, "per", rAddMagazineCargo, _box, _x, 100] call RE;
 } forEach [
     "200Rnd_556x45_M249",
     "200Rnd_556x45_L110A1",
