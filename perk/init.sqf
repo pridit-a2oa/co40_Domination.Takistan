@@ -15,6 +15,6 @@ __cppfln(FUNC(THIS_MODULE,unlock),THIS_MODULE\functions\fn_unlock.sqf);
 
 call FUNC(THIS_MODULE,reset);
 
-player addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -10, false, true, "", "player == _target"];
+player addAction ["My Perks" call FUNC(common,GreyText), __function(show), [], -9, false, true, "", "player == _target"];
 
 MODULE(THIS_MODULE) = true;

@@ -21,6 +21,3 @@ if (!isNil "_nearest") then {
 [nil, _vehicle, rSay, QGVAR(sound_box), 20] call RE;
 
 _vehicle setVariable [QGVAR(ammobox), true, true];
-
-closeDialog 0;
-call FUNC(vehicle_menu,show);

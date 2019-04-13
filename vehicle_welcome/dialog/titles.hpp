@@ -1,4 +1,4 @@
-class XD_VehicleHudDialog {
+class XD_VehicleWelcomeDialog {
     idd = -1;
     movingEnable = true;
     fadein = 1;

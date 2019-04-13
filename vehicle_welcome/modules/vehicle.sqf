@@ -1,5 +1,5 @@
 /**
- * Vehicle HUD - Vehicle Submodule
+ * Vehicle Welcome - Vehicle Submodule
  */
 
 #define THIS_MODULE vehicle_welcome
@@ -7,26 +7,24 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-if (_vehicle isKindOf "Helicopter" || {typeOf _vehicle == "MV22"}) then {
-    _vehicle addEventHandler ["getin", {
-        if (_this select 2 != driver (_this select 0)) exitWith {};
+_vehicle addEventHandler ["getin", {
+    if (_this select 2 != driver (_this select 0)) exitWith {};
 
-        67322 cutRsc ["XD_VehicleHudDialog", "PLAIN"];
+    67322 cutRsc ["XD_VehicleWelcomeDialog", "PLAIN"];
 
-        if (!isNil QMODULE(vehicle_ammobox)) then {
-            [(_this select 0)] __submodule(vehicle_ammobox);
-        };
+    if (!isNil QMODULE(vehicle_ammobox)) then {
+        [(_this select 0)] __submodule(vehicle_ammobox);
+    };
 
-        if (!isNil QMODULE(vehicle_lift)) then {
-            [(_this select 0)] __submodule(vehicle_lift);
-        };
+    if (!isNil QMODULE(vehicle_lift)) then {
+        [(_this select 0)] __submodule(vehicle_lift);
+    };
 
-        if (!isNil QMODULE(vehicle_wreck)) then {
-            [(_this select 0)] __submodule(vehicle_wreck);
-        };
-    }];
+    if (!isNil QMODULE(vehicle_wreck)) then {
+        [(_this select 0)] __submodule(vehicle_wreck);
+    };
+}];
 
-    _vehicle addEventHandler ["getout", {
-        67322 cutRsc ["Default", "PLAIN"];
-    }];
-};
+_vehicle addEventHandler ["getout", {
+    67322 cutRsc ["Default", "PLAIN"];
+}];

@@ -27,4 +27,4 @@ if (!isNil QMODULE(vehicle_wreck)) then {
 
 if (_valid find (typeOf _vehicle) == -1) exitWith {};
 
-_vehicle addAction [format ["%1 Menu", getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayName")] call FUNC(common,GreyText), __function(show), _vehicle, -3, false, true, "", ""];
+_vehicle addAction [format ["%1 Menu", getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayName")] call FUNC(common,GreyText), __function(show), _vehicle, -3, false, true, "", "!(player in _target)"];

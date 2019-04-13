@@ -29,9 +29,9 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {
-    if (_lbData == "ammobox") then {
+    if (_lbData == "ammobox") then {        
         _ammobox = _vehicle getVariable QGVAR(ammobox);
-        
+
         if (!isNil "_ammobox" && {_ammobox}) exitWith {
             [_vehicle] call FUNC(vehicle_ammobox,unload);
         };
@@ -40,15 +40,14 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     };
 };
 
-if (!isNil QMODULE(vehicle_create)) then {
-    if (_lbData == "atv") then {
-        [_vehicle] call FUNC(vehicle_create,atv);
-    };
+if (!isNil QMODULE(vehicle_create) && {_lbData == "atv"}) exitWith {
+    [_vehicle] call FUNC(vehicle_create,atv);
 };
 
-if (!isNil QMODULE(vehicle_teleport)) then {
-    if (_lbData == "teleport") then {
-        closeDialog 0;
-        [_vehicle] call FUNC(teleport,show);
-    };
+if (!isNil QMODULE(vehicle_teleport) && {_lbData == "teleport"}) exitWith {
+    closeDialog 0;
+    [_vehicle] call FUNC(teleport,show);
 };
+
+closeDialog 0;
+[_vehicle] call FUNC(vehicle_menu,show);

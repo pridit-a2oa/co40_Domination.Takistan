@@ -27,7 +27,7 @@ switch (_tier) do {
             };
             
             case 5: {
-                player setVariable [QGVAR(perkSaveLoadout), true];
+                player setVariable [QGVAR(perkBackpack), true];
             };
             
             case 6: {
@@ -35,7 +35,7 @@ switch (_tier) do {
             };
             
             case 7: {
-                player setVariable [QGVAR(perkBackpack), true];
+                player setVariable [QGVAR(perkSaveLoadout), true];
             };
             
             case 8: {

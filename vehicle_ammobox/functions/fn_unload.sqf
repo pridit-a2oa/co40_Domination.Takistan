@@ -20,6 +20,3 @@ _box = [
 [nil, _box, rSay, QGVAR(sound_box), 20] call RE;
 
 _vehicle setVariable [QGVAR(ammobox), false, true];
-
-closeDialog 0;
-call FUNC(vehicle_menu,show);

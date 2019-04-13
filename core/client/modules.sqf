@@ -6,6 +6,7 @@
 
 __module(loadout);
 __module(perk);
+__module(inventory);
 __module(base_ammobox);
 __module(medical);
 __module(backpack);
@@ -16,6 +17,7 @@ __module(base_halo);
 __module(marker);
 __module(teleport);
 __module(base_teleport);
+__module(vehicle_hud);
 __module(vehicle_flip);
 __module(vehicle_welcome);
 __module(vehicle_lift);
@@ -23,4 +25,3 @@ __module(vehicle_menu);
 __module(vehicle_protection);
 __module(vehicle_service);
 __module(vehicle_teleport);
-__module(inventory);

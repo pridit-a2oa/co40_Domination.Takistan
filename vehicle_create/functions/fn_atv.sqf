@@ -6,7 +6,7 @@ _occupied = nearestObjects [_vehicle, ["ATV_US_EP1"], 8];
 
 if (count _occupied > 0) exitWith {
     closeDialog 0;
-    call FUNC(vehicle_menu,show);
+    [_vehicle] call FUNC(vehicle_menu,show);
 };
 
 _position = _vehicle modelToWorld [-4,0,0];

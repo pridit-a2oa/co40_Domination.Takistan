@@ -33,14 +33,6 @@ if (hasInterface) then {
         [_vehicle] __submodule(halo);
     };
     
-    if (!isNil QMODULE(vehicle_welcome)) then {
-        [_vehicle] __submodule(vehicle_welcome);
-    };
-
-    if (!isNil QMODULE(vehicle_welcome)) then {
-        [_vehicle] __submodule(vehicle_welcome);
-    };
-    
     if (!isNil QMODULE(vehicle_flip)) then {
         [_vehicle] __submodule(vehicle_flip);
     };
@@ -53,12 +45,26 @@ if (hasInterface) then {
         [_vehicle] __submodule(vehicle_service);
     };
     
+    if (!isNil QMODULE(vehicle_protection)) then {
+        [_vehicle] __submodule(vehicle_protection);
+    };
+    
     if (!isNil QMODULE(vehicle_menu)) then {
         [_vehicle] __submodule(vehicle_menu);
     };
     
-    if (!isNil QMODULE(vehicle_protection)) then {
-        [_vehicle] __submodule(vehicle_protection);
+    if (_vehicle isKindOf "Helicopter" || {typeOf _vehicle == "MV22"}) then {
+        if (!isNil QMODULE(vehicle_welcome)) then {
+            [_vehicle] __submodule(vehicle_welcome);
+        };
+        
+        if (!isNil QMODULE(vehicle_hud)) then {
+            [_vehicle] __submodule(vehicle_hud);
+        };
+        
+        if (!isNil QMODULE(vehicle_lift)) then {
+            [_vehicle] __submodule(vehicle_lift);
+        };
     };
 };
 

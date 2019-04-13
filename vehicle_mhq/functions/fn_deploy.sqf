@@ -18,6 +18,3 @@ _vehicle setVariable [QGVAR(deployed), true, true];
 if (!isNil QMODULE(marker)) then {
     [_vehicle, true] __submodule(marker);
 };
-
-closeDialog 0;
-call FUNC(vehicle_menu,show);

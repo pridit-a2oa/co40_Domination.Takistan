@@ -10,12 +10,4 @@ GVAR(vehicle_wreck_types) = [
     "UH60M_MEV_EP1"
 ];
 
-if (isServer) then {
-    //
-};
-
-if (hasInterface) then {
-    //
-};
-
 MODULE(THIS_MODULE) = true;

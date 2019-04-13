@@ -13,4 +13,8 @@ GVAR(vehicle_lift_types) = [
     "MV22"
 ];
 
+__cppfln(FUNC(THIS_MODULE,lift),THIS_MODULE\functions\fn_lift.sqf);
+__cppfln(FUNC(THIS_MODULE,release),THIS_MODULE\functions\fn_release.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
+
 MODULE(THIS_MODULE) = true;

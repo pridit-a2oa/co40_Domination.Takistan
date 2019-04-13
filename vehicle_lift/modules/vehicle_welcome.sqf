@@ -2,16 +2,16 @@
  * Vehicle Lift - Vehicle Welcome Submodule
  */
 
- #include "x_macros.sqf"
- #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
- #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
- private ["_vehicle"];
- PARAMS_1(_vehicle);
- 
- if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
+#include "x_macros.sqf"
+#define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
+#define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
+private ["_vehicle"];
+PARAMS_1(_vehicle);
 
- disableSerialization;
+if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
 
- _XD_display = uiNamespace getVariable "X_VEHICLE_WELCOME_DIALOG";
+disableSerialization;
+
+_XD_display = uiNamespace getVariable "X_VEHICLE_WELCOME_DIALOG";
 
 __ctrl2(1004) ctrlSetText "\ca\ui\data\igui_sidebriefing_indep_ca";

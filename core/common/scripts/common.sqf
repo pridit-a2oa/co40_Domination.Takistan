@@ -2,6 +2,7 @@
 #include "x_macros.sqf"
 
 FUNC(THIS_MODULE,GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
+FUNC(THIS_MODULE,RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
 FUNC(THIS_MODULE,OliveText) = {"<t color='#f07f7f00'>" + _this + "</t>"};
 FUNC(THIS_MODULE,YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
 

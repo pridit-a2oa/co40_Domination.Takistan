@@ -26,27 +26,17 @@ class Header
 };
 
 class CfgIdentities {
-    class DHQ_EN1 {
+    class CROSSROAD {
         name = "Winters, HQ";
         face = "Default";
         glasses = "None";
         speaker = "Male03EN";
         pitch = 1.0;
     };
-    class DHQ_EN2: DHQ_EN1 {
-        name = "Meyers, HQ";
-    };
-    class DHQ_RU1: DHQ_EN1 {
-        name = "Aziz, HQ";
-        speaker = "Male03TK";
-    };
-    class DHQ_RU2: DHQ_EN1 {
-        name = "Horiz, HQ";
-        speaker = "Male03TK";
-    };
 };
 
 class RscTitles { 
+    #include "vehicle_hud\dialog\titles.hpp"
     #include "vehicle_welcome\dialog\titles.hpp"
 };
 

@@ -31,6 +31,7 @@ if (isServer) then {
 };
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
+__ccppfln(core\THIS_MODULE\scripts\bikb.sqf);
 
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
