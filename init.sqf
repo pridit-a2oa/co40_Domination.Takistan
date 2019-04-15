@@ -1,7 +1,6 @@
 #include "x_macros.sqf"
 
 if (isMultiplayer && {!isDedicated}) then {
-    enableRadio false;
     0 fadeSound 0;
     titleText ["", "BLACK FADED"];
 };

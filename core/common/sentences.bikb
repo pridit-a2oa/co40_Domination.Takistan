@@ -1,0 +1,31 @@
+class Sentences 
+{
+    class CrossroadRequest {
+        text = "Crossroad, requesting %1 at grid %2 acknowledge.";
+        speech[] = {%2};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+    
+    class CrossroadAcknowledged {
+        text = "Acknowledged, %1 en route - stand by.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

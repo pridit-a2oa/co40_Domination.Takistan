@@ -4,6 +4,7 @@
 
 #include "x_macros.sqf"
 
+__module(crossroad);
 __module(loadout);
 __module(perk);
 __module(inventory);
@@ -25,3 +26,6 @@ __module(vehicle_menu);
 __module(vehicle_protection);
 __module(vehicle_service);
 __module(vehicle_teleport);
+__module(airdrop);
+__module(airtaxi);
+__module(artillery);

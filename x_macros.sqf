@@ -24,7 +24,6 @@
 #define __submodule(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __functionRE(module,file) format ["%1\functions\fn_%2.sqf", #module, #file]
-#define __bikb(module) format ["%1\sentences.bikb", #module]
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 
 #define __ccppfln(file) call compile preprocessFileLineNumbers #file

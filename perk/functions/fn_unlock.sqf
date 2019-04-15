@@ -23,7 +23,7 @@ switch (_tier) do {
             case 4: {
                 player setVariable [QGVAR(perkAirdrop), true];
                 
-                hintC "To call an airdrop use the radio menu, this can be accessed through the following key combination: 0-0-1";
+                1 setRadioMsg "Call Airdrop";
             };
             
             case 5: {
@@ -47,15 +47,34 @@ switch (_tier) do {
             };
         };
     };
+    
     case 1: {
         switch (_perk) do {
             case 1: {
-                player setVariable [QGVAR(perkAirstrikeSalvoes), 1];
+                player setVariable [QGVAR(perkArtillerySalvoes), 1];
                 
-                hintC "To call in an airstrike use the radio menu, this can be accessed through the following key combination: 0-0-2";
+                2 setRadioMsg "Call Artillery Strike";
+            };
+            
+            case 2: {
+                player setVariable [QGVAR(perkArtillerySalvoes), 2];
+            };
+            
+            case 3: {
+                player setVariable [QGVAR(perkArtilleryRange), 1500];
+            };
+            
+            case 4: {
+                player setVariable [QGVAR(perkArtilleryCooldownMax), 1500];
+                player setVariable [QGVAR(perkArtilleryCooldown), (player getVariable QGVAR(perkArtilleryCooldownMax)) - (player getVariable QGVAR(perkArtilleryCooldown))];
+            };
+            
+            case 5: {
+                player setVariable [QGVAR(perkArtillerySalvoes), 3];
             };
         };
     };
+    
     case 2: {
         switch (_perk) do {
             case 1: {
@@ -64,7 +83,7 @@ switch (_tier) do {
             };
             
             case 2: {
-                player setVariable [QGVAR(perkFullRepair), true];
+                player setVariable [QGVAR(perkRepairFull), true];
             };
             
             case 4: {
@@ -73,6 +92,7 @@ switch (_tier) do {
             };
         };
     };
+    
     case 5: {
         switch (_perk) do {
             case 2: {
@@ -90,12 +110,13 @@ switch (_tier) do {
             };
         };
     };
+    
     case 6: {
         switch (_perk) do {
             case 1: {
                 player setVariable [QGVAR(perkAirTaxi), true];
                 
-                hintC "To call an air taxi use the radio menu, this can be accessed through the following key combination: 0-0-3";
+                3 setRadioMsg "Call Air Taxi";
             };
         };
     }

@@ -24,7 +24,8 @@ class Mission
 		"warfarebuildings",
 		"cawheeled_d_baf",
 		"camp_armory_misc_info_board",
-		"caair_e_ch_47f"
+		"caair_e_ch_47f",
+		"hj_modules_cfgexplorer"
 	};
 	addOnsAuto[]=
 	{

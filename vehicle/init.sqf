@@ -20,7 +20,7 @@ if (isServer) then {
     };
 };
 
-if (hasInterface) then {
+if (hasInterface) then {    
     if (!isNil QMODULE(marker)) then {
         [_vehicle] __submodule(marker);
     };
