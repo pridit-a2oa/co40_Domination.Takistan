@@ -20,7 +20,7 @@ __cppfln(FUNC(THIS_MODULE,drop),THIS_MODULE\functions\fn_drop.sqf);
 if (hasInterface) then {
     _trigger = createTrigger ["EmptyDetector", position player];
     _trigger setTriggerActivation ["ALPHA", "PRESENT", true];
-    _trigger setTriggerStatements ["this", "0 = [] execVM 'airdrop\functions\fn_call.sqf'",""];
+    _trigger setTriggerStatements ["this", "0 = ['USVehicleBox_EP1'] execVM 'airdrop\functions\fn_call.sqf'",""];
     
     // 1 setRadioMsg "NULL";
 };

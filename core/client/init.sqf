@@ -36,7 +36,7 @@ if (!isNil QMODULE(vehicle)) then {
     if (!isNil QMODULE(ammobox)) then {
         {
             [_x] __module(ammobox);
-        } forEach (allMissionObjects "USVehicleBox_EP1");
+        } forEach (allMissionObjects GVAR(ammobox_type));
     };
     
     if (!isNil QMODULE(vehicle_mhq)) then {

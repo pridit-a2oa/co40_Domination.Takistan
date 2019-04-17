@@ -1,6 +1,7 @@
 #define THIS_MODULE airdrop
 #include "x_macros.sqf"
-private ["_position", "_vehicle", "_aircraft", "_crew", "_marker"];
+private ["_drop", "_position", "_vehicle", "_aircraft", "_crew", "_marker"];
+PARAMS_1(_drop);
 
 _position = screenToWorld [0.5, 0.5];
 
@@ -19,17 +20,33 @@ _vehicle = [_spawn, _direction, GVAR(airdrop_aircraft), _group] call BIS_fnc_spa
 _aircraft = _vehicle select 0;
 _crew = _vehicle select 1;
 
+_aircraft lock true;
+_aircraft flyInHeight 200;
+
 {
     _x setCaptive true;
 } forEach _crew;
 
-_aircraft lock true;
-
 [_aircraft] __module(vehicle);
 
-_waypoint = _group addWaypoint [_position, 0];
-_waypoint setWaypointBehaviour "CARELESS";
-_waypoint setWaypointSpeed "NORMAL";
-_waypoint setWaypointType "MOVE";
+_area = markerPos QGVAR(area);
 
-[_aircraft, _position] spawn FUNC(THIS_MODULE,drop);
+_start = _group addWaypoint [_position, 0];
+_start setWaypointBehaviour "CARELESS";
+_start setWaypointSpeed "NORMAL";
+_start setWaypointType "MOVE";
+
+_exit = [_area, 10000, _direction] call BIS_fnc_relPos;
+
+_end = _group addWaypoint [_exit, 0];
+_end setWaypointBehaviour "CARELESS";
+_end setWaypointSpeed "NORMAL";
+_end setWaypointType "MOVE";
+
+[_aircraft, _position, _drop] spawn FUNC(THIS_MODULE,drop);
+
+waitUntil {_aircraft distance _exit < 500};
+
+_aircraft setDamage 1;
+
+deleteVehicle _aircraft;

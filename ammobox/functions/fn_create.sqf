@@ -4,8 +4,8 @@ private ["_position", "_direction", "_locality"];
 PARAMS_3(_position,_direction,_locality);
 
 _box = switch (_locality) do {
-    case true: {"USVehicleBox_EP1" createVehicleLocal _position};
-    case default {"USVehicleBox_EP1" createVehicle _position};
+    case true: {GVAR(ammobox_type) createVehicleLocal _position};
+    case default {GVAR(ammobox_type) createVehicle _position};
 };
 
 _box setDir _direction;

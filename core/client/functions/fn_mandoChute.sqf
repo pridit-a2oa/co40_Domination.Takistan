@@ -37,7 +37,7 @@ while {((getPos _object select 2) > 1)} do {
     _posASL = getPosASL _object;
     _ang = ((_target select 0) - (_posASL select 0)) atan2 ((_target select 1) - (_posASL select 1));
     
-    if (([_target select 0, _target select 1, 0] distance [_posASL select 0, _posASL select 1, 0]) > 2) then {
+    if (([_target select 0, _target select 1, 0] distance [_posASL select 0, _posASL select 1, 0]) > 10) then {
         if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
     } else {
         if ((_vz - 0.5 * _deltatime) > -3) then {_vz = _vz - 0.5 * _deltatime};
@@ -65,12 +65,10 @@ while {((getPos _object select 2) > 1)} do {
 
     _parachute setDir _dir;
     _parachute setVelocity [sin(_dir) * _vh, cos(_dir) * _vh, _vz];
-    
-    _object setDir _dir;
 
     sleep 0.01;
 };
 
 detach _object;
 
-_object setPos [(position _object) select 0, (position _object) select 1, 0];
+deleteVehicle _parachute;

@@ -13,10 +13,6 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     _valid = _valid + GVAR(vehicle_ammobox_types);
 };
 
-if (!isNil QMODULE(vehicle_lift)) then {
-    _valid = _valid + GVAR(vehicle_lift_types);
-};
-
 if (!isNil QMODULE(vehicle_mhq)) then {
     _valid = _valid + GVAR(vehicle_mhq_types);
 };
