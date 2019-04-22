@@ -16,5 +16,3 @@ _box setVariable [QGVAR(immune), true];
 
 [_box] call FUNC(THIS_MODULE,replenish);
 [_box] execFSM FSM(THIS_MODULE,respawn);
-
-[_box] __handler(ammobox);

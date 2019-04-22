@@ -2,7 +2,7 @@
 private ["_aircraft", "_position", "_object"];
 PARAMS_3(_aircraft, _position, _drop);
 
-waitUntil {_aircraft distance _position < 350};
+waitUntil {_aircraft distance _position < 450};
 
 _aircraft animate ["ramp_top", 1];
 _aircraft animate ["ramp_bottom", 1];
@@ -22,7 +22,7 @@ _payload attachTo [_parachute, [0,0,1]];
 
 [_parachute, _payload, _position, 0] call FUNC(client,mandoChute);
 
-waitUntil {(position _payload) select 2 < 5};
+waitUntil {(position _payload) select 2 < 3};
 
 _position = [(position _parachute) select 0, (position _parachute) select 1, 0];
 
@@ -36,9 +36,11 @@ if (!isNil QMODULE(ammobox) && {_drop == GVAR(ammobox_type)}) exitWith {
     [nil, nil, rExecVM, __handlerRE(ammobox), _ammobox] call RE;
 };
 
+if (!isNil QMODULE(vehicle)) then {
+    [nil, nil, rExecVM, __handlerRE(vehicle), _payload] call RE;
+};
+
+sleep 1;
+
 _payload setDamage 0;
 _payload setFuel 1;
-
-if (!isNil QMODULE(vehicle)) then {
-    [_payload] __handler(vehicle);
-};

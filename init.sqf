@@ -1,15 +1,11 @@
 #include "x_macros.sqf"
 
-if (isMultiplayer && {!isDedicated}) then {
-    0 fadeSound 0;
-    titleText ["", "BLACK FADED"];
-};
+0 fadeSound 0;
+titleText ["", "BLACK FADED"];
 
 if (isServer) then {
     waitUntil {!(isNil "bis_fnc_init")};
 };
-
-__ccppfln(core\common\modules.sqf);
 
 if (!isDedicated) then {
     GVAR(client_init_trig) = createTrigger ["EmptyDetector", [0,0,0]];

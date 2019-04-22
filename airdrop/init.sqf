@@ -15,7 +15,7 @@ if (hasInterface) then {
 };
 
 // Set airdrop aircraft spawn distance
-GVAR(airdrop_aircraft_distance) = 1000; // 4500
+GVAR(airdrop_aircraft_distance) = 4500;
 
 // Set default airdrop cooldown
 GVAR(airdrop_cooldown) = 300;

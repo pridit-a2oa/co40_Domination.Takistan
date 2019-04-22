@@ -19,5 +19,6 @@ GVAR(service_vehicles) = [
 ];
 
 __cppfln(FUNC(THIS_MODULE,repair),THIS_MODULE\functions\fn_repair.sqf);
+__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 
 MODULE(THIS_MODULE) = true;

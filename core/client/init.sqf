@@ -22,7 +22,7 @@ onEachFrame {call d_fnc_client_perFrame};
 if (!isNil QMODULE(vehicle)) then {
     ["init_vehicles", {
         {
-            [_x] __handler(vehicle);
+            [_x] __handler("vehicle");
         } forEach vehicles;
 
         ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
@@ -32,7 +32,7 @@ if (!isNil QMODULE(vehicle)) then {
 ["init_objects", {
     if (!isNil QMODULE(ammobox)) then {
         {
-            [_x] __handler(ammobox);
+            [_x] __handler("ammobox");
         } forEach (allMissionObjects GVAR(ammobox_type));
     };
 
@@ -46,19 +46,17 @@ if (!isNil QMODULE(vehicle)) then {
 }, 0] call FUNC(THIS_MODULE,addPerFrame);
 
 0 spawn {
-    if (isMultiplayer) then {
-        waitUntil {sleep 0.112;!isNil QGVAR(preload)};
-        sleep 0.01;
-        1 fadeSound 1;
-        titleText ["", "BLACK IN", 4];
-    };
+    waitUntil {sleep 0.112;!isNil QGVAR(preload)};
+    sleep 0.01;
+    1 fadeSound 1;
+    titleText ["", "BLACK IN", 4];
 };
 
 player addEventHandler ["respawn", {
     (_this select 0) setDir 240.214;
     
     if (!isNil QMODULE(perk)) then {
-        __module(perk);
+        __handler("perk");
     };
     
     if (!isNil QMODULE(loadout)) then {

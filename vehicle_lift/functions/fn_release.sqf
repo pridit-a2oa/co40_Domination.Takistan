@@ -22,7 +22,7 @@ if ((position _attachee) select 2 > 100) then {
             
             _this attachTo [_parachute, [0,0,1]];
             
-            while {(position _this) select 2 > 1} do {
+            while {(position _this) select 2 > 3} do {
                 sleep 1;
             };
             

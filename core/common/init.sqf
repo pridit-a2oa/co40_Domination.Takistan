@@ -31,10 +31,16 @@ if (isServer) then {
 };
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
-__ccppfln(core\THIS_MODULE\handlers.sqf);
+
+if (hasInterface) then {
+    waitUntil {!isNull player};
+};
 
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
+
+__ccppfln(core\THIS_MODULE\modules.sqf);
+__ccppfln(core\THIS_MODULE\handlers.sqf);
 
 if (isServer) then {
     __core(server);
@@ -47,7 +53,7 @@ execVM "core\common\scripts\bikb.sqf";
 if (isDedicated) then {
     if (!isNil QMODULE(vehicle)) then {
         {
-            [_x] __handler(vehicle);
+            [_x] __handler("vehicle");
         } forEach vehicles;
     };
 };

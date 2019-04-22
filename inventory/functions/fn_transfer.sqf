@@ -5,7 +5,7 @@ _type = _this select 3;
 
 if (GVAR(inventory_types) find _type == -1) exitWith {};
 
-_type = (format [QGVAR(perk%1), _type]);
+_type = (format [QGVAR(%1), _type]);
 
 _target = _this select 0;
 

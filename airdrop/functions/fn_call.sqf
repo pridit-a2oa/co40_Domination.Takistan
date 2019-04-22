@@ -41,7 +41,7 @@ _start setWaypointType "MOVE";
 _exit = [_area, 10000, _direction] call BIS_fnc_relPos;
 
 _end = _group addWaypoint [_exit, 0];
-_end setWaypointStatements ["true", "(vehicle this) setDamage 1; deleteVehicle (vehicle this)"];
+_end setWaypointStatements ["true", "_vehicle = vehicle this; {deleteVehicle _x} forEach crew _vehicle; _vehicle setDamage 1; deleteVehicle _vehicle"];
 _end setWaypointBehaviour "CARELESS";
 _end setWaypointSpeed "NORMAL";
 _end setWaypointType "MOVE";

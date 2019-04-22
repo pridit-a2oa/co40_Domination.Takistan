@@ -13,3 +13,7 @@ _attacher addAction ["Release vehicle" call FUNC(common,RedText), __function(rel
 
 _attacher setVariable [QGVAR(attached), true];
 _attacher setVariable [QGVAR(attach), nil];
+
+if (!isNil QMODULE(marker)) then {
+    [_attacher, _attachee] __submodule(marker);
+};

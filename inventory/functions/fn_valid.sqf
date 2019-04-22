@@ -1,8 +1,8 @@
-_type = format ["d_perk%1", (_this select 0)];
+_type = format ["d_%1", (_this select 0)];
 _target = _this select 1;
 
 _targetKits = _target getVariable _type;
-_targetMax = _target getVariable (_type + "Max");
+_targetMax = _target getVariable (_type + "_max");
 
 // player must have item
 if (player getVariable _type < 1) exitWith {false};

@@ -18,10 +18,10 @@
 #define PARAMS_7(param1,param2,param3,param4,param5,param6,param7) PARAMS_6(param1,param2,param3,param4,param5,param6); param7 = _this select 6
 #define PARAMS_8(param1,param2,param3,param4,param5,param6,param7,param8) PARAMS_7(param1,param2,param3,param4,param5,param6,param7); param8 = _this select 7
 
-#define __core(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
-#define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", #module]
+#define __core(module) execVM format ["core\%1\init.sqf", #module]
+#define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", module]
 #define __submodule(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
-#define __handler(module) execVM format ["%1\handle.sqf", #module];
+#define __handler(module) execVM format ["%1\handle.sqf", module]
 #define __handlerRE(module) format ["%1\handle.sqf", #module]
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __functionRE(module,file) format ["%1\functions\fn_%2.sqf", #module, #file]

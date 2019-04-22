@@ -14,7 +14,7 @@ if (hasInterface) then {
 };
 
 // Set damage threshold
-GVAR(damage_threshold) = [0.3, 0.9];
+GVAR(damage_threshold) = 0.0;
 
 __cppfln(FUNC(THIS_MODULE,heal),THIS_MODULE\functions\fn_heal.sqf);
 __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);

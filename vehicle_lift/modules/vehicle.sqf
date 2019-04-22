@@ -12,3 +12,7 @@ if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
 _vehicle addEventHandler ["getin", {
     _this execVM __function(valid);
 }];
+
+_vehicle addEventHandler ["getout", {
+    67321 cutRsc ["Default", "PLAIN"];
+}];

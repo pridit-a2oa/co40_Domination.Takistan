@@ -7,6 +7,12 @@
 #define THIS_MODULE marker
 #include "x_macros.sqf"
 
+// Set valid vehicle types for markers
+GVAR(vehicle_marker_types) = [
+    "Tank",
+    "Air"
+];
+
 // Maximum distance from original spawn position before visible
 GVAR(vehicle_distance_visible) = 10;
 

@@ -7,6 +7,8 @@
 private ["_vehicle", "_marker", "_range"];
 PARAMS_1(_vehicle);
 
+_vehicle setVariable [QGVAR(hidden), false];
+
 if (!isNil QMODULE(vehicle)) then {
     [_vehicle] __submodule(vehicle);
 };
@@ -34,8 +36,7 @@ if (!isNil "_marker") then {
         if (!isNil "_marker" && {visibleMap} && {alive _x}) then {
             _marker setMarkerPosLocal (getPosASL _x);
             
-            // this will need to change if we ever do OPFOR markers
-            if (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_distance_visible)) then {
+            if (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_distance_visible) && {!(_x getVariable QGVAR(hidden))}) then {
                 _marker setMarkerAlphaLocal 1;
             } else {
                 _marker setMarkerAlphaLocal 0;

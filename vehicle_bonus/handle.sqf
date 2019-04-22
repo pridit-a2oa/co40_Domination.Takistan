@@ -17,7 +17,7 @@ if (isServer) then {
         _vehicle setVariable [QGVAR(bonus), true];
         
         if (!isNil QMODULE(vehicle_respawn)) then {
-            [_vehicle] __handler(vehicle_respawn);
+            [_vehicle] __handler("vehicle_respawn");
         };
     };
 };

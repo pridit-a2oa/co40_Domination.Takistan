@@ -8,5 +8,9 @@
 if (hasInterface) then {
     _trigger = createTrigger ["EmptyDetector", position player];
     _trigger setTriggerActivation ["CHARLIE", "PRESENT", true];
-    _trigger setTriggerStatements ["this", "0 = [] execVM 'airtaxi\functions\fn_call.sqf'",""];
+    _trigger setTriggerStatements [
+        "this",
+        "0 = [] execVM 'airtaxi\functions\fn_call.sqf'",
+        ""
+    ];
 };

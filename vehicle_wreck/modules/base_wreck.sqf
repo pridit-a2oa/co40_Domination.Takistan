@@ -22,6 +22,8 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
+    waitUntil {!isNil {X_JIPH getVariable QGVAR(wreck_hangars)}};
+    
     _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
     
     _hangars spawn {
