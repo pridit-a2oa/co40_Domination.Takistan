@@ -6,5 +6,3 @@
 #include "x_macros.sqf"
 
 createCenter west;
-
-__ccppfln(core\THIS_MODULE\modules.sqf);

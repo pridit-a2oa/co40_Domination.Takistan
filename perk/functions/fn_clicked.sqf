@@ -10,7 +10,7 @@ disableSerialization;
 _XD_display = uiNamespace getVariable "X_PERK_DIALOG";
 
 _id = ((_tier * 10) + _perk);
-_points = player getVariable QGVAR(perk_points_available);
+_points = player getVariable QGVAR(perk_points);
 _unlocked = player getVariable QGVAR(perks_unlocked);
 
 // no perk points available to allocate
@@ -24,7 +24,7 @@ if (ctrlText __ctrl2(200 + _id) == "\ca\ui\data\cmdbar_donotfire_ca") exitWith {
 
 [_tier,_perk] call FUNC(THIS_MODULE,unlock);
 
-player setVariable [QGVAR(perk_points_available), _points - 1];
+player setVariable [QGVAR(perk_points), _points - 1];
 player setVariable [QGVAR(perks_unlocked), (_unlocked + [_id])];
 
 if (count _unlocked == 14) then {

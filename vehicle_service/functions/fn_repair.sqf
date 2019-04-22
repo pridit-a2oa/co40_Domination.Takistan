@@ -27,7 +27,7 @@ for "_i" from 1 to 3 do {
         };
         
         if (!isNil QMODULE(perk)) then {
-            _perk = player getVariable QGVAR(perkRepairFull);
+            _perk = player getVariable QGVAR(repair_full);
 
             if (!isNil "_perk") then {
                 [_vehicle, 0] call FUNC(network,setDamage);
@@ -37,7 +37,7 @@ for "_i" from 1 to 3 do {
                 };
             };
             
-            player setVariable [QGVAR(perkRepairKits), (player getVariable QGVAR(perkRepairKits)) - 1];
+            player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
         };
     };
 };

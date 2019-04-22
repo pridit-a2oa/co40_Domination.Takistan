@@ -1,12 +1,15 @@
 /**
  * Halo Module
+ *
+ * Description: This module enables players to be able to perform a HALO jump
+ * from a position of their choosing.
  */
 
 #define THIS_MODULE halo
 #include "x_macros.sqf"
 
-if (isServer) then {
-    waitUntil {!(isNil "bis_fnc_init")};
+if (hasInterface) then {
+    player setVariable [QGVAR(halo), false];
 };
 
 BIS_fnc_halo = compile preprocessFile "halo\functions\bis\fn_halo.sqf"; // override BIS function

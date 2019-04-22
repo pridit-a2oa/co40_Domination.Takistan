@@ -1,3 +1,3 @@
 #include "x_macros.sqf"
 
-player setVariable [QGVAR(perkRepairKits), player getVariable QGVAR(perkRepairKitsMax), true];
+player setVariable [QGVAR(repair_kits), player getVariable QGVAR(repair_kits_max), true];

@@ -7,7 +7,9 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-if (GVAR(bonus_vehicles) find (typeOf _vehicle) == -1) exitWith {};
+_bonus = _vehicle getVariable QGVAR(bonus);
+
+if (isNil "_bonus") exitWith {};
 
 if (!isNil QMODULE(perk)) then {
     [_vehicle] __submodule(perk);

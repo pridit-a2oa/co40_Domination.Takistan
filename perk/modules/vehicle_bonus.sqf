@@ -2,17 +2,17 @@
  * Perk Module - Vehicle Bonus Submodule
  */
 
- #define THIS_MODULE perk
- #include "x_macros.sqf"
- private ["_vehicle", "_fly"];
- PARAMS_1(_vehicle);
+#define THIS_MODULE perk
+#include "x_macros.sqf"
+private ["_vehicle", "_fly"];
+PARAMS_1(_vehicle);
 
 while {true} do {
     waitUntil {!isNull player};
     
-    _fly = player getVariable QGVAR(perkFlyAttackAircraft);
+    _fly = player getVariable QGVAR(pilot);
     
-    if (isNil "_fly" && {player == driver _vehicle}) then {
+    if (!_fly && {player == driver _vehicle}) then {
         player action ["Eject", _vehicle];
         hint "You do not have the required perk to pilot attack aircraft";
         call FUNC(THIS_MODULE,show);

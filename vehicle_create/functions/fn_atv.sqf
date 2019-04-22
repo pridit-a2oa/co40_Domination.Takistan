@@ -19,7 +19,7 @@ player reveal _atv;
 
 [nil, _atv, rSay, QGVAR(sound_build), 20] call RE;
 
-[nil, nil, rExecVM, __moduleRE(vehicle), _atv] call RE;
+[nil, nil, rExecVM, __handlerRE(vehicle), _atv] call RE;
 
 _atv setVariable [QGVAR(respawnable), false, true];
 

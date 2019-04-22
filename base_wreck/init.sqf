@@ -13,8 +13,4 @@ if (isServer) then {
     GVAR(wreck_hangar_model) = "Land_Mil_hangar_EP1";
 };
 
-if (!isNil QMODULE(vehicle_wreck)) then {
-    __submodule(vehicle_wreck);
-};
-
 MODULE(THIS_MODULE) = true;

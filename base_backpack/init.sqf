@@ -1,18 +1,13 @@
 /**
  * Backpack Module
+ *
+ * Description: This module spawns a backpack heap with subsequent context
+ * options for players to equip a backpack.
  */
 
 #define THIS_MODULE base_backpack
 #include "x_macros.sqf"
-private ["_heap"];
 
 __cppfln(FUNC(THIS_MODULE,list),THIS_MODULE\functions\fn_list.sqf);
-
-_heap = "Misc_Backpackheap_EP1" createVehicleLocal (markerPos QGVAR(player_backpacks_pos));
-_heap setDir (markerDir QGVAR(player_backpacks_pos));
-_heap setPos (markerPos QGVAR(player_backpacks_pos));
-player reveal _heap;
-
-[_heap] call FUNC(THIS_MODULE,list);
 
 MODULE(THIS_MODULE) = true;

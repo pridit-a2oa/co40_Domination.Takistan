@@ -12,7 +12,7 @@ if (isServer) then {
     [GVAR(crossroad)] joinSilent _group;
     GVAR(crossroad) enableSimulation false;
     
-    X_JIPH setVariable [QGVAR(crossroad), GVAR(crossroad)];
+    X_JIPH setVariable [QGVAR(crossroad), GVAR(crossroad), true];
 };
 
 if (hasInterface) then {

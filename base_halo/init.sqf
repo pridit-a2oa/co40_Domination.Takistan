@@ -1,12 +1,11 @@
 /**
  * Base Halo Module
+ *
+ * Description: This module enables players to be able to initiate a HALO jump
+ * from a designated object (spawned within the editor).
  */
 
 #define THIS_MODULE base_halo
 #include "x_macros.sqf"
-
-if (!isNil QMODULE(halo)) then {
-    __submodule(halo);
-};
 
 MODULE(THIS_MODULE) = true;

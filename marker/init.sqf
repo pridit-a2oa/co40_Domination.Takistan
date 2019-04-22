@@ -1,5 +1,7 @@
 /**
  * Marker Module
+ *
+ * Description: This module handles marker states and persistence.
  */
 
 #define THIS_MODULE marker

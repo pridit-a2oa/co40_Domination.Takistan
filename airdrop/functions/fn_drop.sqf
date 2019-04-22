@@ -2,9 +2,7 @@
 private ["_aircraft", "_position", "_object"];
 PARAMS_3(_aircraft, _position, _drop);
 
-_smoke = GVAR(airdrop_smoke) createVehicle _position;
-
-waitUntil {_aircraft distance _position < 325};
+waitUntil {_aircraft distance _position < 350};
 
 _aircraft animate ["ramp_top", 1];
 _aircraft animate ["ramp_bottom", 1];
@@ -35,12 +33,12 @@ if (!isNil QMODULE(ammobox) && {_drop == GVAR(ammobox_type)}) exitWith {
 
     [_ammobox] call FUNC(vehicle_ammobox,replenish);
 
-    [nil, nil, rExecVM, __moduleRE(ammobox), _ammobox] call RE;
+    [nil, nil, rExecVM, __handlerRE(ammobox), _ammobox] call RE;
 };
 
 _payload setDamage 0;
 _payload setFuel 1;
 
-hint format ["%1", _payload];
-
-[_payload] __module(vehicle);
+if (!isNil QMODULE(vehicle)) then {
+    [_payload] __handler(vehicle);
+};

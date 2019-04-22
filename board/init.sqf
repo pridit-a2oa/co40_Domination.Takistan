@@ -1,7 +1,11 @@
 /**
  * Board Module
+ *
+ * Description: This module provides players with guidance in the form of a 
+ * physical object (placed within the editor).
  */
 
-{
-    help addAction [_x, format ["board\help\%1.sqf", toLower(_x)]];
-} forEach ["Missions", "Perks", "Roles", "Tips"];
+#define THIS_MODULE board
+#include "x_macros.sqf"
+
+MODULE(THIS_MODULE) = true;

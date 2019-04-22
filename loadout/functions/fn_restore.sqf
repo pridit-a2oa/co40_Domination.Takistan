@@ -12,4 +12,5 @@ removeAllWeapons player;
 } forEach (GVAR(loadout) select 1);
 
 player addBackpack (GVAR(loadout) select 2);
+
 clearMagazineCargo (unitBackpack player);

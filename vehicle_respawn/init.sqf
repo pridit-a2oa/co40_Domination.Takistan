@@ -1,5 +1,7 @@
 /**
  * Vehicle Respawn Module
+ *
+ * Description: This modules handles respawning of designated vehicle types.
  */
 
 #define THIS_MODULE vehicle_respawn

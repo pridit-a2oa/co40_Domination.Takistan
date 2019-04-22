@@ -1,5 +1,9 @@
 /**
  * Inventory Module
+ *
+ * Description: This module provides the player with basic inventory capability
+ * to be able to perform transfers with other players (such as repair kits &
+ * medkits).
  */
 
 #define THIS_MODULE inventory

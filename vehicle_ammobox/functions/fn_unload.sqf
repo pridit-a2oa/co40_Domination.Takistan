@@ -15,7 +15,7 @@ _box = [
 
 [_box] call FUNC(vehicle_ammobox,replenish);
 
-[nil, nil, rExecVM, __moduleRE(ammobox), _box] call RE;
+[nil, nil, rExecVM, __handlerRE(ammobox), _box] call RE;
 
 [nil, _box, rSay, QGVAR(sound_box), 20] call RE;
 

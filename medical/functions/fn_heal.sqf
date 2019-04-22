@@ -7,5 +7,5 @@ sleep 6;
 player setDamage 0;
 
 if (!isNil QMODULE(perk)) then {
-    player setVariable [QGVAR(perkMedkits), (player getVariable QGVAR(perkMedkits)) - 1, true];
+    player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) - 1, true];
 };

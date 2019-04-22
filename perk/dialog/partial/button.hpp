@@ -215,7 +215,7 @@ class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest cooldown reduced by 120s";
+    tooltip = "MG nest cooldown reduced by 300s";
     action = "[3,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
@@ -265,7 +265,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Trench cooldown reduced by 120s";
+    tooltip = "Trench cooldown reduced by 300s";
     action = "[4,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
@@ -285,7 +285,7 @@ class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MQ-9 available as air drop (requires call air drop perk)";
+    tooltip = "M2A2 available as air drop (requires call air drop perk)";
     action = "[4,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
@@ -385,6 +385,6 @@ class PerkButton_Role6_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "AH-6X available as air drop (requires call air drop perk)";
+    tooltip = "AH-6J available as air drop (requires call air drop perk)";
     action = "[6,5] call d_fnc_perk_clicked";
 };

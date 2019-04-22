@@ -1,5 +1,7 @@
 /**
  * Vehicle HUD Module
+ *
+ * Description: Show an overlay for guidance with vehicle lifting.
  */
 
 #define THIS_MODULE vehicle_hud

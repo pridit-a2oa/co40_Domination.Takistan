@@ -1,5 +1,7 @@
 /**
  * Vehicle Ammobox Module
+ *
+ * Description: Enable a vehicle to replenish, load & unload an ammobox.
  */
 
 #define THIS_MODULE vehicle_ammobox

@@ -11,7 +11,7 @@ _name = getText (configFile >> "CfgWeapons" >> (_weapon select 0) >> "displayNam
     };
 } forEach (magazines player);
 
-player setVariable [QGVAR(backpack), [
+player setVariable [QGVAR(backpack_hold), [
     _weapon select 0,
     _weapon select 3,
     count (_magazines)
@@ -37,6 +37,6 @@ if (!isNil "_sidearm") then {
     player addWeapon _sidearm;
 };
 
-_action = player addAction [(format ["Equip %1", _name]) call FUNC(common,GreyText), FUNCTION(backpack,equip), [], -1, false, true, "", "player getVariable 'd_perkBackpack' && {count (player getVariable 'd_backpack') > 0} && {(d_backpack_animations find (animationState player)) == -1}"];
+_action = player addAction [(format ["Equip %1", _name]) call FUNC(common,GreyText), FUNCTION(backpack,equip), [], -1, false, true, "", "player getVariable 'd_backpack' && {count (player getVariable 'd_backpack_hold') > 0} && {(d_backpack_animations find (animationState player)) == -1}"];
 
 player setVariable [QGVAR(backpack_action), _action];

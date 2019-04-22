@@ -1,9 +1,17 @@
 /**
  * Backpack Module
+ *
+ * Description: This module enables players to carry an additional primary
+ * weapon via storing within a virtual backpack.
  */
 
 #define THIS_MODULE backpack
 #include "x_macros.sqf"
+
+if (hasInterface) then {
+    player setVariable [QGVAR(backpack), false];
+    player setVariable [QGVAR(backpack_hold), []];
+};
 
 // Set transitional animations for actions to be hidden
 GVAR(backpack_animations) = [
@@ -15,13 +23,7 @@ GVAR(backpack_animations) = [
     "amovpknlmstpsraswpstdnon_amovpknlmstpsnonwnondnon"
 ];
 
-player setVariable [QGVAR(backpack), []];
-
 __cppfln(FUNC(THIS_MODULE,equip),THIS_MODULE\functions\fn_equip.sqf);
 __cppfln(FUNC(THIS_MODULE,store),THIS_MODULE\functions\fn_store.sqf);
-
-if (!isNil QMODULE(perk)) then {
-    __submodule(perk);
-};
 
 MODULE(THIS_MODULE) = true;

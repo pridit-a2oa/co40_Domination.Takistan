@@ -7,6 +7,6 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-if (side _vehicle != east && {_vehicle isKindOf "Car" || _vehicle isKindOf "Air"}) then {
+if (side _vehicle != east) then {
     [_vehicle] __fsm(invulnerable);
 };
