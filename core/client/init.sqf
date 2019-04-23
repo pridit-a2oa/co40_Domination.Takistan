@@ -5,6 +5,8 @@
 #define THIS_MODULE client
 #include "x_macros.sqf"
 
+player disableConversation true;
+
 GVAR(perframe_store) = "HeliHEmpty" createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
 GVAR(perframe_previous) = -999;
@@ -16,6 +18,12 @@ __cppfln(FUNC(THIS_MODULE,numbersToWords),core\THIS_MODULE\functions\fn_numbersT
 __cppfln(FUNC(THIS_MODULE,perFrame),core\THIS_MODULE\functions\fn_perFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,removePerFrame),core\THIS_MODULE\functions\fn_removePerFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,taskHint),core\THIS_MODULE\functions\fn_taskHint.sqf);
+
+0 spawn {
+    sleep 0.01;
+    1 fadeSound 1;
+    titleText ["", "BLACK IN", 4];
+};
 
 onEachFrame {call d_fnc_client_perFrame};
 
@@ -45,13 +53,6 @@ if (!isNil QMODULE(vehicle)) then {
     ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
 }, 0] call FUNC(THIS_MODULE,addPerFrame);
 
-0 spawn {
-    waitUntil {sleep 0.112;!isNil QGVAR(preload)};
-    sleep 0.01;
-    1 fadeSound 1;
-    titleText ["", "BLACK IN", 4];
-};
-
 player addEventHandler ["respawn", {
     (_this select 0) setDir 240.214;
     
@@ -66,3 +67,5 @@ player addEventHandler ["respawn", {
 
 deleteVehicle GVAR(client_init_trig);
 GVAR(client_init_trig) = nil;
+
+MODULE(THIS_MODULE) = true;

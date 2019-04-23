@@ -10,8 +10,6 @@
 
 if (hasInterface) then {
     player setVariable [QGVAR(air_taxi), false];
-    
-    // 3 setRadioMsg "NULL";
 };
 
 // Set air taxi smoke grenade

@@ -5,14 +5,13 @@
 #define THIS_MODULE squad
 #include "x_macros.sqf"
 
-if (hasInterface) then {
-    _trigger = createTrigger ["EmptyDetector", position player];
-    _trigger setTriggerActivation ["JULIET", "PRESENT", true];
-    _trigger setTriggerStatements [
-        "this",
-        "0 = [] execVM 'squad\functions\fn_leave.sqf'",
-        ""
-    ];
-    
-    [nil, player, "per", rAddAction, "Join Squad", __function(join), [], 3, false, true, "", "player != _target && {group player != (group _target)}"] call RE;
+if (!isNil QMODULE(communication)) then {
+    [
+        BIS_MENU_Squad,
+        "Leave Squad",
+        "1-IsAlone",
+        "[player] joinSilent grpNull"
+    ] call FUNC(communication,add);
 };
+
+[nil, player, "per", rAddAction, "Join Squad", __function(join), [], 3, false, true, "", "group player != (group _target)"] call RE;

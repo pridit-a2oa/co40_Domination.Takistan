@@ -10,8 +10,6 @@
 if (hasInterface) then {
     player setVariable [QGVAR(airdrop), false];
     player setVariable [QGVAR(airdrop_type), "USVehicleBox_EP1"];
-    
-    // 1 setRadioMsg "NULL";
 };
 
 // Set airdrop aircraft spawn distance

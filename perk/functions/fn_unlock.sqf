@@ -30,7 +30,14 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     player setVariable [QGVAR(airdrop), true];
                     
-                    1 setRadioMsg "Call Airdrop";
+                    if (!isNil QMODULE(communication)) then {
+                        [
+                            BIS_MENU_Perks,
+                            "Airdrop",
+                            "CursorOnGround",
+                            "[player getVariable 'd_airdrop_type'] execVM 'airdrop\functions\fn_call.sqf'"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             
@@ -73,7 +80,14 @@ switch (_tier) do {
                     player setVariable [QGVAR(artillery), true];
                     player setVariable [QGVAR(artillery_salvoes), 1];
                     
-                    2 setRadioMsg "Call Artillery Strike";
+                    if (!isNil QMODULE(communication)) then {
+                        [
+                            BIS_MENU_Perks,
+                            "Artillery Strike",
+                            "CursorOnGround",
+                            "0 = [] execVM 'artillery\functions\fn_call.sqf'"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             
@@ -247,7 +261,14 @@ switch (_tier) do {
                 if (!isNil QMODULE(airtaxi)) then {
                     player setVariable [QGVAR(air_taxi), true];
                     
-                    3 setRadioMsg "Call Air Taxi";
+                    if (!isNil QMODULE(communication)) then {
+                        [
+                            BIS_MENU_Perks,
+                            "Air Taxi",
+                            "CursorOnGround",
+                            "0 = [] execVM 'airtaxi\functions\fn_call.sqf'"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             

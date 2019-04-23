@@ -8,8 +8,6 @@
 if (hasInterface) then {
     player setVariable [QGVAR(artillery), false];
     player setVariable [QGVAR(artillery_salvoes), 0];
-    
-    // 2 setRadioMsg "NULL";
 };
 
 // Set default artillery range (in meters)

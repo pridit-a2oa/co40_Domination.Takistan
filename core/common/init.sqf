@@ -32,10 +32,6 @@ if (isServer) then {
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
 
-if (hasInterface) then {
-    waitUntil {!isNull player};
-};
-
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
 
@@ -58,8 +54,4 @@ if (isDedicated) then {
     };
 };
 
-QGVAR(base_marker) setMarkerAlphaLocal 0;
-
-skipTime 5;
-
-GVAR(init_processed) = true;
+MODULE(THIS_MODULE) = true;

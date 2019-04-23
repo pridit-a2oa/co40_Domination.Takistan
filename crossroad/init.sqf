@@ -1,5 +1,8 @@
 /**
  * Crossroad Module
+ *
+ * Description: This module provides a communication layer between the player
+ * and an entity representating the base.
  */
 
 #define THIS_MODULE crossroad

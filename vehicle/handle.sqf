@@ -25,6 +25,10 @@ if (hasInterface) then {
         [_vehicle] __submodule(marker);
     };
     
+    if (!isNil QMODULE(option)) then {
+        [_vehicle] __submodule(option);
+    };
+    
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submodule(perk);
     };

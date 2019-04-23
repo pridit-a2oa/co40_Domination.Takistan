@@ -6,9 +6,6 @@
 private ["_handlers"];
 
 _handlers = [
-    "airdrop",
-    "airtaxi",
-    "artillery",
     "backpack",
     "base",
     "base_ammobox",
@@ -19,11 +16,14 @@ _handlers = [
     "base_wreck",
     "board",
     "cleanup",
+    "communication",
     "medical",
+    "option",
     "perk",
     "squad",
     "vehicle_bonus",
-    "vehicle_service"
+    "vehicle_service",
+    "weather"
 ];
 
 {
