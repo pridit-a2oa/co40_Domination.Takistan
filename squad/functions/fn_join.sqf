@@ -1,1 +1,1 @@
-[player] join (group (_this select 0));
+[player] joinSilent (_this select 0);
