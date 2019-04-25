@@ -1,6 +1,7 @@
 /**
  * Weather Module
- * DynamicWeatherEffects.sqf version 1.01 by Engima of Ostgota Ops
+ *
+ * Description: This module sets dynamic weather.
  */
 
 #define THIS_MODULE weather

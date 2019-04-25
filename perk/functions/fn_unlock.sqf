@@ -35,7 +35,8 @@ switch (_tier) do {
                             BIS_MENU_Perks,
                             "Airdrop",
                             "CursorOnGround",
-                            "[player getVariable 'd_airdrop_type'] execVM 'airdrop\functions\fn_call.sqf'"
+                            "[player getVariable 'd_airdrop_type'] execVM 'airdrop\functions\fn_call.sqf'",
+                            "\ca\ui\data\cursor_tactical_ca"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -85,7 +86,8 @@ switch (_tier) do {
                             BIS_MENU_Perks,
                             "Artillery Strike",
                             "CursorOnGround",
-                            "0 = [] execVM 'artillery\functions\fn_call.sqf'"
+                            "0 = [] execVM 'artillery\functions\fn_call.sqf'",
+                            "\ca\ui\data\cursor_support_ca"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -266,7 +268,8 @@ switch (_tier) do {
                             BIS_MENU_Perks,
                             "Air Taxi",
                             "CursorOnGround",
-                            "0 = [] execVM 'airtaxi\functions\fn_call.sqf'"
+                            "0 = [] execVM 'airtaxi\functions\fn_call.sqf'",
+                            "\ca\ui\data\cursor_getin_ca"
                         ] call FUNC(communication,add);
                     };
                 };

@@ -2,7 +2,7 @@
  * Option Module
  *
  * Description: This module provides players with a shortcut to the
- * 'Communication' submenus.
+ * 'Communication' menu.
  */
 
 #define THIS_MODULE option

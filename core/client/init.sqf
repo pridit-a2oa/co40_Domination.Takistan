@@ -57,7 +57,7 @@ player addEventHandler ["respawn", {
     (_this select 0) setDir 240.214;
     
     if (!isNil QMODULE(perk)) then {
-        __handler("perk");
+        // __handler("perk");
     };
     
     if (!isNil QMODULE(loadout)) then {
@@ -67,5 +67,3 @@ player addEventHandler ["respawn", {
 
 deleteVehicle GVAR(client_init_trig);
 GVAR(client_init_trig) = nil;
-
-MODULE(THIS_MODULE) = true;

@@ -7,6 +7,7 @@
 
 __cppfln(FUNC(THIS_MODULE,setDamage),core\THIS_MODULE\functions\fn_setDamage.sqf);
 __cppfln(FUNC(THIS_MODULE,setFuel),core\THIS_MODULE\functions\fn_setFuel.sqf);
+__cppfln(FUNC(THIS_MODULE,setGroupId),core\THIS_MODULE\functions\fn_setGroupId.sqf);
 __cppfln(FUNC(THIS_MODULE,setHit),core\THIS_MODULE\functions\fn_setHit.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorUp),core\THIS_MODULE\functions\fn_setVectorUp.sqf);
 
@@ -16,6 +17,10 @@ __cppfln(FUNC(THIS_MODULE,setVectorUp),core\THIS_MODULE\functions\fn_setVectorUp
 
 "setFuelGlobal" addPublicVariableEventHandler {
     (_this select 1) call FUNC(THIS_MODULE,setFuel);
+};
+
+"setGroupIdGlobal" addPublicVariableEventHandler {
+    (_this select 1) call FUNC(THIS_MODULE,setGroupId);
 };
 
 "setHitGlobal" addPublicVariableEventHandler {

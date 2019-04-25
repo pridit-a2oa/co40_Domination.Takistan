@@ -16,7 +16,7 @@ _handlers = [
     "base_wreck",
     "board",
     "cleanup",
-    "communication",
+    "crossroad",
     "medical",
     "option",
     "perk",

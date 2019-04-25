@@ -35,16 +35,14 @@ __ccppfln(core\THIS_MODULE\scripts\common.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);
 __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
 
+__core(network);
+
 __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);
 
 if (isServer) then {
     __core(server);
 };
-
-__core(network);
-
-execVM "core\common\scripts\bikb.sqf";
 
 if (isDedicated) then {
     if (!isNil QMODULE(vehicle)) then {
