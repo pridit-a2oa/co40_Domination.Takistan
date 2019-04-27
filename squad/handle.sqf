@@ -6,18 +6,13 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(groups), [[
-        "B Alpha",
-        "B Bravo",
-        "B Charlie",
-        "B Delta",
-        "B Echo",
-        "B Foxtrot"
-    ]] call FUNC(THIS_MODULE,groups), true];
+    __fsm(watcher);
 };
 
 if (hasInterface) then {
     waitUntil {!isNil {X_JIPH getVariable QGVAR(groups)}};
+    
+    sleep 1;
     
     call FUNC(THIS_MODULE,assign);
 
@@ -39,5 +34,5 @@ if (hasInterface) then {
         ] call FUNC(communication,add);
     };
     
-    [nil, player, "per", rAddAction, "Join Squad", __function(join), [], 10, false, true, "", "group player != (group _target)"] call RE;
+    [nil, player, "per", rAddAction, "Join Squad", __function(join), [], 10, false, true, "", "alive _target && {group player != (group _target)}"] call RE;
 };

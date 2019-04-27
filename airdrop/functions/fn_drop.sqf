@@ -2,7 +2,7 @@
 private ["_aircraft", "_position", "_object"];
 PARAMS_3(_aircraft, _position, _drop);
 
-waitUntil {_aircraft distance _position < 450};
+waitUntil {_aircraft distance _position < 500};
 
 _aircraft animate ["ramp_top", 1];
 _aircraft animate ["ramp_bottom", 1];

@@ -20,8 +20,7 @@ _groups = [];
         } forEach allGroups;
     } else {
         _group = createGroup west;
-        _group createUnit ["Logic", [0,0,0], [], 0, "NONE"];
-
+        
         [nil, nil, "per", rSpawn, [_group, GVAR(group_names) select _forEachIndex], {(_this select 0) setGroupId [(_this select 1)]}] call RE;
         
         _groups = _groups + [_group];

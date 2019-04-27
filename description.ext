@@ -33,6 +33,9 @@ class CfgIdentities {
         speaker = "Male03EN";
         pitch = 1.0;
     };
+    class DHQ_EN2: DHQ_EN1 {
+        name = "Meyers, HQ";
+    };
 };
 
 class RscTitles { 

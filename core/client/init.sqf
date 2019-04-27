@@ -57,10 +57,14 @@ player addEventHandler ["respawn", {
     (_this select 0) setDir 240.214;
     
     if (!isNil QMODULE(perk)) then {
-        // __handler("perk");
+        __handler("perk");
     };
     
-    if (!isNil QMODULE(loadout)) then {
+    if (!isNil QMODULE(option)) then {
+        __handler("option");
+    };
+    
+    if (!isNil QMODULE(loadout) && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
     };
 }];

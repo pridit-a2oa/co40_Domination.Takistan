@@ -2,13 +2,13 @@
  * Squad Module
  *
  * Description: This module enables players to join & leave the squads of their
- * teammates.
+ * teammates as well as handling player group association.
  */
 
 #define THIS_MODULE squad
 #include "x_macros.sqf"
 
-// Set the available group names
+// Set the default, joinable group names
 GVAR(group_names) = [
     "Alpha",
     "Bravo",
@@ -17,6 +17,13 @@ GVAR(group_names) = [
     "Echo",
     "Foxtrot"
 ];
+
+// Set the group ids which will match Group as a string
+GVAR(group_ids) = [];
+
+{
+    GVAR(group_ids) = GVAR(group_ids) + ["B " + _x];
+} forEach GVAR(group_names);
 
 __cppfln(FUNC(THIS_MODULE,assign),THIS_MODULE\functions\fn_assign.sqf);
 __cppfln(FUNC(THIS_MODULE,join),THIS_MODULE\functions\fn_join.sqf);

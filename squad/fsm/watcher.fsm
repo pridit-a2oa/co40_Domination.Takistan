@@ -1,0 +1,66 @@
+class FSM
+{
+  fsmName = "Watcher";
+  class States
+  {
+    class Start
+    {
+      name = "Start";
+      init = "";
+      precondition = "";
+      class Links
+      {
+        class _
+        {
+          priority = 0.000000;
+          to="_";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+    class Loop
+    {
+      name = "Loop";
+      init = "_timeend = time + 2;";
+      precondition = "";
+      class Links
+      {
+        class time_____timeend
+        {
+          priority = 0.000000;
+          to="_";
+          precondition = "";
+          condition="time >= _timeend";
+          action="";
+        };
+      };
+    };
+    class _
+    {
+      name = "_";
+      init = "" \n
+       "_groups = X_JIPH getVariable ""d_groups"";" \n
+       "if (isNil ""_groups"" || {grpNull in _groups}) then {" \n
+       "    X_JIPH setVariable [""d_groups"", [d_group_ids] call d_fnc_squad_groups, true];" \n
+       "}";
+      precondition = "";
+      class Links
+      {
+        class _
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
