@@ -28,5 +28,6 @@ GVAR(group_ids) = [];
 __cppfln(FUNC(THIS_MODULE,assign),THIS_MODULE\functions\fn_assign.sqf);
 __cppfln(FUNC(THIS_MODULE,join),THIS_MODULE\functions\fn_join.sqf);
 __cppfln(FUNC(THIS_MODULE,groups),THIS_MODULE\functions\fn_groups.sqf);
+__cppfln(FUNC(THIS_MODULE,reveal),THIS_MODULE\functions\fn_reveal.sqf);
 
 MODULE(THIS_MODULE) = true;

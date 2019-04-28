@@ -17,6 +17,7 @@ _handlers = [
     "board",
     "cleanup",
     "crossroad",
+    "marker",
     "medical",
     "option",
     "perk",

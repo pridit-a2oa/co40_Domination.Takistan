@@ -10,7 +10,8 @@
 // Set valid vehicle types for markers
 GVAR(vehicle_marker_types) = [
     "Tank",
-    "Air"
+    "Air",
+    "StrykerBase_EP1"
 ];
 
 // Maximum distance from original spawn position before visible

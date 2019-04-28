@@ -7,10 +7,12 @@
 private ["_vehicle"];
 PARAMS_1(_vehicle);
 
-if (isServer) then {
+if (isNil {_vehicle getVariable QGVAR(position)}) then {
     _vehicle setVariable [QGVAR(position), position _vehicle, true];
     _vehicle setVariable [QGVAR(direction), getDir _vehicle];
-    
+};
+
+if (isServer) then {
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submodule(vehicle_respawn);
     };

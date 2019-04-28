@@ -4,43 +4,23 @@
 
 #define THIS_MODULE marker
 #include "x_macros.sqf"
-private ["_vehicle", "_marker", "_range"];
+private ["_vehicle", "_marker"];
 PARAMS_1(_vehicle);
 
-_vehicle setVariable [QGVAR(hidden), false];
-
-if (!isNil QMODULE(vehicle)) then {
-    [_vehicle] __submodule(vehicle);
-};
-
-if (!isNil QMODULE(vehicle_mhq)) then {
-    [_vehicle] __submodule(vehicle_mhq);
-};
-
-if (!isNil QMODULE(vehicle_service)) then {
-    [_vehicle] __submodule(vehicle_service);
-};
-
-_marker = [_vehicle] call FUNC(THIS_MODULE,valid);
-
-if (!isNil "_marker") then {
-    _vehicle addMPEventHandler ["MPKilled", {
-        deleteMarkerLocal ([(_this select 0)] call FUNC(THIS_MODULE,valid));
-    }];
-};
-
-["marker_vehicles", {
-    {
-        _marker = [_x] call FUNC(THIS_MODULE,valid);
+{
+    if (typeOf _vehicle isKindOf _x) exitWith {
+        _vehicle setVariable [QGVAR(hidden), false];
         
-        if (!isNil "_marker" && {visibleMap} && {alive _x}) then {
-            _marker setMarkerPosLocal (getPosASL _x);
-            
-            if (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_distance_visible) && {!(_x getVariable QGVAR(hidden))}) then {
-                _marker setMarkerAlphaLocal 1;
-            } else {
-                _marker setMarkerAlphaLocal 0;
-            };
+        if (!isNil QMODULE(vehicle)) then {
+            [_vehicle] __submodule(vehicle);
         };
-    } forEach vehicles;
-}, 2] call FUNC(client,addPerFrame);
+        
+        if (!isNil QMODULE(vehicle_mhq)) then {
+            [_vehicle] __submodule(vehicle_mhq);
+        };
+
+        if (!isNil QMODULE(vehicle_service)) then {
+            [_vehicle] __submodule(vehicle_service);
+        };
+    };
+} forEach GVAR(vehicle_marker_types);

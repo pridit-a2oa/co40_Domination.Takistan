@@ -15,7 +15,7 @@ if (!isDedicated) then {
     GVAR(client_init_trig) setTriggerArea [0,0,0,false];
     GVAR(client_init_trig) setTriggerActivation ["NONE", "PRESENT", false];
     GVAR(client_init_trig) setTriggerTimeout [1, 1, 1, false];
-    GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_mdl_common'}", "call compile preprocessFileLineNumbers 'core\client\init.sqf'", ""];
+    GVAR(client_init_trig) setTriggerStatements ["X_INIT && {!isNil 'd_mdl_common'}", "call compile preprocessFileLineNumbers 'core\client\handle.sqf'", ""];
 };
 
 enableSaving [false,false];

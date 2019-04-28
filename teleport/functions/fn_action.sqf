@@ -3,6 +3,8 @@
 
 disableSerialization;
 
+if (!ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
+
 _target = call FUNC(THIS_MODULE,target);
 
 _target spawn {

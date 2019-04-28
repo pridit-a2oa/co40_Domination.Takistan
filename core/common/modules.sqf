@@ -6,6 +6,7 @@
 private ["_modules"];
 
 _modules = [
+    "weather",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -44,8 +45,7 @@ _modules = [
     "vehicle_service",
     "vehicle_teleport",
     "vehicle_welcome",
-    "vehicle_wreck",
-    "weather"
+    "vehicle_wreck"
 ];
 
 {
