@@ -4,6 +4,7 @@
 
 #include "x_macros.sqf"
 private ["_vehicle"];
+
 PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};

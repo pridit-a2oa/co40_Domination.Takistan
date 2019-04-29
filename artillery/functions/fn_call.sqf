@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_unit", "_position"];
+
 PARAMS_2(_unit, _position);
 
 if (hasInterface) then {

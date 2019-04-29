@@ -4,6 +4,7 @@
 
 #include "x_macros.sqf"
 private ["_vehicle", "_state", "_marker"];
+
 PARAMS_2(_vehicle,_state);
 
 _marker = str ((_vehicle getVariable QGVAR(position)) select 0);

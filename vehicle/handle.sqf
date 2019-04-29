@@ -5,6 +5,7 @@
 #define THIS_MODULE vehicle
 #include "x_macros.sqf"
 private ["_vehicle"];
+
 PARAMS_1(_vehicle);
 
 if (isNil {_vehicle getVariable QGVAR(position)}) then {
@@ -22,7 +23,7 @@ if (isServer) then {
     };
 };
 
-if (hasInterface) then {    
+if (hasInterface) then {
     if (!isNil QMODULE(marker)) then {
         [_vehicle] __submodule(marker);
     };

@@ -1,6 +1,7 @@
 #define THIS_MODULE vehicle_ammobox
 #include "x_macros.sqf"
 private ["_vehicle", "_position", "_box"];
+
 PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};

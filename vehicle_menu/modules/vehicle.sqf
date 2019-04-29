@@ -5,6 +5,7 @@
 #define THIS_MODULE vehicle_menu
 #include "x_macros.sqf"
 private ["_vehicle", "_valid"];
+
 PARAMS_1(_vehicle);
 
 _valid = [];

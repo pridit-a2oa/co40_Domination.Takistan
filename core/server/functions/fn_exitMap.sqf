@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_vehicle"];
+
 PARAMS_1(_vehicle);
 
 _waypoint = (group (driver _aircraft)) addWaypoint [[markerPos QGVAR(area), 9500, getDir _vehicle] call BIS_fnc_relPos, 0];

@@ -8,9 +8,10 @@
 #include "x_macros.sqf"
 
 // Set valid vehicle types for markers
-GVAR(vehicle_marker_types) = [
-    "Tank",
+GVAR(marker_vehicle_types) = [
     "Air",
+    "Tank",
+    "Truck",
     "StrykerBase_EP1"
 ];
 

@@ -1,7 +1,7 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
-private ["_list", "_name", "_position", "_index"];
-private ["_vehicle"];
+private ["_list", "_name", "_position", "_index", "_vehicle"];
+
 PARAMS_1(_vehicle);
 
 disableSerialization;

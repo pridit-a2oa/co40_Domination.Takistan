@@ -1,7 +1,8 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_tier", "_perk"];
-PARAMS_2(_tier,_perk);
+
+PARAMS_2(_tier, _perk);
 
 switch (_tier) do {
     case 0: {

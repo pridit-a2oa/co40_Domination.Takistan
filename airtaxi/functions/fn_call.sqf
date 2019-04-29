@@ -1,9 +1,51 @@
 #include "x_macros.sqf"
-private ["_position"];
+private ["_unit", "_position", "_name", "_checks", "_minimum", "_near", "_maximum", "_vehicle", "_aircraft", "_crew", "_pilot", "_helper"];
+
 PARAMS_2(_unit, _position);
 
 if (hasInterface) then {
-    X_JIPH setVariable [QGVAR(air_taxi), true, true];
+    _name = "Air taxi";
+    _checks = [
+        [
+            _name,
+            _position,
+            player,
+            [GVAR(air_taxi_distance_player), "within", "of your location"]
+        ] call FUNC(helper,distanceFrom),
+        
+        [
+            _name,
+            _position,
+            markerPos QGVAR(base_marker),
+            [GVAR(air_taxi_distance_base), "in excess of", "from base"]
+        ] call FUNC(helper,distanceFrom),
+        
+        [
+            _name,
+            _position,
+            player,
+            GVAR(air_taxi_distance_enemy)
+        ] call FUNC(helper,nearEnemies),
+        
+        [
+            _name
+        ] call FUNC(helper,inVehicle),
+        
+        [
+            _name,
+            player getVariable QGVAR(air_taxi_cooldown)
+        ] call FUNC(helper,timeExceeded),
+        
+        [
+            _name,
+            QGVAR(air_taxi_progress)
+        ] call FUNC(helper,inProgress)
+    ];
+    
+    if (false in _checks) exitWith {};
+    
+    X_JIPH setVariable [QGVAR(air_taxi_call), true, true];
+    player setVariable [QGVAR(air_taxi_cooldown), time + GVAR(air_taxi_time_cooldown)];
     
     if (!isServer) then {
         airTaxi = _this;
@@ -11,14 +53,17 @@ if (hasInterface) then {
     };
 };
 
-if (isServer) then {
+if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
+    X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
+    X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
+    
     if (!isNil QMODULE(crossroad)) then {
         [_unit, _position, "air taxi"] call FUNC(crossroad,request);
     };
     
-    GVAR(air_taxi_smoke) createVehicle _position;
+    GVAR(air_taxi_type_smoke) createVehicle _position;
     
-    _vehicle = [_position, GVAR(air_taxi_aircraft), GVAR(air_taxi_aircraft_distance)] call FUNC(server,spawnVehicle);
+    _vehicle = [_position, GVAR(air_taxi_type_aircraft), GVAR(air_taxi_distance_spawn)] call FUNC(server,spawnVehicle);
 
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
@@ -29,6 +74,8 @@ if (isServer) then {
     } forEach _crew;
     
     _aircraft flyInHeight 80;
+    _aircraft lockDriver true;
+    _aircraft allowCrewInImmobile true;
     
     _pilot setSkill 1;
     _pilot doMove _position;
@@ -47,10 +94,10 @@ if (isServer) then {
                     deleteVehicle _helper;
                     
                     if (!isNil QMODULE(crossroad)) then {
-                        GVAR(crossroad) kbTell [GVAR(crossroad2), "HQ", "CrossroadDepart", ["1", {}, "air taxi", []], ["2", {}, format ["%1 second(s)", GVAR(air_taxi_wait)], []], true];
+                        GVAR(crossroad) kbTell [GVAR(crossroad2), "HQ", "CrossroadDepart", ["1", {}, "air taxi", []], ["2", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []], true];
                     };
                     
-                    sleep GVAR(air_taxi_wait);
+                    sleep GVAR(air_taxi_time_wait);
                     
                     _pilot doMove (markerPos QGVAR(air_taxi));
                     
@@ -65,7 +112,7 @@ if (isServer) then {
                                         if (isPlayer _x) then {
                                             moveOut _x;
                                         };
-                                    } forEach crew _vehicle;
+                                    } forEach crew _aircraft;
 
                                     _aircraft lock true;
                                     
@@ -86,7 +133,7 @@ if (isServer) then {
         
         sleep 2;
     };
-    
+
     if (!canMove _aircraft) then {
         [nil, nil, rSpawn, [_aircraft], {(_this select 0) vehicleChat "We've been hit! Critical damage! Eject now!"}] call RE;
         
@@ -104,4 +151,6 @@ if (isServer) then {
     if (!isNil "_helper") then {
         deleteVehicle _helper;
     };
+    
+    X_JIPH setVariable [QGVAR(air_taxi_progress), false, true];
 };

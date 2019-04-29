@@ -3,6 +3,7 @@
 #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
 #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
 private ["_tier", "_perk", "_id", "_points", "_unlocked"];
+
 PARAMS_2(_tier,_perk);
 
 disableSerialization;

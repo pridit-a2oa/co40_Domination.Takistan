@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_task", "_status", "_params"];
+
 PARAMS_2(_task,_status);
 
 _params = switch(_status) do {

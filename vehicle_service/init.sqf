@@ -12,7 +12,7 @@ if (hasInterface) then {
 };
 
 // Set service vehicles (inherent functionality)
-GVAR(service_vehicles) = [
+GVAR(vehicle_service_types) = [
     "MtvrRefuel_DES_EP1",
     "MtvrReammo_DES_EP1",
     "MtvrRepair_DES_EP1"

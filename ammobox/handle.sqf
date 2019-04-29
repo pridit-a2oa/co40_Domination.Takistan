@@ -5,6 +5,7 @@
 #define THIS_MODULE ammobox
 #include "x_macros.sqf"
 private ["_box"];
+
 PARAMS_1(_box);
 
 if (hasInterface) then {

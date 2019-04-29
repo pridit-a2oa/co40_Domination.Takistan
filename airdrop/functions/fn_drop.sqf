@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_aircraft", "_position", "_object"];
+
 PARAMS_3(_aircraft, _position, _drop);
 
 _aircraft animate ["ramp_top", 1];

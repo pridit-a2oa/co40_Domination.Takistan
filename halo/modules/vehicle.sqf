@@ -5,6 +5,7 @@
 #define THIS_MODULE halo
 #include "x_macros.sqf"
 private ["_vehicle"];
+
 PARAMS_1(_vehicle);
 
 if (!(_vehicle isKindOf "Air")) exitWith {};

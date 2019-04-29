@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_position", "_type", "_distance", "_spawn", "_direction", "_group", "_vehicle"];
+
 PARAMS_3(_position, _type, _distance);
 
 _spawn = [_position, _distance, random 360] call BIS_fnc_relPos;

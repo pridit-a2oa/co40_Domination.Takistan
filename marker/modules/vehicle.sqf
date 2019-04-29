@@ -5,7 +5,10 @@
 #define THIS_MODULE marker
 #include "x_macros.sqf"
 private ["_vehicle", "_marker"];
+
 PARAMS_1(_vehicle);
+
+if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
 
 {
     if (typeOf _vehicle isKindOf _x) exitWith {
@@ -21,4 +24,4 @@ PARAMS_1(_vehicle);
             [_vehicle] __submodule(vehicle_service);
         };
     };
-} forEach GVAR(vehicle_marker_types);
+} forEach GVAR(marker_vehicle_types);

@@ -10,22 +10,37 @@
 
 if (hasInterface) then {
     player setVariable [QGVAR(air_taxi), false];
+    player setVariable [QGVAR(air_taxi_cooldown), time];
 };
 
-// Set air taxi vehicle
-GVAR(air_taxi_aircraft) = "UH60M_EP1";
+if (isServer) then {
+    X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
+    X_JIPH setVariable [QGVAR(air_taxi_progress), false, true];
+};
 
-// Set air taxi spawn distance
-GVAR(air_taxi_aircraft_distance) = 3000;
+// Aircraft type
+GVAR(air_taxi_type_aircraft) = "UH60M_EP1";
 
-// Set amount of time (seconds) air taxi will wait before departing
-GVAR(air_taxi_wait) = 60;
+// Smoke grenade type
+GVAR(air_taxi_type_smoke) = "SmokeShellBlue";
 
-// Set cooldown between air taxi requests
-GVAR(air_taxi_cooldown) = 900;
+// Minimum distance from base the position has to be
+GVAR(air_taxi_distance_base) = 800;
 
-// Set air taxi smoke grenade
-GVAR(air_taxi_smoke) = "SmokeShellBlue";
+// Minimum distance from any enemy units
+GVAR(air_taxi_distance_enemy) = 250;
+
+// Maximum distance the player can call within
+GVAR(air_taxi_distance_player) = 200;
+
+// Initial spawn distance when calling
+GVAR(air_taxi_distance_spawn) = 3000;
+
+// Minimum time between requests
+GVAR(air_taxi_time_cooldown) = 900;
+
+// Time before departing pick-up point
+GVAR(air_taxi_time_wait) = 60;
 
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);
 

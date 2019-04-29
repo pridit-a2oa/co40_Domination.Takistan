@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
-private "_name";
+private ["_name"];
+
 PARAMS_1(_name);
 
 _name = toLower _name;

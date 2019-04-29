@@ -45,6 +45,7 @@ if (hasInterface) then {
     __core(client);
 };
 
+__core(helper);
 __core(network);
 
 __ccppfln(core\THIS_MODULE\modules.sqf);

@@ -1,8 +1,7 @@
 #include "x_macros.sqf"
 private ["_spawn", "_name", "_position"];
-PARAMS_1(_vehicle);
 
-if (!alive _vehicle) exitWith {};
+PARAMS_1(_vehicle);
     
 _marker = createMarkerLocal [str ((_vehicle getVariable QGVAR(position)) select 0), position _vehicle];
 _marker setMarkerColorLocal "ColorBlue";

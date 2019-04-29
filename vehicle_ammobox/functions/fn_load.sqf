@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_vehicle", "_ammoload", "_nearest", "_ammobox"];
+
 PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};

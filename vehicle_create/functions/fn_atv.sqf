@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_vehicle", "_occupied", "_position", "_atv"];
+
 PARAMS_1(_vehicle);
 
 _occupied = nearestObjects [_vehicle, ["ATV_US_EP1"], 8];

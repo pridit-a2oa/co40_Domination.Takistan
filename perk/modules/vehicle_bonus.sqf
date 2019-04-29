@@ -5,6 +5,7 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_vehicle", "_fly"];
+
 PARAMS_1(_vehicle);
 
 while {true} do {

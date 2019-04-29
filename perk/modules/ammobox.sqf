@@ -5,6 +5,7 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_box"];
+
 PARAMS_1(_box);
 
 if (!isNil QMODULE(loadout)) then {

@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_box"];
+
 PARAMS_1(_box);
 
 clearMagazineCargo _box;

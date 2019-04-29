@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_unit", "_position", "_type", "_grid"];
+
 PARAMS_3(_unit, _position,_type);
 
 [_unit, (mapGridPosition _position), _type] spawn {

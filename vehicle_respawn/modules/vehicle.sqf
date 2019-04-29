@@ -5,6 +5,7 @@
 #define THIS_MODULE vehicle_respawn
 #include "x_macros.sqf"
 private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_empty", "_disabled", "_dead", "_respawnable"];
+
 PARAMS_1(_vehicle);
 
 if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};

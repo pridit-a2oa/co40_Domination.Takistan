@@ -1,6 +1,7 @@
 #define THIS_MODULE base_backpack
 #include "x_macros.sqf"
 private ["_heap"];
+
 PARAMS_1(_heap);
 
 _backpacks = [

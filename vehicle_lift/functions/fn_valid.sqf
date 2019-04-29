@@ -1,6 +1,7 @@
 #define THIS_MODULE vehicle_lift
 #include "x_macros.sqf"
 private ["_vehicle", "_attached", "_nearest", "_attach", "_attachee", "_action"];
+
 PARAMS_1(_vehicle);
 
 disableSerialization;

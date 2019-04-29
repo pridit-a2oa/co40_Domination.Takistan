@@ -4,6 +4,7 @@
 
 #include "x_macros.sqf"
 private ["_attacher", "_attachee"];
+
 PARAMS_2(_attacher,_attachee);
 
 while {true} do {
@@ -24,4 +25,3 @@ while {true} do {
     
     sleep 5;
 };
-

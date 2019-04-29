@@ -1,5 +1,6 @@
 #include "x_macros.sqf"
 private ["_type", "_name", "_usable", "_execute", "_cursor"];
+
 PARAMS_5(_type, _name, _usable, _execute, _cursor);
 
 [_type, [
