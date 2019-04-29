@@ -8,7 +8,7 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 _vehicle addEventHandler ["getin", {
-    if (_this select 2 != driver player) exitWith {};
+    if (player != driver (_this select 0)) exitWith {};
 
     67322 cutRsc ["XD_VehicleWelcomeDialog", "PLAIN"];
 

@@ -1,9 +1,5 @@
-/**
- * Marker Module - Vehicle Submodule
- */
-
 #include "x_macros.sqf"
-private ["_vehicle", "_marker"];
+private ["_spawn", "_name", "_position"];
 PARAMS_1(_vehicle);
 
 if (!alive _vehicle) exitWith {};

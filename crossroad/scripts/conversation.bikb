@@ -16,6 +16,15 @@ class Sentences
             class 1 {type = "simple";};
         };
     };
+    
+    class CrossroadDepart {
+        text = "Be advised, %1 is on location and will depart in %2.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
 };
 
 class Arguments {};

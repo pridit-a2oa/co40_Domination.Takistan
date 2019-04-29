@@ -10,6 +10,7 @@ _box = switch (_locality) do {
 
 _box setDir _direction;
 _box setPos _position;
-player reveal _box;
+
+[nil, nil, rSpawn, [_box], {player reveal (_this select 0)}] call RE;
 
 _box

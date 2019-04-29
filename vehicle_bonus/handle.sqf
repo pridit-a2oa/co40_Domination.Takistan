@@ -14,10 +14,10 @@ if (isServer) then {
         _vehicle setDir (markerDir _marker);
         _vehicle setPos (markerPos _marker);
         
-        _vehicle setVariable [QGVAR(bonus), true];
+        _vehicle setVariable [QGVAR(bonus), true, true];
         
         if (!isNil QMODULE(vehicle_respawn)) then {
-            [_vehicle] __handler("vehicle_respawn");
+            [_vehicle] __submodule(vehicle_respawn);
         };
     };
 };

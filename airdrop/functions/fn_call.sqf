@@ -1,49 +1,48 @@
 #define THIS_MODULE airdrop
 #include "x_macros.sqf"
-private ["_drop", "_position", "_vehicle", "_aircraft", "_crew", "_marker"];
-PARAMS_1(_drop);
+private ["_unit", "_position", "_drop", "_vehicle", "_aircraft", "_crew", "_marker"];
+PARAMS_3(_unit, _position, _drop);
 
-_position = screenToWorld [0.5, 0.5];
-
-GVAR(airdrop_smoke) createVehicle _position;
-
-if (!isNil QMODULE(crossroad)) then {
-    [_position, "airdrop"] call FUNC(crossroad,request);
+if (hasInterface) then {
+    X_JIPH setVariable [QGVAR(airdrop), true, true];
+    
+    if (!isServer) then {
+        airdrop = _this;
+        publicVariableServer "airdrop";
+    };
 };
 
-_spawn = [_position, GVAR(airdrop_aircraft_distance), random 360] call BIS_fnc_relPos;
-_spawn = [_spawn select 0, _spawn select 1, 400];
+if (isServer) then {
+    if (!isNil QMODULE(crossroad)) then {
+        [_unit, _position, "airdrop"] call FUNC(crossroad,request);
+    };
+    
+    GVAR(airdrop_smoke) createVehicle _position;
+    
+    _vehicle = [_position, GVAR(airdrop_aircraft), GVAR(airdrop_aircraft_distance)] call FUNC(server,spawnVehicle);
 
-_direction = [_spawn, _position] call FUNC(client,dirTo);
+    _aircraft = _vehicle select 0;
+    _aircraft flyInHeight 200;
 
-_group = createGroup west;
-_vehicle = [_spawn, _direction, GVAR(airdrop_aircraft), _group] call BIS_fnc_spawnVehicle;
+    _crew = _vehicle select 1;
+    
+    {
+        _x setCaptive true;
+    } forEach _crew;
+    
+    _pilot = driver _aircraft;
+    _pilot setSkill 1;
+    _pilot doMove ([_position, 100, (getDir _aircraft - 180)] call BIS_fnc_relPos);
 
-_aircraft = _vehicle select 0;
-_crew = _vehicle select 1;
+    _group = group (driver _aircraft);
 
-[nil, nil, rExecVM, __handlerRE(vehicle), _aircraft] call RE;
-
-_aircraft lock true;
-_aircraft flyInHeight 200;
-
-{
-    _x setCaptive true;
-} forEach _crew;
-
-_area = markerPos QGVAR(area);
-
-_start = _group addWaypoint [_position, 0];
-_start setWaypointBehaviour "CARELESS";
-_start setWaypointSpeed "NORMAL";
-_start setWaypointType "MOVE";
-
-_exit = [_area, 10000, _direction] call BIS_fnc_relPos;
-
-_end = _group addWaypoint [_exit, 0];
-_end setWaypointStatements ["true", "_vehicle = vehicle this; {deleteVehicle _x} forEach crew _vehicle; _vehicle setDamage 1; deleteVehicle _vehicle"];
-_end setWaypointBehaviour "CARELESS";
-_end setWaypointSpeed "NORMAL";
-_end setWaypointType "MOVE";
-
-[_aircraft, _position, _drop] spawn FUNC(THIS_MODULE,drop);
+    while {alive _aircraft && {canMove _aircraft}} do {
+        if (unitReady _pilot) exitWith {
+            [_aircraft, _position, _drop] spawn FUNC(THIS_MODULE,drop);
+            
+            [_aircraft] call FUNC(server,exitMap);
+        };
+        
+        sleep 1;
+    };
+};

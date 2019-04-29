@@ -30,7 +30,7 @@ if (hasInterface) then {
         [
             BIS_MENU_Squad,
             "Leave",
-            "1-IsAlone",
+            "",
             "[player] joinSilent grpNull; call d_fnc_squad_reveal"
         ] call FUNC(communication,add);
     };

@@ -11,9 +11,7 @@ PARAMS_1(_vehicle);
     if (typeOf _vehicle isKindOf _x) exitWith {
         _vehicle setVariable [QGVAR(hidden), false];
         
-        if (!isNil QMODULE(vehicle)) then {
-            [_vehicle] __submodule(vehicle);
-        };
+        [_vehicle] call FUNC(THIS_MODULE,create);
         
         if (!isNil QMODULE(vehicle_mhq)) then {
             [_vehicle] __submodule(vehicle_mhq);

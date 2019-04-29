@@ -6,6 +6,8 @@
 private ["_handlers"];
 
 _handlers = [
+    "airdrop",
+    "airtaxi",
     "backpack",
     "base",
     "base_ammobox",

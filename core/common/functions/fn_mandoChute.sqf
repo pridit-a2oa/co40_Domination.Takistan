@@ -4,9 +4,12 @@
 
    Moves a chute to the landing position
 */
-#include "x_macros.sqf"
 private ["_parachute", "__object", "_target", "_radius", "_deg_sec", "_dir", "_ang", "_posASL", "_dif", "_difabs", "_turn", "_hspd", "_max_spd", "_deltatime", "_timeold", "_vx", "_vy", "_vh", "_vz", "_acc", "_cone", "_type", "_vvel", "_vdir", "_vup"];
-PARAMS_4(_parachute, _object, _target, _radius);
+
+_parachute = _this select 0;
+_object = _this select 1;
+_target = _this select 2;
+_radius = _this select 3;
 
 _ang = random 360;
 
