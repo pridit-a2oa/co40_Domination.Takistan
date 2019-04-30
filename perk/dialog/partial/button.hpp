@@ -125,7 +125,7 @@ class PerkButton_Role1_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduced artillery cooldown by 20s";
+    tooltip = "Reduced artillery cooldown by 300s";
     action = "[1,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_5: XD_LinkButtonUpgradeBase

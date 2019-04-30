@@ -2,6 +2,8 @@
 private ["_spawn", "_name", "_position"];
 
 PARAMS_1(_vehicle);
+
+if (!alive _vehicle) exitWith {};
     
 _marker = createMarkerLocal [str ((_vehicle getVariable QGVAR(position)) select 0), position _vehicle];
 _marker setMarkerColorLocal "ColorBlue";

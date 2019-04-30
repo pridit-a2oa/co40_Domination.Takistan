@@ -1,5 +1,7 @@
 /**
  * Artillery Module
+ *
+ * Description: This module enables players to call in an artillery strike.
  */
 
 #define THIS_MODULE artillery
@@ -7,18 +9,38 @@
 
 if (hasInterface) then {
     player setVariable [QGVAR(artillery), false];
+    player setVariable [QGVAR(artillery_range), 500];
     player setVariable [QGVAR(artillery_salvoes), 0];
+    player setVariable [QGVAR(artillery_cooldown), time + 600];
 };
 
-// Set default artillery range (in meters)
-GVAR(artillery_range) = 500;
+if (isServer) then {
+    X_JIPH setVariable [QGVAR(artillery_call), false, true];
+    X_JIPH setVariable [QGVAR(artillery_progress), false, true];
+};
 
-// Set default artillery cooldown
-GVAR(artillery_cooldown) = 600;
+// Shell type
+GVAR(artillery_type_shell) = "ARTY_Sh_105_HE";
 
-// Set artillery smoke grenade
-GVAR(artillery_smoke) = "SmokeShellRed";
+// Smoke grenade type
+GVAR(artillery_type_smoke) = "SmokeShellRed";
+
+// Minimum distance from base the position has to be
+GVAR(artillery_distance_base) = 1200;
+
+// Maximum distance from player position
+GVAR(artillery_distance_range) = 500;
+
+// Number of shells per salvo
+GVAR(artillery_amount_shell) = 3;
+
+// Minimum time between requests
+GVAR(artillery_time_cooldown) = 900;
+
+// Time before strikes initiate once called
+GVAR(artillery_time_wait) = 20;
 
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);
+__cppfln(FUNC(THIS_MODULE,trail),THIS_MODULE\functions\fn_trail.sqf);
 
 MODULE(THIS_MODULE) = true;

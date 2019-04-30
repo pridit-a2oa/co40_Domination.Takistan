@@ -1,8 +1,8 @@
 /**
  * Air Taxi Module
  *
- * Description: This module enables players to radio in an air taxi that will
- * take them to a designated location (placed within the editor).
+ * Description: This module enables players to call in an air taxi that will
+ * take them back to base.
  */
 
 #define THIS_MODULE airtaxi

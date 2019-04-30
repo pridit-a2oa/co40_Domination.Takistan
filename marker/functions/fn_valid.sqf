@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_spawn", "_name", "_position"];
+private ["_vehicle", "_name", "_position"];
 
 PARAMS_1(_vehicle);
 

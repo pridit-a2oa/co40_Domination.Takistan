@@ -15,13 +15,6 @@ if (hasInterface) then {
         ] call FUNC(helper,distanceFrom),
         
         [
-            _name,
-            _position,
-            markerPos QGVAR(base_marker),
-            [GVAR(airdrop_distance_base), "in excess of", "from base"]
-        ] call FUNC(helper,distanceFrom),
-        
-        [
             _name
         ] call FUNC(helper,inVehicle),
         

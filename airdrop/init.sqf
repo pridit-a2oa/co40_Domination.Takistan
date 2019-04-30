@@ -1,7 +1,7 @@
 /**
  * Airdrop Module
  *
- * Description: This module enables players to be able to call in an airdrop.
+ * Description: This module enables players to call in an airdrop.
  */
 
 #define THIS_MODULE airdrop
@@ -10,7 +10,7 @@
 if (hasInterface) then {
     player setVariable [QGVAR(airdrop), false];
     player setVariable [QGVAR(airdrop_type), "USVehicleBox_EP1"];
-    player setVariable [QGVAR(airdrop_cooldown), time];
+    player setVariable [QGVAR(airdrop_cooldown), time + 900];
 };
 
 if (isServer) then {

@@ -87,7 +87,7 @@ switch (_tier) do {
                             BIS_MENU_Perks,
                             "Artillery Strike",
                             "CursorOnGround",
-                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'artillery\functions\fn_call.sqf'",
+                            "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_artillery_salvoes'] execVM 'artillery\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_support_ca"
                         ] call FUNC(communication,add);
                     };
@@ -102,13 +102,15 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_range), GVAR(artillery_range) + 1000];
+                    player setVariable [QGVAR(artillery_range), GVAR(artillery_distance_range) + 1000];
                 };
             };
             
             case 4: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_cooldown), GVAR(artillery_cooldown) - 300];
+                    GVAR(artillery_time_cooldown) = GVAR(artillery_time_cooldown) - 300;
+                    
+                    player setVariable [QGVAR(artillery_cooldown), (player getVariable QGVAR(artillery_cooldown)) - 300];
                 };
             };
             
@@ -175,7 +177,8 @@ switch (_tier) do {
             
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    player setVariable [QGVAR(airdrop_cooldown), GVAR(airdrop_cooldown) + 900];
+                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
+                    
                     player setVariable [QGVAR(airdrop_type), "M1A1_US_DES_EP1"];
                 };
             };
@@ -213,7 +216,8 @@ switch (_tier) do {
             
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    player setVariable [QGVAR(airdrop_cooldown), GVAR(airdrop_cooldown) + 900];
+                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
+                    
                     player setVariable [QGVAR(airdrop_type), "M2A2_EP1"];
                 };
             };
@@ -278,7 +282,8 @@ switch (_tier) do {
             
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    player setVariable [QGVAR(airdrop_cooldown), GVAR(airdrop_cooldown) + 900];
+                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
+                    
                     player setVariable [QGVAR(airdrop_type), "AH6J_EP1"];
                 };
             };
