@@ -19,6 +19,7 @@ _handlers = [
     "base_wreck",
     "board",
     "cleanup",
+    "communication",
     "crossroad",
     "marker",
     "medical",
@@ -26,6 +27,7 @@ _handlers = [
     "perk",
     "squad",
     "vehicle_bonus",
+    "vehicle_load",
     "vehicle_service",
     "weather"
 ];

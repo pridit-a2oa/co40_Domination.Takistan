@@ -9,6 +9,13 @@ if (hasInterface) then {
         [
             _name,
             _position,
+            EAST,
+            GVAR(air_taxi_distance_enemy)
+        ] call FUNC(helper,nearSide),
+    
+        [
+            _name,
+            _position,
             player,
             [GVAR(air_taxi_distance_player), "within", "of your location"]
         ] call FUNC(helper,distanceFrom),
@@ -19,13 +26,6 @@ if (hasInterface) then {
             markerPos QGVAR(base_marker),
             [GVAR(air_taxi_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
-        
-        [
-            _name,
-            _position,
-            player,
-            GVAR(air_taxi_distance_enemy)
-        ] call FUNC(helper,nearEnemies),
         
         [
             _name
@@ -107,7 +107,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                             _aircraft land "LAND";
 
                             while {alive _aircraft && {canMove _aircraft}} do {
-                                if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 2}) exitWith {
+                                if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 1}) exitWith {
                                     {
                                         if (isPlayer _x) then {
                                             moveOut _x;

@@ -10,6 +10,13 @@ if (hasInterface) then {
         [
             _name,
             _position,
+            WEST,
+            GVAR(artillery_distance_friendly)
+        ] call FUNC(helper,nearSide),
+    
+        [
+            _name,
+            _position,
             player,
             [player getVariable QGVAR(artillery_range), "within", "of your location"]
         ] call FUNC(helper,distanceFrom),

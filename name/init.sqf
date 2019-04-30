@@ -6,3 +6,5 @@
 
 #define THIS_MODULE name
 #include "x_macros.sqf"
+
+MODULE(THIS_MODULE) = true;

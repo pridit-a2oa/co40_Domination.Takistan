@@ -36,7 +36,7 @@ if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
         };
         
         _disabled = !canMove _vehicle;
-        _moved = _vehicle distance _position > 10;
+        _moved = if (alive _vehicle) then {_vehicle distance _position > 10} else {true};
         _type = typeOf _vehicle;
     
         if (_empty && {_disabled} && {_moved} && {!_dead} && {time > _threshold} || {(_empty && {_dead} && {time > _expiration})}) exitWith {

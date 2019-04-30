@@ -280,6 +280,18 @@ switch (_tier) do {
                 };
             };
             
+            case 3: {
+                if (!isNil QMODULE(vehicle_load)) then {
+                    player setVariable [QGVAR(vehicle_load), 1];
+                };
+            };
+            
+            case 4: {
+                if (!isNil QMODULE(vehicle_load)) then {
+                    player setVariable [QGVAR(vehicle_load), (player getVariable QGVAR(vehicle_load)) + 1];
+                };
+            };
+            
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;

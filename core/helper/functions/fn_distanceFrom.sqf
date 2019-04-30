@@ -1,12 +1,12 @@
 #include "x_macros.sqf"
-private ["_name", "_source", "_position", "_distance", "_condition"];
+private ["_name", "_origin", "_position", "_distance", "_condition"];
 
-PARAMS_4(_name, _source, _position, _distance);
+PARAMS_4(_name, _origin, _position, _distance);
 
 _condition = if (_distance select 1 == "within") then {
-    (_source distance _position > (_distance select 0))
+    (_origin distance _position > (_distance select 0))
 } else {
-    (_source distance _position < (_distance select 0))
+    (_origin distance _position < (_distance select 0))
 };
 
 if (_condition) exitWith {

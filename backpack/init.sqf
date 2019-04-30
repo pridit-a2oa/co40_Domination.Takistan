@@ -8,11 +8,6 @@
 #define THIS_MODULE backpack
 #include "x_macros.sqf"
 
-if (hasInterface) then {
-    player setVariable [QGVAR(backpack), false];
-    player setVariable [QGVAR(backpack_hold), []];
-};
-
 // Set transitional animations for actions to be hidden
 GVAR(backpack_animations) = [
     "amovpercmstpsnonwnondnon_amovpercmstpsraswrfldnon",
@@ -22,6 +17,11 @@ GVAR(backpack_animations) = [
     "amovpercmstpsraswpstdnon_amovpercmstpsnonwnondnon",
     "amovpknlmstpsraswpstdnon_amovpknlmstpsnonwnondnon"
 ];
+
+if (hasInterface) then {
+    player setVariable [QGVAR(backpack), false];
+    player setVariable [QGVAR(backpack_hold), []];
+};
 
 __cppfln(FUNC(THIS_MODULE,equip),THIS_MODULE\functions\fn_equip.sqf);
 __cppfln(FUNC(THIS_MODULE,store),THIS_MODULE\functions\fn_store.sqf);

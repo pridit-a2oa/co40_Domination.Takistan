@@ -4,7 +4,7 @@
 
 #define THIS_MODULE vehicle_lift
 #include "x_macros.sqf"
-private ["_attachee"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 

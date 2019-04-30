@@ -56,6 +56,10 @@ if (hasInterface) then {
         [_vehicle] __submodule(vehicle_protection);
     };
     
+    if (!isNil QMODULE(vehicle_load)) then {
+        [_vehicle] __submodule(vehicle_load);
+    };
+    
     if (!isNil QMODULE(vehicle_menu)) then {
         [_vehicle] __submodule(vehicle_menu);
     };

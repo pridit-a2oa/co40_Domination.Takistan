@@ -38,6 +38,7 @@ _modules = [
     "vehicle_create",
     "vehicle_flip",
     "vehicle_lift",
+    "vehicle_load",
     "vehicle_menu",
     "vehicle_mhq",
     "vehicle_protection",

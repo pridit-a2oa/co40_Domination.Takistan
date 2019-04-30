@@ -63,15 +63,21 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     } forEach _crew;
 
     _pilot setSkill 1;
-    _pilot doMove ([_position, 200, (getDir _aircraft - 180)] call BIS_fnc_relPos);
+    _pilot doMove _position;
 
     _group = group (driver _aircraft);
 
     while {alive _aircraft && {canMove _aircraft}} do {
-        if (unitReady _pilot) exitWith {
-            [_aircraft, _position, _drop] spawn FUNC(THIS_MODULE,drop);
+        if (_aircraft distance _position < 650) exitWith {
+            [_aircraft, _position, _drop] call FUNC(helper,paradrop);
             
-            [_aircraft] call FUNC(server,exitMap);
+            while {alive _aircraft && {canMove _aircraft}} do {
+                if (unitReady _pilot) exitWith {
+                    [_aircraft] call FUNC(server,exitMap);
+                };
+                
+                sleep 2;
+            };
         };
         
         sleep 1;
