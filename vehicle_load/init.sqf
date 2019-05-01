@@ -16,6 +16,7 @@ if (hasInterface) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);
+__cppfln(FUNC(THIS_MODULE,types),THIS_MODULE\functions\fn_types.sqf);
 __cppfln(FUNC(THIS_MODULE,unload),THIS_MODULE\functions\fn_unload.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 

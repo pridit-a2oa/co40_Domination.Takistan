@@ -69,7 +69,7 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
 
     while {alive _aircraft && {canMove _aircraft}} do {
         if (_aircraft distance _position < 650) exitWith {
-            [_aircraft, _position, _drop] call FUNC(helper,paradrop);
+            [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
             
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (unitReady _pilot) exitWith {

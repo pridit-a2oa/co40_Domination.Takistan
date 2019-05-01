@@ -40,6 +40,5 @@ if (isServer) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);
-__cppfln(FUNC(THIS_MODULE,drop),THIS_MODULE\functions\fn_drop.sqf);
 
 MODULE(THIS_MODULE) = true;

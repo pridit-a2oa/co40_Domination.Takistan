@@ -1,43 +1,55 @@
 #include "x_macros.sqf"
-private ["_aircraft", "_landing", "_load", "_position"];
+private ["_aircraft", "_landing", "_load", "_eject", "_position"];
 
-PARAMS_3(_aircraft, _landing, _load);
+PARAMS_4(_aircraft, _landing, _load, _eject);
 
 if (typeName _load == "ARRAY") then {
     _position = _load select 1;
     _load = _load select 0;
 };
 
+if (typeName _eject == "STRING") then {
+    _eject = [[0, -15, -5], direction _aircraft];
+};
+
 _load = createVehicle [_load, [0, 0, 0], [], 0, "NONE"];
 
-[_aircraft, _landing, _load, _position] spawn {
-    private ["_aircraft", "_landing", "_load", "_position", "_ammobox"];
-    
-    PARAMS_4(_aircraft, _landing, _load, _position);
-    
-    _load attachTo [_aircraft, [0, 2, -2]];
+if (!isNil "_position") then {
+    _load setVariable [QGVAR(position), _position, true];
+};
 
-    if (!isNil "_position") then {
-        _load setVariable [QGVAR(position), _position, true];
+[_aircraft, _landing, _load, _eject] spawn {
+    private ["_aircraft", "_landing", "_load", "_eject", "_position", "_ammobox"];
+    
+    PARAMS_4(_aircraft, _landing, _load, _eject);
+    
+    _load attachTo [_aircraft, [_load] call FUNC(common,attachPoint)];
+    
+    if (alive _aircraft) then {
+        sleep 1;
+
+        _aircraft animate ["ramp_top", 1];
+        _aircraft animate ["ramp_bottom", 1];
+
+        sleep 3;
+
+        _aircraft animate ["ramp_top", 0];
+        _aircraft animate ["ramp_bottom", 0];
+    };
+    
+    _position = _aircraft modelToWorld (_eject select 0);
+    
+    if (direction _aircraft != _eject select 1) then {
+        detach _load;
     };
 
-    sleep 1;
-
-    _aircraft animate ["ramp_top", 1];
-    _aircraft animate ["ramp_bottom", 1];
-
-    sleep 3;
-
-    _aircraft animate ["ramp_top", 0];
-    _aircraft animate ["ramp_bottom", 0];
-
-    _position = _aircraft modelToWorld [0, -15, -5];
-
-    _load setDir (direction _aircraft);
+    _load setDir (_eject select 1);
     _load setPos _position;
     _load setVectorUp (vectorUp _aircraft);
-
-    detach _load;
+    
+    if (direction _aircraft == _eject select 1) then {
+        detach _load;
+    };
 
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
         [nil, nil, rExecVM, __handlerRE(vehicle), _load] call RE;
