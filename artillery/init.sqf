@@ -25,8 +25,8 @@ GVAR(artillery_distance_range) = 500;
 // Number of shells per salvo
 GVAR(artillery_amount_shell) = 3;
 
-// Minimum time between requests
-GVAR(artillery_time_cooldown) = 900;
+// Time between requests
+GVAR(artillery_time_cooldown) = 1200;
 
 // Time before strikes initiate once called
 GVAR(artillery_time_wait) = 20;

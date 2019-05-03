@@ -1,5 +1,5 @@
 /**
- * Ammobox Module (Handler)
+ * Ammobox Module
  *
  * Description: This module provides ammobox replenishing & spawning.
  */

@@ -13,5 +13,5 @@ _bonus = _vehicle getVariable QGVAR(bonus);
 if (isNil "_bonus") exitWith {};
 
 if (!isNil QMODULE(perk)) then {
-    [_vehicle] __submodule(perk);
+    [_vehicle] __submoduleVM(perk);
 };

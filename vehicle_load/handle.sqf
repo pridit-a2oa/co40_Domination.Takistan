@@ -13,7 +13,7 @@ if (hasInterface) then {
     _trigger setTriggerArea [0, 0, 0, true];
     _trigger setTriggerActivation ["NONE", "PRESENT", true];
     _trigger setTriggerStatements [
-        format ["call d_fnc_vehicle_load_valid"],
+        "call d_fnc_vehicle_load_valid",
         "d_action = player addAction [format ['Load %1', getText (configFile >> 'cfgVehicles' >> (typeOf (d_load select 1)) >> 'displayName')] call d_fnc_common_YellowText, 'vehicle_load\functions\fn_load.sqf', [], 9, false, true, '', 'player == vehicle player && {!d_loading}']",
         "player removeAction d_action; d_loading = false"
     ];

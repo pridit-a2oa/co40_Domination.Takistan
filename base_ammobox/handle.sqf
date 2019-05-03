@@ -6,5 +6,5 @@
 #include "x_macros.sqf"
 
 if (!isNil QMODULE(ammobox)) then {
-    __submodule(ammobox);
+    __submoduleVM(ammobox);
 };

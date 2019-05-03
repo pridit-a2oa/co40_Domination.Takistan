@@ -6,17 +6,19 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    BIS_MENU_Squad = [
-        ["Squad", false]
-    ];
-
-    BIS_MENU_Perks = [
-        ["Perks", false]
-    ];
-
     BIS_MENU_GroupCommunication = [
-        ["Options", false],
-        ["Squad",[11],"#USER:BIS_MENU_Squad",-5,[["expression",""]],"1","1"],
-        ["Perks",[2],"#USER:BIS_MENU_Perks",-5,[["expression",""]],"1","1"]
+        ["Options", false]
     ];
+    
+    if (!isNil QMODULE(construction)) then {
+        __submodulePP(construction);
+    };
+    
+    if (!isNil QMODULE(perk)) then {
+        __submodulePP(perk);
+    };
+    
+    if (!isNil QMODULE(squad)) then {
+        __submodulePP(squad);
+    };
 };

@@ -25,21 +25,42 @@ if (!isNil QMODULE(vehicle)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
-["init_objects", {
-    if (!isNil QMODULE(ammobox)) then {
+if (!isNil QMODULE(ammobox)) then {
+    ["init_ammobox", {
         {
             [_x] __handler("ammobox");
         } forEach (allMissionObjects GVAR(ammobox_type));
-    };
 
-    if (!isNil QMODULE(vehicle_mhq)) then {
+        ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)
+    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+};
+
+if (!isNil QMODULE(ied)) then {
+    ["init_ied", {
         {
-            _x addEventHandler ["HandleDamage", {0}];
-        } forEach (allMissionObjects GVAR(vehicle_mhq_net));
-    };
+            {
+                [_x] call FUNC(ied,trigger);
+            } forEach (allMissionObjects _x);
+        } forEach GVAR(ied_type_objects);
 
-    ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
-}, 0] call FUNC(THIS_MODULE,addPerFrame);
+        ["init_ied"] call FUNC(THIS_MODULE,removePerFrame)
+    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+};
+
+if (!isNil QMODULE(construction)) then {
+    ["init_objects", {
+        {
+            _name = _x select 0;
+            _type = _x select 1;
+            
+            {
+                [_name, _x] call FUNC(construction,action);
+            } forEach (allMissionObjects _type);
+        } forEach GVAR(construction_type_objects);
+
+        ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
+    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+};
 
 player addEventHandler ["respawn", {
     (_this select 0) setDir 240.214;

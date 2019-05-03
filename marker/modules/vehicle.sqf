@@ -17,11 +17,11 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
         [_vehicle] call FUNC(THIS_MODULE,create);
         
         if (!isNil QMODULE(vehicle_mhq)) then {
-            [_vehicle] __submodule(vehicle_mhq);
+            [_vehicle] __submoduleVM(vehicle_mhq);
         };
 
         if (!isNil QMODULE(vehicle_service)) then {
-            [_vehicle] __submodule(vehicle_service);
+            [_vehicle] __submoduleVM(vehicle_service);
         };
     };
 } forEach GVAR(marker_vehicle_types);

@@ -20,5 +20,5 @@ if (!isNull _camo) then {
 _vehicle setVariable [QGVAR(deployed), false, true];
 
 if (!isNil QMODULE(marker)) then {
-    [_vehicle, false] __submodule(marker);
+    [_vehicle, false] __submoduleVM(marker);
 };

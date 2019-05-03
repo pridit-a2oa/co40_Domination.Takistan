@@ -1,5 +1,5 @@
 /**
- * Teleport Module (Handler)
+ * Teleport Module
  */
 
 #define THIS_MODULE teleport

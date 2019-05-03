@@ -19,9 +19,11 @@ _load = (_aircraft nearEntities [["Car", "Tank", "Truck"], 20]) select 0;
 if (isNil "_load") exitWith {false};
 
 _distance = _aircraft distance _load;
-_range = (player distance _load < 15);
 
 if (_distance < 5) exitWith {false};
+
+_range = (player distance _load < 15);
+
 if (!_range) exitWith {false};
 
 GVAR(load) = [_aircraft, _load];

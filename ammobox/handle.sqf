@@ -10,6 +10,6 @@ PARAMS_1(_box);
 
 if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
-        [_box] __submodule(perk);
+        [_box] __submoduleVM(perk);
     };
 };

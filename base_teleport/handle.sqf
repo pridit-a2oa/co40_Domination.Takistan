@@ -7,6 +7,6 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(teleport)) then {
-        __submodule(teleport);
+        __submoduleVM(teleport);
     };
 };

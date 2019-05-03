@@ -12,7 +12,7 @@ if (isServer) then {
 if (hasInterface) then {
     waitUntil {!isNil {X_JIPH getVariable QGVAR(groups)}};
     
-    sleep 1;
+    sleep 2;
     
     call FUNC(THIS_MODULE,assign);
     call FUNC(THIS_MODULE,reveal);

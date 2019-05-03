@@ -145,7 +145,7 @@ class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two repair kits";
+    tooltip = "Disarm IEDs";
     action = "[2,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
@@ -155,7 +155,7 @@ class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Repair kits fix 100% of damage";
+    tooltip = "Two repair kits";
     action = "[2,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
@@ -165,7 +165,7 @@ class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduced vehicle service time per stage by 2s";
+    tooltip = "One FARP emplacement";
     action = "[2,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
@@ -175,7 +175,7 @@ class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three repair kits";
+    tooltip = "Repair kits fix 100% of damage";
     action = "[2,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
@@ -185,7 +185,7 @@ class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduced vehicle service time per stage by 4s";
+    tooltip = "Three repair kits";
     action = "[2,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_1: XD_LinkButtonUpgradeBase
@@ -355,7 +355,7 @@ class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Lift OPFOR wrecks";
+    tooltip = "Load one ground vehicle into the C130J";
     action = "[6,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load one ground vehicle into the C130J";
+    tooltip = "Lift OPFOR wrecks";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase

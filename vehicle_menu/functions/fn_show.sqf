@@ -16,22 +16,22 @@ DIALOG("X_VEHICLE_MENU_DIALOG", 1202) ctrlSetText (getText (configFile >> "cfgVe
 
 if (!isNil QMODULE(vehicle_mhq)) then {
     if (_vehicle call FUNC(common,empty)) then {
-        [_vehicle] __submodule(vehicle_mhq);
+        [_vehicle] __submoduleVM(vehicle_mhq);
     };
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {
-    [_vehicle] __submodule(vehicle_ammobox);
+    [_vehicle] __submoduleVM(vehicle_ammobox);
 };
 
 if (!isNil QMODULE(vehicle_create)) then {
     if (_vehicle getVariable QGVAR(deployed)) then {
-        [_vehicle] __submodule(vehicle_create);
+        [_vehicle] __submoduleVM(vehicle_create);
     };
 };
 
 if (!isNil QMODULE(vehicle_teleport)) then {
     if (_vehicle getVariable QGVAR(deployed)) then {
-        [_vehicle] __submodule(vehicle_teleport);
+        [_vehicle] __submoduleVM(vehicle_teleport);
     };
 };

@@ -33,7 +33,7 @@ switch (_tier) do {
                     
                     if (!isNil QMODULE(communication)) then {
                         [
-                            BIS_MENU_Perks,
+                            BIS_MENU_Radio,
                             "Airdrop",
                             "CursorOnGround",
                             "[player, screenToWorld [0.5, 0.5], player getVariable 'd_airdrop_type'] execVM 'airdrop\functions\fn_call.sqf'",
@@ -84,7 +84,7 @@ switch (_tier) do {
                     
                     if (!isNil QMODULE(communication)) then {
                         [
-                            BIS_MENU_Perks,
+                            BIS_MENU_Radio,
                             "Artillery Strike",
                             "CursorOnGround",
                             "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_artillery_salvoes'] execVM 'artillery\functions\fn_call.sqf'",
@@ -96,7 +96,7 @@ switch (_tier) do {
             
             case 2: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_salvoes), 2];
+                    player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
                 };
             };
             
@@ -116,7 +116,7 @@ switch (_tier) do {
             
             case 5: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_salvoes), 3];
+                    player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
                 };
             };
         };
@@ -125,19 +125,42 @@ switch (_tier) do {
     case 2: {
         switch (_perk) do {
             case 1: {
+                if (!isNil QMODULE(ied)) then {
+                    player setVariable [QGVAR(ied), true];
+                };
+            };
+            
+            case 2: {
                 if (!isNil QMODULE(vehicle_service)) then {
                     player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
                     player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
                 };
             };
             
-            case 2: {
+            case 3: {
+                if (!isNil QMODULE(farp)) then {
+                    player setVariable [QGVAR(farp), 1];
+                    player setVariable [QGVAR(farp_max), 1];
+                    
+                    if (!isNil QMODULE(communication) && {!isNil QMODULE(construction)}) then {
+                        [
+                            BIS_MENU_Construct,
+                            "FARP",
+                            "",
+                            "0 = ['farp'] execVM 'construction\functions\fn_create.sqf'",
+                            "\ca\ui\data\cursor_hand_ca"
+                        ] call FUNC(communication,add);
+                    };
+                };
+            };
+            
+            case 4: {
                 if (!isNil QMODULE(vehicle_service)) then {
                     player setVariable [QGVAR(repair_full), true];
                 };
             };
             
-            case 4: {
+            case 5: {
                 if (!isNil QMODULE(vehicle_service)) then {
                     player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
                     player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
@@ -164,7 +187,9 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(nest)) then {
-                    player setVariable [QGVAR(nest_cooldown), GVAR(nest_cooldown) - 300];
+                    GVAR(nest_cooldown) = GVAR(nest_cooldown) - 300;
+                    
+                    player setVariable [QGVAR(nest_cooldown), (player getVariable QGVAR(nest_cooldown)) - 300];
                 };
             };
             
@@ -203,7 +228,9 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(trench)) then {
-                    player setVariable [QGVAR(trench_cooldown), GVAR(trench_cooldown) - 300];
+                    GVAR(trench_cooldown) = GVAR(trench_cooldown) - 300;
+                    
+                    player setVariable [QGVAR(trench_cooldown), (player getVariable QGVAR(trench_cooldown)) - 300];
                 };
             };
             
@@ -230,6 +257,16 @@ switch (_tier) do {
                 if (!isNil QMODULE(mash)) then {
                     player setVariable [QGVAR(mash), 1];
                     player setVariable [QGVAR(mash_max), 1];
+                    
+                    if (!isNil QMODULE(communication) && {!isNil QMODULE(construction)}) then {
+                        [
+                            BIS_MENU_Construct,
+                            "MASH",
+                            "",
+                            "0 = ['mash'] execVM 'construction\functions\fn_create.sqf'",
+                            "\ca\ui\data\cursor_hand_ca"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             
@@ -270,7 +307,7 @@ switch (_tier) do {
                     
                     if (!isNil QMODULE(communication)) then {
                         [
-                            BIS_MENU_Perks,
+                            BIS_MENU_Radio,
                             "Air Taxi",
                             "CursorOnGround",
                             "0 = [player, screenToWorld [0.5, 0.5]] execVM 'airtaxi\functions\fn_call.sqf'",
@@ -280,9 +317,15 @@ switch (_tier) do {
                 };
             };
             
-            case 3: {
+            case 2: {
                 if (!isNil QMODULE(vehicle_load)) then {
                     player setVariable [QGVAR(vehicle_load), 1];
+                };
+            };
+            
+            case 3: {
+                if (!isNil QMODULE(vehicle_wreck)) then {
+                    player setVariable [QGVAR(vehicle_wreck_enemy), true];
                 };
             };
             

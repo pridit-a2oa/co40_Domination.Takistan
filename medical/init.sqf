@@ -1,5 +1,5 @@
 /**
- * Medical Module (Handler)
+ * Medical Module
  *
  * Description: This module enables players to heal themselves.
  */

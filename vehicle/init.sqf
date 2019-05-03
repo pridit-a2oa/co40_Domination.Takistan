@@ -1,5 +1,5 @@
 /**
- * Vehicle Module (Handler)
+ * Vehicle Module
  *
  * Description: Vehicle handling, which should apply to every vehicle
  * that is spawned. This provides core functionality which enhances

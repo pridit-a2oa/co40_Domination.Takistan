@@ -7,6 +7,6 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(halo)) then {
-        __submodule(halo);
+        __submoduleVM(halo);
     };
 };

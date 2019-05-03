@@ -20,7 +20,8 @@
 
 #define __core(module) execVM format ["core\%1\init.sqf", #module]
 #define __module(module) call compile preprocessFileLineNumbers format ["%1\init.sqf", module]
-#define __submodule(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
+#define __submoduleVM(module) execVM format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
+#define __submodulePP(module) call compile preprocessFileLineNumbers format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
 #define __handler(module) execVM format ["%1\handle.sqf", module]
 #define __handlerRE(module) format ["%1\handle.sqf", #module]
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]

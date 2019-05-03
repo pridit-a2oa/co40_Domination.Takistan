@@ -15,5 +15,5 @@ _attacher setVariable [QGVAR(attached), true];
 _attacher setVariable [QGVAR(attach), nil];
 
 if (!isNil QMODULE(marker)) then {
-    [_attacher, _attachee] __submodule(marker);
+    [_attacher, _attachee] __submoduleVM(marker);
 };

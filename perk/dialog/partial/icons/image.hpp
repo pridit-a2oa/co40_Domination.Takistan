@@ -112,7 +112,7 @@ class PerkIcon_Role1_5: XD_RscPicture
 };
 class PerkIcon_Role2_1: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_repair_ca";
+    text = "ca\ui\data\ui_action_takemine_ca";
     x = 0.359375;
     y = 0.375;
     w = 0.0419193;
@@ -120,7 +120,7 @@ class PerkIcon_Role2_1: XD_RscPicture
 };
 class PerkIcon_Role2_2: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_engine_on_ca";
+    text = "ca\ui\data\ui_action_repair_ca";
     x = 0.359375;
     y = 0.475;
     w = 0.0419193;
@@ -128,7 +128,15 @@ class PerkIcon_Role2_2: XD_RscPicture
 };
 class PerkIcon_Role2_3: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_editor_2d_loading_ca";
+    text = "ca\ui\data\icon_mission_repair_ca";
+    x = 0.359375;
+    y = 0.5785;
+    w = 0.0419193;
+    h = 0.0562289;
+};
+class PerkIcon_Role2_3_1: XD_RscPicture
+{
+    text = "ca\ui\data\markers\n_unknown";
     x = 0.359375;
     y = 0.575;
     w = 0.0419193;
@@ -136,7 +144,7 @@ class PerkIcon_Role2_3: XD_RscPicture
 };
 class PerkIcon_Role2_4: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_repair_ca";
+    text = "ca\ui\data\ui_action_engine_on_ca";
     x = 0.359375;
     y = 0.675;
     w = 0.0419193;
@@ -144,7 +152,7 @@ class PerkIcon_Role2_4: XD_RscPicture
 };
 class PerkIcon_Role2_5: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_editor_2d_loading_ca";
+    text = "ca\ui\data\ui_action_repair_ca";
     x = 0.359375;
     y = 0.775;
     w = 0.0419193;
@@ -312,25 +320,25 @@ class PerkIcon_Role6_1: XD_RscPicture
 };
 class PerkIcon_Role6_2: XD_RscPicture
 {
-    text = "ca\ui\data\stats_soft_ca";
+    text = "ca\ui\data\iconplane_ca";
     x = 0.671874;
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
 };
-class PerkIcon_Role6_2_1: XD_RscPicture
+class PerkIcon_Role6_3: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_fire_in_flame_ca";
-    x = 0.662274;
-    y = 0.470;
+    text = "ca\ui\data\stats_soft_ca";
+    x = 0.671874;
+    y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
 };
-class PerkIcon_Role6_3: XD_RscPicture
+class PerkIcon_Role6_3_1: XD_RscPicture
 {
-    text = "ca\ui\data\iconplane_ca";
-    x = 0.671874;
-    y = 0.575;
+    text = "ca\ui\data\ui_action_fire_in_flame_ca";
+    x = 0.662274;
+    y = 0.570;
     w = 0.0419193;
     h = 0.0562289;
 };

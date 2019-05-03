@@ -17,7 +17,7 @@ if (isServer) then {
         _vehicle setVariable [QGVAR(bonus), true, true];
         
         if (!isNil QMODULE(vehicle_respawn)) then {
-            [_vehicle] __submodule(vehicle_respawn);
+            [_vehicle] __submoduleVM(vehicle_respawn);
         };
     };
 };

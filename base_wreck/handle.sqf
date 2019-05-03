@@ -6,5 +6,5 @@
 #include "x_macros.sqf"
 
 if (!isNil QMODULE(vehicle_wreck)) then {
-    __submodule(vehicle_wreck);
+    __submoduleVM(vehicle_wreck);
 };
