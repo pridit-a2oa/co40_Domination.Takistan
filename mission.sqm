@@ -1349,7 +1349,6 @@ class Mission
 			vehicle="MASH_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="MEDIC_TENT1";
 		};
 		class Item7
 		{
@@ -1431,7 +1430,6 @@ class Mission
 			vehicle="MASH_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="MEDIC_TENT2";
 		};
 		class Item15
 		{
@@ -3738,7 +3736,6 @@ class Mission
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="SERVICE_POINT2";
 		};
 		class Item255
 		{
@@ -3750,7 +3747,6 @@ class Mission
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="SERVICE_POINT3";
 		};
 		class Item256
 		{
@@ -3762,7 +3758,6 @@ class Mission
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="SERVICE_POINT1";
 		};
 		class Item257
 		{

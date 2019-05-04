@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 // Nest type
-GVAR(nest_type) = "";
+GVAR(nest_type) = "WarfareBMGNest_M240_US_EP1";
 
 // Time between building
 GVAR(nest_cooldown) = 900;

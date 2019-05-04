@@ -1,11 +1,17 @@
 /**
  * Perk Module
  *
- * Description: Rewards system based on score accrued.
+ * Description: Player reward system based on score accrued.
  */
 
 #define THIS_MODULE perk
 #include "x_macros.sqf"
+
+// Increments of points issued dependant on score gained
+GVAR(perk_amount_points) = 2;
+
+// Increments of score required to issue perk points
+GVAR(perk_amount_score) = 15;
 
 if (hasInterface) then {
     player setVariable [QGVAR(perk_points), 20];

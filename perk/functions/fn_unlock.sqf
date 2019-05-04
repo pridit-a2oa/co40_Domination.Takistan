@@ -147,8 +147,7 @@ switch (_tier) do {
                             BIS_MENU_Construct,
                             "FARP",
                             "",
-                            "0 = ['farp'] execVM 'construction\functions\fn_create.sqf'",
-                            "\ca\ui\data\cursor_hand_ca"
+                            "0 = ['FARP'] execVM 'construction\functions\fn_create.sqf'"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -175,6 +174,15 @@ switch (_tier) do {
                 if (!isNil QMODULE(nest)) then {
                     player setVariable [QGVAR(nest), 1];
                     player setVariable [QGVAR(nest_max), 1];
+                    
+                    if (!isNil QMODULE(communication) && {!isNil QMODULE(construction)}) then {
+                        [
+                            BIS_MENU_Construct,
+                            "MG Nest",
+                            "",
+                            "0 = ['Nest'] execVM 'construction\functions\fn_create.sqf'"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             
@@ -216,6 +224,15 @@ switch (_tier) do {
                 if (!isNil QMODULE(trench)) then {
                     player setVariable [QGVAR(trench), 1];
                     player setVariable [QGVAR(trench_max), 1];
+                    
+                    if (!isNil QMODULE(communication) && {!isNil QMODULE(construction)}) then {
+                        [
+                            BIS_MENU_Construct,
+                            "Trench",
+                            "",
+                            "0 = ['Trench'] execVM 'construction\functions\fn_create.sqf'"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             
@@ -263,8 +280,7 @@ switch (_tier) do {
                             BIS_MENU_Construct,
                             "MASH",
                             "",
-                            "0 = ['mash'] execVM 'construction\functions\fn_create.sqf'",
-                            "\ca\ui\data\cursor_hand_ca"
+                            "0 = ['MASH'] execVM 'construction\functions\fn_create.sqf'"
                         ] call FUNC(communication,add);
                     };
                 };

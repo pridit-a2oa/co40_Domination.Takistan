@@ -1,12 +1,14 @@
 #include "x_macros.sqf"
-private ["_name", "_origin", "_position", "_distance", "_condition"];
+private ["_name", "_position", "_type", "_distance", "_object", "_condition"];
 
-PARAMS_4(_name, _origin, _position, _distance);
+PARAMS_4(_name, _position, _type, _distance);
+
+_object = getPos ((nearestObjects [_position, [_type], _distance select 0]) select 0);
 
 _condition = if (_distance select 1 == "within") then {
-    (_origin distance _position > (_distance select 0))
+    (isNil "_object")
 } else {
-    (_origin distance _position < (_distance select 0))
+    (!isNil "_object")
 };
 
 if (_condition) exitWith {

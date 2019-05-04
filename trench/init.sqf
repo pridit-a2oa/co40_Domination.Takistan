@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 // Trench type
-GVAR(trench_type) = "";
+GVAR(trench_type) = "Fort_EnvelopeSmall_EP1";
 
 // Time between building
 GVAR(trench_cooldown) = 600;

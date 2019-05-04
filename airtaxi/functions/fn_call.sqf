@@ -14,25 +14,25 @@ if (hasInterface) then {
         ] call FUNC(helper,nearSide),
     
         [
-            _name,
+            [_name, "called"],
             _position,
             player,
             [GVAR(air_taxi_distance_player), "within", "of your location"]
         ] call FUNC(helper,distanceFrom),
         
         [
-            _name,
+            [_name, "called"],
             _position,
             markerPos QGVAR(base_marker),
             [GVAR(air_taxi_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
         
         [
-            _name
+            [_name, "called"]
         ] call FUNC(helper,inVehicle),
         
         [
-            _name,
+            [_name, "called"],
             player getVariable QGVAR(air_taxi_cooldown)
         ] call FUNC(helper,timeExceeded),
         
@@ -42,7 +42,13 @@ if (hasInterface) then {
         ] call FUNC(helper,inProgress)
     ];
     
-    if (false in _checks) exitWith {};
+    {
+        if (typeName _x == "STRING") exitWith {
+            hint _x;
+        };
+    } forEach _checks;
+
+    if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
     
     X_JIPH setVariable [QGVAR(air_taxi_call), true, true];
     player setVariable [QGVAR(air_taxi_cooldown), time + GVAR(air_taxi_time_cooldown)];

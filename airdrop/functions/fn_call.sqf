@@ -8,18 +8,18 @@ if (hasInterface) then {
     _name = "Airdrop";
     _checks = [
         [
-            _name,
+            [_name, "called"],
             _position,
             player,
             [GVAR(airdrop_distance_player), "within", "of your location"]
         ] call FUNC(helper,distanceFrom),
         
         [
-            _name
+            [_name, "called"]
         ] call FUNC(helper,inVehicle),
         
         [
-            _name,
+            [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
         ] call FUNC(helper,timeExceeded),
         
@@ -29,7 +29,13 @@ if (hasInterface) then {
         ] call FUNC(helper,inProgress)
     ];
     
-    if (false in _checks) exitWith {};
+    {
+        if (typeName _x == "STRING") exitWith {
+            hint _x;
+        };
+    } forEach _checks;
+
+    if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
     
     X_JIPH setVariable [QGVAR(airdrop_call), true, true];
     player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];

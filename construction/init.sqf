@@ -8,6 +8,12 @@
 #define THIS_MODULE construction
 #include "x_macros.sqf"
 
+// Minimum distance from base
+GVAR(construction_distance_base) = 1500;
+
+// Minimum distance from an object of the same type
+GVAR(construction_distance_identical) = 300;
+
 // Time before despawning a constructed object
 GVAR(construction_time_lifetime) = 1800;
 
