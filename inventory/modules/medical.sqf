@@ -7,4 +7,4 @@
 
 GVAR(inventory_types) = GVAR(inventory_types) + ["medkits"];
 
-[nil, player, "per", rAddAction, "Give Medkit" call FUNC(common,OliveText), __function(transfer), "medkits", 9, false, true, "", "['medkits', _target] call d_fnc_inventory_valid"] call RE;
+[nil, player, "per", rAddAction, "Give Medkit" call FUNC(common,OliveText), __function(transfer), "medkits", 8, false, true, "", "['medkits', _target] call d_fnc_inventory_valid"] call RE;

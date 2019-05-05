@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    [player] call FUNC(ied,create);
+    // [player] call FUNC(ied,create);
 };
 
 if (hasInterface) then {

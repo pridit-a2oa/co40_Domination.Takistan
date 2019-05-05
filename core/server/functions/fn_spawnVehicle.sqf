@@ -11,6 +11,14 @@ _direction = [_spawn, _position] call BIS_fnc_dirTo;
 _group = createGroup west;
 _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
 
-[nil, nil, rExecVM, __handlerRE(vehicle), _vehicle select 0] call RE;
+[_vehicle select 0] spawn {
+    private ["_vehicle"];
+    
+    PARAMS_1(_vehicle);
+    
+    sleep 3;
+    
+    [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+};
 
 _vehicle

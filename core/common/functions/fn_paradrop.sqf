@@ -53,6 +53,7 @@ if (!isNil "_position") then {
 
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
         [nil, nil, rExecVM, __handlerRE(vehicle), _load] call RE;
+        [nil, nil, rSpawn, [_load], {player reveal (_this select 0)}] call RE;
     };
 
     if ((position _aircraft) select 2 > 100) then {

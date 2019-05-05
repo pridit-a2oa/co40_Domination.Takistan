@@ -24,7 +24,7 @@ class PerkIcon_General_3: XD_RscPicture
 };
 class PerkIcon_General_4: XD_RscPicturePerkIcon
 {
-    text = "\ca\ui\data\iconparachute_ca";
+    text = "\ca\ui\data\icon_wf_support_supplydrop_ca";
     x = 0.578126;
     y = 0.134182;
     w = 0.0419193;
@@ -312,7 +312,7 @@ class PerkIcon_Role5_5: XD_RscPicture
 };
 class PerkIcon_Role6_1: XD_RscPicture
 {
-    text = "ca\ui\data\iconhelicopter_ca";
+    text = "ca\ui\data\icon_wf_support_uav_ca";
     x = 0.671874;
     y = 0.375;
     w = 0.0419193;
@@ -328,17 +328,9 @@ class PerkIcon_Role6_2: XD_RscPicture
 };
 class PerkIcon_Role6_3: XD_RscPicture
 {
-    text = "ca\ui\data\stats_soft_ca";
+    text = "ca\ui\data\iconhelicopter_ca";
     x = 0.671874;
     y = 0.575;
-    w = 0.0419193;
-    h = 0.0562289;
-};
-class PerkIcon_Role6_3_1: XD_RscPicture
-{
-    text = "ca\ui\data\ui_action_fire_in_flame_ca";
-    x = 0.662274;
-    y = 0.570;
     w = 0.0419193;
     h = 0.0562289;
 };

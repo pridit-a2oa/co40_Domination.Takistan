@@ -28,7 +28,7 @@ if (ctrlText __ctrl2(200 + _id) == "\ca\ui\data\cmdbar_donotfire_ca") exitWith {
 player setVariable [QGVAR(perk_points), _points - 1];
 player setVariable [QGVAR(perks_unlocked), (_unlocked + [_id])];
 
-if (count _unlocked == 14) then {
+if ((count _unlocked) + 1 == 39) then {
     playSound "PowerOfTheSun";
 };
 

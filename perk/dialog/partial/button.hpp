@@ -295,7 +295,7 @@ class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One mash emplacement";
+    tooltip = "One MASH emplacement";
     action = "[5,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
@@ -325,7 +325,7 @@ class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two mash emplacements";
+    tooltip = "Two MASH emplacements";
     action = "[5,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
@@ -345,7 +345,7 @@ class PerkButton_Role6_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Call air taxi back to base";
+    tooltip = "Call UAV";
     action = "[6,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Lift OPFOR wrecks";
+    tooltip = "Call air taxi back to base";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase

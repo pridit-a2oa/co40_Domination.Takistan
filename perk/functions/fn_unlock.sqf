@@ -318,16 +318,16 @@ switch (_tier) do {
     case 6: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(airtaxi)) then {
-                    player setVariable [QGVAR(air_taxi), true];
+                if (!isNil QMODULE(uav)) then {
+                    player setVariable [QGVAR(uav), true];
                     
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
-                            "Air Taxi",
+                            "UAV",
                             "CursorOnGround",
-                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'airtaxi\functions\fn_call.sqf'",
-                            "\ca\ui\data\cursor_getin_ca"
+                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'uav\functions\fn_call.sqf'",
+                            "\ca\ui\data\cursor_basic_ca"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -340,8 +340,18 @@ switch (_tier) do {
             };
             
             case 3: {
-                if (!isNil QMODULE(vehicle_wreck)) then {
-                    player setVariable [QGVAR(vehicle_wreck_enemy), true];
+                if (!isNil QMODULE(airtaxi)) then {
+                    player setVariable [QGVAR(air_taxi), true];
+                    
+                    if (!isNil QMODULE(communication)) then {
+                        [
+                            BIS_MENU_Radio,
+                            "Air Taxi",
+                            "CursorOnGround",
+                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'airtaxi\functions\fn_call.sqf'",
+                            "\ca\ui\data\cursor_getin_ca"
+                        ] call FUNC(communication,add);
+                    };
                 };
             };
             

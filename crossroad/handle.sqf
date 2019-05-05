@@ -41,3 +41,7 @@ GVAR(crossroad2) kbAddTopic ["HQ", __bikb];
 GVAR(crossroad2) setIdentity "DHQ_EN2";
 GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
+
+if (!isNil QMODULE(uav)) then {
+    __submoduleVM(uav);
+};

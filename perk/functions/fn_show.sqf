@@ -76,8 +76,8 @@ if (GVAR(pilots) find (str(player)) != -1) then {
 };
 
 {
-    __ctrl2(100 + _x) ctrlSetText "\ca\ui\data\cmdbar_selected_ca";
-    __ctrl2(200 + _x) ctrlSetText "";
+    __ctrl2(200 + _x) ctrlSetText "\ca\ui\data\cmdbar_selected_ca";
+    __ctrl2(200 + _x) ctrlSetTextColor [1, 1, 1, 0.7];
 } forEach _unlocked;
 
 0 spawn {

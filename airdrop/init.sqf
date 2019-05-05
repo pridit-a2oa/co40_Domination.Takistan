@@ -16,14 +16,14 @@ GVAR(airdrop_type_payload) = "USVehicleBox_EP1";
 // Smoke grenade type
 GVAR(airdrop_type_smoke) = "SmokeShellGreen";
 
-// Initial spawn distance when calling
-GVAR(airdrop_distance_spawn) = 4000;
-
 // Minimum distance from base the position has to be
 GVAR(airdrop_distance_base) = 500;
 
 // Maximum distance the player can call within
 GVAR(airdrop_distance_player) = 300;
+
+// Initial spawn distance when calling
+GVAR(airdrop_distance_spawn) = 4000;
 
 // Minimum time between requests
 GVAR(airdrop_time_cooldown) = 600;

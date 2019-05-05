@@ -25,6 +25,7 @@ _modules = [
     "construction",
     "crossroad",
     "farp",
+    "friend",
     "halo",
     "ied",
     "inventory",
@@ -38,6 +39,7 @@ _modules = [
     "squad",
     "teleport",
     "trench",
+    "uav",
     "vehicle",
     "vehicle_ammobox",
     "vehicle_bonus",
@@ -51,6 +53,7 @@ _modules = [
     "vehicle_respawn",
     "vehicle_service",
     "vehicle_teleport",
+    "vehicle_tow",
     "vehicle_welcome",
     "vehicle_wreck"
 ];

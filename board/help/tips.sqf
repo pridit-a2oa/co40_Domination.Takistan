@@ -4,6 +4,7 @@
     "Perks: Medkits are replenished at medical tents. Repair kits are replenished at vehicle service point structures (i.e. ammo point or ground vehicle service).",
     "Perks: One medkit & one repair kit can be given to other players, should they not have them. Medics have a perk that will let them give up to 2 medkits.",
     "Roles: Medics are able to heal other players, should they be injured. While this may seem obvious, this is the only class to have an inherent function.",
+    "Squads: Leaving any of the default squads puts you in a newly created squad. These created squads can only be joined by a context action on players within them.",
     "Vehicles: ATVs can tow certain aircraft.",
-    "Wrecks: Only wrecks designated on the map can be lifted. Red wrecks (OPFOR) cannot be lifted without the respective perk. Wrecks without markers will eventually disappear."
+    "Wrecks: Only wrecks designated on the map can be lifted. Wrecks without markers will eventually disappear."
 ]

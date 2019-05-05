@@ -49,6 +49,14 @@ class CfgSounds {
         sound[]={"\perk\sounds\powerofthesun.ogg",1,1.0};
         titles[] = {};
     };
+    class d_sound_friend_0 {
+        sound[] = {"\friend\sounds\friend_0.wss",db,1,30};
+        titles[] = {};
+    };
+    class d_sound_friend_1 {
+        sound[] = {"\friend\sounds\friend_1.wss",db,1,30};
+        titles[] = {};
+    };
     class d_sound_disarm {
         sound[] = {"\ied\sounds\disarm.wss",db,1,30};
         titles[] = {};

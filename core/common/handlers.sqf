@@ -22,12 +22,14 @@ _handlers = [
     "communication",
     "construction",
     "crossroad",
+    "friend",
     "ied",
     "marker",
     "medical",
     "option",
     "perk",
     "squad",
+    "uav",
     "vehicle_bonus",
     "vehicle_load",
     "vehicle_service",
@@ -36,6 +38,6 @@ _handlers = [
 
 {
     if (!isNil (format [QMODULE(%1), _x])) then {
-        __handler(_x)
+        __handler(_x);
     };
 } forEach _handlers;
