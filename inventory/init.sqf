@@ -10,8 +10,12 @@
 #include "x_macros.sqf"
 
 // Set valid types
-GVAR(inventory_types) = [];
+GVAR(inventory_types) = [
+    ["Medkit", "medkits"],
+    ["Repair Kit", "repair_kits"]
+];
 
+__cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,transfer),THIS_MODULE\functions\fn_transfer.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 

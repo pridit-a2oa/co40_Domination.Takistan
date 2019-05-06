@@ -35,5 +35,5 @@ if (hasInterface) then {
         ] call FUNC(communication,add);
     };
     
-    [nil, player, "per", rAddAction, "Join Squad", __function(join), [], 10, false, true, "", "alive _target && {group player != (group _target)}"] call RE;
+    [nil, player, "per", rAddAction, "Join Squad" call FUNC(common,YellowText), __function(join), [], 9, false, true, "", "alive _target && {lifeState _target != 'UNCONSCIOUS'} && {group player != (group _target)}"] call RE;
 };

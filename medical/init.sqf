@@ -8,12 +8,11 @@
 #include "x_macros.sqf"
 
 // Set damage threshold
-GVAR(damage_threshold) = 0.0;
+GVAR(medical_threshold_damage) = 0.3;
 
 if (hasInterface) then {
     player setVariable [QGVAR(medkits), 0, true];
     player setVariable [QGVAR(medkits_max), 0, true];
-    player setVariable [QGVAR(medkits_trade_max), 1];
 };
 
 __cppfln(FUNC(THIS_MODULE,heal),THIS_MODULE\functions\fn_heal.sqf);

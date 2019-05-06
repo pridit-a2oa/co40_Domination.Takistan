@@ -6,7 +6,6 @@
 private ["_modules"];
 
 _modules = [
-    "weather",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -36,6 +35,7 @@ _modules = [
     "nest",
     "option",
     "perk",
+    "revive",
     "squad",
     "teleport",
     "trench",
@@ -55,7 +55,8 @@ _modules = [
     "vehicle_teleport",
     "vehicle_tow",
     "vehicle_welcome",
-    "vehicle_wreck"
+    "vehicle_wreck",
+    "weather"
 ];
 
 {

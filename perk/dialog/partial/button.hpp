@@ -315,7 +315,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Give players up to 2 medkits";
+    tooltip = "Revived players have full health";
     action = "[5,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase

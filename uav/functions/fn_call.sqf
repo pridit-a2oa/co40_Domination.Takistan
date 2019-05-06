@@ -9,6 +9,11 @@ if (hasInterface) then {
     _checks = [
         [
             [_name, "called"],
+            player getVariable QGVAR(uav_cooldown)
+        ] call FUNC(helper,timeExceeded),
+    
+        [
+            [_name, "called"],
             _position,
             player,
             [GVAR(uav_distance_player), "within", "of your location"]
@@ -17,11 +22,6 @@ if (hasInterface) then {
         [
             [_name, "called"]
         ] call FUNC(helper,inVehicle),
-        
-        [
-            [_name, "called"],
-            player getVariable QGVAR(uav_cooldown)
-        ] call FUNC(helper,timeExceeded),
         
         [
             _name,

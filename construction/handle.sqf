@@ -25,3 +25,9 @@ if (!isNil QMODULE(trench)) then {
 };
 
 GVAR(construction_type_objects) = _objects;
+
+if (isServer) then {
+    X_JIPH setVariable [QGVAR(constructed), [], true];
+    
+    __fsm(cleanup);
+};

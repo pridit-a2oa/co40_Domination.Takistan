@@ -7,6 +7,11 @@ if (hasInterface) then {
     _name = "Air taxi";
     _checks = [
         [
+            [_name, "called"],
+            player getVariable QGVAR(air_taxi_cooldown)
+        ] call FUNC(helper,timeExceeded),
+    
+        [
             _name,
             _position,
             EAST,
@@ -30,11 +35,6 @@ if (hasInterface) then {
         [
             [_name, "called"]
         ] call FUNC(helper,inVehicle),
-        
-        [
-            [_name, "called"],
-            player getVariable QGVAR(air_taxi_cooldown)
-        ] call FUNC(helper,timeExceeded),
         
         [
             _name,

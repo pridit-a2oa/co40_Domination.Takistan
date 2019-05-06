@@ -3,8 +3,6 @@
 0 fadeSound 0;
 titleText ["", "BLACK FADED"];
 
-skipTime 5;
-
 waitUntil {!(isNil "bis_fnc_init")};
 waitUntil {!(isNil "BIS_MPF_InitDone")};
 

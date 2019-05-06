@@ -295,7 +295,7 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(medical)) then {
-                    player setVariable [QGVAR(medkits_trade_max), (player getVariable QGVAR(medkits_trade_max)) + 1];
+                    player setVariable [QGVAR(revive_damage), 0];
                 };
             };
             

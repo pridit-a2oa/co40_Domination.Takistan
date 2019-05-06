@@ -10,16 +10,16 @@ if (player getVariable _type < 1) exitWith {false};
 // player cannot be the target
 if (player == _target) exitWith {false};
 
+// player must be on foot
+if (player != vehicle player) exitWith {false};
+
 // target must be alive
 if (!alive _target) exitWith {false};
 
-// player must be on foot
-if (vehicle player != player) exitWith {false};
+// target already has item
+if (_targetKits > 0) exitWith {false};
 
 // giving an item would exceed maximum capacity
 if (_targetMax > 0 && {(_targetKits + 1) > _targetMax}) exitWith {false};
-
-// item(s) already given
-if (_targetMax < 1 && {_targetKits > 0}) exitWith {false};
 
 true

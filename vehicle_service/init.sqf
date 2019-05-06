@@ -13,9 +13,9 @@ GVAR(vehicle_service_types) = [
 ];
 
 if (hasInterface) then {
+    player setVariable [QGVAR(repair_full), false];
     player setVariable [QGVAR(repair_kits), 0, true];
     player setVariable [QGVAR(repair_kits_max), 0, true];
-    player setVariable [QGVAR(repair_full), false];
 };
 
 __cppfln(FUNC(THIS_MODULE,repair),THIS_MODULE\functions\fn_repair.sqf);

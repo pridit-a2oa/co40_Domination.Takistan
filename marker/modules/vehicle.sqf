@@ -11,7 +11,7 @@ PARAMS_1(_vehicle);
 if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
 
 {
-    if (typeOf _vehicle isKindOf _x) exitWith {
+    if ((typeOf _vehicle) isKindOf _x) exitWith {
         _vehicle setVariable [QGVAR(hidden), false];
         
         [_vehicle] call FUNC(THIS_MODULE,create);

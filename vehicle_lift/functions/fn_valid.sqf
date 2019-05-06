@@ -40,7 +40,7 @@ while {player == driver _vehicle} do {
             
             _vehicle setVariable [QGVAR(attach), [
                 _nearest,
-                (_vehicle addAction ["Lift vehicle" call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])
+                (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,displayName)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])
             ]];
         };
     } else {

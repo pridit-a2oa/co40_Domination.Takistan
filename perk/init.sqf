@@ -14,7 +14,7 @@ GVAR(perk_amount_points) = 2;
 GVAR(perk_amount_score) = 15;
 
 if (hasInterface) then {
-    player setVariable [QGVAR(perk_points), 20];
+    player setVariable [QGVAR(perk_points), 39];
     player setVariable [QGVAR(perks_unlocked), []];
 };
 

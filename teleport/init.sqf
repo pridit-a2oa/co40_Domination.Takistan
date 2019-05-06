@@ -1,5 +1,8 @@
 /**
  * Teleport Module
+ *
+ * Description: This module enables players to teleport to points of interest
+ * on the map.
  */
 
 #define THIS_MODULE teleport

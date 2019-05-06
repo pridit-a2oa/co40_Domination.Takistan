@@ -21,6 +21,10 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submoduleVM(vehicle_mhq);
     };
+    
+    if (!isNil QMODULE(vehicle_tow)) then {
+        [_vehicle] __submoduleVM(vehicle_tow);
+    };
 };
 
 if (hasInterface) then {

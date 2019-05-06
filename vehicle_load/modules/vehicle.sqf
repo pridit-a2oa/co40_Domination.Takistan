@@ -39,7 +39,7 @@ if (isServer) then {
                     _height = ((position _aircraft) select 2);
                     
                     _eject = [
-                        [round(random 20) -20, round(random 20) -20, if (_height < 1) then {-1} else {-5}],
+                        [round (random 20) -20, round (random 20) -20, if (_height < 1) then {-1} else {-5}],
                         random 360
                     ];
                     
@@ -72,7 +72,7 @@ if (hasInterface) then {
                         true
                     ];
 
-                    [nil, _vehicle, "per", rAddAction, format ["Unload %1", getText (configFile >> "cfgVehicles" >> (_load select 0) >> 'displayName')] call FUNC(common,OliveText), __function(unload), _load, 10, false, true, "", "player == driver _target", format ["vehicleLoad%1", _forEachIndex]] call RE;
+                    [nil, _vehicle, "per", rAddAction, format ["Unload %1", [_load select 0] call FUNC(vehicle,name)] call FUNC(common,OliveText), __function(unload), _load, 10, false, true, "", "player == driver _target", format ["vehicleLoad%1", _forEachIndex]] call RE;
                 
                     _vehicle setVariable [QGVAR(actions), _actions, true];
                 };

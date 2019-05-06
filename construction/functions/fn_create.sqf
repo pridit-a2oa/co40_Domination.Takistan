@@ -14,25 +14,25 @@ _checks = [
         player getVariable (format [QUOTE(%1), _amount]),
         1
     ] call FUNC(helper,greaterThan),
-
+    
+    [
+        [_name, "constructed"],
+        player getVariable (format [QUOTE(%1), _cooldown])
+    ] call FUNC(helper,timeExceeded),
+    
     [
         [_name, "constructed"],
         position player,
         markerPos QGVAR(base_marker),
         [GVAR(construction_distance_base), "in excess of", "from base"]
     ] call FUNC(helper,distanceFrom),
-
+    
     [
         [_name, "constructed"],
         position player,
         _type,
         [GVAR(construction_distance_identical), "in excess of", "from another"]
     ] call FUNC(helper,nearObject),
-    
-    [
-        [_name, "constructed"],
-        player getVariable (format [QUOTE(%1), _cooldown])
-    ] call FUNC(helper,timeExceeded),
     
     [
         [_name, "constructed"]
@@ -61,7 +61,11 @@ if (!alive player) exitWith {
 };
 
 _object setPos _position;
+_object addEventHandler ["HandleDamage", {0}];
+_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 2, false, true, "", ""];
 
 [nil, nil, rExecVM, __function(action), _name, _object] call RE;
+
+X_JIPH setVariable [QGVAR(constructed), (X_JIPH getVariable QGVAR(constructed)) + [[_object, call FUNC(common,time) + GVAR(construction_time_lifetime)]], true];
 
 [_amount, _cooldown] call FUNC(THIS_MODULE,consume);

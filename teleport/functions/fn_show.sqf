@@ -1,6 +1,6 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
-private ["_list", "_name", "_position", "_index", "_vehicle"];
+private ["_list", "_button", "_name", "_position", "_index", "_vehicle"];
 
 PARAMS_1(_vehicle);
 
@@ -9,6 +9,9 @@ disableSerialization;
 createDialog "XD_TeleportDialog";
 
 _list = DIALOG("X_TELEPORT_DIALOG", 1500);
+_button = DIALOG("X_TELEPORT_DIALOG", 2000);
+
+_button ctrlEnable false;
 
 if (player distance GVAR(flag) > 10) then {
     _list lbAdd "Base";
