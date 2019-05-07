@@ -52,8 +52,8 @@ if (hasInterface) then {
         [_vehicle] __submoduleVM(vehicle_bonus);
     };
     
-    if (!isNil QMODULE(vehicle_service)) then {
-        [_vehicle] __submoduleVM(vehicle_service);
+    if (!isNil QMODULE(vehicle_repair)) then {
+        [_vehicle] __submoduleVM(vehicle_repair);
     };
     
     if (!isNil QMODULE(vehicle_protection)) then {

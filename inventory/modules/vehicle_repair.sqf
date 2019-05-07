@@ -1,5 +1,5 @@
 /**
- * Inventory Module - Vehicle Service Submodule
+ * Inventory Module - Vehicle Repair Submodule
  */
 
 #define THIS_MODULE inventory

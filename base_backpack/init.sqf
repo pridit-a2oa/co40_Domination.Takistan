@@ -9,5 +9,6 @@
 #include "x_macros.sqf"
 
 __cppfln(FUNC(THIS_MODULE,list),THIS_MODULE\functions\fn_list.sqf);
+__cppfln(FUNC(THIS_MODULE,take),THIS_MODULE\functions\fn_take.sqf);
 
 MODULE(THIS_MODULE) = true;

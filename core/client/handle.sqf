@@ -47,53 +47,120 @@ if (!isNil QMODULE(ied)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
-if (!isNil QMODULE(construction)) then {
-    ["init_objects", {
+["init_objects", {
+    if (!isNil QMODULE(construction)) then {
         {
             _name = _x select 0;
             _type = _x select 1;
             
             {
                 [_name, _x] call FUNC(construction,action);
+                
+                _x addEventHandler ["HandleDamage", {0}];
             } forEach (allMissionObjects _type);
         } forEach GVAR(construction_type_objects);
+    };
+    
+    if (!isNil QMODULE(vehicle_mhq)) then {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects GVAR(vehicle_mhq_net));
+    };
 
-        ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
-    }, 0] call FUNC(THIS_MODULE,addPerFrame);
-};
+    ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
+}, 0] call FUNC(THIS_MODULE,addPerFrame);
 
-if (!isNil QMODULE(revive)) then {
-    player addMPEventHandler ["MPHit", {
-        private ["_unit", "_injurer", "_damage"];
+player addEventHandler ["HandleDamage", {
+    private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
+
+    PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
+    
+    if (!alive _unit) exitWith {0};
+    if (lifeState _unit == "UNCONSCIOUS") exitWith {0};
+    if ((vehicle _unit) != (vehicle _injurer) && {!local _injurer} && {side (group _injurer) == side (group _unit)}) exitWith {0};
+    
+    if (!isNil QMODULE(revive)) then {
+        _incurred = 0;
+        _new_damage = 0;
+        _limbs = 1;
         
-        PARAMS_3(_unit, _injurer, _damage);
+        _config = configFile >> "cfgVehicles" >> (typeOf _unit);
         
-        if (lifeState _unit != "UNCONSCIOUS" && {damage _unit >= 0.7}) then {
-            _unit setUnconscious true;
-            _unit playActionNow "Die";
+        switch (_part) do {
+            case "head_hit": {
+                _armor = getNumber (_config >> "hitpoints" >> "HitHead" >> "armor");
+                _incurred = (_damage * (0.6 + (1 - _armor))) min 0.89;
+                _new_damage = ((_unit getVariable QGVAR(head_hit)) + _incurred) min 0.89;
+                
+                _unit setVariable [QGVAR(head_hit), _new_damage];
+            };
             
-            [nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;
+            case "body": {
+                _armor = getNumber (_config >> "hitpoints" >> "HitBody" >> "armor");
+                _pass_through = getNumber (_config >> "hitpoints" >> "HitBody" >> "passThrough");
+                
+                _incurred = if (_pass_through < 1 && _armor == 1) then {
+                    (_damage * 0.5) min 0.89
+                } else {
+                    (_damage * (0.6 + (1 - _armor))) min 0.89
+                };
+                
+                _new_damage = ((_unit getVariable QGVAR(body)) + _incurred) min 0.89;
+
+                _unit setVariable [QGVAR(body), _new_damage];
+            };
+            
+            case "hands": {
+                _limbs = 2;
+                _incurred = _damage min 15;
+                _new_damage = ((_unit getVariable QGVAR(hands)) + _incurred) min 15;
+                
+                _unit setVariable [QGVAR(hands), _new_damage];
+            };
+            
+            case "legs": {
+                _limbs = 2;
+                _incurred = _damage min 15;
+                _new_damage = ((_unit getVariable QGVAR(legs)) + _incurred) min 15;
+
+                _unit setVariable [QGVAR(legs), _new_damage];
+            };
+            
+            case "": {
+                _incurred = _damage min 0.89;
+                _new_damage = ((_unit getVariable QGVAR(overall)) + _incurred) min 0.89;
+
+                _unit setVariable [QGVAR(overall), _new_damage];
+            };
         };
-    }];
-    
-    player addEventHandler ["HandleDamage", {
-        private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
         
-        PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
+        _damage = _new_damage;
         
-        if (lifeState _unit == "UNCONSCIOUS") then {
-            _damage = 0;
+        if (_limbs != 0 && {!(_unit getVariable QGVAR(unconscious))}) then {
+            if ((_limbs == 1 && {_damage >= 0.89}) || {(_limbs == 2 && {_damage >= 15})}) then {
+                _unit setVariable [QGVAR(unconscious), true, true];
+                
+                moveOut _unit;
+                
+                _unit setUnconscious true;
+                _unit spawn {
+                    sleep 0.1;
+                    
+                    _this playActionNow "Die";
+                };
+
+                [nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;
+            };
         };
-        
-        _damage
-    }];
+    };
     
-    // ppEffectCreate ["dynamicBlur", -12521];
-    // setPlayerRespawnTime
-};
+    _damage
+}];
 
 player addEventHandler ["respawn", {
-    private ["_handlers"];
+    private ["_unit", "_handlers"];
+    
+    PARAMS_1(_unit);
     
     (_this select 0) setDir 240.214;
     
@@ -103,7 +170,7 @@ player addEventHandler ["respawn", {
         "perk",
         "option",
         "revive",
-        "vehicle_service"
+        "vehicle_repair"
     ];
 
     {
@@ -111,6 +178,10 @@ player addEventHandler ["respawn", {
             __handler(_x);
         };
     } forEach _handlers;
+    
+    if (!isNil QMODULE(revive)) then {
+        call FUNC(revive,reset);
+    };
     
     if (!isNil QMODULE(loadout) && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);

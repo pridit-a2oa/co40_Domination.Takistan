@@ -78,7 +78,7 @@ class CfgSounds {
         titles[] = {};
     };
     class d_sound_repair {
-        sound[] = {"\vehicle_service\sounds\repair.wss",db,1,30};
+        sound[] = {"\vehicle_repair\sounds\repair.wss",db,1,30};
         titles[] = {};
     };
 };

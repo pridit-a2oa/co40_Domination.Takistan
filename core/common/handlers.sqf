@@ -34,6 +34,7 @@ _handlers = [
     "uav",
     "vehicle_bonus",
     "vehicle_load",
+    "vehicle_repair",
     "vehicle_service",
     "vehicle_tow"
 ];

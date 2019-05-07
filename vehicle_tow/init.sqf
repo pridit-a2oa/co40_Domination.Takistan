@@ -16,7 +16,7 @@ GVAR(vehicle_tow_type_towable) = [
 ];
 
 // Set vehicle speed during a tow
-GVAR(vehicle_amount_speed) = 15;
+GVAR(vehicle_tow_amount_speed) = 15;
 
 __cppfln(FUNC(THIS_MODULE,axis),THIS_MODULE\functions\fn_axis.sqf);
 __cppfln(FUNC(THIS_MODULE,detach),THIS_MODULE\functions\fn_detach.sqf);

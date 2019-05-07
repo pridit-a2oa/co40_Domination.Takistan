@@ -1,4 +1,4 @@
-#define THIS_MODULE vehicle_service
+#define THIS_MODULE vehicle_repair
 #include "x_macros.sqf"
 private ["_vehicle"];
 
@@ -8,6 +8,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 for "_i" from 1 to 3 do {
     sleep 2;
+    
     [nil, player, rSay, QGVAR(sound_repair), 20] call RE;
     
     if (_i == 3) then {
@@ -27,19 +28,17 @@ for "_i" from 1 to 3 do {
             [_vehicle, 0.25] call FUNC(network,setFuel);
         };
         
-        if (!isNil QMODULE(perk)) then {
-            _perk = player getVariable QGVAR(repair_full);
+        _full = player getVariable QGVAR(repair_full);
 
-            if (!isNil "_perk") then {
-                [_vehicle, 0] call FUNC(network,setDamage);
-                
-                if (fuel _vehicle < 0.6) then {
-                    [_vehicle, 0.6] call FUNC(network,setFuel);
-                };
-            };
+        if (_full) then {
+            [_vehicle, 0] call FUNC(network,setDamage);
             
-            player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
+            if (fuel _vehicle < 0.6) then {
+                [_vehicle, 0.6] call FUNC(network,setFuel);
+            };
         };
+        
+        player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
     };
 };
 

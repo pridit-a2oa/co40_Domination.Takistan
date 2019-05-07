@@ -7,6 +7,8 @@
 private ["_marker", "_vehicle"];
 
 if (isServer) then {
+    sleep 3;
+    
     for "_i" from 1 to 3 do {
         _marker = format [QGVAR(bonus_air_%1), _i];
 
@@ -17,7 +19,11 @@ if (isServer) then {
         _vehicle setVariable [QGVAR(bonus), true, true];
         
         if (!isNil QMODULE(vehicle_respawn)) then {
-            [_vehicle] __submoduleVM(vehicle_respawn);
+            _vehicle setVariable [QGVAR(respawnable), false, true];
         };
+        
+        [_vehicle] __handler("vehicle");
+        
+        sleep 1;
     };
 };

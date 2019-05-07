@@ -15,7 +15,7 @@ switch (_tier) do {
             };
             
             case 2: {
-                if (!isNil QMODULE(vehicle_service)) then {
+                if (!isNil QMODULE(vehicle_repair)) then {
                     player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
                     player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
                 };
@@ -131,7 +131,7 @@ switch (_tier) do {
             };
             
             case 2: {
-                if (!isNil QMODULE(vehicle_service)) then {
+                if (!isNil QMODULE(vehicle_repair)) then {
                     player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
                     player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
                 };
@@ -154,13 +154,13 @@ switch (_tier) do {
             };
             
             case 4: {
-                if (!isNil QMODULE(vehicle_service)) then {
+                if (!isNil QMODULE(vehicle_repair)) then {
                     player setVariable [QGVAR(repair_full), true];
                 };
             };
             
             case 5: {
-                if (!isNil QMODULE(vehicle_service)) then {
+                if (!isNil QMODULE(vehicle_repair)) then {
                     player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
                     player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
                 };

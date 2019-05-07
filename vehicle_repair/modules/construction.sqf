@@ -1,8 +1,8 @@
 /**
- * Vehicle Service Module - Construction Submodule
+ * Vehicle Repair Module - Construction Submodule
  */
 
-#define THIS_MODULE vehicle_service
+#define THIS_MODULE vehicle_repair
 #include "x_macros.sqf"
 private ["_farp"];
 

@@ -12,7 +12,9 @@ _tower setVariable [QGVAR(is_towing), true, true];
 _detach = _tower addAction ["Detach" call FUNC(common,RedText), __function(detach), _tow, 10, true, true, "", ""];
 
 while {_tow getVariable QGVAR(is_towed)} do {
-    [_tower, GVAR(vehicle_amount_speed)] execVM FUNCTION(vehicle,speed);
+    sleep 0.1;
+    
+    [_tower, GVAR(vehicle_tow_amount_speed)] execVM FUNCTION(vehicle,speed);
 };
 
 _tower removeAction _detach;

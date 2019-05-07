@@ -30,7 +30,7 @@ GVAR(uav_time_airborne) = 200;
 GVAR(uav_time_ping) = 15;
 
 // Time between requests
-GVAR(uav_time_cooldown) = 1200;
+GVAR(uav_time_cooldown) = 900;
 
 if (hasInterface) then {
     player setVariable [QGVAR(uav), false];

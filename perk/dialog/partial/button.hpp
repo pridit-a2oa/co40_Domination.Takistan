@@ -35,7 +35,7 @@ class PerkButton_General_4: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Call air drop";
+    tooltip = "Call airdrop";
     action = "[0,4] call d_fnc_perk_clicked";
 };
 class PerkButton_General_5: XD_LinkButtonUpgradeBase
@@ -235,7 +235,7 @@ class PerkButton_Role3_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "M1A1 available as air drop (requires call air drop perk)";
+    tooltip = "M1A1 available as airdrop (requires call airdrop perk)";
     action = "[3,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_1: XD_LinkButtonUpgradeBase
@@ -285,7 +285,7 @@ class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "M2A2 available as air drop (requires call air drop perk)";
+    tooltip = "M2A2 available as airdrop (requires call airdrop perk)";
     action = "[4,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
@@ -315,7 +315,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Revived players have full health";
+    tooltip = "Revived players regain full health";
     action = "[5,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
@@ -385,6 +385,6 @@ class PerkButton_Role6_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "AH-6J available as air drop (requires call air drop perk)";
+    tooltip = "AH-6J available as airdrop (requires call airdrop perk)";
     action = "[6,5] call d_fnc_perk_clicked";
 };

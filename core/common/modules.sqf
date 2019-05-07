@@ -50,6 +50,7 @@ _modules = [
     "vehicle_menu",
     "vehicle_mhq",
     "vehicle_protection",
+    "vehicle_repair",
     "vehicle_respawn",
     "vehicle_service",
     "vehicle_teleport",
