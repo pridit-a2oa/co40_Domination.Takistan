@@ -15,7 +15,7 @@ if (hasInterface) then {
         _trigger setTriggerArea [8, 8, 0, true];
         _trigger setTriggerActivation ["WEST", "PRESENT", true];
         _trigger setTriggerStatements [
-            "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 10)}",
+            "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 15)}",
             "0 = [(vehicle player)] spawn d_fnc_vehicle_service_restore",
             ""
         ];

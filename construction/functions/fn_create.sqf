@@ -23,7 +23,7 @@ _checks = [
     [
         [_name, "constructed"],
         position player,
-        markerPos QGVAR(base_marker),
+        markerPos QGVAR(base_south),
         [GVAR(construction_distance_base), "in excess of", "from base"]
     ] call FUNC(helper,distanceFrom),
     

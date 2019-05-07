@@ -8,14 +8,14 @@ private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expirat
 
 PARAMS_1(_vehicle);
 
-if ((getMarkerPos QGVAR(base_marker)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
+if ((getMarkerPos QGVAR(base_south)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
 
 if (_vehicle isKindOf "Car" || _vehicle isKindOf "Air") then {
     _respawnable = _vehicle getVariable QGVAR(respawnable);
     
-    if (!isNil "_respawnable" && {!_respawnable}) exitWith {};
-    
     while {true} do {
+        if (!isNil "_respawnable" && {!_respawnable}) exitWith {};
+        
         _position = _vehicle getVariable QGVAR(position);
         _direction = _vehicle getVariable QGVAR(direction);
         _threshold = _vehicle getVariable QGVAR(threshold);

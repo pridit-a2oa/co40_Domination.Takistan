@@ -5,4 +5,4 @@
 #define THIS_MODULE uav
 #include "x_macros.sqf"
 
-["UAV", __bikb] call FUNC(crossroad,kbAddTopic);
+["uav", __bikb] call FUNC(crossroad,kbAddTopic);

@@ -18,7 +18,7 @@ while {alive _aircraft && {canMove _aircraft} && {time < _aircraft getVariable Q
     
     if (!isNil QMODULE(crossroad)) then {
         if (_angle == _angle_threshold) then {
-            GVAR(crossroad) kbTell [GVAR(crossroad2), "UAV", "InRange", true];
+            GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "InRange", true];
             
             _aircraft setVariable [QGVAR(uav_range), true];
         };

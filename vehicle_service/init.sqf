@@ -17,6 +17,7 @@ GVAR(vehicle_service_type_vehicles) = [
     "MtvrRepair_DES_EP1"
 ];
 
+__cppfln(FUNC(THIS_MODULE,rearm),THIS_MODULE\functions\fn_rearm.sqf);
 __cppfln(FUNC(THIS_MODULE,restore),THIS_MODULE\functions\fn_restore.sqf);
 
 MODULE(THIS_MODULE) = true;

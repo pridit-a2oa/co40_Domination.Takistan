@@ -134,22 +134,13 @@ player addEventHandler ["HandleDamage", {
             };
         };
         
+        39671 cutRsc [GVAR(revive_type_blood) select (floor (random 3)), "PLAIN"];
+        
         _damage = _new_damage;
         
         if (_limbs != 0 && {!(_unit getVariable QGVAR(unconscious))}) then {
             if ((_limbs == 1 && {_damage >= 0.89}) || {(_limbs == 2 && {_damage >= 15})}) then {
-                _unit setVariable [QGVAR(unconscious), true, true];
-                
-                moveOut _unit;
-                
-                _unit setUnconscious true;
-                _unit spawn {
-                    sleep 0.1;
-                    
-                    _this playActionNow "Die";
-                };
-
-                [nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;
+                [_unit] call FUNC(revive,unconscious);
             };
         };
     };
@@ -186,6 +177,14 @@ player addEventHandler ["respawn", {
     if (!isNil QMODULE(loadout) && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
     };
+}];
+
+player addEventHandler ["killed", {
+    private ["_unit", "_handlers"];
+    
+    PARAMS_1(_unit);
+    
+    hideBody _unit;
 }];
 
 deleteVehicle GVAR(client_init_trig);

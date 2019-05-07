@@ -5,4 +5,4 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
 
-GVAR(flag) addAction ["Teleport" call FUNC(common,OliveText), __function(show), [], 2, false, true, "", ""];
+GVAR(flag) addAction ["Teleport" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", ""];

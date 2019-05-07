@@ -41,7 +41,7 @@ class FSM
     class _
     {
       name = "_";
-      init = "_range = ((getMarkerPos ""d_base_marker"") distance _vehicle);" \n
+      init = "_range = ((getMarkerPos ""d_base_south"") distance _vehicle);" \n
        "if (_range < 400) then {" \n
        "    _vehicle allowDamage false;" \n
        "} else {" \n

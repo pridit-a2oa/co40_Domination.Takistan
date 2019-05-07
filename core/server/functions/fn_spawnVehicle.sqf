@@ -18,6 +18,10 @@ _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
     
     sleep 3;
     
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        _vehicle setVariable [QGVAR(respawnable), false, true];
+    };
+    
     [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
 };
 

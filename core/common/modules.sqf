@@ -32,6 +32,8 @@ _modules = [
     "marker",
     "mash",
     "medical",
+    "mission_main",
+    "name",
     "nest",
     "option",
     "perk",

@@ -16,6 +16,6 @@ _vehicle lock true;
 _vehicle setVariable [QGVAR(camo), _camo, true];
 _vehicle setVariable [QGVAR(deployed), true, true];
 
-if (!isNil QMODULE(marker)) then {
-    [_vehicle, true] __submoduleVM(marker);
+if (!isNil QMODULE(vehicle_marker)) then {
+    [_vehicle, true] __submoduleVM(vehicle_marker);
 };

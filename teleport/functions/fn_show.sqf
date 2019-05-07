@@ -23,7 +23,7 @@ if (!isNil QMODULE(vehicle_mhq)) then {
             _name = getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
             _position = _x getVariable QGVAR(position);
             
-            if (!isNil QMODULE(marker)) then {
+            if (!isNil QMODULE(vehicle_marker)) then {
                 _name = markerText (str((_position) select 0));
             };
             

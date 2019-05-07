@@ -1,0 +1,22 @@
+class Sentences 
+{
+    class NewTarget {
+        text = "New Target: %1";
+        speech[] = {Attack, %1};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

@@ -27,6 +27,8 @@ _handlers = [
     "ied",
     "marker",
     "medical",
+    "mission_main",
+    "name",
     "option",
     "perk",
     "revive",

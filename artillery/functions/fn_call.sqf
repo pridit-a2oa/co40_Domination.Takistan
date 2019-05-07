@@ -29,7 +29,7 @@ if (hasInterface) then {
         [
             [_name, "called"],
             _position,
-            markerPos QGVAR(base_marker),
+            markerPos QGVAR(base_south),
             [GVAR(artillery_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
         

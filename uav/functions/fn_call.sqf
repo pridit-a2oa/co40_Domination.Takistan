@@ -38,6 +38,7 @@ if (hasInterface) then {
     if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
     
     X_JIPH setVariable [QGVAR(uav_call), true, true];
+    player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
     
     if (!isServer) then {
         uav = _this;
@@ -72,7 +73,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
             _aircraft limitSpeed 0;
             
             if (!isNil QMODULE(crossroad)) then {
-                GVAR(crossroad) kbTell [GVAR(crossroad2), "UAV", "LowFuel", true];
+                GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "LowFuel", true];
             };
             
             [_aircraft] call FUNC(server,exitMap);
@@ -99,6 +100,5 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         _aircraft setDamage 1;
     };
     
-    player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
     X_JIPH setVariable [QGVAR(uav_progress), false, true];
 };

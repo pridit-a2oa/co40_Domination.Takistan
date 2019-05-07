@@ -1,6 +1,6 @@
 #define THIS_MODULE airdrop
 #include "x_macros.sqf"
-private ["_unit", "_position", "_drop", "_name", "_checks", "_vehicle", "_aircraft", "_crew", "_marker"];
+private ["_unit", "_position", "_drop", "_name", "_checks", "_vehicle", "_aircraft", "_crew", "_pilot", "_group", "_load"];
 
 PARAMS_3(_unit, _position, _drop);
 
@@ -75,7 +75,11 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
 
     while {alive _aircraft && {canMove _aircraft}} do {
         if (_aircraft distance _position < 650) exitWith {
-            [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
+            _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
+            
+            if (!isNil QMODULE(vehicle_respawn) && {_load isKindOf "AllVehicles"}) then {
+                _load setVariable [QGVAR(respawnable), false, true];
+            };
             
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (unitReady _pilot) exitWith {

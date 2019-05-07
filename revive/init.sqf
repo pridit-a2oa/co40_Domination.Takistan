@@ -10,6 +10,13 @@
 
 if (!isMultiplayer) exitWith {};
 
+// Set blood effects
+GVAR(revive_type_blood) = [
+    QGVAR(revive_blood_1),
+    QGVAR(revive_blood_2),
+    QGVAR(revive_blood_3)
+];
+
 // Set amount of damage a revived player will have
 GVAR(revive_amount_damage) = 0.5;
 
@@ -27,5 +34,6 @@ if (hasInterface) then {
 
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,revive),THIS_MODULE\functions\fn_revive.sqf);
+__cppfln(FUNC(THIS_MODULE,unconscious),THIS_MODULE\functions\fn_unconscious.sqf);
 
 MODULE(THIS_MODULE) = true;

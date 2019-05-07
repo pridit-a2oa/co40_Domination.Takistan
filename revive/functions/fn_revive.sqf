@@ -14,6 +14,8 @@ if (!alive player) exitWith {
     _target setVariable [QGVAR(reviving), false, true];
 };
 
+if (!alive _target) exitWith {};
+
 [nil, _target, "loc", rSpawn, [_target], {(_this select 0) setUnconscious false}] call RE;
 [nil, _target, rSwitchMove, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
 [nil, nil, rSpawn, [_target, _caller], {systemChat format ["%1 has been revived by %2", name (_this select 0), name (_this select 1)]}] call RE;

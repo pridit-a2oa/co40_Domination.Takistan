@@ -3,8 +3,8 @@
 
 FUNC(THIS_MODULE,GreyText) = {"<t color='#f0bfbfbf'>" + _this + "</t>"};
 FUNC(THIS_MODULE,RedText) = {"<t color='#f0ff0000'>" + _this + "</t>"};
-FUNC(THIS_MODULE,OliveText) = {"<t color='#f07f7f00'>" + _this + "</t>"};
-FUNC(THIS_MODULE,YellowText) = {"<t color='#e7e700'>" + _this + "</t>"};
+FUNC(THIS_MODULE,YellowText) = {"<t color='#a3ae55'>" + _this + "</t>"};
+FUNC(THIS_MODULE,BlueText) = {"<t color='#5398b6'>" + _this + "</t>"};
 
 GVAR(players) = if (isMultiplayer) then {playableUnits} else {switchableUnits};
 

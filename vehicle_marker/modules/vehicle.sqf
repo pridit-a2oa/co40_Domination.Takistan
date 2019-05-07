@@ -1,5 +1,5 @@
 /**
- * Marker Module - Vehicle Submodule
+ * Vehicle Marker Module - Vehicle Submodule
  */
 
 #define THIS_MODULE marker
@@ -24,4 +24,4 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
             [_vehicle] __submoduleVM(vehicle_service);
         };
     };
-} forEach GVAR(marker_vehicle_types);
+} forEach GVAR(vehicle_marker_types);

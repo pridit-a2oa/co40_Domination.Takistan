@@ -1,5 +1,9 @@
 #include "x_macros.sqf"
 
+QGVAR(base_south) setMarkerAlphaLocal 0;
+QGVAR(base_north) setMarkerAlphaLocal 0;
+QGVAR(map_zone) setMarkerAlphaLocal 0;
+
 0 fadeSound 0;
 titleText ["", "BLACK FADED"];
 
@@ -23,5 +27,3 @@ enableTeamSwitch false;
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
 GVAR(init_obj) addEventHandler ["killed", {__core(common);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
 GVAR(init_obj) setDamage 1;
-
-QGVAR(base_marker) setMarkerAlphaLocal 0;

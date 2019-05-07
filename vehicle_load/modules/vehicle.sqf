@@ -72,7 +72,7 @@ if (hasInterface) then {
                         true
                     ];
 
-                    [nil, _vehicle, "per", rAddAction, format ["Unload %1", [_load select 0] call FUNC(vehicle,name)] call FUNC(common,OliveText), __function(unload), _load, 10, false, true, "", "player == driver _target", format ["vehicleLoad%1", _forEachIndex]] call RE;
+                    [nil, _vehicle, "per", rAddAction, format ["Unload %1", [_load select 0] call FUNC(vehicle,name)] call FUNC(common,BlueText), __function(unload), _load, 10, false, true, "", "player == driver _target", format ["vehicleLoad%1", _forEachIndex]] call RE;
                 
                     _vehicle setVariable [QGVAR(actions), _actions, true];
                 };

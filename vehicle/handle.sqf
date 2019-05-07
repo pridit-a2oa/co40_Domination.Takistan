@@ -28,8 +28,8 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    if (!isNil QMODULE(marker)) then {
-        [_vehicle] __submoduleVM(marker);
+    if (!isNil QMODULE(vehicle_marker)) then {
+        [_vehicle] __submoduleVM(vehicle_marker);
     };
     
     if (!isNil QMODULE(option)) then {

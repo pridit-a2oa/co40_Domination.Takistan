@@ -1,14 +1,14 @@
 /**
- * Marker Module
+ * Vehicle Marker Module
  *
- * Description: This module handles marker states and persistence.
+ * Description: This module handles marker states and persistence for vehicles.
  */
 
-#define THIS_MODULE marker
+#define THIS_MODULE vehicle_marker
 #include "x_macros.sqf"
 
 // Set valid vehicle types for markers
-GVAR(marker_vehicle_types) = [
+GVAR(vehicle_marker_types) = [
     "Air",
     "Tank",
     "Truck",
@@ -16,7 +16,7 @@ GVAR(marker_vehicle_types) = [
 ];
 
 // Maximum distance from original spawn position before visible
-GVAR(vehicle_distance_visible) = 10;
+GVAR(vehicle_marker_visible) = 10;
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);

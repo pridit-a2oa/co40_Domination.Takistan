@@ -16,13 +16,16 @@ _atv = createVehicle ["ATV_US_EP1", [_position select 0, _position select 1, 0],
 _atv setDir ((direction _vehicle) - 180);
 _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];
+
+if (!isNil QMODULE(vehicle_respawn)) then {
+    _atv setVariable [QGVAR(respawnable), false, true];
+};
+
 player reveal _atv;
 
 [nil, _atv, rSay, QGVAR(sound_build), 20] call RE;
 
 [nil, nil, rExecVM, __handlerRE(vehicle), _atv] call RE;
-
-_atv setVariable [QGVAR(respawnable), false, true];
 
 _atv spawn {
     sleep 10;
