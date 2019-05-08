@@ -5,11 +5,15 @@ _object = _this select 0;
 _amount = (_this select 3) select 0;
 _cooldown = (_this select 3) select 1;
 
+_object setVariable [QGVAR(deconstructing), true];
+
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 7;
 
-if (!alive player) exitWith {};
+if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
+    _object setVariable [QGVAR(deconstructing), false];
+};
 
 deleteVehicle _object;
 

@@ -324,7 +324,7 @@ switch (_tier) do {
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
-                            "uav",
+                            "UAV",
                             "CursorOnGround",
                             "0 = [player, screenToWorld [0.5, 0.5]] execVM 'uav\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_basic_ca"

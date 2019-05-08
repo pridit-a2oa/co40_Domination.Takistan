@@ -2,7 +2,7 @@
  * Vehicle Marker Module - Vehicle Submodule
  */
 
-#define THIS_MODULE marker
+#define THIS_MODULE vehicle_marker
 #include "x_macros.sqf"
 private ["_vehicle", "_marker"];
 

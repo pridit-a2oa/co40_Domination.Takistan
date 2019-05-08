@@ -7,6 +7,11 @@ if (hasInterface) then {
     _name = "Air taxi";
     _checks = [
         [
+            _name,
+            QGVAR(air_taxi_progress)
+        ] call FUNC(helper,inProgress),
+    
+        [
             [_name, "called"],
             player getVariable QGVAR(air_taxi_cooldown)
         ] call FUNC(helper,timeExceeded),
@@ -34,12 +39,7 @@ if (hasInterface) then {
         
         [
             [_name, "called"]
-        ] call FUNC(helper,inVehicle),
-        
-        [
-            _name,
-            QGVAR(air_taxi_progress)
-        ] call FUNC(helper,inProgress)
+        ] call FUNC(helper,inVehicle)
     ];
     
     {
@@ -69,7 +69,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     
     GVAR(air_taxi_type_smoke) createVehicle _position;
     
-    _vehicle = [_position, GVAR(air_taxi_type_aircraft), GVAR(air_taxi_distance_spawn)] call FUNC(server,spawnVehicle);
+    _vehicle = [_position, GVAR(air_taxi_type_aircraft), GVAR(air_taxi_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
 
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;

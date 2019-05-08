@@ -26,6 +26,8 @@ sleep 3;
 
 _load attachTo [_aircraft, [_load] call FUNC(common,attachPoint)];
 
+sleep 1;
+
 {
     if (isPlayer _x) then {
         moveOut _x;
@@ -33,8 +35,6 @@ _load attachTo [_aircraft, [_load] call FUNC(common,attachPoint)];
         [nil, _x, rMoveIn, _aircraft, "Cargo"] call RE;
     };
 } forEach crew _load;
-
-sleep 1;
 
 _aircraft animate ["ramp_top", 0];
 _aircraft animate ["ramp_bottom", 0];

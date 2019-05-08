@@ -10,7 +10,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 7;
 
-if (!alive player) exitWith {
+if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
     _target setVariable [QGVAR(reviving), false, true];
 };
 

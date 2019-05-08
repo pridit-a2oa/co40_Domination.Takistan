@@ -3588,7 +3588,7 @@ class Mission
     };
     class Markers
     {
-        items=24;
+        items=20;
         class Item0
         {
             position[]={8268.4834,296.04001,2107.3167};
@@ -3598,18 +3598,6 @@ class Mission
         };
         class Item1
         {
-            position[]={8311.6934,296.04001,1919.7904};
-            name="enemy_base";
-            markerType="RECTANGLE";
-            type="Empty";
-            colorName="ColorRed";
-            fillName="FDiagonal";
-            a=0;
-            b=0;
-            angle=-119.2025;
-        };
-        class Item2
-        {
             position[]={8030.832,296.04001,1859.6217};
             name="d_base_south";
             markerType="RECTANGLE";
@@ -3618,27 +3606,27 @@ class Mission
             b=200;
             angle=-30.4639;
         };
-        class Item3
+        class Item2
         {
             position[]={8249.8164,296.04001,2118.6023};
             name="d_airtaxi";
             type="Empty";
         };
-        class Item4
+        class Item3
         {
             position[]={7965.9063,296.14053,1933.8236};
             name="d_base_anti_air_2";
             type="Empty";
             colorName="ColorBlack";
         };
-        class Item5
+        class Item4
         {
             position[]={8361.0176,296.04001,1874.6584};
             name="d_base_anti_air_1";
             type="Empty";
             colorName="ColorBlack";
         };
-        class Item6
+        class Item5
         {
             position[]={7719.5068,296.04001,1725.8082};
             name="d_service_jet";
@@ -3646,7 +3634,7 @@ class Mission
             colorName="ColorYellow";
             angle=-29.6738;
         };
-        class Item7
+        class Item6
         {
             position[]={7894.7568,296.04001,1770.0491};
             name="d_service_wreck";
@@ -3654,7 +3642,7 @@ class Mission
             colorName="ColorYellow";
             angle=-121.01;
         };
-        class Item8
+        class Item7
         {
             position[]={8064.5488,296.04001,1867.2828};
             name="d_service_chopper";
@@ -3662,14 +3650,14 @@ class Mission
             colorName="ColorYellow";
             angle=-121.01;
         };
-        class Item9
+        class Item8
         {
             position[]={8273.0723,296.04001,2108.082};
             name="d_player_ammobox_pos";
             type="Empty";
             angle=151.92087;
         };
-        class Item10
+        class Item9
         {
             position[]={8205.6885,296.04001,2038.1346};
             name="d_bonus_air_1";
@@ -3677,7 +3665,7 @@ class Mission
             type="Empty";
             angle=150.07401;
         };
-        class Item11
+        class Item10
         {
             position[]={8224.0322,296.0307,1774.4596};
             name="d_bonus_air_2";
@@ -3685,7 +3673,7 @@ class Mission
             type="Empty";
             angle=-27.133801;
         };
-        class Item12
+        class Item11
         {
             position[]={8180.4268,296.04001,1752.3551};
             name="d_bonus_air_3";
@@ -3693,33 +3681,21 @@ class Mission
             type="Empty";
             angle=-27.133801;
         };
-        class Item13
-        {
-            position[]={8314.3447,296.04001,1921.9968};
-            name="enemy_base_1";
-            markerType="RECTANGLE";
-            type="Empty";
-            colorName="ColorRed";
-            fillName="FDiagonal";
-            a=0;
-            b=0;
-            angle=-117.93375;
-        };
-        class Item14
+        class Item12
         {
             position[]={8269.4697,296.15048,2105.9285};
             name="d_player_backpacks_pos";
             type="Empty";
             angle=151.92101;
         };
-        class Item15
+        class Item13
         {
             position[]={8226.6572,296.04001,1957.4619};
             name="d_base_radar";
             type="Empty";
             colorName="ColorBlack";
         };
-        class Item16
+        class Item14
         {
             position[]={7909.4316,296.12076,1636.3};
             name="d_wreck_hangar_1";
@@ -3727,7 +3703,7 @@ class Mission
             colorName="ColorBrown";
             angle=150;
         };
-        class Item17
+        class Item15
         {
             position[]={7964.3486,296.12076,1668.4016};
             name="d_wreck_hangar_2";
@@ -3735,7 +3711,7 @@ class Mission
             colorName="ColorBrown";
             angle=150;
         };
-        class Item18
+        class Item16
         {
             position[]={8016.8003,296.12076,1698.709};
             name="d_wreck_hangar_3";
@@ -3743,27 +3719,9 @@ class Mission
             colorName="ColorBrown";
             angle=150;
         };
-        class Item19
+        class Item17
         {
-            position[]={-20737.127,502.38947,8947.4648};
-            name="d_island_marker";
-            markerType="RECTANGLE";
-            type="Empty";
-            a=6200;
-            b=6200;
-        };
-        class Item20
-        {
-            position[]={-19929.047,567.76691,8850.4951};
-            name="d_island_marker_1";
-            markerType="RECTANGLE";
-            type="Empty";
-            a=6200;
-            b=6200;
-        };
-        class Item21
-        {
-            position[]={6482.6655,352.61523,6029.8628};
+            position[]={6272.5635,330.48233,6078.3467};
             name="d_map_zone";
             markerType="ELLIPSE";
             type="Empty";
@@ -3773,7 +3731,7 @@ class Mission
             b=8500;
             drawBorder=1;
         };
-        class Item22
+        class Item18
         {
             position[]={7980.4868,296.04001,1997.1675};
             name="d_service_ground";
@@ -3781,7 +3739,7 @@ class Mission
             colorName="ColorYellow";
             angle=-29.6738;
         };
-        class Item23
+        class Item19
         {
             position[]={5747.5396,83.040001,11371.181};
             name="d_base_north";

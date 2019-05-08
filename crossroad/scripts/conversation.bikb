@@ -11,7 +11,7 @@ class Sentences
     
     class CrossroadAcknowledged {
         text = "Acknowledged, %1 en route - stand by.";
-        speech[] = {};
+        speech[] = {Roger};
         class Arguments {
             class 1 {type = "simple";};
         };

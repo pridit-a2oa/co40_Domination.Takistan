@@ -56,13 +56,15 @@ _object setDir ((getDir player) - 180);
 
 sleep 7;
 
-if (!alive player) exitWith {
+if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
     deleteVehicle _object;
 };
 
 _object setPos _position;
+_object setVariable [QGVAR(deconstructing), false];
+
 _object addEventHandler ["HandleDamage", {0}];
-_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 2, false, true, "", ""];
+_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 2, false, true, "", "!(_target getVariable 'd_deconstructing')"];
 
 [nil, nil, rExecVM, __function(action), _name, _object] call RE;
 

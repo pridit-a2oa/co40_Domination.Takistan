@@ -1,13 +1,12 @@
 class FSM
 {
-  fsmName = "Invulnerable";
+  fsmName = "Civilian";
   class States
   {
     class Start
     {
       name = "Start";
-      init = "private [""_vehicle"", ""_range"", ""_timeend""];" \n
-       "_vehicle = _this select 0;";
+      init = "";
       precondition = "";
       class Links
       {
@@ -21,13 +20,39 @@ class FSM
         };
       };
     };
-    class Loop
+    class Delay
     {
-      name = "Loop";
-      init = "_timeend = time + 20;";
+      name = "Delay";
+      init = "_timenow = time + (d_intel_time_spawn / 2);" \n
+       "";
       precondition = "";
       class Links
       {
+        class Delay_7
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Loop
+    {
+      name = "Loop";
+      init = "_timeend = time + d_intel_time_spawn;";
+      precondition = "";
+      class Links
+      {
+        class exists
+        {
+          priority = 3.000000;
+          to="Delay";
+          precondition = "";
+          condition="d_intel";
+          action="";
+        };
         class time_____timeend
         {
           priority = 0.000000;
@@ -41,14 +66,7 @@ class FSM
     class _
     {
       name = "_";
-      init = "_range = ((getMarkerPos ""d_base_south"") distance _vehicle);" \n
-       "if (_range < 400) then {" \n
-       "    if (side _vehicle == west || {side _vehicle == civilian && {count crew _vehicle < 1}} || {isPlayer (driver _vehicle)}) then {" \n
-       "        _vehicle allowDamage false;" \n
-       "    };" \n
-       "} else {" \n
-       "    _vehicle allowDamage true;" \n
-       "};";
+      init = "call d_fnc_intel_create;";
       precondition = "";
       class Links
       {

@@ -8,6 +8,11 @@ if (hasInterface) then {
     _name = "UAV";
     _checks = [
         [
+            _name,
+            QGVAR(uav_progress)
+        ] call FUNC(helper,inProgress),
+    
+        [
             [_name, "called"],
             player getVariable QGVAR(uav_cooldown)
         ] call FUNC(helper,timeExceeded),
@@ -21,12 +26,7 @@ if (hasInterface) then {
         
         [
             [_name, "called"]
-        ] call FUNC(helper,inVehicle),
-        
-        [
-            _name,
-            QGVAR(uav_progress)
-        ] call FUNC(helper,inProgress)
+        ] call FUNC(helper,inVehicle)
     ];
     
     {
@@ -54,7 +54,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         [_unit, _position, "UAV"] call FUNC(crossroad,request);
     };
     
-    _vehicle = [_position, GVAR(uav_type_aircraft), GVAR(uav_distance_spawn)] call FUNC(server,spawnVehicle);
+    _vehicle = [_position, GVAR(uav_type_aircraft), GVAR(uav_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
     
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
@@ -62,6 +62,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     _aircraft flyInHeight 700;
     _aircraft limitSpeed 40;
     _aircraft lock true;
+    _aircraft setVehicleAmmo 0;
     
     _aircraft setVariable [QGVAR(uav_range), false];
     _aircraft setVariable [QGVAR(uav_airborne), time + GVAR(uav_time_airborne)];

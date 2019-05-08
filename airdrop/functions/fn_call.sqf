@@ -8,6 +8,11 @@ if (hasInterface) then {
     _name = "Airdrop";
     _checks = [
         [
+            _name,
+            QGVAR(airdrop_progress)
+        ] call FUNC(helper,inProgress),
+        
+        [
             [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
         ] call FUNC(helper,timeExceeded),
@@ -21,12 +26,7 @@ if (hasInterface) then {
         
         [
             [_name, "called"]
-        ] call FUNC(helper,inVehicle),
-        
-        [
-            _name,
-            QGVAR(airdrop_progress)
-        ] call FUNC(helper,inProgress)
+        ] call FUNC(helper,inVehicle)
     ];
     
     {
@@ -56,7 +56,7 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     
     GVAR(airdrop_type_smoke) createVehicle _position;
     
-    _vehicle = [_position, GVAR(airdrop_type_aircraft), GVAR(airdrop_distance_spawn)] call FUNC(server,spawnVehicle);
+    _vehicle = [_position, GVAR(airdrop_type_aircraft), GVAR(airdrop_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
 
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;

@@ -44,42 +44,57 @@ class RscTitles {
     #include "vehicle_welcome\dialog\titles.hpp"
 };
 
+class CfgRadio
+{
+    sounds[] = {};
+    class Exclamation
+    {
+        name	= "Exclamation";
+        sound[]	= {"\intel\sounds\exclamation.wss", db - 100, 1.0 };
+        title	= "Allahu akbar!";
+    };
+};
+
 class CfgSounds {
     class PowerOfTheSun {
-        name="PowerOfTheSun";
-        sound[]={"\perk\sounds\powerofthesun.ogg",1,1.0};
-        titles[] = {};
+        name        = "PowerOfTheSun";
+        sound[]     = {"\perk\sounds\powerofthesun.ogg", 1, 1.0};
+        titles[]    = {};
+    };
+    class d_sound_shuffle {
+        sound[]     = {"\core\client\sounds\shuffle.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_friend_0 {
-        sound[] = {"\friend\sounds\friend_0.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\friend\sounds\friend_0.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_friend_1 {
-        sound[] = {"\friend\sounds\friend_1.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\friend\sounds\friend_1.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_disarm {
-        sound[] = {"\ied\sounds\disarm.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\ied\sounds\disarm.wss", db, 1, 30};
+        titles[]    = {};
     };
-    class d_sound_item {
-        sound[] = {"\inventory\sounds\item.wss",db,1,30};
-        titles[] = {};
+    class d_sound_tick {
+        sound[]     = {"\intel\sounds\tick.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_box {
-        sound[] = {"\vehicle_ammobox\sounds\box.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\vehicle_ammobox\sounds\box.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_build {
-        sound[] = {"\vehicle_create\sounds\build.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\vehicle_create\sounds\build.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_flip {
-        sound[] = {"\vehicle_flip\sounds\flip.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\vehicle_flip\sounds\flip.wss", db, 1, 30};
+        titles[]    = {};
     };
     class d_sound_repair {
-        sound[] = {"\vehicle_repair\sounds\repair.wss",db,1,30};
-        titles[] = {};
+        sound[]     = {"\vehicle_repair\sounds\repair.wss", db, 1, 30};
+        titles[]    = {};
     };
 };

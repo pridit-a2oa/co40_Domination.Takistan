@@ -25,7 +25,7 @@ _handlers = [
     "crossroad",
     "friend",
     "ied",
-    "marker",
+    "intel",
     "medical",
     "mission_main",
     "name",
@@ -36,6 +36,7 @@ _handlers = [
     "uav",
     "vehicle_bonus",
     "vehicle_load",
+    "vehicle_marker",
     "vehicle_repair",
     "vehicle_service",
     "vehicle_tow"

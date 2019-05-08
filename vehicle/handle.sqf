@@ -14,12 +14,12 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 };
 
 if (isServer) then {
-    if (!isNil QMODULE(vehicle_respawn)) then {
-        [_vehicle] __submoduleVM(vehicle_respawn);
-    };
-    
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submoduleVM(vehicle_mhq);
+    };
+    
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        [_vehicle] __submoduleVM(vehicle_respawn);
     };
     
     if (!isNil QMODULE(vehicle_tow)) then {
@@ -28,50 +28,48 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    if (!isNil QMODULE(vehicle_marker)) then {
-        [_vehicle] __submoduleVM(vehicle_marker);
-    };
-    
-    if (!isNil QMODULE(option)) then {
-        [_vehicle] __submoduleVM(option);
+    if (!isNil QMODULE(halo)) then {
+        [_vehicle] __submoduleVM(halo);
     };
     
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submoduleVM(perk);
     };
     
-    if (!isNil QMODULE(halo)) then {
-        [_vehicle] __submoduleVM(halo);
-    };
-    
-    if (!isNil QMODULE(vehicle_flip)) then {
-        [_vehicle] __submoduleVM(vehicle_flip);
+    if (!isNil QMODULE(option)) then {
+        [_vehicle] __submoduleVM(option);
     };
     
     if (!isNil QMODULE(vehicle_bonus)) then {
         [_vehicle] __submoduleVM(vehicle_bonus);
     };
     
-    if (!isNil QMODULE(vehicle_repair)) then {
-        [_vehicle] __submoduleVM(vehicle_repair);
+    if (!isNil QMODULE(vehicle_flip)) then {
+        [_vehicle] __submoduleVM(vehicle_flip);
     };
     
-    if (!isNil QMODULE(vehicle_protection)) then {
-        [_vehicle] __submoduleVM(vehicle_protection);
+    if (!isNil QMODULE(vehicle_lift)) then {
+        [_vehicle] __submoduleVM(vehicle_lift);
+    };
+    
+    if (!isNil QMODULE(vehicle_marker)) then {
+        [_vehicle] __submoduleVM(vehicle_marker);
     };
     
     if (!isNil QMODULE(vehicle_menu)) then {
         [_vehicle] __submoduleVM(vehicle_menu);
     };
     
-    if (_vehicle isKindOf "Helicopter" || {typeOf _vehicle == "MV22"}) then {
-        if (!isNil QMODULE(vehicle_welcome)) then {
-            [_vehicle] __submoduleVM(vehicle_welcome);
-        };
-        
-        if (!isNil QMODULE(vehicle_lift)) then {
-            [_vehicle] __submoduleVM(vehicle_lift);
-        };
+    if (!isNil QMODULE(vehicle_protection)) then {
+        [_vehicle] __submoduleVM(vehicle_protection);
+    };
+    
+    if (!isNil QMODULE(vehicle_repair)) then {
+        [_vehicle] __submoduleVM(vehicle_repair);
+    };
+    
+    if (!isNil QMODULE(vehicle_welcome)) then {
+        [_vehicle] __submoduleVM(vehicle_welcome);
     };
 };
 

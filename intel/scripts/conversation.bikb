@@ -1,0 +1,28 @@
+class Sentences 
+{
+    class Approach {
+        text = "Be advised, we have a civilian vehicle on approach to the base.";
+        speech[] = {};
+        class Arguments {};
+    };
+    
+    class Target {
+        text = "We have received intel that there is an %1, location has been marked.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

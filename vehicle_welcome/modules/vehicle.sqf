@@ -8,6 +8,8 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (!(_vehicle isKindOf "Helicopter") && {typeOf _vehicle != "MV22"}) exitWith {};
+
 _vehicle addEventHandler ["getin", {
     if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
 

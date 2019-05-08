@@ -8,7 +8,7 @@ if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 _ammoload = getPos GVAR(ammoload);
 _nearest = nearestObjects [_vehicle, ["USVehicleBox_EP1"], 10];
 
-if (count _nearest == 0 && {_vehicle distance _ammoload > 5}) exitWith {};
+if (count _nearest == 0 && {_vehicle distance _ammoload > 10}) exitWith {};
 
 _ammobox = _nearest select 0;
 
