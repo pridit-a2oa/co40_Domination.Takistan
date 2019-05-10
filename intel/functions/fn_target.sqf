@@ -1,3 +1,4 @@
+#define THIS_MODULE intel
 #include "x_macros.sqf"
 private ["_car"];
 
@@ -15,3 +16,5 @@ sleep 2;
 
 deleteVehicle (driver _car);
 deleteVehicle _car;
+
+[_type] call FUNC(THIS_MODULE,type);

@@ -30,6 +30,7 @@ _modules = [
     "intel",
     "inventory",
     "loadout",
+    "marker",
     "mash",
     "medical",
     "mission_main",

@@ -1,7 +1,7 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
 
-GVAR(intel) = true;
+X_JIPH setVariable [QGVAR(intel), true, true];
 
 0 spawn {
     private ["_road", "_direction", "_vehicle", "_car", "_crew", "_driver"];
@@ -32,15 +32,13 @@ GVAR(intel) = true;
         if (_car distance (markerPos QGVAR(intel)) <= 300) exitWith {
             GVAR(crossroad) kbTell [GVAR(crossroad2), "intel", "Approach", true];
             
-            _car addAction ["Intel" call FUNC(common,BlueText), __function(intel), [], 10, false, true, "", "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"];
-            
+            [nil, _car, "per", rAddAction, "Intel" call FUNC(common,BlueText), __function(intel), [], 10, false, true, "", "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"] call RE;
+
             while {alive _driver && {alive _car} && {canMove _car}} do {
                 _distance = _car distance (markerPos QGVAR(intel));
                 
-                if (_distance < 5 && {_car getVariable QGVAR(intel)}) then {
-                    if (_car distance (markerPos QGVAR(intel)) < 5) then {
-                        gameLogic action ["useWeapon", _car, (driver _car), 0];
-                    };
+                if (_distance < 50 && {_car getVariable QGVAR(intel)}) then {
+                    gameLogic action ["useWeapon", _car, (driver _car), 0];
                     
                     sleep 15 + (random 10);
                 };
@@ -51,6 +49,8 @@ GVAR(intel) = true;
 
         sleep 2;
     };
+    
+    if (isNull _car) exitWith {};
 
     _car setDamage 1;
 
@@ -62,5 +62,5 @@ GVAR(intel) = true;
 
     deleteVehicle _car;
     
-    GVAR(intel) = false;
+    X_JIPH setVariable [QGVAR(intel), false, true];
 };

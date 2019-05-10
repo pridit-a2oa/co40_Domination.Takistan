@@ -25,8 +25,6 @@ sleep 1.5;
 
 _explosive = createVehicle [GVAR(intel_type_bomb), position _car, [], 0, "CAN_COLLIDE"];
 
-deleteVehicle (driver _car);
-
 {
     _x setDamage 1;
     
@@ -36,5 +34,3 @@ deleteVehicle (driver _car);
         } forEach crew _x;
     };
 } forEach (nearestObjects [_car, ["Man", "AllVehicles"], 12]);
-
-_car setDamage 1;

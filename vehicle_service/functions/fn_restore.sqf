@@ -33,14 +33,6 @@ while {alive _vehicle && {fuel _vehicle < 0.99}} do {
         {
             [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
         } forEach _magazines;
-        
-        for "_i" from 0 to ((count (_config >> "Turrets")) - 1) do {
-            _magazines = getArray (((_config >> "Turrets") select _i) >> "magazines");
-            
-            {
-                [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
-            } forEach _magazines;
-        };
     };
 
     _vehicle setVehicleAmmo 1;
@@ -57,11 +49,9 @@ while {alive _vehicle && {fuel _vehicle < 0.99}} do {
     
     _vehicle vehicleChat "Refuelling";
     
-    while {fuel _vehicle < 0.99} do {
-        _vehicle setFuel ((fuel _vehicle) + 0.01);
-        
-        sleep 0.1;
-    };
+    sleep 2;
+    
+    _vehicle setFuel 1;
     
     reload _vehicle;
 };

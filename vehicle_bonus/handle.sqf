@@ -22,7 +22,7 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(respawnable), false, true];
         };
         
-        [_vehicle] __handler("vehicle");
+        [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
         
         sleep 1;
     };

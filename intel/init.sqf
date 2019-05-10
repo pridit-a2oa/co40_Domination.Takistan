@@ -14,8 +14,9 @@ GVAR(intel_type_vehicles) = [
     "Volha_2_TK_CIV_EP1"
 ];
 
+// Set the variation in mini missions that can be given
 GVAR(intel_type_targets) = [
-    "enemy encampment",
+    "enemy encampment", 
     "abandoned light vehicle"
 ];
 
@@ -30,6 +31,10 @@ GVAR(intel_distance_spawn) = 1300;
 
 // Set time between spawning units that can provide intel
 GVAR(intel_time_spawn) = 30;
+
+if (isServer) then {
+    X_JIPH setVariable [QGVAR(intel), false, true];
+};
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,explode),THIS_MODULE\functions\fn_explode.sqf);

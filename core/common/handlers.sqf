@@ -26,6 +26,7 @@ _handlers = [
     "friend",
     "ied",
     "intel",
+    "marker",
     "medical",
     "mission_main",
     "name",
