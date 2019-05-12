@@ -14,6 +14,9 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 };
 
 if (isServer) then {
+    clearMagazineCargoGlobal _vehicle;
+    clearWeaponCargoGlobal _vehicle;
+    
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submoduleVM(vehicle_mhq);
     };

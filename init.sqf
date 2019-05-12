@@ -1,6 +1,6 @@
 #include "x_macros.sqf"
 
-QGVAR(base_south) setMarkerAlphaLocal 0;
+QGVAR(base_south) setMarkerAlphaLocal 0.3;
 QGVAR(base_north) setMarkerAlphaLocal 0;
 QGVAR(map_zone) setMarkerAlphaLocal 0;
 

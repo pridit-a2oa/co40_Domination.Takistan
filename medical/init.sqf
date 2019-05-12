@@ -8,7 +8,7 @@
 #include "x_macros.sqf"
 
 // Set damage threshold
-GVAR(medical_threshold_damage) = 0.3;
+GVAR(medical_threshold_damage) = 0.15;
 
 if (hasInterface) then {
     player setVariable [QGVAR(medkits), 0, true];

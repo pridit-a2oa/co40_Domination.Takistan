@@ -34,6 +34,7 @@ _handlers = [
     "perk",
     "revive",
     "squad",
+    "task",
     "uav",
     "vehicle_bonus",
     "vehicle_load",

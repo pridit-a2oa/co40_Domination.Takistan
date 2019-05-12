@@ -39,8 +39,8 @@ class CfgIdentities {
 };
 
 class RscTitles { 
+    #include "mission_main\dialog\titles.hpp"
     #include "revive\dialog\titles.hpp"
-    #include "vehicle_lift\dialog\titles.hpp"
     #include "vehicle_welcome\dialog\titles.hpp"
 };
 
@@ -56,9 +56,24 @@ class CfgRadio
 };
 
 class CfgSounds {
+    class PizzaTime {
+        name        = "PizzaTime";
+        sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
+        titles[]    = {};
+    };
+    class Impressive {
+        name        = "Impressive";
+        sound[]     = {"\perk\sounds\impressive.ogg", 1, 1.0};
+        titles[]    = {};
+    };
     class PowerOfTheSun {
         name        = "PowerOfTheSun";
         sound[]     = {"\perk\sounds\powerofthesun.ogg", 1, 1.0};
+        titles[]    = {};
+    };
+    class d_sound_task {
+        name        = "Task";
+        sound[]     = {"\core\client\sounds\task.wss", 1, 1.0};
         titles[]    = {};
     };
     class d_sound_shuffle {

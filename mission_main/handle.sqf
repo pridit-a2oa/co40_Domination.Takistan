@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    GVAR(mission_main_targets) = nearestLocations [markerPos QGVAR(map_zone), ["NameCityCapital", "NameCity", "NameVillage"], 7500];
+    _locations = nearestLocations [markerPos QGVAR(map_zone), ["NameCityCapital", "NameCity", "NameVillage"], 7500];
     
     _targets = [];
     
@@ -17,5 +17,9 @@ if (isServer) then {
         if (_base && {_naf}) then {
             _targets = _targets + [_x];
         };
-    } forEach GVAR(mission_main_targets);
+    } forEach _locations;
+
+    sleep 20;
+    
+    [_targets call BIS_fnc_selectRandom] call FUNC(THIS_MODULE,create);
 };

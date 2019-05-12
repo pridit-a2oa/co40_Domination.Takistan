@@ -180,11 +180,15 @@ player addEventHandler ["respawn", {
 }];
 
 player addEventHandler ["killed", {
-    private ["_unit", "_handlers"];
+    private ["_unit"];
     
     PARAMS_1(_unit);
     
-    hideBody _unit;
+    _unit spawn {
+        sleep 30;
+        
+        hideBody _this;
+    };
 }];
 
 deleteVehicle GVAR(client_init_trig);

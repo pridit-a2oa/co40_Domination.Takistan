@@ -11,12 +11,12 @@ if (hasInterface) then {
             _name,
             QGVAR(uav_progress)
         ] call FUNC(helper,inProgress),
-    
+        
         [
             [_name, "called"],
             player getVariable QGVAR(uav_cooldown)
         ] call FUNC(helper,timeExceeded),
-    
+        
         [
             [_name, "called"],
             _position,

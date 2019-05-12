@@ -15,7 +15,7 @@ GVAR(air_taxi_type_aircraft) = "UH60M_EP1";
 GVAR(air_taxi_type_smoke) = "SmokeShellBlue";
 
 // Minimum distance from base the position has to be
-GVAR(air_taxi_distance_base) = 800;
+GVAR(air_taxi_distance_base) = 1500;
 
 // Minimum distance from any enemy units
 GVAR(air_taxi_distance_enemy) = 300;

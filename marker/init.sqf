@@ -8,6 +8,10 @@
 #define THIS_MODULE marker
 #include "x_macros.sqf"
 
+if (isServer) then {
+    X_JIPH setVariable [QGVAR(markers), [], true];
+};
+
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,delete),THIS_MODULE\functions\fn_delete.sqf);
 

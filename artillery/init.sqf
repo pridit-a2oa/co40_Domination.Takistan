@@ -14,7 +14,7 @@ GVAR(artillery_type_shell) = "ARTY_Sh_105_HE";
 GVAR(artillery_type_smoke) = "SmokeShellRed";
 
 // Minimum distance from base the position has to be
-GVAR(artillery_distance_base) = 1200;
+GVAR(artillery_distance_base) = 500;
 
 // Minimum distance from any friendly units
 GVAR(artillery_distance_friendly) = 150;

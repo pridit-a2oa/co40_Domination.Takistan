@@ -9,7 +9,7 @@
 #include "x_macros.sqf"
 
 // Minimum distance from base
-GVAR(construction_distance_base) = 1500;
+GVAR(construction_distance_base) = 1000;
 
 // Minimum distance all players must exceed before despawning an object
 GVAR(construction_distance_cleanup) = 300;

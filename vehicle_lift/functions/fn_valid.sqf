@@ -34,10 +34,6 @@ while {player == driver _vehicle} do {
         };
         
         if (!isNil "_nearest" && {!_attached}) then {
-            67321 cutRsc ["XD_VehicleHudDialog", "PLAIN"];
-            
-            DIALOG("XD_VEHICLE_HUD_DIALOG", 64439) ctrlSetText (getText (configFile >> "CfgVehicles" >> typeOf _nearest >> "picture"));
-            
             _vehicle setVariable [QGVAR(attach), [
                 _nearest,
                 (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,name)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])

@@ -8,7 +8,7 @@ private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expirat
 
 PARAMS_1(_vehicle);
 
-if ((markerPos QGVAR(base_south)) distance _vehicle >= GVAR(respawnable_base_distance)) exitWith {};
+if ((markerPos QGVAR(base_south)) distance _vehicle >= GVAR(vehicle_respawn_distance_base)) exitWith {};
 
 if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
     _respawnable = _vehicle getVariable QGVAR(respawnable);
@@ -22,23 +22,30 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
         _expiration = _vehicle getVariable QGVAR(expiration);
         
         _empty = _vehicle call FUNC(common,empty);
+        _far = {_x distance _vehicle < 10} count GVAR(players) < 1;
         
-        if (isNil "_threshold" || {!_empty}) then {
+        if (isNil "_threshold" || {!_empty} || {!_far}) then {
             _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
-            _vehicle setVariable [QGVAR(threshold), _threshold];
+            
+            if (!isNil "_threshold") then {
+                _vehicle setVariable [QGVAR(threshold), _threshold];
+            };
         };
         
         _dead = !alive _vehicle;
         
         if (isNil "_expiration" && {_dead}) then {
-            _expiration = call FUNC(common,time) + GVAR(respawnable_expiration);
+            _expiration = call FUNC(common,time) + GVAR(vehicle_respawn_time_expiration);
             _vehicle setVariable [QGVAR(expiration), _expiration];
         };
         
         _moved = _vehicle distance _position > 10;
         _type = typeOf _vehicle;
+        
+        _expired = (!isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold});
+        _disabled = (_empty && {_dead} && {call FUNC(common,time) > _expiration}); 
     
-        if (_empty && {_moved} && {!_dead} && {call FUNC(common,time) > _threshold} || {(_empty && {_dead} && {call FUNC(common,time) > _expiration})}) exitWith {
+        if (_expired || {_disabled}) exitWith {
             deleteVehicle _vehicle;
             
             _vehicle = objNull;

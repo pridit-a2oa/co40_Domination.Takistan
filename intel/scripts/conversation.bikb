@@ -7,7 +7,7 @@ class Sentences
     };
     
     class Target {
-        text = "We have received intel that there is an %1, location has been marked.";
+        text = "We have received intel that there is an %1 nearby, location has been marked.";
         speech[] = {};
         class Arguments {
             class 1 {type = "simple";};

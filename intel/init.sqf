@@ -16,7 +16,7 @@ GVAR(intel_type_vehicles) = [
 
 // Set the variation in mini missions that can be given
 GVAR(intel_type_targets) = [
-    "enemy encampment", 
+    "enemy encampment",
     "abandoned light vehicle"
 ];
 
@@ -29,6 +29,9 @@ GVAR(intel_chance_bomb) = 30;
 // Set distance from the intel point to spawn in civilian unit
 GVAR(intel_distance_spawn) = 1300;
 
+// Set distance objects will be cleared when generating a new target
+GVAR(intel_distance_cleanup) = 50;
+
 // Set time between spawning units that can provide intel
 GVAR(intel_time_spawn) = 30;
 
@@ -36,6 +39,7 @@ if (isServer) then {
     X_JIPH setVariable [QGVAR(intel), false, true];
 };
 
+__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,explode),THIS_MODULE\functions\fn_explode.sqf);
 __cppfln(FUNC(THIS_MODULE,intel),THIS_MODULE\functions\fn_intel.sqf);

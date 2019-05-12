@@ -18,13 +18,5 @@ if (isServer) then {
         };
     } forEach ((markerPos QGVAR(intel)) nearRoads GVAR(intel_distance_spawn));
     
-    GVAR(intel_type_positions) = [];
-    
-    for "_i" from 1 to 3 do {
-        _position = format ["d_intel_%1", _i];
-        
-        GVAR(intel_type_positions) = GVAR(intel_type_positions) + [markerPos _position];
-    };
-    
     __fsm(civilian);
 };

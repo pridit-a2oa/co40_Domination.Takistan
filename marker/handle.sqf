@@ -4,10 +4,6 @@
 
 #include "x_macros.sqf"
 
-if (isServer) then {
-    X_JIPH setVariable [QGVAR(markers), [], true];
-};
-
 if (hasInterface) then {
     waitUntil {!isNil {X_JIPH getVariable QGVAR(markers)}};
     
@@ -16,5 +12,10 @@ if (hasInterface) then {
         _marker setMarkerTypeLocal (_x select 2);
         _marker setMarkerTextLocal (_x select 3);
         _marker setMarkerColorLocal (_x select 4);
+        _marker setMarkerShapeLocal (_x select 5);
+
+        if (count (_x select 6) == 2) then {
+            _marker setMarkerSizeLocal (_x select 6);
+        };
     } forEach (X_JIPH getVariable QGVAR(markers));
 };

@@ -40,6 +40,7 @@ _modules = [
     "perk",
     "revive",
     "squad",
+    "task",
     "teleport",
     "trench",
     "uav",

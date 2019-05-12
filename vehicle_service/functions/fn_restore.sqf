@@ -37,7 +37,7 @@ while {alive _vehicle && {fuel _vehicle < 0.99}} do {
 
     _vehicle setVehicleAmmo 1;
 
-    if (damage _vehicle >= 0.01) then {
+    if (damage _vehicle >= 0.001) then {
         _vehicle vehicleChat "Repairing";
         
         while {damage _vehicle > 0.01} do {
