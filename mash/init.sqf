@@ -14,7 +14,10 @@ GVAR(mash_cooldown) = 900;
 if (hasInterface) then {
     player setVariable [QGVAR(mash), 0];
     player setVariable [QGVAR(mash_max), 0];
-    player setVariable [QGVAR(mash_cooldown), time + GVAR(mash_cooldown)];
+    
+    if (isNil {player getVariable QGVAR(mash_cooldown)}) then {
+        player setVariable [QGVAR(mash_cooldown), time + GVAR(mash_cooldown)];
+    };
 };
 
 MODULE(THIS_MODULE) = true;

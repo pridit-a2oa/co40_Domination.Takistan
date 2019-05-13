@@ -20,7 +20,10 @@ GVAR(backpack_animations) = [
 
 if (hasInterface) then {
     player setVariable [QGVAR(backpack), false];
-    player setVariable [QGVAR(backpack_hold), []];
+    
+    if (isNil {player getVariable QGVAR(backpack_hold)}) then {
+        player setVariable [QGVAR(backpack_hold), []];
+    };
 };
 
 __cppfln(FUNC(THIS_MODULE,equip),THIS_MODULE\functions\fn_equip.sqf);

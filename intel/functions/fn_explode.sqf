@@ -3,6 +3,8 @@ private ["_car", "_explosive"];
 
 PARAMS_1(_car);
 
+[(driver _car)] joinSilent (createGroup east);
+
 sleep 1;
 
 _car spawn {

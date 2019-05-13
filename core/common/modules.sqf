@@ -20,6 +20,7 @@ _modules = [
     "base_teleport",
     "base_wreck",
     "board",
+    "cleanup",
     "communication",
     "construction",
     "crossroad",

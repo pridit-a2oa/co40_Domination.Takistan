@@ -15,9 +15,13 @@ GVAR(perk_amount_score) = 15;
 
 if (hasInterface) then {
     player setVariable [QGVAR(perk_points), 39];
-    player setVariable [QGVAR(perks_unlocked), []];
+    
+    if (isNil {player getVariable QGVAR(perks_unlocked)}) then {
+        player setVariable [QGVAR(perks_unlocked), []];
+    };
 };
 
+__cppfln(FUNC(THIS_MODULE,calculate),THIS_MODULE\functions\fn_calculate.sqf);
 __cppfln(FUNC(THIS_MODULE,clicked),THIS_MODULE\functions\fn_clicked.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);

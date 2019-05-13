@@ -70,6 +70,20 @@ if (!isNil QMODULE(ied)) then {
     ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
 }, 0] call FUNC(THIS_MODULE,addPerFrame);
 
+["player", {
+    private ["_rating"];
+    
+    _rating = rating player;
+
+    if (_rating < 0) then {
+        player addRating (abs (_rating));
+    };
+    
+    if (!isNil QMODULE(perk)) then {
+        [false] call FUNC(perk,calculate);
+    };
+}, 5] call FUNC(THIS_MODULE,addPerFrame);
+
 player addEventHandler ["HandleDamage", {
     private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
 
@@ -153,7 +167,7 @@ player addEventHandler ["respawn", {
     
     PARAMS_1(_unit);
     
-    (_this select 0) setDir 240.214;
+    _unit setDir 240.214;
     
     _handlers = [
         "friend",
@@ -176,6 +190,10 @@ player addEventHandler ["respawn", {
     
     if (!isNil QMODULE(loadout) && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
+    };
+    
+    if (!isNil QMODULE(perk)) then {
+        [true] call FUNC(perk,calculate);
     };
 }];
 

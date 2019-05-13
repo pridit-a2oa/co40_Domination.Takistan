@@ -28,7 +28,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
             
             if (!isNil "_threshold") then {
-                _vehicle setVariable [QGVAR(threshold), _threshold];
+                _vehicle setVariable [QGVAR(threshold), call FUNC(common,time) + _threshold];
             };
         };
         
@@ -39,7 +39,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _vehicle setVariable [QGVAR(expiration), _expiration];
         };
         
-        _moved = _vehicle distance _position > 10;
+        _moved = _vehicle distance _position > GVAR(vehicle_respawn_distance_player);
         _type = typeOf _vehicle;
         
         _expired = (!isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold});

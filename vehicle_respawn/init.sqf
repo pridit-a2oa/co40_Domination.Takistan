@@ -29,8 +29,11 @@ GVAR(vehicle_respawn_type_vehicles) = [
     [_extreme, "MV22"]
 ];
 
-// Maximum distance from base the vehicle can originate from
+// Set maximum distance from base the vehicle can originate from
 GVAR(vehicle_respawn_distance_base) = 400;
+
+// Set minimum distance from all players before respawning
+GVAR(vehicle_respawn_distance_player) = 100;
 
 // Minimum time before a destroyed vehicle can respawn
 GVAR(vehicle_respawn_time_expiration) = 30;

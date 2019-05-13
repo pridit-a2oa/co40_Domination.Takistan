@@ -34,7 +34,10 @@ GVAR(air_taxi_time_wait) = 60;
 
 if (hasInterface) then {
     player setVariable [QGVAR(air_taxi), false];
-    player setVariable [QGVAR(air_taxi_cooldown), time];
+    
+    if (isNil {player getVariable QGVAR(air_taxi_cooldown)}) then {
+        player setVariable [QGVAR(air_taxi_cooldown), time];
+    };
 };
 
 if (isServer) then {

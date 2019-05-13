@@ -1,8 +1,8 @@
 #define THIS_MODULE vehicle_lift
 #include "x_macros.sqf"
-private ["_vehicle", "_attached", "_nearest", "_attach", "_attachee", "_action"];
+private ["_vehicle", "_types", "_alive", "_attached", "_nearest", "_attach", "_attachee", "_action"];
 
-PARAMS_1(_vehicle);
+PARAMS_3(_vehicle, _types, _alive);
 
 disableSerialization;
 
@@ -18,7 +18,8 @@ while {player == driver _vehicle} do {
     };
     
     if ((position _vehicle) select 2 < 10) then {
-        _nearest = (nearestObjects [position _vehicle, ["LandVehicle"], 15]) select 0;
+        _nearest = nearestObjects [position _vehicle, _types, 15];
+        _nearest = if (_nearest select 0 != (vehicle player)) then {_nearest select 0} else {_nearest select 1};
         
         if (isNil "_nearest" || {_attached}) then {
             67321 cutRsc ["Default", "PLAIN"];
@@ -33,7 +34,7 @@ while {player == driver _vehicle} do {
             };
         };
         
-        if (!isNil "_nearest" && {!_attached}) then {
+        if (!isNil "_nearest" && {!_attached} && {str (alive _nearest) == str (_alive)}) then {
             _vehicle setVariable [QGVAR(attach), [
                 _nearest,
                 (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,name)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])

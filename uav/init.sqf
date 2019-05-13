@@ -34,7 +34,10 @@ GVAR(uav_time_cooldown) = 900;
 
 if (hasInterface) then {
     player setVariable [QGVAR(uav), false];
-    player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)]
+    
+    if (isNil {player getVariable QGVAR(uav_cooldown)}) then {
+        player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
+    };
 };
 
 if (isServer) then {

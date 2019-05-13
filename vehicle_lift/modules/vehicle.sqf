@@ -11,7 +11,7 @@ PARAMS_1(_vehicle);
 if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
 
 _vehicle addEventHandler ["getin", {
-    _this execVM __function(valid);
+    [_this select 0, ["LandVehicle"], true] execVM __function(valid);
 }];
 
 _vehicle addEventHandler ["getout", {

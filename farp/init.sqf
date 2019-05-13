@@ -14,7 +14,10 @@ GVAR(farp_cooldown) = 900;
 if (hasInterface) then {
     player setVariable [QGVAR(farp), 0];
     player setVariable [QGVAR(farp_max), 0];
-    player setVariable [QGVAR(farp_cooldown), time + GVAR(farp_cooldown)];
+    
+    if (isNil {player getVariable QGVAR(farp_cooldown)}) then {
+        player setVariable [QGVAR(farp_cooldown), time + GVAR(farp_cooldown)];
+    };
 };
 
 MODULE(THIS_MODULE) = true;

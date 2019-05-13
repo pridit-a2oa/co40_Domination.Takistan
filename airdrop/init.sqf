@@ -31,7 +31,10 @@ GVAR(airdrop_time_cooldown) = 600;
 if (hasInterface) then {
     player setVariable [QGVAR(airdrop), false];
     player setVariable [QGVAR(airdrop_type), GVAR(airdrop_type_payload)];
-    player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
+    
+    if (isNil {player getVariable QGVAR(airdrop_cooldown)}) then {
+        player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
+    };
 };
 
 if (isServer) then {

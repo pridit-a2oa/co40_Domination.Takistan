@@ -14,7 +14,10 @@ GVAR(trench_cooldown) = 600;
 if (hasInterface) then {
     player setVariable [QGVAR(trench), 0];
     player setVariable [QGVAR(trench_max), 0];
-    player setVariable [QGVAR(trench_cooldown), time + GVAR(trench_cooldown)];
+    
+    if (isNil {player getVariable QGVAR(trench_cooldown)}) then {
+        player setVariable [QGVAR(trench_cooldown), time + GVAR(trench_cooldown)];
+    };
 };
 
 MODULE(THIS_MODULE) = true;
