@@ -12,8 +12,6 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
 
 {
     if ((typeOf _vehicle) isKindOf _x) exitWith {
-        _vehicle setVariable [QGVAR(hidden), false];
-        
         [_vehicle] call FUNC(THIS_MODULE,create);
         
         if (!isNil QMODULE(vehicle_mhq)) then {
@@ -22,6 +20,10 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
 
         if (!isNil QMODULE(vehicle_service)) then {
             [_vehicle] __submoduleVM(vehicle_service);
+        };
+        
+        if (!isNil QMODULE(vehicle_wreck)) then {
+            [_vehicle] __submoduleVM(vehicle_wreck);
         };
     };
 } forEach GVAR(vehicle_marker_types);

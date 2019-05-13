@@ -1,3 +1,4 @@
+#define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_modules"];
 
@@ -29,3 +30,7 @@ _modules = [
 
 BIS_MENU_Construct resize 1;
 BIS_MENU_Radio resize 1;
+
+{
+    [_x select 0, _x select 1] call FUNC(THIS_MODULE,unlock);
+} forEach (player getVariable QGVAR(perks_unlocked));

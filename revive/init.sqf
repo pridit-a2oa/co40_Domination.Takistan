@@ -13,8 +13,7 @@ if (!isMultiplayer) exitWith {};
 // Set blood effects
 GVAR(revive_type_blood) = [
     QGVAR(revive_blood_1),
-    QGVAR(revive_blood_2),
-    QGVAR(revive_blood_3)
+    QGVAR(revive_blood_2)
 ];
 
 // Set amount of damage a revived player will have

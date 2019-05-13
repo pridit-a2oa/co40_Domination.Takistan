@@ -5,6 +5,7 @@ _attacher = _this select 0;
 _attachee = _this select 3;
 
 _attacher removeAction (_this select 2);
+_attacher setVariable [QGVAR(release), nil];
 
 detach _attachee;
 
@@ -16,7 +17,7 @@ if ((position _attachee) select 2 > 100) then {
         
         sleep 5;
         
-        if ((position _this) select 2 > 100) then {
+        if ((position _this) select 2 > 100 && {alive _this}) then {
             _parachute = createVehicle ["ParachuteMediumWest", (position _this), [], 0, "NONE"];
             _parachute setPos (position _this);
             
@@ -32,3 +33,5 @@ if ((position _attachee) select 2 > 100) then {
         };
     };
 };
+
+[_attachee] call FUNC(vehicle,freeze);

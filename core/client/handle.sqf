@@ -148,7 +148,7 @@ player addEventHandler ["HandleDamage", {
             };
         };
         
-        39671 cutRsc [GVAR(revive_type_blood) select (floor (random 3)), "PLAIN"];
+        39671 cutRsc [GVAR(revive_type_blood) call BIS_fnc_selectRandom, "PLAIN"];
         
         _damage = _new_damage;
         
@@ -170,7 +170,6 @@ player addEventHandler ["respawn", {
     _unit setDir 240.214;
     
     _handlers = [
-        "friend",
         "medical",
         "perk",
         "option",

@@ -25,7 +25,6 @@ _modules = [
     "construction",
     "crossroad",
     "farp",
-    "friend",
     "halo",
     "ied",
     "intel",

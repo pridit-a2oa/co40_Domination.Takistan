@@ -23,7 +23,6 @@ _handlers = [
     "communication",
     "construction",
     "crossroad",
-    "friend",
     "ied",
     "intel",
     "marker",

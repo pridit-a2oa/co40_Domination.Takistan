@@ -16,6 +16,6 @@ switch (_state) do {
     };
     
     case false: {
-        _marker setMarkerText (getText (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"));
+        _marker setMarkerText ([typeOf (_vehicle)] call FUNC(vehicle,name));
     };
 };

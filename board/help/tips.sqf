@@ -6,5 +6,5 @@
     "Roles: Medics are able to heal other players, should they be injured. While this may seem obvious, this is the only class to have an inherent function.",
     "Squads: Leaving any of the default squads puts you in a newly created squad. These created squads can only be joined by a context action on players within them.",
     "Vehicles: ATVs are capable of towing aircraft.",
-    "Wrecks: Only wrecks designated on the map can be lifted and rebuilt. Wrecks without markers will eventually disappear."
+    "Wrecks: Only wrecks designated on the map can be rebuilt. Wrecks without markers can still be lifted, but can't be rebuilt and will eventually disappear."
 ]

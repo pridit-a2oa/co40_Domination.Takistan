@@ -15,12 +15,12 @@ switch (_type) do {
             if (count _near < 1) then {
                 GVAR(mission_main_type_antenna) createVehicle _position;
 
-                if (!isNil QMODULE(marker)) then {
-                    [nil, nil, rSpawn, [_position], {
-                        private ["_position"];
-                        
-                        PARAMS_1(_position);
-
+                [nil, nil, rSpawn, [_position], {
+                    private ["_position"];
+                    
+                    PARAMS_1(_position);
+                    
+                    if (!isNil QMODULE(marker)) then {
                         [
                             format ["antenna_%1", str (_position)],
                             _position,
@@ -30,8 +30,8 @@ switch (_type) do {
                             "ICON",
                             [0.7, 0.9]
                         ] call FUNC(marker,create);
-                    }] call RE;
-                };
+                    };
+                }] call RE;
                 
                 _antennas = _antennas + 1;
             };
@@ -58,14 +58,16 @@ switch (_type) do {
                         
                         [nil, _x, "per", rAddAction, "Capture" call FUNC(common,BlueText), __function(capture), [], 10, false, true, "", ""] call RE;
                     };
+                    
+                    [nil, _x, "per", rEnableSimulation, false];
                 } forEach _camp;
                 
-                if (!isNil QMODULE(marker)) then {
-                    [nil, nil, rSpawn, [_position], {
-                        private ["_position"];
-                        
-                        PARAMS_1(_position);
-                        
+                [nil, nil, rSpawn, [_position], {
+                    private ["_position"];
+                    
+                    PARAMS_1(_position);
+                    
+                    if (!isNil QMODULE(marker)) then {
                         [
                             format ["camp_%1", str (_position)],
                             _position,
@@ -75,8 +77,8 @@ switch (_type) do {
                             "ICON",
                             [0.5, 0.5]
                         ] call FUNC(marker,create);
-                    }] call RE;
-                };
+                    };
+                }] call RE;
 
                 _camps = _camps + 1;
             };

@@ -20,7 +20,7 @@ if (player distance GVAR(flag) > 10) then {
 if (!isNil QMODULE(vehicle_mhq)) then {
     {
         if (alive _x && {_vehicle != _x}) then {
-            _name = getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
+            _name = [typeOf (_x)] call FUNC(vehicle,name);
             _position = _x getVariable QGVAR(position);
             
             if (!isNil QMODULE(vehicle_marker)) then {

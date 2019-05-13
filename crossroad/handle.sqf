@@ -53,3 +53,7 @@ if (!isNil QMODULE(mission_main)) then {
 if (!isNil QMODULE(uav)) then {
     __submoduleVM(uav);
 };
+
+if (!isNil QMODULE(vehicle_lift)) then {
+    __submoduleVM(vehicle_lift);
+};

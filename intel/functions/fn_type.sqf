@@ -14,15 +14,17 @@ if (!isNil QMODULE(marker)) then {
         
         PARAMS_2(_position, _name);
         
-        [
-            _name,
-            _position,
-            "mil_unknown",
-            " Intel",
-            "ColorOrange",
-            "ICON",
-            []
-        ] call FUNC(marker,create);
+        if (!isNil QMODULE(marker)) then {
+            [
+                _name,
+                _position,
+                "mil_unknown",
+                " Intel",
+                "ColorOrange",
+                "ICON",
+                []
+            ] call FUNC(marker,create);
+        };
     }] call RE;
     
     GVAR(intel_trigger) = createTrigger ["EmptyDetector", _position];
@@ -45,6 +47,8 @@ switch (_type) do {
                 
                 deleteVehicle _x;
             };
+            
+            [nil, _x, "per", rEnableSimulation, false];
         } forEach _objects;
         
         [_group, _position] call bis_fnc_taskDefend;

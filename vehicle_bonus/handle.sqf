@@ -22,6 +22,10 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(respawnable), false, true];
         };
         
+        if (!isNil QMODULE(vehicle_wreck)) then {
+            _vehicle setVariable [QGVAR(wreckable), true, true];
+        };
+        
         [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
         
         sleep 1;

@@ -1,0 +1,20 @@
+class Sentences 
+{
+    class Airlift {
+        text = "%1 is being transported by airlift.";
+        speech[] = {};
+        class Arguments {};
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

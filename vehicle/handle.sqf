@@ -83,3 +83,19 @@ if (hasInterface) then {
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
 };
+
+_vehicle addEventHandler ["killed", {
+    private ["_vehicle"];
+    
+    PARAMS_1(_vehicle);
+    
+    [_vehicle] spawn {
+        private ["_vehicle"];
+        
+        PARAMS_1(_vehicle);
+        
+        sleep 1;
+        
+        [_vehicle] call FUNC(THIS_MODULE,freeze);
+    };
+}];

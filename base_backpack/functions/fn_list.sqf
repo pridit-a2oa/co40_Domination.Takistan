@@ -18,6 +18,6 @@ _backpacks = [
 ];
 
 {
-    _name = getText (configFile >> "cfgVehicles" >> _x >> "displayName");
+    _name = [_x] call FUNC(vehicle,name);
     _heap addAction [format ["Take %1", _name], __function(take), _x];
 } forEach _backpacks;

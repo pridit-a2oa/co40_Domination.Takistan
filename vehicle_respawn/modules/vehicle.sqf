@@ -21,6 +21,8 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
         _threshold = _vehicle getVariable QGVAR(threshold);
         _expiration = _vehicle getVariable QGVAR(expiration);
         
+        if (isNil "_position") exitWith {};
+        
         _empty = _vehicle call FUNC(common,empty);
         _far = {_x distance _vehicle < 10} count GVAR(players) < 1;
         

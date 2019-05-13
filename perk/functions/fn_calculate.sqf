@@ -7,6 +7,7 @@ _score = score player;
 _points = ((floor(_score / GVAR(perk_amount_score)) * GVAR(perk_amount_points)) max 0) min 14;
 
 _available = player getVariable QGVAR(perk_points);
+_ids = player getVariable QGVAR(perk_ids);
 _unlocked = player getVariable QGVAR(perks_unlocked);
 
 for "_i" from 1 to 7 do {
@@ -23,6 +24,7 @@ if (_respawned) then {
                 count _unlocked - _points
             ];
             
+            _ids resize _points;
             _unlocked resize _points;
         };
         

@@ -11,7 +11,7 @@ createDialog "XD_PerkDialog";
 _XD_display = uiNamespace getVariable "X_PERK_DIALOG";
 
 _points = player getVariable QGVAR(perk_points);
-_unlocked = player getVariable QGVAR(perks_unlocked);
+_unlocked = player getVariable QGVAR(perk_ids);
 
 __ctrl(1) ctrlSetText (str _points);
 

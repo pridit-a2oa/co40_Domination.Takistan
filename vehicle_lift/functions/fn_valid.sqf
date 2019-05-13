@@ -4,8 +4,6 @@ private ["_vehicle", "_types", "_alive", "_attached", "_nearest", "_attach", "_a
 
 PARAMS_3(_vehicle, _types, _alive);
 
-disableSerialization;
-
 _vehicle setVariable [QGVAR(attached), false];
 
 while {player == driver _vehicle} do {
@@ -17,13 +15,9 @@ while {player == driver _vehicle} do {
         _action = _attach select 1;
     };
     
-    if ((position _vehicle) select 2 < 10) then {
+    if ((position _vehicle) select 2 < 15) then {
         _nearest = nearestObjects [position _vehicle, _types, 15];
         _nearest = if (_nearest select 0 != (vehicle player)) then {_nearest select 0} else {_nearest select 1};
-        
-        if (isNil "_nearest" || {_attached}) then {
-            67321 cutRsc ["Default", "PLAIN"];
-        };
         
         if (!isNil "_attach") exitWith {
             // should the nearest vehicle no longer match the one that was
@@ -41,8 +35,6 @@ while {player == driver _vehicle} do {
             ]];
         };
     } else {
-        67321 cutRsc ["Default", "PLAIN"];
-        
         if (!isNil "_attach") then {
             _vehicle removeAction _action;
             _vehicle setVariable [QGVAR(attach), nil];

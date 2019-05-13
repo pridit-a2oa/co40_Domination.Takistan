@@ -10,12 +10,20 @@ if (hasInterface) then {
         {
             _marker = [_x] call FUNC(THIS_MODULE,valid);
             
-            if (!isNil "_marker" && {alive _x}) then {
+            if (isNil {_x getVariable QGVAR(hidden)}) then {
+                _x setVariable [QGVAR(hidden), false, true];
+            };
+            
+            if (!isNil "_marker") then {
                 if (!visibleMap && {isNil {uiNamespace getVariable "BIS_RscMiniMap"}} && {isNil {uiNamespace getVariable "RscMiniMapSmall"}}) exitWith {};
 
                 _marker setMarkerPosLocal (getPosASL _x);
                 
-                if (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible) && {!(_x getVariable QGVAR(hidden))}) then {
+                _alive = alive _x;
+                _distance = _x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible);
+                _hidden = _x getVariable QGVAR(hidden);
+                
+                if (!_hidden && {!_alive || {_alive && _distance}}) then {
                     _marker setMarkerAlphaLocal 1;
                 } else {
                     _marker setMarkerAlphaLocal 0;
