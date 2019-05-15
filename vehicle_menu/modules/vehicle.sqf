@@ -20,4 +20,4 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 
 if (_valid find (typeOf _vehicle) == -1) exitWith {};
 
-_vehicle addAction [format ["%1 Menu" call FUNC(common,BlueText), [typeOf (_vehicle)] call FUNC(vehicle,name)], __function(show), _vehicle, -3, false, true, "", "!(player in _target)"];
+_vehicle addAction [format ["%1 Menu" call FUNC(common,YellowText), [typeOf (_vehicle)] call FUNC(vehicle,name)], __function(show), _vehicle, -3, false, true, "", "!(player in _target)"];

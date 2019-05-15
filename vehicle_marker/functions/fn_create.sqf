@@ -20,7 +20,9 @@ _vehicle addMPEventHandler ["MPKilled", {
     
     PARAMS_1(_vehicle);
     
-    if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {
+    _wreckable = _vehicle getVariable QGVAR(wreckable);
+    
+    if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {        
         [_vehicle] __submoduleVM(vehicle_wreck);
     };
     

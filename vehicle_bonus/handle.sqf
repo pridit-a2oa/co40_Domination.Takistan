@@ -27,7 +27,5 @@ if (isServer) then {
         };
         
         [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
-        
-        sleep 1;
     };
 };

@@ -57,3 +57,7 @@ if (!isNil QMODULE(uav)) then {
 if (!isNil QMODULE(vehicle_lift)) then {
     __submoduleVM(vehicle_lift);
 };
+
+if (!isNil QMODULE(vehicle_wreck)) then {
+    __submoduleVM(vehicle_wreck);
+};

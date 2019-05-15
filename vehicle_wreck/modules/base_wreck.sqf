@@ -18,6 +18,17 @@ if (isServer) then {
         _hangar setDir (markerDir _marker);
         
         X_JIPH setVariable [QGVAR(wreck_hangars), (X_JIPH getVariable QGVAR(wreck_hangars)) + [_hangar], true];
+        
+        _trigger = createTrigger ["EmptyDetector", markerPos _marker];
+        _trigger setTriggerArea [12, 20, -30, true];
+        _trigger setTriggerActivation ["ANY", "PRESENT", true];
+        _trigger setTriggerStatements [
+            "{typeOf _x != 'ATV_US_EP1'} count thisList > 0",
+            "d_wreck_hangars_occupied = d_wreck_hangars_occupied + 1",
+            "d_wreck_hangars_occupied = d_wreck_hangars_occupied - 1"
+        ];
+        
+        GVAR(wreck_hangar_triggers) = GVAR(wreck_hangar_triggers) + [_trigger];
     };
 };
 

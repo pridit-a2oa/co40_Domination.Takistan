@@ -6,6 +6,31 @@ PARAMS_1(_vehicle);
 
 _position = position _vehicle;
 
+_name = "Stryker MEV";
+_checks = [
+    [
+        _name,
+        _position,
+        EAST,
+        GVAR(vehicle_mhq_distance_enemy)
+    ] call FUNC(helper,nearSide),
+    
+    [
+        [_name, "deployed"],
+        _position,
+        markerPos QGVAR(base_south),
+        [GVAR(vehicle_mhq_distance_base), "in excess of", "from base"]
+    ] call FUNC(helper,distanceFrom)
+];
+
+{
+    if (typeName _x == "STRING") exitWith {
+        hint _x;
+    };
+} forEach _checks;
+
+if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+
 _camo = createVehicle ["Land_CamoNetB_NATO_EP1", [_position select 0, _position select 1, 0], [], 0, "NONE"];
 _camo setDir direction _vehicle;
 _camo setVectorUp (vectorUp _vehicle);

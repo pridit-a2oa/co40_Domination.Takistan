@@ -28,7 +28,7 @@ while {player == driver _vehicle} do {
             };
         };
         
-        if (!isNil "_nearest" && {!_attached} && {str (alive _nearest) == str (_alive)}) then {
+        if (!isNil "_nearest" && {!_attached} && {str (alive _nearest) == str (_alive)} && {{!isPlayer _x} count crew _nearest < 1}) then {
             _vehicle setVariable [QGVAR(attach), [
                 _nearest,
                 (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,name)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])

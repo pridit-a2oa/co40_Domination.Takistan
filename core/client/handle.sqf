@@ -64,7 +64,7 @@ if (!isNil QMODULE(ied)) then {
     if (!isNil QMODULE(vehicle_mhq)) then {
         {
             _x addEventHandler ["HandleDamage", {0}];
-        } forEach (allMissionObjects GVAR(vehicle_mhq_net));
+        } forEach (allMissionObjects GVAR(vehicle_mhq_type_net));
     };
 
     ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)

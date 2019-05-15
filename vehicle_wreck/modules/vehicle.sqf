@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_wreck_types) find (typeOf _vehicle) == -1) exitWith {};
+if (GVAR(vehicle_wreck_type_lifts) find (typeOf _vehicle) == -1) exitWith {};
 
 _vehicle addEventHandler ["getin", {
     [_this select 0, ["LandVehicle", "Air"], false] execVM FUNCTION(vehicle_lift,valid);

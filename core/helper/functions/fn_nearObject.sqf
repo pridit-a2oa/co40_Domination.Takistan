@@ -13,7 +13,7 @@ _condition = if (_distance select 1 == "within") then {
 
 if (_condition) exitWith {
     format [
-        "%1 must be %2 %4 %3m %5",
+        "%1 can only be %2 %4 %3m %5",
         _name select 0,
         _name select 1,
         _distance select 0,
