@@ -11,7 +11,7 @@ _name = text (_target);
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name)]], true];
 
-sleep 1.5;
+sleep 2;
 
 [nil, nil, rPlaySound, QGVAR(sound_task)] call RE;
 [nil, nil, rSpawn, [_target], {

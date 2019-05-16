@@ -20,4 +20,4 @@ if (_id != -1) then {
     _aircraft setVariable [QGVAR(actions), _actions, true];
 };
 
-_vehicle = [_aircraft, position _aircraft, _load, ""] call FUNC(common,paradrop);
+[_aircraft, position _aircraft, _load, ""] call FUNC(common,paradrop);

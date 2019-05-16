@@ -24,15 +24,15 @@ class PerkIcon_General_3: XD_RscPicture
 };
 class PerkIcon_General_4: XD_RscPicturePerkIcon
 {
-    text = "\ca\ui\data\icon_wf_support_supplydrop_ca";
+    text = "\ca\ui\data\ui_action_eject_ca";
     x = 0.578126;
-    y = 0.134182;
+    y = 0.137282;
     w = 0.0419193;
     h = 0.0562289;
 };
 class PerkIcon_General_5: XD_RscPicture
 {
-    text = "\ca\ui\data\ui_action_reammo_ca";
+    text = "\ca\ui\data\icon_wf_support_supplydrop_ca";
     x = 0.671874;
     y = 0.134182;
     w = 0.0419193;
@@ -48,7 +48,7 @@ class PerkIcon_General_6: XD_RscPicture
 };
 class PerkIcon_General_7: XD_RscPicture
 {
-    text = "\ca\ui\data\ui_action_reload_ca";
+    text = "\ca\ui\data\ui_action_reammo_ca";
     x = 0.421874;
     y = 0.216364;
     w = 0.0419193;
@@ -56,9 +56,9 @@ class PerkIcon_General_7: XD_RscPicture
 };
 class PerkIcon_General_8: XD_RscPicture
 {
-    text = "\ca\ui\data\ui_action_eject_ca";
+    text = "\ca\ui\data\ui_action_reload_ca";
     x = 0.531251;
-    y = 0.219464;
+    y = 0.216364;
     w = 0.0419193;
     h = 0.0562289;
 };

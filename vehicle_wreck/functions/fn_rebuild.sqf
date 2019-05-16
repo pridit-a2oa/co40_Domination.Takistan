@@ -8,7 +8,7 @@ if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
 };
 
-deleteMarker (str ((_wreck getVariable QGVAR(position)) select 0));
+[nil, nil, rSpawn, _wreck, {deleteMarkerLocal (str ((_this getVariable QGVAR(position)) select 0))}] call RE;
 deleteVehicle _wreck;
 
 _position = [(markerPos QGVAR(service_wreck)) select 0, (markerPos QGVAR(service_wreck)) select 1, 0];
@@ -27,7 +27,7 @@ if (!isNil QMODULE(vehicle_bonus)) then {
     [_vehicle] __submodulePP(vehicle_bonus);
 };
 
-if (faction _vehicle != "BIS_US") then {
+if (faction _vehicle == "BIS_TK") then {
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };
@@ -40,7 +40,7 @@ if (faction _vehicle != "BIS_US") then {
 [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
 
 while {call FUNC(common,time) < _time} do {
-    if ({_x distance _vehicle < 30} count GVAR(players) > 0) then {
+    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         _vehicle spawn {
             sleep (random 10);
             

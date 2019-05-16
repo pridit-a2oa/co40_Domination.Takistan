@@ -12,7 +12,6 @@ class Mission
 		"camisc_e_wf",
 		"camisc_e",
 		"CAAir_E_AH6J",
-		"CAAir_E_UH1H_EP1",
 		"ca_modules_functions",
 		"CAAir_BAF",
 		"CAWheeled_E_ATV",
@@ -33,7 +32,6 @@ class Mission
 		"cacharacters_e",
 		"ca_modules_functions",
 		"caair_e_ch_47f",
-		"CAAir_E_UH1H_EP1",
 		"CAAir_E_UH60M",
 		"CAWheeled_E_stryker",
 		"camisc_e",
@@ -901,7 +899,7 @@ class Mission
 		items=275;
 		class Item0
 		{
-			position[]={8330.8545,296.04001,2045.4362};
+			position[]={8332.6895,296.04001,2043.7968};
 			azimut=-28.504801;
 			id=0;
 			side="EMPTY";
@@ -911,17 +909,17 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={8302.1074,296.04001,2029.6564};
+			position[]={8302.7734,296.04001,2028.2815};
 			azimut=-28.504801;
 			id=1;
 			side="EMPTY";
-			vehicle="UH1H_TK_GUE_EP1";
+			vehicle="UH60M_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
 		};
 		class Item2
 		{
-			position[]={8168.5103,296.04001,1928.0614};
+			position[]={8167.8301,296.04001,1929.179};
 			azimut=-28.504801;
 			id=2;
 			side="EMPTY";
@@ -1078,7 +1076,7 @@ class Mission
 		};
 		class Item17
 		{
-			position[]={8330.6152,296.04001,2046.1075};
+			position[]={8331.8418,296.04001,2044.7863};
 			azimut=-28.504801;
 			special="NONE";
 			id=17;
@@ -1089,7 +1087,7 @@ class Mission
 		};
 		class Item18
 		{
-			position[]={8301.5518,296.04001,2030.3434};
+			position[]={8303.0391,296.04001,2027.8638};
 			azimut=-28.504801;
 			special="NONE";
 			id=18;
@@ -1526,17 +1524,17 @@ class Mission
 		};
 		class Item58
 		{
-			position[]={8272.2676,296.04001,2010.9838};
+			position[]={8273.1514,296.04001,2009.5173};
 			azimut=-28.504801;
 			id=59;
 			side="EMPTY";
-			vehicle="UH1H_TK_GUE_EP1";
+			vehicle="UH60M_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
 		};
 		class Item59
 		{
-			position[]={8271.8105,296.04001,2011.5277};
+			position[]={8273.2979,296.04001,2009.0481};
 			azimut=-28.504801;
 			special="NONE";
 			id=60;
@@ -3280,7 +3278,7 @@ class Mission
 		};
 		class Item248
 		{
-			position[]={8134.7017,296.04001,1906.9559};
+			position[]={8134.0552,296.04001,1908.2003};
 			azimut=-28.504801;
 			id=296;
 			side="EMPTY";

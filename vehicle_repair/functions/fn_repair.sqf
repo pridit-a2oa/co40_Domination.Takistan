@@ -4,6 +4,9 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+GVAR(repairing) = true;
+
+player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 for "_i" from 1 to 3 do {
@@ -20,8 +23,8 @@ for "_i" from 1 to 3 do {
             [_vehicle, "wheel_2_2_steering", 0] call FUNC(network,setHit);
         };
         
-        if (damage _vehicle > 0.5) then {
-            [_vehicle, 0.5] call FUNC(network,setDamage);
+        if (damage _vehicle > 0.3) then {
+            [_vehicle, 0.3] call FUNC(network,setDamage);
         };
         
         if (fuel _vehicle < 0.25) then {
@@ -37,8 +40,7 @@ for "_i" from 1 to 3 do {
                 [_vehicle, 0.6] call FUNC(network,setFuel);
             };
         };
-        
-        player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
     };
 };
 
+GVAR(repairing) = false;

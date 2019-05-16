@@ -20,7 +20,6 @@ GVAR(vehicle_respawn_type_vehicles) = [
     [_short, "BAF_Offroad_D"],
     [_short, "HMMWV_DES_EP1"],
     [_medium, "MH6J_EP1"],
-    [_medium, "UH1H_TK_GUE_EP1"],
     [_medium, "UH60M_EP1"],
     [_medium, "UH60M_MEV_EP1"],
     [_long, "C130J_US_EP1"],
@@ -29,11 +28,12 @@ GVAR(vehicle_respawn_type_vehicles) = [
     [_extreme, "MV22"]
 ];
 
-// Set maximum distance from base the vehicle can originate from
+// Set maximum distance from base the vehicle can originate from to
+// automatically be included
 GVAR(vehicle_respawn_distance_base) = 400;
 
 // Set minimum distance from all players before respawning
-GVAR(vehicle_respawn_distance_player) = 100;
+GVAR(vehicle_respawn_distance_player) = 10;
 
 // Minimum time before a destroyed vehicle can respawn
 GVAR(vehicle_respawn_time_expiration) = 30;

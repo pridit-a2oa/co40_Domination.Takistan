@@ -12,7 +12,9 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
 
 {
     if ((typeOf _vehicle) isKindOf _x) exitWith {
-        [_vehicle] call FUNC(THIS_MODULE,create);
+        _marker = [_vehicle] call FUNC(THIS_MODULE,create);
+        
+        if (isNil "_marker") exitWith {};
         
         if (!isNil QMODULE(vehicle_mhq)) then {
             [_vehicle] __submoduleVM(vehicle_mhq);

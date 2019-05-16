@@ -28,6 +28,12 @@ switch (_tier) do {
             };
             
             case 4: {
+                if (!isNil QMODULE(halo)) then {
+                    player setVariable [QGVAR(halo), true];
+                };
+            };
+            
+            case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     player setVariable [QGVAR(airdrop), true];
                     
@@ -43,12 +49,6 @@ switch (_tier) do {
                 };
             };
             
-            case 5: {
-                if (!isNil QMODULE(backpack)) then {
-                    player setVariable [QGVAR(backpack), true];
-                };
-            };
-            
             case 6: {
                 if (!isNil QMODULE(vehicle_teleport)) then {
                     player setVariable [QGVAR(teleport), true];
@@ -56,14 +56,14 @@ switch (_tier) do {
             };
             
             case 7: {
-                if (!isNil QMODULE(loadout)) then {
-                    player setVariable [QGVAR(loadout), true];
+                if (!isNil QMODULE(backpack)) then {
+                    player setVariable [QGVAR(backpack), true];
                 };
             };
             
             case 8: {
-                if (!isNil QMODULE(halo)) then {
-                    player setVariable [QGVAR(halo), true];
+                if (!isNil QMODULE(loadout)) then {
+                    player setVariable [QGVAR(loadout), true];
                 };
             };
             

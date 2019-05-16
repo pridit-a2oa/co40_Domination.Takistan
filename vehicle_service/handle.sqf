@@ -13,7 +13,7 @@ if (hasInterface) then {
         _trigger = createTrigger ["EmptyDetector", markerPos _name];
         _trigger setVariable ["type", _x];
         _trigger setTriggerArea [8, 8, 0, false];
-        _trigger setTriggerActivation ["VEHICLE", "PRESENT", true];
+        _trigger setTriggerActivation ["ANY", "PRESENT", true];
         _trigger setTriggerStatements [
             "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 15)}",
             "0 = [(vehicle player)] spawn d_fnc_vehicle_service_restore",

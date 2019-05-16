@@ -12,7 +12,7 @@ _loaded = _aircraft getVariable QGVAR(loaded);
     if (isNil {_x select 0}) exitWith {
         _loaded set [
             _forEachIndex,
-            [typeOf _load, _load getVariable QGVAR(position)]
+            [typeOf _load, _load getVariable QGVAR(position), _load getVariable QGVAR(direction)]
         ];
         
         _aircraft setVariable [QGVAR(loaded), _loaded, true];

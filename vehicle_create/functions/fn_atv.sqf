@@ -31,7 +31,7 @@ _atv spawn {
     sleep 10;
     
     while {true} do {
-        _far = {_x distance _this < GVAR(vehicle_distance)} count GVAR(players) < 1;
+        _far = {_x distance _this < GVAR(vehicle_distance)} count (call FUNC(common,players)) < 1;
         
         if (_far && {_this call FUNC(common,empty)}) exitWith {
             deleteVehicle _this;

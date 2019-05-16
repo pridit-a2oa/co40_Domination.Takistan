@@ -20,13 +20,13 @@ if (!isNil QMODULE(vehicle_marker)) then {
 if (!isNil QMODULE(crossroad)) then {
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (!alive _attachee && {_attachee getVariable QGVAR(wreckable)}) then {
-            [GVAR(crossroad), GVAR(crossroad2), "vehicle_lift", "Airlift", ["1", {}, format ["%1 wreck", [typeOf (_attachee)] call FUNC(vehicle,name)], []], true] call FUNC(network,kbTell);
+            [player, GVAR(crossroad2), "vehicle_lift", "Airlift", ["1", {}, format ["%1 wreck", [typeOf (_attachee)] call FUNC(vehicle,name)], []], true] call FUNC(network,kbTell);
         };
     };
     
     if (!isNil QMODULE(vehicle_mhq)) then {
         if (GVAR(vehicle_mhq_types) find (typeOf _attachee) != -1) then {
-            [GVAR(crossroad), GVAR(crossroad2), "vehicle_lift", "Airlift", ["1", {}, [typeOf (_attachee)] call FUNC(vehicle,name), []], true] call FUNC(network,kbTell);
+            [player, GVAR(crossroad2), "vehicle_lift", "Airlift", ["1", {}, [typeOf (_attachee)] call FUNC(vehicle,name), []], true] call FUNC(network,kbTell);
         };
     };
 };

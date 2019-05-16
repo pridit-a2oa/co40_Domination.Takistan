@@ -12,7 +12,7 @@ _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 _lbCurSel = lbCurSel _menu;
 _lbData = _menu lbData _lbCurSel;
 
-if (_lbCurSel == -1) exitWith {
+if (_lbCurSel == -1 || {player distance _vehicle > 10}) exitWith {
     closeDialog 0;
 };
 

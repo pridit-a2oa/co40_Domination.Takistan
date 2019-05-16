@@ -8,4 +8,4 @@
 
 if (isNil "_threshold") exitWith {};
 
-time + _threshold
+_threshold

@@ -66,7 +66,8 @@ switch (_type) do {
     case "abandoned light vehicle": {
         _vehicles = [
             "BAF_Jackal2_L2A1_D",
-            "BAF_Jackal2_L2A1_w"
+            "BAF_Jackal2_L2A1_w",
+            "HMMWV_M1151_M2_DES_EP1"
         ];
         
         _vehicle = (_vehicles call BIS_fnc_selectRandom) createVehicle _position;

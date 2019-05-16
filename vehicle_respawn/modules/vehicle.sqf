@@ -8,7 +8,7 @@ private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expirat
 
 PARAMS_1(_vehicle);
 
-if ((markerPos QGVAR(base_south)) distance _vehicle >= GVAR(vehicle_respawn_distance_base)) exitWith {};
+if ((markerPos QGVAR(base_south)) distance (_vehicle getVariable QGVAR(position)) >= GVAR(vehicle_respawn_distance_base)) exitWith {};
 
 if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
     _respawnable = _vehicle getVariable QGVAR(respawnable);
@@ -24,7 +24,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
         if (isNil "_position") exitWith {};
         
         _empty = _vehicle call FUNC(common,empty);
-        _far = {_x distance _vehicle < 10} count GVAR(players) < 1;
+        _far = {_x distance _vehicle < GVAR(vehicle_respawn_distance_player)} count (call FUNC(common,players)) < 1;
         
         if (isNil "_threshold" || {!_empty} || {!_far}) then {
             _threshold = _vehicle call FUNC(THIS_MODULE,threshold);
@@ -41,17 +41,17 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _vehicle setVariable [QGVAR(expiration), _expiration];
         };
         
-        _moved = _vehicle distance _position > GVAR(vehicle_respawn_distance_player);
+        _moved = _vehicle distance _position > 10;
         _type = typeOf _vehicle;
         
-        _expired = (!isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold});
-        _disabled = (_empty && {_dead} && {call FUNC(common,time) > _expiration}); 
+        _expired = !isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold};
+        _disabled = _empty && {_dead} && {call FUNC(common,time) > _expiration}; 
     
         if (_expired || {_disabled}) exitWith {
             deleteVehicle _vehicle;
             
             _vehicle = objNull;
-            _vehicle = createVehicle [_type, [0,0,0], [], 0, "NONE"];
+            _vehicle = createVehicle [_type, _position, [], 0, "NONE"];
             _vehicle setDir _direction;
             _vehicle setPos _position;
             _vehicle setFuel 1;

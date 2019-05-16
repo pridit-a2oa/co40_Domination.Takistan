@@ -1,6 +1,6 @@
 #define THIS_MODULE vehicle_load
 #include "x_macros.sqf"
-private ["_aircraft", "_filled", "_animation", "_load", "_distance", "_range"];
+private ["_aircraft", "_filled", "_animation", "_load", "_deployed", "_distance", "_range"];
 
 _aircraft = (player nearEntities [[GVAR(vehicle_load_type_aircraft)], 20]) select 0;
 
@@ -17,6 +17,10 @@ if (_animation != 0) exitWith {false};
 _load = (_aircraft nearEntities [["Car", "Tank", "Truck"], 20]) select 0;
 
 if (isNil "_load") exitWith {false};
+
+_deployed = _load getVariable QGVAR(deployed);
+
+if (_deployed) exitWith {false};
 
 _distance = _aircraft distance _load;
 

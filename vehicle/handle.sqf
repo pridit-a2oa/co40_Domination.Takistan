@@ -10,7 +10,7 @@ PARAMS_1(_vehicle);
 
 if (isNil {_vehicle getVariable QGVAR(position)}) then {
     _vehicle setVariable [QGVAR(position), position _vehicle, true];
-    _vehicle setVariable [QGVAR(direction), getDir _vehicle];
+    _vehicle setVariable [QGVAR(direction), getDir _vehicle, true];
 };
 
 if (isServer) then {
@@ -23,10 +23,6 @@ if (isServer) then {
     
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
-    };
-    
-    if (!isNil QMODULE(vehicle_tow)) then {
-        [_vehicle] __submoduleVM(vehicle_tow);
     };
 };
 
@@ -82,6 +78,10 @@ if (hasInterface) then {
 
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
+};
+
+if (!isNil QMODULE(vehicle_tow)) then {
+    [_vehicle] __submoduleVM(vehicle_tow);
 };
 
 _vehicle addEventHandler ["killed", {

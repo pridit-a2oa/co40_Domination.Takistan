@@ -11,6 +11,8 @@
 GVAR(medical_threshold_damage) = 0.15;
 
 if (hasInterface) then {
+    GVAR(healing) = false;
+    
     player setVariable [QGVAR(medkits), 0, true];
     player setVariable [QGVAR(medkits_max), 0, true];
 };

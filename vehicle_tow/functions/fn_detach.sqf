@@ -1,8 +1,9 @@
 #include "x_macros.sqf"
-private ["_tow"];
+private ["_vehicle"];
 
-_tower = _this select 0;
-_tow = _this select 3;
+PARAMS_1(_vehicle);
 
-_tower setVariable [QGVAR(is_towing), false, true];
-_tow setVariable [QGVAR(is_towed), false, true];
+_vehicle setVariable [QGVAR(towing), objNull, true];
+_vehicle setVariable [QGVAR(action), false, true];
+
+(_this select 3) setVariable [QGVAR(towed), false, true];

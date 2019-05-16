@@ -8,12 +8,14 @@
 #include "x_macros.sqf"
 
 // Set minimum damage to initiate repair
-GVAR(vehicle_repair_amount_damage) = 0.3;
+GVAR(vehicle_repair_amount_damage) = 0.4;
 
 // Set maximum fuel level to initiate repair
 GVAR(vehicle_repair_amount_fuel) = 0.10;
 
 if (hasInterface) then {
+    GVAR(repairing) = false;
+    
     player setVariable [QGVAR(repair_full), false];
     player setVariable [QGVAR(repair_kits), 0, true];
     player setVariable [QGVAR(repair_kits_max), 0, true];

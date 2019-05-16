@@ -35,7 +35,7 @@ class PerkButton_General_4: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Call airdrop";
+    tooltip = "HALO jump from any aircraft";
     action = "[0,4] call d_fnc_perk_clicked";
 };
 class PerkButton_General_5: XD_LinkButtonUpgradeBase
@@ -45,7 +45,7 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Carry an additional primary weapon";
+    tooltip = "Call airdrop";
     action = "[0,5] call d_fnc_perk_clicked";
 };
 class PerkButton_General_6: XD_LinkButtonUpgradeBase
@@ -65,7 +65,7 @@ class PerkButton_General_7: XD_LinkButtonUpgradeBase
     y = 0.216364;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Save gear layout";
+    tooltip = "Carry an additional primary weapon";
     action = "[0,7] call d_fnc_perk_clicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
@@ -75,7 +75,7 @@ class PerkButton_General_8: XD_LinkButtonUpgradeBase
     y = 0.219091;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "HALO jump from any aircraft";
+    tooltip = "Save loadout";
     action = "[0,8] call d_fnc_perk_clicked";
 };
 class PerkButton_General_9: XD_LinkButtonUpgradeBase
