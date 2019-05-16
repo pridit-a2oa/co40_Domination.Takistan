@@ -41,10 +41,11 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _vehicle setVariable [QGVAR(expiration), _expiration];
         };
         
+        _close = count (nearestObjects [_vehicle, ["AllVehicles"], GVAR(vehicle_respawn_distance_vehicle)]);
         _moved = _vehicle distance _position > 10;
         _type = typeOf _vehicle;
         
-        _expired = !isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold};
+        _expired = !isNil "_threshold" && {_close < 2} && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold};
         _disabled = _empty && {_dead} && {call FUNC(common,time) > _expiration}; 
     
         if (_expired || {_disabled}) exitWith {

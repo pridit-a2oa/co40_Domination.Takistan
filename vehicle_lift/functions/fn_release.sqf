@@ -4,11 +4,13 @@ private ["_attacher", "_attachee"];
 _attacher = _this select 0;
 _attachee = _this select 3;
 
-_attacher removeAction (_this select 2);
-_attacher setVariable [QGVAR(release), nil];
-
 detach _attachee;
 
+if (alive _attacher) then {
+    _attacher removeAction (_this select 2);
+};
+
+_attacher setVariable [QGVAR(release), nil];
 _attacher setVariable [QGVAR(attached), false];
 
 if ((position _attachee) select 2 > 100) then {

@@ -20,8 +20,8 @@ if (!isNil QMODULE(nest)) then {
     _objects = _objects + [["Nest", GVAR(nest_type)]];
 };
 
-if (!isNil QMODULE(trench)) then {
-    _objects = _objects + [["Trench", GVAR(trench_type)]];
+if (!isNil QMODULE(fortification)) then {
+    _objects = _objects + [["Fortification", GVAR(fortification_type)]];
 };
 
 GVAR(construction_type_objects) = _objects;

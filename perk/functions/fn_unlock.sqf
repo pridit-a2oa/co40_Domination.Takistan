@@ -221,40 +221,40 @@ switch (_tier) do {
     case 4: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(trench)) then {
-                    player setVariable [QGVAR(trench), 1];
-                    player setVariable [QGVAR(trench_max), 1];
+                if (!isNil QMODULE(fortification)) then {
+                    player setVariable [QGVAR(fortification), 1];
+                    player setVariable [QGVAR(fortification_max), 1];
                     
                     if (!isNil QMODULE(communication) && {!isNil QMODULE(construction)}) then {
                         [
                             BIS_MENU_Construct,
-                            "Trench",
+                            "Fortification",
                             "",
-                            "0 = ['Trench'] execVM 'construction\functions\fn_create.sqf'"
+                            "0 = ['Fortification'] execVM 'construction\functions\fn_create.sqf'"
                         ] call FUNC(communication,add);
                     };
                 };
             };
             
             case 2: {
-                if (!isNil QMODULE(trench)) then {
-                    player setVariable [QGVAR(trench), (player getVariable QGVAR(trench)) + 1];
-                    player setVariable [QGVAR(trench_max), (player getVariable QGVAR(trench_max)) + 1];
+                if (!isNil QMODULE(fortification)) then {
+                    player setVariable [QGVAR(fortification), (player getVariable QGVAR(fortification)) + 1];
+                    player setVariable [QGVAR(fortification_max), (player getVariable QGVAR(fortification_max)) + 1];
                 };
             };
             
             case 3: {
-                if (!isNil QMODULE(trench)) then {
-                    GVAR(trench_cooldown) = GVAR(trench_cooldown) - 300;
+                if (!isNil QMODULE(fortification)) then {
+                    GVAR(fortification_cooldown) = GVAR(fortification_cooldown) - 300;
                     
-                    player setVariable [QGVAR(trench_cooldown), (player getVariable QGVAR(trench_cooldown)) - 300];
+                    player setVariable [QGVAR(fortification_cooldown), (player getVariable QGVAR(fortification_cooldown)) - 300];
                 };
             };
             
             case 4: {
-                if (!isNil QMODULE(trench)) then {
-                    player setVariable [QGVAR(trench), (player getVariable QGVAR(trench)) + 1];
-                    player setVariable [QGVAR(trench_max), (player getVariable QGVAR(trench_max)) + 1];
+                if (!isNil QMODULE(fortification)) then {
+                    player setVariable [QGVAR(fortification), (player getVariable QGVAR(fortification)) + 1];
+                    player setVariable [QGVAR(fortification_max), (player getVariable QGVAR(fortification_max)) + 1];
                 };
             };
             

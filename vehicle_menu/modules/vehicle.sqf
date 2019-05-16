@@ -20,4 +20,4 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 
 if (_valid find (typeOf _vehicle) == -1) exitWith {};
 
-_vehicle addAction [format ["%1 Menu" call FUNC(common,YellowText), [typeOf (_vehicle)] call FUNC(vehicle,name)], __function(show), _vehicle, -3, false, true, "", "!(player in _target) && {count (nearestObjects [_target, [d_vehicle_load_type_aircraft], 30]) == 0}"];
+_vehicle addAction [format ["%1 Menu" call FUNC(common,YellowText), [typeOf (_vehicle)] call FUNC(vehicle,name)], __function(show), _vehicle, -3, false, true, "", "alive _target && {!(player in _target)} && {count (nearestObjects [_target, [d_vehicle_load_type_aircraft], 30]) == 0}"];

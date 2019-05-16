@@ -16,11 +16,7 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
-    
-    if (!isNil QMODULE(vehicle_mhq)) then {
-        [_vehicle] __submoduleVM(vehicle_mhq);
-    };
-    
+
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
     };
@@ -78,6 +74,10 @@ if (hasInterface) then {
 
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
+};
+
+if (!isNil QMODULE(vehicle_mhq)) then {
+    [_vehicle] __submoduleVM(vehicle_mhq);
 };
 
 if (!isNil QMODULE(vehicle_tow)) then {

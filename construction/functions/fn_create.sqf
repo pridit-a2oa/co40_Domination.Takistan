@@ -51,7 +51,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 _position = player modelToWorld [0, 7, 0];
 
-_object = createVehicle [_type, [_position select 0, _position select 1, -15], [], 0, "CAN_COLLIDE"];
+_object = createVehicle [_type, [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
 _object setDir ((getDir player) - 180);
 
 sleep 7;
@@ -60,11 +60,12 @@ if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
     deleteVehicle _object;
 };
 
-_object setPos _position;
+_object setPos [_position select 0, _position select 1, 0];
+_object setVectorUp surfaceNormal _position;
 _object setVariable [QGVAR(deconstructing), false];
 
 _object addEventHandler ["HandleDamage", {0}];
-_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 2, false, true, "", "!(_target getVariable 'd_deconstructing')"];
+_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 10, false, true, "", "player == vehicle player && {!(_target getVariable 'd_deconstructing')}"];
 
 [nil, nil, rExecVM, __function(action), _name, _object] call RE;
 

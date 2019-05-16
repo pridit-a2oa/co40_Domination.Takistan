@@ -1,0 +1,31 @@
+class Sentences 
+{
+    class Deployed {
+        text = "%1 has been deployed near %2.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+    
+    class Destroyed {
+        text = "Be advised, one of our deployed %1's has been destroyed.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

@@ -5,6 +5,7 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 _position = position _vehicle;
+_city = nearestLocation [_position, "nameCity"];
 
 _name = "Stryker MEV";
 _checks = [
@@ -43,4 +44,8 @@ _vehicle setVariable [QGVAR(deployed), true, true];
 
 if (!isNil QMODULE(vehicle_marker)) then {
     [_vehicle, true] __submoduleVM(vehicle_marker);
+};
+
+if (!isNil QMODULE(crossroad)) then {
+    [player, GVAR(crossroad), "vehicle_mhq", "Deployed", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], ["2", {}, text (_city), []], true] call FUNC(network,kbTell);
 };

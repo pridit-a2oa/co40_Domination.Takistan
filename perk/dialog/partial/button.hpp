@@ -245,7 +245,7 @@ class PerkButton_Role4_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One trench emplacement";
+    tooltip = "One fortification (rampart)";
     action = "[4,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
@@ -255,7 +255,7 @@ class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two trench emplacements";
+    tooltip = "Two fortifications";
     action = "[4,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
@@ -265,7 +265,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Trench cooldown reduced by 300s";
+    tooltip = "Fortification cooldown reduced by 300s";
     action = "[4,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
@@ -275,7 +275,7 @@ class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three trench emplacements";
+    tooltip = "Three fortifications";
     action = "[4,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
