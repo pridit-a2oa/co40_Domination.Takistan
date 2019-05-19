@@ -3587,7 +3587,7 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={7965.9063,296.14053,1933.8236};
+			position[]={7971.8242,296.06476,1924.6965};
 			name="d_base_anti_air_2";
 			type="Empty";
 			colorName="ColorBlack";

@@ -16,13 +16,19 @@ player disableConversation true;
 onEachFrame {call d_fnc_client_perFrame};
 
 if (!isNil QMODULE(vehicle)) then {
-    ["init_vehicles", {
-        {
-            [_x] __handler("vehicle");
-        } forEach vehicles;
+    0 spawn {
+        if (!isNil QMODULE(vehicle_bonus)) then {
+            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == 3};
+        };
+        
+        ["init_vehicles", {
+            {
+                [_x] __handler("vehicle");
+            } forEach vehicles;
 
-        ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
-    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+            ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
+        }, 0] call FUNC(THIS_MODULE,addPerFrame);
+    };
 };
 
 if (!isNil QMODULE(ammobox)) then {

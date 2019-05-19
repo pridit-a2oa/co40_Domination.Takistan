@@ -20,6 +20,10 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
     };
+    
+    if (!isNil QMODULE(vehicle_service)) then {
+        [_vehicle] __submoduleVM(vehicle_service);
+    };
 };
 
 if (hasInterface) then {
@@ -82,6 +86,27 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 
 if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
+};
+
+if (typeOf _vehicle == "AH64D_EP1") then {
+    _handler = _vehicle addEventHandler ["getin", {
+        if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
+        
+        0 spawn {
+            sleep 3;
+            
+            if (vehicle player == player) exitWith {};
+            
+            "AH-64D" hintC [
+                "This vehicle unfortunately suffers from an old Arma re-arming bug which means hellfires won't be replenished once depleted.",
+                "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
+            ];
+        };
+        
+        (_this select 0) removeEventHandler ["getin", player getVariable QGVAR(ah64d)];
+    }];
+    
+    player setVariable [QGVAR(ah64d), _handler];
 };
 
 _vehicle addEventHandler ["killed", {

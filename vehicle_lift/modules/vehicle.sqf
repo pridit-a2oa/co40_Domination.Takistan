@@ -11,6 +11,8 @@ PARAMS_1(_vehicle);
 if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
 
 _vehicle addEventHandler ["getin", {
+    if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
+    
     [_this select 0, ["LandVehicle"], true] execVM __function(valid);
 }];
 

@@ -15,7 +15,7 @@ if (hasInterface) then {
         _trigger setTriggerArea [8, 8, 0, false];
         _trigger setTriggerActivation ["ANY", "PRESENT", true];
         _trigger setTriggerStatements [
-            "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 15)}",
+            "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 15)} && {fuel (vehicle player) < 0.99} && {!((vehicle player) getVariable 'd_servicing')}",
             "0 = [(vehicle player)] spawn d_fnc_vehicle_service_restore",
             ""
         ];

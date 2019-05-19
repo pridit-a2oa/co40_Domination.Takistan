@@ -5,41 +5,6 @@ private ["_target", "_type", "_position", "_antennas", "_near", "_camps", "_camp
 PARAMS_2(_target, _type);
 
 switch (_type) do {
-    case "radio": {
-        _antennas = 0;
-        
-        while {_antennas != GVAR(mission_main_count_antennas)} do {
-            _position = [position _target, 50, 200, 2, 0, 0.3, 0] call FUNC(common,safePos);
-            _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
-            
-            if (count _near < 1) then {
-                GVAR(mission_main_type_antenna) createVehicle _position;
-
-                [nil, nil, rSpawn, [_position], {
-                    private ["_position"];
-                    
-                    PARAMS_1(_position);
-                    
-                    if (!isNil QMODULE(marker)) then {
-                        [
-                            format ["antenna_%1", str (_position)],
-                            _position,
-                            "FOB",
-                            "",
-                            "ColorWhite",
-                            "ICON",
-                            [0.7, 0.9]
-                        ] call FUNC(marker,create);
-                    };
-                }] call RE;
-                
-                _antennas = _antennas + 1;
-            };
-            
-            sleep 0.5;
-        };
-    };
-    
     case "camp": {
         _camps = 0;
 
@@ -83,6 +48,41 @@ switch (_type) do {
                 _camps = _camps + 1;
             };
 
+            sleep 0.5;
+        };
+    };
+    
+    case "radio": {
+        _antennas = 0;
+        
+        while {_antennas != GVAR(mission_main_count_antennas)} do {
+            _position = [position _target, 50, 200, 2, 0, 0.3, 0] call FUNC(common,safePos);
+            _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
+            
+            if (count _near < 1) then {
+                GVAR(mission_main_type_antenna) createVehicle _position;
+
+                [nil, nil, rSpawn, [_position], {
+                    private ["_position"];
+                    
+                    PARAMS_1(_position);
+                    
+                    if (!isNil QMODULE(marker)) then {
+                        [
+                            format ["antenna_%1", str (_position)],
+                            _position,
+                            "FOB",
+                            "",
+                            "ColorWhite",
+                            "ICON",
+                            [0.7, 0.9]
+                        ] call FUNC(marker,create);
+                    };
+                }] call RE;
+                
+                _antennas = _antennas + 1;
+            };
+            
             sleep 0.5;
         };
     };

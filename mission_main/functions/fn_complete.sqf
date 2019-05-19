@@ -4,12 +4,12 @@ private ["_target"];
 PARAMS_1(_target);
 
 if (!isNil QMODULE(marker)) then {
-    _name = format ["mission_main_%1", text (_target)];
+    _name = format ["mission_main_%1", _target getVariable "name"];
     
     [_name] call FUNC(marker,delete);
     
     _marker = ([
-        format ["mission_main_%1", text (_target)],
+        format ["mission_main_%1", _target getVariable "name"],
         position _target,
         "",
         "",

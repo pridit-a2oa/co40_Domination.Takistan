@@ -34,4 +34,6 @@ while {alive _attacher && {_attacher getVariable QGVAR(attached)}} do {
     sleep 2;
 };
 
-[_attacher, "", "", _attachee] call FUNC(THIS_MODULE,release);
+if (_attacher getVariable QGVAR(attached)) then {
+    [_attacher, "", "", _attachee] call FUNC(THIS_MODULE,release);
+};

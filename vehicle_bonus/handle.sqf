@@ -7,7 +7,7 @@
 private ["_marker", "_vehicle"];
 
 if (isServer) then {
-    sleep 3;
+    X_JIPH setVariable [QGVAR(vehicle_bonus), 0, true];
     
     for "_i" from 1 to 3 do {
         _marker = format [QGVAR(bonus_air_%1), _i];
@@ -26,6 +26,6 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(wreckable), true, true];
         };
         
-        [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+        X_JIPH setVariable [QGVAR(vehicle_bonus), (X_JIPH getVariable QGVAR(vehicle_bonus)) + 1, true];
     };
 };

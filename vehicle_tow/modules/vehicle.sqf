@@ -50,7 +50,7 @@ if (hasInterface) then {
                 _vehicle,
                 "per",
                 rAddAction,
-                format ["Detach %1", [typeOf _towing] call FUNC(vehicle,name)] call FUNC(common,RedText),
+                "Detach" call FUNC(common,RedText),
                 __function(detach),
                 _towing,
                 10,

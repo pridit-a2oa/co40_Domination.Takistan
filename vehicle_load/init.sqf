@@ -1,5 +1,8 @@
 /**
  * Vehicle Load Module
+ *
+ *  Description: This module enables players to load ground vehicles into
+ *  an aircraft & paradrop them.
  */
 
 #define THIS_MODULE vehicle_load

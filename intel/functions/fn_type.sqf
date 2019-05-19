@@ -22,7 +22,7 @@ if (!isNil QMODULE(marker)) then {
                 " Intel",
                 "ColorOrange",
                 "ICON",
-                []
+                [0.8, 0.8]
             ] call FUNC(marker,create);
         };
     }] call RE;
@@ -73,6 +73,7 @@ switch (_type) do {
         _vehicle = (_vehicles call BIS_fnc_selectRandom) createVehicle _position;
         _vehicle setDir (random 360);
         _vehicle setPos _position;
+        _vehicle setVectorUp surfaceNormal _position;
         _vehicle setFuel random (0.3);
         _vehicle setDamage (random 0.4);
         

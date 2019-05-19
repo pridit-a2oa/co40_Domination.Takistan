@@ -1,8 +1,42 @@
 class Sentences 
-{
+{    
+    class Captured {
+        text = "We have captured all camps in %1 and weakened the enemy foothold.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+    
+    class Destroyed {
+        text = "Enemy %1 in %2 has been destroyed.%3";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+            class 3 {type = "simple";};
+        };
+    };
+    
+    class Detected {
+        text = "We have been detected at %1, enemy reinforcements inbound.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+
     class NewTarget {
         text = "New Target: %1";
         speech[] = {Attack, %1};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+    
+    class Seized {
+        text = "We have seized %1.";
+        speech[] = {};
         class Arguments {
             class 1 {type = "simple";};
         };
