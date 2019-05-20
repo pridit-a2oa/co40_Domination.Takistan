@@ -60,17 +60,28 @@ switch (_type) do {
             _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
             
             if (count _near < 1) then {
-                GVAR(mission_main_type_antenna) createVehicle _position;
-
-                [nil, nil, rSpawn, [_position], {
-                    private ["_position"];
+                _antenna = GVAR(mission_main_type_antenna) createVehicle _position;
+                _antenna setPos _position;
+                
+                _antenna addEventHandler ["killed", {
+                    private ["_unit"];
                     
-                    PARAMS_1(_position);
+                    PARAMS_1(_unit);
+                    
+                    if (!isNil QMODULE(marker)) then {
+                        [format ["antenna_%1", str (position _unit)]] call FUNC(marker,delete);
+                    };
+                }];
+
+                [nil, nil, rSpawn, [_antenna], {
+                    private ["_antenna"];
+                    
+                    PARAMS_1(_antenna);
                     
                     if (!isNil QMODULE(marker)) then {
                         [
-                            format ["antenna_%1", str (_position)],
-                            _position,
+                            format ["antenna_%1", str (position _antenna)],
+                            position _antenna,
                             "FOB",
                             "",
                             "ColorWhite",

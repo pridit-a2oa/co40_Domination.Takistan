@@ -2,12 +2,12 @@
 #include "x_macros.sqf"
 private ["_backpack", "_action"];
 
-_backpack = player getVariable QGVAR(backpack_hold);
+_backpack = GVAR(backpack);
 _action = player getVariable QGVAR(backpack_action);
 
 player removeAction _action;
 
-player setVariable [QGVAR(backpack_hold), []];
+GVAR(backpack) = [];
 player setVariable [QGVAR(backpack_action), nil];
 
 if (primaryWeapon player != "") then {

@@ -1,9 +1,9 @@
+#define THIS_MODULE backpack
 #include "x_macros.sqf"
-private ["_weapon", "_magazines", "_name", "_sidearm", "_animation", "_action"];
+private ["_weapon", "_magazines", "_sidearm", "_animation"];
 
 _weapon = weaponState player;
 _magazines = [];
-_name = getText (configFile >> "CfgWeapons" >> (_weapon select 0) >> "displayName");
 
 {
     if (_x == (_weapon select 3)) then {
@@ -11,11 +11,11 @@ _name = getText (configFile >> "CfgWeapons" >> (_weapon select 0) >> "displayNam
     };
 } forEach (magazines player);
 
-player setVariable [QGVAR(backpack_hold), [
+GVAR(backpack) = [
     _weapon select 0,
     _weapon select 3,
     count (_magazines)
-]];
+];
 
 player removeWeapon (_weapon select 0);
 player removeMagazines (_weapon select 3);
@@ -37,6 +37,4 @@ if (!isNil "_sidearm") then {
     player addWeapon _sidearm;
 };
 
-_action = player addAction [(format ["Equip %1", _name]) call FUNC(common,GreyText), FUNCTION(backpack,equip), [], -7, false, true, "", "player == _target && {player == vehicle player} && {(position player) select 2 < 1} && {player getVariable 'd_backpack'} && {count (player getVariable 'd_backpack_hold') > 0} && {(d_backpack_animations find (animationState player)) == -1}"];
-
-player setVariable [QGVAR(backpack_action), _action];
+call FUNC(THIS_MODULE,action);

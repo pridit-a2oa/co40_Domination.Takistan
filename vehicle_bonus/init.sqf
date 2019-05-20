@@ -15,6 +15,9 @@ GVAR(vehicle_bonus_types) = [
     "AW159_Lynx_BAF"
 ];
 
+// Set maximum amount of bonus vehicles
+GVAR(vehicle_bonus_max) = 3;
+
 if (hasInterface) then {
     player setVariable [QGVAR(pilot), false];
 };

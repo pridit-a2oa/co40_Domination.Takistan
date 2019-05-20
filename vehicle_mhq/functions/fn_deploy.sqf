@@ -46,6 +46,8 @@ if (!isNil QMODULE(vehicle_marker)) then {
     [_vehicle, true] __submoduleVM(vehicle_marker);
 };
 
-if (!isNil QMODULE(crossroad)) then {
+if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
     [player, GVAR(crossroad), "vehicle_mhq", "Deployed", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], ["2", {}, text (_city), []], true] call FUNC(network,kbTell);
+
+    player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
 };

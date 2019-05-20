@@ -44,6 +44,7 @@ _modules = [
     "task",
     "teleport",
     "uav",
+    "unit",
     "vehicle",
     "vehicle_ammobox",
     "vehicle_bonus",

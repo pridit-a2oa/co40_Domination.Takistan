@@ -11,10 +11,10 @@ GVAR(mission_main_type_antenna) = "Land_Antenna";
 // Set camp (composition) type
 GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
 
-// Set reinforcement types
+// Set reinforcement types alongside amount & vehicle possibilities
 GVAR(mission_main_type_reinforcements) = [
-    "aircraft",
-    "infantry"
+    ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],
+    ["infantry", ["Mi17_TK_EP1"]]
 ];
 
 // Set minimum amount of antennas a main target should have
@@ -28,6 +28,9 @@ GVAR(mission_main_distance_base) = 2600;
 
 // Set distance from north airfield before a city can become a valid target
 GVAR(mission_main_distance_naf) = 1800;
+
+// Set minimum distance for reinforcements to spawn in
+GVAR(mission_main_distance_reinforcement) = 4000;
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);

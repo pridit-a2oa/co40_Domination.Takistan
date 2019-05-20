@@ -2,7 +2,6 @@
 #define __ctrl(vctrl) _ctrl = _XD_display displayCtrl vctrl
 #define __ctrl2(ectrl) (_XD_display displayCtrl ectrl)
 private ["_ctrl", "_XD_display", "_points", "_unlocked"];
-if (!X_Client) exitWith {};
 
 disableSerialization;
 

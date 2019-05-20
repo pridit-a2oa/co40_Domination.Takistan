@@ -18,7 +18,7 @@ onEachFrame {call d_fnc_client_perFrame};
 if (!isNil QMODULE(vehicle)) then {
     0 spawn {
         if (!isNil QMODULE(vehicle_bonus)) then {
-            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == 3};
+            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == GVAR(vehicle_bonus_max)};
         };
         
         ["init_vehicles", {
@@ -176,6 +176,7 @@ player addEventHandler ["respawn", {
     _unit setDir 240.214;
     
     _handlers = [
+        "backpack",
         "medical",
         "perk",
         "option",
@@ -193,13 +194,19 @@ player addEventHandler ["respawn", {
         call FUNC(revive,reset);
     };
     
-    if (!isNil QMODULE(loadout) && {count GVAR(loadout) > 0}) then {
-        call FUNC(loadout,restore);
-    };
-    
     if (!isNil QMODULE(perk)) then {
         [true] call FUNC(perk,calculate);
     };
+    
+    if (!isNil QMODULE(backpack) && {player getVariable QGVAR(backpack)} && {count GVAR(backpack) > 0}) then {
+        call FUNC(backpack,action);
+    };
+    
+    if (!isNil QMODULE(loadout) && {player getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
+        call FUNC(loadout,restore);
+    };
+    
+    removeAllWeapons player;
 }];
 
 player addEventHandler ["killed", {
