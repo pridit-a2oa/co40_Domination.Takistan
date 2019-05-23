@@ -5,6 +5,7 @@ private ["_spawn", "_name", "_position"];
 PARAMS_1(_vehicle);
 
 if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
+if (count crew _vehicle > 0 && {{!isPlayer _x} count crew _vehicle > 0}) exitWith {};
 
 _marker = createMarkerLocal [str ((_vehicle getVariable QGVAR(position)) select 0), position _vehicle];
 _marker setMarkerColorLocal "ColorBlue";
@@ -30,5 +31,7 @@ _vehicle addMPEventHandler ["MPKilled", {
     
     deleteMarkerLocal (str (((_this select 0) getVariable QGVAR(position)) select 0));
 }];
+
+_vehicle setVariable [QGVAR(hidden), false, true];
 
 _marker

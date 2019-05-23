@@ -6,6 +6,7 @@
 private ["_modules"];
 
 _modules = [
+    "admin",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -40,6 +41,8 @@ _modules = [
     "option",
     "perk",
     "revive",
+    "setting",
+    "spectate",
     "squad",
     "task",
     "teleport",

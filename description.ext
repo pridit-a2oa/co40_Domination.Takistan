@@ -14,6 +14,7 @@ onLoadMissionTime = 0;
 #include "define.hpp"
 #include "halo\dialog\base.hpp"
 #include "perk\dialog\base.hpp"
+#include "spectate\dialog\base.hpp"
 #include "teleport\dialog\base.hpp"
 #include "vehicle_menu\dialog\base.hpp"
 

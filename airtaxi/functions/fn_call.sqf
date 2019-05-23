@@ -88,9 +88,9 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     
     (group _pilot) setBehaviour "CARELESS";
     
+    _helper = "HeliHEmpty" createVehicleLocal _position;
+    
     while {alive _aircraft && {canMove _aircraft}} do {
-        _helper = "HeliHEmpty" createVehicleLocal _position;
-        
         if (unitReady _pilot) exitWith {
             sleep 0.1;
             _aircraft land "LAND";
