@@ -1,5 +1,8 @@
 /**
  * Admin Module
+ *
+ * Description: This module provides administrative abilities to a curated list
+ * of players.
  */
 
 #define THIS_MODULE admin

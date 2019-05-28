@@ -72,9 +72,11 @@ if (typeName _loaded == "ARRAY") then {
         deleteVehicle _load;
 
         _ammobox = [_position, 0, false] call FUNC(ammobox,create);
-
-        [_ammobox] call FUNC(vehicle_ammobox,replenish);
-
+        
+        if (!isNil QMODULE(vehicle_ammobox)) then {
+            [_ammobox] call FUNC(vehicle_ammobox,replenish);
+        };
+        
         [nil, nil, rExecVM, __handlerRE(ammobox), _ammobox] call RE;
     };
 };

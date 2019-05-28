@@ -1060,7 +1060,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL1";
 		};
 		class Item16
 		{
@@ -1430,7 +1429,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL1_1";
 		};
 		class Item50
 		{
@@ -1442,7 +1440,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL2_1";
 		};
 		class Item51
 		{
@@ -1454,7 +1451,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL3_1";
 		};
 		class Item52
 		{
@@ -1466,7 +1462,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL2_2";
 		};
 		class Item53
 		{
@@ -1478,7 +1473,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL1_1_1";
 		};
 		class Item54
 		{
@@ -1490,7 +1484,6 @@ class Mission
 			vehicle="Land_HBarrier5";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="WALL3_1_1";
 		};
 		class Item55
 		{

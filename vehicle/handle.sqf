@@ -114,13 +114,15 @@ _vehicle addEventHandler ["killed", {
     
     PARAMS_1(_vehicle);
     
-    [_vehicle] spawn {
-        private ["_vehicle"];
-        
-        PARAMS_1(_vehicle);
-        
-        sleep 1;
-        
-        [_vehicle] call FUNC(THIS_MODULE,freeze);
+    if (_vehicle isKindOf "Air") then {
+        [_vehicle] spawn {
+            private ["_vehicle"];
+            
+            PARAMS_1(_vehicle);
+            
+            sleep 1;
+
+            [_vehicle] call FUNC(THIS_MODULE,freeze);
+        };
     };
 }];

@@ -67,6 +67,26 @@
 #define XCTextHud			colorText[] = {0.543, 0.5742, 0.4102, 0.9}
 #define XCMainCapt			colorText[] = {0.543, 0.5742, 0.4102, 1.0}
 
+class BBRscStructuredText {
+    access = 0;
+    type = 13;
+    idc = -1;
+    style = 0;
+    colorText[] = {0.8784,0.8471,0.651,1};
+    class Attributes {
+        font = "Zeppelin32";
+        color = "#e0d8a6";
+        align = "center";
+        shadow = 1;
+    };
+    x = 0;
+    y = 0;
+    h = 0.035;
+    w = 0.1;
+    text = "";
+    size = 0.03921;
+    shadow = 2;
+};
 class SXRscText {
     type = CT_STATIC;
     idc = -1;

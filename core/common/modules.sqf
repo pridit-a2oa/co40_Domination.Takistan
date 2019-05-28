@@ -6,6 +6,7 @@
 private ["_modules"];
 
 _modules = [
+    "3d",
     "admin",
     "airdrop",
     "airtaxi",
@@ -16,7 +17,6 @@ _modules = [
     "base_ammobox",
     "base_backpack",
     "base_halo",
-    "base_service",
     "base_shield",
     "base_teleport",
     "base_wreck",

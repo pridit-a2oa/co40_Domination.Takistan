@@ -22,11 +22,11 @@ if (hasInterface) then {
         __submodulePP(perk);
     };
     
-    if (!isNil QMODULE(setting)) then {
-        __submodulePP(setting);
-    };
-    
     if (!isNil QMODULE(squad)) then {
         __submodulePP(squad);
+    };
+    
+    if (!isNil QMODULE(setting)) then {
+        __submodulePP(setting);
     };
 };

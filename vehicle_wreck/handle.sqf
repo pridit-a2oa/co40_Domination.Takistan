@@ -4,6 +4,7 @@
 
 #define THIS_MODULE vehicle_wreck
 #include "x_macros.sqf"
+private ["_trigger", "_name", "_position", "_marker"];
 
 if (isServer) then {
     GVAR(vehicle_wreck_types) = [];
@@ -23,9 +24,16 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    _marker = createMarkerLocal ["wreck_service_1", markerPos QGVAR(service_wreck)];
+    _name = "Wreck Service";
+    _position = markerPos QGVAR(service_wreck);
+    
+    _marker = createMarkerLocal ["wreck_service_1", _position];
     _marker setMarkerTextLocal "Wreck Service";
     _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerShapeLocal "ICON";
     _marker setMarkerTypeLocal "DOT";
+    
+    if (!isNil QMODULE(3d)) then {
+        [_position, _name] __submoduleVM(3d);
+    };
 };

@@ -1,9 +1,8 @@
 /**
  * Vehicle Module
  *
- * Description: Vehicle handling, which should apply to every vehicle
- * that is spawned. This provides core functionality which enhances
- * vehicles.
+ * Description: This module is responsible for enhancing vehicles with
+ * additional functionality.
  */
 
 #define THIS_MODULE vehicle

@@ -40,6 +40,7 @@ class CfgIdentities {
 };
 
 class RscTitles { 
+    #include "3d\dialog\titles.hpp"
     #include "mission_main\dialog\titles.hpp"
     #include "revive\dialog\titles.hpp"
     #include "vehicle_welcome\dialog\titles.hpp"

@@ -17,6 +17,9 @@ GVAR(vehicle_wreck_time_rebuild) = [
     [720, "Plane"]
 ];
 
+// Set chance that enemy aircraft can produce a rebuildable wreck
+GVAR(vehicle_wreck_chance_enemy) = 30;
+
 if (isServer) then {
     GVAR(rebuilding) = false;
     GVAR(wreck_hangar_triggers) = [];

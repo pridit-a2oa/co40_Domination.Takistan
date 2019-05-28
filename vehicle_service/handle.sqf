@@ -9,6 +9,7 @@ private ["_name", "_trigger"];
 if (hasInterface) then {
     {
         _name = format ["d_service_%1", _x select 0];
+        _formatted = format ["%1 Service", _x select 1];
         
         _trigger = createTrigger ["EmptyDetector", markerPos _name];
         _trigger setVariable ["type", _x];
@@ -21,9 +22,13 @@ if (hasInterface) then {
         ];
         
         _marker = createMarkerLocal [format ["%1_1", _name], markerPos _name];
-        _marker setMarkerTextLocal (format ["%1 Service", _x select 1]);
+        _marker setMarkerTextLocal _formatted;
         _marker setMarkerColorLocal "ColorYellow";
         _marker setMarkerShapeLocal "ICON";
         _marker setMarkerTypeLocal "DOT";
+        
+        if (!isNil QMODULE(3d)) then {
+            [markerPos _name, _formatted] __submoduleVM(3d);
+        };
     } forEach GVAR(vehicle_service_type_names);
 };
