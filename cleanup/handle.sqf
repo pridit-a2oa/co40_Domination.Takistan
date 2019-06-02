@@ -6,8 +6,8 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    0 spawn FUNC(cleanup,bomb);
-    0 spawn FUNC(cleanup,crater);
+    0 spawn FUNC(THIS_MODULE,bomb);
+    0 spawn FUNC(THIS_MODULE,crater);
     
     // __fsm(NotAliveRemover);
 };

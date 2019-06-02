@@ -10,7 +10,7 @@ _distances = [];
     _ied = nearestObject [_unit, _x];
     
     _ieds = _ieds + [_ied];
-    _distances = _distances + [player distance _ied];
+    _distances = _distances + [_unit distance _ied];
 } forEach GVAR(ied_type_objects);
 
 if ({isNull _x} count _ieds == count GVAR(ied_type_objects)) exitWith {};

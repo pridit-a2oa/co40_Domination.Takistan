@@ -90,9 +90,13 @@ if (!isNil QMODULE(vehicle_tow)) then {
 
 if (typeOf _vehicle == "AH64D_EP1") then {
     _handler = _vehicle addEventHandler ["getin", {
+        private ["_vehicle"];
+        
+        PARAMS_1(_vehicle);
+        
         if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
         
-        0 spawn {
+        _vehicle spawn {
             sleep 3;
             
             if (vehicle player == player) exitWith {};
@@ -101,9 +105,9 @@ if (typeOf _vehicle == "AH64D_EP1") then {
                 "This vehicle unfortunately suffers from an old Arma re-arming bug which means hellfires won't be replenished once depleted.",
                 "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
             ];
+            
+            _this removeEventHandler ["getin", player getVariable QGVAR(ah64d)];
         };
-        
-        (_this select 0) removeEventHandler ["getin", player getVariable QGVAR(ah64d)];
     }];
     
     player setVariable [QGVAR(ah64d), _handler];

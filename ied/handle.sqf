@@ -5,10 +5,6 @@
 #define THIS_MODULE ied
 #include "x_macros.sqf"
 
-if (isServer) then {
-    // [player] call FUNC(ied,create);
-};
-
 if (hasInterface) then {
     _trigger = createTrigger ["EmptyDetector", [0, 0, 0]];
     _trigger setTriggerArea [0, 0, 0, true];

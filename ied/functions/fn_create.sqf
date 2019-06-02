@@ -17,6 +17,22 @@ for "_i" from 1 to (floor ((count _roads) / 25) - 1) do {
     _ied addMPEventHandler ["MPHit", {
         [_this select 0] call FUNC(THIS_MODULE,detonate);
     }];
+    
+    _distance = GVAR(ied_trigger_distances) select 1;
 
-    [nil, nil, rExecVM, __functionRE(ied,trigger), _ied] call RE;
+    _trigger = createTrigger ["EmptyDetector", getPos _ied];
+    _trigger setVariable ["ied", _ied];
+    _trigger setTriggerArea [_distance, _distance, 0, true];
+    _trigger setTriggerActivation ["WEST", "PRESENT", false];
+    _trigger setTriggerStatements [
+        "this && {[thisList, thisTrigger getVariable ""ied""] call d_fnc_ied_valid}",
+        "[thisTrigger getVariable ""ied""] call d_fnc_ied_detonate",
+        ""
+    ];
+    
+    while {alive _ied} do {
+        sleep 1;
+    };
+    
+    deleteVehicle _trigger;
 };

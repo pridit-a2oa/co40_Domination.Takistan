@@ -17,7 +17,7 @@ if (isServer) then {
     _trigger setTriggerArea [8, 8, 0, false];
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [
-        "this && {call d_fnc_vehicle_wreck_valid}",
+        "call d_fnc_vehicle_wreck_valid",
         "0 = [d_rebuild] spawn d_fnc_vehicle_wreck_service",
         ""
     ];

@@ -8,4 +8,4 @@ private ["_position", "_name"];
 
 PARAMS_2(_position, _name);
 
-[_position, _name call FUNC(common,YellowText)] call FUNC(THIS_MODULE,create);
+[_position, _name call FUNC(common,YellowText), "vehicle_wreck"] call FUNC(THIS_MODULE,create);

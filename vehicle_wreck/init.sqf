@@ -20,15 +20,21 @@ GVAR(vehicle_wreck_time_rebuild) = [
 // Set chance that enemy aircraft can produce a rebuildable wreck
 GVAR(vehicle_wreck_chance_enemy) = 30;
 
+if (hasInterface) then {
+    GVAR(rebuild) = 0;
+};
+
 if (isServer) then {
     GVAR(rebuilding) = false;
     GVAR(wreck_hangar_triggers) = [];
     GVAR(wreck_hangars_occupied) = 0;
 };
 
+__cppfln(FUNC(THIS_MODULE,max),THIS_MODULE\functions\fn_max.sqf);
 __cppfln(FUNC(THIS_MODULE,rebuild),THIS_MODULE\functions\fn_rebuild.sqf);
 __cppfln(FUNC(THIS_MODULE,rebuilt),THIS_MODULE\functions\fn_rebuilt.sqf);
 __cppfln(FUNC(THIS_MODULE,service),THIS_MODULE\functions\fn_service.sqf);
+__cppfln(FUNC(THIS_MODULE,time),THIS_MODULE\functions\fn_time.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

@@ -63,17 +63,25 @@ switch (_type select 0) do {
         _pilot doMove _land;
         
         while {alive _aircraft && {canMove _aircraft}} do {
-            if (unitReady _pilot) exitWith {
+            if (_aircraft distance _land < 300) exitWith {
                 sleep 0.1;
+                
                 _aircraft land "LAND";
 
                 while {alive _aircraft && {canMove _aircraft}} do {
-                    if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 1}) exitWith {
+                    if ((position _aircraft) select 2 < 1) exitWith {
+                        deleteVehicle _helper;
+                        
                         {
                             if (assignedVehicleRole _x find "Cargo" != -1) then {
                                 unassignVehicle _x;
+                                moveOut _x;
                             };
+                            
+                            sleep (0.5 + random 0.5);
                         } forEach crew _aircraft;
+                        
+                        sleep 10;
                         
                         [_aircraft] call FUNC(server,exitMap);
                     };
@@ -81,6 +89,8 @@ switch (_type select 0) do {
                     sleep 2;
                 };
             };
+            
+            sleep 2;
         };
     };
 };

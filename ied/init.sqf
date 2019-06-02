@@ -31,7 +31,6 @@ __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,detonate),THIS_MODULE\functions\fn_detonate.sqf);
 __cppfln(FUNC(THIS_MODULE,disarm),THIS_MODULE\functions\fn_disarm.sqf);
 __cppfln(FUNC(THIS_MODULE,near),THIS_MODULE\functions\fn_near.sqf);
-__cppfln(FUNC(THIS_MODULE,trigger),THIS_MODULE\functions\fn_trigger.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

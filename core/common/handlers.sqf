@@ -7,6 +7,7 @@ private ["_handlers"];
 
 _handlers = [
     "weather",
+    "crossroad",
     "airdrop",
     "airtaxi",
     "artillery",
@@ -22,7 +23,6 @@ _handlers = [
     "cleanup",
     "communication",
     "construction",
-    "crossroad",
     "ied",
     "intel",
     "marker",

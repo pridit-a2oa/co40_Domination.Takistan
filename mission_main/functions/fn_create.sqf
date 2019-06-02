@@ -10,7 +10,7 @@ _name = _target getVariable "name";
 [_target, "radio"] call FUNC(THIS_MODULE,type);
 
 if (!isNil QMODULE(ied)) then {
-    [_target, 600] call FUNC(ied,create);
+    [_target, 600] spawn FUNC(ied,create);
 };
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name)]], true];

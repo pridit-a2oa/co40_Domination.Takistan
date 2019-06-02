@@ -93,6 +93,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     while {alive _aircraft && {canMove _aircraft}} do {
         if (unitReady _pilot) exitWith {
             sleep 0.1;
+            
             _aircraft land "LAND";
             
             while {alive _aircraft && {canMove _aircraft}} do {
@@ -110,6 +111,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                     while {alive _aircraft && {canMove _aircraft}} do {
                         if (unitReady _pilot) exitWith {
                             sleep 0.1;
+                            
                             _aircraft land "LAND";
 
                             while {alive _aircraft && {canMove _aircraft}} do {

@@ -1,19 +1,23 @@
 #define THIS_MODULE ied
 #include "x_macros.sqf"
-private ["_unit", "_ied", "_distance", "_speed"];
+private ["_units", "_ied", "_detonate", "_unit", "_distance", "_speed"];
 
-_unit = if (player != vehicle player) then {vehicle player} else {player};
+PARAMS_2(_units, _ied);
 
-_ied = [_unit] call FUNC(THIS_MODULE,near);
+_detonate = {
+    _unit = if (_x != vehicle _x) then {vehicle _x} else {_x};
 
-if (isNil "_ied") exitWith {false};
+    _distance = _unit distance _ied <= (GVAR(ied_trigger_distances) select 0);
 
-_distance = _unit distance _ied <= (GVAR(ied_trigger_distances) select 0);
+    if (_distance) exitWith {true};
 
-if (_distance) exitWith {true};
+    _speed = speed _unit > GVAR(ied_trigger_speed);
 
-_speed = speed _unit < GVAR(ied_trigger_speed);
+    if (_speed) exitWith {true};
+    
+    false
+} forEach _units;
 
-if (_speed) exitWith {false};
+if (!_detonate) exitWith {};
 
 true

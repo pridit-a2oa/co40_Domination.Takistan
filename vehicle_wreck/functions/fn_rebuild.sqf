@@ -9,6 +9,7 @@ if (!isNil QMODULE(crossroad)) then {
 };
 
 [nil, nil, rSpawn, _wreck, {deleteMarkerLocal (str ((_this getVariable QGVAR(position)) select 0))}] call RE;
+
 deleteVehicle _wreck;
 
 _position = [(markerPos QGVAR(service_wreck)) select 0, (markerPos QGVAR(service_wreck)) select 1, 0];
@@ -20,6 +21,14 @@ _vehicle setVectorUp surfaceNormal (markerPos QGVAR(service_wreck));
 
 _vehicle lock true;
 _vehicle allowDamage false;
+
+[nil, nil, rSpawn, [_time], {
+    private ["_time"];
+    
+    PARAMS_1(_time);
+    
+    [_time] call FUNC(THIS_MODULE,time);
+}] call RE;
 
 _time = _time + call FUNC(common,time);
 
@@ -40,6 +49,9 @@ if (faction _vehicle == "BIS_TK") then {
 [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
 
 while {call FUNC(common,time) < _time} do {
+    // remaining time to rebuild is greater than the maximum it could ever be
+    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
+    
     if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         _vehicle spawn {
             sleep (random 10);
