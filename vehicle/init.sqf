@@ -2,8 +2,8 @@
  * Vehicle Module
  *
  * Description: This module is responsible for enhancing vehicles with
- * additional functionality. For all intents and purposes this is core, just
- * without the explicitness.
+ * additional functionality. For all intents and purposes this is a core module,
+ * just without being explicit.
  */
 
 #define THIS_MODULE vehicle

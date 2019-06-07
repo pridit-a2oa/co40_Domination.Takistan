@@ -43,6 +43,8 @@ switch (_type select 0) do {
             };
         };
         
+        (group _pilot) setSpeedMode "LIMITED";
+        
         if (!isNil QMODULE(unit)) then {
             [group _pilot, position _target, 600, 4] call FUNC(unit,patrol);
         };
@@ -63,13 +65,13 @@ switch (_type select 0) do {
         _pilot doMove _land;
         
         while {alive _aircraft && {canMove _aircraft}} do {
-            if (_aircraft distance _land < 300) exitWith {
+            if (unitReady _pilot) exitWith {
                 sleep 0.1;
                 
-                _aircraft land "LAND";
+                _aircraft land "GET OUT";
 
                 while {alive _aircraft && {canMove _aircraft}} do {
-                    if ((position _aircraft) select 2 < 1) exitWith {
+                    if ((position _aircraft) select 2 < 5) exitWith {
                         deleteVehicle _helper;
                         
                         {

@@ -9,13 +9,17 @@
 #define THIS_MODULE inventory
 #include "x_macros.sqf"
 
-// Set valid types
-GVAR(inventory_types) = [
-    ["Medkit", "medkits"],
-    ["Repair Kit", "repair_kits"]
-];
+// Set valid (transferrable) types
+GVAR(inventory_types) = [];
+
+// Set types of items to be visible within the inventory dialog
+GVAR(inventory_type_visible) = [];
+
+// Set amount of visual slots that can be occupied
+GVAR(inventory_amount_slots) = 24;
 
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
+__cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,transfer),THIS_MODULE\functions\fn_transfer.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 

@@ -25,6 +25,7 @@ _handlers = [
     "construction",
     "ied",
     "intel",
+    "inventory",
     "marker",
     "medical",
     "mission_main",

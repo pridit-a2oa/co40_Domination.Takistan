@@ -18,6 +18,10 @@ if (hasInterface) then {
         __submodulePP(construction);
     };
     
+    if (!isNil QMODULE(inventory)) then {
+        __submodulePP(inventory);
+    };
+    
     if (!isNil QMODULE(perk)) then {
         __submodulePP(perk);
     };

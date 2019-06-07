@@ -17,6 +17,7 @@ _position = [(markerPos QGVAR(service_wreck)) select 0, (markerPos QGVAR(service
 _vehicle = createVehicle [typeOf _wreck, _position, [], 0, "NONE"];
 _vehicle setDir (getDir _wreck);
 _vehicle setPos _position;
+_vehicle setVelocity [0, 0, 0];
 _vehicle setVectorUp surfaceNormal (markerPos QGVAR(service_wreck));
 
 _vehicle lock true;

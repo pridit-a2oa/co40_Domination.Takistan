@@ -10,9 +10,9 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_vehicle setVariable [QGVAR(servicing), true, true];
-
-while {alive _vehicle} do {
+while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR(servicing))}} do {
+    _vehicle setVariable [QGVAR(servicing), true, true];
+    
     _vehicle setFuel 0;
     _vehicle setVehicleAmmo 1;
     

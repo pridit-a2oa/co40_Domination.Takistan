@@ -1,3 +1,4 @@
+#define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_respawned", "_score", "_points"];
 
@@ -13,6 +14,10 @@ _unlocked = player getVariable QGVAR(perks_unlocked);
 for "_i" from 1 to 7 do {
     if (_score >= (_i * GVAR(perk_amount_score)) && {(count _unlocked + _available) < (_i * GVAR(perk_amount_points))}) then {
         player setVariable [QGVAR(perk_points), _points - count _unlocked];
+        
+        if (!_respawned) then {
+            call FUNC(THIS_MODULE,awarded);
+        };
     };
 };
 
