@@ -33,6 +33,7 @@ _handlers = [
     "option",
     "perk",
     "revive",
+    "setting",
     "squad",
     "task",
     "uav",

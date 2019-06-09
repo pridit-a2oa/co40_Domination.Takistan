@@ -22,7 +22,7 @@ if (isServer) then {
     _vehicle setVariable [QGVAR(loaded), _loaded, true];
     _vehicle setVariable [QGVAR(actions), _actions, true];
     
-    _vehicle addMPEventHandler ["MPKilled", {
+    _vehicle addEventHandler ["killed", {
         private ["_aircraft"];
         
         PARAMS_1(_aircraft);

@@ -205,10 +205,10 @@ class SXRscListBox {
         color[] = {1,1,1,0.6};
         colorActive[] = {1,1,1,1};
         colorDisabled[] = {1,1,1,0.3};
-        thumb = __UI_Path(ui_scrollbar_thumb_ca.paa);
-        arrowFull = __UI_Path(ui_arrow_top_active_ca.paa);
-        arrowEmpty = __UI_Path(ui_arrow_top_ca.paa);
-        border = __UI_Path(ui_border_scroll_ca.paa);
+        thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+        arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+        arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+        border = "\ca\ui\data\ui_border_scroll_ca.paa";
     };
 };
 class XD_RscPicture {
@@ -294,7 +294,7 @@ class XD_RscMapControl {
     text = "#(argb,8,8,3)color(1,1,1,1)";
     default = false;
     class CustomMark {
-        icon = __UI_Path(map_waypoint_ca.paa);
+        icon = "\ca\ui\data\map_waypoint_ca.paa";
         color[] = {0, 0, 1, 1};
         size = 18;
         importance = 1;
@@ -312,7 +312,7 @@ class XD_RscMapControl {
         color[] = {0, 0, 0, 1};
     };
     class Bunker {
-        icon = __UI_Path(map_bunker_ca.paa);
+        icon = "\ca\ui\data\map_bunker_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 14;
         importance = "1.5 * 14 * 0.05";
@@ -320,7 +320,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Bush {
-        icon = __UI_Path(map_bush_ca.paa);
+        icon = "\ca\ui\data\map_bush_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
         size = 14;
         importance = "0.2 * 14 * 0.05";
@@ -328,7 +328,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class BusStop {
-        icon = __UI_Path(map_busstop_ca.paa);
+        icon = "\ca\ui\data\map_busstop_ca.paa";
         color[] = {0, 0, 1, 1};
         size = 10;
         importance = "1 * 10 * 0.05";
@@ -336,7 +336,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Command {
-        icon = __UI_Path(map_waypoint_ca.paa);
+        icon = "\ca\ui\data\map_waypoint_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 18;
         importance = 1;
@@ -344,7 +344,7 @@ class XD_RscMapControl {
         coefMax = 1;
     };
     class Cross {
-        icon = __UI_Path(map_cross_ca.paa);
+        icon = "\ca\ui\data\map_cross_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "0.7 * 16 * 0.05";
@@ -352,7 +352,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Fortress {
-        icon = __UI_Path(map_bunker_ca.paa);
+        icon = "\ca\ui\data\map_bunker_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -360,7 +360,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Fuelstation {
-        icon = __UI_Path(map_fuelstation_ca.paa);
+        icon = "\ca\ui\data\map_fuelstation_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -368,7 +368,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Fountain {
-        icon = __UI_Path(map_fountain_ca.paa);
+        icon = "\ca\ui\data\map_fountain_ca.paa";
         color[] = {0, 0.35, 0.7, 1};
         size = 12;
         importance = "1 * 12 * 0.05";
@@ -376,7 +376,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Hospital {
-        icon = __UI_Path(map_hospital_ca.paa);
+        icon = "\ca\ui\data\map_hospital_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -384,7 +384,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Chapel {
-        icon = __UI_Path(map_chapel_ca.paa);
+        icon = "\ca\ui\data\map_chapel_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "1 * 16 * 0.05";
@@ -392,7 +392,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Church {
-        icon = __UI_Path(map_church_ca.paa);
+        icon = "\ca\ui\data\map_church_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -400,7 +400,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Lighthouse {
-        icon = __UI_Path(map_lighthouse_ca.paa);
+        icon = "\ca\ui\data\map_lighthouse_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
         size = 20;
         importance = "3 * 16 * 0.05";
@@ -408,7 +408,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Quay {
-        icon = __UI_Path(map_quay_ca.paa);
+        icon = "\ca\ui\data\map_quay_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -416,7 +416,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Rock {
-        icon = __UI_Path(map_rock_ca.paa);
+        icon = "\ca\ui\data\map_rock_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 12;
         importance = "0.5 * 12 * 0.05";
@@ -424,7 +424,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Ruin {
-        icon = __UI_Path(map_ruin_ca.paa);
+        icon = "\ca\ui\data\map_ruin_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
         size = 16;
         importance = "1.2 * 16 * 0.05";
@@ -432,7 +432,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class SmallTree {
-        icon = __UI_Path(map_smalltree_ca.paa);
+        icon = "\ca\ui\data\map_smalltree_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
         size = 12;
         importance = "0.6 * 12 * 0.05";
@@ -440,7 +440,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Stack {
-        icon = __UI_Path(map_stack_ca.paa);
+        icon = "\ca\ui\data\map_stack_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 20;
         importance = "2 * 16 * 0.05";
@@ -448,7 +448,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Tree {
-        icon = __UI_Path(map_tree_ca.paa);
+        icon = "\ca\ui\data\map_tree_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
         size = 12;
         importance = "0.9 * 16 * 0.05";
@@ -456,7 +456,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Tourism {
-        icon = __UI_Path(map_tourism_ca.paa);
+        icon = "\ca\ui\data\map_tourism_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
         size = 16;
         importance = "1 * 16 * 0.05";
@@ -464,7 +464,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Transmitter {
-        icon = __UI_Path(map_transmitter_ca.paa);
+        icon = "\ca\ui\data\map_transmitter_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 20;
         importance = "2 * 16 * 0.05";
@@ -472,7 +472,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class ViewTower {
-        icon = __UI_Path(map_viewtower_ca.paa);
+        icon = "\ca\ui\data\map_viewtower_ca.paa";
         color[] = {0, 0.9, 0, 1};
         size = 16;
         importance = "2.5 * 16 * 0.05";
@@ -480,7 +480,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Watertower {
-        icon = __UI_Path(map_watertower_ca.paa);
+        icon = "\ca\ui\data\map_watertower_ca.paa";
         color[] = {0, 0.35, 0.7, 1};
         size = 32;
         importance = "1.2 * 16 * 0.05";
@@ -488,7 +488,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Waypoint {
-        icon = __UI_Path(map_waypoint_ca.paa);
+        icon = "\ca\ui\data\map_waypoint_ca.paa";
         size = 20;
         color[] = {0, 0.9, 0, 1};
         importance = "1.2 * 16 * 0.05";
@@ -496,11 +496,11 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class Task {
-        icon = __UI_Path(ui_taskstate_current_CA.paa);
-        iconCreated = __UI_Path(ui_taskstate_new_CA.paa);
+        icon = "\ca\ui\data\ui_taskstate_current_CA.paa";
+        iconCreated = "\ca\ui\data\ui_taskstate_new_CA.paa";
         iconCanceled = "#(argb,8,8,3)color(0,0,0,0)";
-        iconDone = __UI_Path(ui_taskstate_done_CA.paa);
-        iconFailed = __UI_Path(ui_taskstate_failed_CA.paa);
+        iconDone = "\ca\ui\data\ui_taskstate_done_CA.paa";
+        iconFailed = "\ca\ui\data\ui_taskstate_failed_CA.paa";
         color[] = {0.863,0.584,0,1};
         colorCreated[] = {0.95,0.95,0.95,1};
         colorCanceled[] = {0.606,0.606,0.606,1};
@@ -512,7 +512,7 @@ class XD_RscMapControl {
         coefMax = 1;
     };
     class WaypointCompleted {
-        icon = __UI_Path(map_waypoint_completed_ca.paa);
+        icon = "\ca\ui\data\map_waypoint_completed_ca.paa";
         size = 20;
         color[] = {0, 0.9, 0, 1};
         importance = "1.2 * 16 * 0.05";
@@ -520,7 +520,7 @@ class XD_RscMapControl {
         coefMax = 4;
     };
     class ActiveMarker {
-        icon = __UI_Path(map_waypoint_completed_ca.paa);
+        icon = "\ca\ui\data\map_waypoint_completed_ca.paa";
         size = 20;
         color[] = {0, 0.9, 0, 1};
         importance = "1.2 * 16 * 0.05";
@@ -584,7 +584,7 @@ class GVAR(Dummy_Map) {
     showCountourInterval=1;
     scaleDefault = 2;
     class Task {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 1;
         importance = 1;
@@ -600,7 +600,7 @@ class GVAR(Dummy_Map) {
         colorFailed[] = {0,0,0,0};
     };
     class CustomMark {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 1;
         importance = 1;
@@ -618,7 +618,7 @@ class GVAR(Dummy_Map) {
         color[] = {0,0,0,0};
     };
     class Bunker {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 14;
         importance = "1.5 * 14 * 0.05";
@@ -626,7 +626,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Bush {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 14;
         importance = "0.2 * 14 * 0.05";
@@ -634,7 +634,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class BusStop {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 12;
         importance = "1 * 10 * 0.05";
@@ -642,7 +642,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Command {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 18;
         importance = 1;
@@ -650,7 +650,7 @@ class GVAR(Dummy_Map) {
         coefMax = 1;
     };
     class Cross {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "0.7 * 16 * 0.05";
@@ -658,7 +658,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Fortress {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "2 * 16 * 0.05";
@@ -666,7 +666,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Fuelstation {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "2 * 16 * 0.05";
@@ -674,7 +674,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Fountain {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 11;
         importance = "1 * 12 * 0.05";
@@ -682,7 +682,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Hospital {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "2 * 16 * 0.05";
@@ -690,7 +690,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Chapel {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "1 * 16 * 0.05";
@@ -698,7 +698,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Church {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "2 * 16 * 0.05";
@@ -706,7 +706,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Lighthouse {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 14;
         color[] = {0,0,0,0};
         importance = "3 * 16 * 0.05";
@@ -714,7 +714,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Quay {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "2 * 16 * 0.05";
@@ -722,7 +722,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Rock {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 12;
         importance = "0.5 * 12 * 0.05";
@@ -730,7 +730,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Ruin {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 16;
         color[] = {0,0,0,0};
         importance = "1.2 * 16 * 0.05";
@@ -738,7 +738,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class SmallTree {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 12;
         importance = "0.6 * 12 * 0.05";
@@ -746,7 +746,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Stack {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         size = 20;
         color[] = {0,0,0,0};
         importance = "2 * 16 * 0.05";
@@ -754,7 +754,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Tree {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 12;
         importance = "0.9 * 16 * 0.05";
@@ -762,7 +762,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Tourism {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "1 * 16 * 0.05";
@@ -770,7 +770,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Transmitter {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 20;
         importance = "2 * 16 * 0.05";
@@ -778,7 +778,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class ViewTower {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "2.5 * 16 * 0.05";
@@ -786,7 +786,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Watertower {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 20;
         importance = "1.2 * 16 * 0.05";
@@ -794,7 +794,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class Waypoint {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "2.5 * 16 * 0.05";
@@ -802,7 +802,7 @@ class GVAR(Dummy_Map) {
         coefMax = 4;
     };
     class WaypointCompleted {
-        icon = __UI_Path(clear_empty_ca.paa);
+        icon = "\ca\ui\data\clear_empty_ca.paa";
         color[] = {0,0,0,0};
         size = 16;
         importance = "2.5 * 16 * 0.05";
@@ -950,8 +950,8 @@ class XD_UIList {
     colorBackground[] = {0.95,0.95,0.95,1};
     colorSelectBackground[] = {0.543,0.5742,0.4102,1};
     colorScrollbar[] = {0.023529,0,0.0313725,1};
-    arrowEmpty = __UI_Path(ui_arrow_combo_ca.paa);
-    arrowFull = __UI_Path(ui_arrow_combo_active_ca.paa);
+    arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+    arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
     wholeHeight = 0.45;
     color[] = {0,0,0,0.6};
     colorActive[] = {0,0,0,1};
@@ -967,10 +967,10 @@ class XD_UIList {
         color[] = {1, 1, 1, 0.6};
         colorActive[] = {1, 1, 1, 1};
         colorDisabled[] = {1, 1, 1, 0.3};
-        thumb = __UI_Path(ui_scrollbar_thumb_ca.paa);
-        arrowFull = __UI_Path(ui_arrow_top_active_ca.paa);
-        arrowEmpty = __UI_Path(ui_arrow_top_ca.paa);
-        border = __UI_Path(ui_border_scroll_ca.paa);
+        thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+        arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+        arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+        border = "\ca\ui\data\ui_border_scroll_ca.paa";
     };
 };
 class XD_UIComboBox:XD_UIList {
@@ -1041,8 +1041,8 @@ class XC_SliderH {
     color[] = {1, 1, 1, 0.4};
     colorActive[] = {1, 1, 1, 1};
     colorDisabled[] = {1, 1, 1, 0.2};
-    arrowEmpty = __UI_Path(ui_arrow_left_ca.paa);
-    arrowFull = __UI_Path(ui_arrow_left_active_ca.paa);
-    border = __UI_Path(ui_border_frame_ca.paa);
-    thumb = __UI_Path(ui_slider_bar_ca.paa);
+    arrowEmpty = "\ca\ui\data\ui_arrow_left_ca.paa";
+    arrowFull = "\ca\ui\data\ui_arrow_left_active_ca.paa";
+    border = "\ca\ui\data\ui_border_frame_ca.paa";
+    thumb = "\ca\ui\data\ui_slider_bar_ca.paa";
 };

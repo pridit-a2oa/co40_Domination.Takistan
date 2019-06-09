@@ -9,5 +9,5 @@ GVAR(inventory_types) = GVAR(inventory_types) + [
 ];
 
 GVAR(inventory_type_visible) = GVAR(inventory_type_visible) + [
-    ["repair_kits", "\ca\ui\data\ui_action_repair_ca"]
+    ["repair_kits", "ca\ui\data\ui_action_repair_ca"]
 ];

@@ -34,9 +34,9 @@ switch (_type select 0) do {
             
             if (!isNil QMODULE(crossroad)) then {
                 _aircraft addMPEventHandler ["MPKilled", {
-                    (_this select 0) spawn {                        
+                    (_this select 0) spawn {
                         sleep 10;
-
+                        
                         GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Detected", ["1", {}, [typeOf _this] call FUNC(vehicle,name), []], true];
                     };
                 }];

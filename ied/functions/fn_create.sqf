@@ -30,9 +30,7 @@ for "_i" from 1 to (floor ((count _roads) / 25) - 1) do {
         ""
     ];
     
-    while {alive _ied} do {
-        sleep 1;
-    };
+    waitUntil {!alive _ied};
     
     deleteVehicle _trigger;
 };

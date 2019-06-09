@@ -1,5 +1,5 @@
 /**
- * Communication Module - Admin Submodule
+ * Spectate Module - Admin Submodule
  */
 
 #include "x_macros.sqf"

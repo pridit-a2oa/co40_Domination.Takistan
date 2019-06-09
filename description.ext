@@ -7,7 +7,7 @@ respawnDelay = 20;
 disableChannels[] = {2};
 enableItemsDropping = 0;
 
-onLoadMission = "DominationOA! One Team - West";
+onLoadMission = "Domination Rebuilt - West";
 onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
@@ -15,6 +15,7 @@ onLoadMissionTime = 0;
 #include "halo\dialog\base.hpp"
 #include "inventory\dialog\base.hpp"
 #include "perk\dialog\base.hpp"
+#include "setting\dialog\base.hpp"
 #include "spectate\dialog\base.hpp"
 #include "teleport\dialog\base.hpp"
 #include "vehicle_menu\dialog\base.hpp"

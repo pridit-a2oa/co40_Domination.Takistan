@@ -15,7 +15,7 @@ if (!isNil QMODULE(ied)) then {
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name)]], true];
 
-sleep 2;
+waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 
 [nil, nil, rPlaySound, QGVAR(sound_task)] call RE;
 [nil, nil, rSpawn, [_target], {
