@@ -69,7 +69,7 @@
 
 class BBRscStructuredText {
     access = 0;
-    type = 13;
+    type = CT_STRUCTURED_TEXT;
     idc = -1;
     style = 0;
     colorText[] = {0.8784,0.8471,0.651,1};
@@ -77,6 +77,7 @@ class BBRscStructuredText {
         font = "Zeppelin32";
         color = "#e0d8a6";
         align = "center";
+        valign = "middle";
         shadow = 1;
     };
     x = 0;
@@ -141,18 +142,16 @@ class RscListBox
 {
  access = 0;
  type = 5;
- style = 0;
+ style = 16;
  w = 0.4;
  h = 0.4;
- font = "TahomaB";
+ font = FontM;
  sizeEx = 0.04;
  rowHeight = 0;
- colorText[] = {0.5,0.5,0.5,1};
+ colorText[] = {0.6,0.6,0.6,1};
  colorScrollbar[] = {0.6,0.5,0.3,1};
  colorSelect[] = {0,0,0,1};
- colorSelect2[] = {1,0.5,0,1};
  colorSelectBackground[] = {0.6,0.6,0.6,1};
- colorSelectBackground2[] = {0.2,0.2,0.2,1};
  colorBackground[] = {0.6,0.5,0.3,1};
  maxHistoryDelay = 1.0;
  soundSelect[] = {"",0.1,1};
@@ -168,10 +167,10 @@ class RscListBox
   color[] = {1,1,1,0.6};
   colorActive[] = {1,1,1,1};
   colorDisabled[] = {1,1,1,0.3};
-  thumb = "#(argb,8,8,3)color(1,1,1,1)";
-  arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
-  arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
-  border = "#(argb,8,8,3)color(0.6,0.5,0.3,1)";
+  thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+  arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+  arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+  border = "\ca\ui\data\ui_border_scroll_ca.paa";
   shadow = 0;
  };
 };
@@ -1037,12 +1036,12 @@ class XC_SliderH {
     style = "0x400 + 0x10";
     x = 0; y = 0;
     h = 0.029412; w = 0.4;
-    default = false;
     color[] = {1, 1, 1, 0.4};
-    colorActive[] = {1, 1, 1, 1};
+    colorActive[] = {1, 1, 1, 0.4};
     colorDisabled[] = {1, 1, 1, 0.2};
     arrowEmpty = "\ca\ui\data\ui_arrow_left_ca.paa";
     arrowFull = "\ca\ui\data\ui_arrow_left_active_ca.paa";
     border = "\ca\ui\data\ui_border_frame_ca.paa";
     thumb = "\ca\ui\data\ui_slider_bar_ca.paa";
+    shadow = 0;
 };
