@@ -14,3 +14,5 @@ createDialog "XD_SettingDialog";
 } forEach GVAR(setting_type_valid);
 
 lbSort (DIALOG("X_SETTING_DIALOG", 100));
+
+DIALOG("X_SETTING_DIALOG", 100) lbSetCurSel 0;

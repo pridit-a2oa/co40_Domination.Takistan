@@ -1,12 +1,13 @@
 #include "x_macros.sqf"
-private ["_name", "_position", "_type", "_text", "_color", "_shape", "_size"];
+private ["_name", "_position", "_type", "_text", "_color", "_alpha", "_shape", "_size"];
 
-PARAMS_7(_name, _position, _type, _text, _color, _shape, _size);
+PARAMS_8(_name, _position, _type, _text, _color, _alpha, _shape, _size);
 
 _marker = createMarkerLocal [_name, _position];
 _marker setMarkerTypeLocal _type;
 _marker setMarkerTextLocal _text;
 _marker setMarkerColorLocal _color;
+_marker setMarkerAlphaLocal _alpha;
 _marker setMarkerShapeLocal _shape;
 
 if (count _size == 2) then {

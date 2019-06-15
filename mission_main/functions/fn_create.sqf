@@ -6,6 +6,8 @@ PARAMS_1(_target);
 
 _name = _target getVariable "name";
 
+[_target] call FUNC(THIS_MODULE,remove);
+
 [_target, "camp"] call FUNC(THIS_MODULE,type);
 [_target, "radio"] call FUNC(THIS_MODULE,type);
 
@@ -13,7 +15,7 @@ if (!isNil QMODULE(ied)) then {
     [_target, 600] spawn FUNC(ied,create);
 };
 
-GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name)]], true];
+GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name), "pause"]], true];
 
 waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 
@@ -29,29 +31,34 @@ waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarg
 
         _task = [_target getVariable "name", [(position _target) select 0, (position _target) select 1, 0], [_description, _name, _target getVariable "name"], "Created"] call FUNC(task,create);
         [_task, "created"] call FUNC(task,hint);
+        
+        _target setVariable [QGVAR(task), _task, true];
     };
 
     if (!isNil QMODULE(marker)) then {
         [
-            format ["mission_%1", _target getVariable "name"],
+            format ["mission_main_%1", _target getVariable "name"],
             position _target,
             "",
             "",
             "ColorRed",
+            0.8,
             "ELLIPSE",
-            [400, 400]
+            [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
     };
 }] call RE;
 
-for "_i" from 1 to (2 + round (random 1)) do {
-    [_target, "infantry"] spawn FUNC(THIS_MODULE,reinforcement);
-    
-    sleep 5;
-};
+_trigger = createTrigger ["EmptyDetector", position _target];
+_trigger setVariable [QGVAR(target), _target];
+_trigger setTriggerArea [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone), 0, false];
+_trigger setTriggerActivation ["WEST", "PRESENT", true];
+_trigger setTriggerStatements [
+    "{isPlayer _x} count thisList > 0",
+    "[thisTrigger getVariable ""d_target""] call d_fnc_mission_main_spotted; deleteVehicle thisTrigger",
+    ""
+];
 
-for "_i" from 1 to 2 do {
-    [_target, "aircraft"] spawn FUNC(THIS_MODULE,reinforcement);
-    
-    sleep 5;
-};
+waitUntil {[_target] call FUNC(THIS_MODULE,clear)};
+
+[_target] call FUNC(THIS_MODULE,complete);

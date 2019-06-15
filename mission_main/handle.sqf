@@ -4,7 +4,7 @@
 
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_locations"];
+private ["_locations", "_target"];
 
 if (isServer) then {
     GVAR(mission_main_targets) = [];
@@ -20,7 +20,12 @@ if (isServer) then {
         };
     } forEach _locations;
     
-    // create trigger for being spotted
-    
-    [GVAR(mission_main_targets) call BIS_fnc_selectRandom] call FUNC(THIS_MODULE,create);
+    for "_i" from 1 to GVAR(mission_main_amount_targets) do {
+        sleep 20;
+        
+        _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
+        
+        [_target] call FUNC(THIS_MODULE,reset);
+        [_target] call FUNC(THIS_MODULE,create);
+    };
 };

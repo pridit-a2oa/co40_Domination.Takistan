@@ -61,8 +61,7 @@ class CfgRadio
 };
 
 class CfgSounds {
-    class PizzaTime {
-        name        = "PizzaTime";
+    class d_sound_complete {
         sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
         titles[]    = {};
     };
@@ -77,7 +76,6 @@ class CfgSounds {
         titles[]    = {};
     };
     class d_sound_task {
-        name        = "Task";
         sound[]     = {"\core\client\sounds\task.wss", 1, 1.0};
         titles[]    = {};
     };

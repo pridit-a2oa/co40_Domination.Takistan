@@ -9,8 +9,8 @@
 private ["_tiny", "_short", "_medium", "_long", "_extreme"];
 
 _tiny = 180;        // 3 minutes
-_short = 600;       // 10 minutes
-_medium = 1200;     // 20 minutes
+_short = 900;       // 15 minutes
+_medium = 1800;     // 30 minutes
 _long = 3600;       // 60 minutes
 _extreme = 5400;    // 90 minutes
 
@@ -19,7 +19,7 @@ GVAR(vehicle_respawn_type_vehicles) = [
     [_tiny, "ATV_US_EP1"],
     [_short, "BAF_Offroad_D"],
     [_short, "HMMWV_DES_EP1"],
-    [_medium, "MH6J_EP1"],
+    [_short, "MH6J_EP1"],
     [_medium, "UH60M_EP1"],
     [_medium, "UH60M_MEV_EP1"],
     [_long, "C130J_US_EP1"],
@@ -31,10 +31,10 @@ GVAR(vehicle_respawn_type_vehicles) = [
 // Set maximum distance from base the vehicle can originate from to respawn
 GVAR(vehicle_respawn_distance_base) = 400;
 
-// Set minimum distance from all players before respawning
+// Set minimum distance from closest player before respawning
 GVAR(vehicle_respawn_distance_player) = 50;
 
-// Set minimum distance from all vehicles before respawning
+// Set minimum distance from closest vehicle before respawning
 GVAR(vehicle_respawn_distance_vehicle) = 20;
 
 // Set minimum time before a destroyed vehicle can respawn

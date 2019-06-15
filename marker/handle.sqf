@@ -12,10 +12,11 @@ if (hasInterface) then {
         _marker setMarkerTypeLocal (_x select 2);
         _marker setMarkerTextLocal (_x select 3);
         _marker setMarkerColorLocal (_x select 4);
-        _marker setMarkerShapeLocal (_x select 5);
+        _marker setMarkerAlphaLocal (_x select 5);
+        _marker setMarkerShapeLocal (_x select 6);
 
-        if (count (_x select 6) == 2) then {
-            _marker setMarkerSizeLocal (_x select 6);
+        if (count (_x select 7) == 2) then {
+            _marker setMarkerSizeLocal (_x select 7);
         };
     } forEach (X_JIPH getVariable QGVAR(markers));
 };

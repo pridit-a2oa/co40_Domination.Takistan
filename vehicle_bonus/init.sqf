@@ -12,7 +12,10 @@
 GVAR(vehicle_bonus_types) = [
     "A10_US_EP1",
     "AH64D_EP1",
-    "AW159_Lynx_BAF"
+    "AW159_Lynx_BAF",
+    "Mi24_D_TK_EP1",
+    "L39_TK_EP1",
+    "Su25_TK_EP1"
 ];
 
 // Set maximum amount of bonus vehicles

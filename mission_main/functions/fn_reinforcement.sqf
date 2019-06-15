@@ -3,12 +3,6 @@ private ["_target", "_type"];
 
 PARAMS_2(_target, _type);
 
-_type = {
-    if (_x select 0 == _type) exitWith {
-        _x
-    };
-} forEach GVAR(mission_main_type_reinforcements);
-
 _vehicle = (_type select 1) call BIS_fnc_selectRandom;
 _vehicle = [position _target, _vehicle, GVAR(mission_main_distance_reinforcement), 200, east] call FUNC(server,spawnVehicle);
 

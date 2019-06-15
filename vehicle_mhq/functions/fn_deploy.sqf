@@ -38,7 +38,9 @@ _camo setVectorUp (vectorUp _vehicle);
 _camo setPos [_position select 0, _position select 1, 0];
 _camo addEventHandler ["HandleDamage", {0}];
 
-_vehicle lock true;
+[_vehicle, true] call FUNC(network,lock);
+[_vehicle, false] call FUNC(network,engineOn);
+
 _vehicle setVariable [QGVAR(camo), _camo, true];
 _vehicle setVariable [QGVAR(deployed), true, true];
 

@@ -699,8 +699,11 @@ deleteVehicle _dummy;
 
 _doexitx = false;
 if (!isNil "KEGs_exit_spectator") then {
-    player switchCamera "INTERNAL";
-    player cameraEffect["terminate", "FRONT"];
+    _camera = if (vehicle player != player) then {vehicle player} else {player};
+    
+    _camera switchCamera "EXTERNAL";
+    _camera cameraEffect["terminate", "FRONT"];
+    
     closeDialog 0;
     _doexitx = true;
     KEGs_showbuttonattime = nil;

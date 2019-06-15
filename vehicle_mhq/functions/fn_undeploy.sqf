@@ -15,7 +15,7 @@ if (!isNull _camo) then {
     deleteVehicle _camo;
 };
 
-[nil, nil, rExecVM, __functionRE(vehicle,unlock), _vehicle] call RE;
+[_vehicle, false] call FUNC(network,lock);
 
 _vehicle setVariable [QGVAR(deployed), false, true];
 

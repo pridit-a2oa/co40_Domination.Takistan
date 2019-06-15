@@ -8,7 +8,7 @@ switch (_type) do {
     case "camp": {
         _camps = 0;
 
-        while {_camps != GVAR(mission_main_count_camps)} do {
+        while {_camps != GVAR(mission_main_amount_camps)} do {
             _position = [position _target, 20, 250, 10, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, ["Land_tent_east"], 100];
             
@@ -20,8 +20,6 @@ switch (_type) do {
                     
                     if (typeOf _x == "FlagCarrierTakistanKingdom_EP1") then {
                         _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
-                        
-                        [nil, _x, "per", rAddAction, "Capture" call FUNC(common,BlueText), __function(capture), [], 10, false, true, "", ""] call RE;
                     };
                     
                     [nil, _x, "per", rEnableSimulation, false];
@@ -39,6 +37,7 @@ switch (_type) do {
                             "Strongpoint",
                             "",
                             "ColorWhite",
+                            1,
                             "ICON",
                             [0.5, 0.5]
                         ] call FUNC(marker,create);
@@ -50,27 +49,34 @@ switch (_type) do {
 
             sleep 0.5;
         };
+        
+        _target setVariable [QGVAR(camps), _camps];
     };
     
     case "radio": {
         _antennas = 0;
         
-        while {_antennas != GVAR(mission_main_count_antennas)} do {
+        while {_antennas != GVAR(mission_main_amount_antennas)} do {
             _position = [position _target, 50, 200, 2, 0, 0.3, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
             
             if (count _near < 1) then {
                 _antenna = GVAR(mission_main_type_antenna) createVehicle _position;
                 _antenna setPos _position;
+                _antenna setVariable [QGVAR(target), _target];
                 
                 _antenna addEventHandler ["killed", {
-                    private ["_unit"];
+                    private ["_unit", "_target"];
                     
                     PARAMS_1(_unit);
+                    
+                    _target = _unit getVariable QGVAR(target);
                     
                     if (!isNil QMODULE(marker)) then {
                         [format ["antenna_%1", str (position _unit)]] call FUNC(marker,delete);
                     };
+                    
+                    _target setVariable [QGVAR(antennas), (_target getVariable QGVAR(antennas)) - 1];
                 }];
 
                 [nil, nil, rSpawn, [_antenna], {
@@ -85,6 +91,7 @@ switch (_type) do {
                             "FOB",
                             "",
                             "ColorWhite",
+                            1,
                             "ICON",
                             [0.7, 0.9]
                         ] call FUNC(marker,create);
@@ -96,5 +103,7 @@ switch (_type) do {
             
             sleep 0.5;
         };
+        
+        _target setVariable [QGVAR(antennas), _antennas];
     };
 };

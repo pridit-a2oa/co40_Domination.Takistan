@@ -429,9 +429,7 @@ switch (_type) do {
         };
     };
 
-    default {
-        hint "Unknown event";
-    };
+    default {};
 };
 
 false
