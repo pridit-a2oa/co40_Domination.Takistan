@@ -11,6 +11,16 @@ GVAR(mission_main_type_antenna) = "Land_Antenna";
 // Set camp (composition) type
 GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
 
+// Set possible optional task types
+GVAR(mission_main_type_optional) = [
+    ["aircraft factory",        ["object",  "TK_WarfareBAircraftFactory_Base_EP1"]],
+    ["anti-air radar",          ["object",  "TK_WarfareBAntiAirRadar_Base_EP1"]],
+    ["heavy factory",           ["object",  "TK_WarfareBHeavyFactory_Base_EP1"]],
+    ["light factory",           ["object",  "TK_WarfareBLightFactory_base_EP1"]],
+    ["HQ",                      ["object",  "BMP2_HQ_TK_unfolded_Base_EP1"]],
+    ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
+];
+
 // Set reinforcement types
 GVAR(mission_main_type_reinforcements) = [
     ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],
@@ -23,11 +33,17 @@ GVAR(mission_main_amount_antennas) = 2;
 // Set amount of camps per target
 GVAR(mission_main_amount_camps) = 3;
 
+// Set amount of optional objectives per main target
+GVAR(mission_main_amount_optional) = 1;
+
 // Set amount of main targets to initially seed
 GVAR(mission_main_amount_targets) = 2;
 
 // Set distance from base before a city can become a valid target
 GVAR(mission_main_distance_base) = 2600;
+
+// Set distance from flag (as part of a camp) before being able to capture
+GVAR(mission_main_distance_camp) = 15;
 
 // Set distance from north airfield before a city can become a valid target
 GVAR(mission_main_distance_naf) = 1800;

@@ -39,10 +39,6 @@ if (hasInterface) then {
         [_vehicle] __submoduleVM(option);
     };
     
-    if (!isNil QMODULE(vehicle_bonus)) then {
-        [_vehicle] __submoduleVM(vehicle_bonus);
-    };
-    
     if (!isNil QMODULE(vehicle_flip)) then {
         [_vehicle] __submoduleVM(vehicle_flip);
     };
@@ -76,6 +72,10 @@ if (hasInterface) then {
     };
 };
 
+if (!isNil QMODULE(vehicle_bonus)) then {
+    [_vehicle] __submoduleVM(vehicle_bonus);
+};
+
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
 };
@@ -102,7 +102,7 @@ if (typeOf _vehicle == "AH64D_EP1") then {
             if (vehicle player == player) exitWith {};
             
             "AH-64D" hintC [
-                "This vehicle unfortunately suffers from an old Arma re-arming bug which means hellfires won't be replenished once depleted.",
+                "This vehicle unfortunately suffers from an old Arma bug which means ammo may not be replenished when rearming.",
                 "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
             ];
             

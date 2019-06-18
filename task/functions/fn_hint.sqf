@@ -1,6 +1,8 @@
 #include "x_macros.sqf"
 private ["_task", "_status", "_params"];
 
+if (isServer) exitWith {};
+
 PARAMS_2(_task, _status);
 
 _params = switch(_status) do {

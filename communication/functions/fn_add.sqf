@@ -1,3 +1,4 @@
+#define THIS_MODULE communication
 #include "x_macros.sqf"
 private ["_type", "_name", "_usable", "_execute", "_cursor"];
 
@@ -13,3 +14,5 @@ PARAMS_5(_type, _name, _usable, _execute, _cursor);
     _usable,
     if (!isNil "_cursor") then {_cursor} else {""}
 ]] call BIS_fnc_arrayPush;
+
+[(_type select 0) select 0, 1] call FUNC(THIS_MODULE,toggle);

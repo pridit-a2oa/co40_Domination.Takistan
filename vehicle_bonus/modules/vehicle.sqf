@@ -12,6 +12,12 @@ _bonus = _vehicle getVariable QGVAR(bonus);
 
 if (isNil "_bonus") exitWith {};
 
-if (!isNil QMODULE(perk)) then {
-    [_vehicle] __submoduleVM(perk);
+if (hasInterface) then {
+    if (!isNil QMODULE(perk)) then {
+        [_vehicle] __submoduleVM(perk);
+    };
+};
+
+if (isServer) then {
+    _vehicle setVehicleAmmo GVAR(vehicle_bonus_capacity_ammo);
 };

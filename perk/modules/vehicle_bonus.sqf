@@ -21,6 +21,8 @@ while {true} do {
         call FUNC(THIS_MODULE,show);
         
         _vehicle addEventHandler ["getout", {
+            if (player getVariable QGVAR(pilot)) exitWith {};
+            
             (_this select 0) spawn {
                 if (canMove _this) then {
                     [_this, "motor", 1] call FUNC(network,setHit);

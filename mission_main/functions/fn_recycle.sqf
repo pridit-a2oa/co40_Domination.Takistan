@@ -18,7 +18,9 @@ waitUntil {_time < call FUNC(common,time)};
     PARAMS_1(_target);
 
     if (!isNil QMODULE(task)) then {
-        player removeSimpleTask (_target getVariable QGVAR(task));
+        {
+            player removeSimpleTask [[_x select 0] call FUNC(task,get)];
+        } forEach (_target getVariable QGVAR(tasks));
     };
 }] call RE;
 

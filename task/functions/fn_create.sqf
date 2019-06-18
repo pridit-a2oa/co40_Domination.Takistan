@@ -4,12 +4,12 @@ private ["_name", "_position", "_description", "_state", "_parent"];
 PARAMS_5(_name, _position, _description, _state, _parent);
 
 _task = if (!isNil "_parent") then {
-    player createSimpleTask [_name, _parent];
+    player createSimpleTask [_name, [_parent] call FUNC(task,get)];
 } else {
     player createSimpleTask [_name];
 };
 
-_task setSimpleTaskDestination _position;
+_task setSimpleTaskDestination [_position select 0, _position select 1, 0];
 _task setSimpleTaskDescription _description;
 _task setTaskState _state;
 

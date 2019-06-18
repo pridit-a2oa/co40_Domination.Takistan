@@ -23,6 +23,7 @@ if (isServer) then {
 };
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
+__ccppfln(core\THIS_MODULE\scripts\KRON_Strings.sqf);
 
 __cppfln(FUNC(THIS_MODULE,attachPoint),core\THIS_MODULE\functions\fn_attachPoint.sqf);
 __cppfln(FUNC(THIS_MODULE,displayTime),core\THIS_MODULE\functions\fn_displayTime.sqf);
@@ -36,15 +37,15 @@ __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);
 
 if (isServer) then {
-    __core(server);
+    __corePP(server);
 };
 
 if (hasInterface) then {
-    __core(client);
+    __corePP(client);
 };
 
-__core(helper);
-__core(network);
+__coreVM(helper);
+__coreVM(network);
 
 __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);

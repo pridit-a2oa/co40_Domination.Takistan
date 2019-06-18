@@ -26,13 +26,19 @@ waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarg
     PARAMS_1(_target);
 
     if (!isNil QMODULE(task)) then {
-        _name = format ["Main Target: %1", _target getVariable "name"];
+        _title = format ["Main Target: %1", _target getVariable "name"];
         _description = format ["Seize %1 from oppressive forces", _target getVariable "name"];
 
-        _task = [_target getVariable "name", [(position _target) select 0, (position _target) select 1, 0], [_description, _name, _target getVariable "name"], "Created"] call FUNC(task,create);
-        [_task, "created"] call FUNC(task,hint);
+        _task = [
+            _target getVariable "name",
+            position _target,
+            [_description, _title, _target getVariable "name"],
+            "Created"
+        ] call FUNC(task,create);
         
-        _target setVariable [QGVAR(task), _task, true];
+        [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
+        
+        _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
     };
 
     if (!isNil QMODULE(marker)) then {
@@ -48,6 +54,12 @@ waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarg
         ] call FUNC(marker,create);
     };
 }] call RE;
+
+for "_i" from 1 to GVAR(mission_main_amount_optional) do {
+    sleep 2;
+    
+    [_target, "optional"] spawn FUNC(THIS_MODULE,type);
+};
 
 _trigger = createTrigger ["EmptyDetector", position _target];
 _trigger setVariable [QGVAR(target), _target];

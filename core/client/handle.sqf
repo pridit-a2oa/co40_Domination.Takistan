@@ -18,7 +18,7 @@ onEachFrame {call d_fnc_client_perFrame};
 if (!isNil QMODULE(vehicle)) then {
     0 spawn {
         if (!isNil QMODULE(vehicle_bonus)) then {
-            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == GVAR(vehicle_bonus_max)};
+            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == GVAR(vehicle_bonus_amount_max)};
         };
         
         ["init_vehicles", {

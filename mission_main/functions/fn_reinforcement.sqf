@@ -53,7 +53,7 @@ switch (_type select 0) do {
             } forEach (units _group);
         };
         
-        _land = [position _target, 50, 300, 3, 0, 0.7, 0] call FUNC(common,safePos);
+        _land = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 3, 0, 0.7, 0] call FUNC(common,safePos);
         _helper = "HeliHEmpty" createVehicleLocal _land;
         
         _pilot doMove _land;

@@ -9,7 +9,7 @@ switch (_type) do {
         _camps = 0;
 
         while {_camps != GVAR(mission_main_amount_camps)} do {
-            _position = [position _target, 20, 250, 10, 0, 0.5, 0] call FUNC(common,safePos);
+            _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 10, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, ["Land_tent_east"], 100];
             
             if (count _near < 1) then {
@@ -20,29 +20,42 @@ switch (_type) do {
                     
                     if (typeOf _x == "FlagCarrierTakistanKingdom_EP1") then {
                         _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
+                        _x setVariable [QGVAR(target), _target];
+                        
+                        _trigger = createTrigger ["EmptyDetector", position _x];
+                        _trigger setVariable [QGVAR(flag), _x];
+                        _trigger setTriggerArea [GVAR(mission_main_distance_camp), GVAR(mission_main_distance_camp), 0, false];
+                        _trigger setTriggerActivation ["WEST", "PRESENT", true];
+                        _trigger setTriggerStatements [
+                            "true",
+                            "[thisTrigger getVariable ""d_flag""] spawn d_fnc_mission_main_capture",
+                            "3 cutRsc [""Default"", ""PLAIN""];"
+                        ];
+                        
+                        [nil, nil, rSpawn, [_x], {
+                            private ["_flag"];
+                            
+                            PARAMS_1(_flag);
+                            
+                            if (!isNil QMODULE(marker)) then {
+                                [
+                                    format ["camp_%1", str (position _flag)],
+                                    position _flag,
+                                    "Strongpoint",
+                                    "",
+                                    "ColorWhite",
+                                    1,
+                                    "ICON",
+                                    [0.5, 0.5]
+                                ] call FUNC(marker,create);
+                            };
+                        }] call RE;
+                        
+                        // player setPos (position _x);
                     };
-                    
+
                     [nil, _x, "per", rEnableSimulation, false];
                 } forEach _camp;
-                
-                [nil, nil, rSpawn, [_position], {
-                    private ["_position"];
-                    
-                    PARAMS_1(_position);
-                    
-                    if (!isNil QMODULE(marker)) then {
-                        [
-                            format ["camp_%1", str (_position)],
-                            _position,
-                            "Strongpoint",
-                            "",
-                            "ColorWhite",
-                            1,
-                            "ICON",
-                            [0.5, 0.5]
-                        ] call FUNC(marker,create);
-                    };
-                }] call RE;
 
                 _camps = _camps + 1;
             };
@@ -57,7 +70,7 @@ switch (_type) do {
         _antennas = 0;
         
         while {_antennas != GVAR(mission_main_amount_antennas)} do {
-            _position = [position _target, 50, 200, 2, 0, 0.3, 0] call FUNC(common,safePos);
+            _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
             
             if (count _near < 1) then {
@@ -71,12 +84,11 @@ switch (_type) do {
                     PARAMS_1(_unit);
                     
                     _target = _unit getVariable QGVAR(target);
+                    _target setVariable [QGVAR(antennas), (_target getVariable QGVAR(antennas)) - 1];
                     
                     if (!isNil QMODULE(marker)) then {
                         [format ["antenna_%1", str (position _unit)]] call FUNC(marker,delete);
                     };
-                    
-                    _target setVariable [QGVAR(antennas), (_target getVariable QGVAR(antennas)) - 1];
                 }];
 
                 [nil, nil, rSpawn, [_antenna], {
@@ -105,5 +117,72 @@ switch (_type) do {
         };
         
         _target setVariable [QGVAR(antennas), _antennas];
+    };
+    
+    case "optional": {
+        if (!isNil QMODULE(task)) then {
+            waitUntil {count (_target getVariable QGVAR(tasks)) > 0};
+        };
+        
+        _objective = GVAR(mission_main_type_optional) call BIS_fnc_selectRandom;
+        
+        _goal = _objective select 0;
+        _type = _objective select 1;
+        
+        _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.3, 0] call FUNC(common,safePos);
+        
+        _entity = switch (_type select 0) do {
+            case "object": {
+                createVehicle [_type select 1, _position, [], 0, "NONE"];
+            };
+            
+            case "unit": {
+                (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
+            };
+        };
+        
+        _entity setVariable [QGVAR(goal), _goal, true];
+        
+        [nil, nil, rSpawn, [_type, _goal, _entity, _target], {
+            private ["_type", "_goal", "_entity", "_target"];
+            
+            PARAMS_4(_type, _goal, _entity, _target);
+            
+            _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
+            
+            if (!isNil QMODULE(task)) then {
+                _title = format ["> Optional: %1 %2", _action, _goal];
+                _description = format ["%1 %2", _action, _goal];
+
+                _task = [
+                    _goal,
+                    position _entity,
+                    [_description, _title, _action],
+                    "Created",
+                    _target getVariable "name"
+                ] call FUNC(task,create);
+                
+                _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task]];
+            };
+        }] call RE;
+        
+        if (!isNil QMODULE(task)) then {
+            _entity addEventHandler ["killed", {
+                private ["_unit", "_target", "_task"];
+                
+                PARAMS_1(_unit);
+                
+                _task = [_unit getVariable QGVAR(goal)] call FUNC(task,get);
+                
+                [nil, nil, "per", rSetTaskState, _task, "Succeeded"] call RE;
+                [nil, nil, rExecVM, FUNCTION(task,hint), _task, "succeeded"] call RE;
+            }];
+        };
+        
+        _entity spawn {
+            sleep 10;
+            
+            player setPos (position _this);
+        };
     };
 };

@@ -10,13 +10,12 @@ if (hasInterface) then {
     
     {
         _task = if (!isNil {_x select 4}) then {
-            player createSimpleTask [_x select 0, _x select 4];
+            player createSimpleTask [_x select 0, [_x select 4] call FUNC(task,get)];
         } else {
             player createSimpleTask [_x select 0];
         };
         
         _task setSimpleTaskDestination (_x select 1);
         _task setSimpleTaskDescription (_x select 2);
-        _task setTaskState (_x select 3);
     } forEach (X_JIPH getVariable QGVAR(tasks));
 };
