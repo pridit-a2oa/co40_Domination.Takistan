@@ -16,6 +16,10 @@ if (!isNil QMODULE(vehicle_marker)) then {
     [_attacher, _attachee] __submoduleVM(vehicle_marker);
 };
 
+if (!isNil QMODULE(vehicle_mhq) && {_attachee getVariable QGVAR(deployed)}) then {
+    [_attachee] call FUNC(vehicle_mhq,undeploy);
+};
+
 if (!isNil QMODULE(crossroad)) then {
     if (!isNil QMODULE(vehicle_wreck) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
         if (!alive _attachee && {_attachee getVariable QGVAR(wreckable)}) then {

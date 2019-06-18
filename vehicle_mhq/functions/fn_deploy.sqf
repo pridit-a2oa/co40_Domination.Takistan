@@ -45,7 +45,7 @@ _vehicle setVariable [QGVAR(camo), _camo, true];
 _vehicle setVariable [QGVAR(deployed), true, true];
 
 if (!isNil QMODULE(vehicle_marker)) then {
-    [_vehicle, true] __submoduleVM(vehicle_marker);
+    [nil, nil, rExecVM, __submoduleRE(vehicle_marker), _vehicle, true] call RE;
 };
 
 if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {

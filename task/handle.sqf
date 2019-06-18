@@ -17,5 +17,6 @@ if (hasInterface) then {
         
         _task setSimpleTaskDestination (_x select 1);
         _task setSimpleTaskDescription (_x select 2);
+        _task setTaskState (_x select 3);
     } forEach (X_JIPH getVariable QGVAR(tasks));
 };

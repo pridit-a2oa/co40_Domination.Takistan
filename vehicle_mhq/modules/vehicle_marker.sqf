@@ -12,3 +12,7 @@ if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};
 _marker = str ((_vehicle getVariable QGVAR(position)) select 0);
 _marker setMarkerColorLocal "ColorYellow";
 _marker setMarkerTypeLocal "o_uav";
+
+if (_vehicle getVariable QGVAR(deployed)) then {
+    _marker setMarkerTextLocal (markerText _marker + " (Deployed)");
+};

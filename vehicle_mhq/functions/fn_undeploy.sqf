@@ -20,5 +20,5 @@ if (!isNull _camo) then {
 _vehicle setVariable [QGVAR(deployed), false, true];
 
 if (!isNil QMODULE(vehicle_marker)) then {
-    [_vehicle, false] __submoduleVM(vehicle_marker);
+    [nil, nil, rExecVM, __submoduleRE(vehicle_marker), _vehicle, false] call RE;
 };

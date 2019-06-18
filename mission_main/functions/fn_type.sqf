@@ -120,10 +120,6 @@ switch (_type) do {
     };
     
     case "optional": {
-        if (!isNil QMODULE(task)) then {
-            waitUntil {count (_target getVariable QGVAR(tasks)) > 0};
-        };
-        
         _objective = GVAR(mission_main_type_optional) call BIS_fnc_selectRandom;
         
         _goal = _objective select 0;
@@ -141,7 +137,7 @@ switch (_type) do {
             };
         };
         
-        _entity setVariable [QGVAR(goal), _goal, true];
+        _entity setVariable [QGVAR(task), _goal + str ((position _entity) select 0), true];
         
         [nil, nil, rSpawn, [_type, _goal, _entity, _target], {
             private ["_type", "_goal", "_entity", "_target"];
@@ -155,7 +151,7 @@ switch (_type) do {
                 _description = format ["%1 %2", _action, _goal];
 
                 _task = [
-                    _goal,
+                    _entity getVariable QGVAR(task),
                     position _entity,
                     [_description, _title, _action],
                     "Created",
@@ -168,14 +164,24 @@ switch (_type) do {
         
         if (!isNil QMODULE(task)) then {
             _entity addEventHandler ["killed", {
-                private ["_unit", "_target", "_task"];
+                private ["_unit", "_task"];
                 
                 PARAMS_1(_unit);
                 
-                _task = [_unit getVariable QGVAR(goal)] call FUNC(task,get);
+                _task = _unit getVariable QGVAR(task);
                 
-                [nil, nil, "per", rSetTaskState, _task, "Succeeded"] call RE;
-                [nil, nil, rExecVM, FUNCTION(task,hint), _task, "succeeded"] call RE;
+                [_task, "Succeeded"] call FUNC(task,state);
+            }];
+            
+            _entity addMPEventHandler ["MPKilled", {
+                private ["_unit", "_task"];
+                
+                PARAMS_1(_unit);
+                
+                _task = [_unit getVariable QGVAR(task)] call FUNC(task,get);
+                _task setTaskState "Succeeded";
+                
+                [_task, "succeeded"] call FUNC(task,hint);
             }];
         };
         
