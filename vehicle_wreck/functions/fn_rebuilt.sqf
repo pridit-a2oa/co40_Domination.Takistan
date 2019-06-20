@@ -27,9 +27,7 @@ if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Rebuilt", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], ["2", {}, _full, []], true];
 };
 
-[nil, nil, rSpawn, [], {
-    GVAR(rebuild) = 0;
-}] call RE;
+GVAR(service_wreck) setVariable [QGVAR(time), 0, true];
 
 GVAR(rebuilding) = false;
 GVAR(wreck) = nil;

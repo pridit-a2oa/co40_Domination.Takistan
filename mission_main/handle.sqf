@@ -25,7 +25,6 @@ if (isServer) then {
         
         _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
         
-        [_target] call FUNC(THIS_MODULE,reset);
         [_target] spawn FUNC(THIS_MODULE,create);
     };
 };

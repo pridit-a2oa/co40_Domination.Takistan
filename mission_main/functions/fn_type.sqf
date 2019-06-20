@@ -7,7 +7,7 @@ PARAMS_2(_target, _type);
 switch (_type) do {
     case "camp": {
         _camps = 0;
-
+        
         while {_camps != GVAR(mission_main_amount_camps)} do {
             _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 10, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, ["Land_tent_east"], 100];
@@ -15,11 +15,16 @@ switch (_type) do {
             if (count _near < 1) then {
                 _camp = [_position, random 360, GVAR(mission_main_type_camp)] call FUNC(common,objectMapper);
                 
+                _target setVariable [QGVAR(cleanup), _camp];
+                
                 {
                     _x addEventHandler ["HandleDamage", {0}];
                     
                     if (typeOf _x == "FlagCarrierTakistanKingdom_EP1") then {
                         _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
+                        
+                        _x setVariable [QGVAR(time), 0, true];
+                        _x setVariable [QGVAR(capturing), false];
                         _x setVariable [QGVAR(target), _target];
                         
                         _trigger = createTrigger ["EmptyDetector", position _x];
@@ -27,10 +32,14 @@ switch (_type) do {
                         _trigger setTriggerArea [GVAR(mission_main_distance_camp), GVAR(mission_main_distance_camp), 0, false];
                         _trigger setTriggerActivation ["WEST", "PRESENT", true];
                         _trigger setTriggerStatements [
-                            "true",
-                            "[thisTrigger getVariable ""d_flag""] spawn d_fnc_mission_main_capture",
-                            "3 cutRsc [""Default"", ""PLAIN""];"
+                            "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_flag"") getVariable 'd_capturing')}",
+                            "[thisTrigger getVariable ""d_flag"", thisTrigger] spawn d_fnc_mission_main_capture",
+                            ""
                         ];
+                        
+                        if (!isNil QMODULE(3d)) then {
+                            [nil, nil, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
+                        };
                         
                         [nil, nil, rSpawn, [_x], {
                             private ["_flag"];
@@ -50,8 +59,6 @@ switch (_type) do {
                                 ] call FUNC(marker,create);
                             };
                         }] call RE;
-                        
-                        // player setPos (position _x);
                     };
 
                     [nil, _x, "per", rEnableSimulation, false];
@@ -124,7 +131,7 @@ switch (_type) do {
         
         _goal = _objective select 0;
         _type = _objective select 1;
-        
+
         _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.3, 0] call FUNC(common,safePos);
         
         _entity = switch (_type select 0) do {
@@ -136,33 +143,34 @@ switch (_type) do {
                 (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
             };
         };
-        
-        _entity setVariable [QGVAR(task), _goal + str ((position _entity) select 0), true];
-        
-        [nil, nil, rSpawn, [_type, _goal, _entity, _target], {
-            private ["_type", "_goal", "_entity", "_target"];
-            
-            PARAMS_4(_type, _goal, _entity, _target);
-            
+
+        if (!isNil QMODULE(task)) then {
             _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
             
-            if (!isNil QMODULE(task)) then {
-                _title = format ["> Optional: %1 %2", _action, _goal];
-                _description = format ["%1 %2", _action, _goal];
-
-                _task = [
-                    _entity getVariable QGVAR(task),
-                    position _entity,
-                    [_description, _title, _action],
-                    "Created",
-                    _target getVariable "name"
-                ] call FUNC(task,create);
-                
-                _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task]];
-            };
-        }] call RE;
+            _task = [
+                _goal + str ((position _entity) select 0),
+                position _entity,
+                [
+                    format ["%1 %2", _action, _goal],
+                    format ["> Optional: %1 %2", _action, _goal],
+                    _action
+                ],
+                "Created",
+                _target getVariable "name"
+            ];
+            
+            _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task]];
+            
+            _entity setVariable [QGVAR(task), _task, true];
         
-        if (!isNil QMODULE(task)) then {
+            [nil, nil, rSpawn, [_task], {
+                private ["_task"];
+                
+                PARAMS_1(_task);
+
+                _task call FUNC(task,create);
+            }] call RE;
+            
             _entity addEventHandler ["killed", {
                 private ["_unit", "_task"];
                 
@@ -170,7 +178,9 @@ switch (_type) do {
                 
                 _task = _unit getVariable QGVAR(task);
                 
-                [_task, "Succeeded"] call FUNC(task,state);
+                if (_task select 3 == "Created") then {
+                    [_task, "Succeeded"] call FUNC(task,state);
+                };
             }];
             
             _entity addMPEventHandler ["MPKilled", {
@@ -178,17 +188,14 @@ switch (_type) do {
                 
                 PARAMS_1(_unit);
                 
-                _task = [_unit getVariable QGVAR(task)] call FUNC(task,get);
-                _task setTaskState "Succeeded";
+                _task = [(_unit getVariable QGVAR(task)) select 0] call FUNC(task,get);
                 
-                [_task, "succeeded"] call FUNC(task,hint);
+                if (taskState _task == "Created") then {
+                    _task setTaskState "Succeeded";
+                    
+                    [_task, "succeeded"] call FUNC(task,hint);
+                };
             }];
-        };
-        
-        _entity spawn {
-            sleep 10;
-            
-            player setPos (position _this);
         };
     };
 };

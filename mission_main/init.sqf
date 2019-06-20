@@ -15,6 +15,8 @@ GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
 GVAR(mission_main_type_optional) = [
     ["aircraft factory",        ["object",  "TK_WarfareBAircraftFactory_Base_EP1"]],
     ["anti-air radar",          ["object",  "TK_WarfareBAntiAirRadar_Base_EP1"]],
+    ["artillery radar",         ["object",  "TK_WarfareBArtilleryRadar_Base_EP1"]],
+    ["barracks",                ["object",  "TK_WarfareBBarracks_Base_EP1"]],
     ["heavy factory",           ["object",  "TK_WarfareBHeavyFactory_Base_EP1"]],
     ["light factory",           ["object",  "TK_WarfareBLightFactory_base_EP1"]],
     ["HQ",                      ["object",  "BMP2_HQ_TK_unfolded_Base_EP1"]],
@@ -43,7 +45,7 @@ GVAR(mission_main_amount_targets) = 2;
 GVAR(mission_main_distance_base) = 2600;
 
 // Set distance from flag (as part of a camp) before being able to capture
-GVAR(mission_main_distance_camp) = 15;
+GVAR(mission_main_distance_camp) = 20;
 
 // Set distance from north airfield before a city can become a valid target
 GVAR(mission_main_distance_naf) = 1800;
@@ -54,6 +56,9 @@ GVAR(mission_main_distance_reinforcement) = 4000;
 // Set the radius for the main target zone
 GVAR(mission_main_radius_zone) = 400;
 
+// Set amount of time to capture a camp
+GVAR(mission_main_time_capture) = 30;
+
 // Set amount of time (since seized) a main target is recycled back for use
 GVAR(mission_main_time_recycle) = 5400;
 
@@ -61,6 +66,7 @@ GVAR(mission_main_time_recycle) = 5400;
 GVAR(mission_main_time_reinforce) = 1200;
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
+__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);

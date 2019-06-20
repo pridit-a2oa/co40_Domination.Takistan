@@ -6,6 +6,7 @@ PARAMS_1(_target);
 
 _name = _target getVariable "name";
 
+[_target] call FUNC(THIS_MODULE,reset);
 [_target] call FUNC(THIS_MODULE,remove);
 
 [_target, "camp"] call FUNC(THIS_MODULE,type);
@@ -19,28 +20,34 @@ GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {},
 
 waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 
+if (!isNil QMODULE(task)) then {
+    _task = [
+        _name,
+        position _target,
+        [
+            format ["Seize %1 from oppressive forces", _name],
+            format ["Main Target: %1", _name],
+            _name
+        ],
+        "Created"
+    ];
+
+    _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
+};
+
 [nil, nil, rPlaySound, QGVAR(sound_task)] call RE;
 [nil, nil, rSpawn, [_target], {
-    private ["_target", "_name", "_description"];
-
+    private ["_target"];
+    
     PARAMS_1(_target);
-
+    
     if (!isNil QMODULE(task)) then {
-        _title = format ["Main Target: %1", _target getVariable "name"];
-        _description = format ["Seize %1 from oppressive forces", _target getVariable "name"];
-
-        _task = [
-            _target getVariable "name",
-            position _target,
-            [_description, _title, _target getVariable "name"],
-            "Created"
-        ] call FUNC(task,create);
+        _task = (_target getVariable QGVAR(tasks)) select 0;
+        _task call FUNC(task,create);
         
         [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
-        
-        _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
     };
-
+    
     if (!isNil QMODULE(marker)) then {
         [
             format ["mission_main_%1", _target getVariable "name"],

@@ -23,13 +23,15 @@ _vehicle setVectorUp surfaceNormal (markerPos QGVAR(service_wreck));
 _vehicle lock true;
 _vehicle allowDamage false;
 
-[nil, nil, rSpawn, [_time], {
-    private ["_time"];
-    
-    PARAMS_1(_time);
-    
-    [_time] call FUNC(THIS_MODULE,time);
-}] call RE;
+if (!isNil QMODULE(3d)) then {
+    [nil, nil, rSpawn, [_time], {
+        private ["_time"];
+        
+        PARAMS_1(_time);
+        
+        [GVAR(service_wreck), _time] call FUNC(3d,time);
+    }] call RE;
+};
 
 _time = _time + call FUNC(common,time);
 

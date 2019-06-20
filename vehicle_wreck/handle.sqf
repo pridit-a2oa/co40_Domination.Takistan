@@ -21,19 +21,21 @@ if (isServer) then {
         "0 = [d_rebuild] spawn d_fnc_vehicle_wreck_service",
         ""
     ];
+    
+    GVAR(service_wreck) setVariable [QGVAR(time), 0, true];
 };
 
 if (hasInterface) then {
     _name = "Wreck Service";
-    _position = markerPos QGVAR(service_wreck);
+    _position = position GVAR(service_wreck);
     
-    _marker = createMarkerLocal ["wreck_service_1", _position];
-    _marker setMarkerTextLocal "Wreck Service";
+    _marker = createMarkerLocal ["wreck_service", _position];
+    _marker setMarkerTextLocal _name;
     _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerShapeLocal "ICON";
     _marker setMarkerTypeLocal "DOT";
     
     if (!isNil QMODULE(3d)) then {
-        [_position, _name] __submoduleVM(3d);
+        [GVAR(service_wreck), _name] __submoduleVM(3d);
     };
 };
