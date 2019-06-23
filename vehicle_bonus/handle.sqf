@@ -32,8 +32,6 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(wreckable), true, true];
         };
         
-        _vehicle setVehicleAmmo GVAR(vehicle_bonus_capacity_ammo);
-        
         X_JIPH setVariable [QGVAR(vehicle_bonus), (X_JIPH getVariable QGVAR(vehicle_bonus)) + 1, true];
     };
 };

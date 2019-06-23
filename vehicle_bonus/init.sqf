@@ -21,9 +21,6 @@ GVAR(vehicle_bonus_types) = [
 // Set maximum amount of bonus vehicles
 GVAR(vehicle_bonus_amount_max) = 3;
 
-// Set ammo capacity factor from standard armanent
-GVAR(vehicle_bonus_capacity_ammo) = 0.5;
-
 if (hasInterface) then {
     player setVariable [QGVAR(pilot), false];
 };

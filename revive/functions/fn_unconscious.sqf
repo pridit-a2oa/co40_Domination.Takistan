@@ -8,7 +8,8 @@ _unit setVariable [QGVAR(unconscious), true, true];
 
 moveOut _unit;
 
-_unit setUnconscious true;
+[_unit, true] call FUNC(network,setUnconscious);
+
 _unit spawn {
     sleep 0.1;
     
@@ -24,10 +25,6 @@ _unit spawn {
     sleep 6;
     
     titleText ["", "BLACK IN", 3];
-};
-
-if (!isNil QMODULE(name)) then {
-    [_unit] __submoduleVM(name);
 };
 
 [nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;

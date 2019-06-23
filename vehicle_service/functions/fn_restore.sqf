@@ -10,17 +10,11 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_ammo = 1;
-
-if (!isNil QMODULE(vehicle_bonus) && {_vehicle getVariable QGVAR(bonus)}) then {
-    _ammo = GVAR(vehicle_bonus_capacity_ammo);
-};
-
 while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR(servicing))}} do {
     _vehicle setVariable [QGVAR(servicing), true, true];
     
     _vehicle setFuel 0;
-    _vehicle setVehicleAmmo _ammo;
+    _vehicle setVehicleAmmo 1;
     
     sleep 1;
 
@@ -43,7 +37,7 @@ while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR
         } forEach _magazines;
     };
 
-    _vehicle setVehicleAmmo _ammo;
+    _vehicle setVehicleAmmo 1;
 
     if (damage _vehicle >= 0.001) then {
         _vehicle vehicleChat "Repairing";

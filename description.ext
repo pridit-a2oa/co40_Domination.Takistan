@@ -22,7 +22,7 @@ onLoadMissionTime = 0;
 
 class Header
 {
-    gameType                = DOM;
+    gameType                = Coop;
     minPlayers              = 1;
     maxPlayers              = 40;
     playerCountMultipleOf   = 1;

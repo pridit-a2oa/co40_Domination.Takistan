@@ -94,11 +94,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     };
     
     if (!canMove _aircraft) then {
-        {
-            deleteVehicle _x;
-        } forEach _crew;
-        
-        _aircraft setDamage 1;
+        [_x] call FUNC(vehicle,delete);
     };
     
     X_JIPH setVariable [QGVAR(uav_progress), false, true];

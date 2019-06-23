@@ -17,7 +17,7 @@ if (hasInterface) then {
             if (!isNil "_marker") then {
                 if (!visibleMap && {isNil {uiNamespace getVariable "BIS_RscMiniMap"}} && {isNil {uiNamespace getVariable "RscMiniMapSmall"}}) exitWith {};
                 
-                call FUNC(THIS_MODULE,unconscious);
+                [_x] __submodulePP(revive);
                 
                 _marker setMarkerPosLocal (getPosASL _x);
             };

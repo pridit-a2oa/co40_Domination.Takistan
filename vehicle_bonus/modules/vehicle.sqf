@@ -17,7 +17,3 @@ if (hasInterface) then {
         [_vehicle] __submoduleVM(perk);
     };
 };
-
-if (isServer) then {
-    _vehicle setVehicleAmmo GVAR(vehicle_bonus_capacity_ammo);
-};

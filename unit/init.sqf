@@ -37,7 +37,6 @@ GVAR(unit_type_vehicle_armor) = [
     "BRDM2_ATGM_TK_EP1",
     "BRDM2_TK_EP1",
     "BTR60_TK_EP1",
-    "GRAD_TK_EP1",
     "M113_TK_EP1",
     "T34_TK_EP1",
     "T55_TK_EP1",

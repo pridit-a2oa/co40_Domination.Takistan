@@ -139,6 +139,12 @@ switch (_type) do {
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
                 _units = (units _group) + (["enemy", _objects, _position] call FUNC(server,spawnCrew));
                 
+                {
+                    if (typeOf _x == "UralReammo_TK_EP1") then {
+                        [_x] call FUNC(vehicle,delete);
+                    };
+                } forEach _objects;
+                
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects];
                 
                 deleteVehicle ((nearestObjects [_position, ["Land_CamoNetB_EAST_EP1", "Land_CamoNetVar_EAST_EP1"], 20]) select 0);

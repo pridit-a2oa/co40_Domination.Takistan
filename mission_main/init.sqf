@@ -25,7 +25,7 @@ GVAR(mission_main_type_optional) = [
 
 // Set crewed object compositions
 GVAR(mission_main_type_compositions) = [
-    ["AntiAir1_TK_EP1",     3],
+    ["AntiAir1_TK_EP1",     2],
     ["Firebase1_TK_EP1",    2],
     ["FuelDump1_TK_EP1",    1]
 ];

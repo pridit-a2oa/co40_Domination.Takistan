@@ -42,11 +42,7 @@ switch (_type) do {
         
         {
             if (_x isKindOf "Car") then {
-                {
-                    deleteVehicle _x;
-                } forEach crew _x;
-                
-                deleteVehicle _x;
+                [_x] call FUNC(vehicle,delete);
             };
             
             [nil, _x, "per", rEnableSimulation, false];

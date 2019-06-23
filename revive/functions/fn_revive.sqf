@@ -16,11 +16,12 @@ if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
 
 if (lifeState _target != "UNCONSCIOUS") exitWith {};
 
-[nil, _target, "loc", rSwitchMove, ""] call RE;
-[nil, _target, "loc", rSwitchMove, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
-[nil, _target, "loc", rExecVM, __function(reset)] call RE;
+[_target, "AmovPpneMstpSnonWnonDnon_healed"] call FUNC(network,switchMove);
+[_target, false] call FUNC(network,setUnconscious);
 
-[nil, nil, rSpawn, [_target, _caller], {systemChat format ["%1 has been revived by %2", name (_this select 0), name (_this select 1)]}] call RE;
+[_target] call FUNC(THIS_MODULE,reset);
 
 _target setDamage (player getVariable QGVAR(revive_damage));
 _target setVariable [QGVAR(reviving), false, true];
+
+[nil, nil, rSpawn, [_target, _caller], {systemChat format ["%1 has been revived by %2", name (_this select 0), name (_this select 1)]}] call RE;
