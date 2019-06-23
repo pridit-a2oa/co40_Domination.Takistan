@@ -42,12 +42,12 @@ GVAR(unit_type_vehicle_armor) = [
     "T34_TK_EP1",
     "T55_TK_EP1",
     "T72_TK_EP1",
-    "Ural_ZU23_TK_EP1",
-    "ZSU_TK_EP1"
+    "Ural_ZU23_TK_EP1"
 ];
 
 __cppfln(FUNC(THIS_MODULE,defend),THIS_MODULE\functions\fn_defend.sqf);
 __cppfln(FUNC(THIS_MODULE,patrol),THIS_MODULE\functions\fn_patrol.sqf);
+__cppfln(FUNC(THIS_MODULE,road),THIS_MODULE\functions\fn_road.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

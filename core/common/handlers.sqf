@@ -8,6 +8,7 @@ private ["_handlers"];
 _handlers = [
     "weather",
     "crossroad",
+    "admin",
     "airdrop",
     "airtaxi",
     "artillery",

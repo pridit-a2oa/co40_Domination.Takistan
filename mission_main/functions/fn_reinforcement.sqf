@@ -35,6 +35,8 @@ switch (_type select 0) do {
                     };
                 }];
             };
+        } else {
+            __addDead(_aircraft);
         };
         
         (group _pilot) setSpeedMode "LIMITED";
@@ -45,8 +47,10 @@ switch (_type select 0) do {
     };
 
     case "infantry": {
+        __addDead(_aircraft);
+        
         if (!isNil QMODULE(unit)) then {
-            _group = [[0, 0, 0], east, 4 + round (random 2)] call BIS_fnc_spawnGroup;
+            _group = [[0, 0, 0], east, 4 + round (random 2)] call FUNC(server,spawnGroup);
             
             {
                 _x moveInCargo _aircraft;
@@ -87,6 +91,14 @@ switch (_type select 0) do {
             };
             
             sleep 2;
+        };
+        
+        if (!canMove _aircraft) then {
+            {
+                deleteVehicle _x;
+            } forEach _crew;
+            
+            _aircraft setDamage 1;
         };
     };
 };

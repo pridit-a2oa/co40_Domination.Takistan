@@ -8,10 +8,10 @@ private ["_object", "_text", "_countdown", "_dialog", "_width", "_height"];
 
 PARAMS_3(_object, _text, _countdown);
 
+disableSerialization;
+
 GVAR(3d_type_layer) cutRsc ["XD_3DText", "PLAIN"];
 GVAR(3d_type_layer) = GVAR(3d_type_layer) + 1;
-
-_layer = GVAR(3d_type_layer);
 
 _dialog = DIALOG(QGVAR(BIS_dynamicText), 1);
 
@@ -68,5 +68,3 @@ while {alive _object} do {
 
 _dialog ctrlSetFade 1;
 _dialog ctrlCommit 0;
-
-_layer cutRsc ["Default", "PLAIN"];

@@ -12,13 +12,13 @@ if (!isNil QMODULE(crossroad)) then {
 
 deleteVehicle _wreck;
 
-_position = [(markerPos QGVAR(service_wreck)) select 0, (markerPos QGVAR(service_wreck)) select 1, 0];
+_position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
 
 _vehicle = createVehicle [typeOf _wreck, _position, [], 0, "NONE"];
 _vehicle setDir (getDir _wreck);
 _vehicle setPos _position;
 _vehicle setVelocity [0, 0, 0];
-_vehicle setVectorUp surfaceNormal (markerPos QGVAR(service_wreck));
+_vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
 
 _vehicle lock true;
 _vehicle allowDamage false;

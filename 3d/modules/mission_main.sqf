@@ -8,4 +8,6 @@ private ["_object", "_name"];
 
 PARAMS_2(_object, _name);
 
+waitUntil {!isNil {MODULE(common)}};
+
 [_object, _name call FUNC(common,RedText), true] call FUNC(THIS_MODULE,create);

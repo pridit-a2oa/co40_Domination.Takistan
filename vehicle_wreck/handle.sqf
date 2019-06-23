@@ -13,7 +13,7 @@ if (isServer) then {
         GVAR(vehicle_wreck_types) = GVAR(vehicle_wreck_types) + [_x select 1];
     } forEach GVAR(vehicle_wreck_time_rebuild);
     
-    _trigger = createTrigger ["EmptyDetector", markerPos QGVAR(service_wreck)];
+    _trigger = createTrigger ["EmptyDetector", position GVAR(service_wreck)];
     _trigger setTriggerArea [8, 8, 0, false];
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [

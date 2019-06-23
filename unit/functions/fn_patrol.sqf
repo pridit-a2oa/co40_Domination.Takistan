@@ -21,6 +21,7 @@ for "_i" from 1 to _waypoints do {
         [_group, _i] setWaypointBehaviour "SAFE";
         [_group, _i] setWaypointCombatMode "RED";
         [_group, _i] setWaypointFormation "COLUMN";
+        [_group, _i] setWaypointSpeed "LIMITED";
     };
 };
 

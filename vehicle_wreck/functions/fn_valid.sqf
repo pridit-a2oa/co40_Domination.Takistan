@@ -3,7 +3,7 @@ private ["_vehicle"];
 
 if (GVAR(rebuilding)) exitWith {false};
 
-_vehicle = (nearestObjects [markerPos QGVAR(service_wreck), GVAR(vehicle_wreck_types), 10]) select 0;
+_vehicle = (nearestObjects [position GVAR(service_wreck), GVAR(vehicle_wreck_types), 10]) select 0;
 
 if (isNil "_vehicle") exitWith {false};
 if (isNil {_vehicle getVariable QGVAR(wreckable)}) exitWith {false};

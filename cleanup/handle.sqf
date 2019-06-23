@@ -9,5 +9,5 @@ if (isServer) then {
     0 spawn FUNC(THIS_MODULE,bomb);
     0 spawn FUNC(THIS_MODULE,crater);
     
-    // __fsm(NotAliveRemover);
+    __fsm(NotAliveRemover);
 };

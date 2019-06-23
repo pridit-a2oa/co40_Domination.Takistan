@@ -10,4 +10,8 @@
 __cppfln(FUNC(THIS_MODULE,bomb),THIS_MODULE\functions\fn_bomb.sqf);
 __cppfln(FUNC(THIS_MODULE,crater),THIS_MODULE\functions\fn_crater.sqf);
 
+if (isServer) then {
+    GVAR(allunits_add) = [];
+};
+
 MODULE(THIS_MODULE) = true;

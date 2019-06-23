@@ -15,7 +15,7 @@ GVAR(uav_type_aircraft) = "MQ9PredatorB_US_EP1";
 GVAR(uav_distance_base) = 1000;
 
 // Maximum distance the player can call within
-GVAR(uav_distance_player) = 300;
+GVAR(uav_distance_player) = 500;
 
 // Maximum distance from target to scan for enemies within
 GVAR(uav_distance_scan) = 300;

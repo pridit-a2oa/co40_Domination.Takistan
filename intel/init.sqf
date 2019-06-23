@@ -33,7 +33,7 @@ GVAR(intel_distance_spawn) = 1300;
 GVAR(intel_distance_cleanup) = 50;
 
 // Set time between spawning units that can provide intel
-GVAR(intel_time_spawn) = 30;
+GVAR(intel_time_spawn) = 3600;
 
 if (isServer) then {
     X_JIPH setVariable [QGVAR(intel), false, true];

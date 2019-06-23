@@ -23,6 +23,13 @@ GVAR(mission_main_type_optional) = [
     ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
 ];
 
+// Set crewed object compositions
+GVAR(mission_main_type_compositions) = [
+    ["AntiAir1_TK_EP1",     3],
+    ["Firebase1_TK_EP1",    2],
+    ["FuelDump1_TK_EP1",    1]
+];
+
 // Set reinforcement types
 GVAR(mission_main_type_reinforcements) = [
     ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],
@@ -39,7 +46,7 @@ GVAR(mission_main_amount_camps) = 3;
 GVAR(mission_main_amount_optional) = 1;
 
 // Set amount of main targets to initially seed
-GVAR(mission_main_amount_targets) = 2;
+GVAR(mission_main_amount_targets) = 1;
 
 // Set distance from base before a city can become a valid target
 GVAR(mission_main_distance_base) = 2600;

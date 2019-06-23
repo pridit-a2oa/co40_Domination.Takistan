@@ -29,14 +29,6 @@ class FSM
       precondition = "";
       class Links
       {
-        class Is_MP
-        {
-          priority = 1.000000;
-          to="Sleep";
-          precondition = "";
-          condition="isMultiplayer && {(call d_fnc_PlayersNumber) == 0}";
-          action="";
-        };
         class true
         {
           priority = 0.000000;
@@ -72,7 +64,7 @@ class FSM
        "" \n
        "if (count d_allunits_add > 0) then {" \n
        "	d_allunits_add = d_allunits_add - [objNull, nil];" \n
-       "	[_allunits, d_allunits_add] call d_fnc_arrayPushStack;" \n
+       "	[_allunits, d_allunits_add] call d_fnc_server_arrayPushStack;" \n
        "	d_allunits_add = [];" \n
        "	_allunits = _allunits - [objNull];" \n
        "};" \n
@@ -158,7 +150,7 @@ class FSM
        "				deleteVehicle _element;" \n
        "				_allunits set [_counter, -1];" \n
        "			} else {" \n
-       "				if (_element call d_fnc_GetVehicleEmpty) then {" \n
+       "				if (_element call d_fnc_common_empty) then {" \n
        "					deleteVehicle _element;" \n
        "					_allunits set [_counter, -1];" \n
        "				};" \n
@@ -168,7 +160,7 @@ class FSM
        "				private ""_hastime"";" \n
        "				_hastime = _element getVariable ""d_end_time"";" \n
        "				if (!isNil ""_hastime"" && {time > _hastime}) then {" \n
-       "					if (_element call d_fnc_GetVehicleEmpty) then {" \n
+       "					if (_element call d_fnc_common_empty) then {" \n
        "						deleteVehicle _element;" \n
        "						_allunits set [_counter, -1];" \n
        "					} else {" \n

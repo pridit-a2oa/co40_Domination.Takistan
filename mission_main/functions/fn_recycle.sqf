@@ -28,6 +28,14 @@ if (!isNil QMODULE(task)) then {
 
 if (!isNil QMODULE(marker)) then {
     [format ["mission_main_%1", _target getVariable "name"]] call FUNC(marker,delete);
+    
+    if (!isNil QMODULE(teleport)) then {
+        _name = format ["teleport_%1", _target getVariable "name"];
+        
+        deleteVehicle ((nearestObjects [markerPos _name, ["FlagCarrier_USA_EP1"], 10]) select 0);
+        
+        [_name] call FUNC(marker,delete);
+    };
 };
 
 GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_target];

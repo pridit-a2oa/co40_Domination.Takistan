@@ -51,4 +51,8 @@ switch (_type) do {
     };
 };
 
+{
+    __addDead(_x);
+} forEach _units;
+
 _units

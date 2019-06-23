@@ -77,6 +77,8 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
         if (_aircraft distance _position < 650) exitWith {
             _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
             
+            __addDead(load);
+            
             if (!isNil QMODULE(vehicle_respawn) && {_load isKindOf "AllVehicles"}) then {
                 _load setVariable [QGVAR(respawnable), false, true];
             };

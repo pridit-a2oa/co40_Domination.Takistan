@@ -9,16 +9,22 @@ if (!isNil QMODULE(marker)) then {
     
     [_name] call FUNC(marker,delete);
     
-    _marker = ([
-        _name,
-        position _target,
-        "",
-        "",
-        "ColorGreen",
-        0.6,
-        "ELLIPSE",
-        [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
-    ] call FUNC(marker,create));
+    [nil, nil, rSpawn, [_name, _target], {
+        private ["_name", "_target"];
+        
+        PARAMS_2(_name, _target);
+        
+        [
+            _name,
+            position _target,
+            "",
+            "",
+            "ColorGreen",
+            0.6,
+            "ELLIPSE",
+            [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
+        ] call FUNC(marker,create);
+    }] call RE;
 };
 
 if (!isNil QMODULE(task)) then {
@@ -37,6 +43,8 @@ if (!isNil QMODULE(task)) then {
         
         PARAMS_1(_target);
         
+        if (!hasInterface) exitWith {};
+        
         _task = [((_target getVariable QGVAR(tasks)) select 0) select 0] call FUNC(task,get);
         _task setTaskState "Succeeded";
         
@@ -47,12 +55,37 @@ if (!isNil QMODULE(task)) then {
                 _task = [_x select 0] call FUNC(task,get);
                 _task setTaskState "Failed";
             };
-        } forEach (_target getVariable QGVAR(tasks));
+        } forEach (X_JIPH getVariable QGVAR(tasks));
     }] call RE;
 };
 
 if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "Seized", ["1", {}, _target getVariable "name", []], true];
+};
+
+if (!isNil QMODULE(teleport)) then {
+    _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
+
+    _flag = createVehicle ["FlagCarrierUSA_EP1", _position, [], 0, "NONE"];
+
+    [nil, nil, rSpawn, [_target, _flag], {
+        private ["_target", "_flag"];
+        
+        PARAMS_2(_target, _flag);
+        
+        [
+            format ["teleport_%1", _target getVariable "name"],
+            position _flag,
+            "Flag1",
+            " Teleport",
+            "ColorYellow",
+            0.8,
+            "ICON",
+            [0.5, 0.5]
+        ] call FUNC(marker,create);
+    }] call RE;
+    
+    [nil, nil, "per", rExecVM, __submoduleRE(teleport), _flag] call RE;
 };
 
 [nil, nil, rPlaySound, "fanfare"] call RE;

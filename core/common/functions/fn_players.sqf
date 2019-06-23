@@ -1,1 +1,1 @@
-if (isMultiplayer) then {playableUnits} else {switchableUnits};
+if (isMultiplayer) then {playableUnits - allDead} else {switchableUnits};

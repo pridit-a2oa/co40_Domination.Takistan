@@ -14,8 +14,12 @@ switch (_type) do {
             
             if (count _near < 1) then {
                 _camp = [_position, random 360, GVAR(mission_main_type_camp)] call FUNC(common,objectMapper);
+                _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
+                _units = (units _group) + (["enemy", _camp, _position] call FUNC(server,spawnCrew));
                 
-                _target setVariable [QGVAR(cleanup), _camp];
+                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _camp];
+                
+                [_group, _position] call bis_fnc_taskDefend;
                 
                 {
                     _x addEventHandler ["HandleDamage", {0}];
@@ -29,7 +33,7 @@ switch (_type) do {
                         
                         _trigger = createTrigger ["EmptyDetector", position _x];
                         _trigger setVariable [QGVAR(flag), _x];
-                        _trigger setTriggerArea [GVAR(mission_main_distance_camp), GVAR(mission_main_distance_camp), 0, false];
+                        _trigger setTriggerArea [GVAR(mission_main_distance_camp) - 1, GVAR(mission_main_distance_camp) - 1, 0, false];
                         _trigger setTriggerActivation ["WEST", "PRESENT", true];
                         _trigger setTriggerStatements [
                             "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_flag"") getVariable 'd_capturing')}",
@@ -38,7 +42,7 @@ switch (_type) do {
                         ];
                         
                         if (!isNil QMODULE(3d)) then {
-                            [nil, nil, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
+                            [nil, player, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
                         };
                         
                         [nil, nil, rSpawn, [_x], {
@@ -126,12 +130,30 @@ switch (_type) do {
         _target setVariable [QGVAR(antennas), _antennas];
     };
     
+    case "composition": {
+        {
+            for "_i" from 1 to (_x select 1) do {
+                _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.2, 10, 0, 0.3, 0] call FUNC(common,safePos);
+                
+                _objects = [_position, random 360, _x select 0] call FUNC(common,objectMapper);
+                _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
+                _units = (units _group) + (["enemy", _objects, _position] call FUNC(server,spawnCrew));
+                
+                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects];
+                
+                deleteVehicle ((nearestObjects [_position, ["Land_CamoNetB_EAST_EP1", "Land_CamoNetVar_EAST_EP1"], 20]) select 0);
+                
+                [_group, _position] call bis_fnc_taskDefend;
+            };
+        } forEach GVAR(mission_main_type_compositions);
+    };
+    
     case "optional": {
         _objective = GVAR(mission_main_type_optional) call BIS_fnc_selectRandom;
         
         _goal = _objective select 0;
         _type = _objective select 1;
-
+        
         _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.3, 0] call FUNC(common,safePos);
         
         _entity = switch (_type select 0) do {
@@ -143,7 +165,9 @@ switch (_type) do {
                 (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
             };
         };
-
+        
+        _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
+        
         if (!isNil QMODULE(task)) then {
             _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
             

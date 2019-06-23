@@ -37,7 +37,7 @@ if (!isNil QMODULE(marker)) then {
 switch (_type) do {
     case "enemy encampment": {        
         _objects = [_position, 0, "Camp1_TK_EP1"] call FUNC(common,objectMapper);
-        _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call BIS_fnc_spawnGroup;
+        _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
         _units = (units _group) + (["enemy", _objects, _position] call FUNC(server,spawnCrew));
         
         {

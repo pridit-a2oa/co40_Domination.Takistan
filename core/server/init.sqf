@@ -5,8 +5,14 @@
 #define THIS_MODULE server
 #include "x_macros.sqf"
 
+FUNC(THIS_MODULE,arrayPushStack) = {
+    {if (!isNil "_x") then {(_this select 0) set [count (_this select 0), _x]}} foreach (_this select 1);
+    (_this select 0)
+};
+
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnCrew),core\THIS_MODULE\functions\fn_spawnCrew.sqf);
+__cppfln(FUNC(THIS_MODULE,spawnGroup),core\THIS_MODULE\functions\fn_spawnGroup.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnVehicle),core\THIS_MODULE\functions\fn_spawnVehicle.sqf);
 
 createCenter west;

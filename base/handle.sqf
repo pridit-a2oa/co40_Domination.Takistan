@@ -16,6 +16,7 @@ if (isServer) then {
     for "_i" from 1 to 2 do {
         _marker = format [QGVAR(base_anti_air_%1), _i];
         _objects = [markerPos _marker, random 0, ["anti-air","us_army"]] call FUNC(common,objectMapper);
+        
         deleteVehicle ((nearestObjects [markerPos _marker, ["Land_CamoNetB_NATO_EP1"], 10]) select 0);
         
         ["base", _objects, markerPos _marker] call FUNC(server,spawnCrew);
