@@ -41,5 +41,6 @@ __cppfln(FUNC(THIS_MODULE,set),THIS_MODULE\functions\fn_set.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
+__cppfln(FUNC(THIS_MODULE,update),THIS_MODULE\functions\fn_update.sqf);
 
 MODULE(THIS_MODULE) = true;

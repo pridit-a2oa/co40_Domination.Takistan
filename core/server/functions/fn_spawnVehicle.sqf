@@ -15,6 +15,7 @@ _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
 
 (_vehicle select 0) setDir _direction;
 (_vehicle select 0) setFormDir _direction;
+(_vehicle select 0) allowCrewInImmobile true;
 
 [_vehicle select 0] spawn {
     private ["_vehicle"];

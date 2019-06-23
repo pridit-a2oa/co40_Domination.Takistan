@@ -169,11 +169,13 @@ player addEventHandler ["HandleDamage", {
 }];
 
 player addEventHandler ["respawn", {
-    private ["_unit", "_handlers"];
+    private ["_unit", "_corpse", "_respawn", "_handlers"];
     
-    PARAMS_1(_unit);
+    PARAMS_2(_unit, _corpse);
     
-    _unit setDir 240.214;
+    if (!isNil QMODULE(respawn)) then {
+        [_unit, position _corpse] call FUNC(respawn,spawn);
+    };
     
     _handlers = [
         "backpack",

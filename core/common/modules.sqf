@@ -40,6 +40,7 @@ _modules = [
     "nest",
     "option",
     "perk",
+    "respawn",
     "revive",
     "setting",
     "spectate",

@@ -10,9 +10,9 @@ PARAMS_1(_unit);
 _marker = str (_unit);
 
 if (lifeState _unit == "UNCONSCIOUS") exitWith {
-    _marker setMarkerColor "ColorRed";
-    _marker setMarkerAlpha 0.5;
+    _marker setMarkerColorLocal "ColorRed";
+    _marker setMarkerAlphaLocal 0.5;
 };
 
-_marker setMarkerColor "ColorGreen";
-_marker setMarkerAlpha 1;
+_marker setMarkerColorLocal "ColorGreen";
+_marker setMarkerAlphaLocal 1;

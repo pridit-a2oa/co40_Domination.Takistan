@@ -98,4 +98,8 @@ if (!isNil QMODULE(teleport)) then {
 
 [_target] spawn FUNC(THIS_MODULE,recycle);
 
-[GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
+0 spawn {
+    sleep 30;
+    
+    [GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
+};

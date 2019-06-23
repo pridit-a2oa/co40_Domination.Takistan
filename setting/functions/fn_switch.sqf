@@ -20,8 +20,14 @@ if (!isNil {GVAR(option) select 4}) then {
     DIALOG("X_SETTING_DIALOG", 300) ctrlShow true;
     
     {
+        _value = (GVAR(option) select 4) select _forEachIndex;
+        
+        if (typeName _value != "STRING") then {
+            _value = str _value;
+        };
+        
         DIALOG("X_SETTING_DIALOG", 300) lbAdd _x;
-        DIALOG("X_SETTING_DIALOG", 300) lbSetData [_forEachIndex, (str ((GVAR(option) select 4) select _forEachIndex))];
+        DIALOG("X_SETTING_DIALOG", 300) lbSetData [_forEachIndex, _value];
     } forEach (GVAR(option) select 3);
     
     DIALOG("X_SETTING_DIALOG", 300) lbSetCurSel ((player getVariable (format ["d_%1", GVAR(option) select 1])) select 0);

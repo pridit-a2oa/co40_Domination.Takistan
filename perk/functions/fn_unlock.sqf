@@ -42,7 +42,7 @@ switch (_tier) do {
                             BIS_MENU_Radio,
                             "Airdrop",
                             "CursorOnGround",
-                            "[player, screenToWorld [0.5, 0.5], player getVariable 'd_airdrop_type'] execVM 'airdrop\functions\fn_call.sqf'",
+                            "[player, screenToWorld [0.5, 0.5]] execVM 'airdrop\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_tactical_ca"
                         ] call FUNC(communication,add);
                     };
@@ -88,7 +88,7 @@ switch (_tier) do {
                             "Artillery Strike",
                             "CursorOnGround",
                             "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_artillery_salvoes'] execVM 'artillery\functions\fn_call.sqf'",
-                            "\ca\ui\data\cursor_support_ca"
+                            "\ca\ui\data\cursor_attack_ca"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -212,7 +212,11 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
                     
-                    player setVariable [QGVAR(airdrop_type), "M1A1_US_DES_EP1"];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M1A1", "M1A1_US_DES_EP1"]]];
+                    
+                    if (!isNil QMODULE(setting)) then {
+                        ["airdrop_type"] call FUNC(setting,update);
+                    };
                 };
             };
         };
@@ -262,7 +266,11 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
-                    player setVariable [QGVAR(airdrop_type), "M2A2_EP1"];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M2A2", "M2A2_EP1"]]];
+                    
+                    if (!isNil QMODULE(setting)) then {
+                        ["airdrop_type"] call FUNC(setting,update);
+                    };
                 };
             };
         };
@@ -327,7 +335,7 @@ switch (_tier) do {
                             "UAV",
                             "CursorOnGround",
                             "0 = [player, screenToWorld [0.5, 0.5]] execVM 'uav\functions\fn_call.sqf'",
-                            "\ca\ui\data\cursor_basic_ca"
+                            "\ca\ui\data\cursor_support_ca"
                         ] call FUNC(communication,add);
                     };
                 };
@@ -365,7 +373,11 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
-                    player setVariable [QGVAR(airdrop_type), "AH6J_EP1"];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["AH6J", "AH6J_EP1"]]];
+                    
+                    if (!isNil QMODULE(setting)) then {
+                        ["airdrop_type"] call FUNC(setting,update);
+                    };
                 };
             };
         };

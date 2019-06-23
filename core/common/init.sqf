@@ -25,6 +25,7 @@ if (isServer) then {
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
 __ccppfln(core\THIS_MODULE\scripts\KRON_Strings.sqf);
 
+__cppfln(FUNC(THIS_MODULE,arrayValues),core\THIS_MODULE\functions\fn_arrayValues.sqf);
 __cppfln(FUNC(THIS_MODULE,attachPoint),core\THIS_MODULE\functions\fn_attachPoint.sqf);
 __cppfln(FUNC(THIS_MODULE,displayTime),core\THIS_MODULE\functions\fn_displayTime.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),ca\modules\dyno\data\scripts\objectMapper.sqf);

@@ -4,6 +4,10 @@ private ["_unit", "_position", "_drop", "_name", "_checks", "_vehicle", "_aircra
 
 PARAMS_3(_unit, _position, _drop);
 
+if (isNil "_drop") then {
+    _drop = (player getVariable QGVAR(airdrop_type)) select 1;
+};
+
 if (hasInterface) then {
     _name = "Airdrop";
     _checks = [
@@ -16,7 +20,7 @@ if (hasInterface) then {
             [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
         ] call FUNC(helper,timeExceeded),
-    
+        
         [
             [_name, "called"],
             _position,
@@ -77,7 +81,7 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
         if (_aircraft distance _position < 650) exitWith {
             _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
             
-            __addDead(load);
+            __addDead(_load);
             
             if (!isNil QMODULE(vehicle_respawn) && {_load isKindOf "AllVehicles"}) then {
                 _load setVariable [QGVAR(respawnable), false, true];
