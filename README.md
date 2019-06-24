@@ -6,7 +6,6 @@
     <a href="https://github.com/pridit/co40_Domination.Takistan/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/Pridit/co40_Domination.Takistan.svg">
     </a>
-    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Pridit/co40_Domination.Takistan.svg">
     <a href="https://discord.gg/Nx5dRpK">
         <img alt="Discord" src="https://img.shields.io/badge/Discord-Join%20chat%20→-738bd7.svg">
     </a>
