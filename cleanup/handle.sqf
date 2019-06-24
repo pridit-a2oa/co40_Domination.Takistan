@@ -8,6 +8,7 @@
 if (isServer) then {
     0 spawn FUNC(THIS_MODULE,bomb);
     0 spawn FUNC(THIS_MODULE,crater);
+    0 spawn FUNC(THIS_MODULE,group);
     
     __fsm(NotAliveRemover);
 };

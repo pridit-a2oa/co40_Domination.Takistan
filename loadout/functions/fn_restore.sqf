@@ -2,6 +2,7 @@
 
 removeAllItems player;
 removeAllWeapons player;
+removeBackpack player;
 
 {
     player addMagazine _x;

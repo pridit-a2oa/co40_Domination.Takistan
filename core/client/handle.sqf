@@ -5,12 +5,24 @@
 #define THIS_MODULE client
 #include "x_macros.sqf"
 
-player disableConversation true;
-
 0 spawn {
     sleep 0.01;
+    
     1 fadeSound 1;
+    
     titleText ["", "BLACK IN", 4];
+    
+    if (isMultiplayer) then {
+        waitUntil {!isNil QMODULE(common)};
+        
+        sleep 3;
+        
+        "Domination" hintC [
+            "You are playing on a rewritten Domination codebase. This has been rebuilt from the ground up with new features and tweaks.",
+            "As this version has only been completed recently you may encounter bugs during your time playing.",
+            "Please report any issues you discover on our Discord: discord.gg/Nx5dRpK"
+        ];
+    };
 };
 
 onEachFrame {call d_fnc_client_perFrame};
@@ -209,6 +221,7 @@ player addEventHandler ["respawn", {
     };
     
     removeAllWeapons player;
+    removeBackpack player;
 }];
 
 player addEventHandler ["killed", {
@@ -217,11 +230,12 @@ player addEventHandler ["killed", {
     PARAMS_1(_unit);
     
     _unit spawn {
-        sleep 30;
+        sleep 20;
         
         hideBody _this;
     };
 }];
 
 deleteVehicle GVAR(client_init_trig);
+
 GVAR(client_init_trig) = nil;

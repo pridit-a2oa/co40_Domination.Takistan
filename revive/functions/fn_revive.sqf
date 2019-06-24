@@ -8,13 +8,7 @@ _target setVariable [QGVAR(reviving), true, true];
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
-sleep 7;
-
-if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
-    _target setVariable [QGVAR(reviving), false, true];
-};
-
-if (lifeState _target != "UNCONSCIOUS") exitWith {};
+sleep 5;
 
 [_target, "AmovPpneMstpSnonWnonDnon_healed"] call FUNC(network,switchMove);
 [_target, false] call FUNC(network,setUnconscious);

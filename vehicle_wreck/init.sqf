@@ -10,15 +10,18 @@ GVAR(vehicle_wreck_type_lifts) = [
     "UH60M_MEV_EP1"
 ];
 
+// Set amount of score to reward when rebuilding a wreck
+GVAR(vehicle_wreck_amount_score) = 10;
+
+// Set chance that enemy aircraft can produce a rebuildable wreck
+GVAR(vehicle_wreck_chance_enemy) = 30;
+
 // Set rebuild times
 GVAR(vehicle_wreck_time_rebuild) = [
     [480, "LandVehicle"],
     [600, "Helicopter"],
     [720, "Plane"]
 ];
-
-// Set chance that enemy aircraft can produce a rebuildable wreck
-GVAR(vehicle_wreck_chance_enemy) = 30;
 
 if (isServer) then {
     GVAR(service_wreck) setVariable [QGVAR(time), 0, true];

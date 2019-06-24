@@ -60,6 +60,10 @@ class CfgRadio
 };
 
 class CfgSounds {
+    class d_sound_capture {
+        sound[]     = {"\mission_main\sounds\capture.wss", 1, 1.0};
+        titles[]    = {};
+    };
     class d_sound_complete {
         sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
         titles[]    = {};

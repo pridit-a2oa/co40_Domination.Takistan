@@ -37,6 +37,8 @@ while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(
         
         _target setVariable [QGVAR(camps), (_target getVariable QGVAR(camps)) - 1];
         
+        [nil, nil, rPlaySound, QGVAR(sound_capture)] call RE;
+        
         if (!isNil "_trigger") then {
             deleteVehicle _trigger;
         };

@@ -1,8 +1,14 @@
 #define THIS_MODULE vehicle_wreck
 #include "x_macros.sqf"
-private ["_wreck", "_time", "_position", "_vehicle"];
+private ["_wreck", "_time", "_lifter", "_position", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
+
+_lifter = _wreck getVariable QGVAR(lifter);
+
+if (!isNil "_lifter" && {_lifter != objNull}) then {
+    _lifter addScore GVAR(vehicle_wreck_amount_score);
+};
 
 if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];

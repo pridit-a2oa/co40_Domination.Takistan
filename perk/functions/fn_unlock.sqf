@@ -64,6 +64,8 @@ switch (_tier) do {
             case 8: {
                 if (!isNil QMODULE(loadout)) then {
                     player setVariable [QGVAR(loadout), true];
+                    
+                    systemChat "To save a loadout use the context option on an ammobox";
                 };
             };
             

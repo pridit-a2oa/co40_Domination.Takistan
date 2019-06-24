@@ -145,6 +145,8 @@ switch (_type) do {
                     };
                     
                     if (_x isKindOf "AllVehicles") then {
+                        [nil, nil, rExecVM, __handlerRE(vehicle), _x] call RE;
+                        
                         __addDead(_x);
                     };
                 } forEach _objects;

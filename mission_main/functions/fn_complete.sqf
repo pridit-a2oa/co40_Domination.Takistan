@@ -88,13 +88,13 @@ if (!isNil QMODULE(teleport)) then {
     [nil, nil, "per", rExecVM, __submoduleRE(teleport), _flag] call RE;
 };
 
-[nil, nil, rPlaySound, "fanfare"] call RE;
-
-0 spawn {
+[nil, nil, rSpawn, [], {
+    playSound "fanfare";
+    
     sleep 3;
     
-    [nil, nil, rPlaySound, QGVAR(sound_complete)] call RE;
-};
+    playSound QGVAR(sound_complete);
+}] call RE;
 
 [_target] spawn FUNC(THIS_MODULE,recycle);
 
