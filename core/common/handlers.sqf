@@ -38,6 +38,7 @@ _handlers = [
     "squad",
     "task",
     "uav",
+    "vehicle_ammobox",
     "vehicle_bonus",
     "vehicle_load",
     "vehicle_marker",

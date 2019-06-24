@@ -143,6 +143,10 @@ switch (_type) do {
                     if (typeOf _x == "UralReammo_TK_EP1") then {
                         [_x] call FUNC(vehicle,delete);
                     };
+                    
+                    if (_x isKindOf "AllVehicles") then {
+                        __addDead(_x);
+                    };
                 } forEach _objects;
                 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects];

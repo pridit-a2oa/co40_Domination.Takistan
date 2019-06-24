@@ -59,7 +59,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
     
-    _aircraft flyInHeight 700;
+    _aircraft flyInHeight 1000;
     _aircraft limitSpeed 40;
     _aircraft lock true;
     _aircraft setVehicleAmmo 0;
@@ -94,7 +94,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     };
     
     if (!canMove _aircraft) then {
-        [_x] call FUNC(vehicle,delete);
+        [_aircraft] call FUNC(vehicle,delete);
     };
     
     X_JIPH setVariable [QGVAR(uav_progress), false, true];

@@ -10,7 +10,7 @@
 
 // Set players who have access to administrative functions
 GVAR(admin_type_players) = [
-    "5039814" // Pridit
+    "76561197992228102" // Pridit
 ];
 
 MODULE(THIS_MODULE) = true;

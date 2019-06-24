@@ -4,11 +4,13 @@ private ["_unit", "_position", "_drop", "_name", "_checks", "_vehicle", "_aircra
 
 PARAMS_3(_unit, _position, _drop);
 
-if (isNil "_drop") then {
-    _drop = (player getVariable QGVAR(airdrop_type)) select 1;
-};
-
 if (hasInterface) then {
+    if (isNil "_drop") then {
+        _drop = (player getVariable QGVAR(airdrop_type)) select 1;
+        
+        _this set [2, _drop];
+    };
+    
     _name = "Airdrop";
     _checks = [
         [

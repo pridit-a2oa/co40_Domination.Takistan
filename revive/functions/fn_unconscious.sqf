@@ -8,12 +8,12 @@ _unit setVariable [QGVAR(unconscious), true, true];
 
 moveOut _unit;
 
+[_unit, ""] call FUNC(network,switchMove);
 [_unit, true] call FUNC(network,setUnconscious);
 
 _unit spawn {
-    sleep 0.1;
+    sleep 0.2;
     
-    _this switchMove "";
     _this playActionNow "Die";
     
     titleText ["", "BLACK", 0];

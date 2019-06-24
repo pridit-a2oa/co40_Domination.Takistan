@@ -85,4 +85,6 @@ _trigger setTriggerStatements [
 
 waitUntil {[_target] call FUNC(THIS_MODULE,clear)};
 
+sleep 15;
+
 [_target] call FUNC(THIS_MODULE,complete);

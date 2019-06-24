@@ -1,5 +1,5 @@
 /**
- * 3D Module - Ammobox Submodule
+ * 3D Module - Vehicle Ammobox Submodule
  */
 
 #define THIS_MODULE 3d

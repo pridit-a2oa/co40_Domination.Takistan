@@ -193,7 +193,7 @@ player addEventHandler ["respawn", {
     } forEach _handlers;
     
     if (!isNil QMODULE(revive)) then {
-        call FUNC(revive,reset);
+        [_unit] call FUNC(revive,reset);
     };
     
     if (!isNil QMODULE(perk)) then {

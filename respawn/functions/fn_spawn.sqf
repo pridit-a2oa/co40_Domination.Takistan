@@ -19,4 +19,3 @@ if (_type != "base") exitWith {
 };
 
 _unit setDir 240.214;
-

@@ -5,7 +5,7 @@
 #define THIS_MODULE admin
 #include "x_macros.sqf"
 
-if (isMultiplayer && {GVAR(admin_type_players) find (getPlayerUIDOld player) == -1}) exitWith {};
+if (isMultiplayer && {GVAR(admin_type_players) find (getPlayerUID player) == -1}) exitWith {};
 
 BIS_MENU_Admin = [
     ["Admin", false]

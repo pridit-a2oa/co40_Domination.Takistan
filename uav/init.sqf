@@ -21,7 +21,7 @@ GVAR(uav_distance_player) = 500;
 GVAR(uav_distance_scan) = 300;
 
 // Initial spawn distance when calling
-GVAR(uav_distance_spawn) = 2500;
+GVAR(uav_distance_spawn) = 3000;
 
 // Time of observation
 GVAR(uav_time_airborne) = 200;

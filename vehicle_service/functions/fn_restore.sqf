@@ -42,7 +42,7 @@ while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR
     if (damage _vehicle >= 0.001) then {
         _vehicle vehicleChat "Repairing";
         
-        while {damage _vehicle > 0.01} do {
+        while {damage _vehicle >= 0.001} do {
             _vehicle setDamage ((damage _vehicle) - 0.01);
             
             sleep 0.1;

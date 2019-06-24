@@ -252,7 +252,6 @@ KEGs_cameraIdx = 0;
 KEGs_NewCameraIdx = 0;
 showcinemaborder false;
 lbClear _cLBTargets;
-onMapSingleClick {["MapClick", _pos] call spectate_events};
 
 if (KEGs_UseLog) then {["EventLogAdd", ["Initialize", [1, 1, 1, 1]]] call spectate_events};
 
@@ -675,7 +674,6 @@ KEGs_exitspect = true;
 sleep 0.01;
 {deleteMarkerLocal (_x select 0)} foreach KEGs_markers;
 if (KEGs_UseNVG == 1) then {setAperture -1};
-onMapSingleClick "";
 {deletevehicle (_x select 1)} foreach KEGs_Tagsources;
 deleteVehicle _dummy;
 
@@ -747,7 +745,6 @@ _bird cameraEffect ["terminate", "FRONT"];
 _bird camCommand "manual on";
 
 KEGs_Bird = _bird;
-onMapSingleClick {KEGs_Bird setpos [_pos select 0, _pos select 1, 2]; KEGs_Bird setvelocity [0, 0, 5]; if (dialog) then {closeDialog 0}};
 
 KEGs_birdkeyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", "
     _ret = false;
@@ -759,7 +756,6 @@ KEGs_birdkeyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", "
 "];
 
 waitUntil {(_bird modelToWorld [0, 0, 0]) select 2 < 0.05 && {speed _bird < 1}};
-onMapSingleClick "";
 if (dialog) then {closeDialog 0};
 (findDisplay 46) displayRemoveEventHandler ["KeyDown", KEGs_birdkeyDownEHId];
 

@@ -12,8 +12,4 @@ if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
         [_box] __submoduleVM(perk);
     };
-    
-    if (!isNil QMODULE(3d)) then {
-        __submoduleVM(3d);
-    };
 };

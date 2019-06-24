@@ -1,7 +1,10 @@
 #include "x_macros.sqf"
+private ["_unit"];
+
+PARAMS_1(_unit);
 
 {
-    player setVariable [_x, 0, true];
+    _unit setVariable [_x, 0, true];
 } forEach [
     QGVAR(head_hit),
     QGVAR(body),
@@ -10,4 +13,4 @@
     QGVAR(overall)
 ];
 
-player setVariable [QGVAR(unconscious), false, true];
+_unit setVariable [QGVAR(unconscious), false, true];
