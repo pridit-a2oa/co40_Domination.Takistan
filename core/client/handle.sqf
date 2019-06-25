@@ -196,6 +196,8 @@ player addEventHandler ["respawn", {
         [_unit, position _corpse] call FUNC(respawn,spawn);
     };
     
+    player switchCamera "EXTERNAL";
+    
     _handlers = [
         "backpack",
         "medical",
