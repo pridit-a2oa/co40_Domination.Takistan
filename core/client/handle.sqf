@@ -185,6 +185,8 @@ player addEventHandler ["respawn", {
     
     PARAMS_2(_unit, _corpse);
     
+    titleText ["", "BLACK FADED"];
+    
     if (!isNil QMODULE(respawn)) then {
         [_unit, position _corpse] call FUNC(respawn,spawn);
     };
@@ -216,12 +218,42 @@ player addEventHandler ["respawn", {
         call FUNC(backpack,action);
     };
     
-    if (!isNil QMODULE(loadout) && {player getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
-        call FUNC(loadout,restore);
+    removeAllWeapons _unit;
+    removeBackpack _unit;
+    
+    [_unit, _corpse] spawn {
+        private ["_unit", "_corpse", "_backpack"];
+        
+        PARAMS_2(_unit, _corpse);
+        
+        _backpack = unitBackpack _corpse;
+        
+        if (_backpack != objNull) then {
+            _unit action ["AddBag", _corpse, typeOf _backpack];
+            
+            sleep 2;
+            
+            _unit switchMove "";
+        };
+        
+        titleText ["", "BLACK IN", 2];
     };
     
-    removeAllWeapons player;
-    removeBackpack player;
+    if (!isNil QMODULE(loadout) && {player getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
+        call FUNC(loadout,restore);
+    
+        player selectWeapon (primaryWeapon player);
+    };
+    
+    {
+        _unit addMagazine _x;
+    } forEach magazines _corpse;
+    
+    {
+        _unit addWeapon _x;
+    } forEach weapons _corpse;
+    
+    _unit selectWeapon (primaryWeapon _unit);
 }];
 
 player addEventHandler ["killed", {

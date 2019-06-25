@@ -1,6 +1,7 @@
 #include "x_macros.sqf"
 
 0 fadeSound 0;
+
 titleText ["", "BLACK FADED"];
 
 QGVAR(base_south) setMarkerAlphaLocal 0.3;
