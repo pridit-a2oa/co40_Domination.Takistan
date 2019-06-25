@@ -16,6 +16,5 @@ sleep 5;
 [_target] call FUNC(THIS_MODULE,reset);
 
 _target setDamage (player getVariable QGVAR(revive_damage));
-_target setVariable [QGVAR(reviving), false, true];
 
 [nil, nil, rSpawn, [_target, _caller], {systemChat format ["%1 has been revived by %2", name (_this select 0), name (_this select 1)]}] call RE;

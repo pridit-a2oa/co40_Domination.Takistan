@@ -14,3 +14,4 @@ PARAMS_1(_unit);
 ];
 
 _unit setVariable [QGVAR(unconscious), false, true];
+_unit setVariable [QGVAR(reviving), false, true];
