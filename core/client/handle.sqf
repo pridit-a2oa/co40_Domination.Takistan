@@ -12,6 +12,11 @@
     
     titleText ["", "BLACK IN", 4];
     
+    if (sunOrMoon == 0) then {
+        player addWeapon "NVGoggles";
+        player action ["NVGoggles", player];
+    };
+    
     if (isMultiplayer) then {
         waitUntil {!isNil QMODULE(common)};
         
