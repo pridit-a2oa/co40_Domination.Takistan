@@ -949,7 +949,7 @@ class Mission
 		};
 		class Item5
 		{
-			position[]={8278.4902,296.04001,2111.0474};
+			position[]={8280.1318,296.04001,2109.6201};
 			azimut=149.90285;
 			id=5;
 			side="EMPTY";
@@ -3589,7 +3589,7 @@ class Mission
 		};
 		class Item5
 		{
-			position[]={8273.0723,296.04001,2108.082};
+			position[]={8274.7139,296.04001,2106.6548};
 			name="d_player_ammobox_pos";
 			type="Empty";
 			angle=151.92087;
@@ -3620,7 +3620,7 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={8269.4697,296.15048,2105.9285};
+			position[]={8271.1113,296.04001,2104.5012};
 			name="d_player_backpacks_pos";
 			type="Empty";
 			angle=151.92101;
