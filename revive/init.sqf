@@ -17,7 +17,7 @@ GVAR(revive_type_blood) = [
 ];
 
 // Set amount of damage a revived player will have
-GVAR(revive_amount_damage) = 0.5;
+GVAR(revive_amount_damage) = 0.4;
 
 if (hasInterface) then {
     player setVariable [QGVAR(head_hit), 0];
