@@ -27,10 +27,6 @@ player setVariable [QGVAR(perk_points), _points - 1];
 player setVariable [QGVAR(perk_ids), (_ids + [_id])];
 player setVariable [QGVAR(perks_unlocked), (_unlocked + [[_tier, _perk]])];
 
-if ((count _unlocked) + 1 == 39) then {
-    playSound "PowerOfTheSun";
-};
-
 closeDialog 0;
 
 call FUNC(THIS_MODULE,show);

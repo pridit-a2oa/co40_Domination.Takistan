@@ -68,14 +68,8 @@ class CfgSounds {
         sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
         titles[]    = {};
     };
-    class Impressive {
-        name        = "Impressive";
+    class d_sound_impressive {
         sound[]     = {"\perk\sounds\impressive.ogg", 1, 1.0};
-        titles[]    = {};
-    };
-    class PowerOfTheSun {
-        name        = "PowerOfTheSun";
-        sound[]     = {"\perk\sounds\powerofthesun.ogg", 1, 1.0};
         titles[]    = {};
     };
     class d_sound_task {
