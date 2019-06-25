@@ -9,3 +9,5 @@ _awarded = DIALOG("X_AWARD_DIALOG", 1001);
 _awarded ctrlSetText (str GVAR(perk_amount_points));
 
 DIALOG("X_AWARD_DIALOG", 1200) ctrlSetTextColor [0.5, 0.5, 0.5, 1];
+
+playSound QGVAR(sound_impressive);
