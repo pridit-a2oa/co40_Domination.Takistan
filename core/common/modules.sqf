@@ -2,6 +2,7 @@
  * Core Module - Common (client & server)
  */
 
+#define THIS_MODULE common
 #include "x_macros.sqf"
 private ["_modules"];
 
@@ -73,3 +74,5 @@ _modules = [
 {
     __module(_x);
 } forEach _modules;
+
+__log format ["%1 modules initialized", count _modules]];

@@ -30,6 +30,7 @@
 #define __functionRE(module,file) format ["%1\functions\fn_%2.sqf", #module, #file]
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 #define __bikb format ["%1\scripts\conversation.bikb", QUOTE(THIS_MODULE)]
+#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
 
 #define __ccppfln(file) call compile preprocessFileLineNumbers #file
 #define __cppfln(function,file) function = compile preprocessFileLineNumbers #file

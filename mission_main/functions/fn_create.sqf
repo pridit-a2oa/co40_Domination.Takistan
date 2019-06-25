@@ -83,6 +83,8 @@ _trigger setTriggerStatements [
     ""
 ];
 
+__log format ["Seeded %1", _target getVariable "name"]];
+
 waitUntil {[_target] call FUNC(THIS_MODULE,clear)};
 
 sleep 15;

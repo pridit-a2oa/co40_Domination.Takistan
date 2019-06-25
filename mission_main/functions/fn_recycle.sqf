@@ -39,3 +39,5 @@ if (!isNil QMODULE(marker)) then {
 };
 
 GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_target];
+
+__log format ["Recycled %1", _target getVariable "name"]];
