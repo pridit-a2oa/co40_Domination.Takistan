@@ -23,6 +23,8 @@ _target spawn {
     player enableSimulation true;
     
     titleText ["", "BLACK IN", 2];
+    
+    {player reveal _x} forEach ((position player) nearObjects 50);
 };
 
 closeDialog 0;
