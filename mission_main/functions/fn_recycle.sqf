@@ -23,7 +23,9 @@ waitUntil {_time < call FUNC(common,time)};
 }] call RE;
 
 if (!isNil QMODULE(task)) then {
-    [_target getVariable "name"] call FUNC(task,delete);
+    {
+        [_x select 0] call FUNC(task,delete);
+    } forEach (_target getVariable QGVAR(tasks));
 };
 
 if (!isNil QMODULE(marker)) then {
