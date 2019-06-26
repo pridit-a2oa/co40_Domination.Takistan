@@ -3,7 +3,7 @@ respawn = base;
 debriefing = 1;
 disabledAI = 1;
 loadScreen = "";
-respawnDelay = 20;
+respawnDelay = 15;
 disableChannels[] = {2};
 enableItemsDropping = 0;
 
