@@ -5,11 +5,11 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
 
-// Set antenna (formerly radio tower) type
-GVAR(mission_main_type_antenna) = "Land_Antenna";
-
 // Set camp (composition) type
 GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
+
+// Set radio tower type
+GVAR(mission_main_type_radio) = "Land_Ind_IlluminantTower";
 
 // Set possible optional task types
 GVAR(mission_main_type_optional) = [
@@ -36,8 +36,8 @@ GVAR(mission_main_type_reinforcements) = [
     ["infantry", ["Mi17_TK_EP1"]]
 ];
 
-// Set amount of antennas per target
-GVAR(mission_main_amount_antennas) = 2;
+// Set amount of radio towers per target
+GVAR(mission_main_amount_radios) = 2;
 
 // Set amount of camps per target
 GVAR(mission_main_amount_camps) = 3;
@@ -77,12 +77,12 @@ __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
+__cppfln(FUNC(THIS_MODULE,detected),THIS_MODULE\functions\fn_detected.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
 __cppfln(FUNC(THIS_MODULE,recycle),THIS_MODULE\functions\fn_recycle.sqf);
 __cppfln(FUNC(THIS_MODULE,remove),THIS_MODULE\functions\fn_remove.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
-__cppfln(FUNC(THIS_MODULE,spotted),THIS_MODULE\functions\fn_spotted.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

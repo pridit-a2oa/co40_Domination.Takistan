@@ -17,4 +17,6 @@ if (isServer) then {
     X_JIPH setVariable [QGVAR(tasks), (X_JIPH getVariable QGVAR(tasks)) + [_this], true];
 };
 
+sleep 0.1;
+
 _this

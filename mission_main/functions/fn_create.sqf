@@ -36,25 +36,28 @@ if (!isNil QMODULE(task)) then {
         ],
         "Created"
     ];
-    
-    _task call FUNC(task,create);
 
     _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
 };
 
 [nil, nil, rPlaySound, QGVAR(sound_task)] call RE;
 [nil, nil, rSpawn, [_target], {
-    private ["_target"];
+    private ["_target", "_name"];
     
     PARAMS_1(_target);
     
+    _name = _target getVariable "name";
+    
     if (!isNil QMODULE(task)) then {
-        [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
+        _task = (_target getVariable QGVAR(tasks)) select 0;
+        _task call FUNC(task,create);
+        
+        [[_name] call FUNC(task,get), "created"] call FUNC(task,hint);
     };
     
     if (!isNil QMODULE(marker)) then {
         [
-            format ["mission_main_%1", _target getVariable "name"],
+            format ["mission_main_%1", _name],
             position _target,
             "",
             "",
@@ -74,17 +77,19 @@ for "_i" from 1 to GVAR(mission_main_amount_optional) do {
 
 _trigger = createTrigger ["EmptyDetector", position _target];
 _trigger setVariable [QGVAR(target), _target];
-_trigger setTriggerArea [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone), 0, false];
-_trigger setTriggerActivation ["WEST", "PRESENT", true];
+_trigger setTriggerArea [GVAR(mission_main_radius_zone) + 200, GVAR(mission_main_radius_zone) + 200, 0, false];
+_trigger setTriggerActivation ["WEST", "EAST D", true];
 _trigger setTriggerStatements [
-    "{isPlayer _x} count thisList > 0",
-    "[thisTrigger getVariable ""d_target""] call d_fnc_mission_main_spotted; deleteVehicle thisTrigger",
+    "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_target"") getVariable 'd_detected')}",
+    "[thisTrigger getVariable ""d_target""] call d_fnc_mission_main_detected",
     ""
 ];
 
-__log format ["Seeded %1", _target getVariable "name"]];
+__log format ["Seeded %1", _name]];
 
 waitUntil {[_target] call FUNC(THIS_MODULE,clear)};
+
+deleteVehicle _trigger;
 
 sleep 15;
 

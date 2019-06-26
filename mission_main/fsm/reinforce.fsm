@@ -27,12 +27,12 @@ class FSM
       precondition = "";
       class Links
       {
-        class no_antennas
+        class no_radios
         {
           priority = 3.000000;
           to="End";
           precondition = "";
-          condition="(_this select 0) getVariable ""d_antennas"" < 1";
+          condition="(_this select 0) getVariable ""d_radios"" < 1";
           action="d_crossroad kbTell [d_crossroad2, ""mission_main"", ""Destroyed"", [""1"", {}, ""communication array"", []], [""2"", {}, (_this select 0) getVariable ""name"", []], [""3"", {}, "" They can no longer call in reinforcements."", []], true];";
         };
         class no_players
@@ -41,7 +41,7 @@ class FSM
           to="End";
           precondition = "";
           condition="count (call d_fnc_common_players) < 1";
-          action="(_this select 0) setVariable [""d_spotted"", false];";
+          action="(_this select 0) setVariable [""d_detected"", false];";
         };
         class time_____timeend
         {

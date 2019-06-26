@@ -1,6 +1,6 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_type", "_position", "_antennas", "_near", "_camps", "_camp"];
+private ["_target", "_type", "_position", "_radios", "_near", "_camps", "_camp"];
 
 PARAMS_2(_target, _type);
 
@@ -78,39 +78,39 @@ switch (_type) do {
     };
     
     case "radio": {
-        _antennas = 0;
+        _radios = 0;
         
-        while {_antennas != GVAR(mission_main_amount_antennas)} do {
+        while {_radios != GVAR(mission_main_amount_radios)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
-            _near = nearestObjects [_position, [GVAR(mission_main_type_antenna)], 100];
+            _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 100];
             
             if (count _near < 1) then {
-                _antenna = GVAR(mission_main_type_antenna) createVehicle _position;
-                _antenna setPos _position;
-                _antenna setVariable [QGVAR(target), _target];
+                _radio = GVAR(mission_main_type_radio) createVehicle _position;
+                _radio setPos _position;
+                _radio setVariable [QGVAR(target), _target];
                 
-                _antenna addEventHandler ["killed", {
+                _radio addEventHandler ["killed", {
                     private ["_unit", "_target"];
                     
                     PARAMS_1(_unit);
                     
                     _target = _unit getVariable QGVAR(target);
-                    _target setVariable [QGVAR(antennas), (_target getVariable QGVAR(antennas)) - 1];
+                    _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) - 1];
                     
                     if (!isNil QMODULE(marker)) then {
-                        [format ["antenna_%1", str (position _unit)]] call FUNC(marker,delete);
+                        [format ["radio_%1", str (position _unit)]] call FUNC(marker,delete);
                     };
                 }];
 
-                [nil, nil, rSpawn, [_antenna], {
-                    private ["_antenna"];
+                [nil, nil, rSpawn, [_radio], {
+                    private ["_radio"];
                     
-                    PARAMS_1(_antenna);
+                    PARAMS_1(_radio);
                     
                     if (!isNil QMODULE(marker)) then {
                         [
-                            format ["antenna_%1", str (position _antenna)],
-                            position _antenna,
+                            format ["radio_%1", str (position _radio)],
+                            position _radio,
                             "FOB",
                             "",
                             "ColorWhite",
@@ -121,13 +121,13 @@ switch (_type) do {
                     };
                 }] call RE;
                 
-                _antennas = _antennas + 1;
+                _radios = _radios + 1;
             };
             
             sleep 0.5;
         };
         
-        _target setVariable [QGVAR(antennas), _antennas];
+        _target setVariable [QGVAR(radios), _radios];
     };
     
     case "composition": {
