@@ -14,8 +14,10 @@
     
     player disableConversation true;
     
+    player addWeapon "Binocular";
+    player addWeapon "NVGoggles";
+    
     if (sunOrMoon == 0) then {
-        player addWeapon "NVGoggles";
         player action ["NVGoggles", player];
     };
     

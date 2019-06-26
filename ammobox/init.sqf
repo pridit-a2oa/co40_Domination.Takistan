@@ -243,8 +243,9 @@ GVAR(ammobox_type_ammo_flare) = [
 
 // Set list of equipment
 GVAR(ammobox_type_equipment) = [
-    "Laserdesignator",
+    "Binocular",
     "Binocular_Vector",
+    "Laserdesignator",
     "NVGoggles"
 ];
 
