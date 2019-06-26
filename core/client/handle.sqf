@@ -12,6 +12,8 @@
     
     titleText ["", "BLACK IN", 4];
     
+    player disableConversation true;
+    
     if (sunOrMoon == 0) then {
         player addWeapon "NVGoggles";
         player action ["NVGoggles", player];
