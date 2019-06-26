@@ -63,7 +63,7 @@ if (typeName _loaded == "ARRAY") then {
 
         [_parachute, _load, _landing, 0] call FUNC(common,mandoChute);
 
-        waitUntil {(position _load) select 2 < 3};
+        waitUntil {sleep 0.1; (position _load) select 2 < 3};
 
         _position = [(position _load) select 0, (position _load) select 1, 0];
     };

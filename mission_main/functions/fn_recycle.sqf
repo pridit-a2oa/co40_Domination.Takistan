@@ -6,7 +6,7 @@ PARAMS_1(_target);
 
 _time = GVAR(mission_main_time_recycle) + call FUNC(common,time);
 
-waitUntil {_time < call FUNC(common,time)};
+waitUntil {sleep 5; _time < call FUNC(common,time)};
 
 [_target] call FUNC(THIS_MODULE,cleanup);
 

@@ -31,6 +31,7 @@ if (getNumber (configFile >> "CfgWeapons" >> (currentWeapon player) >> "Type") =
 sleep 1;
 
 _anim = animationState player;
+
 waitUntil {animationState player != _anim};
 
 if (!isNil "_sidearm") then {

@@ -23,7 +23,7 @@ if (!isNil QMODULE(unit)) then {
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name), "pause"]], true];
 
-waitUntil {GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
+waitUntil {sleep 0.1; GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 
 if (!isNil QMODULE(task)) then {
     _task = [
@@ -87,7 +87,7 @@ _trigger setTriggerStatements [
 
 __log format ["Seeded %1", _name]];
 
-waitUntil {[_target] call FUNC(THIS_MODULE,clear)};
+waitUntil {sleep 5; [_target] call FUNC(THIS_MODULE,clear)};
 
 deleteVehicle _trigger;
 

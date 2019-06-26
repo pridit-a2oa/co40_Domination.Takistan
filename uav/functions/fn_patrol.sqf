@@ -24,7 +24,7 @@ while {alive _aircraft && {canMove _aircraft} && {time < _aircraft getVariable Q
         };
     };
 
-    waitUntil {!alive _aircraft || {!canMove _aircraft} || {time > _aircraft getVariable QGVAR(uav_airborne)} || {_aircraft distance _patrol < 800}};
+    waitUntil {sleep 1; !alive _aircraft || {!canMove _aircraft} || {time > _aircraft getVariable QGVAR(uav_airborne)} || {_aircraft distance _patrol < 800}};
     
     sleep 1;
 };
