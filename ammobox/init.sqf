@@ -22,19 +22,32 @@ GVAR(ammobox_type_rifles_assault) = [
     "AKS_74_NSPU",
     "AKS_74_pso",
     "AKS_74_U",
+    "bizon",
+    "Bizon_Silenced",
     "FN_FAL",
     "FN_FAL_ANPVS4",
+    "G36A",
     "G36A_camo",
+    "G36C",
     "G36C_camo",
     "G36_C_SD_camo",
+    "G36_C_SD_Eotech",
+    "G36K",
     "G36K_camo",
     "LeeEnfield",
     "M14_EP1",
     "M16A2",
     "M16A2GL",
+    "m16a4",
+    "M16A4_GL",
+    "m16a4_acg",
+    "M16A4_ACG_GL",
     "M4A1",
+    "M4A1_AIM",
     "M4A3_RCO_GL_EP1",
     "M4A3_CCO_EP1",
+    "MP5A5",
+    "MP5SD",
     "SCAR_L_CQC_CCO_SD",
     "SCAR_L_CQC",
     "SCAR_L_CQC_Holo",
@@ -57,6 +70,7 @@ GVAR(ammobox_type_rifles_assault) = [
 
 // Set list of sniper rifles
 GVAR(ammobox_type_rifles_sniper) = [
+    "DMR",
     "KSVK",
     "m107",
     "m107_TWS_EP1",
@@ -65,11 +79,13 @@ GVAR(ammobox_type_rifles_sniper) = [
     "M24_des_EP1",
     "SVD_des_EP1",
     "SVD",
-    "SVD_NSPU_EP1"
+    "SVD_NSPU_EP1",
+    "VSS_Vintorez"
 ];
 
 // Set list of machine guns
 GVAR(ammobox_type_machine_guns) = [
+    "MG36",
     "MG36_camo",
     "m240_scoped_EP1",
     "M249_EP1",
@@ -107,7 +123,8 @@ GVAR(ammobox_type_launchers) = [
     "MetisLauncher",
     "RPG7V",
     "RPG18",
-    "Strela"
+    "Strela",
+    "SMAW"
 ];
 
 // Set list of grenade launchers
@@ -155,6 +172,10 @@ GVAR(ammobox_type_ammo_gun) = [
     "100Rnd_762x51_M240",
     "100Rnd_762x54_PK",
     "75Rnd_545x39_RPK",
+    "64Rnd_9x19_Bizon",
+    "64Rnd_9x19_SD_Bizon",
+    "30rnd_9x19_MP5",
+    "30rnd_9x19_MP5SD",
     "30Rnd_9x19_UZI",
     "30Rnd_9x19_UZI_SD",
     "30Rnd_545x39_AK",
@@ -166,7 +187,7 @@ GVAR(ammobox_type_ammo_gun) = [
     "20Rnd_556x45_Stanag",
     "30Rnd_762x39_AK47",
     "30Rnd_762x39_SA58",
-    "30Rnd_762x39_SA58",
+    "20Rnd_9x39_SP5_VSS",
     "20Rnd_762x51_B_SCAR",
     "20Rnd_762x51_DMR",
     "20Rnd_762x51_FNFAL",
@@ -178,6 +199,7 @@ GVAR(ammobox_type_ammo_gun) = [
     "17Rnd_9x19_glock17",
     "15Rnd_9x19_M9",
     "15Rnd_9x19_M9SD",
+    "10Rnd_9x39_SP5_VSS",
     "10Rnd_127x99_m107",
     "10Rnd_762x54_SVD",
     "8Rnd_9x18_Makarov",
@@ -208,7 +230,9 @@ GVAR(ammobox_type_ammo_launcher) = [
     "OG7",
     "RPG18",
     "Strela",
-    "NLAW"
+    "NLAW",
+    "SMAW_HEAA",
+    "SMAW_HEDP"
 ];
 
 // Set list of grenade launcher ammunition

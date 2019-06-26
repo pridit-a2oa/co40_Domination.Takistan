@@ -22,7 +22,7 @@ PARAMS_1(_box);
 ];
 
 {
-    [nil, nil, "per", rAddMagazineCargo, _box, _x, 100] call RE;
+    [nil, nil, "per", rAddMagazineCargo, _box, _x, 50] call RE;
 } forEach GVAR(ammobox_type_ammo_gun);
 
 {
@@ -30,8 +30,7 @@ PARAMS_1(_box);
         [nil, nil, "per", rAddMagazineCargo, _box, _x, 50] call RE;
     } forEach _x;
 } forEach [
-    GVAR(ammobox_type_ammo_launcher),
-    GVAR(ammobox_type_ammo_launcher_grenade)
+    GVAR(ammobox_type_ammo_launcher)
 ];
 
 {
@@ -39,6 +38,7 @@ PARAMS_1(_box);
         [nil, nil, "per", rAddMagazineCargo, _box, _x, 20] call RE;
     } forEach _x;
 } forEach [
+    GVAR(ammobox_type_ammo_launcher_grenade),
     GVAR(ammobox_type_ammo_smoke),
     GVAR(ammobox_type_ammo_flare),
     GVAR(ammobox_type_misc)

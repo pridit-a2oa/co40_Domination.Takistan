@@ -22,7 +22,7 @@ clearWeaponCargo _box;
 ];
 
 {
-    _box addMagazineCargo [_x, 100];
+    _box addMagazineCargo [_x, 50];
 } forEach GVAR(ammobox_type_ammo_gun);
 
 {
@@ -30,8 +30,7 @@ clearWeaponCargo _box;
         _box addMagazineCargo [_x, 50];
     } forEach _x;
 } forEach [
-    GVAR(ammobox_type_ammo_launcher),
-    GVAR(ammobox_type_ammo_launcher_grenade)
+    GVAR(ammobox_type_ammo_launcher)
 ];
 
 {
@@ -39,6 +38,7 @@ clearWeaponCargo _box;
         _box addMagazineCargo [_x, 20];
     } forEach _x;
 } forEach [
+    GVAR(ammobox_type_ammo_launcher_grenade),
     GVAR(ammobox_type_ammo_smoke),
     GVAR(ammobox_type_ammo_flare),
     GVAR(ammobox_type_misc)
