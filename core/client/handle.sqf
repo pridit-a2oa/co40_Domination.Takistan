@@ -198,7 +198,7 @@ player addEventHandler ["respawn", {
         [_unit, position _corpse] call FUNC(respawn,spawn);
     };
     
-    player switchCamera "EXTERNAL";
+    _unit switchCamera "EXTERNAL";
     
     _handlers = [
         "backpack",
@@ -223,7 +223,7 @@ player addEventHandler ["respawn", {
         [true] call FUNC(perk,calculate);
     };
     
-    if (!isNil QMODULE(backpack) && {player getVariable QGVAR(backpack)} && {count GVAR(backpack) > 0}) then {
+    if (!isNil QMODULE(backpack) && {_unit getVariable QGVAR(backpack)} && {count GVAR(backpack) > 0}) then {
         call FUNC(backpack,action);
     };
     
@@ -248,10 +248,8 @@ player addEventHandler ["respawn", {
         titleText ["", "BLACK IN", 2];
     };
     
-    if (!isNil QMODULE(loadout) && {player getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
+    if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
         call FUNC(loadout,restore);
-    
-        player selectWeapon (primaryWeapon player);
     };
     
     {

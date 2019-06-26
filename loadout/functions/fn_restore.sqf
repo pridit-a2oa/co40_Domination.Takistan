@@ -7,3 +7,5 @@
 {
     player addWeapon _x;
 } forEach (GVAR(loadout) select 0);
+
+player selectWeapon (primaryWeapon player);
