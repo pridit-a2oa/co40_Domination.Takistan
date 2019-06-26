@@ -36,6 +36,8 @@ if (!isNil QMODULE(task)) then {
         ],
         "Created"
     ];
+    
+    _task call FUNC(task,create);
 
     _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
 };
@@ -47,9 +49,6 @@ if (!isNil QMODULE(task)) then {
     PARAMS_1(_target);
     
     if (!isNil QMODULE(task)) then {
-        _task = (_target getVariable QGVAR(tasks)) select 0;
-        _task call FUNC(task,create);
-        
         [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
     };
     
