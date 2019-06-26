@@ -77,7 +77,7 @@ for "_i" from 1 to GVAR(mission_main_amount_optional) do {
 
 _trigger = createTrigger ["EmptyDetector", position _target];
 _trigger setVariable [QGVAR(target), _target];
-_trigger setTriggerArea [GVAR(mission_main_radius_zone) + 200, GVAR(mission_main_radius_zone) + 200, 0, false];
+_trigger setTriggerArea [GVAR(mission_main_radius_zone) + 300, GVAR(mission_main_radius_zone) + 300, 0, false];
 _trigger setTriggerActivation ["WEST", "EAST D", true];
 _trigger setTriggerStatements [
     "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_target"") getVariable 'd_detected')}",
