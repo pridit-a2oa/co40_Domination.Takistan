@@ -29,7 +29,7 @@
         "Domination" hintC [
             "You are playing on a rewritten Domination codebase. This has been rebuilt from the ground up with new features and tweaks.",
             "As this version has only been completed recently you may encounter bugs during your time playing.",
-            "Please report any issues you discover on our Discord: discord.gg/Nx5dRpK"
+            "Please report any issues you discover on our Discord: discord.me/pridit"
         ];
     };
 };
