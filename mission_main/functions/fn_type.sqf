@@ -195,7 +195,7 @@ switch (_type) do {
                 _target getVariable "name"
             ];
             
-            _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task]];
+            _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
             
             _entity setVariable [QGVAR(task), _task, true];
         
