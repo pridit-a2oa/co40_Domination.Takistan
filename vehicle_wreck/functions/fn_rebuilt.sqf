@@ -18,7 +18,7 @@ _vehicle lock false;
 _vehicle allowDamage true;
 
 if (GVAR(wreck_hangars_occupied) == (count _hangars - 1)) then {
-    _full = " All hangars now full. Free up a hangar to continue rebuilding wrecks.";
+    _full = " Free up a hangar to continue rebuilding wrecks.";
 } else {
     _full = "";
 };
