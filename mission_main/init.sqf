@@ -72,6 +72,12 @@ GVAR(mission_main_time_recycle) = 5400;
 // Set amount of time between reinforcements
 GVAR(mission_main_time_reinforce) = 1200;
 
+// Set maximum amount of active armor before considering completion
+GVAR(mission_main_threshold_armor) = 1;
+
+// Set maximum amount of active infantry before considering completion
+GVAR(mission_main_threshold_infantry) = 6;
+
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
