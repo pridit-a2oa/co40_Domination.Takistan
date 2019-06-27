@@ -4,6 +4,16 @@ private ["_target"];
 
 PARAMS_1(_target);
 
+{
+    if (side _x == east) then {
+        if (_x isKindOf "AllVehicles") then {
+            {_x setDamage 1} forEach crew _x;
+        } else {
+            _x setDamage 1;
+        };
+    };
+} forEach (_target nearEntities [["Man", "StaticWeapon"], GVAR(mission_main_radius_zone)]);
+
 if (!isNil QMODULE(marker)) then {
     _name = format ["mission_main_%1", _target getVariable "name"];
     
