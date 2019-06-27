@@ -968,6 +968,7 @@ class Mission
 			vehicle="MASH_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item7
 		{
@@ -1029,6 +1030,7 @@ class Mission
 			vehicle="MASH_EP1";
 			lock="UNLOCKED";
 			skill=0.60000002;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item13
 		{
@@ -3048,6 +3050,7 @@ class Mission
 			side="EMPTY";
 			vehicle="US_WarfareBLightFactory_base_EP1";
 			skill=0.33333331;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item226
 		{
