@@ -3326,7 +3326,7 @@ class Mission
             vehicle="Info_Board_EP1";
             skill=0.60000002;
             text="help";
-            init="this setObjectTexture [0, ""ca\ui\data\marker_question_ca.paa""];";
+            init="this addEventHandler [""HandleDamage"", {false}];this setObjectTexture [0, ""ca\ui\data\marker_question_ca.paa""];";
         };
         class Item253
         {
