@@ -9,7 +9,7 @@ if (local _unit) exitWith {
 
 setCaptiveGlobal = _this;
 if (isServer) exitWith {
-    (owner _vehicle) publicVariableClient "setCaptiveGlobal";
+    (owner _unit) publicVariableClient "setCaptiveGlobal";
 };
 
 publicVariableServer "setCaptiveGlobal";

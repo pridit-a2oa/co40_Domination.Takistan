@@ -43,27 +43,27 @@ __cppfln(FUNC(THIS_MODULE,switchMove),core\THIS_MODULE\functions\fn_switchMove.s
 };
 
 "setHitGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,setHit);
+    ((_this select 1) select 0) setHit [((_this select 1) select 1), ((_this select 1) select 2)];
 };
 
 "setUnconsciousGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,setUnconscious);
+    ((_this select 1) select 0) setUnconscious ((_this select 1) select 1);
 };
 
 "setVectorDirGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,setVectorDir);
+    ((_this select 1) select 0) setVectorDir ((_this select 1) select 1);
 };
 
 "setVectorUpGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,setVectorUp);
+    ((_this select 1) select 0) setVectorUp ((_this select 1) select 1);
 };
 
 "setVelocityGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,setVelocity);
+    ((_this select 1) select 0) setVelocity ((_this select 1) select 1);
 };
 
 "switchMoveGlobal" addPublicVariableEventHandler {
-    (_this select 1) call FUNC(THIS_MODULE,switchMove);
+    ((_this select 1) select 0) switchMove ((_this select 1) select 1);
 };
 
 MODULE(THIS_MODULE) = true;
