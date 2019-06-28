@@ -201,6 +201,7 @@ player addEventHandler ["respawn", {
     };
     
     _unit switchCamera "EXTERNAL";
+    _unit setCaptive false;
     
     _handlers = [
         "backpack",

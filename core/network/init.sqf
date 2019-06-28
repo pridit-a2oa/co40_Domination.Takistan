@@ -8,6 +8,7 @@
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\fn_engineOn.sqf);
 __cppfln(FUNC(THIS_MODULE,kbTell),core\THIS_MODULE\functions\fn_kbTell.sqf);
 __cppfln(FUNC(THIS_MODULE,lock),core\THIS_MODULE\functions\fn_lock.sqf);
+__cppfln(FUNC(THIS_MODULE,setCaptive),core\THIS_MODULE\functions\fn_setCaptive.sqf);
 __cppfln(FUNC(THIS_MODULE,setDamage),core\THIS_MODULE\functions\fn_setDamage.sqf);
 __cppfln(FUNC(THIS_MODULE,setFuel),core\THIS_MODULE\functions\fn_setFuel.sqf);
 __cppfln(FUNC(THIS_MODULE,setHit),core\THIS_MODULE\functions\fn_setHit.sqf);
@@ -27,6 +28,10 @@ __cppfln(FUNC(THIS_MODULE,switchMove),core\THIS_MODULE\functions\fn_switchMove.s
 
 "lockGlobal" addPublicVariableEventHandler {
     (_this select 1) call FUNC(THIS_MODULE,lock);
+};
+
+"setCaptiveGlobal" addPublicVariableEventHandler {
+    (_this select 1) call FUNC(THIS_MODULE,setCaptive);
 };
 
 "setDamageGlobal" addPublicVariableEventHandler {

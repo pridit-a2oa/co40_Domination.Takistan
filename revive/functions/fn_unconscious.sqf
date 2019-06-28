@@ -10,6 +10,7 @@ moveOut _unit;
 
 [_unit, ""] call FUNC(network,switchMove);
 [_unit, true] call FUNC(network,setUnconscious);
+[_unit, true] call FUNC(network,setCaptive);
 
 _unit spawn {
     sleep 0.2;
