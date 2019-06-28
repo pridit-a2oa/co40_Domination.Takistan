@@ -88,6 +88,7 @@ GVAR(ammobox_type_machine_guns) = [
     "MG36",
     "MG36_camo",
     "m240_scoped_EP1",
+    "M249",
     "M249_EP1",
     "M249_m145_EP1",
     "M249_TWS_EP1",
