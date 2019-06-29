@@ -8,6 +8,9 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (_vehicle isKindOf "StaticWeapon") exitWith {};
+if (_vehicle isKindOf "Thing" && {!(_vehicle isKindOf "Wreck")}) exitWith {};
+
 if (isNil {_vehicle getVariable QGVAR(position)}) then {
     _vehicle setVariable [QGVAR(position), position _vehicle, true];
     _vehicle setVariable [QGVAR(direction), getDir _vehicle, true];
