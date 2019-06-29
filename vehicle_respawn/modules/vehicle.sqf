@@ -56,6 +56,9 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _vehicle setPos _position;
             _vehicle setFuel 1;
             
+            _vehicle setVariable [QGVAR(position), _position, true];
+            _vehicle setVariable [QGVAR(direction), _direction, true];
+            
             [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
         };
         
