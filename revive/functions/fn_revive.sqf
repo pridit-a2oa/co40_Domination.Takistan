@@ -10,8 +10,8 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 5;
 
+[_target, ""] call FUNC(network,switchMove);
 [_target, "AmovPpneMstpSnonWnonDnon_healed"] call FUNC(network,switchMove);
-
 [_target, false] call FUNC(network,setUnconscious);
 [_target, false] call FUNC(network,setCaptive);
 
