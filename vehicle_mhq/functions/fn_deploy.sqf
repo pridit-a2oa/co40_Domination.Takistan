@@ -10,13 +10,6 @@ _city = nearestLocation [_position, "nameCity"];
 _name = "Stryker MEV";
 _checks = [
     [
-        _name,
-        _position,
-        EAST,
-        GVAR(vehicle_mhq_distance_enemy)
-    ] call FUNC(helper,nearSide),
-    
-    [
         [_name, "deployed"],
         _position,
         markerPos QGVAR(base_south),
