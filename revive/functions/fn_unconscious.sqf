@@ -8,16 +8,16 @@ _unit setVariable [QGVAR(unconscious), true, true];
 
 moveOut _unit;
 
-[_unit, ""] call FUNC(network,switchMove);
-[_unit, true] call FUNC(network,setUnconscious);
-[_unit, true] call FUNC(network,setCaptive);
+_unit switchMove "";
+_unit setUnconscious true;
+_unit setCaptive true;
 
 _unit spawn {
     sleep 0.2;
     
     _this playActionNow "Die";
     
-    titleText ["", "BLACK", 0];
+    titleText ["", "BLACK", 1];
     
     sleep 1;
     
@@ -26,6 +26,20 @@ _unit spawn {
     sleep 6;
     
     titleText ["", "BLACK IN", 3];
+    
+    while {alive _this} do {
+        if (!(_this getVariable QGVAR(unconscious))) exitWith {
+            [nil, _this, rSwitchMove, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
+            [nil, _this, rPlayMoveNow, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
+            
+            _this setUnconscious false;
+            _this setCaptive false;
+            
+            [_this] call FUNC(THIS_MODULE,reset);
+        };
+        
+        sleep 1;
+    };
 };
 
 [nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;

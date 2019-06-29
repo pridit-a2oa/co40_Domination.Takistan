@@ -10,12 +10,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 5;
 
-[_target, ""] call FUNC(network,switchMove);
-[_target, "AmovPpneMstpSnonWnonDnon_healed"] call FUNC(network,switchMove);
-[_target, false] call FUNC(network,setUnconscious);
-[_target, false] call FUNC(network,setCaptive);
-
-[_target] call FUNC(THIS_MODULE,reset);
+_target setVariable [QGVAR(unconscious), false, true];
 
 _target setDamage (player getVariable QGVAR(revive_damage));
 
