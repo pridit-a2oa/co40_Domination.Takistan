@@ -15,7 +15,11 @@ _unit setCaptive true;
 _unit spawn {
     sleep 0.2;
     
-    _this playActionNow "Die";
+    if (vehicle _this != _this) then {
+        _this action ["Eject", vehicle _this];
+    };
+    
+    [nil, _this, rPlayActionNow, "Die"] call RE;
     
     titleText ["", "BLACK", 1];
     
