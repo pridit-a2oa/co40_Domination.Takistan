@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 // Set maximum distance from object to be a valid respawn point
-GVAR(respawn_distance_valid) = 1000;
+GVAR(respawn_distance_valid) = 2000;
 
 if (hasInterface) then {
     player setVariable [QGVAR(respawn_type), [0, "base"]];
