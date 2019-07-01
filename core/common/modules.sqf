@@ -67,8 +67,7 @@ _modules = [
     "vehicle_teleport",
     "vehicle_tow",
     "vehicle_welcome",
-    "vehicle_wreck",
-    "weather"
+    "vehicle_wreck"
 ];
 
 {
