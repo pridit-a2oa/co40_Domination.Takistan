@@ -3,6 +3,9 @@ private ["_unit"];
 
 PARAMS_1(_unit);
 
+_unit setUnconscious false;
+_unit setCaptive false;
+
 {
     _unit setVariable [_x, 0, true];
 } forEach [

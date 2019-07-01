@@ -36,9 +36,6 @@ _unit spawn {
             [nil, _this, rSwitchMove, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
             [nil, _this, rPlayMoveNow, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
             
-            _this setUnconscious false;
-            _this setCaptive false;
-            
             [_this] call FUNC(THIS_MODULE,reset);
         };
         

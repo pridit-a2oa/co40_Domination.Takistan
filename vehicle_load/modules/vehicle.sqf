@@ -55,7 +55,7 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {!isNil {_vehicle getVariable QGVAR(loaded)}};
+    waitUntil {sleep 2; !isNil {_vehicle getVariable QGVAR(loaded)}};
     
     while {alive _vehicle} do {
         _loaded = _vehicle getVariable QGVAR(loaded);

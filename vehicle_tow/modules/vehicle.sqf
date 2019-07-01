@@ -38,13 +38,13 @@ if (isServer) then {
 };
     
 if (hasInterface) then {
-    waitUntil {!isNil {_vehicle getVariable QGVAR(towing)}};
+    waitUntil {sleep 2; !isNil {_vehicle getVariable QGVAR(towing)}};
     
     while {alive _vehicle} do {
         _towing = _vehicle getVariable QGVAR(towing);
         _action = _vehicle getVariable QGVAR(action);
 
-        if (!isNull _towing && {!_action}) then {            
+        if (!isNull _towing && {!_action}) then {
             [
                 nil,
                 _vehicle,

@@ -62,18 +62,6 @@ if (!isNil QMODULE(ammobox)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
-if (!isNil QMODULE(ied)) then {
-    ["init_ied", {
-        {
-            {
-                [_x] call FUNC(ied,trigger);
-            } forEach (allMissionObjects _x);
-        } forEach GVAR(ied_type_objects);
-
-        ["init_ied"] call FUNC(THIS_MODULE,removePerFrame)
-    }, 0] call FUNC(THIS_MODULE,addPerFrame);
-};
-
 ["init_objects", {
     if (!isNil QMODULE(construction)) then {
         {
@@ -201,7 +189,6 @@ player addEventHandler ["respawn", {
     };
     
     _unit switchCamera "EXTERNAL";
-    _unit setCaptive false;
     
     _handlers = [
         "backpack",
