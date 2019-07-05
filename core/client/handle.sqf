@@ -227,7 +227,7 @@ player addEventHandler ["respawn", {
         
         _backpack = unitBackpack _corpse;
         
-        if (_backpack != objNull) then {
+        if (!isNull _backpack) then {
             _unit action ["AddBag", _corpse, typeOf _backpack];
             
             sleep 2;
