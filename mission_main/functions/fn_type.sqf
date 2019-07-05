@@ -170,7 +170,7 @@ switch (_type) do {
         
         _entity = switch (_type select 0) do {
             case "object": {
-                createVehicle [_type select 1, _position, [], 0, "NONE"];
+                ([_position, random 360, _type select 1, EAST] call BIS_fnc_spawnVehicle) select 0;
             };
             
             case "unit": {
