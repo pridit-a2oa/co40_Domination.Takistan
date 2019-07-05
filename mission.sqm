@@ -3550,7 +3550,7 @@ class Mission
     };
     class Markers
     {
-        items=17;
+        items=18;
         class Item0
         {
             position[]={8268.4834,296.04001,2107.3167};
@@ -3687,6 +3687,14 @@ class Mission
             name="d_intel";
             type="Empty";
             colorName="ColorKhaki";
+        };
+        class Item17
+        {
+            position[]={8273.7676,296.04001,2107.9414};
+            name="d_shield";
+            type="Empty";
+            colorName="ColorYellow";
+            angle=151.92101;
         };
     };
 };
