@@ -21,6 +21,7 @@ GVAR(unit_type_infantry) = [
 
 // Set light vehicle types
 GVAR(unit_type_vehicle_light) = [
+    "BTR40_TK_INS_EP1",
     "BTR40_MG_TK_INS_EP1",
     "LandRover_MG_TK_EP1",
     "LandRover_MG_TK_INS_EP1",

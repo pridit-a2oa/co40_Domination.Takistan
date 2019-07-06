@@ -36,28 +36,20 @@ if (!isNil QMODULE(marker)) then {
 
 switch (_type) do {
     case "enemy encampment": {        
-        _objects = [_position, 0, "Camp1_TK_EP1"] call FUNC(common,objectMapper);
+        [east, _position, 0, "Camp1_TK_EP1"] spawn FUNC(server,objectMapper);
+        
         _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
-        _units = (units _group) + (["enemy", _objects, _position] call FUNC(server,spawnCrew));
-        
-        {
-            if (_x isKindOf "Car") then {
-                [_x] call FUNC(vehicle,delete);
-            };
-            
-            [nil, _x, "per", rEnableSimulation, false];
-        } forEach _objects;
-        
-        [_group, _position] call bis_fnc_taskDefend;
         
         if (!isNil QMODULE(marker)) then {
-            GVAR(intel_trigger) setVariable ["units", _units];
+            GVAR(intel_trigger) setVariable ["units", units _group];
             GVAR(intel_trigger) setTriggerStatements [
                 "({!alive _x} count (thisTrigger getVariable ""units"")) > 2",
                 "[(thisTrigger getVariable ""marker"")] call d_fnc_marker_delete; X_JIPH setVariable ['d_intel', false, true];",
                 ""
             ];
         };
+        
+        [_group, _position] call bis_fnc_taskDefend;
     };
     
     case "abandoned light vehicle": {

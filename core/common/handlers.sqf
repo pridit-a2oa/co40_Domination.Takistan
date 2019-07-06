@@ -50,6 +50,8 @@ _handlers = [
 
 {
     if (!isNil (format [QMODULE(%1), _x])) then {
-        __handler(_x);
+        _handle = __handler(_x);
+        
+        waitUntil {scriptDone _handle};
     };
 } forEach _handlers;

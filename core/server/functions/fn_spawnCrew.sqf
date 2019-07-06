@@ -6,7 +6,7 @@ PARAMS_3(_type, _objects, _position);
 _units = [];
 
 switch (_type) do {
-    case "base": {
+    case west: {
         _group = createGroup west;
 
         {
@@ -42,7 +42,7 @@ switch (_type) do {
         [_group, _position] call bis_fnc_taskDefend;
     };
     
-    case "enemy": {
+    case east: {
         _group = createGroup east;
         
         {

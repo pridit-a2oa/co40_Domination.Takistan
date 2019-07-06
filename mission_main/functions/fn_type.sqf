@@ -13,66 +13,62 @@ switch (_type) do {
             _near = nearestObjects [_position, ["Land_tent_east"], 100];
             
             if (count _near < 1) then {
-                _camp = [_position, random 360, GVAR(mission_main_type_camp)] call FUNC(common,objectMapper);
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
-                _units = (units _group) + (["enemy", _camp, _position] call FUNC(server,spawnCrew));
-                
-                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _camp];
                 
                 [_group, _position] call bis_fnc_taskDefend;
                 
-                {
-                    _x addEventHandler ["HandleDamage", {0}];
-                    
-                    if (typeOf _x == "FlagCarrierTakistanKingdom_EP1") then {
-                        _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
-                        
-                        _x setVariable [QGVAR(time), 0, true];
-                        _x setVariable [QGVAR(capturing), false];
-                        _x setVariable [QGVAR(target), _target];
-                        
-                        _trigger = createTrigger ["EmptyDetector", position _x];
-                        _trigger setVariable [QGVAR(flag), _x];
-                        _trigger setTriggerArea [GVAR(mission_main_distance_camp) - 1, GVAR(mission_main_distance_camp) - 1, 0, false];
-                        _trigger setTriggerActivation ["WEST", "PRESENT", true];
-                        _trigger setTriggerStatements [
-                            "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_flag"") getVariable 'd_capturing')}",
-                            "[thisTrigger getVariable ""d_flag"", thisTrigger] spawn d_fnc_mission_main_capture",
-                            ""
-                        ];
-                        
-                        if (!isNil QMODULE(3d)) then {
-                            [nil, player, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
-                        };
-                        
-                        [nil, nil, rSpawn, [_x], {
-                            private ["_flag"];
-                            
-                            PARAMS_1(_flag);
-                            
-                            if (!isNil QMODULE(marker)) then {
-                                [
-                                    format ["camp_%1", str (position _flag)],
-                                    position _flag,
-                                    "Strongpoint",
-                                    "",
-                                    "ColorWhite",
-                                    1,
-                                    "ICON",
-                                    [0.5, 0.5]
-                                ] call FUNC(marker,create);
-                            };
-                        }] call RE;
-                    };
-
-                    [nil, _x, "per", rEnableSimulation, false];
-                } forEach _camp;
-
+                _objects = [[east, _target], _position, random 360, GVAR(mission_main_type_camp)] spawn FUNC(server,objectMapper);
+                
+                waitUntil {sleep 1; scriptDone _objects};
+                
                 _camps = _camps + 1;
             };
 
             sleep 0.5;
         };
+        
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+            
+            _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
+            
+            _x setVariable [QGVAR(time), 0, true];
+            _x setVariable [QGVAR(capturing), false];
+            _x setVariable [QGVAR(target), _target];
+            
+            _trigger = createTrigger ["EmptyDetector", position _x];
+            _trigger setVariable [QGVAR(flag), _x];
+            _trigger setTriggerArea [GVAR(mission_main_distance_camp) - 1, GVAR(mission_main_distance_camp) - 1, 0, false];
+            _trigger setTriggerActivation ["WEST", "PRESENT", true];
+            _trigger setTriggerStatements [
+                "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_flag"") getVariable 'd_capturing')}",
+                "[thisTrigger getVariable ""d_flag"", thisTrigger] spawn d_fnc_mission_main_capture",
+                ""
+            ];
+            
+            if (!isNil QMODULE(3d)) then {
+                [nil, player, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
+            };
+            
+            [nil, nil, rSpawn, [_x], {
+                private ["_flag"];
+                
+                PARAMS_1(_flag);
+                
+                if (!isNil QMODULE(marker)) then {
+                    [
+                        format ["camp_%1", str (position _flag)],
+                        position _flag,
+                        "Strongpoint",
+                        "",
+                        "ColorWhite",
+                        1,
+                        "ICON",
+                        [0.5, 0.5]
+                    ] call FUNC(marker,create);
+                };
+            }] call RE;
+        } forEach (nearestObjects [position _target, ["FlagCarrierTakistanKingdom_EP1"], GVAR(mission_main_radius_zone)]);
         
         _target setVariable [QGVAR(camps), _camps];
     };
@@ -85,8 +81,9 @@ switch (_type) do {
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 100];
             
             if (count _near < 1) then {
-                _radio = GVAR(mission_main_type_radio) createVehicle _position;
+                _radio = ([_position, random 360, GVAR(mission_main_type_radio), east] call BIS_fnc_spawnVehicle) select 0;
                 _radio setPos _position;
+                _radio setVariable [QGVAR(position), str _position];
                 _radio setVariable [QGVAR(target), _target];
                 
                 _radio addEventHandler ["killed", {
@@ -98,19 +95,19 @@ switch (_type) do {
                     _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) - 1];
                     
                     if (!isNil QMODULE(marker)) then {
-                        [format ["radio_%1", str (position _unit)]] call FUNC(marker,delete);
+                        [format ["radio_%1", _unit getVariable QGVAR(position)]] call FUNC(marker,delete);
                     };
                 }];
 
-                [nil, nil, rSpawn, [_radio], {
-                    private ["_radio"];
+                [nil, nil, rSpawn, [_radio, _position], {
+                    private ["_radio", "_position"];
                     
-                    PARAMS_1(_radio);
+                    PARAMS_2(_radio, _position);
                     
                     if (!isNil QMODULE(marker)) then {
                         [
-                            format ["radio_%1", str (position _radio)],
-                            position _radio,
+                            format ["radio_%1", str _position],
+                            _position,
                             "FOB",
                             "",
                             "ColorWhite",
@@ -135,25 +132,9 @@ switch (_type) do {
             for "_i" from 1 to (_x select 1) do {
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.2, 10, 0, 0.3, 0] call FUNC(common,safePos);
                 
-                _objects = [_position, random 360, _x select 0] call FUNC(common,objectMapper);
+                [[east, _target], _position, random 360, _x select 0] spawn FUNC(server,objectMapper);
+                
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
-                _units = (units _group) + (["enemy", _objects, _position] call FUNC(server,spawnCrew));
-                
-                {
-                    if (typeOf _x == "UralReammo_TK_EP1") then {
-                        [_x] call FUNC(vehicle,delete);
-                    };
-                    
-                    if (_x isKindOf "AllVehicles") then {
-                        [nil, nil, rExecVM, __handlerRE(vehicle), _x] call RE;
-                        
-                        __addDead(_x);
-                    };
-                } forEach _objects;
-                
-                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects];
-                
-                deleteVehicle ((nearestObjects [_position, ["Land_CamoNetB_EAST_EP1", "Land_CamoNetVar_EAST_EP1"], 20]) select 0);
                 
                 [_group, _position] call bis_fnc_taskDefend;
             };
@@ -170,7 +151,7 @@ switch (_type) do {
         
         _entity = switch (_type select 0) do {
             case "object": {
-                ([_position, random 360, _type select 1, EAST] call BIS_fnc_spawnVehicle) select 0;
+                ([_position, random 360, _type select 1, east] call BIS_fnc_spawnVehicle) select 0;
             };
             
             case "unit": {
