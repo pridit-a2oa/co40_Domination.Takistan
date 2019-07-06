@@ -26,6 +26,10 @@ switch (_type select 0) do {
         if (!isNil QMODULE(vehicle_wreck) && {GVAR(vehicle_wreck_chance_enemy) > random 100}) then {
             _aircraft setVariable [QGVAR(wreckable), true, true];
             
+            if (!isNil QMODULE(vehicle_marker)) then {
+                [nil, nil, rExecVM, FUNCTION(vehicle_marker,create), _aircraft] call RE;
+            };
+            
             if (!isNil QMODULE(crossroad)) then {
                 _aircraft addMPEventHandler ["MPKilled", {
                     (_this select 0) spawn {
