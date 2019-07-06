@@ -340,7 +340,7 @@ class Mission
                     special="NONE";
                     id=258;
                     side="WEST";
-                    vehicle="BAF_Soldier_EN_MTP";
+                    vehicle="BAF_crewman_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER3";
@@ -354,7 +354,7 @@ class Mission
                     special="NONE";
                     id=257;
                     side="WEST";
-                    vehicle="BAF_Soldier_EN_MTP";
+                    vehicle="BAF_crewman_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER4";
@@ -368,7 +368,7 @@ class Mission
                     special="NONE";
                     id=256;
                     side="WEST";
-                    vehicle="BAF_Soldier_EN_MTP";
+                    vehicle="BAF_crewman_MTP";
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="ENGINEER5";
