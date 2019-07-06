@@ -22,13 +22,15 @@ class Mission
         "ca_baf",
         "warfarebuildings",
         "camp_armory_misc_info_board",
-        "caair_e_ch_47f"
+        "caair_e_ch_47f",
+        "CACharacters_BAF"
     };
     addOnsAuto[]=
     {
         "caweapons",
         "caweapons_warfare_weapons",
         "cacharacters_e",
+        "CACharacters_BAF",
         "ca_modules_functions",
         "caair_e_ch_47f",
         "CAAir_E_UH60M",
@@ -278,7 +280,7 @@ class Mission
                     skill=0.33333331;
                     text="ARTY1";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="First Artillery Operator";
+                    description="Artillery Operator";
                 };
                 class Item1
                 {
@@ -292,7 +294,7 @@ class Mission
                     skill=0.46666664;
                     text="ARTY2";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Second Artillery Operator";
+                    description="Artillery Operator";
                 };
             };
         };
@@ -309,7 +311,7 @@ class Mission
                     special="NONE";
                     id=256;
                     side="WEST";
-                    vehicle="US_Delta_Force_EP1";
+                    vehicle="US_Soldier_Engineer_EP1";
                     player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
@@ -324,7 +326,7 @@ class Mission
                     special="NONE";
                     id=259;
                     side="WEST";
-                    vehicle="US_Delta_Force_EP1";
+                    vehicle="US_Soldier_Engineer_EP1";
                     player="PLAY CDG";
                     skill=0.2;
                     text="ENGINEER2";
@@ -338,12 +340,12 @@ class Mission
                     special="NONE";
                     id=258;
                     side="WEST";
-                    vehicle="US_Delta_Force_EP1";
+                    vehicle="BAF_Soldier_EN_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER3";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (BAF)";
                 };
                 class Item3
                 {
@@ -352,12 +354,12 @@ class Mission
                     special="NONE";
                     id=257;
                     side="WEST";
-                    vehicle="US_Delta_Force_EP1";
+                    vehicle="BAF_Soldier_EN_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="ENGINEER4";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (BAF)";
                 };
                 class Item4
                 {
@@ -366,12 +368,12 @@ class Mission
                     special="NONE";
                     id=256;
                     side="WEST";
-                    vehicle="US_Delta_Force_EP1";
+                    vehicle="BAF_Soldier_EN_MTP";
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="ENGINEER5";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (BAF)";
                 };
                 class Item5
                 {
@@ -385,7 +387,7 @@ class Mission
                     skill=0.2;
                     text="ENGINEER6";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (Special Forces)";
                 };
                 class Item6
                 {
@@ -399,7 +401,7 @@ class Mission
                     skill=0.33333331;
                     text="ENGINEER7";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (Special Forces)";
                 };
                 class Item7
                 {
@@ -413,7 +415,7 @@ class Mission
                     skill=0.33333331;
                     text="ENGINEER8";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Engineer";
+                    description="Engineer (Special Forces)";
                 };
             };
         };
@@ -430,7 +432,7 @@ class Mission
                     special="NONE";
                     id=262;
                     side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
+                    vehicle="US_Soldier_MG_EP1";
                     player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
@@ -445,7 +447,7 @@ class Mission
                     special="NONE";
                     id=269;
                     side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
+                    vehicle="US_Soldier_MG_EP1";
                     player="PLAY CDG";
                     skill=0.2;
                     text="MGUNNER2";
@@ -459,12 +461,12 @@ class Mission
                     special="NONE";
                     id=268;
                     side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
+                    vehicle="BAF_Soldier_MG_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER3";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (BAF)";
                 };
                 class Item3
                 {
@@ -473,12 +475,12 @@ class Mission
                     special="NONE";
                     id=267;
                     side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
+                    vehicle="BAF_Soldier_MG_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MGUNNER4";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (BAF)";
                 };
                 class Item4
                 {
@@ -487,12 +489,12 @@ class Mission
                     special="NONE";
                     id=266;
                     side="WEST";
-                    vehicle="US_Delta_Force_MG_EP1";
+                    vehicle="BAF_Soldier_MG_MTP";
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="MGUNNER5";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (BAF)";
                 };
                 class Item5
                 {
@@ -506,7 +508,7 @@ class Mission
                     skill=0.2;
                     text="MGUNNER6";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (Special Forces)";
                 };
                 class Item6
                 {
@@ -520,7 +522,7 @@ class Mission
                     skill=0.33333331;
                     text="MGUNNER7";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (Special Forces)";
                 };
                 class Item7
                 {
@@ -534,7 +536,7 @@ class Mission
                     skill=0.33333331;
                     text="MGUNNER8";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Machine Gunner";
+                    description="Machine Gunner (Special Forces)";
                 };
             };
         };
@@ -562,11 +564,11 @@ class Mission
                 class Item1
                 {
                     position[]={8250.6367,296.04001,2142.0879};
-                    azimut=149.85655;
+                    azimut=149.85699;
                     special="NONE";
                     id=277;
                     side="WEST";
-                    vehicle="US_Delta_Force_Marksman_EP1";
+                    vehicle="US_Soldier_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.2;
                     text="MARKSMAN2";
@@ -580,12 +582,12 @@ class Mission
                     special="NONE";
                     id=276;
                     side="WEST";
-                    vehicle="US_Delta_Force_Marksman_EP1";
+                    vehicle="BAF_Soldier_scout_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN3";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Marksman";
+                    description="Marksman (BAF)";
                 };
                 class Item3
                 {
@@ -594,12 +596,12 @@ class Mission
                     special="NONE";
                     id=275;
                     side="WEST";
-                    vehicle="US_Delta_Force_Marksman_EP1";
+                    vehicle="BAF_Soldier_Marksman_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN4";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Marksman";
+                    description="Marksman (BAF)";
                 };
                 class Item4
                 {
@@ -636,12 +638,12 @@ class Mission
                     special="NONE";
                     id=272;
                     side="WEST";
-                    vehicle="US_Soldier_Sniper_EP1";
+                    vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN7";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Marksman (Ghillie)";
+                    description="Marksman (Special Forces)";
                 };
                 class Item7
                 {
@@ -650,12 +652,12 @@ class Mission
                     special="NONE";
                     id=271;
                     side="WEST";
-                    vehicle="US_Soldier_Sniper_EP1";
+                    vehicle="US_Delta_Force_Marksman_EP1";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MARKSMAN8";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Marksman (Ghillie)";
+                    description="Marksman (Special Forces)";
                 };
             };
         };
@@ -701,12 +703,12 @@ class Mission
                     special="NONE";
                     id=284;
                     side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
+                    vehicle="BAF_Soldier_Medic_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC3";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (BAF)";
                 };
                 class Item3
                 {
@@ -715,12 +717,12 @@ class Mission
                     special="NONE";
                     id=283;
                     side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
+                    vehicle="BAF_Soldier_Medic_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="MEDIC4";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (BAF)";
                 };
                 class Item4
                 {
@@ -729,12 +731,12 @@ class Mission
                     special="NONE";
                     id=282;
                     side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
+                    vehicle="BAF_Soldier_Medic_MTP";
                     player="PLAY CDG";
                     skill=0.46666664;
                     text="MEDIC5";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (BAF)";
                 };
                 class Item5
                 {
@@ -748,7 +750,7 @@ class Mission
                     skill=0.2;
                     text="MEDIC6";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (Special Forces)";
                 };
                 class Item6
                 {
@@ -762,7 +764,7 @@ class Mission
                     skill=0.33333331;
                     text="MEDIC7";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (Special Forces)";
                 };
                 class Item7
                 {
@@ -776,7 +778,7 @@ class Mission
                     skill=0.33333331;
                     text="MEDIC8";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Medic";
+                    description="Medic (Special Forces)";
                 };
             };
         };
@@ -822,12 +824,12 @@ class Mission
                     special="NONE";
                     id=290;
                     side="WEST";
-                    vehicle="US_Soldier_Pilot_EP1";
+                    vehicle="BAF_Pilot_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="PILOT3";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Pilot";
+                    description="Pilot (BAF)";
                 };
                 class Item3
                 {
@@ -836,12 +838,12 @@ class Mission
                     special="NONE";
                     id=289;
                     side="WEST";
-                    vehicle="US_Soldier_Pilot_EP1";
+                    vehicle="BAF_Pilot_MTP";
                     player="PLAY CDG";
                     skill=0.33333331;
                     text="PILOT4";
                     init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-                    description="Pilot";
+                    description="Pilot (BAF)";
                 };
                 class Item4
                 {
