@@ -20,18 +20,6 @@
     if (sunOrMoon == 0) then {
         player action ["NVGoggles", player];
     };
-    
-    if (isMultiplayer) then {
-        waitUntil {!isNil QMODULE(common)};
-        
-        sleep 3;
-        
-        "Domination" hintC [
-            "You are playing on a rewritten Domination codebase. This has been rebuilt from the ground up with new features and tweaks.",
-            "As this version has only been completed recently you may encounter bugs during your time playing.",
-            "Please report any issues you discover on our Discord: discord.me/pridit"
-        ];
-    };
 };
 
 onEachFrame {call d_fnc_client_perFrame};
