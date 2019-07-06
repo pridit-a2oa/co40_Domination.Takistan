@@ -8,7 +8,7 @@ private ["_vehicle", "_towing", "_action"];
 
 PARAMS_1(_vehicle);
 
-if (isServer && {{_vehicle isKindOf _x} count GVAR(vehicle_tow_type_towable) > 0}) then {
+if (isServer && {{_vehicle isKindOf _x} count GVAR(vehicle_tow_type_towable) > 0} && {isNil {_vehicle getVariable QGVAR(towed)}}) then {
     _vehicle setVariable [QGVAR(towed), false, true];
 };
 

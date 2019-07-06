@@ -17,6 +17,10 @@ _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
 _vehicle lock false;
 _vehicle allowDamage true;
 
+if (!isNil QMODULE(vehicle_tow)) then {
+    _vehicle setVariable [QGVAR(towed), false, true];
+};
+
 if (GVAR(wreck_hangars_occupied) == (count _hangars - 1)) then {
     _full = " Free up a hangar to continue rebuilding wrecks.";
 } else {

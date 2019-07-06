@@ -29,6 +29,10 @@ _vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
 _vehicle lock true;
 _vehicle allowDamage false;
 
+if (!isNil QMODULE(vehicle_tow)) then {
+    _vehicle setVariable [QGVAR(towed), true, true];
+};
+
 if (!isNil QMODULE(3d)) then {
     [nil, nil, rSpawn, [_time], {
         private ["_time"];
