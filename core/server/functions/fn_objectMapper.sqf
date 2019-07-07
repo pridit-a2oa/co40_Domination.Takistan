@@ -96,6 +96,8 @@ _multiplyMatrixFunc = {
     _result
 };
 
+_group = createGroup _side;
+
 {
     if ((random 1) > _rdm) then {
         private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
@@ -122,7 +124,7 @@ _multiplyMatrixFunc = {
         
         _dir = (_azi + _azimuth);
         
-        _newObj = ([_newPos, _dir, _type, _side] call BIS_fnc_spawnVehicle) select 0;
+        _newObj = ([_newPos, _dir, _type, _group] call BIS_fnc_spawnVehicle) select 0;
         _newObj setDir _dir;
         _newObj setPos _newPos;
 
