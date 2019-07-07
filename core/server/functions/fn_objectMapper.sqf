@@ -128,6 +128,32 @@ _multiplyMatrixFunc = {
 
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage};
+        
+        if (_side == west && {_newObj isKindOf "LandVehicle"}) then {
+            _newObj lock true;
+            _newObj allowCrewInImmobile true;
+            
+            _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+            _newObj addEventHandler ["HandleDamage", {0}];
+            
+            {
+                _x addEventHandler ["HandleDamage", {0}];
+            } forEach crew _newObj;
+            
+            if (!(_newObj isKindOf "StaticVehicle")) then {
+                (driver _newObj) disableAI "MOVE";
+                
+                _newObj addEventHandler ["GetOut", {            
+                    private ["_vehicle", "_position", "_unit"];
+                    
+                    PARAMS_3(_vehicle, _position, _unit);
+                    
+                    if (_position == "driver") then {
+                        _unit moveInDriver _vehicle;
+                    };
+                }];
+            };
+        };
 
         if (_side == east && {_newObj isKindOf "Car"} && {!(_newObj isKindOf "Truck")} && {!(_newObj isKindOf "Wheeled_APC")}) exitWith {
             [_newObj] call FUNC(vehicle,delete);
@@ -144,8 +170,6 @@ _multiplyMatrixFunc = {
     
     sleep 0.2;
 } forEach _objs;
-
-[_side, _newObjs, _pos] call FUNC(THIS_MODULE,spawnCrew);
 
 if (!isNil "_store") then {
     _store setVariable [QGVAR(cleanup), (_store getVariable QGVAR(cleanup)) + _newObjs];

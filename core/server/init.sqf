@@ -19,7 +19,6 @@ FUNC(THIS_MODULE,arrayPushStack) = {
 
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),core\THIS_MODULE\functions\fn_objectMapper.sqf);
-__cppfln(FUNC(THIS_MODULE,spawnCrew),core\THIS_MODULE\functions\fn_spawnCrew.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnGroup),core\THIS_MODULE\functions\fn_spawnGroup.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnVehicle),core\THIS_MODULE\functions\fn_spawnVehicle.sqf);
 
