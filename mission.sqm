@@ -553,7 +553,7 @@ class Mission
                     special="NONE";
                     id=270;
                     side="WEST";
-                    vehicle="US_Delta_Force_Marksman_EP1";
+                    vehicle="US_Soldier_Marksman_EP1";
                     player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
@@ -674,7 +674,7 @@ class Mission
                     special="NONE";
                     id=278;
                     side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
+                    vehicle="US_Soldier_Medic_EP1";
                     player="PLAY CDG";
                     leader=1;
                     skill=0.59999996;
@@ -689,7 +689,7 @@ class Mission
                     special="NONE";
                     id=285;
                     side="WEST";
-                    vehicle="US_Delta_Force_Medic_EP1";
+                    vehicle="US_Soldier_Medic_EP1";
                     player="PLAY CDG";
                     skill=0.82534337;
                     text="MEDIC2";
