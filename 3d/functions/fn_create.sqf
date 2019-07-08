@@ -10,6 +10,8 @@ PARAMS_5(_object, _text, _visibility, _setting, _countdown);
 
 disableSerialization;
 
+waitUntil {sleep 1; !isNil QMODULE(3d)};
+
 if (count _visibility < 1) then {
     _visibility = [GVAR(3d_distance_fade), GVAR(3d_distance_visible)];
 };
