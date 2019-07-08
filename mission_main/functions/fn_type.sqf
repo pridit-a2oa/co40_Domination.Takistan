@@ -47,7 +47,7 @@ switch (_type) do {
             ];
             
             if (!isNil QMODULE(3d)) then {
-                [nil, player, "per", rExecVM, __submoduleRE(3d), _x, "Camp"] call RE;
+                [nil, player, "per", rExecVM, FUNCTION(3d,create), _x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true] call RE;
             };
             
             [nil, nil, rSpawn, [_x], {
@@ -85,6 +85,10 @@ switch (_type) do {
                 _radio setPos _position;
                 _radio setVariable [QGVAR(position), str _position];
                 _radio setVariable [QGVAR(target), _target];
+                
+                if (!isNil QMODULE(3d)) then {
+                    [nil, player, "per", rExecVM, FUNCTION(3d,create), _radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true] call RE;
+                };
                 
                 _radio addEventHandler ["killed", {
                     private ["_unit", "_target"];

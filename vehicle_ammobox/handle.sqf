@@ -7,6 +7,11 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(3d)) then {
-        __submoduleVM(3d);
+        [
+            GVAR(ammoload),
+            format ["%1<br /><t size='0.6'>Use the vehicle menu to load a box</t>", "Ammobox Load Point" call FUNC(common,YellowText)],
+            [],
+            true
+        ] spawn FUNC(3d,create);
     };
 };

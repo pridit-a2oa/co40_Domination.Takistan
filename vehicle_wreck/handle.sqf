@@ -36,6 +36,12 @@ if (hasInterface) then {
     _marker setMarkerTypeLocal "DOT";
     
     if (!isNil QMODULE(3d)) then {
-        [GVAR(service_wreck), _name] __submoduleVM(3d);
+        [
+            GVAR(service_wreck),
+            _name call FUNC(common,YellowText),
+            [],
+            true,
+            true
+        ] spawn FUNC(3d,create);
     };
 };

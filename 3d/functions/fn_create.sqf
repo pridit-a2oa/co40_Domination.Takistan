@@ -6,9 +6,13 @@
 #include "x_macros.sqf"
 private ["_object", "_text", "_countdown", "_dialog", "_width", "_height"];
 
-PARAMS_3(_object, _text, _countdown);
+PARAMS_5(_object, _text, _visibility, _setting, _countdown);
 
 disableSerialization;
+
+if (count _visibility < 1) then {
+    _visibility = [GVAR(3d_distance_fade), GVAR(3d_distance_visible)];
+};
 
 GVAR(3d_type_layer) cutRsc ["XD_3DText", "PLAIN"];
 GVAR(3d_type_layer) = GVAR(3d_type_layer) + 1;
@@ -24,9 +28,9 @@ _width = safezoneW;
 _height = safezoneH;
 
 while {alive _object} do {
-    if (player getVariable QGVAR(3d) select 1 == "true") then {
+    if (player getVariable QGVAR(3d) select 1 == "true" || {!_setting}) then {
         _distance = player distance (position _object);
-        _alpha = abs ((_distance / GVAR(3d_distance_visible)) - GVAR(3d_distance_fade));
+        _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
         
         if (_alpha <= 1 && {!visibleMap}) then {
             _pos2D = worldToScreen (position _object);

@@ -28,7 +28,12 @@ if (hasInterface) then {
         _marker setMarkerTypeLocal "DOT";
         
         if (!isNil QMODULE(3d)) then {
-            [_object, _name] __submoduleVM(3d);
+            [
+                _object,
+                _name call FUNC(common,YellowText),
+                [],
+                true
+            ] spawn FUNC(3d,create);
         };
     } forEach GVAR(vehicle_service_type_names);
 };
