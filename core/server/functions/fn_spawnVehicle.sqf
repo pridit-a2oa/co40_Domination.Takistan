@@ -22,7 +22,7 @@ _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
     
     PARAMS_1(_vehicle);
     
-    sleep 3;
+    sleep 10;
     
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
