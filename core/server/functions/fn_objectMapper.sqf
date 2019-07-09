@@ -100,7 +100,7 @@ _group = createGroup _side;
 
 {
     if ((random 1) > _rdm) then {
-        private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
+        private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_object", "_crew"];
         _type = _x select 0;
         _relPos = _x select 1;
         _azimuth = _x select 2;
@@ -124,28 +124,36 @@ _group = createGroup _side;
         
         _dir = (_azi + _azimuth);
         
-        _newObj = ([_newPos, _dir, _type, _group] call BIS_fnc_spawnVehicle) select 0;
-        _newObj setDir _dir;
-        _newObj setPos _newPos;
-
-        if (!isNil "_fuel") then {_newObj setFuel _fuel};
-        if (!isNil "_damage") then {_newObj setDamage _damage};
+        _vehicle = [_newPos, _dir, _type, _group] call BIS_fnc_spawnVehicle;
         
-        if (_side == west && {_newObj isKindOf "LandVehicle"}) then {
-            _newObj lock true;
-            _newObj allowCrewInImmobile true;
+        _object = _vehicle select 0;
+        _crew = _vehicle select 1;
+        
+        _object setDir _dir;
+        _object setPos _newPos;
+
+        if (!isNil "_fuel") then {_object setFuel _fuel};
+        if (!isNil "_damage") then {_object setDamage _damage};
+        
+        {
+            _x setSkill 0.3;
+        } forEach _crew;
+        
+        if (_side == west && {_object isKindOf "LandVehicle"}) then {
+            _object lock true;
+            _object allowCrewInImmobile true;
             
-            _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
-            _newObj addEventHandler ["HandleDamage", {0}];
+            _object addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+            _object addEventHandler ["HandleDamage", {0}];
             
             {
                 _x addEventHandler ["HandleDamage", {0}];
-            } forEach crew _newObj;
+            } forEach crew _object;
             
-            if (!(_newObj isKindOf "StaticVehicle")) then {
-                (driver _newObj) disableAI "MOVE";
+            if (!(_object isKindOf "StaticVehicle")) then {
+                (driver _object) disableAI "MOVE";
                 
-                _newObj addEventHandler ["GetOut", {            
+                _object addEventHandler ["GetOut", {            
                     private ["_vehicle", "_position", "_unit"];
                     
                     PARAMS_3(_vehicle, _position, _unit);
@@ -157,17 +165,17 @@ _group = createGroup _side;
             };
         };
 
-        if (_side == east && {_newObj isKindOf "Car"} && {!(_newObj isKindOf "Truck")} && {!(_newObj isKindOf "Wheeled_APC")}) exitWith {
-            [_newObj] call FUNC(vehicle,delete);
+        if (_side == east && {_object isKindOf "Car"} && {!(_object isKindOf "Truck")} && {!(_object isKindOf "Wheeled_APC")}) exitWith {
+            [_object] call FUNC(vehicle,delete);
         };
 
-        if (_side == east && {_newObj isKindOf "LandVehicle"} && {!(_newObj isKindOf "StaticWeapon")}) then {
-            [nil, nil, rExecVM, __handlerRE(vehicle), _newObj] call RE;
+        if (_side == east && {_object isKindOf "LandVehicle"} && {!(_object isKindOf "StaticWeapon")}) then {
+            [nil, nil, rExecVM, __handlerRE(vehicle), _object] call RE;
             
-            __addDead(_newObj);
+            __addDead(_object);
         };
 
-        _newObjs set [count _newObjs, _newObj];
+        _newObjs set [count _newObjs, _object];
     };
     
     sleep 0.2;
