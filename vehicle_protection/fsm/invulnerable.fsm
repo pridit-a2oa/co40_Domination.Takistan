@@ -42,7 +42,7 @@ class FSM
     {
       name = "_";
       init = "_range = ((getMarkerPos ""d_base_south"") distance _vehicle);" \n
-       "if (_range < 400 && {{side _x == east} count crew _vehicle < 1}) then {" \n
+       "if (_range < 400 && {{side _x == east || side _x == civilian} count crew _vehicle < 1}) then {" \n
        "    _vehicle allowDamage false;" \n
        "} else {" \n
        "    _vehicle allowDamage true;" \n
