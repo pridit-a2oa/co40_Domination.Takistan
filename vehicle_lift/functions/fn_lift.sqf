@@ -7,7 +7,7 @@ _attachee = _this select 3;
 
 _attacher removeAction (_this select 2);
 _attachee attachTo [_attacher, [0,0,-12]];
-_attachee setVariable [QGVAR(lifter), player, true];
+_attachee setVariable [QGVAR(lifter), name player, true];
 
 _attacher setVariable [QGVAR(release), _attacher addAction ["Release" call FUNC(common,RedText), __function(release), _attachee, 10, false, true, "", "player == driver _target"]];
 _attacher setVariable [QGVAR(attached), true];

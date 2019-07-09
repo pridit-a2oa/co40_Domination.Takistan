@@ -6,10 +6,6 @@ PARAMS_2(_wreck, _time);
 
 _lifter = _wreck getVariable QGVAR(lifter);
 
-if (!isNil "_lifter" && {_lifter != objNull}) then {
-    _lifter addScore GVAR(vehicle_wreck_amount_score);
-};
-
 if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
 };
@@ -76,4 +72,16 @@ while {call FUNC(common,time) < _time} do {
     sleep 15;
 };
 
-[_vehicle] spawn FUNC(THIS_MODULE,rebuilt);
+[_vehicle] call FUNC(THIS_MODULE,rebuilt);
+
+if (!isNil "_lifter") then {
+    {
+        if (name _x == _lifter) exitWith {
+            _x addScore GVAR(vehicle_wreck_amount_score);
+            
+            [nil, _x, "loc", rSpawn, [], {
+                systemChat format ["You have been awarded %1 score for rebuilding a wreck", GVAR(vehicle_wreck_amount_score)]
+            }] call RE;
+        };
+    } forEach (call FUNC(common,players));
+};
