@@ -3033,12 +3033,12 @@ class Mission
         };
         class Item224
         {
-            position[]={8214.7988,296.28842,2142.7212};
+            position[]={8216.748,296.33002,2140.7712};
             azimut=250;
             special="NONE";
             id=230;
             side="EMPTY";
-            vehicle="US_WarfareBLightFactory_base_EP1";
+            vehicle="US_WarfareBBarracks_Base_EP1";
             skill=0.33333331;
             init="this addEventHandler [""HandleDamage"", {false}];";
         };
