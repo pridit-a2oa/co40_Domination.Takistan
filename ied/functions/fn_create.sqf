@@ -30,6 +30,8 @@ for "_i" from 1 to (floor ((count _roads) / 25) - 1) do {
         ""
     ];
     
+    _target setVariable [QGVAR(ieds), (_target getVariable QGVAR(ieds)) + [_ied]];
+    
     waitUntil {sleep 0.1; !alive _ied};
     
     deleteVehicle _trigger;

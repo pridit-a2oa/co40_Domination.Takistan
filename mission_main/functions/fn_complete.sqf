@@ -14,6 +14,12 @@ PARAMS_1(_target);
     };
 } forEach (_target nearEntities [["Man", "StaticWeapon"], GVAR(mission_main_radius_zone)]);
 
+if (!isNil QMODULE(ied)) then {
+    {
+         deleteVehicle _x;
+    } forEach (_target getVariable QGVAR(ieds));
+};
+
 if (!isNil QMODULE(marker)) then {
     _name = format ["mission_main_%1", _target getVariable "name"];
     
