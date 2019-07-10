@@ -165,7 +165,7 @@ _group = createGroup _side;
             };
         };
 
-        if (_side == east && {_object isKindOf "Car"} && {!(_object isKindOf "Truck")} && {!(_object isKindOf "Wheeled_APC")}) exitWith {
+        if (_side == east && {_object isKindOf "Car"} && {!(_object isKindOf "Wheeled_APC")}) exitWith {
             [_object] call FUNC(vehicle,delete);
         };
 
