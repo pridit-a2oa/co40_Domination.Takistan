@@ -61,8 +61,8 @@ switch (_type) do {
                         position _flag,
                         "Strongpoint",
                         "",
-                        "ColorWhite",
-                        1,
+                        "ColorBlack",
+                        0.9,
                         "ICON",
                         [0.5, 0.5]
                     ] call FUNC(marker,create);
@@ -114,8 +114,8 @@ switch (_type) do {
                             _position,
                             "FOB",
                             "",
-                            "ColorWhite",
-                            1,
+                            "ColorBlack",
+                            0.9,
                             "ICON",
                             [0.7, 0.9]
                         ] call FUNC(marker,create);
