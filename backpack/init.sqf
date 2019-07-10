@@ -19,9 +19,11 @@ GVAR(backpack_animations) = [
 ];
 
 if (hasInterface) then {
-    GVAR(backpack) = [];
-    
     player setVariable [QGVAR(backpack), false];
+    
+    if (isNil {GVAR(backpack)}) then {
+        GVAR(backpack) = [];
+    };
 };
 
 __cppfln(FUNC(THIS_MODULE,action),THIS_MODULE\functions\fn_action.sqf);
