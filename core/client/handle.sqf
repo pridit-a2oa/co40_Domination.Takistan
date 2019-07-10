@@ -94,6 +94,7 @@ player addEventHandler ["HandleDamage", {
     
     if (!alive _unit) exitWith {0};
     if (lifeState _unit == "UNCONSCIOUS") exitWith {0};
+    if (_part == "" && {(vehicle _unit) != _unit} && {alive (vehicle _unit)}) exitWith {0};
     if ((vehicle _unit) != (vehicle _injurer) && {!local _injurer} && {side (group _injurer) == side (group _unit)}) exitWith {0};
     
     if (!isNil QMODULE(revive)) then {
