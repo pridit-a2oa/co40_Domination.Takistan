@@ -12,15 +12,14 @@ GVAR(server_objects_banned) = [
     "Land_CamoNetVar_EAST_EP1"
 ];
 
-FUNC(THIS_MODULE,arrayPushStack) = {
-    {if (!isNil "_x") then {(_this select 0) set [count (_this select 0), _x]}} foreach (_this select 1);
-    (_this select 0)
-};
-
+__cppfln(FUNC(THIS_MODULE,arrayPushStack),core\THIS_MODULE\functions\fn_arrayPushStack.sqf);
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),core\THIS_MODULE\functions\fn_objectMapper.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnGroup),core\THIS_MODULE\functions\fn_spawnGroup.sqf);
 __cppfln(FUNC(THIS_MODULE,spawnVehicle),core\THIS_MODULE\functions\fn_spawnVehicle.sqf);
+
+enableSaving [false, false];
+enableTeamSwitch false;
 
 createCenter west;
 createCenter east;
@@ -35,3 +34,5 @@ east setFriend [resistance, 0.1];
 
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
+
+MODULE(THIS_MODULE) = true;
