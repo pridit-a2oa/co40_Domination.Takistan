@@ -25,10 +25,6 @@ _vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
 _vehicle lock true;
 _vehicle allowDamage false;
 
-if (!isNil QMODULE(vehicle_tow)) then {
-    _vehicle setVariable [QGVAR(towed), true, true];
-};
-
 if (!isNil QMODULE(3d)) then {
     [nil, nil, rSpawn, [_time], {
         private ["_time"];
@@ -41,11 +37,9 @@ if (!isNil QMODULE(3d)) then {
 
 _time = _time + call FUNC(common,time);
 
-if (!isNil QMODULE(vehicle_bonus)) then {
-    [_vehicle] __submodulePP(vehicle_bonus);
-};
-
 if (faction _vehicle == "BIS_TK") then {
+    _vehicle setVariable [QGVAR(rebuilt), true, true];
+    
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };
@@ -53,6 +47,14 @@ if (faction _vehicle == "BIS_TK") then {
     if (!isNil QMODULE(vehicle_wreck)) then {
         _vehicle setVariable [QGVAR(wreckable), false, true];
     };
+};
+
+if (!isNil QMODULE(vehicle_tow)) then {
+    _vehicle setVariable [QGVAR(towed), true, true];
+};
+
+if (!isNil QMODULE(vehicle_bonus)) then {
+    [_vehicle] __submodulePP(vehicle_bonus);
 };
 
 [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
