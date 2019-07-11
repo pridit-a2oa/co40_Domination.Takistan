@@ -22,7 +22,7 @@ if (isServer) then {
     _trigger setTriggerActivation ["EAST", "PRESENT", false];
     _trigger setTriggerStatements [
         "this",
-        "{if (_x isKindOf 'CAManBase') then {_x setDamage 1}} forEach thisList",
+        "{if (!isPlayer _x && {_x isKindOf 'CAManBase'}) then {_x setDamage 1}} forEach thisList",
         ""
     ];
 };
