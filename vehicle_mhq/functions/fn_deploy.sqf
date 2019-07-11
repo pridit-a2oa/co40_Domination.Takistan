@@ -9,7 +9,7 @@ _city = nearestLocation [_position, "nameCity"];
 
 _checks = [
     [
-        [typeOf _vehicle, "deployed"],
+        [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
         _position,
         markerPos QGVAR(base_south),
         [GVAR(vehicle_mhq_distance_base), "in excess of", "from base"]
