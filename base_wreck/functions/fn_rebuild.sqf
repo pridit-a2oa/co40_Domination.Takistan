@@ -1,4 +1,4 @@
-#define THIS_MODULE vehicle_wreck
+#define THIS_MODULE base_wreck
 #include "x_macros.sqf"
 private ["_wreck", "_time", "_lifter", "_position", "_vehicle"];
 
@@ -7,7 +7,7 @@ PARAMS_2(_wreck, _time);
 _lifter = _wreck getVariable QGVAR(lifter);
 
 if (!isNil QMODULE(crossroad)) then {
-    GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
+    GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
 };
 
 [nil, nil, rSpawn, _wreck, {deleteMarkerLocal (str ((_this getVariable QGVAR(position)) select 0))}] call RE;
@@ -79,10 +79,10 @@ while {call FUNC(common,time) < _time} do {
 if (!isNil "_lifter") then {
     {
         if (name _x == _lifter) exitWith {
-            _x addScore GVAR(vehicle_wreck_amount_score);
+            _x addScore GVAR(base_wreck_amount_score);
             
             [nil, _x, "loc", rSpawn, [], {
-                systemChat format ["You have been awarded %1 score for rebuilding a wreck", GVAR(vehicle_wreck_amount_score)]
+                systemChat format ["You have been awarded %1 score for rebuilding a wreck", GVAR(base_wreck_amount_score)]
             }] call RE;
         };
     } forEach (call FUNC(common,players));

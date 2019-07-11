@@ -31,8 +31,6 @@ _object allowCrewInImmobile true;
     
     PARAMS_1(_vehicle);
     
-    sleep 10;
-    
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };

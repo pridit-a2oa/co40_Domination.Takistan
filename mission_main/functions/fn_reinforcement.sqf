@@ -23,24 +23,8 @@ _pilot setSkill 1;
 
 switch (_type select 0) do {
     case "aircraft": {
-        if (!isNil QMODULE(vehicle_wreck) && {GVAR(vehicle_wreck_chance_enemy) > random 100}) then {
-            _aircraft setVariable [QGVAR(wreckable), true, true];
-            
-            if (!isNil QMODULE(vehicle_marker)) then {
-                [nil, nil, rExecVM, FUNCTION(vehicle_marker,create), _aircraft] call RE;
-            };
-            
-            if (!isNil QMODULE(crossroad)) then {
-                _aircraft addMPEventHandler ["MPKilled", {
-                    (_this select 0) spawn {
-                        sleep 10;
-                        
-                        GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Detected", ["1", {}, [typeOf _this] call FUNC(vehicle,name), []], true];
-                    };
-                }];
-            };
-        } else {
-            __addDead(_aircraft);
+        if (!isNil QMODULE(vehicle_wreck)) then {
+            [_aircraft] __handler("vehicle_wreck");
         };
         
         (group _pilot) setSpeedMode "LIMITED";

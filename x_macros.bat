@@ -24,6 +24,8 @@ copy x_macros.sqf base_halo /Y
 copy x_macros.sqf base_shield /Y
 copy x_macros.sqf base_teleport /Y
 copy x_macros.sqf base_wreck /Y
+copy x_macros.sqf base_wreck\functions /Y
+copy x_macros.sqf base_wreck\modules /Y
 copy x_macros.sqf board /Y
 copy x_macros.sqf cleanup /Y
 copy x_macros.sqf cleanup\functions /Y
@@ -153,6 +155,5 @@ copy x_macros.sqf vehicle_tow /Y
 copy x_macros.sqf vehicle_tow\functions /Y
 copy x_macros.sqf vehicle_tow\modules /Y
 copy x_macros.sqf vehicle_wreck /Y
-copy x_macros.sqf vehicle_wreck\functions /Y
 copy x_macros.sqf vehicle_wreck\modules /Y
 copy x_macros.sqf weather /Y

@@ -1,28 +1,10 @@
 class Sentences 
 {
     class Detected {
-        text = "We have detected a salvageable %1, capture the wreck before the enemy does.";
+        text = "We have detected a salvageable %1, location has been marked.";
         speech[] = {};
         class Arguments {
             class 1 {type = "simple";};
-        };
-    };
-
-    class Rebuilding {
-        text = "Rebuilding %1, this will take approx. %2 minutes.";
-        speech[] = {};
-        class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
-        };
-    };
-    
-    class Rebuilt {
-        text = "%1 has been rebuilt.%2";
-        speech[] = {};
-        class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
         };
     };
 };

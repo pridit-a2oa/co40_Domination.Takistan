@@ -7,10 +7,9 @@ PARAMS_1(_vehicle);
 _position = position _vehicle;
 _city = nearestLocation [_position, "nameCity"];
 
-_name = "Stryker MEV";
 _checks = [
     [
-        [_name, "deployed"],
+        [typeOf _vehicle, "deployed"],
         _position,
         markerPos QGVAR(base_south),
         [GVAR(vehicle_mhq_distance_base), "in excess of", "from base"]

@@ -44,8 +44,7 @@ _handlers = [
     "vehicle_marker",
     "vehicle_repair",
     "vehicle_service",
-    "vehicle_tow",
-    "vehicle_wreck"
+    "vehicle_tow"
 ];
 
 {

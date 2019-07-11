@@ -1,4 +1,4 @@
-#define THIS_MODULE vehicle_wreck
+#define THIS_MODULE base_wreck
 #include "x_macros.sqf"
 private ["_wreck", "_time"];
 
@@ -10,7 +10,7 @@ if (isNil "_wreck") exitWith {};
 
 _time = {
     if (_wreck isKindOf _x) exitWith {
-        (GVAR(vehicle_wreck_time_rebuild) select _forEachIndex) select 0;
+        (GVAR(base_wreck_time_rebuild) select _forEachIndex) select 0;
     };
 } forEach GVAR(vehicle_wreck_types);
 

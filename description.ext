@@ -60,16 +60,8 @@ class CfgRadio
 };
 
 class CfgSounds {
-    class d_sound_capture {
-        sound[]     = {"\mission_main\sounds\capture.wss", 1, 1.0};
-        titles[]    = {};
-    };
-    class d_sound_complete {
-        sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
-        titles[]    = {};
-    };
-    class d_sound_impressive {
-        sound[]     = {"\perk\sounds\impressive.ogg", 1, 1.0};
+    class d_sound_weld {
+        sound[]     = {"\base_wreck\sounds\weld.wss", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_task {
@@ -88,6 +80,18 @@ class CfgSounds {
         sound[]     = {"\intel\sounds\tick.wss", db, 1, 30};
         titles[]    = {};
     };
+    class d_sound_impressive {
+        sound[]     = {"\perk\sounds\impressive.ogg", 1, 1.0};
+        titles[]    = {};
+    };
+    class d_sound_capture {
+        sound[]     = {"\mission_main\sounds\capture.wss", 1, 1.0};
+        titles[]    = {};
+    };
+    class d_sound_complete {
+        sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
+        titles[]    = {};
+    };
     class d_sound_box {
         sound[]     = {"\vehicle_ammobox\sounds\box.wss", db, 1, 30};
         titles[]    = {};
@@ -102,10 +106,6 @@ class CfgSounds {
     };
     class d_sound_repair {
         sound[]     = {"\vehicle_repair\sounds\repair.wss", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_weld {
-        sound[]     = {"\vehicle_wreck\sounds\weld.wss", db, 1, 30};
         titles[]    = {};
     };
 };

@@ -10,6 +10,7 @@
 
 // Set vehicle type(s) to be designated as MHQ
 GVAR(vehicle_mhq_types) = [
+    "BMP2_HQ_TK_EP1",
     "M1133_MEV_EP1"
 ];
 

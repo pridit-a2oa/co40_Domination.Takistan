@@ -7,6 +7,7 @@
 
 // Set vehicle types possible of vehicle creation
 GVAR(vehicle_create_types) = [
+    "BMP2_HQ_TK_EP1",
     "M1133_MEV_EP1"
 ];
 

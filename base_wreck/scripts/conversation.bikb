@@ -1,0 +1,32 @@
+class Sentences 
+{
+    class Rebuilding {
+        text = "Rebuilding %1, this will take approx. %2 minutes.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+    
+    class Rebuilt {
+        text = "%1 has been rebuilt.%2";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

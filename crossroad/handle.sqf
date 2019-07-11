@@ -42,6 +42,10 @@ GVAR(crossroad2) setIdentity "DHQ_EN2";
 GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
 
+if (!isNil QMODULE(base_wreck)) then {
+    __submoduleVM(base_wreck);
+};
+
 if (!isNil QMODULE(intel)) then {
     __submoduleVM(intel);
 };
