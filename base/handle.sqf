@@ -16,4 +16,13 @@ if (isServer) then {
         
         [west, markerPos _marker, random 0, ["anti-air", "us_army"]] spawn FUNC(server,objectMapper);
     };
+    
+    _trigger = createTrigger ["EmptyDetector", markerPos QGVAR(base_south)];
+    _trigger setTriggerArea [430, 200, -30.4639, true];
+    _trigger setTriggerActivation ["EAST", "PRESENT", false];
+    _trigger setTriggerStatements [
+        "this",
+        "{if (_x isKindOf 'CAManBase') then {_x setDamage 1}} forEach thisList",
+        ""
+    ];
 };
