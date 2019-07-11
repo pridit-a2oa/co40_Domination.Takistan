@@ -20,6 +20,12 @@
     if (sunOrMoon == 0) then {
         player action ["NVGoggles", player];
     };
+
+    if (GVAR(artillery) find (str player) != -1) then {
+        enableEngineArtillery true;
+    } else {
+        enableEngineArtillery false;
+    };
 };
 
 onEachFrame {call d_fnc_client_perFrame};
