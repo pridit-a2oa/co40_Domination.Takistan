@@ -7,6 +7,11 @@
 
 // Set list of objects that should not be spawned as part of compositions
 GVAR(server_objects_banned) = [
+    "Barrel1",
+    "Barrel4",
+    "Barrel5",
+    "Barrels",
+    "Land_Barrel_sand",
     "Land_CamoNetB_EAST_EP1",
     "Land_CamoNetB_NATO_EP1",
     "Land_CamoNetVar_EAST_EP1"
