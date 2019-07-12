@@ -3,7 +3,7 @@ private ["_marker"];
 
 PARAMS_1(_marker);
 
-deleteMarker _marker;
+[nil, nil, rSpawn, _marker, {deleteMarkerLocal _this}] call RE;
 
 _markers = [];
 
