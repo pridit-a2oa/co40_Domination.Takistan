@@ -5,6 +5,8 @@ PARAMS_1(_marker);
 
 [nil, nil, rSpawn, _marker, {deleteMarkerLocal _this}] call RE;
 
+deleteMarker _marker;
+
 _markers = [];
 
 {
