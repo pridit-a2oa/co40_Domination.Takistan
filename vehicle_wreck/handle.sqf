@@ -23,12 +23,12 @@ if (_chance > random 100) then {
             
             PARAMS_1(_vehicle);
             
-            if (!isNil QMODULE(vehicle_marker)) then {
-                [_vehicle] call FUNC(vehicle_marker,create);
-            };
-            
             _vehicle spawn {
                 sleep GVAR(vehicle_wreck_time_announce);
+                
+                if (!isNil QMODULE(vehicle_marker)) then {
+                    [_this] call FUNC(vehicle_marker,create);
+                };
                 
                 GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Detected", ["1", {}, [typeOf _this] call FUNC(vehicle,name), []], true];
             };
