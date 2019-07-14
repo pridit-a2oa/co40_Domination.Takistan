@@ -116,20 +116,16 @@ if (typeOf _vehicle == "AH64D_EP1") then {
     player setVariable [QGVAR(ah64d), _handler];
 };
 
-_vehicle addEventHandler ["killed", {
-    private ["_vehicle"];
-    
-    PARAMS_1(_vehicle);
-    
-    if (_vehicle isKindOf "Air") then {
-        [_vehicle] spawn {
-            private ["_vehicle"];
-            
-            PARAMS_1(_vehicle);
-            
+if (_vehicle isKindOf "Air") then {
+    _vehicle addEventHandler ["killed", {
+        private ["_vehicle"];
+        
+        PARAMS_1(_vehicle);
+
+        _vehicle spawn {
             sleep 1;
 
-            [_vehicle] call FUNC(THIS_MODULE,freeze);
+            [_this] call FUNC(THIS_MODULE,freeze);
         };
-    };
-}];
+    }];
+};

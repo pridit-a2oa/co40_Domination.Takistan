@@ -4,6 +4,7 @@ private ["_vehicle", "_helper"];
 PARAMS_1(_vehicle);
 
 if (alive _vehicle) exitWith {};
+if (_vehicle isKindOf "LandVehicle") exitWith {};
 
 while {((position _vehicle) select 2) > 1.5} do {
     sleep 1;
