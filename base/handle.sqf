@@ -19,7 +19,7 @@ if (isServer) then {
     
     _trigger = createTrigger ["EmptyDetector", markerPos QGVAR(base_south)];
     _trigger setTriggerArea [430, 200, -30.4639, true];
-    _trigger setTriggerActivation ["EAST", "PRESENT", false];
+    _trigger setTriggerActivation ["EAST", "PRESENT", true];
     _trigger setTriggerStatements [
         "this",
         "{if (!isPlayer _x && {_x isKindOf 'CAManBase'}) then {_x setDamage 1}} forEach thisList",
