@@ -47,6 +47,8 @@ if (faction _vehicle == "BIS_TK") then {
     if (!isNil QMODULE(vehicle_wreck)) then {
         _vehicle setVariable [QGVAR(wreckable), false, true];
     };
+    
+    __addDead(_vehicle);
 };
 
 if (!isNil QMODULE(vehicle_tow)) then {
