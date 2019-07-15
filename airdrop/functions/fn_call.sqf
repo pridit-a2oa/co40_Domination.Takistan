@@ -63,6 +63,14 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     GVAR(airdrop_type_smoke) createVehicle _position;
     
     _vehicle = [_position, GVAR(airdrop_type_aircraft), GVAR(airdrop_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
+    
+    if (!isNil QMODULE(headless)) then {
+        waitUntil {!isNil {missionNamespace getVariable "vehicle"}};
+        
+        _vehicle = missionNamespace getVariable "vehicle";
+        
+        missionNamespace setVariable ["vehicle", nil];
+    };
 
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;

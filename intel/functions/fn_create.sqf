@@ -10,6 +10,14 @@ X_JIPH setVariable [QGVAR(intel), true, true];
     _direction = [position _road, (markerPos QGVAR(intel))] call BIS_fnc_dirTo;
     _vehicle = [position _road, GVAR(intel_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
     
+    if (!isNil QMODULE(headless)) then {
+        waitUntil {!isNil {missionNamespace getVariable "vehicle"}};
+        
+        _vehicle = missionNamespace getVariable "vehicle";
+        
+        missionNamespace setVariable ["vehicle", nil];
+    };
+    
     _car = _vehicle select 0;
     _crew = _vehicle select 1;
     _driver = driver _car;

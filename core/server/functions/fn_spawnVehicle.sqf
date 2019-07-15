@@ -3,6 +3,12 @@ private ["_position", "_type", "_distance", "_height", "_side", "_direction", "_
 
 PARAMS_6(_position, _type, _distance, _height, _side, _direction);
 
+if (!isNil QMODULE(headless) && {isServer}) exitWith {
+    spawnVehicle = _this;
+    
+    (owner (X_JIPH getVariable QGVAR(headless))) publicVariableClient "spawnVehicle";
+};
+
 _spawn = [_position, _distance, random 360] call BIS_fnc_relPos;
 _spawn = [_spawn select 0, _spawn select 1, _height];
 
@@ -36,6 +42,12 @@ _object allowCrewInImmobile true;
     };
     
     [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+};
+
+if (!isNil QMODULE(headless)) then {
+    vehicle = _vehicle;
+    
+    publicVariableServer "vehicle";
 };
 
 _vehicle

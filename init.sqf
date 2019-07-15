@@ -1,5 +1,13 @@
 #include "x_macros.sqf"
 
+if (str player == "Headless") exitWith {
+    if (hasInterface) exitWith {
+        endMission "LOSER";
+    };
+    
+    __module("headless");
+};
+
 if (hasInterface) then {
     0 fadeSound 0;
 

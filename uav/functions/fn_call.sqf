@@ -56,6 +56,14 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     
     _vehicle = [_position, GVAR(uav_type_aircraft), GVAR(uav_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
     
+    if (!isNil QMODULE(headless)) then {
+        waitUntil {!isNil {missionNamespace getVariable "vehicle"}};
+        
+        _vehicle = missionNamespace getVariable "vehicle";
+        
+        missionNamespace setVariable ["vehicle", nil];
+    };
+    
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
     

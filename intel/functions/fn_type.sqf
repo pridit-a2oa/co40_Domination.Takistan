@@ -40,6 +40,14 @@ switch (_type) do {
         
         _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
         
+        if (!isNil QMODULE(headless)) then {
+            waitUntil {!isNil {missionNamespace getVariable "group"}};
+            
+            _group = missionNamespace getVariable "group";
+            
+            missionNamespace setVariable ["group", nil];
+        };
+        
         if (!isNil QMODULE(marker)) then {
             GVAR(intel_trigger) setVariable ["units", units _group];
             GVAR(intel_trigger) setTriggerStatements [

@@ -54,6 +54,7 @@ copy x_macros.sqf halo /Y
 copy x_macros.sqf halo\functions /Y
 copy x_macros.sqf halo\functions\bis /Y
 copy x_macros.sqf halo\modules /Y
+copy x_macros.sqf headless /Y
 copy x_macros.sqf ied /Y
 copy x_macros.sqf ied\functions /Y
 copy x_macros.sqf intel /Y

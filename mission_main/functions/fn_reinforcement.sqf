@@ -6,6 +6,14 @@ PARAMS_2(_target, _type);
 _vehicle = (_type select 1) call BIS_fnc_selectRandom;
 _vehicle = [position _target, _vehicle, GVAR(mission_main_distance_reinforcement), 200, east] call FUNC(server,spawnVehicle);
 
+if (!isNil QMODULE(headless)) then {
+    waitUntil {!isNil {missionNamespace getVariable "vehicle"}};
+    
+    _vehicle = missionNamespace getVariable "vehicle";
+    
+    missionNamespace setVariable ["vehicle", nil];
+};
+
 _aircraft = _vehicle select 0;
 _crew = _vehicle select 1;
 _pilot = driver _aircraft;
@@ -39,6 +47,14 @@ switch (_type select 0) do {
         
         if (!isNil QMODULE(unit)) then {
             _group = [[0, 0, 0], east, 4 + round (random 2)] call FUNC(server,spawnGroup);
+            
+            if (!isNil QMODULE(headless)) then {
+                waitUntil {!isNil {missionNamespace getVariable "group"}};
+                
+                _group = missionNamespace getVariable "group";
+                
+                missionNamespace setVariable ["group", nil];
+            };
             
             {
                 _x moveInCargo _aircraft;

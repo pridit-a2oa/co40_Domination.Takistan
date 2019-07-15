@@ -15,6 +15,14 @@ switch (_type) do {
             if (count _near < 1) then {
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
                 
+                if (!isNil QMODULE(headless)) then {
+                    waitUntil {!isNil {missionNamespace getVariable "group"}};
+                    
+                    _group = missionNamespace getVariable "group";
+                    
+                    missionNamespace setVariable ["group", nil];
+                };
+                
                 [_group, _position] call bis_fnc_taskDefend;
                 
                 _objects = [[east, _target], _position, random 360, GVAR(mission_main_type_camp)] spawn FUNC(server,objectMapper);
@@ -139,6 +147,14 @@ switch (_type) do {
                 [[east, _target], _position, random 360, _x select 0] spawn FUNC(server,objectMapper);
                 
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
+                
+                if (!isNil QMODULE(headless)) then {
+                    waitUntil {!isNil {missionNamespace getVariable "group"}};
+                    
+                    _group = missionNamespace getVariable "group";
+                    
+                    missionNamespace setVariable ["group", nil];
+                };
                 
                 [_group, _position] call bis_fnc_taskDefend;
             };

@@ -28,8 +28,8 @@ class Mission
     addOnsAuto[]=
     {
         "caweapons",
-        "caweapons_warfare_weapons",
         "cacharacters_e",
+        "caweapons_warfare_weapons",
         "CACharacters_BAF",
         "ca_modules_functions",
         "caair_e_ch_47f",
@@ -63,7 +63,7 @@ class Mission
     };
     class Groups
     {
-        items=16;
+        items=17;
         class Item0
         {
             side="LOGIC";
@@ -115,6 +115,27 @@ class Mission
                 items=1;
                 class Item0
                 {
+                    position[]={15230.457,475.06,75.379181};
+                    id=322;
+                    side="WEST";
+                    vehicle="US_Soldier_EP1";
+                    player="PLAY CDG";
+                    leader=1;
+                    skill=0.60000002;
+                    text="Headless";
+                    init="this allowDamage false; this setCaptive true;removeAllWeapons this;";
+                    description="Headless Client";
+                };
+            };
+        };
+        class Item3
+        {
+            side="WEST";
+            class Vehicles
+            {
+                items=1;
+                class Item0
+                {
                     position[]={8505.1787,300.56024,1978.0142};
                     azimut=71.967987;
                     special="NONE";
@@ -129,7 +150,7 @@ class Mission
                 };
             };
         };
-        class Item3
+        class Item4
         {
             side="WEST";
             class Vehicles
@@ -151,7 +172,7 @@ class Mission
                 };
             };
         };
-        class Item4
+        class Item5
         {
             side="WEST";
             class Vehicles
@@ -173,7 +194,7 @@ class Mission
                 };
             };
         };
-        class Item5
+        class Item6
         {
             side="WEST";
             class Vehicles
@@ -195,7 +216,7 @@ class Mission
                 };
             };
         };
-        class Item6
+        class Item7
         {
             side="WEST";
             class Vehicles
@@ -217,7 +238,7 @@ class Mission
                 };
             };
         };
-        class Item7
+        class Item8
         {
             side="WEST";
             class Vehicles
@@ -239,7 +260,7 @@ class Mission
                 };
             };
         };
-        class Item8
+        class Item9
         {
             side="WEST";
             class Vehicles
@@ -261,7 +282,7 @@ class Mission
                 };
             };
         };
-        class Item9
+        class Item10
         {
             side="WEST";
             class Vehicles
@@ -298,7 +319,7 @@ class Mission
                 };
             };
         };
-        class Item10
+        class Item11
         {
             side="WEST";
             class Vehicles
@@ -419,7 +440,7 @@ class Mission
                 };
             };
         };
-        class Item11
+        class Item12
         {
             side="WEST";
             class Vehicles
@@ -540,7 +561,7 @@ class Mission
                 };
             };
         };
-        class Item12
+        class Item13
         {
             side="WEST";
             class Vehicles
@@ -661,7 +682,7 @@ class Mission
                 };
             };
         };
-        class Item13
+        class Item14
         {
             side="WEST";
             class Vehicles
@@ -782,7 +803,7 @@ class Mission
                 };
             };
         };
-        class Item14
+        class Item15
         {
             side="WEST";
             class Vehicles
@@ -875,7 +896,7 @@ class Mission
                 };
             };
         };
-        class Item15
+        class Item16
         {
             side="LOGIC";
             class Vehicles

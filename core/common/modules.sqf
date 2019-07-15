@@ -29,6 +29,7 @@ _modules = [
     "farp",
     "fortification",
     "halo",
+    "headless",
     "ied",
     "intel",
     "inventory",
