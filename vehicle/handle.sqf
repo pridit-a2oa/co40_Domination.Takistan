@@ -27,6 +27,20 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submoduleVM(vehicle_service);
     };
+    
+    if (_vehicle isKindOf "Air") then {
+        _vehicle addEventHandler ["killed", {
+            private ["_vehicle"];
+            
+            PARAMS_1(_vehicle);
+
+            _vehicle spawn {
+                sleep 1;
+
+                [_this] call FUNC(THIS_MODULE,freeze);
+            };
+        }];
+    };
 };
 
 if (hasInterface) then {
@@ -73,6 +87,35 @@ if (hasInterface) then {
     if (!isNil QMODULE(vehicle_wreck)) then {
         [_vehicle] __submoduleVM(vehicle_wreck);
     };
+    
+    if (typeOf _vehicle == "AH64D_EP1") then {
+        _handler = _vehicle addEventHandler ["getin", {
+            private ["_vehicle", "_position", "_unit"];
+            
+            PARAMS_3(_vehicle, _position, _unit);
+            
+            if (_position != "driver") exitWith {};
+            
+            [_vehicle, _unit] spawn {
+                private ["_vehicle", "_unit"];
+                
+                PARAMS_2(_vehicle, _unit);
+                
+                sleep 3;
+                
+                if (vehicle _unit == _unit) exitWith {};
+                
+                "AH-64D" hintC [
+                    "This vehicle unfortunately suffers from an old Arma bug which means ammo may not be replenished when rearming.",
+                    "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
+                ];
+                
+                _vehicle removeEventHandler ["getin", _unit getVariable QGVAR(ah64d)];
+            };
+        }];
+        
+        player setVariable [QGVAR(ah64d), _handler];
+    };
 };
 
 if (!isNil QMODULE(vehicle_bonus)) then {
@@ -89,43 +132,4 @@ if (!isNil QMODULE(vehicle_mhq)) then {
 
 if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
-};
-
-if (typeOf _vehicle == "AH64D_EP1") then {
-    _handler = _vehicle addEventHandler ["getin", {
-        private ["_vehicle"];
-        
-        PARAMS_1(_vehicle);
-        
-        if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
-        
-        _vehicle spawn {
-            sleep 3;
-            
-            if (vehicle player == player) exitWith {};
-            
-            "AH-64D" hintC [
-                "This vehicle unfortunately suffers from an old Arma bug which means ammo may not be replenished when rearming.",
-                "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
-            ];
-            
-            _this removeEventHandler ["getin", player getVariable QGVAR(ah64d)];
-        };
-    }];
-    
-    player setVariable [QGVAR(ah64d), _handler];
-};
-
-if (_vehicle isKindOf "Air") then {
-    _vehicle addEventHandler ["killed", {
-        private ["_vehicle"];
-        
-        PARAMS_1(_vehicle);
-
-        _vehicle spawn {
-            sleep 1;
-
-            [_this] call FUNC(THIS_MODULE,freeze);
-        };
-    }];
 };
