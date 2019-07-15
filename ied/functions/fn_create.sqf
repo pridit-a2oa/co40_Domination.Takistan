@@ -1,10 +1,11 @@
 #define THIS_MODULE ied
 #include "x_macros.sqf"
-private ["_target", "_radius", "_roads", "_road", "_ied"];
+private ["_position", "_radius", "_ieds", "_roads", "_road", "_ied"];
 
-PARAMS_2(_target, _radius);
+PARAMS_2(_position, _radius);
 
-_roads = _target nearRoads _radius;
+_ieds = [];
+_roads = _position nearRoads _radius;
 
 for "_i" from 1 to (floor ((count _roads) / 25) - 1) do {
     _road = _roads select (25 * _i);
@@ -30,9 +31,19 @@ for "_i" from 1 to (floor ((count _roads) / 25) - 1) do {
         ""
     ];
     
-    _target setVariable [QGVAR(ieds), (_target getVariable QGVAR(ieds)) + [_ied]];
+    [_ied, _trigger] spawn {
+        private ["_ied", "_trigger"];
+        
+        PARAMS_2(_ied, _trigger);
+        
+        waitUntil {sleep 0.1; !alive _ied};
+        
+        deleteVehicle _trigger;
+    };
     
-    waitUntil {sleep 0.1; !alive _ied};
+    _ieds = _ieds + [_ied];
     
-    deleteVehicle _trigger;
+    sleep 0.5;
 };
+
+_ieds

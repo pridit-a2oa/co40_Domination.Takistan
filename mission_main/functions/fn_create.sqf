@@ -1,6 +1,6 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_name", "_marker"];
+private ["_target", "_name", "_ieds", "_trigger"];
 
 PARAMS_1(_target);
 
@@ -9,12 +9,14 @@ _name = _target getVariable "name";
 [_target] call FUNC(THIS_MODULE,reset);
 [_target] call FUNC(THIS_MODULE,remove);
 
-[_target, "camp"] call FUNC(THIS_MODULE,type);
-[_target, "radio"] call FUNC(THIS_MODULE,type);
-[_target, "composition"] call FUNC(THIS_MODULE,type);
+{
+    [_target, _x] call FUNC(THIS_MODULE,type);
+} forEach ["camp", "radio", "composition"];
 
 if (!isNil QMODULE(ied)) then {
-    [_target, 600] spawn FUNC(ied,create);
+    _ieds = [_target, 600] call FUNC(ied,create);
+    
+    _target setVariable [QGVAR(ieds), _ieds];
 };
 
 if (!isNil QMODULE(unit)) then {

@@ -92,12 +92,12 @@ if (!isNil QMODULE(teleport)) then {
         [
             format ["teleport_%1", _target getVariable "name"],
             position _flag,
-            "Flag1",
+            "Town",
             " Teleport",
             "ColorYellow",
             0.8,
             "ICON",
-            [0.5, 0.5]
+            [0.6, 0.6]
         ] call FUNC(marker,create);
     }] call RE;
     
