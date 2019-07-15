@@ -16,12 +16,6 @@ _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
 _object = _vehicle select 0;
 _crew = _vehicle select 1;
 
-if (_side == east) then {
-    {
-        _x setSkill 0.3;
-    } forEach _crew;
-};
-
 _object setDir _direction;
 _object setFormDir _direction;
 _object allowCrewInImmobile true;

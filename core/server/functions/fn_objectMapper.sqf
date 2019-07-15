@@ -135,10 +135,6 @@ _group = createGroup _side;
         if (!isNil "_fuel") then {_object setFuel _fuel};
         if (!isNil "_damage") then {_object setDamage _damage};
         
-        {
-            _x setSkill 0.3;
-        } forEach _crew;
-        
         if (_side == west && {_object isKindOf "LandVehicle"}) then {
             _object lock true;
             _object allowCrewInImmobile true;
