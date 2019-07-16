@@ -1,5 +1,5 @@
 /**
- * Vehicle Bonus Module - Vehicle Wreck Submodule
+ * Vehicle Bonus Module - Base Wreck Submodule
  */
 
 #include "x_macros.sqf"
