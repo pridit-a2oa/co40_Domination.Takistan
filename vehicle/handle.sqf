@@ -94,7 +94,7 @@ if (hasInterface) then {
             
             PARAMS_3(_vehicle, _position, _unit);
             
-            if (_position != "driver") exitWith {};
+            if (_position != "driver" || {_unit != player}) exitWith {};
             
             [_vehicle, _unit] spawn {
                 private ["_vehicle", "_unit"];
