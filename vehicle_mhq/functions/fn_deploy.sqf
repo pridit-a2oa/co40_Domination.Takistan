@@ -13,7 +13,12 @@ _checks = [
         _position,
         markerPos QGVAR(base_south),
         [GVAR(vehicle_mhq_distance_base), "in excess of", "from base"]
-    ] call FUNC(helper,distanceFrom)
+    ] call FUNC(helper,distanceFrom),
+    
+    [
+        [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
+        _vehicle
+    ] call FUNC(helper,isOccupied)
 ];
 
 {

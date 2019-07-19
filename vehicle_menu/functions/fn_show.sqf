@@ -15,9 +15,7 @@ DIALOG("X_VEHICLE_MENU_DIALOG", 1201) ctrlSetText (getText (configFile >> "cfgVe
 DIALOG("X_VEHICLE_MENU_DIALOG", 1202) ctrlSetText (getText (configFile >> "cfgVehicles" >> "USVehicleBox_EP1" >> "icon"));
 
 if (!isNil QMODULE(vehicle_mhq)) then {
-    if (_vehicle call FUNC(common,empty)) then {
-        [_vehicle] __submodulePP(vehicle_mhq);
-    };
+    [_vehicle] __submodulePP(vehicle_mhq);
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {
