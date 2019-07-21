@@ -28,6 +28,16 @@ if (isServer) then {
         [_vehicle] __submoduleVM(vehicle_service);
     };
     
+    if (!isNil QMODULE(vehicle_wreck)) then {
+        if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
+            _vehicle setVariable [QGVAR(rebuilt), false, true];
+        };
+        
+        if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
+            _vehicle setVariable [QGVAR(wreckable), false, true];
+        };
+    };
+    
     if (_vehicle isKindOf "Air") then {
         _vehicle addEventHandler ["killed", {
             private ["_vehicle"];

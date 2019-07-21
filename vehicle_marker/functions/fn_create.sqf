@@ -6,7 +6,7 @@ PARAMS_1(_vehicle);
 
 if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
 if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {count crew _vehicle > 0} && {{!isPlayer _x} count crew _vehicle > 0}) exitWith {};
-if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {faction _vehicle == "BIS_TK"} && {!(_vehicle getVariable QGVAR(rebuilt))} && {}) exitWith {};
+if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {faction _vehicle == "BIS_TK"} && {!(_vehicle getVariable QGVAR(rebuilt))}) exitWith {};
 
 _marker = createMarkerLocal [str ((_vehicle getVariable QGVAR(position)) select 0), position _vehicle];
 
