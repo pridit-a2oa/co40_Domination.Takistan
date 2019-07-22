@@ -20,6 +20,8 @@ if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
     
+    _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
+    
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
             _vehicle setVariable [QGVAR(rebuilt), false, true];

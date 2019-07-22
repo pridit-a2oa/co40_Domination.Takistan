@@ -8,7 +8,7 @@ if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
 if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {count crew _vehicle > 0} && {{!isPlayer _x} count crew _vehicle > 0}) exitWith {};
 if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {faction _vehicle == "BIS_TK"} && {!(_vehicle getVariable QGVAR(rebuilt))}) exitWith {};
 
-_marker = createMarkerLocal [str ((_vehicle getVariable QGVAR(position)) select 0), position _vehicle];
+_marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 
 if (alive _vehicle) then {
     _marker setMarkerColorLocal "ColorBlue";
@@ -32,7 +32,7 @@ if (alive _vehicle) then {
             [_vehicle] __submoduleVM(vehicle_wreck);
         };
 
-        deleteMarkerLocal (str (((_this select 0) getVariable QGVAR(position)) select 0));
+        deleteMarkerLocal (_vehicle getVariable QGVAR(id));
     }];
 } else {
     if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {        

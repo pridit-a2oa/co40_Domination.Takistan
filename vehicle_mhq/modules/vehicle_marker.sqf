@@ -9,7 +9,7 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};
 
-_marker = str ((_vehicle getVariable QGVAR(position)) select 0);
+_marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerColorLocal "ColorYellow";
 _marker setMarkerTypeLocal "o_uav";
 

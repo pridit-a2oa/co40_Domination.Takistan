@@ -34,6 +34,8 @@ switch (_type) do {
             
             _x setVariable [QGVAR(time), 0, true];
             _x setVariable [QGVAR(capturing), false];
+            
+            _x setVariable [QGVAR(id), [_x] call FUNC(server,objectId), true];
             _x setVariable [QGVAR(target), _target];
             
             _trigger = createTrigger ["EmptyDetector", position _x];
@@ -57,7 +59,7 @@ switch (_type) do {
                 
                 if (!isNil QMODULE(marker)) then {
                     [
-                        format ["camp_%1", str (position _flag)],
+                        format ["camp_%1", _flag getVariable QGVAR(id)],
                         position _flag,
                         "Strongpoint",
                         "",
@@ -68,6 +70,8 @@ switch (_type) do {
                     ] call FUNC(marker,create);
                 };
             }] call RE;
+            
+            sleep 0.5;
         } forEach (nearestObjects [position _target, ["FlagCarrierTakistanKingdom_EP1"], GVAR(mission_main_radius_zone)]);
         
         _target setVariable [QGVAR(camps), _camps];
@@ -83,7 +87,8 @@ switch (_type) do {
             if (count _near < 1) then {
                 _radio = ([_position, random 360, GVAR(mission_main_type_radio), east] call BIS_fnc_spawnVehicle) select 0;
                 _radio setPos _position;
-                _radio setVariable [QGVAR(position), str _position];
+                
+                _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
                 _radio setVariable [QGVAR(target), _target];
                 
                 if (!isNil QMODULE(3d)) then {
@@ -99,7 +104,7 @@ switch (_type) do {
                     _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) - 1];
                     
                     if (!isNil QMODULE(marker)) then {
-                        [format ["radio_%1", _unit getVariable QGVAR(position)]] call FUNC(marker,delete);
+                        [format ["radio_%1", _unit getVariable QGVAR(id)]] call FUNC(marker,delete);
                     };
                 }];
 
@@ -110,7 +115,7 @@ switch (_type) do {
                     
                     if (!isNil QMODULE(marker)) then {
                         [
-                            format ["radio_%1", str _position],
+                            format ["radio_%1", _radio getVariable QGVAR(id)],
                             _position,
                             "FOB",
                             "",

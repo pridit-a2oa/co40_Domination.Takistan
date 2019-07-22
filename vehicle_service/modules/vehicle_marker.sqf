@@ -9,5 +9,5 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_service_type_vehicles) find (typeOf _vehicle) == -1) exitWith {};
 
-_marker = str ((_vehicle getVariable QGVAR(position)) select 0);
+_marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerTypeLocal "o_maint";

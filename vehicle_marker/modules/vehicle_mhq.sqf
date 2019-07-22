@@ -7,7 +7,7 @@ private ["_vehicle", "_state", "_marker"];
 
 PARAMS_2(_vehicle, _state);
 
-_marker = str ((_vehicle getVariable QGVAR(position)) select 0);
+_marker = _vehicle getVariable QGVAR(id);
 _text = markerText _marker;
 
 switch (_state) do {

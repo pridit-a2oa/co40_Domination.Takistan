@@ -10,7 +10,7 @@ PARAMS_1(_vehicle);
 if (alive _vehicle) exitWith {};
 if (!(_vehicle getVariable QGVAR(wreckable))) exitWith {};
 
-_marker = str ((_vehicle getVariable QGVAR(position)) select 0);
+_marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerPosLocal (position _vehicle);
 _marker setMarkerTextLocal (format ["%1 Wreck", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
 _marker setMarkerTypeLocal "DOT";

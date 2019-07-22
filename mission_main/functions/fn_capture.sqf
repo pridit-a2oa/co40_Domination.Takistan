@@ -27,7 +27,7 @@ while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(
         };
         
         if (!isNil QMODULE(marker)) then {
-            _name = format ["camp_%1", str (position _flag)];
+            _name = format ["camp_%1", _flag getVariable QGVAR(id)];
 
             [_name] call FUNC(marker,delete);
         };

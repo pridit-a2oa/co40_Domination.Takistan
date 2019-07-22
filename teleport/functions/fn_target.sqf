@@ -18,7 +18,7 @@ if (!isNil QMODULE(vehicle_mhq)) then {
     _data = DIALOG("X_TELEPORT_DIALOG", 1500) lbData _selected;
     
     {
-        if (str(_x getVariable QGVAR(position)) == _data) then {
+        if (_x getVariable QGVAR(id) == _data) then {
             _target = _x;
             
             _deployed = _x getVariable QGVAR(deployed);

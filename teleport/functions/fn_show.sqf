@@ -20,15 +20,15 @@ if (player distance GVAR(flag) > 10) then {
 if (!isNil QMODULE(vehicle_mhq)) then {
     {
         if (alive _x && {_vehicle != _x}) then {
-            _name = [typeOf (_x)] call FUNC(vehicle,name);
-            _position = _x getVariable QGVAR(position);
+            _id = _x getVariable QGVAR(id);
+            _name = [typeOf _x] call FUNC(vehicle,name);
             
             if (!isNil QMODULE(vehicle_marker)) then {
-                _name = markerText (str((_position) select 0));
+                _name = markerText _id;
             };
             
             _index = _list lbAdd _name;
-            _list lbSetData [_index, str(_position)];
+            _list lbSetData [_index, _id];
         };
     } forEach (call FUNC(vehicle_teleport,valid));
 };

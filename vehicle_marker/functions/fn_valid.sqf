@@ -3,9 +3,9 @@ private ["_vehicle", "_name", "_position"];
 
 PARAMS_1(_vehicle);
 
-_name = (str ((_vehicle getVariable QGVAR(position)) select 0));
-_position = markerPos _name;
+_id = _vehicle getVariable QGVAR(id);
+_position = markerPos _id;
 
 if (isNil "_position") exitWith {};
 
-_name
+_id
