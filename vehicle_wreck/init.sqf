@@ -17,7 +17,7 @@ GVAR(vehicle_wreck_type_lifts) = [
 GVAR(vehicle_wreck_chance_air) = 30;
 
 // Set chance that enemy armor can produce a wreck
-GVAR(vehicle_wreck_chance_land) = 5;
+GVAR(vehicle_wreck_chance_land) = 10;
 
 // Set amount of time since destruction to announce wreck availability
 GVAR(vehicle_wreck_time_announce) = 10;
