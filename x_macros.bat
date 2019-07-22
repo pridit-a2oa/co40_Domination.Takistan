@@ -20,6 +20,7 @@ copy x_macros.sqf base /Y
 copy x_macros.sqf base_ammobox /Y
 copy x_macros.sqf base_backpack /Y
 copy x_macros.sqf base_backpack\functions /Y
+copy x_macros.sqf base_bonus /Y
 copy x_macros.sqf base_halo /Y
 copy x_macros.sqf base_shield /Y
 copy x_macros.sqf base_teleport /Y

@@ -55,10 +55,6 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), true, true];
 };
 
-if (!isNil QMODULE(vehicle_bonus)) then {
-    [_vehicle] __submodulePP(vehicle_bonus);
-};
-
 [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
 
 while {call FUNC(common,time) < _time} do {

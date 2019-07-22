@@ -8,9 +8,17 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_bonus = _vehicle getVariable QGVAR(bonus);
+if (GVAR(vehicle_bonus_types) find (typeOf _vehicle) == -1) exitWith {};
 
-if (isNil "_bonus") exitWith {};
+if (isServer) then {
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        _vehicle setVariable [QGVAR(respawnable), false, true];
+    };
+    
+    if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
+        _vehicle setVariable [QGVAR(wreckable), true, true];
+    };
+};
 
 if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {

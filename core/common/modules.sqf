@@ -17,6 +17,7 @@ _modules = [
     "base",
     "base_ammobox",
     "base_backpack",
+    "base_bonus",
     "base_halo",
     "base_shield",
     "base_teleport",

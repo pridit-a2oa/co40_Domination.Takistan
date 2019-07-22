@@ -18,9 +18,6 @@ GVAR(vehicle_bonus_types) = [
     "Su25_TK_EP1"
 ];
 
-// Set maximum amount of bonus vehicles
-GVAR(vehicle_bonus_amount_max) = 3;
-
 if (hasInterface) then {
     player setVariable [QGVAR(pilot), false];
 };

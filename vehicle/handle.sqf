@@ -19,14 +19,6 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
-
-    if (!isNil QMODULE(vehicle_respawn)) then {
-        [_vehicle] __submoduleVM(vehicle_respawn);
-    };
-    
-    if (!isNil QMODULE(vehicle_service)) then {
-        [_vehicle] __submoduleVM(vehicle_service);
-    };
     
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
@@ -36,6 +28,14 @@ if (isServer) then {
         if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
             _vehicle setVariable [QGVAR(wreckable), false, true];
         };
+    };
+
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        [_vehicle] __submoduleVM(vehicle_respawn);
+    };
+    
+    if (!isNil QMODULE(vehicle_service)) then {
+        [_vehicle] __submoduleVM(vehicle_service);
     };
     
     if (_vehicle isKindOf "Air") then {
