@@ -83,7 +83,7 @@ _trigger setTriggerArea [GVAR(mission_main_radius_zone) + 300, GVAR(mission_main
 _trigger setTriggerActivation ["WEST", "EAST D", true];
 _trigger setTriggerStatements [
     "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_target"") getVariable 'd_detected')}",
-    "[thisTrigger getVariable ""d_target""] call d_fnc_mission_main_detected",
+    "[thisTrigger getVariable ""d_target"", thisTrigger] call d_fnc_mission_main_detected",
     ""
 ];
 
