@@ -70,6 +70,12 @@ if (!isNil QMODULE(ammobox)) then {
         } forEach GVAR(construction_type_objects);
     };
     
+    if (!isNil QMODULE(mission_main)) then {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects "Land_tent_east");
+    };
+    
     if (!isNil QMODULE(vehicle_mhq)) then {
         {
             _x addEventHandler ["HandleDamage", {0}];

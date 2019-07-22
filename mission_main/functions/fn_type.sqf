@@ -74,6 +74,10 @@ switch (_type) do {
             sleep 0.5;
         } forEach (nearestObjects [position _target, ["FlagCarrierTakistanKingdom_EP1"], GVAR(mission_main_radius_zone)]);
         
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
+        
         _target setVariable [QGVAR(camps), _camps];
     };
     
