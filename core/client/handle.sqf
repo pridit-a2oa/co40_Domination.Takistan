@@ -104,9 +104,10 @@ player addEventHandler ["HandleDamage", {
     if ((vehicle _unit) != (vehicle _injurer) && {!local _injurer} && {side (group _injurer) == side (group _unit)}) exitWith {0};
     
     if (!isNil QMODULE(revive)) then {
+        _limbs = 1;
         _incurred = 0;
         _new_damage = 0;
-        _limbs = 1;
+        _damage = _damage * 0.85;
         
         _config = configFile >> "cfgVehicles" >> (typeOf _unit);
         
