@@ -10,6 +10,7 @@ ctrlMapAnimClear _map;
 
 _target = call FUNC(THIS_MODULE,target);
 
-_map ctrlMapAnimAdd [0.5, 0.03, (_target select 2)];
+_map ctrlMapAnimAdd [1, 0.07, (_target select 2)];
+_map ctrlMapAnimAdd [0.6, 0.04, (_target select 2)];
 
 ctrlMapAnimCommit _map;
