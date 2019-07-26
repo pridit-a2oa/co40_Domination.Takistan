@@ -76,7 +76,9 @@ switch (_type) do {
         
         {
             _x addEventHandler ["HandleDamage", {0}];
-        } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
+            
+            [nil, _x, "per", rEnableSimulation, false] call RE;
+        } forEach (nearestObjects [position _target, ["Thing"], GVAR(mission_main_radius_zone)]);
         
         _target setVariable [QGVAR(camps), _camps];
     };
