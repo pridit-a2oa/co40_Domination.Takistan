@@ -39,21 +39,18 @@ while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR
 
     _vehicle setVehicleAmmo 1;
 
-    if (damage _vehicle >= 0.001) then {
-        _vehicle vehicleChat "Repairing";
-        
-        while {damage _vehicle >= 0.001} do {
-            _vehicle setDamage ((damage _vehicle) - 0.01);
-            
-            sleep 0.1;
-        };
-    };
+    _vehicle vehicleChat "Repairing";
+    
+    sleep 2;
+    
+    _vehicle setDamage 0;
     
     _vehicle vehicleChat "Refuelling";
     
     sleep 2;
     
     _vehicle setFuel 1;
+    
     _vehicle setVariable [QGVAR(servicing), false, true];
     
     reload _vehicle;
