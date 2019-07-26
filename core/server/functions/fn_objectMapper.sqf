@@ -18,8 +18,8 @@
 
 #define THIS_MODULE server
 #include "x_macros.sqf"
-
 private ["_side", "_pos", "_azi", "_objs", "_rdm", "_replace", "_store"];
+
 _side = _this select 0;
 _pos = _this select 1;
 _azi = _this select 2;
@@ -28,6 +28,12 @@ _objs = _this select 3;
 if (typeName _side == "ARRAY") then {
     _side = (_this select 0) select 0;
     _store = (_this select 0) select 1;
+};
+
+_group = if (typeName _side == "GROUP") then {_side} else {createGroup _side};
+
+if (typeName _side != "SIDE") then {
+    _side = side _side;
 };
 
 _rdm = if (count _this > 4) then {_this select 4} else {0};
@@ -95,8 +101,6 @@ _multiplyMatrixFunc = {
 
     _result
 };
-
-_group = createGroup _side;
 
 {
     if ((random 1) > _rdm) then {
@@ -180,5 +184,3 @@ _group = createGroup _side;
 if (!isNil "_store") then {
     _store setVariable [QGVAR(cleanup), (_store getVariable QGVAR(cleanup)) + _newObjs];
 };
-
-_newObjs

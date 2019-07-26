@@ -15,9 +15,9 @@ switch (_type) do {
             if (count _near < 1) then {
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
                 
-                [_group, _position] call bis_fnc_taskDefend;
+                [_group, _position] call BIS_fnc_taskDefend;
                 
-                _objects = [[east, _target], _position, random 360, GVAR(mission_main_type_camp)] spawn FUNC(server,objectMapper);
+                _objects = [[_group, _target], _position, random 360, GVAR(mission_main_type_camp)] spawn FUNC(server,objectMapper);
                 
                 waitUntil {sleep 1; scriptDone _objects};
                 
@@ -147,11 +147,11 @@ switch (_type) do {
             for "_i" from 1 to (_x select 1) do {
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.2, 10, 0, 0.3, 0] call FUNC(common,safePos);
                 
-                [[east, _target], _position, random 360, _x select 0] spawn FUNC(server,objectMapper);
-                
                 _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
                 
-                [_group, _position] call bis_fnc_taskDefend;
+                [_group, _position] call BIS_fnc_taskDefend;
+                
+                [[_group, _target], _position, random 360, _x select 0] spawn FUNC(server,objectMapper);
             };
         } forEach GVAR(mission_main_type_compositions);
     };
