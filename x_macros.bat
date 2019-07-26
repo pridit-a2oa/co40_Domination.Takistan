@@ -4,6 +4,7 @@ copy x_macros.sqf 3d\functions /Y
 copy x_macros.sqf 3d\modules /Y
 copy x_macros.sqf admin /Y
 copy x_macros.sqf admin\modules /Y
+copy x_macros.sqf afk /Y
 copy x_macros.sqf airdrop /Y
 copy x_macros.sqf airdrop\functions /Y
 copy x_macros.sqf airdrop\modules /Y

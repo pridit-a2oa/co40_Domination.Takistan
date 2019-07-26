@@ -9,6 +9,7 @@ private ["_modules"];
 _modules = [
     "3d",
     "admin",
+    "afk",
     "airdrop",
     "airtaxi",
     "ammobox",

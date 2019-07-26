@@ -9,6 +9,7 @@ _handlers = [
     "weather",
     "crossroad",
     "admin",
+    "afk",
     "airdrop",
     "airtaxi",
     "artillery",
