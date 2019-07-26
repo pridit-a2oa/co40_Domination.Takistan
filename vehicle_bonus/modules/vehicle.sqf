@@ -18,6 +18,8 @@ if (isServer) then {
     if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
         _vehicle setVariable [QGVAR(wreckable), true, true];
     };
+    
+    __log format ["Variables set for %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 };
 
 if (hasInterface) then {

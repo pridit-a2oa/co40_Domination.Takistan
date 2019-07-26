@@ -25,6 +25,8 @@ _vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
 _vehicle lock true;
 _vehicle allowDamage false;
 
+__log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
+
 if (!isNil QMODULE(3d)) then {
     [nil, nil, rSpawn, [_time], {
         private ["_time"];
