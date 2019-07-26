@@ -63,7 +63,7 @@ class Mission
     };
     class Groups
     {
-        items=16;
+        items=10;
         class Item0
         {
             side="LOGIC";
@@ -90,29 +90,7 @@ class Mission
             side="WEST";
             class Vehicles
             {
-                items=1;
-                class Item0
-                {
-                    position[]={8509.3633,300.64771,1964.4951};
-                    azimut=71.050476;
-                    special="NONE";
-                    id=68;
-                    side="WEST";
-                    vehicle="M2StaticMG";
-                    leader=1;
-                    lock="LOCKED";
-                    rank="COLONEL";
-                    skill=1;
-                    init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
-                };
-            };
-        };
-        class Item2
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
+                items=4;
                 class Item0
                 {
                     position[]={8505.1787,300.56024,1978.0142};
@@ -127,36 +105,53 @@ class Mission
                     skill=1;
                     init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
                 };
-            };
-        };
-        class Item3
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
+                class Item1
                 {
-                    position[]={8206.501,295.24503,2183.2881};
-                    azimut=-22.902;
+                    position[]={8509.3633,300.64771,1964.4951};
+                    azimut=71.050476;
                     special="NONE";
-                    id=70;
+                    id=68;
                     side="WEST";
                     vehicle="M2StaticMG";
-                    leader=1;
                     lock="LOCKED";
                     rank="COLONEL";
                     skill=1;
                     init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
                 };
+                class Item2
+                {
+                    position[]={8514.7373,300.96716,1966.1776};
+                    azimut=69.773666;
+                    special="NONE";
+                    id=248;
+                    side="WEST";
+                    vehicle="TOW_TriPod";
+                    lock="LOCKED";
+                    rank="COLONEL";
+                    skill=1;
+                    init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+                };
+                class Item3
+                {
+                    position[]={8510.4551,300.93597,1979.89};
+                    azimut=69.773666;
+                    special="NONE";
+                    id=243;
+                    side="WEST";
+                    vehicle="TOW_TriPod";
+                    lock="LOCKED";
+                    rank="COLONEL";
+                    skill=1;
+                    init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+                };
             };
         };
-        class Item4
+        class Item2
         {
             side="WEST";
             class Vehicles
             {
-                items=1;
+                items=4;
                 class Item0
                 {
                     position[]={8222.623,295.4689,2189.1279};
@@ -171,15 +166,20 @@ class Mission
                     skill=1;
                     init="this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
                 };
-            };
-        };
-        class Item5
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
+                class Item1
+                {
+                    position[]={8206.501,295.24503,2183.2881};
+                    azimut=-22.902;
+                    special="NONE";
+                    id=70;
+                    side="WEST";
+                    vehicle="M2StaticMG";
+                    lock="LOCKED";
+                    rank="COLONEL";
+                    skill=1;
+                    init="this setPos [getPos this select 0, getPos this select 1, 2.7];this setPos [getPos this select 0, getPos this select 1, 2.7]; this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
+                };
+                class Item2
                 {
                     position[]={8204.4102,295.19656,2188.4297};
                     azimut=-20.655001;
@@ -187,21 +187,12 @@ class Mission
                     id=72;
                     side="WEST";
                     vehicle="TOW_TriPod";
-                    leader=1;
                     lock="LOCKED";
                     rank="COLONEL";
                     skill=1;
                     init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
                 };
-            };
-        };
-        class Item6
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
+                class Item3
                 {
                     position[]={8220.668,295.43619,2194.3914};
                     azimut=-20.655001;
@@ -209,7 +200,6 @@ class Mission
                     id=238;
                     side="WEST";
                     vehicle="TOW_TriPod";
-                    leader=1;
                     lock="LOCKED";
                     rank="COLONEL";
                     skill=1;
@@ -217,51 +207,7 @@ class Mission
                 };
             };
         };
-        class Item7
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8510.4551,300.93597,1979.89};
-                    azimut=69.773666;
-                    special="NONE";
-                    id=243;
-                    side="WEST";
-                    vehicle="TOW_TriPod";
-                    leader=1;
-                    lock="LOCKED";
-                    rank="COLONEL";
-                    skill=1;
-                    init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
-                };
-            };
-        };
-        class Item8
-        {
-            side="WEST";
-            class Vehicles
-            {
-                items=1;
-                class Item0
-                {
-                    position[]={8514.7373,300.96716,1966.1776};
-                    azimut=69.773666;
-                    special="NONE";
-                    id=248;
-                    side="WEST";
-                    vehicle="TOW_TriPod";
-                    leader=1;
-                    lock="LOCKED";
-                    rank="COLONEL";
-                    skill=1;
-                    init="this addEventHandler [""Fired"",{[_this select 0,getNumber (configFile/""CfgAmmo""/(_this select 1)/""explosive"")] spawn {if (_this select 1==1) then {sleep 1};_this select 0 setVehicleAmmo 1}}]; {_x addEventHandler [""HandleDamage"", {0}];} forEach [this, crew this select 0]; this disableai ""move"";";
-                };
-            };
-        };
-        class Item9
+        class Item3
         {
             side="WEST";
             class Vehicles
@@ -298,7 +244,7 @@ class Mission
                 };
             };
         };
-        class Item10
+        class Item4
         {
             side="WEST";
             class Vehicles
@@ -419,7 +365,7 @@ class Mission
                 };
             };
         };
-        class Item11
+        class Item5
         {
             side="WEST";
             class Vehicles
@@ -540,7 +486,7 @@ class Mission
                 };
             };
         };
-        class Item12
+        class Item6
         {
             side="WEST";
             class Vehicles
@@ -661,7 +607,7 @@ class Mission
                 };
             };
         };
-        class Item13
+        class Item7
         {
             side="WEST";
             class Vehicles
@@ -782,7 +728,7 @@ class Mission
                 };
             };
         };
-        class Item14
+        class Item8
         {
             side="WEST";
             class Vehicles
@@ -875,7 +821,7 @@ class Mission
                 };
             };
         };
-        class Item15
+        class Item9
         {
             side="LOGIC";
             class Vehicles
