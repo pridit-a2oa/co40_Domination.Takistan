@@ -26,6 +26,7 @@ _handlers = [
     "cleanup",
     "communication",
     "construction",
+    "debug",
     "ied",
     "intel",
     "inventory",

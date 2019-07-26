@@ -28,6 +28,7 @@ _modules = [
     "communication",
     "construction",
     "crossroad",
+    // "debug",
     "farp",
     "fortification",
     "halo",
