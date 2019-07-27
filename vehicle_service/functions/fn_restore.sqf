@@ -1,6 +1,4 @@
 /**
- * Vehicle Repair, Refuel, Rearm Pad
- *
  * Original authors: =7Cav=CW2.Iher.I & Xeno
  */
 

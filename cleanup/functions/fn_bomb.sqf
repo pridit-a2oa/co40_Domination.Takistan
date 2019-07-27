@@ -1,9 +1,6 @@
 /**
  * Original Author: -=XTRA=- tox1m
- *
- * Description:
- * Cleans up bombs from the given area.
- * Uses nearObjects, since nearestObjects doesnt seem to work with bombs
+ * https://forums.bohemia.net/forums/topic/110199-crater-cleaner-and-a-bomb-remover-scripts
  */
 
 #include "x_macros.sqf"

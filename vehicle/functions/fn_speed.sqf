@@ -1,29 +1,26 @@
-//////////////////////////////////////////////////////////////////
-// Function file for Armed Assault
-// Created by: kylania
-//////////////////////////////////////////////////////////////////
+/**
+ * Original Authors: kylania & Tajin
+ * https://forums.bohemia.net/forums/topic/77399-limiting-a-vehicles-speed/?tab=comments#comment-1349819
+ */
 
-// Call this with the following line in the init field of the vehicle.
-// this = object to slow.
-// 60 = max speed for vehicle.
-//
-// null = [this, 60] execVM "speedlimit.sqf";
+#include "x_macros.sqf"
+private ["_vehicle", "_limit", "_current", "_velocity", "_direction", "_speed"];
 
-_vehicle = _this select 0;
-_maxspeed = _this select 1;
+PARAMS_2(_vehicle, _limit);
 
-_curspeed = speed _vehicle;
+_current = speed _vehicle;
 
-if (_curspeed > _maxspeed) then {
-    // Grab the current velocity and direction of the vehicle.
-    _vel = velocity _vehicle;
-    _dir = direction _vehicle;
-
-    // Limit it's to bring it back down to the max amount.
-    _speed = _curspeed - _maxspeed;
-
-    // This is math I don't understand, grabbed it from the biki. :)
-    _vehicle setVelocity [(_vel select 0)-(sin _dir*_speed),(_vel select 1)- (cos _dir*_speed),(_vel select 2)];
+if (_current > _limit) then {
+    _velocity = velocity _vehicle;
+    _direction = direction _vehicle;
+    
+    _speed = _current - _limit;
+    
+    _vehicle setVelocity [
+        (_velocity select 0) / _current * _limit,
+        (_velocity select 1) / _current * _limit,
+        (_velocity select 2) / _current * _limit
+    ];
 };
 
-sleep 0.01;
+sleep 0.1;

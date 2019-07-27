@@ -1,8 +1,6 @@
 /**
  * Original Author: DetrimentalDave
- *
- * Description:
- * I wrote a replacement for BIS_fnc_taskPatrol, because it sucked.
+ * https://www.reddit.com/r/armadev/comments/1k62se/i_wrote_a_replacement_for_bis_fnc_taskpatrol/
  */
 
 #include "x_macros.sqf"

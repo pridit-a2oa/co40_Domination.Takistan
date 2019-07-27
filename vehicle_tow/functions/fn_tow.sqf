@@ -1,8 +1,6 @@
 /**
  * Original Author: rundll.exe
- *
- * Description:
- * Generic Towing script 
+ * http://www.armaholic.com/page.php?id=8168
  */
 
 #define THIS_MODULE vehicle_tow

@@ -1,8 +1,6 @@
 /**
  * Original Author: -=XTRA=- tox1m
- *
- * Description:
- * Cleans up craters from the given area.
+ * https://forums.bohemia.net/forums/topic/110199-crater-cleaner-and-a-bomb-remover-scripts
  */
 
 #include "x_macros.sqf"
