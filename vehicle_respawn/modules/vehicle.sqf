@@ -11,17 +11,15 @@ PARAMS_1(_vehicle);
 if ((markerPos QGVAR(base_south)) distance (_vehicle getVariable QGVAR(position)) >= GVAR(vehicle_respawn_distance_base)) exitWith {};
 
 if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
-    _respawnable = _vehicle getVariable QGVAR(respawnable);
-    
-    if (!isNil "_respawnable" && {!_respawnable}) exitWith {};
-    
     while {true} do {
         _position = _vehicle getVariable QGVAR(position);
         _direction = _vehicle getVariable QGVAR(direction);
         _threshold = _vehicle getVariable QGVAR(threshold);
         _expiration = _vehicle getVariable QGVAR(expiration);
+        _respawnable = _vehicle getVariable QGVAR(respawnable);
         
         if (isNil "_position") exitWith {};
+        if (!isNil "_respawnable" && {!_respawnable}) exitWith {};
         
         _empty = _vehicle call FUNC(common,empty);
         _far = {_x distance _vehicle < GVAR(vehicle_respawn_distance_player)} count (call FUNC(common,players)) < 1;
@@ -45,7 +43,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
         _type = typeOf _vehicle;
         
         _expired = !isNil "_threshold" && {_empty} && {_moved} && {_far} && {!_dead} && {call FUNC(common,time) > _threshold};
-        _disabled = _empty && {_dead} && {call FUNC(common,time) > _expiration}; 
+        _disabled = _empty && {_dead} && {call FUNC(common,time) > _expiration};
     
         if (_expired || {_disabled}) exitWith {
             deleteVehicle _vehicle;
