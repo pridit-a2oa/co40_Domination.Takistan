@@ -54,25 +54,32 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         [_unit, _position, "UAV"] call FUNC(crossroad,request);
     };
     
-    _vehicle = [_position, GVAR(uav_type_aircraft), GVAR(uav_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
+    _vehicle = [
+        _position,
+        GVAR(uav_type_aircraft),
+        GVAR(uav_distance_spawn),
+        GVAR(uav_amount_height),
+        west
+    ] call FUNC(server,spawnVehicle);
     
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
     
-    _aircraft flyInHeight 1000;
-    _aircraft limitSpeed 40;
+    _aircraft flyInHeight GVAR(uav_amount_height);
     _aircraft lock true;
     _aircraft setVehicleAmmo 0;
     
     _aircraft setVariable [QGVAR(uav_range), false];
-    _aircraft setVariable [QGVAR(uav_airborne), time + GVAR(uav_time_airborne)];
+    _aircraft setVariable [QGVAR(uav_airborne), call FUNC(common,time) + GVAR(uav_time_airborne)];
+    
+    {
+        _x setCaptive true;
+    } forEach _crew;
     
     [_aircraft, _position] spawn FUNC(THIS_MODULE,patrol);
-
-    while {alive _aircraft && {canMove _aircraft}} do {
-        if (time > _aircraft getVariable QGVAR(uav_airborne)) exitWith {
-            _aircraft limitSpeed 0;
-            
+    
+    while {alive _aircraft && {canMove _aircraft}} do {        
+        if (call FUNC(common,time) > _aircraft getVariable QGVAR(uav_airborne)) exitWith {
             if (!isNil QMODULE(crossroad)) then {
                 GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "LowFuel", true];
             };
@@ -87,10 +94,6 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         };
         
         sleep 2;
-    };
-    
-    while {alive _aircraft && {canMove _aircraft}} do {
-        sleep 5;
     };
     
     if (!canMove _aircraft) then {

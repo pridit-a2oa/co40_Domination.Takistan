@@ -8,28 +8,37 @@
 #define THIS_MODULE uav
 #include "x_macros.sqf"
 
-// Aircraft type
+// Set the aircraft type.
 GVAR(uav_type_aircraft) = "MQ9PredatorB_US_EP1";
 
-// Minimum distance from base the target has to be
+// Set the elevation the aircraft will maintain.
+GVAR(uav_amount_height) = 800;
+
+// Set the typical speed restriction of the aircraft.
+GVAR(uav_amount_speed) = 180;
+
+// Set minimum distance from base the target has to be.
 GVAR(uav_distance_base) = 1000;
 
-// Maximum distance the player can call within
-GVAR(uav_distance_player) = 500;
+// Set maximum distance the player can call within.
+GVAR(uav_distance_player) = 800;
 
-// Maximum distance from target to scan for enemies within
+// Set the distance between each waypoint while patrolling.
+GVAR(uav_distance_waypoint) = 1500;
+
+// Set maximum distance from target to scan for enemies within.
 GVAR(uav_distance_scan) = 300;
 
-// Initial spawn distance when calling
+// Set initial spawn distance after calling.
 GVAR(uav_distance_spawn) = 3000;
 
-// Time of observation
+// Set amount of time (seconds) of observation.
 GVAR(uav_time_airborne) = 200;
 
-// Time between pinging for units
+// Set amount of time (seconds) between pinging the area for units.
 GVAR(uav_time_ping) = 15;
 
-// Time between requests
+// Set amount of time (seconds) between requests.
 GVAR(uav_time_cooldown) = 900;
 
 if (hasInterface) then {
@@ -48,5 +57,6 @@ if (isServer) then {
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);
 __cppfln(FUNC(THIS_MODULE,patrol),THIS_MODULE\functions\fn_patrol.sqf);
 __cppfln(FUNC(THIS_MODULE,ping),THIS_MODULE\functions\fn_ping.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

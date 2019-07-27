@@ -1,18 +1,25 @@
+#define THIS_MODULE uav
 #include "x_macros.sqf"
-private ["_aircraft", "_position", "_angle", "_angle_threshold", "_patrol"];
+private ["_aircraft", "_position", "_angle", "_angle_threshold", "_patrol", "_waypoint"];
 
 PARAMS_2(_aircraft, _position);
 
 _angle = 60;
 _angle_threshold = _angle * 3;
 
-while {alive _aircraft && {canMove _aircraft} && {time < _aircraft getVariable QGVAR(uav_airborne)}} do {
-    _patrol = [_position, GVAR(uav_distance_scan) + 1000, _angle] call BIS_fnc_relPos;
-
-    _aircraft doMove _patrol;
-
-    (group _aircraft) setBehaviour "CARELESS";
-    (group _aircraft) setCombatMode "BLUE";
+while {alive _aircraft && {canMove _aircraft} && {call FUNC(common,time) < _aircraft getVariable QGVAR(uav_airborne)}} do {
+    _patrol = [_position, GVAR(uav_distance_waypoint), _angle] call BIS_fnc_relPos;
+    _patrol = [_patrol select 0, _patrol select 1, GVAR(uav_amount_height)];
+    
+    if (!isNil QMODULE(debug)) then {
+        [_patrol] __submoduleVM(debug);
+    };
+    
+    _waypoint = (group _aircraft) addWaypoint [_patrol, -1];
+    
+    _waypoint setWaypointBehaviour "CARELESS";
+    _waypoint setWaypointCombatMode "BLUE";
+    _waypoint setWaypointType "MOVE";
     
     _angle = _angle + 60;
     
@@ -23,8 +30,6 @@ while {alive _aircraft && {canMove _aircraft} && {time < _aircraft getVariable Q
             _aircraft setVariable [QGVAR(uav_range), true];
         };
     };
-
-    waitUntil {sleep 1; !alive _aircraft || {!canMove _aircraft} || {time > _aircraft getVariable QGVAR(uav_airborne)} || {_aircraft distance _patrol < 800}};
     
-    sleep 1;
+    waitUntil {sleep 1; [_aircraft, _patrol] call FUNC(THIS_MODULE,valid)};
 };
