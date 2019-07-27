@@ -9,7 +9,6 @@ private ["_modules"];
 _modules = [
     "3d",
     "admin",
-    "afk",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -32,6 +31,7 @@ _modules = [
     "farp",
     "fortification",
     "halo",
+    "idle",
     "ied",
     "intel",
     "inventory",

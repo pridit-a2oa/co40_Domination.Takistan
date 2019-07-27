@@ -4,7 +4,6 @@ copy x_macros.sqf 3d\functions /Y
 copy x_macros.sqf 3d\modules /Y
 copy x_macros.sqf admin /Y
 copy x_macros.sqf admin\modules /Y
-copy x_macros.sqf afk /Y
 copy x_macros.sqf airdrop /Y
 copy x_macros.sqf airdrop\functions /Y
 copy x_macros.sqf airdrop\modules /Y
@@ -58,6 +57,7 @@ copy x_macros.sqf halo /Y
 copy x_macros.sqf halo\functions /Y
 copy x_macros.sqf halo\functions\bis /Y
 copy x_macros.sqf halo\modules /Y
+copy x_macros.sqf idle /Y
 copy x_macros.sqf ied /Y
 copy x_macros.sqf ied\functions /Y
 copy x_macros.sqf intel /Y
