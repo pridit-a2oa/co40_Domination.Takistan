@@ -5,7 +5,6 @@ private ["_spawn", "_name", "_position"];
 PARAMS_1(_vehicle);
 
 if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
-if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {count crew _vehicle > 0} && {{!isPlayer _x} count crew _vehicle > 0}) exitWith {};
 if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {faction _vehicle == "BIS_TK"} && {!(_vehicle getVariable QGVAR(rebuilt))}) exitWith {};
 
 _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
