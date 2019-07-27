@@ -106,7 +106,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                     
                     sleep GVAR(air_taxi_time_wait);
                     
-                    _pilot doMove (markerPos QGVAR(air_taxi));
+                    _pilot doMove (markerPos QGVAR(airtaxi));
                     
                     while {alive _aircraft && {canMove _aircraft}} do {
                         if (unitReady _pilot) exitWith {
