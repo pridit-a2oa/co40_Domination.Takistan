@@ -186,6 +186,14 @@ player addEventHandler ["respawn", {
     
     titleText ["", "BLACK FADED"];
     
+    _unit spawn {
+        _this allowDamage false;
+        
+        sleep GVAR(client_time_invulnerable);
+        
+        _this allowDamage true;
+    };
+    
     if (!isNil QMODULE(respawn)) then {
         [_unit, position _corpse] call FUNC(respawn,spawn);
     };
