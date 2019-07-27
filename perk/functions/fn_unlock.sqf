@@ -344,12 +344,6 @@ switch (_tier) do {
             };
             
             case 2: {
-                if (!isNil QMODULE(vehicle_load)) then {
-                    player setVariable [QGVAR(vehicle_load), 1];
-                };
-            };
-            
-            case 3: {
                 if (!isNil QMODULE(airtaxi)) then {
                     player setVariable [QGVAR(air_taxi), true];
                     
@@ -362,6 +356,12 @@ switch (_tier) do {
                             "\ca\ui\data\cursor_getin_ca"
                         ] call FUNC(communication,add);
                     };
+                };
+            };
+            
+            case 3: {
+                if (!isNil QMODULE(vehicle_load)) then {
+                    player setVariable [QGVAR(vehicle_load), 1];
                 };
             };
             

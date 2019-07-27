@@ -355,7 +355,7 @@ class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load one ground vehicle into the C130J";
+    tooltip = "Call air taxi back to base";
     action = "[6,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Call air taxi back to base";
+    tooltip = "Load one ground vehicle into the C130J";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
@@ -375,7 +375,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load up to two ground vehicles into the C130J";
+    tooltip = "Load two ground vehicles into the C130J";
     action = "[6,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase

@@ -320,7 +320,7 @@ class PerkIcon_Role6_1: XD_RscPicture
 };
 class PerkIcon_Role6_2: XD_RscPicture
 {
-    text = "ca\ui\data\iconplane_ca";
+    text = "ca\ui\data\iconhelicopter_ca";
     x = 0.671874;
     y = 0.475;
     w = 0.0419193;
@@ -328,7 +328,7 @@ class PerkIcon_Role6_2: XD_RscPicture
 };
 class PerkIcon_Role6_3: XD_RscPicture
 {
-    text = "ca\ui\data\iconhelicopter_ca";
+    text = "ca\ui\data\iconplane_ca";
     x = 0.671874;
     y = 0.575;
     w = 0.0419193;
