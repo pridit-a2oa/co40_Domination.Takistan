@@ -17,13 +17,13 @@ while {true} do {
     
     _marker = str (_position select 0);
     
-    if (!isNil "_position" && {_attached}) then {
+    if (!isNil "_position" && {!isNull _attached}) then {
         if (markerAlpha _marker == 1) then {
             _attachee setVariable [QGVAR(hidden), true, true];
         };
     };
     
-    if (!_attached) exitWith {
+    if (isNull _attached) exitWith {
         _attachee setVariable [QGVAR(hidden), false, true];
     };
     

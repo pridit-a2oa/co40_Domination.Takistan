@@ -4,7 +4,7 @@ private ["_vehicle", "_types", "_alive", "_attached", "_nearest", "_attach", "_a
 
 PARAMS_3(_vehicle, _types, _alive);
 
-_vehicle setVariable [QGVAR(attached), false];
+_vehicle setVariable [QGVAR(attached), objNull];
 
 while {player == driver _vehicle} do {
     _attach = _vehicle getVariable QGVAR(attach);
@@ -28,7 +28,7 @@ while {player == driver _vehicle} do {
             };
         };
         
-        if (!isNil "_nearest" && {!_attached} && {str (alive _nearest) == str (_alive)} && {{alive _x && {!isPlayer _x}} count crew _nearest < 1}) then {
+        if (!isNil "_nearest" && {isNull _attached} && {str (alive _nearest) == str (_alive)} && {{alive _x && {!isPlayer _x}} count crew _nearest < 1}) then {
             _vehicle setVariable [QGVAR(attach), [
                 _nearest,
                 (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,name)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])

@@ -10,7 +10,7 @@ _attachee attachTo [_attacher, [0,0,-12]];
 _attachee setVariable [QGVAR(lifter), name player, true];
 
 _attacher setVariable [QGVAR(release), _attacher addAction ["Release" call FUNC(common,RedText), __function(release), _attachee, 10, false, true, "", "player == driver _target"]];
-_attacher setVariable [QGVAR(attached), true];
+_attacher setVariable [QGVAR(attached), _attachee];
 _attacher setVariable [QGVAR(attach), nil];
 
 if (!isNil QMODULE(vehicle_marker)) then {
@@ -39,10 +39,10 @@ if (!isNil QMODULE(crossroad)) then {
     };
 };
 
-while {alive _attacher && {_attacher getVariable QGVAR(attached)}} do {
+while {alive _attacher && {!isNull (_attacher getVariable QGVAR(attached))}} do {
     sleep 2;
 };
 
-if (_attacher getVariable QGVAR(attached)) then {
+if (!isNull (_attacher getVariable QGVAR(attached))) then {
     [_attacher, "", "", _attachee] call FUNC(THIS_MODULE,release);
 };

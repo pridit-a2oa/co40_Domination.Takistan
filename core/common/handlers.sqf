@@ -35,6 +35,7 @@ _handlers = [
     "mission_main",
     "name",
     "option",
+    "perimiter",
     "perk",
     "revive",
     "setting",

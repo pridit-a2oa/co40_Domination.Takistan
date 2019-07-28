@@ -43,6 +43,7 @@ _modules = [
     "name",
     "nest",
     "option",
+    "perimiter",
     "perk",
     "respawn",
     "revive",

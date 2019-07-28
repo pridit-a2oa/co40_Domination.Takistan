@@ -6,12 +6,12 @@ _attachee = _this select 3;
 
 detach _attachee;
 
-if (alive _attacher) then {
+if (alive _attacher && (_this select 2) != "") then {
     _attacher removeAction (_this select 2);
 };
 
 _attacher setVariable [QGVAR(release), nil];
-_attacher setVariable [QGVAR(attached), false];
+_attacher setVariable [QGVAR(attached), objNull];
 
 if ((position _attachee) select 2 > 100) then {
     _attachee spawn {
