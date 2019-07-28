@@ -19,6 +19,9 @@ GVAR(revive_type_blood) = [
 // Set amount of damage a revived player will have
 GVAR(revive_amount_damage) = 0.4;
 
+// Set amount of time before respawning a player that is unconscious.
+GVAR(revive_time_respawn) = 180;
+
 if (hasInterface) then {
     player setVariable [QGVAR(head_hit), 0];
     player setVariable [QGVAR(body), 0];
@@ -31,6 +34,7 @@ if (hasInterface) then {
     player setVariable [QGVAR(revive_damage), GVAR(revive_amount_damage)];
 };
 
+__cppfln(FUNC(THIS_MODULE,countdown),THIS_MODULE\functions\fn_countdown.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,revive),THIS_MODULE\functions\fn_revive.sqf);
 __cppfln(FUNC(THIS_MODULE,unconscious),THIS_MODULE\functions\fn_unconscious.sqf);

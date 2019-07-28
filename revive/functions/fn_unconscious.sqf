@@ -21,15 +21,9 @@ _unit spawn {
     
     [nil, _this, rPlayActionNow, "Die"] call RE;
     
-    titleText ["", "BLACK", 1];
-    
     sleep 1;
     
-    titleText ["You are unconscious\n\n\nYou can wait to be revived or\nrespawn through the Escape menu", "BLACK FADED"];
-    
-    sleep 6;
-    
-    titleText ["", "BLACK IN", 3];
+    call FUNC(THIS_MODULE,countdown);
     
     while {alive _this} do {
         if (!(_this getVariable QGVAR(unconscious))) exitWith {

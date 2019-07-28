@@ -62,7 +62,7 @@ if (hasInterface) then {
     _trigger setTriggerArea [_size, _size, 0, true];
     _trigger setTriggerActivation ["WEST", "PRESENT", true];
     _trigger setTriggerStatements [
-        "!(player in thisList) && !((vehicle player) in thisList)",
+        "!(player in thisList) && !((vehicle player) in thisList) && {alive player} && {lifeState player != 'UNCONSCIOUS'}",
         "[thisTrigger] spawn d_fnc_perimiter_outside",
         ""
     ];

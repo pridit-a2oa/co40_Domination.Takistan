@@ -10,6 +10,8 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 5;
 
+if (!alive _target) exitWith {};
+
 _target setVariable [QGVAR(unconscious), false, true];
 
 _target setDamage (player getVariable QGVAR(revive_damage));
