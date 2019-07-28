@@ -19,7 +19,7 @@ if (hasInterface) then {
                 _distance = _x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible);
                 _hidden = _x getVariable QGVAR(hidden);
                 
-                if (!_hidden && {!_alive || {_alive && _distance}}) then {
+                if (!_hidden && {!_alive || {_alive && {_distance || (faction _x) in ["BIS_TK", "BIS_TK_INS"]}}}) then {
                     _marker setMarkerAlphaLocal 1;
                 } else {
                     _marker setMarkerAlphaLocal 0;
