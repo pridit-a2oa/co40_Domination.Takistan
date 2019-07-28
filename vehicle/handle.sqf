@@ -22,6 +22,10 @@ if (isServer) then {
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
     
+    if (isNil {_vehicle getVariable QGVAR(spawn)}) then {
+        _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
+    };
+    
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
             _vehicle setVariable [QGVAR(rebuilt), false, true];
