@@ -39,6 +39,8 @@ while {triggerActivated _trigger && {alive player}} do {
         
         if (_vehicle != player && {alive _vehicle}) then {
             if (!isNil QMODULE(vehicle)) then {
+                _vehicle setDamage 1;
+                
                 [_vehicle] __submodulePP(vehicle);
             };
         };
