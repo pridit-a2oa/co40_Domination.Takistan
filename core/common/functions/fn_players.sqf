@@ -1,1 +1,1 @@
-if (isMultiplayer) then {playableUnits - allDead} else {switchableUnits};
+if (isMultiplayer) then {call BIS_fnc_listPlayers} else {switchableUnits};
