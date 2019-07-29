@@ -13,10 +13,12 @@ _unit setUnconscious true;
 _unit setCaptive true;
 
 _unit spawn {
-    sleep 0.2;
+    sleep 0.5;
     
     if (vehicle _this != _this) then {
         _this action ["Eject", vehicle _this];
+        
+        sleep 1;
     };
     
     [nil, _this, rPlayActionNow, "Die"] call RE;
