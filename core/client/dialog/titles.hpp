@@ -33,6 +33,13 @@ class XD_Notice {
             w = 0.368939;
             h = 0.190909;
             size = 0.14;
+            class Attributes {
+                font = "TahomaB";
+                color = "#ffffff";
+                align = "center";
+                shadow = 0;
+                valign = "top";
+            };
         };
     };
 };
