@@ -1,13 +1,14 @@
 #include "x_macros.sqf"
-private ["_attacher", "_attachee"];
+private ["_attacher", "_id", "_attachee"];
 
 _attacher = _this select 0;
+_id = _this select 2;
 _attachee = _this select 3;
 
 detach _attachee;
 
-if (alive _attacher && (_this select 2) != "") then {
-    _attacher removeAction (_this select 2);
+if (alive _attacher && {typeName _id == "SCALAR"}) then {
+    _attacher removeAction _id;
 };
 
 _attacher setVariable [QGVAR(release), nil];
