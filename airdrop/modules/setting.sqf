@@ -15,5 +15,5 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
 ];
 
 GVAR(setting_type_default) = GVAR(setting_type_default) + [
-    GVAR(airdrop_type_payload) select 1
+    (GVAR(airdrop_type_payloads) select 0) select 1
 ];
