@@ -10,13 +10,13 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_bonus_types) find (typeOf _vehicle) == -1) exitWith {};
 
+if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
+    _vehicle setVariable [QGVAR(wreckable), true, true];
+};
+
 if (isServer) then {
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
-    };
-    
-    if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
-        _vehicle setVariable [QGVAR(wreckable), true, true];
     };
 };
 
