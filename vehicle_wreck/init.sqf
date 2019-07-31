@@ -14,7 +14,7 @@ GVAR(vehicle_wreck_type_lifts) = [
 ];
 
 // Set chance that enemy aircraft can produce a wreck
-GVAR(vehicle_wreck_chance_air) = 30;
+GVAR(vehicle_wreck_chance_air) = 20;
 
 // Set chance that enemy armor can produce a wreck
 GVAR(vehicle_wreck_chance_land) = 10;
