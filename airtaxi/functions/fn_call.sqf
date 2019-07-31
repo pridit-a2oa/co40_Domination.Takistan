@@ -147,11 +147,11 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
         
         sleep 15;
         
+        {
+            deleteVehicle _x;
+        } forEach _crew;
+        
         if (alive _aircraft) then {
-            {
-                deleteVehicle _x;
-            } forEach _crew;
-            
             _aircraft setDamage 1;
         };
     };
