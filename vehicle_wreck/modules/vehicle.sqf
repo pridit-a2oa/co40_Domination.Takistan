@@ -7,6 +7,10 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
+    _vehicle setVariable [QGVAR(wreckable), false, true];
+};
+
 if (!(_vehicle getVariable QGVAR(wreckable))) exitWith {};
 
 if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
