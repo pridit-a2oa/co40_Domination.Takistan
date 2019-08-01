@@ -8,14 +8,18 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_lift_types) find (typeOf _vehicle) == -1) exitWith {};
+if (GVAR(vehicle_lift_types) find (typeOf _vehicle) > 0) then {
+    _vehicle addEventHandler ["getin", {
+        if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
+        
+        [_this select 0, ["LandVehicle"], true] execVM __function(valid);
+    }];
 
-_vehicle addEventHandler ["getin", {
-    if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
-    
-    [_this select 0, ["LandVehicle"], true] execVM __function(valid);
-}];
+    _vehicle addEventHandler ["getout", {
+        67321 cutRsc ["Default", "PLAIN"];
+    }];
+};
 
-_vehicle addEventHandler ["getout", {
-    67321 cutRsc ["Default", "PLAIN"];
-}];
+if (!isNil QMODULE(vehicle_wreck)) then {
+    [_vehicle] __submodulePP(vehicle_wreck);
+};

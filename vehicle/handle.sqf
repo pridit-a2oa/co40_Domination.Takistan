@@ -25,16 +25,6 @@ if (isServer) then {
     if (isNil {_vehicle getVariable QGVAR(spawn)}) then {
         _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
     };
-    
-    if (!isNil QMODULE(vehicle_wreck)) then {
-        if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
-            _vehicle setVariable [QGVAR(rebuilt), false, true];
-        };
-        
-        if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
-            _vehicle setVariable [QGVAR(wreckable), false, true];
-        };
-    };
 
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
@@ -42,6 +32,10 @@ if (isServer) then {
     
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submoduleVM(vehicle_service);
+    };
+    
+    if (!isNil QMODULE(vehicle_wreck)) then {
+        [_vehicle] __submoduleVM(vehicle_wreck);
     };
     
     if (_vehicle isKindOf "Air") then {
@@ -100,10 +94,6 @@ if (hasInterface) then {
     
     if (!isNil QMODULE(vehicle_welcome)) then {
         [_vehicle] __submoduleVM(vehicle_welcome);
-    };
-    
-    if (!isNil QMODULE(vehicle_wreck)) then {
-        [_vehicle] __submoduleVM(vehicle_wreck);
     };
     
     if (typeOf _vehicle == "AH64D_EP1") then {
