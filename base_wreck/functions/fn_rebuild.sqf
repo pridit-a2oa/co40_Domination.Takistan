@@ -10,8 +10,7 @@ if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
 };
 
-[nil, nil, rSpawn, _wreck, {deleteMarkerLocal (_this getVariable QGVAR(id))}] call RE;
-
+deleteMarker (_wreck getVariable QGVAR(id));
 deleteVehicle _wreck;
 
 _position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
