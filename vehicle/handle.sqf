@@ -35,6 +35,14 @@ if (isServer) then {
     };
     
     if (!isNil QMODULE(vehicle_wreck)) then {
+        if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
+            _vehicle setVariable [QGVAR(rebuilt), false, true];
+        };
+
+        if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
+            _vehicle setVariable [QGVAR(wreckable), false, true];
+        };
+        
         [_vehicle] __submoduleVM(vehicle_wreck);
     };
     
