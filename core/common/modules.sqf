@@ -23,6 +23,7 @@ _modules = [
     "base_teleport",
     "base_wreck",
     "board",
+    "chat",
     "cleanup",
     "communication",
     "construction",

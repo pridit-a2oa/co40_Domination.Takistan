@@ -28,6 +28,7 @@ copy x_macros.sqf base_wreck /Y
 copy x_macros.sqf base_wreck\functions /Y
 copy x_macros.sqf base_wreck\modules /Y
 copy x_macros.sqf board /Y
+copy x_macros.sqf chat /Y
 copy x_macros.sqf cleanup /Y
 copy x_macros.sqf cleanup\functions /Y
 copy x_macros.sqf communication /Y
