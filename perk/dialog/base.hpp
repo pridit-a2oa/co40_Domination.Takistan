@@ -56,6 +56,7 @@ class XD_PerkDialog {
         {
             text = "Close";
             action = "CloseDialog 0";
+            default = true;
             x = 0.547506;
             y = 0.86894;
             w = 0.163131;
