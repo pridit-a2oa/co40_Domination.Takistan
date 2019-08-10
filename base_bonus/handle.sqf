@@ -15,7 +15,7 @@ if (isServer) then {
 
         _vehicle = createVehicle [markerText _marker, markerPos _marker, [], 0, "NONE"];
         _vehicle setDir (markerDir _marker);
-        _vehicle setPos (markerPos _marker);
+        _vehicle setPosATL [(getPosATL _vehicle) select 0, (getPosATL _vehicle) select 1, 0];
         
         if (!isNil QMODULE(vehicle_respawn)) then {
             _vehicle setVariable [QGVAR(respawnable), false, true];
