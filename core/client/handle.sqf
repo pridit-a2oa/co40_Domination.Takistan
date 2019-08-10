@@ -21,11 +21,7 @@
         player action ["NVGoggles", player];
     };
 
-    if (GVAR(artillery) find (str player) != -1) then {
-        enableEngineArtillery true;
-    } else {
-        enableEngineArtillery false;
-    };
+    enableEngineArtillery true;
 };
 
 onEachFrame {call d_fnc_client_perFrame};
