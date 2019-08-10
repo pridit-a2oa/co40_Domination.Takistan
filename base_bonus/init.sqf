@@ -8,6 +8,6 @@
 #include "x_macros.sqf"
 
 // Set amount of bonus vehicles to seed
-GVAR(base_bonus_amount) = 3;
+GVAR(base_bonus_amount) = 5;
 
 MODULE(THIS_MODULE) = true;
