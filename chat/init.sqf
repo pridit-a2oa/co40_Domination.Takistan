@@ -2,8 +2,7 @@
  * Chat Module
  *
  * Description: This module is responsible for the blacklisting of certain
- * words in the chat. This works in conjunction with an external log tail
- * to process punitive action.
+ * words in the chat.
  */
 
 #define THIS_MODULE chat

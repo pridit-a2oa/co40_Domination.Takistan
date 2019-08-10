@@ -22,9 +22,7 @@ if (hasInterface) then {
             if (aniChatEvents_chatMessage != "") then {
                 {
                     if ([aniChatEvents_chatMessage, _x] call KRON_StrInStr) exitWith {
-                        [nil, gameLogic, "loc", rSpawn, player, {
-                            __log format ["%1", owner player]];
-                        }] call RE;
+                        endMission "END1";
                     };
                 } forEach GVAR(chat_blacklisted);
             };
