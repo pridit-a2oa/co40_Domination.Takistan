@@ -20,8 +20,10 @@ GVAR(base_backpack_types) = [
     "DE_Backpack_Specops_EP1",
     "M2StaticMG_US_Bag_EP1",
     "M2HD_mini_TriPod_US_Bag_EP1",
+    "M252_US_Bag_EP1",
     "US_Patrol_Pack_EP1",
     "TK_RPG_Backpack_EP1",
+    "TOW_TriPod_US_Bag_EP1",
     "Tripod_Bag"
 ];
 
