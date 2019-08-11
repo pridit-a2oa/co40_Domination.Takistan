@@ -24,12 +24,10 @@ X_JIPH setVariable [QGVAR(intel), true, true];
     
     _driver doMove (markerPos QGVAR(intel));
     
-    while {alive _driver && {alive _car} && {canMove _car}} do {
-        while {_car distance (markerPos QGVAR(intel)) > 300} do {        
-            sleep 2;
-        };
+    while {alive _driver && {alive _car} && {canMove _car}} do {        
+        waitUntil {_car distance (markerPos QGVAR(intel)) < 300};
         
-        if (_car distance (markerPos QGVAR(intel)) <= 300) exitWith {
+        if (true) exitWith {
             GVAR(crossroad) kbTell [GVAR(crossroad2), "intel", "Approach", true];
             
             [nil, _car, "per", rAddAction, "Intel" call FUNC(common,BlueText), __function(intel), [], 10, false, true, "", "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"] call RE;
@@ -41,6 +39,8 @@ X_JIPH setVariable [QGVAR(intel), true, true];
                     gameLogic action ["useWeapon", _car, (driver _car), 0];
                     
                     sleep 15 + (random 10);
+                    
+                    _driver disableAI "MOVE";
                 };
                 
                 sleep 2;
