@@ -16,6 +16,7 @@ for "_i" from 1 to 3 do {
     
     if (_i == 3) then {
         if (!canMove _vehicle) then {
+            [_vehicle, "NEtrup", 0] call FUNC(network,setHit);
             [_vehicle, "motor", 0] call FUNC(network,setHit);
             [_vehicle, "wheel_1_1_steering", 0] call FUNC(network,setHit);
             [_vehicle, "wheel_1_2_steering", 0] call FUNC(network,setHit);
