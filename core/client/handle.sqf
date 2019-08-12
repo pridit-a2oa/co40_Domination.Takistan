@@ -269,7 +269,7 @@ player addEventHandler ["killed", {
     PARAMS_1(_unit);
     
     _unit spawn {
-        sleep 15;
+        waitUntil {_this != player};
         
         hideBody _this;
     };
