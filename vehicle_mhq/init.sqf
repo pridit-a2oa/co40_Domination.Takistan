@@ -14,8 +14,11 @@ GVAR(vehicle_mhq_types) = [
     "M1133_MEV_EP1"
 ];
 
-// Set type of MHQ net
-GVAR(vehicle_mhq_type_net) = "Land_CamoNetB_NATO_EP1";
+// Set possible types of nets
+GVAR(vehicle_mhq_types_net) = [
+    ["BIS_TK", "Land_CamoNetB_EAST_EP1"],
+    ["BIS_US", "Land_CamoNetB_NATO_EP1"]
+];
 
 // Set minimum distance from base before being able to deploy
 GVAR(vehicle_mhq_distance_base) = 500;

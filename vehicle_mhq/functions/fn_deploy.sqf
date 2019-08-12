@@ -29,10 +29,20 @@ _checks = [
 
 if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
 
-_camo = createVehicle ["Land_CamoNetB_NATO_EP1", [_position select 0, _position select 1, 0], [], 0, "NONE"];
+_net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
+
+{
+    if (_x select 0 == faction _vehicle) exitWith {
+        _net = _x select 1;
+    };
+} forEach GVAR(vehicle_mhq_types_net);
+
+hint format ["%1", _net];
+
+_camo = createVehicle [_net, [_position select 0, _position select 1, -0.18], [], 0, "CAN_COLLIDE"];
 _camo setDir direction _vehicle;
 _camo setVectorUp (vectorUp _vehicle);
-_camo setPos [_position select 0, _position select 1, 0];
+_camo setPos [_position select 0, _position select 1, -0.18];
 _camo addEventHandler ["HandleDamage", {0}];
 
 [_vehicle, true] call FUNC(network,lock);

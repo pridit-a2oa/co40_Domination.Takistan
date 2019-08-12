@@ -73,9 +73,13 @@ if (!isNil QMODULE(ammobox)) then {
     };
     
     if (!isNil QMODULE(vehicle_mhq)) then {
+        _nets = [1, GVAR(vehicle_mhq_types_net)] call FUNC(common,arrayValues);
+        
         {
-            _x addEventHandler ["HandleDamage", {0}];
-        } forEach (allMissionObjects GVAR(vehicle_mhq_type_net));
+            {
+                _x addEventHandler ["HandleDamage", {0}];
+            } forEach (allMissionObjects _x);
+        } forEach _nets;
     };
 
     ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
