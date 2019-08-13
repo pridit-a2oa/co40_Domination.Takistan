@@ -12,7 +12,7 @@ if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _ammobox = _vehicle getVariable QGVAR(ammobox);
-_string = "ammobox";
+_string = "Ammobox";
 
 if (!isNil "_ammobox" && {_ammobox}) then {
     _string = "Unload " + _string;
