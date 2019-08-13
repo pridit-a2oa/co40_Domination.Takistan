@@ -22,7 +22,7 @@ if (isServer) then {
     _trigger setTriggerActivation ["EAST", "PRESENT", true];
     _trigger setTriggerStatements [
         "this",
-        "{if (!isPlayer _x && {_x isKindOf 'Man'} && {currentWeapon _x != ""}) then {_x setDamage 1}} forEach thisList",
+        "{if (!isPlayer _x && {_x isKindOf 'CAManBase'}) then {_x setDamage 1}} forEach thisList",
         ""
     ];
 };
