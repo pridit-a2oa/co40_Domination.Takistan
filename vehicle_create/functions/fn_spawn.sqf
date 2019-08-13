@@ -3,7 +3,15 @@ private ["_vehicle", "_occupied", "_position", "_atv"];
 
 PARAMS_1(_vehicle);
 
-_occupied = nearestObjects [_vehicle, ["ATV_US_EP1"], 8];
+_type = (GVAR(vehicle_create_types_vehicle) select 0) select 1;
+
+{
+    if (_x select 0 == faction _vehicle) exitWith {
+        _type = _x select 1;
+    };
+} forEach GVAR(vehicle_create_types_vehicle);
+
+_occupied = nearestObjects [_vehicle, [_type], 8];
 
 if (count _occupied > 0) exitWith {
     closeDialog 0;
@@ -12,7 +20,7 @@ if (count _occupied > 0) exitWith {
 
 _position = _vehicle modelToWorld [-4,0,0];
 
-_atv = createVehicle ["ATV_US_EP1", [_position select 0, _position select 1, 0], [], 0, "NONE"];
+_atv = createVehicle [_type, [_position select 0, _position select 1, 0], [], 0, "NONE"];
 _atv setDir ((direction _vehicle) - 180);
 _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];

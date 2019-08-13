@@ -40,8 +40,8 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     };
 };
 
-if (!isNil QMODULE(vehicle_create) && {_lbData == "atv"}) exitWith {
-    [_vehicle] call FUNC(vehicle_create,atv);
+if (!isNil QMODULE(vehicle_create) && {_lbData == "vehicle"}) exitWith {
+    [_vehicle] call FUNC(vehicle_create,spawn);
 };
 
 if (!isNil QMODULE(vehicle_teleport) && {_lbData == "teleport"}) exitWith {
