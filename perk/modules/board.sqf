@@ -4,9 +4,10 @@
 
 #include "x_macros.sqf"
 
-format ["Perks (%1 score = %2 perks)", GVAR(perk_amount_score), GVAR(perk_amount_points)] hintC [
-    "You are only able to unlock role based perks for the role you are currently in. This is indicated by a white arrow above the column.",
-    "Role based perks must be unlocked in sequence, starting with the first one at the top and then continuing down. General perks can be unlocked in any order.",
-    "Any unlocked perks, as well as unallocated points, are lost when respawning if you are below the score which was originally required to attain them.",
-    "Any unlocked perks will reset on disconnect. On reconnect you will receive points to re-allocate dependant on your score when rejoining. Score is reset on server restart."
+"Perks" hintC [
+    format ["You are given 1 perk point to allocate as you see fit straight away. Further points are awarded every %1 score.", GVAR(perk_amount_score)],
+    "You are only able to unlock the bottom perks (role based) for the role you are currently playing. This is indicated by a white arrow above the column.",
+    "Role based perks must be unlocked in sequence, starting with the first one at the top and then continuing down.",
+    "Unlocked perks do not persist between switching roles. On reconnect you will receive points to re-allocate dependant on your score.",
+    "Score, and by extension any unlocked perks and unused points, are reset every server restart."
 ];
