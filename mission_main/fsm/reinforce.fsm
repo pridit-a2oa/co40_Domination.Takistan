@@ -32,7 +32,7 @@ class FSM
           priority = 3.000000;
           to="End";
           precondition = "";
-          condition="(_this select 0) getVariable ""d_radios"" < 1";
+          condition="{alive _x} count ((_this select 0) getVariable ""d_radios"") < 1";
           action="d_crossroad kbTell [d_crossroad2, ""mission_main"", ""Destroyed"", [""1"", {}, ""communication array"", []], [""2"", {}, (_this select 0) getVariable ""name"", []], [""3"", {}, "" They can no longer call in reinforcements."", []], true];";
         };
         class no_players

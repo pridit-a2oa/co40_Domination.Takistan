@@ -1,6 +1,6 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_type", "_position", "_radios", "_near", "_camps", "_camp"];
+private ["_target", "_type", "_camps", "_position", "_near", "_group", "_objects"];
 
 PARAMS_2(_target, _type);
 
@@ -23,7 +23,7 @@ switch (_type) do {
                 
                 _camps = _camps + 1;
             };
-
+            
             sleep 0.5;
         };
         
@@ -49,7 +49,7 @@ switch (_type) do {
             ];
             
             if (!isNil QMODULE(3d)) then {
-                [nil, player, "per", rExecVM, FUNCTION(3d,create), _x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true] call RE;
+                [nil, player, rExecVM, FUNCTION(3d,create), _x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true] call RE;
             };
             
             [nil, nil, rSpawn, [_x], {
@@ -71,22 +71,20 @@ switch (_type) do {
                 };
             }] call RE;
             
+            _target setVariable [QGVAR(camps), (_target getVariable QGVAR(camps)) + [_x], true];
+            
             sleep 0.5;
         } forEach (nearestObjects [position _target, ["FlagCarrierTakistanKingdom_EP1"], GVAR(mission_main_radius_zone)]);
         
         {
             _x addEventHandler ["HandleDamage", {0}];
             
-            [nil, _x, "per", rEnableSimulation, false] call RE;
+            [nil, _x, rEnableSimulation, false] call RE;
         } forEach (nearestObjects [position _target, ["Thing", "Land_tent_east"], GVAR(mission_main_radius_zone)]);
-        
-        _target setVariable [QGVAR(camps), _camps];
     };
     
     case "radio": {
-        _radios = 0;
-        
-        while {_radios != GVAR(mission_main_amount_radios)} do {
+        while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 100];
             
@@ -98,7 +96,7 @@ switch (_type) do {
                 _radio setVariable [QGVAR(target), _target];
                 
                 if (!isNil QMODULE(3d)) then {
-                    [nil, player, "per", rExecVM, FUNCTION(3d,create), _radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true] call RE;
+                    [nil, player, rExecVM, FUNCTION(3d,create), _radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true] call RE;
                 };
                 
                 _radio addEventHandler ["killed", {
@@ -107,7 +105,6 @@ switch (_type) do {
                     PARAMS_1(_unit);
                     
                     _target = _unit getVariable QGVAR(target);
-                    _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) - 1];
                     
                     if (!isNil QMODULE(marker)) then {
                         [format ["radio_%1", _unit getVariable QGVAR(id)]] call FUNC(marker,delete);
@@ -133,13 +130,11 @@ switch (_type) do {
                     };
                 }] call RE;
                 
-                _radios = _radios + 1;
+                _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) + [_radio], true];
             };
             
             sleep 0.5;
         };
-        
-        _target setVariable [QGVAR(radios), _radios];
     };
     
     case "composition": {

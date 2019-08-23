@@ -4,7 +4,37 @@
 
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_locations", "_target"];
+private ["_target", "_locations"];
+
+if (hasInterface) then {
+    _target = X_JIPH getVariable QGVAR(target);
+    
+    if (!isNil "_target") then {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+            _x enableSimulation false;
+        } forEach (nearestObjects [position _target, ["Thing", "Land_tent_east"], GVAR(mission_main_radius_zone)]);
+        
+        {
+            [
+                _x,
+                "Capture" call FUNC(common,RedText),
+                [1, GVAR(3d_distance_visible)],
+                false,
+                true
+            ] spawn FUNC(3d,create);
+        } forEach (_target getVariable QGVAR(camps));
+        
+        {
+            [
+                _x,
+                "Destroy" call FUNC(common,RedText),
+                [1, GVAR(3d_distance_visible)],
+                true
+            ] spawn FUNC(3d,create);
+        } forEach (_target getVariable QGVAR(radios));
+    };
+};
 
 if (isServer) then {
     GVAR(mission_main_targets) = [];

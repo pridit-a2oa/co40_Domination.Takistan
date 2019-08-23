@@ -3,12 +3,12 @@ private ["_box"];
 
 PARAMS_1(_box);
 
-[nil, nil, "per", rClearMagazineCargo, _box] call RE;
-[nil, nil, "per", rClearWeaponCargo, _box] call RE;
+[nil, nil, rClearMagazineCargo, _box] call RE;
+[nil, nil, rClearWeaponCargo, _box] call RE;
 
 {
     {
-        [nil, nil, "per", rAddWeaponCargo, _box, _x, 10] call RE;
+        [nil, nil, rAddWeaponCargo, _box, _x, 10] call RE;
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_rifles_assault),
@@ -22,12 +22,12 @@ PARAMS_1(_box);
 ];
 
 {
-    [nil, nil, "per", rAddMagazineCargo, _box, _x, 50] call RE;
+    [nil, nil, rAddMagazineCargo, _box, _x, 50] call RE;
 } forEach GVAR(ammobox_type_ammo_gun);
 
 {
     {
-        [nil, nil, "per", rAddMagazineCargo, _box, _x, 50] call RE;
+        [nil, nil, rAddMagazineCargo, _box, _x, 50] call RE;
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_ammo_launcher)
@@ -35,7 +35,7 @@ PARAMS_1(_box);
 
 {
     {
-        [nil, nil, "per", rAddMagazineCargo, _box, _x, 20] call RE;
+        [nil, nil, rAddMagazineCargo, _box, _x, 20] call RE;
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_ammo_launcher_grenade),
@@ -45,5 +45,5 @@ PARAMS_1(_box);
 ];
 
 {
-    [nil, nil, "per", rAddWeaponCargo, _box, _x, 5] call RE;
+    [nil, nil, rAddWeaponCargo, _box, _x, 5] call RE;
 } forEach GVAR(ammobox_type_equipment);

@@ -14,7 +14,8 @@ GVAR(server_objects_banned) = [
     "Land_Barrel_sand",
     "Land_CamoNetB_EAST_EP1",
     "Land_CamoNetB_NATO_EP1",
-    "Land_CamoNetVar_EAST_EP1"
+    "Land_CamoNetVar_EAST_EP1",
+    "USVehicleBox_EP1"
 ];
 
 __cppfln(FUNC(THIS_MODULE,arrayPushStack),core\THIS_MODULE\functions\fn_arrayPushStack.sqf);

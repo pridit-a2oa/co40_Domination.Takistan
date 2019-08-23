@@ -22,7 +22,7 @@ _time = GVAR(mission_main_time_capture) + call FUNC(common,time);
 
 while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(common,players)) > 0} do {
     if (_time < call FUNC(common,time)) exitWith {
-        if (!isNil QMODULE(crossroad) && {(_target getVariable QGVAR(camps)) - 1 == 0}) then {
+        if (!isNil QMODULE(crossroad) && {({alive _x} count (_target getVariable QGVAR(camps))) - 1 == 0}) then {
             GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "Captured", ["1", {}, _target getVariable "name", []], true];
         };
         
@@ -34,8 +34,6 @@ while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(
         
         createVehicle ["FlagCarrierUSA_EP1", position _flag, [], 0, "CAN_COLLIDE"];
         deleteVehicle _flag;
-        
-        _target setVariable [QGVAR(camps), (_target getVariable QGVAR(camps)) - 1];
         
         [nil, nil, rPlaySound, QGVAR(sound_capture)] call RE;
         

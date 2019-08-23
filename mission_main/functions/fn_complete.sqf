@@ -101,7 +101,7 @@ if (!isNil QMODULE(teleport)) then {
         ] call FUNC(marker,create);
     }] call RE;
     
-    [nil, nil, "per", rExecVM, __submoduleRE(teleport), _flag] call RE;
+    [nil, nil, rExecVM, __submoduleRE(teleport), _flag] call RE;
 };
 
 [nil, nil, rSpawn, [], {

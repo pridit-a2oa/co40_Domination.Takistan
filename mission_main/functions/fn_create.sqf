@@ -4,6 +4,8 @@ private ["_target", "_name", "_ieds", "_trigger"];
 
 PARAMS_1(_target);
 
+X_JIPH setVariable [QGVAR(target), _target, true];
+
 _name = _target getVariable "name";
 
 [_target] call FUNC(THIS_MODULE,reset);

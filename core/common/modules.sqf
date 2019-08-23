@@ -20,7 +20,6 @@ _modules = [
     "base_bonus",
     "base_halo",
     "base_shield",
-    "base_teleport",
     "base_wreck",
     "board",
     "chat",

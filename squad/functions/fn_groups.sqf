@@ -4,7 +4,7 @@ private ["_groups_all", "_groups", "_name"];
 _groups_all = [];
 
 {
-    _groups_all = _groups_all + [str(_x)];
+    _groups_all = _groups_all + [str _x];
 } forEach allGroups;
 
 _groups = [];
@@ -14,16 +14,16 @@ _groups = [];
         _name = _x;
         
         {    
-            if (_name == str(_x)) exitWith {
+            if (_name == str _x) exitWith {
                 _groups = _groups + [_x];
             };
         } forEach allGroups;
     } else {
         _group = createGroup west;
         
-        [nil, nil, "per", rSpawn, [_group, GVAR(group_names) select _forEachIndex], {(_this select 0) setGroupId [(_this select 1)]}] call RE;
+        [nil, nil, rSpawn, [_group, GVAR(group_names) select _forEachIndex], {(_this select 0) setGroupId [(_this select 1)]}] call RE;
         
-        _groups = _groups + [_group];
+        _groups set [_forEachIndex, _group];
     };
 } forEach (_this select 0);
 
