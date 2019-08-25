@@ -1,9 +1,11 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    0 fadeSound 0;
+    if (isMultiplayer) then {
+        0 fadeSound 0;
 
-    titleText ["", "BLACK FADED"];
+        titleText ["", "BLACK FADED"];
+    };
     
     QGVAR(base_south) setMarkerAlphaLocal 0.3;
     QGVAR(base_north) setMarkerAlphaLocal 0;
