@@ -12,5 +12,6 @@ if (hasInterface) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,groups),THIS_MODULE\functions\fn_groups.sqf);
+__cppfln(FUNC(THIS_MODULE,performance),THIS_MODULE\functions\fn_performance.sqf);
 
 MODULE(THIS_MODULE) = true;
