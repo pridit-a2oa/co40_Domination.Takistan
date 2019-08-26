@@ -4,7 +4,7 @@ if (hasInterface) then {
     if (isMultiplayer) then {
         0 fadeSound 0;
 
-        titleText ["", "BLACK FADED"];
+        titleText ["", "BLACK FADED", 1.6];
     };
     
     QGVAR(base_south) setMarkerAlphaLocal 0.3;
