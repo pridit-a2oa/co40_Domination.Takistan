@@ -21,7 +21,10 @@ _groups = [];
     } else {
         _group = createGroup west;
         
-        [nil, nil, rSpawn, [_group, GVAR(group_names) select _forEachIndex], {(_this select 0) setGroupId [(_this select 1)]}] call RE;
+        [true, "setGroupId", [
+            _group,
+            GVAR(group_names) select _forEachIndex
+        ]] call FUNC(network,mp);
         
         _groups set [_forEachIndex, _group];
     };

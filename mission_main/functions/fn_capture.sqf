@@ -9,13 +9,10 @@ _target = _flag getVariable QGVAR(target);
 _flag setVariable [QGVAR(capturing), true];
 
 if (!isNil QMODULE(3d)) then {
-    [nil, nil, rSpawn, [_flag], {
-        private ["_flag"];
-        
-        PARAMS_1(_flag);
-        
-        [_flag, GVAR(mission_main_time_capture)] call FUNC(3d,time);
-    }] call RE;
+    [true, "execVM", [
+        [_flag, GVAR(mission_main_time_capture)],
+        FUNCTION(3d,time)
+    ]] call FUNC(network,mp);
 };
 
 _time = GVAR(mission_main_time_capture) + call FUNC(common,time);
@@ -28,14 +25,14 @@ while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(
         
         if (!isNil QMODULE(marker)) then {
             _name = format ["camp_%1", _flag getVariable QGVAR(id)];
-
+            
             [_name] call FUNC(marker,delete);
         };
         
         createVehicle ["FlagCarrierUSA_EP1", position _flag, [], 0, "CAN_COLLIDE"];
         deleteVehicle _flag;
         
-        [nil, nil, rPlaySound, QGVAR(sound_capture)] call RE;
+        [true, "playSound", QGVAR(sound_capture)] call FUNC(network,mp);
         
         if (!isNil "_trigger") then {
             deleteVehicle _trigger;

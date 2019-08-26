@@ -9,11 +9,11 @@ _position = [markerPos QGVAR(intel), 800, 1600, 10, 0, 0.1, 0] call FUNC(common,
 if (!isNil QMODULE(marker)) then {
     _name = format ["intel_%1", str (_position)];
     
-    [nil, nil, rSpawn, [_position, _name], {
+    [true, "spawn", [[_position, _name], {
         private ["_position", "_name"];
-        
+
         PARAMS_2(_position, _name);
-        
+
         if (!isNil QMODULE(marker)) then {
             [
                 _name,
@@ -26,7 +26,7 @@ if (!isNil QMODULE(marker)) then {
                 [0.8, 0.8]
             ] call FUNC(marker,create);
         };
-    }] call RE;
+    }]] call FUNC(network,mp);
     
     GVAR(intel_trigger) = createTrigger ["EmptyDetector", _position];
     GVAR(intel_trigger) setVariable ["marker", _name];
@@ -89,7 +89,7 @@ switch (_type) do {
             };
         };
         
-        [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+        [true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
 
         if (!isNil QMODULE(marker)) then {
             GVAR(intel_trigger) setVariable ["vehicle", _vehicle];

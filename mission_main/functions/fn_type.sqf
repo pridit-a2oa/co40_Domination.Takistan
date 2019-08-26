@@ -49,14 +49,17 @@ switch (_type) do {
             ];
             
             if (!isNil QMODULE(3d)) then {
-                [nil, player, rExecVM, FUNCTION(3d,create), _x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true] call RE;
+                [player, "execVM", [
+                    [_x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true],
+                    FUNCTION(3d,create)
+                ]] call FUNC(network,mp);
             };
             
-            [nil, nil, rSpawn, [_x], {
+            [true, "spawn", [[_x], {
                 private ["_flag"];
-                
+
                 PARAMS_1(_flag);
-                
+
                 if (!isNil QMODULE(marker)) then {
                     [
                         format ["camp_%1", _flag getVariable QGVAR(id)],
@@ -69,7 +72,7 @@ switch (_type) do {
                         [0.5, 0.5]
                     ] call FUNC(marker,create);
                 };
-            }] call RE;
+            }]] call FUNC(network,mp);
             
             _target setVariable [QGVAR(camps), (_target getVariable QGVAR(camps)) + [_x], true];
             
@@ -79,7 +82,7 @@ switch (_type) do {
         {
             _x addEventHandler ["HandleDamage", {0}];
             
-            [nil, _x, rEnableSimulation, false] call RE;
+            [true, "enableSimulation", [_x, false]];
         } forEach (nearestObjects [position _target, ["Thing", "Land_tent_east"], GVAR(mission_main_radius_zone)]);
     };
     
@@ -96,7 +99,10 @@ switch (_type) do {
                 _radio setVariable [QGVAR(target), _target];
                 
                 if (!isNil QMODULE(3d)) then {
-                    [nil, player, rExecVM, FUNCTION(3d,create), _radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true] call RE;
+                    [player, "execVM", [
+                        [_radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true],
+                        FUNCTION(3d,create)
+                    ]] call FUNC(network,mp);
                 };
                 
                 _radio addEventHandler ["killed", {
@@ -110,8 +116,8 @@ switch (_type) do {
                         [format ["radio_%1", _unit getVariable QGVAR(id)]] call FUNC(marker,delete);
                     };
                 }];
-
-                [nil, nil, rSpawn, [_radio, _position], {
+                
+                [true, "spawn", [[_radio, _position], {
                     private ["_radio", "_position"];
                     
                     PARAMS_2(_radio, _position);
@@ -128,7 +134,7 @@ switch (_type) do {
                             [0.7, 0.9]
                         ] call FUNC(marker,create);
                     };
-                }] call RE;
+                }]] call FUNC(network,mp);
                 
                 _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) + [_radio], true];
             };
@@ -189,14 +195,8 @@ switch (_type) do {
             _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
             
             _entity setVariable [QGVAR(task), _task, true];
-        
-            [nil, nil, rSpawn, [_task], {
-                private ["_task"];
-                
-                PARAMS_1(_task);
-
-                _task call FUNC(task,create);
-            }] call RE;
+            
+            [true, "execVM", [_task, FUNCTION(task,create)]] call FUNC(network,mp);
             
             _entity addEventHandler ["killed", {
                 private ["_unit", "_task"];

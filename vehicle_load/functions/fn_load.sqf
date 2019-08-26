@@ -32,7 +32,7 @@ sleep 1;
     if (isPlayer _x) then {
         moveOut _x;
         
-        [nil, _x, rMoveIn, _aircraft, "Cargo"] call RE;
+        [_x, "moveInCargo", _aircraft] call FUNC(network,mp);
     };
 } forEach crew _load;
 

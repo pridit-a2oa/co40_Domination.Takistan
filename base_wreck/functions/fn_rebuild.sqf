@@ -27,13 +27,9 @@ _vehicle allowDamage false;
 __log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 
 if (!isNil QMODULE(3d)) then {
-    [nil, nil, rSpawn, [_time], {
-        private ["_time"];
-        
-        PARAMS_1(_time);
-        
-        [GVAR(service_wreck), _time] call FUNC(3d,time);
-    }] call RE;
+    [true, "spawn", [[_time], {
+        [GVAR(service_wreck), _this] call FUNC(3d,time);
+    }]] call FUNC(network,mp);
 };
 
 _time = _time + call FUNC(common,time);
@@ -60,7 +56,7 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), true, true];
 };
 
-[nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+[true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
 
 while {call FUNC(common,time) < _time} do {
     // remaining time to rebuild is greater than the maximum it could ever be
@@ -70,7 +66,7 @@ while {call FUNC(common,time) < _time} do {
         _vehicle spawn {
             sleep (random 10);
             
-            [nil, _this, rSay, QGVAR(sound_weld), 20] call RE;
+            [true, "say", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
         };
     };
     
@@ -84,9 +80,10 @@ if (!isNil "_lifter") then {
         if (name _x == _lifter) exitWith {
             _x addScore GVAR(base_wreck_amount_score);
             
-            [nil, _x, "loc", rSpawn, [], {
-                systemChat format ["You have been awarded %1 score for rebuilding a wreck", GVAR(base_wreck_amount_score)]
-            }] call RE;
+            [_x, "systemChat", format [
+                "You have been awarded %1 score for rebuilding a wreck",
+                GVAR(base_wreck_amount_score)
+            ]] call FUNC(network,mp);
         };
     } forEach (call FUNC(common,players));
 };

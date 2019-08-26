@@ -6,9 +6,13 @@ _type = (format [QGVAR(%1), _this select 3]);
 
 _target = _this select 0;
 
-[nil, _target, rSay, QGVAR(sound_shuffle), 20] call RE;
+[true, "say", [_target, QGVAR(sound_shuffle), 20]] call FUNC(network,mp);
 
 _target setVariable [_type, (_target getVariable _type) + 1, true];
 player setVariable [_type, (player getVariable _type) - 1, true];
 
-[nil, _target, "loc", rSpawn, [player, _this select 3], {systemChat format ["You have been given a %1 by %2", [(_this select 1)] call FUNC(THIS_MODULE,name), name (_this select 0)]}] call RE;
+[_target, "systemChat", format [
+    "You have been given a %1 by %2",
+    [_this select 3] call FUNC(THIS_MODULE,name),
+    name player
+]] call FUNC(network,mp);

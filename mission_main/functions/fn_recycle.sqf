@@ -10,17 +10,17 @@ waitUntil {sleep 5; _time < call FUNC(common,time)};
 
 [_target] call FUNC(THIS_MODULE,cleanup);
 
-[nil, nil, rSpawn, [_target], {
+[true, "spawn", [[_target], {
     private ["_target", "_name", "_description"];
-    
+
     PARAMS_1(_target);
-    
+
     if (!isNil QMODULE(task)) then {
         {
             player removeSimpleTask ([_x select 0] call FUNC(task,get));
         } forEach (_target getVariable QGVAR(tasks));
     };
-}] call RE;
+}]] call FUNC(network,mp);
 
 if (!isNil QMODULE(task)) then {
     {

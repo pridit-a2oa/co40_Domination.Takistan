@@ -13,6 +13,6 @@ if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
     _ied setVariable [QGVAR(disarm), false, true];
 };
 
-[nil, player, rSay, QGVAR(sound_disarm), 20] call RE;
+[true, "say", [player, QGVAR(sound_disarm), 20]] call FUNC(network,mp);
 
 deleteVehicle _ied;

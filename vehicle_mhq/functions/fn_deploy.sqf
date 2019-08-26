@@ -43,18 +43,25 @@ _camo setVectorUp (vectorUp _vehicle);
 _camo setPos [_position select 0, _position select 1, -0.18];
 _camo addEventHandler ["HandleDamage", {0}];
 
-[_vehicle, true] call FUNC(network,lock);
-[_vehicle, false] call FUNC(network,engineOn);
+[_vehicle, "lock", true] call FUNC(network,mp);
+[_vehicle, "engineOn", false] call FUNC(network,mp);
 
 _vehicle setVariable [QGVAR(camo), _camo, true];
 _vehicle setVariable [QGVAR(deployed), true, true];
 
 if (!isNil QMODULE(vehicle_marker)) then {
-    [nil, nil, rExecVM, __submoduleRE(vehicle_marker), _vehicle, true] call RE;
+    [true, "execVM", [_vehicle, __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
 };
 
-if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
-    [player, GVAR(crossroad), "vehicle_mhq", "Deployed", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], ["2", {}, text (_city), []], true] call FUNC(network,kbTell);
-
+if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {    
+    [player, "kbTell", [
+        GVAR(crossroad),
+        "vehicle_mhq",
+        "Deployed",
+        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+        ["2", {}, text (_city), []],
+        true
+    ]] call FUNC(network,mp);
+    
     player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
 };

@@ -16,4 +16,8 @@ _target setVariable [QGVAR(unconscious), false, true];
 
 _target setDamage (player getVariable QGVAR(revive_damage));
 
-[nil, nil, rSpawn, [_target, _caller], {systemChat format ["%1 has been revived by %2", name (_this select 0), name (_this select 1)]}] call RE;
+[true, "systemChat", format [
+    "%1 has been revived by %2",
+    name _target,
+    name _caller
+]] call FUNC(network,mp);

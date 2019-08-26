@@ -21,7 +21,7 @@ _unit spawn {
         sleep 1;
     };
     
-    [nil, _this, rPlayActionNow, "Die"] call RE;
+    [_this, "playActionNow", "Die"] call FUNC(network,mp);
     
     sleep 1;
     
@@ -29,8 +29,8 @@ _unit spawn {
     
     while {alive _this} do {
         if (!(_this getVariable QGVAR(unconscious))) exitWith {
-            [nil, _this, rSwitchMove, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
-            [nil, _this, rPlayMoveNow, "AmovPpneMstpSnonWnonDnon_healed"] call RE;
+            [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
+            [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
             
             [_this] call FUNC(THIS_MODULE,reset);
         };
@@ -39,4 +39,4 @@ _unit spawn {
     };
 };
 
-[nil, nil, rSpawn, [_unit], {systemChat format ["%1 is unconscious", name (_this select 0)]}] call RE;
+[true, "systemChat", format ["%1 is unconscious", name _unit]] call FUNC(network,mp);

@@ -44,8 +44,9 @@ if (!isNil QMODULE(task)) then {
     _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
 };
 
-[nil, nil, rPlaySound, QGVAR(sound_task)] call RE;
-[nil, nil, rSpawn, [_target], {
+[true, "playSound", QGVAR(sound_task)] call FUNC(network,mp);
+
+[true, "spawn", [[_target], {
     private ["_target", "_name"];
     
     PARAMS_1(_target);
@@ -71,7 +72,7 @@ if (!isNil QMODULE(task)) then {
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
     };
-}] call RE;
+}]] call FUNC(network,mp);
 
 for "_i" from 1 to GVAR(mission_main_amount_optional) do {
     sleep 2;

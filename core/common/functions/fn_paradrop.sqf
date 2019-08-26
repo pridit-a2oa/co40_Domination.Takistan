@@ -51,8 +51,8 @@ if (typeName _loaded == "ARRAY") then {
     };
     
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
-        [nil, nil, rExecVM, __handlerRE(vehicle), _load] call RE;
-        [nil, nil, rSpawn, [_load], {player reveal (_this select 0)}] call RE;
+        [true, "execVM", [_load, __handlerRE(vehicle)]] call FUNC(network,mp);
+        [player, "reveal", _load] call FUNC(network,mp);
     };
     
     if ((position _aircraft) select 2 > 100) then {
@@ -77,7 +77,7 @@ if (typeName _loaded == "ARRAY") then {
             [_ammobox] call FUNC(vehicle_ammobox,replenish);
         };
         
-        [nil, nil, rExecVM, __handlerRE(ammobox), _ammobox] call RE;
+        [true, "execVM", [_ammobox, __handlerRE(ammobox)]] call FUNC(network,mp);
     };
 };
 

@@ -9,7 +9,7 @@ sleep 1;
 
 _car spawn {
     while {alive _this && {alive (driver _this)}} do {
-        [nil, _this, rSay, QGVAR(sound_tick), 20] call RE;
+        [true, "say", [_this, QGVAR(sound_tick), 20]] call FUNC(network,mp);
         
         sleep 0.5;
     };
@@ -21,7 +21,7 @@ if (!alive (driver _car)) exitWith {
     _car setDamage 1;
 };
 
-[nil, nil, rSpawn, [driver _car], {(_this select 0) directSay "Exclamation"}] call RE;
+[true, "directSay", [driver _car, "Exclamation"]] call FUNC(network,mp);
 
 sleep 1.5;
 

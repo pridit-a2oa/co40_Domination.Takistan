@@ -1,0 +1,1 @@
+((_this select 0) select 0) hideObject ((_this select 0) select 1);

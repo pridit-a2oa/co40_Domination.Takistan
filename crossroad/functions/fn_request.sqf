@@ -1,14 +1,31 @@
 #include "x_macros.sqf"
-private ["_unit", "_position", "_type", "_grid"];
+private ["_unit", "_position", "_type"];
 
-PARAMS_3(_unit, _position,_type);
+PARAMS_3(_unit, _position, _type);
 
-[_unit, (mapGridPosition _position), _type] spawn {
-    _grid = (_this select 1) call FUNC(common,numbersToWords);
+[_unit, mapGridPosition _position, _type] spawn {
+    private ["_unit", "_position", "_type"];
     
-    [(_this select 0), GVAR(crossroad), "HQ", "CrossroadRequest", ["1", {}, _this select 2, []], ["2", {}, _this select 1, _grid], true] call FUNC(network,kbTell);
-
+    PARAMS_3(_unit, _position, _type);
+    
+    _grid = _position call FUNC(common,numbersToWords);
+    
+    [_unit, "kbTell", [
+        _unit,
+        GVAR(crossroad),
+        "HQ",
+        "CrossroadRequest",
+        ["1", {}, _type, []], ["2", {}, _position, _grid],
+        true
+    ]] call FUNC(network,mp);
+    
     sleep 5;
     
-    GVAR(crossroad) kbTell [(_this select 0), "HQ", "CrossroadAcknowledged", ["1", {}, _this select 2, []], true];
+    GVAR(crossroad) kbTell [
+        _unit,
+        "HQ",
+        "CrossroadAcknowledged",
+        ["1", {}, _type, []],
+        true
+    ];
 };

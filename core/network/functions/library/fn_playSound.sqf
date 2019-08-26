@@ -1,0 +1,1 @@
+playSound (_this select 1);

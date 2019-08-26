@@ -25,7 +25,7 @@ if (!isNil QMODULE(marker)) then {
     
     [_name] call FUNC(marker,delete);
     
-    [nil, nil, rSpawn, [_name, _target], {
+    [true, "spawn", [[_name, _target], {
         private ["_name", "_target"];
         
         PARAMS_2(_name, _target);
@@ -40,7 +40,7 @@ if (!isNil QMODULE(marker)) then {
             "ELLIPSE",
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
-    }] call RE;
+    }]] call FUNC(network,mp);
 };
 
 if (!isNil QMODULE(task)) then {
@@ -54,25 +54,25 @@ if (!isNil QMODULE(task)) then {
         };
     } forEach (_target getVariable QGVAR(tasks));
     
-    [nil, nil, rSpawn, [_target], {
+    [true, "spawn", [[_target], {
         private ["_target", "_task"];
-        
+
         PARAMS_1(_target);
-        
+
         if (!hasInterface) exitWith {};
-        
+
         _task = [((_target getVariable QGVAR(tasks)) select 0) select 0] call FUNC(task,get);
         _task setTaskState "Succeeded";
-        
+
         [_task, "succeeded"] call FUNC(task,hint);
-        
+
         {
             if (_x select 3 == "Failed") then {
                 _task = [_x select 0] call FUNC(task,get);
                 _task setTaskState "Failed";
             };
         } forEach (X_JIPH getVariable QGVAR(tasks));
-    }] call RE;
+    }]] call FUNC(network,mp);
 };
 
 if (!isNil QMODULE(crossroad)) then {
@@ -83,8 +83,8 @@ if (!isNil QMODULE(teleport)) then {
     _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
 
     _flag = createVehicle ["FlagCarrierUSA_EP1", _position, [], 0, "NONE"];
-
-    [nil, nil, rSpawn, [_target, _flag], {
+    
+    [true, "spawn", [[_target, _flag], {
         private ["_target", "_flag"];
         
         PARAMS_2(_target, _flag);
@@ -99,18 +99,18 @@ if (!isNil QMODULE(teleport)) then {
             "ICON",
             [0.6, 0.6]
         ] call FUNC(marker,create);
-    }] call RE;
+    }]] call FUNC(network,mp);
     
-    [nil, nil, rExecVM, __submoduleRE(teleport), _flag] call RE;
+    [true, "execVM", [_flag, __submoduleRE(teleport)]] call FUNC(network,mp);
 };
 
-[nil, nil, rSpawn, [], {
+[true, "spawn", [[], {
     playSound "fanfare";
     
     sleep 3;
     
     playSound QGVAR(sound_complete);
-}] call RE;
+}]] call FUNC(network,mp);
 
 [_target] spawn FUNC(THIS_MODULE,recycle);
 

@@ -27,7 +27,13 @@ _vehicle addEventHandler ["killed", {
         [_vehicle] call FUNC(THIS_MODULE,undeploy);
         
         if (!isNil QMODULE(crossroad)) then {
-            [GVAR(crossroad), GVAR(crossroad2), "vehicle_mhq", "Destroyed", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], true] call FUNC(network,kbTell);
+            [GVAR(crossroad), "kbTell", [
+                GVAR(crossroad2),
+                "vehicle_mhq",
+                "Destroyed",
+                ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+                true
+            ]] call FUNC(network,mp);
         };
     };
 }];

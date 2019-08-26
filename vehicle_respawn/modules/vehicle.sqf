@@ -57,7 +57,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
             _vehicle setVariable [QGVAR(position), _position, true];
             _vehicle setVariable [QGVAR(direction), _direction, true];
             
-            [nil, nil, rExecVM, __handlerRE(vehicle), _vehicle] call RE;
+            [true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
         };
         
         sleep 20;

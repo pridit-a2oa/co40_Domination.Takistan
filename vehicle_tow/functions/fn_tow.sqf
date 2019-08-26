@@ -39,7 +39,7 @@ while {alive _tow && {_tow getVariable QGVAR(towed)}} do {
         _dy = (_aTpos select 1) - (_wheelPpos select 1);		
         _dirdeg = _dx atan2 _dy; //convert to direction in deg
         
-        [_tow, [_dx, _dy, 0]] call FUNC(network,setVectorDir); //set the direction of P, preserving pitch and bank
+        [_tow, "setVectorDir", [_dx, _dy, 0]] call FUNC(network,mp); //set the direction of P, preserving pitch and bank
         
         //velocity implementation (smoother but elastic)		
         _dirdeg_axis = _dx_axis atan2 _dy_axis;	//get the direction of the difference vector						
@@ -49,13 +49,16 @@ while {alive _tow && {_tow getVariable QGVAR(towed)}} do {
         
         sleep 0.1;
         
-        [_tow, [
+        [_tow, "setVelocity", [
             (sin _dirdeg_axis * _speed),
             (cos _dirdeg_axis * _speed),
             (_Pvel select 2)
-        ]] call FUNC(network,setVelocity); //set the velocity in the correct direction
+        ]] call FUNC(network,mp); //set the velocity in the correct direction
         
-        [nil, nil, rExecVM, FUNCTION(vehicle,speed), _vehicle, GVAR(vehicle_tow_amount_speed)] call RE;
+        [true, "execVM", [
+            [_vehicle, GVAR(vehicle_tow_amount_speed)],
+            FUNCTION(vehicle,speed)
+        ]] call FUNC(network,mp);
     };
 };
 

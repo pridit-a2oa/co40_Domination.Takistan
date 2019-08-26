@@ -15,10 +15,10 @@ if (!isNull _camo) then {
     deleteVehicle _camo;
 };
 
-[_vehicle, false] call FUNC(network,lock);
+[_vehicle, "lock", false] call FUNC(network,mp);
 
 _vehicle setVariable [QGVAR(deployed), false, true];
 
 if (!isNil QMODULE(vehicle_marker)) then {
-    [nil, nil, rExecVM, __submoduleRE(vehicle_marker), _vehicle, false] call RE;
+    [true, "execVM", [[_vehicle, false], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
 };

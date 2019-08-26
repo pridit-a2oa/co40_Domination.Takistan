@@ -22,7 +22,7 @@ if (typename _this == typename objnull) then {
     //--- Init
     _dir = ([[0,0,0],velocity _unit] call bis_fnc_dirto);
     _unit setdir _dir;
-    [nil, _unit, rSwitchMove, "HaloFreeFall_non"] call RE;
+    [true, "switchMove", [_unit, "HaloFreeFall_non"]] call FUNC(network,mp);
 
     //--- Key controls
     if (_unit == player) then {
@@ -154,7 +154,7 @@ if (typename _this == typename objnull) then {
                     _anim = "HaloFreeFall_" + _vAnim + _hAnim;
                 };
                 
-                [nil, player, rPlayMoveNow, _anim] call RE;
+                [true, "playMoveNow", [player, _anim]] call FUNC(network,mp);
 
                 //--- Sound
                 if ((time - bis_fnc_halo_soundLoop) > 4.5) then {
@@ -185,7 +185,7 @@ if (typename _this == typename objnull) then {
             bis_fnc_halo_keydown_eh = nil;
 
             if (!alive player) then {
-                [nil, player, rSwitchMove, "adthppnemstpsraswrfldnon_1"] call RE;
+                [true, "switchMove", [player, "adthppnemstpsraswrfldnon_1"]] call FUNC(network,mp);
             };
         };
     } else {

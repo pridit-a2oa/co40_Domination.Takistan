@@ -25,11 +25,11 @@ while {true} do {
             
             (_this select 0) spawn {
                 if (canMove _this) then {
-                    [_this, "motor", 1] call FUNC(network,setHit);
+                    [_this, "setHit", ["motor", 1]] call FUNC(network,mp);
                     
                     sleep 1;
                     
-                    [_this, "motor", 0] call FUNC(network,setHit);
+                    [_this, "setHit", ["motor", 0]] call FUNC(network,mp);
                 };
     
                 _this engineOn false;

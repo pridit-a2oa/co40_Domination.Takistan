@@ -67,7 +67,7 @@ _object setVariable [QGVAR(deconstructing), false];
 _object addEventHandler ["HandleDamage", {0}];
 _object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 10, false, true, "", "player == vehicle player && {!(_target getVariable 'd_deconstructing')}"];
 
-[nil, nil, rExecVM, __function(action), _name, _object] call RE;
+[true, "execVM", [[_name, _object], __function(action)]] call FUNC(network,mp);
 
 X_JIPH setVariable [QGVAR(constructed), (X_JIPH getVariable QGVAR(constructed)) + [[_object, call FUNC(common,time) + GVAR(construction_time_lifetime)]], true];
 

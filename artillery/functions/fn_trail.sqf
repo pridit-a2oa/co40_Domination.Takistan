@@ -6,7 +6,7 @@ PARAMS_1(_strike);
 _shell = (getText (configFile >> "CfgAmmo" >> GVAR(artillery_type_shell) >> "ARTY_NetShell")) createVehicle _strike;
 _trail = "#particlesource" createVehicle _strike;
 
-[nil, nil, rSpawn, [_trail, _shell], {
+[true, "spawn", [[_trail, _shell], {
     (_this select 1) setVelocity [0, 0, -150];
 
     (_this select 0) setParticleRandom [0.25, [0.002, 0.002, 0.002], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 0];
@@ -19,7 +19,7 @@ _trail = "#particlesource" createVehicle _strike;
         [0.4, 0.7], 
         [[1, 1, 1, 0.5],[1, 1, 1, 0.25],[1, 1, 1, 0]], [1000], 100, 0, "", "", _this select 1, 0
     ];
-}] call RE;
+}]] call FUNC(network,mp);
 
 sleep 1;
 

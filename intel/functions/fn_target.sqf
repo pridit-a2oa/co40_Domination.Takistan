@@ -6,7 +6,7 @@ PARAMS_1(_car);
 
 _type = GVAR(intel_type_targets) call BIS_fnc_selectRandom;
 
-[nil, _car, rSay, QGVAR(sound_shuffle), 20] call RE;
+[true, "say", [_car, QGVAR(sound_shuffle), 20]] call FUNC(network,mp);
 
 sleep 2;
 

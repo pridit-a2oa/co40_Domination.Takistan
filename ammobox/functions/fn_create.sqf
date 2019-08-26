@@ -2,7 +2,7 @@
 #include "x_macros.sqf"
 private ["_position", "_direction", "_locality"];
 
-PARAMS_3(_position,_direction,_locality);
+PARAMS_3(_position, _direction, _locality);
 
 _box = switch (_locality) do {
     case true: {GVAR(ammobox_type) createVehicleLocal _position};
@@ -12,6 +12,6 @@ _box = switch (_locality) do {
 _box setDir _direction;
 _box setPos _position;
 
-[nil, nil, rSpawn, [_box], {player reveal (_this select 0)}] call RE;
+[player, "reveal", _box] call FUNC(network,mp);
 
 _box

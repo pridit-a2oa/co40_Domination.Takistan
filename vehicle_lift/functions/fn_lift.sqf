@@ -24,16 +24,28 @@ if (!isNil QMODULE(vehicle_mhq) && {_attachee getVariable QGVAR(deployed)}) then
 if (!isNil QMODULE(crossroad)) then {
     if (!isNil QMODULE(vehicle_wreck) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
         if (!alive _attachee && {_attachee getVariable QGVAR(wreckable)}) then {
-            [player, GVAR(crossroad), "vehicle_lift", "Airlift", ["1", {}, format ["%1 wreck", [typeOf (_attachee)] call FUNC(vehicle,name)], []], true] call FUNC(network,kbTell);
-        
+            [player, "kbTell", [
+                GVAR(crossroad),
+                "vehicle_lift",
+                "Airlift",
+                ["1", {}, format ["%1 wreck", [typeOf (_attachee)] call FUNC(vehicle,name)], []],
+                true
+            ]] call FUNC(network,mp);
+            
             player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
         };
     };
     
     if (!isNil QMODULE(vehicle_mhq) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
         if (GVAR(vehicle_mhq_types) find (typeOf _attachee) != -1) then {
-            [player, GVAR(crossroad), "vehicle_lift", "Airlift", ["1", {}, [typeOf (_attachee)] call FUNC(vehicle,name), []], true] call FUNC(network,kbTell);
-        
+            [player, "kbTell", [
+                GVAR(crossroad),
+                "vehicle_lift",
+                "Airlift",
+                ["1", {}, [typeOf (_attachee)] call FUNC(vehicle,name), []],
+                true
+            ]] call FUNC(network,mp);
+            
             player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
         };
     };
