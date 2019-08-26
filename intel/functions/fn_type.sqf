@@ -89,7 +89,7 @@ switch (_type) do {
             };
         };
         
-        [true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
+        [true, "execVM", [[_vehicle], __handlerRE(vehicle)]] call FUNC(network,mp);
 
         if (!isNil QMODULE(marker)) then {
             GVAR(intel_trigger) setVariable ["vehicle", _vehicle];

@@ -32,7 +32,7 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 player reveal _atv;
 
 [true, "say", [_atv, QGVAR(sound_build), 20]] call FUNC(network,mp);
-[true, "execVM", [_atv, __handlerRE(vehicle)]] call FUNC(network,mp);
+[true, "execVM", [[_atv], __handlerRE(vehicle)]] call FUNC(network,mp);
 
 _atv spawn {
     sleep 10;

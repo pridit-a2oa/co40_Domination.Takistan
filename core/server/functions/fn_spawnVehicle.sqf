@@ -29,7 +29,7 @@ _object allowCrewInImmobile true;
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };
     
-    [true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
+    [true, "execVM", [[_vehicle], __handlerRE(vehicle)]] call FUNC(network,mp);
 };
 
 _vehicle

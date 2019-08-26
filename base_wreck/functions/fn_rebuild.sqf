@@ -56,7 +56,7 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), true, true];
 };
 
-[true, "execVM", [_vehicle, __handlerRE(vehicle)]] call FUNC(network,mp);
+[true, "execVM", [[_vehicle], __handlerRE(vehicle)]] call FUNC(network,mp);
 
 while {call FUNC(common,time) < _time} do {
     // remaining time to rebuild is greater than the maximum it could ever be

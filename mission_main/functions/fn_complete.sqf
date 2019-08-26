@@ -101,7 +101,7 @@ if (!isNil QMODULE(teleport)) then {
         ] call FUNC(marker,create);
     }]] call FUNC(network,mp);
     
-    [true, "execVM", [_flag, __submoduleRE(teleport)]] call FUNC(network,mp);
+    [true, "execVM", [[_flag], __submoduleRE(teleport)]] call FUNC(network,mp);
 };
 
 [true, "spawn", [[], {
