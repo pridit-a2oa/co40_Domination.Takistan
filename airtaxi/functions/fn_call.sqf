@@ -143,7 +143,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     };
 
     if (!canMove _aircraft) then {
-        [_aircraft, "vehicleChat", "We've been hit! Critical damage! Eject now!"] call FUNC(network,mp);
+        [true, "vehicleChat", [_aircraft, "We've been hit! Critical damage! Eject now!"]] call FUNC(network,mp);
         
         sleep 15;
         

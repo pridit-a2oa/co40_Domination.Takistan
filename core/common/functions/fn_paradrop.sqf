@@ -52,7 +52,7 @@ if (typeName _loaded == "ARRAY") then {
     
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
         [true, "execVM", [[_load], __handlerRE(vehicle)]] call FUNC(network,mp);
-        [player, "reveal", _load] call FUNC(network,mp);
+        [true, "reveal", [player, _load]] call FUNC(network,mp);
     };
     
     if ((position _aircraft) select 2 > 100) then {

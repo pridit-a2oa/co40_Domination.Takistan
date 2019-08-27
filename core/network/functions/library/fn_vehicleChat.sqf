@@ -1,1 +1,1 @@
-(_this select 0) vehicleChat (_this select 1);
+((_this select 1) select 0) vehicleChat ((_this select 1) select 1);

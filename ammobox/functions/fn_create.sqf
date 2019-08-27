@@ -12,6 +12,6 @@ _box = switch (_locality) do {
 _box setDir _direction;
 _box setPos _position;
 
-[player, "reveal", _box] call FUNC(network,mp);
+[true, "reveal", [player, _box]] call FUNC(network,mp);
 
 _box
