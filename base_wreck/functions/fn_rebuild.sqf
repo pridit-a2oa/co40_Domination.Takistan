@@ -28,7 +28,11 @@ __log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 
 if (!isNil QMODULE(3d)) then {
     [true, "spawn", [[_time], {
-        [GVAR(service_wreck), _this] call FUNC(3d,time);
+        private ["_time"];
+        
+        PARAMS_1(_time);
+        
+        [GVAR(service_wreck), _time] call FUNC(3d,time);
     }]] call FUNC(network,mp);
 };
 
