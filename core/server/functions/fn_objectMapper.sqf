@@ -150,7 +150,7 @@ _multiplyMatrixFunc = {
                 _x addEventHandler ["HandleDamage", {0}];
             } forEach crew _object;
             
-            if (!(_object isKindOf "StaticVehicle")) then {
+            if !(_object isKindOf "StaticVehicle") then {
                 (driver _object) disableAI "MOVE";
                 
                 _object addEventHandler ["GetOut", {            

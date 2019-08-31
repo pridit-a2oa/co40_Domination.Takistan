@@ -8,7 +8,7 @@ private ["_vehicle", "_marker"];
 PARAMS_1(_vehicle);
 
 if (alive _vehicle) exitWith {};
-if (!(_vehicle getVariable QGVAR(wreckable))) exitWith {};
+if !(_vehicle getVariable QGVAR(wreckable)) exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerPosLocal (position _vehicle);
