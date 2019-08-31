@@ -104,7 +104,7 @@ if (hasInterface) then {
         [_vehicle] __submoduleVM(vehicle_welcome);
     };
     
-    if (typeOf _vehicle == "AH64D_EP1") then {
+    if (typeOf _vehicle in ["AH64D_EP1", "AH1Z"]) then {
         _handler = _vehicle addEventHandler ["getin", {
             private ["_vehicle", "_position", "_unit"];
             
@@ -121,16 +121,16 @@ if (hasInterface) then {
                 
                 if (vehicle _unit == _unit) exitWith {};
                 
-                "AH-64D" hintC [
-                    "This vehicle unfortunately suffers from an old Arma bug which means ammo may not be replenished when rearming.",
-                    "In order to solve this the gunner has to be occupied at least once (either by yourself or another) at some point during the lifetime of the vehicle."
+                ([typeOf _vehicle] call FUNC(vehicle,name)) hintC [
+                    "This vehicle suffers from an Arma bug which means ammo may not be replenished when rearming.",
+                    "In order to solve this the gunner seat has to be occupied at least once."
                 ];
                 
-                _vehicle removeEventHandler ["getin", _unit getVariable QGVAR(ah64d)];
+                _vehicle removeEventHandler ["getin", _unit getVariable (format ["d_%1", typeOf _vehicle])];
             };
         }];
         
-        player setVariable [QGVAR(ah64d), _handler];
+        player setVariable [format ["d_%1", typeOf _vehicle], _handler];
     };
 };
 
