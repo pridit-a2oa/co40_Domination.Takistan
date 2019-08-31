@@ -36,18 +36,22 @@ while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR
     };
 
     _vehicle setVehicleAmmo 1;
-
-    _vehicle vehicleChat "Repairing";
+    
+    [true, "vehicleChat", [_vehicle, "Repairing"]] call FUNC(network,mp);
     
     sleep 2;
     
     _vehicle setDamage 0;
     
-    _vehicle vehicleChat "Refuelling";
+    [true, "vehicleChat", [_vehicle, "Refuelling"]] call FUNC(network,mp);
     
     sleep 2;
     
     _vehicle setFuel 1;
+    
+    if !(_vehicle call FUNC(common,empty)) then {
+        [_vehicle, "engineOn", true] call FUNC(network,mp);
+    };
     
     _vehicle setVariable [QGVAR(servicing), false, true];
     

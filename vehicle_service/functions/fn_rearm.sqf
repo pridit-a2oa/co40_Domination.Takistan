@@ -4,7 +4,8 @@ private ["_vehicle", "_magazine"];
 PARAMS_2(_vehicle, _magazine);
 
 _vehicle removeMagazines _magazine;
-_vehicle vehicleChat format ["Rearming %1", _magazine];
+
+[true, "vehicleChat", [_vehicle, format ["Rearming %1", _magazine]]] call FUNC(network,mp);
 
 sleep 6;
 
