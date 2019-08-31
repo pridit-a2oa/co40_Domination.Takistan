@@ -11,7 +11,6 @@ PARAMS_3(_unit, _position, _type);
     _grid = _position call FUNC(common,numbersToWords);
     
     [_unit, "kbTell", [
-        _unit,
         GVAR(crossroad),
         "HQ",
         "CrossroadRequest",
