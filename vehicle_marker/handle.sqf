@@ -7,6 +7,9 @@
 
 if (hasInterface) then {
     ["marker_vehicles", {
+        _sides = [0, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
+        _colors = [1, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
+        
         {
             _marker = [_x] call FUNC(THIS_MODULE,valid);
             
@@ -19,23 +22,22 @@ if (hasInterface) then {
                 _distance = _x distance (_x getVariable QGVAR(spawn)) > GVAR(vehicle_marker_visible);
                 _hidden = _x getVariable QGVAR(hidden);
                 
-                _sides = [0, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
-                _colors = [1, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
-                
                 if !(_x call FUNC(common,empty)) then {
-                    if (str (side _x) in _sides) then {
-                        _color = _colors select (_sides find (str (side _x)));
+                    _side = str (side _x);
+                    
+                    if (_side in _sides) then {
+                        _color = _colors select (_sides find _side);
                         
-                        if (_color != markerColor _marker && {markerColor _marker != "ColorYellow"}) then {
+                        if !(_color in [markerColor _marker, "ColorYellow"]) then {
                             _marker setMarkerColorLocal _color;
                         };
                     };
                 };
                 
-                if (!_hidden && {!_alive || {_alive && {_distance}}}) then {
-                    _marker setMarkerAlphaLocal 1;
-                } else {
-                    _marker setMarkerAlphaLocal 0;
+                _alpha = if (!_hidden && {!_alive || {_alive && {_distance}}}) then {1} else {0};
+                
+                if (_alpha != markerAlpha _marker) then {
+                    _marker setMarkerAlphaLocal _alpha;
                 };
             };
         } forEach vehicles;
