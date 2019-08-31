@@ -15,6 +15,12 @@ GVAR(vehicle_marker_types) = [
     "StrykerBase_EP1"
 ];
 
+// Set sides to determine marker color
+GVAR(vehicle_marker_types_side) = [
+    [east, "ColorRed"],
+    [west, "ColorBlue"]
+];
+
 // Maximum distance from original spawn position before visible
 GVAR(vehicle_marker_visible) = 10;
 
