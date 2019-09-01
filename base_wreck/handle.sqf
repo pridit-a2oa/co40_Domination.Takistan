@@ -48,12 +48,12 @@ if (isServer) then {
 if (hasInterface) then {
     private ["_name", "_position", "_marker"];
     
-    _name = "Wreck Service";
+    _name = "Wreck Rebuild";
     _position = position GVAR(service_wreck);
     
-    _marker = createMarkerLocal ["wreck_service", _position];
+    _marker = createMarkerLocal ["wreck_rebuild", _position];
     _marker setMarkerTextLocal _name;
-    _marker setMarkerColorLocal "ColorYellow";
+    _marker setMarkerColorLocal "ColorBrown";
     _marker setMarkerShapeLocal "ICON";
     _marker setMarkerTypeLocal "DOT";
     
