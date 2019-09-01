@@ -15,9 +15,10 @@ for "_i" from 1 to 3 do {
     [true, "say", [player, QGVAR(sound_repair), 20]] call FUNC(network,mp);
     
     if (_i == 3) then {
-        if (!canMove _vehicle) then {
-            [_vehicle, "setHit", ["NEtrup", 0]] call FUNC(network,mp);
-            [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
+        [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
+        [_vehicle, "setHit", ["NEtrup", 0]] call FUNC(network,mp);
+        
+        if (_vehicle isKindOf "LandVehicle") then {
             [_vehicle, "setHit", ["wheel_1_1_steering", 0]] call FUNC(network,mp);
             [_vehicle, "setHit", ["wheel_1_2_steering", 0]] call FUNC(network,mp);
             [_vehicle, "setHit", ["wheel_2_1_steering", 0]] call FUNC(network,mp);
