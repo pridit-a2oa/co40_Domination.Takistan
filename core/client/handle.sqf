@@ -55,6 +55,14 @@ if (!isNil QMODULE(ammobox)) then {
 };
 
 ["init_objects", {
+    if (!isNil QMODULE(base)) then {
+        {
+            {
+                _x addEventHandler ["HandleDamage", {0}];
+            } forEach (allMissionObjects _x);
+        } forEach GVAR(base_types_protected);
+    };
+    
     if (!isNil QMODULE(construction)) then {
         {
             _name = _x select 0;
