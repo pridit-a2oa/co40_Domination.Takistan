@@ -28,7 +28,7 @@ if (hasInterface) then {
                     if (_side in _sides) then {
                         _color = _colors select (_sides find _side);
                         
-                        if !(_color in [markerColor _marker, "ColorYellow"]) then {
+                        if !(markerColor _marker in [_color, "ColorYellow"]) then {
                             _marker setMarkerColorLocal _color;
                         };
                     };
