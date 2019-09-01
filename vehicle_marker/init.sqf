@@ -17,7 +17,7 @@ GVAR(vehicle_marker_types) = [
 
 // Set sides to determine marker color
 GVAR(vehicle_marker_types_side) = [
-    [civilian, "ColorWhite"],
+    [civilian, "ColorBlue"],
     [east, "ColorRed"],
     [west, "ColorBlue"]
 ];
