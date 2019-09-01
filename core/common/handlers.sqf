@@ -52,9 +52,20 @@ _handlers = [
     "vehicle_tow"
 ];
 
+_count = count _handlers;
+
 {
     if (!isNil (format [QMODULE(%1), _x])) then {
         _handle = __handler(_x);
+        
+        if (hasInterface && {isMultiplayer}) then {
+            titleText [format [
+                "%1/%2\n\n%3",
+                _forEachIndex + 1,
+                _count,
+                toUpper _x
+            ], "BLACK FADED", 0];
+        };
         
         waitUntil {scriptDone _handle};
     };
