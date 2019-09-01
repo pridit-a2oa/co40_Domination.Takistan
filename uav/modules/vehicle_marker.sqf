@@ -7,7 +7,7 @@ private ["_vehicle", "_marker"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(uav_type_aircraft) find (typeOf _vehicle) == -1) exitWith {};
+if (typeOf _vehicle != GVAR(uav_type_aircraft)) exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerColorLocal "ColorBlue";
