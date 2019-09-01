@@ -16,6 +16,10 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
         
         if (isNil "_marker") exitWith {};
         
+        if (!isNil QMODULE(uav)) then {
+            [_vehicle] __submoduleVM(uav);
+        };
+        
         if (!isNil QMODULE(vehicle_mhq)) then {
             [_vehicle] __submoduleVM(vehicle_mhq);
         };
