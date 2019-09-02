@@ -7,7 +7,10 @@ _values = [];
 
 {
     _value = _x select _index;
-    _value = if (typeName _value != "STRING") then {str _value} else {_value};
+    
+    if (typeName _value != "STRING") then {
+        _value = str _value;
+    };
     
     _values = _values + [_value];
 } forEach _haystack;
