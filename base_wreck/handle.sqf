@@ -56,11 +56,12 @@ if (hasInterface) then {
     _marker setMarkerColorLocal "ColorBrown";
     _marker setMarkerShapeLocal "ICON";
     _marker setMarkerTypeLocal "DOT";
+    _marker setMarkerAlphaLocal 0.8;
     
     if (!isNil QMODULE(3d)) then {
         [
             GVAR(service_wreck),
-            _name call FUNC(common,YellowText),
+            _name call FUNC(common,BrownText),
             [],
             true,
             true
