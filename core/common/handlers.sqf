@@ -64,7 +64,7 @@ _count = count _handlers;
                 _forEachIndex + 1,
                 _count,
                 toUpper _x
-            ], "BLACK FADED", 0];
+            ], "BLACK FADED", 1.6];
         };
         
         waitUntil {scriptDone _handle};
