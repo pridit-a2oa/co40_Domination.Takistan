@@ -12,7 +12,12 @@ if (time < _time) exitWith {
         _format = "second(s)";
     };
     
-    format ["%1 cannot be %2 for another %3 %4", _name select 0, _name select 1, ceil (_time), _format];
+    format [
+        "%1 cannot be %2 for another %3 %4",
+        _name select 0,
+        _name select 1,
+        ceil (_time), _format
+    ];
 };
 
 true
