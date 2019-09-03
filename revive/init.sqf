@@ -19,6 +19,18 @@ GVAR(revive_type_blood) = [
 // Set amount of damage a revived player will have
 GVAR(revive_amount_damage) = 0.4;
 
+// Set addAction parameters that need to apply to existing clients & JIP
+GVAR(revive_player_action) = [
+    "Revive" call FUNC(common,RedText),
+    FUNCTION(THIS_MODULE,revive),
+    [],
+    10,
+    false,
+    true,
+    "",
+    "_this != _target && {_this == vehicle _this} && {lifeState _target == 'UNCONSCIOUS'} && {!(_target getVariable 'd_reviving')}"
+];
+
 // Set amount of time before respawning a player that is unconscious.
 GVAR(revive_time_respawn) = 180;
 

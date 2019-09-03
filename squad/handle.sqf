@@ -34,6 +34,4 @@ if (hasInterface) then {
             "[player] joinSilent grpNull; call d_fnc_squad_reveal"
         ] call FUNC(communication,add);
     };
-    
-    [nil, player, "per", rAddAction, "Join Squad" call FUNC(common,YellowText), __function(join), [], 9, false, true, "", "alive _target && {lifeState _target != 'UNCONSCIOUS'} && {group player != (group _target)}"] call RE;
 };

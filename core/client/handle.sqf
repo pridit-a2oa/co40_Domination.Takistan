@@ -44,6 +44,28 @@ if (!isNil QMODULE(vehicle)) then {
     };
 };
 
+if (isMultiplayer) then {
+    ["init_actions", {
+        {
+            if (!isNil QMODULE(inventory)) then {
+                if (!isNil QMODULE(medical)) then {
+                    _x addAction GVAR(medical_player_action);
+                };
+                
+                if (!isNil QMODULE(vehicle_repair)) then {
+                    _x addAction GVAR(vehicle_repair_player_action);
+                };
+            };
+            
+            if (!isNil QMODULE(revive)) then {
+                _x addAction GVAR(revive_player_action);
+            };
+        } forEach playableUnits;
+
+        ["init_actions"] call FUNC(THIS_MODULE,removePerFrame)
+    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+};
+
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
         {
