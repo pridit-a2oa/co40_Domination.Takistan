@@ -4,9 +4,8 @@
 
 #define THIS_MODULE common
 #include "x_macros.sqf"
-private ["_modules"];
 
-_modules = [
+GVAR(modules) = [
     "3d",
     "admin",
     "airdrop",
@@ -77,6 +76,6 @@ _modules = [
 
 {
     __module(_x);
-} forEach _modules;
+} forEach GVAR(modules);
 
-__log format ["%1 modules initialized", count _modules]];
+__log format ["%1 modules initialized", count GVAR(modules)]];

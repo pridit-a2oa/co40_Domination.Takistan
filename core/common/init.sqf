@@ -54,7 +54,7 @@ __ccppfln(core\THIS_MODULE\handlers.sqf);
 if (isDedicated) then {
     if (!isNil QMODULE(vehicle)) then {
         {
-            [_x] __handler("vehicle");
+            [_x] call FUNC(vehicle,handle);
         } forEach vehicles;
     };
 };

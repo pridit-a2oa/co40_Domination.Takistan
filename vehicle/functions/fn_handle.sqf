@@ -1,7 +1,3 @@
-/**
- * Vehicle Module (Handler)
- */
-
 #define THIS_MODULE vehicle
 #include "x_macros.sqf"
 private ["_vehicle"];

@@ -162,5 +162,6 @@ copy x_macros.sqf vehicle_tow /Y
 copy x_macros.sqf vehicle_tow\functions /Y
 copy x_macros.sqf vehicle_tow\modules /Y
 copy x_macros.sqf vehicle_wreck /Y
+copy x_macros.sqf vehicle_wreck\functions /Y
 copy x_macros.sqf vehicle_wreck\modules /Y
 copy x_macros.sqf weather /Y

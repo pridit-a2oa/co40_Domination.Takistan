@@ -1,7 +1,3 @@
-/**
- * Ammobox Module (Handler)
- */
-
 #define THIS_MODULE ammobox
 #include "x_macros.sqf"
 private ["_box"];

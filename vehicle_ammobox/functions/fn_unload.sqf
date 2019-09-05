@@ -18,6 +18,6 @@ _box = [
 
 [_box] call FUNC(vehicle_ammobox,replenish);
 
-[true, "execVM", [[_box], __handlerRE(ammobox)]] call FUNC(network,mp);
+[true, "execVM", [[_box], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
 
 _vehicle setVariable [QGVAR(ammobox), false, true];

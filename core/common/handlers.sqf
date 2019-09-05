@@ -5,52 +5,15 @@
 #include "x_macros.sqf"
 private ["_handlers"];
 
-_handlers = [
-    "weather",
-    "crossroad",
-    "admin",
-    "airdrop",
-    "airtaxi",
-    "artillery",
-    "backpack",
-    "base",
-    "base_ammobox",
-    "base_backpack",
-    "base_bonus",
-    "base_halo",
-    "base_shield",
-    "base_wreck",
-    "board",
-    "chat",
-    "cleanup",
-    "communication",
-    "construction",
-    "debug",
-    "idle",
-    "ied",
-    "intel",
-    "inventory",
-    "marker",
-    "medical",
-    "mission_main",
-    "name",
-    "option",
-    "perimiter",
-    "perk",
-    "revive",
-    "setting",
-    "squad",
-    "task",
-    "teleport",
-    "uav",
-    "vehicle_ammobox",
-    "vehicle_lift",
-    "vehicle_load",
-    "vehicle_marker",
-    "vehicle_repair",
-    "vehicle_service",
-    "vehicle_tow"
-];
+_handlers = [];
+
+{
+    _file = format ["%1\handle.sqf", _x];
+    
+    if (loadFile _file != "") then {
+        _handlers = _handlers + [_x];
+    };
+} forEach GVAR(modules);
 
 _count = count _handlers;
 

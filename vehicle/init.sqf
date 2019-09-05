@@ -11,6 +11,7 @@
 
 __cppfln(FUNC(THIS_MODULE,delete),THIS_MODULE\functions\fn_delete.sqf);
 __cppfln(FUNC(THIS_MODULE,freeze),THIS_MODULE\functions\fn_freeze.sqf);
+__cppfln(FUNC(THIS_MODULE,handle),THIS_MODULE\functions\fn_handle.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,speed),THIS_MODULE\functions\fn_speed.sqf);
 

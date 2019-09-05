@@ -38,7 +38,7 @@ for "_i" from 1 to 7 do {
     _vehicle = [_roads call BIS_fnc_selectRandom, _armor, 5, 0, east, random 360] call FUNC(server,spawnVehicle);
     
     if (!isNil QMODULE(vehicle_wreck)) then {
-        [_vehicle select 0] __handler("vehicle_wreck");
+        [_vehicle select 0] call FUNC(vehicle_wreck,handle);
     };
     
     [_vehicle select 2, position _target, GVAR(mission_main_radius_zone), 4] call FUNC(unit,patrol);

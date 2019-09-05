@@ -36,7 +36,7 @@ if (!isNil QMODULE(vehicle)) then {
         
         ["init_vehicles", {
             {
-                [_x] __handler("vehicle");
+                [_x] call FUNC(vehicle,handle);
             } forEach vehicles;
 
             ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
@@ -69,7 +69,7 @@ if (isMultiplayer) then {
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
         {
-            [_x] __handler("ammobox");
+            [_x] call FUNC(ammobox,handle);
         } forEach (allMissionObjects GVAR(ammobox_type));
 
         ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)

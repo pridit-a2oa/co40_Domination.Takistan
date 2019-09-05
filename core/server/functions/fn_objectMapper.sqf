@@ -170,7 +170,7 @@ _multiplyMatrixFunc = {
         };
 
         if (_side == east && {_object isKindOf "LandVehicle"} && {!(_object isKindOf "StaticWeapon")}) then {
-            [true, "execVM", [[_object], __handlerRE(vehicle)]] call FUNC(network,mp);
+            [true, "execVM", [[_object], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
             
             __addDead(_object);
         };

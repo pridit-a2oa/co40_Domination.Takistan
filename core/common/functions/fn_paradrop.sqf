@@ -51,7 +51,7 @@ if (typeName _loaded == "ARRAY") then {
     };
     
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
-        [true, "execVM", [[_load], __handlerRE(vehicle)]] call FUNC(network,mp);
+        [true, "execVM", [[_load], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
         [true, "reveal", [player, _load]] call FUNC(network,mp);
     };
     
@@ -77,7 +77,7 @@ if (typeName _loaded == "ARRAY") then {
             [_ammobox] call FUNC(vehicle_ammobox,replenish);
         };
         
-        [true, "execVM", [[_ammobox], __handlerRE(ammobox)]] call FUNC(network,mp);
+        [true, "execVM", [[_ammobox], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
     };
 };
 

@@ -1,7 +1,3 @@
-/**
- * Vehicle Wreck Module (Handler)
- */
-
 #define THIS_MODULE vehicle_wreck
 #include "x_macros.sqf"
 private ["_vehicle", "_chance"];

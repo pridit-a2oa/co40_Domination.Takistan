@@ -22,4 +22,6 @@ GVAR(vehicle_wreck_chance_land) = 10;
 // Set amount of time since destruction to announce wreck availability
 GVAR(vehicle_wreck_time_announce) = 10;
 
+__cppfln(FUNC(THIS_MODULE,handle),THIS_MODULE\functions\fn_handle.sqf);
+
 MODULE(THIS_MODULE) = true;

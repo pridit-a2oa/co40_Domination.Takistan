@@ -293,6 +293,7 @@ GVAR(ammobox_type_misc) = [
 ];
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
+__cppfln(FUNC(THIS_MODULE,handle),THIS_MODULE\functions\fn_handle.sqf);
 __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 
 MODULE(THIS_MODULE) = true;
