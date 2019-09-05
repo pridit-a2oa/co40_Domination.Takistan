@@ -22,7 +22,7 @@ _modules = [
     "base_shield",
     "base_wreck",
     "board",
-    "chat",
+    // "chat",
     "cleanup",
     "communication",
     "construction",
