@@ -24,7 +24,7 @@ _pilot setSkill 1;
 switch (_type select 0) do {
     case "aircraft": {
         if (!isNil QMODULE(vehicle_wreck)) then {
-            [_aircraft] call FUNC(vehicle_wreck,handle);
+            [_aircraft] spawn FUNC(vehicle_wreck,handle);
         };
         
         (group _pilot) setSpeedMode "LIMITED";
