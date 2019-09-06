@@ -5,10 +5,6 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
 
-"intel" addPublicVariableEventHandler {
-    (_this select 1) spawn FUNC(THIS_MODULE,intel);
-};
-
 if (isServer) then {
     GVAR(intel_type_roads) = [];
 

@@ -54,9 +54,8 @@ if (hasInterface) then {
     X_JIPH setVariable [QGVAR(artillery_call), true, true];
     player setVariable [QGVAR(artillery_cooldown), time + GVAR(artillery_time_cooldown)];
     
-    if (!isServer) then {
-        artillery = _this;
-        publicVariableServer "artillery";
+    if !(isServer) then {
+        [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
 };
 

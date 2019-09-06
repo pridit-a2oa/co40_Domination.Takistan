@@ -40,9 +40,8 @@ if (hasInterface) then {
     X_JIPH setVariable [QGVAR(uav_call), true, true];
     player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
     
-    if (!isServer) then {
-        uav = _this;
-        publicVariableServer "uav";
+    if !(isServer) then {
+        [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
 };
 

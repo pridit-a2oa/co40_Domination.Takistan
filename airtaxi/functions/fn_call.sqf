@@ -53,9 +53,8 @@ if (hasInterface) then {
     X_JIPH setVariable [QGVAR(air_taxi_call), true, true];
     player setVariable [QGVAR(air_taxi_cooldown), time + GVAR(air_taxi_time_cooldown)];
     
-    if (!isServer) then {
-        airTaxi = _this;
-        publicVariableServer "airTaxi";
+    if !(isServer) then {
+        [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
 };
 

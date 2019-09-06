@@ -46,9 +46,8 @@ if (hasInterface) then {
     X_JIPH setVariable [QGVAR(airdrop_call), true, true];
     player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
     
-    if (!isServer) then {
-        airdrop = _this;
-        publicVariableServer "airdrop";
+    if !(isServer) then {
+        [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
 };
 

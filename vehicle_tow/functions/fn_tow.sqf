@@ -9,9 +9,8 @@ private ["_vehicle", "_tow"];
 
 PARAMS_1(_vehicle);
 
-if (!isServer) exitWith {
-    tow = _this;
-    publicVariableServer "tow";
+if !(isServer) exitWith {
+    [gameLogic, "execVM", [_this, __function(tow)]] call FUNC(network,mp);
 };
 
 _tow = _this select 3;

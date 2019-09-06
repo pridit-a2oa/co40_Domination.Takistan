@@ -4,9 +4,8 @@ private ["_car"];
 
 PARAMS_1(_car);
 
-if (!isServer) exitWith {
-    intel = _this;
-    publicVariableServer "intel";
+if !(isServer) exitWith {
+    [gameLogic, "execVM", [_this, __function(intel)]] call FUNC(network,mp);
 };
 
 _car setVariable [QGVAR(intel), false, true];

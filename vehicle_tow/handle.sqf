@@ -6,10 +6,6 @@
 #include "x_macros.sqf"
 private ["_trigger"];
 
-"tow" addPublicVariableEventHandler {
-    (_this select 1) spawn FUNC(THIS_MODULE,tow);
-};
-
 if (hasInterface) then {
     _trigger = createTrigger ["EmptyDetector", [0, 0, 0]];
     _trigger setTriggerArea [0, 0, 0, true];
