@@ -4,6 +4,9 @@ private ["_wreck", "_time", "_lifter", "_position", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
 
+[_wreck, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
+[_wreck, "setVectorUp", surfaceNormal (position GVAR(service_wreck))] call FUNC(network,mp);
+
 _lifter = _wreck getVariable QGVAR(lifter);
 
 if (!isNil QMODULE(crossroad)) then {
