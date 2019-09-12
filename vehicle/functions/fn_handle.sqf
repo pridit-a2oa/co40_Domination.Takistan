@@ -99,35 +99,6 @@ if (hasInterface) then {
     if (!isNil QMODULE(vehicle_welcome)) then {
         [_vehicle] __submoduleVM(vehicle_welcome);
     };
-    
-    if (typeOf _vehicle in ["AH64D_EP1", "AH1Z"]) then {
-        _handler = _vehicle addEventHandler ["getin", {
-            private ["_vehicle", "_position", "_unit"];
-            
-            PARAMS_3(_vehicle, _position, _unit);
-            
-            if (_position != "driver" || {_unit != player}) exitWith {};
-            
-            [_vehicle, _unit] spawn {
-                private ["_vehicle", "_unit"];
-                
-                PARAMS_2(_vehicle, _unit);
-                
-                sleep 3;
-                
-                if (vehicle _unit == _unit) exitWith {};
-                
-                ([typeOf _vehicle] call FUNC(vehicle,name)) hintC [
-                    "This vehicle suffers from an Arma bug which means ammo may not be replenished when rearming.",
-                    "In order to solve this the gunner seat has to be occupied at least once."
-                ];
-                
-                _vehicle removeEventHandler ["getin", _unit getVariable (format ["d_%1", typeOf _vehicle])];
-            };
-        }];
-        
-        player setVariable [format ["d_%1", typeOf _vehicle], _handler];
-    };
 };
 
 if (!isNil QMODULE(vehicle_bonus)) then {

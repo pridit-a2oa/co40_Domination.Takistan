@@ -4,56 +4,66 @@
 
 #define THIS_MODULE vehicle_service
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_service", "_time"];
 
-PARAMS_1(_vehicle);
+PARAMS_1(_service);
 
-while {alive _vehicle && {fuel _vehicle < 0.99} && {!(_vehicle getVariable QGVAR(servicing))}} do {
-    _vehicle setVariable [QGVAR(servicing), true, true];
-    
-    _vehicle setFuel 0;
-    _vehicle setVehicleAmmo 1;
-    
-    sleep 1;
+_vehicle = _service getVariable QGVAR(vehicle);
 
-    _magazines = getArray (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "magazines");
+_service setVariable [QGVAR(vehicle), objNull];
+_vehicle setVariable [QGVAR(servicing), true, true];
 
-    if (count _magazines > 0) then {
-        {
-            [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
-        } forEach _magazines;
-    };
-    
-    _turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets");
-    
-    for "_i" from 0 to (_turrets - 1) do {
-        _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets") select _i;
-        _magazines = getArray (_config >> "magazines");
-        
-        {
-            [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
-        } forEach _magazines;
-    };
+[_vehicle, "lock", true] call FUNC(network,mp);
+[_vehicle, "setFuel", 0] call FUNC(network,mp);
 
-    _vehicle setVehicleAmmo 1;
-    
-    [true, "vehicleChat", [_vehicle, "Repairing"]] call FUNC(network,mp);
-    
-    sleep 2;
-    
-    _vehicle setDamage 0;
-    
-    [true, "vehicleChat", [_vehicle, "Refuelling"]] call FUNC(network,mp);
-    
-    sleep 2;
-    
-    _vehicle setFuel 1;
-    
-    if !(_vehicle call FUNC(common,empty)) then {
-        [_vehicle, "engineOn", true] call FUNC(network,mp);
-    };
-    
-    _vehicle setVariable [QGVAR(servicing), false, true];
-    
-    reload _vehicle;
+[true, "setVehicleAmmo", [_vehicle, 1]] call FUNC(network,mp);
+
+sleep 1;
+
+_magazines = getArray (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "magazines");
+
+if (count _magazines > 0) then {
+    {
+        [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
+    } forEach _magazines;
 };
+
+_turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets");
+
+for "_i" from 0 to (_turrets - 1) do {
+    _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets") select _i;
+    _magazines = getArray (_config >> "magazines");
+    
+    {
+        [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
+    } forEach _magazines;
+};
+
+[true, "vehicleChat", [_vehicle, "Repairing"]] call FUNC(network,mp);
+
+sleep 2;
+
+[_vehicle, "setDamage", 0] call FUNC(network,mp);
+
+[true, "vehicleChat", [_vehicle, "Refuelling"]] call FUNC(network,mp);
+
+sleep 2;
+
+[_vehicle, "setFuel", 1] call FUNC(network,mp);
+[_vehicle, "lock", false] call FUNC(network,mp);
+
+if !(_vehicle call FUNC(common,empty)) then {
+    [_vehicle, "engineOn", true] call FUNC(network,mp);
+};
+
+if (!isNil QMODULE(3d)) then {
+    [true, "execVM", [
+        [_service, GVAR(vehicle_service_time_cooldown)],
+        FUNCTION(3d,time)
+    ]] call FUNC(network,mp);
+};
+
+_service setVariable [QGVAR(time), GVAR(vehicle_service_time_cooldown) + call FUNC(common,time)];
+_vehicle setVariable [QGVAR(servicing), false, true];
+
+reload _vehicle;

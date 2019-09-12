@@ -6,21 +6,26 @@
 #include "x_macros.sqf"
 private ["_object", "_name", "_trigger", "_marker"];
 
-if (hasInterface) then {
-    {
-        _object = call compile format ["d_service_%1", _x select 0];
-        _name = format ["%1 Service", _x select 1];
-        
+{
+    _object = call compile format ["d_service_%1", _x select 0];
+    _name = format ["%1 Service", _x select 1];
+    
+    if (isServer) then {
         _trigger = createTrigger ["EmptyDetector", position _object];
+        _trigger setVariable ["object", _object];
         _trigger setVariable ["type", _x];
         _trigger setTriggerArea [8, 8, 0, false];
         _trigger setTriggerActivation ["ANY", "PRESENT", true];
         _trigger setTriggerStatements [
-            "((vehicle player) in thisList) && {((vehicle player) isKindOf ((thisTrigger getVariable ""type"") select 2))} && {(count ([(vehicle player)] unitsBelowHeight 1) > 0)} && {(speed (vehicle player) < 15)} && {fuel (vehicle player) < 0.99} && {!((vehicle player) getVariable 'd_servicing')}",
-            "0 = [(vehicle player)] spawn d_fnc_vehicle_service_restore",
+            "[thisTrigger] call d_fnc_vehicle_service_valid",
+            "0 = [thisTrigger getVariable ""object""] spawn d_fnc_vehicle_service_restore",
             ""
         ];
         
+        _object setVariable [QGVAR(time), 0, true];
+    };
+    
+    if (hasInterface) then {
         _marker = createMarkerLocal [format ["d_service_%1", _x select 0], position _object];
         _marker setMarkerTextLocal _name;
         _marker setMarkerColorLocal "ColorYellow";
@@ -32,8 +37,9 @@ if (hasInterface) then {
                 _object,
                 _name call FUNC(common,YellowText),
                 [],
+                true,
                 true
             ] spawn FUNC(3d,create);
         };
-    } forEach GVAR(vehicle_service_type_names);
-};
+    };
+} forEach GVAR(vehicle_service_type_names);
