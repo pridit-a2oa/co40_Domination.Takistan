@@ -30,7 +30,20 @@ X_JIPH setVariable [QGVAR(intel), true, true];
         if (true) exitWith {
             GVAR(crossroad) kbTell [GVAR(crossroad2), "intel", "Approach", true];
             
-            [nil, _car, "per", rAddAction, "Intel" call FUNC(common,BlueText), __function(intel), [], 10, false, true, "", "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"] call RE;
+            [
+                nil,
+                _car,
+                "per",
+                rAddAction,
+                "Intel" call FUNC(common,BlueText),
+                __function(intel),
+                [],
+                10,
+                false,
+                true,
+                "",
+                "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"
+            ] call RE;
             
             while {alive _driver && {alive _car} && {canMove _car}} do {
                 _distance = _car distance (markerPos QGVAR(intel));
