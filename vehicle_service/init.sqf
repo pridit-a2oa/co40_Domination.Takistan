@@ -19,6 +19,9 @@ GVAR(vehicle_service_type_vehicles) = [
     "MtvrRepair_DES_EP1"
 ];
 
+// Set maximum current speed of vehicle to be eligible to be serviced.
+GVAR(vehicle_service_speed) = 15;
+
 // Set the cooldown when servicing a vehicle.
 GVAR(vehicle_service_time_cooldown) = 30;
 
