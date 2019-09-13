@@ -2,7 +2,6 @@
  * Drag Module (Handler)
  */
 
-#define THIS_MODULE drag
 #include "x_macros.sqf"
 
 if (hasInterface) then {

@@ -10,7 +10,7 @@ _handlers = [];
 {
     _file = format ["%1\handle.sqf", _x];
     
-    if (loadFile _file != "") then {
+    if (count (toArray loadFile _file) > 9) then {
         _handlers = _handlers + [_x];
     };
 } forEach GVAR(modules);
