@@ -23,7 +23,7 @@ GVAR(vehicle_service_type_vehicles) = [
 GVAR(vehicle_service_speed) = 15;
 
 // Set the cooldown when servicing a vehicle.
-GVAR(vehicle_service_time_cooldown) = 30;
+GVAR(vehicle_service_time_cooldown) = 45;
 
 __cppfln(FUNC(THIS_MODULE,rearm),THIS_MODULE\functions\fn_rearm.sqf);
 __cppfln(FUNC(THIS_MODULE,restore),THIS_MODULE\functions\fn_restore.sqf);
