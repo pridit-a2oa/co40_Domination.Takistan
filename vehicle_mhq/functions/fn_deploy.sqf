@@ -41,7 +41,8 @@ _camo = createVehicle [_net, [_position select 0, _position select 1, -0.18], []
 _camo setDir direction _vehicle;
 _camo setVectorUp (vectorUp _vehicle);
 _camo setPos [_position select 0, _position select 1, -0.18];
-_camo addEventHandler ["HandleDamage", {0}];
+
+[true, "addEventHandler", [_camo, "HandleDamage", {0}]] call FUNC(network,mp);
 
 [_vehicle, "lock", true] call FUNC(network,mp);
 [_vehicle, "engineOn", false] call FUNC(network,mp);
