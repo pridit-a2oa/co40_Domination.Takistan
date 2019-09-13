@@ -14,7 +14,7 @@ if (_chance > random 100) then {
     _vehicle setVariable [QGVAR(wreckable), true, true];
 
     if (!isNil QMODULE(crossroad)) then {
-        _vehicle addMPEventHandler ["MPKilled", {
+        _handler = _vehicle addMPEventHandler ["MPKilled", {
             private ["_vehicle"];
             
             PARAMS_1(_vehicle);
@@ -27,6 +27,22 @@ if (_chance > random 100) then {
                 };
                 
                 GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Detected", ["1", {}, [typeOf _this] call FUNC(vehicle,name), []], true];
+            };
+        }];
+        
+        _vehicle setVariable [QGVAR(handler), _handler];
+        
+        _vehicle addEventHandler ["getin", {
+            private ["_vehicle"];
+            
+            PARAMS_1(_vehicle);
+            
+            _handler = _vehicle getVariable QGVAR(handler);
+            
+            if (!isNil "_handler") then {
+                _vehicle removeMPEventHandler ["MPKilled", _vehicle getVariable QGVAR(handler)];
+                
+                _vehicle setVariable [QGVAR(handler), nil];
             };
         }];
     };
