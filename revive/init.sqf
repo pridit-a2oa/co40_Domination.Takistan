@@ -28,7 +28,7 @@ GVAR(revive_player_action) = [
     false,
     true,
     "",
-    "_this != _target && {_this == vehicle _this} && {lifeState _target == 'UNCONSCIOUS'} && {!(_target getVariable 'd_reviving')}"
+    "_this != _target && {_this == vehicle _this} && {lifeState _target == 'UNCONSCIOUS'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
 // Set amount of time before respawning a player that is unconscious.
@@ -43,6 +43,7 @@ if (hasInterface) then {
     
     player setVariable [QGVAR(unconscious), false, true];
     player setVariable [QGVAR(reviving), false, true];
+    
     player setVariable [QGVAR(revive_damage), GVAR(revive_amount_damage)];
 };
 

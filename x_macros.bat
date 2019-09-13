@@ -50,6 +50,8 @@ copy x_macros.sqf crossroad\functions /Y
 copy x_macros.sqf debug /Y
 copy x_macros.sqf debug\functions /Y
 copy x_macros.sqf debug\modules /Y
+copy x_macros.sqf drag /Y
+copy x_macros.sqf drag\functions /Y
 copy x_macros.sqf farp /Y
 copy x_macros.sqf farp\modules /Y
 copy x_macros.sqf fortification /Y
