@@ -51,6 +51,12 @@ if (hasInterface) then {
 __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);
 
+if (hasInterface && {isMultiplayer}) then {
+    sleep 1;
+    
+    titleText ["", "BLACK IN", 4];
+};
+
 if (isDedicated) then {
     if (!isNil QMODULE(vehicle)) then {
         {

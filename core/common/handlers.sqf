@@ -23,9 +23,9 @@ _count = count _handlers;
         
         if (hasInterface && {isMultiplayer}) then {
             titleText [format [
-                "%1/%2\n\n%3",
-                _forEachIndex + 1,
-                _count,
+                "%1%2\n\n%3",
+                round ((round (_forEachIndex + 1) / _count) * 100),
+                "%",
                 toUpper _x
             ], "BLACK FADED", 1.6];
         };

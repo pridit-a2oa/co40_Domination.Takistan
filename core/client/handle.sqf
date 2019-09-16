@@ -8,12 +8,6 @@
 0 spawn {
     sleep 0.01;
     
-    if (isMultiplayer) then {
-        1 fadeSound 1;
-        
-        titleText ["", "BLACK IN", 4];
-    };
-    
     player disableConversation true;
     
     player addWeapon "Binocular";
