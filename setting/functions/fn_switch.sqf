@@ -34,8 +34,12 @@ if (!isNil {GVAR(option) select 4}) then {
 } else {
     _value = call compile format ["%1", ([GVAR(option) select 1] call FUNC(THIS_MODULE,type)) select 1];
     
+    _minimum = (GVAR(option) select 3) select 0;
+    _maximum = (GVAR(option) select 3) select 1;
+    
     DIALOG("X_SETTING_DIALOG", 400) ctrlShow true;
-    DIALOG("X_SETTING_DIALOG", 400) sliderSetRange [(GVAR(option) select 3) select 0, (GVAR(option) select 3) select 1];
+    DIALOG("X_SETTING_DIALOG", 400) sliderSetRange [_minimum, _maximum];
     DIALOG("X_SETTING_DIALOG", 400) sliderSetPosition _value;
+    DIALOG("X_SETTING_DIALOG", 400) sliderSetSpeed [_maximum / 20, _maximum / 100];
     DIALOG("X_SETTING_DIALOG", 600) ctrlSetText (str (round _value));
 };
