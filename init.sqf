@@ -28,7 +28,7 @@ GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
 GVAR(init_obj) addEventHandler ["killed", {__coreVM(common);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
 
 if (hasInterface) then {
-    onPreloadFinished {GVAR(init_obj) setDamage 1; onPreloadFinished ""};
-} else {
-    GVAR(init_obj) setDamage 1;
+    sleep 1;
 };
+
+GVAR(init_obj) setDamage 1;
