@@ -37,6 +37,9 @@ __cppfln(FUNC(THIS_MODULE,players),core\THIS_MODULE\functions\fn_players.sqf);
 __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);
 
+__corePP(helper);
+__corePP(network);
+
 if (isServer) then {
     __corePP(server);
 };
@@ -44,9 +47,6 @@ if (isServer) then {
 if (hasInterface) then {
     __corePP(client);
 };
-
-__coreVM(helper);
-__coreVM(network);
 
 __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);
