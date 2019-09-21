@@ -2,7 +2,9 @@
 
 if (hasInterface) then {
     if (isMultiplayer) then {
-        titleText ["", "BLACK FADED", 1.6];
+        titleText ["", "BLACK FADED"];
+        
+        player enableSimulation false;
     };
     
     QGVAR(base_south) setMarkerAlphaLocal 0.3;

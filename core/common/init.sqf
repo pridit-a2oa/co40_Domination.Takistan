@@ -52,6 +52,8 @@ __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);
 
 if (hasInterface && {isMultiplayer}) then {
+    player enableSimulation true;
+    
     sleep 1;
     
     titleText ["", "BLACK IN", 4];
