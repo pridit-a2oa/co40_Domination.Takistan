@@ -52,7 +52,7 @@ class Mission
     randomSeed=6464821;
     class Intel
     {
-        briefingName="co40 Domination Rebuilt";
+        briefingName="COOP 40 Domination Rebuilt";
         briefingDescription="Domination we all know and love, rebuilt from the ground up. With tremendous thanks to Xeno, who pioneered this mode.";
         startWeather=0;
         forecastWeather=0;
