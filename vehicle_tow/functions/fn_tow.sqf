@@ -22,6 +22,8 @@ _offset = [_tow] call FUNC(THIS_MODULE,offset);
 _axis = (_offset select 0) + [0];
 _wheel = (_offset select 1) + [0];
 
+[_tow, "setVectorUp", surfaceNormal (position _tow)] call FUNC(network,mp);
+
 while {alive _tow && {_tow getVariable QGVAR(towed)}} do {
     _aTpos = _vehicle modelToWorld [0, -2, 0];
     _aPpos = _tow modelToWorld _axis;
