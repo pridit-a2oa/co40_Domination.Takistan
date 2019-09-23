@@ -11,6 +11,7 @@ _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 
 if (alive _vehicle) then {
     _marker setMarkerTextLocal ([typeOf (_vehicle)] call FUNC(vehicle,name));
+    _marker setMarkerColorLocal "ColorBlack";
     _marker setMarkerAlphaLocal 0;
     
     if (_vehicle isKindOf "Tank") then {

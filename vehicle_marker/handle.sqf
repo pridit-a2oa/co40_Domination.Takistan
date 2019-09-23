@@ -22,7 +22,7 @@ if (hasInterface) then {
                 _distance = _x distance (_x getVariable QGVAR(spawn)) > GVAR(vehicle_marker_visible);
                 _hidden = _x getVariable QGVAR(hidden);
                 
-                if !(_x call FUNC(common,empty)) then {
+                if (markerColor _marker == "ColorBlack" || {!(_x call FUNC(common,empty))}) then {
                     _side = str (side _x);
                     
                     if (_side in _sides) then {
