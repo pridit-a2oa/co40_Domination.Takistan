@@ -1,3 +1,4 @@
+#define THIS_MODULE airtaxi
 #include "x_macros.sqf"
 private ["_unit", "_position", "_name", "_checks", "_minimum", "_near", "_maximum", "_vehicle", "_aircraft", "_crew", "_pilot", "_helper"];
 
