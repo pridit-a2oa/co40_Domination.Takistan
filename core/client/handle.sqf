@@ -8,7 +8,9 @@
 0 spawn {
     sleep 0.01;
     
-    player disableConversation true;
+    if !(isMultiplayer) then {
+        player disableConversation true;
+    };
     
     player addWeapon "Binocular";
     player addWeapon "NVGoggles";
@@ -16,7 +18,9 @@
     if (sunOrMoon == 0) then {
         player action ["NVGoggles", player];
     };
-
+    
+    enableRadio true;
+    enableSentences true;
     enableEngineArtillery true;
 };
 
