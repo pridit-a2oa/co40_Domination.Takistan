@@ -8,9 +8,7 @@
 0 spawn {
     sleep 0.01;
     
-    if !(isMultiplayer) then {
-        player disableConversation true;
-    };
+    player disableConversation true;
     
     player addWeapon "Binocular";
     player addWeapon "NVGoggles";
