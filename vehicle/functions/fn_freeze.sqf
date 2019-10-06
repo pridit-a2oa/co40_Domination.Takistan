@@ -16,7 +16,7 @@ _helper = createVehicle ["RoadCone", _position, [], 0, "CAN_COLLIDE"];
 _helper setDir (getDir _vehicle);
 _helper setPos _position;
 
-[true, "hideObject", [_helper, true]];
+[true, "hideObject", [_helper, true]] call FUNC(network,mp);
 
 _vehicle attachTo [_helper, [0, 0, if (_vehicle isKindOf "Plane") then {-0.5} else {1}]];
 
@@ -25,4 +25,4 @@ sleep 1;
 _helper setPos [(position _vehicle) select 0, (position _vehicle) select 1, 0];
 _helper setVectorUp surfaceNormal position _vehicle;
 
-[true, "enableSimulation", [_helper, false]];
+[true, "enableSimulation", [_helper, false]] call FUNC(network,mp);
