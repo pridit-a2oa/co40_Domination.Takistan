@@ -4,6 +4,7 @@ debriefing = 1;
 disabledAI = 1;
 loadScreen = "intro.paa";
 respawnDelay = 10;
+disableChannels[] = {2};
 enableItemsDropping = 0;
 
 onLoadMission = "Domination Rebuilt - West";
