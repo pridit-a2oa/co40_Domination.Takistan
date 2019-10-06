@@ -81,6 +81,9 @@ copy x_macros.sqf medical\modules /Y
 copy x_macros.sqf mission_main /Y
 copy x_macros.sqf mission_main\functions /Y
 copy x_macros.sqf mission_main\modules /Y
+copy x_macros.sqf mission_side /Y
+copy x_macros.sqf mission_side\functions /Y
+copy x_macros.sqf mission_side\missions\crash /Y
 copy x_macros.sqf name /Y
 copy x_macros.sqf name\functions /Y
 copy x_macros.sqf nest /Y

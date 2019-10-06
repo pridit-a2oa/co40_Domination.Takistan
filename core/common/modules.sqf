@@ -40,6 +40,8 @@ GVAR(modules) = [
     "mash",
     "medical",
     "mission_main",
+    "mission_side",
+    "mission_side\missions\crash",
     "name",
     "nest",
     "option",

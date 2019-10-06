@@ -80,6 +80,10 @@ for "_i" from 1 to GVAR(mission_main_amount_optional) do {
     [_target, "optional"] spawn FUNC(THIS_MODULE,type);
 };
 
+if (!isNil QMODULE(mission_side)) then {
+    [position _target] spawn FUNC(mission_side,handle);
+};
+
 _trigger = createTrigger ["EmptyDetector", position _target];
 _trigger setVariable [QGVAR(target), _target];
 _trigger setTriggerArea [GVAR(mission_main_radius_zone) + 300, GVAR(mission_main_radius_zone) + 300, 0, false];
