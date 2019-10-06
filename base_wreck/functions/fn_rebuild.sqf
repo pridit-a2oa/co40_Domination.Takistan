@@ -82,6 +82,8 @@ while {call FUNC(common,time) < _time} do {
 
 [_vehicle] call FUNC(THIS_MODULE,rebuilt);
 
+sleep 2;
+
 if (!isNil "_lifter") then {
     {
         if (name _x == _lifter) exitWith {

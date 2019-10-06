@@ -14,4 +14,4 @@ _time = {
     };
 } forEach GVAR(vehicle_wreck_types);
 
-[_wreck, _time] call FUNC(THIS_MODULE,rebuild);
+[_wreck, _time] spawn FUNC(THIS_MODULE,rebuild);
