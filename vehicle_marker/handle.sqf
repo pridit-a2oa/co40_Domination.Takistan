@@ -14,8 +14,6 @@ if (hasInterface) then {
             _marker = [_x] call FUNC(THIS_MODULE,valid);
             
             if (!isNil "_marker") then {            
-                if (!visibleMap && {isNil {uiNamespace getVariable "BIS_RscMiniMap"}} && {isNil {uiNamespace getVariable "RscMiniMapSmall"}}) exitWith {};
-                
                 _marker setMarkerPosLocal (getPosASL _x);
                 
                 _alive = alive _x;
