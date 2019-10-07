@@ -1,3 +1,4 @@
+#define THIS_MODULE vehicle
 #include "x_macros.sqf"
 private ["_vehicle", "_helper"];
 
@@ -18,7 +19,7 @@ _helper setPos _position;
 
 [true, "hideObject", [_helper, true]] call FUNC(network,mp);
 
-_vehicle attachTo [_helper, [0, 0, if (_vehicle isKindOf "Plane") then {-0.5} else {1}]];
+_vehicle attachTo [_helper, [0, 0, [_vehicle] call FUNC(THIS_MODULE,offset)]];
 
 sleep 1;
 
