@@ -48,7 +48,7 @@ class FSM
        "_box setVariable [""immune"", true];" \n
        "player reveal _box;" \n
        "[_box] call d_fnc_ammobox_replenish;" \n
-       "[_box] call compile preprocessFileLineNumbers ""ammobox\handle.sqf"";";
+       "[_box] call d_fnc_ammobox_handle;";
       precondition = "";
       class Links
       {
