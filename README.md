@@ -20,7 +20,7 @@ The project is entirely **open-source** and all contributions are welcome.
 - Main mission flow fundamentally altered resulting in an indefinite, and fluid cycle.
 - Extensive perks system providing a deep and rewarding progression layer for players.
 - Expanded wreck system to include transitioning into a hangar once rebuilt & acquiring enemy wrecks.
-- Anti-griefing measures such as no player to player damage and vehicle invulnerability within safe zones.
+- Anti-griefing measures such as no player to player damage and vehicle invulnerability within the base area.
 
 There are dozens more, mainly quality of life features. Some of these include the ability to tow aircraft, a basic inventory system in order to share medkits or repair kits in the field, increased danger with the introduction of roadside IEDs, a UAV that can be called in to provide support to ground troops by highlighting enemy activity, and **many** more.
 
