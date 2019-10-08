@@ -6,8 +6,6 @@ PARAMS_1(_car);
 
 _type = GVAR(intel_type_targets) call BIS_fnc_selectRandom;
 
-[true, "say", [_car, QGVAR(sound_shuffle), 20]] call FUNC(network,mp);
-
 sleep 2;
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "intel", "Target", ["1", {}, _type, []], true];

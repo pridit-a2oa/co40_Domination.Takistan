@@ -10,6 +10,7 @@
 
 // Set the civilian vehicle type
 GVAR(intel_type_vehicles) = [
+    "Lada1_TK_CIV_EP1",
     "Volha_1_TK_CIV_EP1",
     "Volha_2_TK_CIV_EP1"
 ];
