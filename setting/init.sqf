@@ -10,7 +10,7 @@ GVAR(setting_type_valid) = [
     [
         "Earplugs",
         "earplugs",
-        "Set to substantially reduce the volume of in-game sound effects",
+        "Set to reduce the volume of in-game sound effects",
         ["Yes", "No"],
         [0.1, 1]
     ],
