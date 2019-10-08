@@ -19,7 +19,6 @@ _distance = _distances call BIS_fnc_lowestNum;
 _ied = _ieds select (_distances find _distance);
 
 if (_ied getVariable QGVAR(exploded)) exitWith {};
-if (_ied getVariable QGVAR(disarm)) exitWith {};
 if (_unit distance _ied > (GVAR(ied_trigger_distances) select 1)) exitWith {};
 
 _ied

@@ -127,19 +127,6 @@ switch (_tier) do {
     case 2: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(ied)) then {
-                    player setVariable [QGVAR(ied), true];
-                };
-            };
-            
-            case 2: {
-                if (!isNil QMODULE(vehicle_repair)) then {
-                    player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
-                    player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
-                };
-            };
-            
-            case 3: {
                 if (!isNil QMODULE(farp)) then {
                     player setVariable [QGVAR(farp), 1];
                     player setVariable [QGVAR(farp_max), 1];
@@ -152,6 +139,19 @@ switch (_tier) do {
                             "0 = ['FARP'] execVM 'construction\functions\fn_create.sqf'"
                         ] call FUNC(communication,add);
                     };
+                };
+            };
+            
+            case 2: {
+                if (!isNil QMODULE(vehicle_repair)) then {
+                    player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) + 1, true];
+                    player setVariable [QGVAR(repair_kits_max), (player getVariable QGVAR(repair_kits_max)) + 1, true];
+                };
+            };
+            
+            case 3: {
+                if (!isNil QMODULE(ied)) then {
+                    player setVariable [QGVAR(ied), true];
                 };
             };
             

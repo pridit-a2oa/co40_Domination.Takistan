@@ -17,6 +17,9 @@ GVAR(ied_type_objects) = [
 // Set the explosion type
 GVAR(ied_type_explosion) = "Bo_GBU12_LGB";
 
+// Set amount of score to reward for disarming.
+GVAR(ied_amount_score) = 4;
+
 // Set the maximum unit speed before triggering
 GVAR(ied_trigger_speed) = 5;
 

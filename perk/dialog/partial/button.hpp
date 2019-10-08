@@ -145,7 +145,7 @@ class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Disarm IEDs";
+    tooltip = "One FARP emplacement";
     action = "[2,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
@@ -165,7 +165,7 @@ class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One FARP emplacement";
+    tooltip = "IED signals will be jammed within 50m";
     action = "[2,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load one ground vehicle into the C130J";
+    tooltip = "Load one ground vehicle into the C-130J";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
@@ -375,7 +375,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load two ground vehicles into the C130J";
+    tooltip = "Load two ground vehicles into the C-130J";
     action = "[6,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase

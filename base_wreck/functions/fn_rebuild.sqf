@@ -94,7 +94,7 @@ if (!isNil "_lifter") then {
             _x addScore GVAR(base_wreck_amount_score);
             
             [_x, "systemChat", format [
-                "You have been awarded %1 score for rebuilding a wreck",
+                "You have been rewarded %1 score for rebuilding a wreck",
                 GVAR(base_wreck_amount_score)
             ]] call FUNC(network,mp);
         };

@@ -112,7 +112,15 @@ class PerkIcon_Role1_5: XD_RscPicture
 };
 class PerkIcon_Role2_1: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_takemine_ca";
+    text = "ca\ui\data\icon_mission_repair_ca";
+    x = 0.359375;
+    y = 0.3785;
+    w = 0.0419193;
+    h = 0.0562289;
+};
+class PerkIcon_Role2_1_1: XD_RscPicture
+{
+    text = "ca\ui\data\markers\n_unknown";
     x = 0.359375;
     y = 0.375;
     w = 0.0419193;
@@ -128,15 +136,7 @@ class PerkIcon_Role2_2: XD_RscPicture
 };
 class PerkIcon_Role2_3: XD_RscPicture
 {
-    text = "ca\ui\data\icon_mission_repair_ca";
-    x = 0.359375;
-    y = 0.5785;
-    w = 0.0419193;
-    h = 0.0562289;
-};
-class PerkIcon_Role2_3_1: XD_RscPicture
-{
-    text = "ca\ui\data\markers\n_unknown";
+    text = "ca\ui\data\ui_action_takemine_ca";
     x = 0.359375;
     y = 0.575;
     w = 0.0419193;
@@ -200,11 +200,11 @@ class PerkIcon_Role3_5: XD_RscPicture
 };
 class PerkIcon_Role3_5_1: XD_RscPicture
 {
-    text = "ca\ui\data\stats_soft_ca";
-    x = 0.441701;
-    y = 0.795;
-    w = 0.0209193;
-    h = 0.0352289;
+    text = "ca\warfare2\Images\factoryiconheavy";
+    x = 0.441;
+    y = 0.791;
+    w = 0.03;
+    h = 0.05;
 };
 class PerkIcon_Role4_1: XD_RscPicture
 {
@@ -352,9 +352,9 @@ class PerkIcon_Role6_5: XD_RscPicture
 };
 class PerkIcon_Role6_5_1: XD_RscPicture
 {
-    text = "ca\ui\data\stats_soft_ca";
-    x = 0.676074;
-    y = 0.795;
-    w = 0.0209193;
-    h = 0.0352289;
+    text = "ca\warfare2\Images\factoryiconaircraft";
+    x = 0.670;
+    y = 0.772;
+    w = 0.042;
+    h = 0.08;
 };

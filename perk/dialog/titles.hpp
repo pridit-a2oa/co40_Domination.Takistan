@@ -19,7 +19,7 @@ class XD_Awarded {
         class RscText_1000: X3_RscText
         {
             idc = 1000;
-            text = "You have been awarded perk points";
+            text = "You have been rewarded perk points";
             x = 0.303662;
             y = 0.38;
             w = 0.387311;
