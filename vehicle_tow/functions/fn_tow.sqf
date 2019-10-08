@@ -24,6 +24,8 @@ _wheel = (_offset select 1) + [0];
 
 [_tow, "setVectorUp", surfaceNormal (position _tow)] call FUNC(network,mp);
 
+_tow setDir (getDir _vehicle);
+
 while {alive _tow && {_tow getVariable QGVAR(towed)}} do {
     _aTpos = _vehicle modelToWorld [0, -2, 0];
     _aPpos = _tow modelToWorld _axis;
