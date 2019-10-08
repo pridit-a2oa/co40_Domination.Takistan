@@ -3,7 +3,7 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_marker"];
+private ["_vehicle", "_marker", "_color"];
 
 PARAMS_1(_vehicle);
 
@@ -15,6 +15,10 @@ _marker setMarkerPosLocal (position _vehicle);
 _marker setMarkerTextLocal (format ["%1 Wreck", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
 _marker setMarkerTypeLocal "DOT";
 
-if (faction _vehicle != "BIS_TK") then {
-    _marker setMarkerColorLocal "ColorBlue";
+_color = switch (faction _vehicle) do {
+    case "BIS_TK": {"ColorRed"};
+    case "BIS_TK_INS": {"ColorRed"};
+    default {"ColorBlue"};
 };
+
+_marker setMarkerColorLocal _color;
