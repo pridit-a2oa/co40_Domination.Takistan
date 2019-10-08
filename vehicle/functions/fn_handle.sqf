@@ -16,11 +16,17 @@ if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
     
-    _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
-    
     if (isNil {_vehicle getVariable QGVAR(spawn)}) then {
         _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
     };
+    
+    if (!isNil QMODULE(vehicle_menu)) then {
+        if (isNil {_vehicle getVariable QGVAR(menu)}) then {
+            _vehicle setVariable [QGVAR(menu), true, true];
+        };
+    };
+    
+    _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
