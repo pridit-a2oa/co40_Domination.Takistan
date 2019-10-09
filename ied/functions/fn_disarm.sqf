@@ -15,7 +15,7 @@ if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
 
 [true, "say", [player, QGVAR(sound_disarm), 20]] call FUNC(network,mp);
 
-_x addScore GVAR(ied_amount_score);
+player addScore GVAR(ied_amount_score);
 
 systemChat format [
     "You have been rewarded %1 score for disarming an IED",
