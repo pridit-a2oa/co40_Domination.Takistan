@@ -46,23 +46,14 @@ if (!isNil QMODULE(task)) then {
 
 [true, "playSound", QGVAR(sound_task)] call FUNC(network,mp);
 
-[true, "spawn", [[_target], {
+[true, "spawn", [[_target, _name], {
     private ["_target", "_name"];
     
-    PARAMS_1(_target);
+    PARAMS_2(_target, _name);
     
-    _name = _target getVariable "name";
-    
-    if (!isNil QMODULE(task)) then {
-        _task = (_target getVariable QGVAR(tasks)) select 0;
-        _task call FUNC(task,create);
-        
-        [[_name] call FUNC(task,get), "created"] call FUNC(task,hint);
-    };
-    
-    if (!isNil QMODULE(marker)) then {
+    if (!isNil QMODULE(marker)) then {        
         [
-            format ["mission_main_%1", _name],
+            format ["mission_main_%1", _target getVariable "name"],
             position _target,
             "",
             "",
@@ -71,6 +62,13 @@ if (!isNil QMODULE(task)) then {
             "ELLIPSE",
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
+    };
+    
+    if (!isNil QMODULE(task)) then {
+        _task = (_target getVariable QGVAR(tasks)) select 0;
+        _task call FUNC(task,create);
+        
+        [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
     };
 }]] call FUNC(network,mp);
 
