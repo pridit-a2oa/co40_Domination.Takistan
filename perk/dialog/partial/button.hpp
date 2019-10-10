@@ -5,7 +5,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One medkit";
+    tooltip = "Medkit (+1)";
     action = "[0,1] call d_fnc_perk_clicked";
 };
 class PerkButton_General_2: XD_LinkButtonUpgradeBase
@@ -15,7 +15,7 @@ class PerkButton_General_2: XD_LinkButtonUpgradeBase
     y = 0.134182;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One repair kit";
+    tooltip = "Repair kit (+1)";
     action = "[0,2] call d_fnc_perk_clicked";
 };
 class PerkButton_General_3: XD_LinkButtonUpgradeBase
@@ -95,7 +95,7 @@ class PerkButton_Role1_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One artillery salvo";
+    tooltip = "Artillery salvo (+1)";
     action = "[1,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_2: XD_LinkButtonUpgradeBase
@@ -105,7 +105,7 @@ class PerkButton_Role1_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two artillery salvoes";
+    tooltip = "Artillery salvo (+1)";
     action = "[1,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_3: XD_LinkButtonUpgradeBase
@@ -135,7 +135,7 @@ class PerkButton_Role1_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three artillery salvoes";
+    tooltip = "Artillery salvo (+1)";
     action = "[1,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
@@ -145,7 +145,7 @@ class PerkButton_Role2_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One FARP emplacement";
+    tooltip = "FARP emplacement (+1)";
     action = "[2,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
@@ -155,7 +155,7 @@ class PerkButton_Role2_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two repair kits";
+    tooltip = "Repair kit (+1)";
     action = "[2,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
@@ -185,7 +185,7 @@ class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three repair kits";
+    tooltip = "Repair kit (+1)";
     action = "[2,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_1: XD_LinkButtonUpgradeBase
@@ -195,7 +195,7 @@ class PerkButton_Role3_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One MG nest emplacement";
+    tooltip = "MG nest emplacement (+1)";
     action = "[3,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_2: XD_LinkButtonUpgradeBase
@@ -205,7 +205,7 @@ class PerkButton_Role3_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two MG nest emplacements";
+    tooltip = "MG nest emplacement (+1)";
     action = "[3,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
@@ -225,7 +225,7 @@ class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three MG nest emplacements";
+    tooltip = "MG nest emplacement (+1)";
     action = "[3,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_5: XD_LinkButtonUpgradeBase
@@ -245,7 +245,7 @@ class PerkButton_Role4_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One fortification (rampart)";
+    tooltip = "Fortification (+1)";
     action = "[4,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
@@ -255,7 +255,7 @@ class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two fortifications";
+    tooltip = "Fortification (+1)";
     action = "[4,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
@@ -275,7 +275,7 @@ class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three fortifications";
+    tooltip = "Fortification (+1)";
     action = "[4,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_5: XD_LinkButtonUpgradeBase
@@ -295,7 +295,7 @@ class PerkButton_Role5_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "One MASH emplacement";
+    tooltip = "MASH emplacement (+1)";
     action = "[5,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
@@ -305,7 +305,7 @@ class PerkButton_Role5_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two medkits";
+    tooltip = "Medkit (+1)";
     action = "[5,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
@@ -325,7 +325,7 @@ class PerkButton_Role5_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Two MASH emplacements";
+    tooltip = "MASH emplacement (+1)";
     action = "[5,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
@@ -335,7 +335,7 @@ class PerkButton_Role5_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Three medkits";
+    tooltip = "Medkit (+1)";
     action = "[5,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_1: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load one ground vehicle into the C-130J";
+    tooltip = "Load ground vehicle into the C-130J (+1)";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
@@ -375,7 +375,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load two ground vehicles into the C-130J";
+    tooltip = "Load ground vehicle into the C-130J (+1)";
     action = "[6,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase
