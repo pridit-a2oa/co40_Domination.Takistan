@@ -24,7 +24,7 @@ GVAR(revive_player_action) = [
     "Revive" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,revive),
     [],
-    10,
+    9,
     false,
     true,
     "",

@@ -12,7 +12,7 @@ GVAR(drag_player_action) = [
     "Drag (Experimental)" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,drag),
     [],
-    9,
+    8,
     false,
     true,
     "",
