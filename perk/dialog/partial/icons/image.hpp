@@ -201,7 +201,7 @@ class PerkIcon_Role3_5: XD_RscPicture
 class PerkIcon_Role3_5_1: XD_RscPicture
 {
     text = "ca\warfare2\Images\factoryiconheavy";
-    x = 0.441;
+    x = 0.439737;
     y = 0.791;
     w = 0.03;
     h = 0.05;
@@ -249,10 +249,10 @@ class PerkIcon_Role4_5: XD_RscPicture
 class PerkIcon_Role4_5_1: XD_RscPicture
 {
     text = "ca\warfare2\Images\factoryiconlight";
-    x = 0.519824;
-    y = 0.789;
-    w = 0.03;
-    h = 0.05;
+    x = 0.517525;
+    y = 0.790683;
+    w = 0.028;
+    h = 0.0500003;
 };
 class PerkIcon_Role5_1: XD_RscPicture
 {
