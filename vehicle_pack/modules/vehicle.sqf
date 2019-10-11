@@ -9,7 +9,7 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 if (isServer) then {
-    _vehicle setVariable [QGVAR(packed), false, true];
+    [_vehicle, 1] call FUNC(THIS_MODULE,fold);
 };
 
 if (hasInterface) then {
