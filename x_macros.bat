@@ -143,6 +143,9 @@ copy x_macros.sqf vehicle_load\modules /Y
 copy x_macros.sqf vehicle_marker /Y
 copy x_macros.sqf vehicle_marker\functions /Y
 copy x_macros.sqf vehicle_marker\modules /Y
+copy x_macros.sqf vehicle_pack /Y
+copy x_macros.sqf vehicle_pack\functions /Y
+copy x_macros.sqf vehicle_pack\modules /Y
 copy x_macros.sqf vehicle_menu /Y
 copy x_macros.sqf vehicle_menu\functions /Y
 copy x_macros.sqf vehicle_menu\modules /Y

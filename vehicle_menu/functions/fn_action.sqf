@@ -40,6 +40,18 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     };
 };
 
+if (!isNil QMODULE(vehicle_pack)) then {
+    if (_lbData == "pack" && {!isEngineOn _vehicle}) then {        
+        _packed = _vehicle getVariable QGVAR(packed);
+        
+        if (!isNil "_packed" && {_packed}) exitWith {
+            [_vehicle, 0] call FUNC(vehicle_pack,fold);
+        };
+        
+        [_vehicle, 1] call FUNC(vehicle_pack,fold);
+    };
+};
+
 if (!isNil QMODULE(vehicle_create) && {_lbData == "vehicle"}) exitWith {
     [_vehicle] call FUNC(vehicle_create,spawn);
 };
