@@ -8,6 +8,7 @@
 __cppfln(FUNC(THIS_MODULE,addAction),core\THIS_MODULE\functions\library\fn_addAction.sqf);
 __cppfln(FUNC(THIS_MODULE,addEventHandler),core\THIS_MODULE\functions\library\fn_addEventHandler.sqf);
 __cppfln(FUNC(THIS_MODULE,addMagazine),core\THIS_MODULE\functions\library\fn_addMagazine.sqf);
+__cppfln(FUNC(THIS_MODULE,addScore),core\THIS_MODULE\functions\library\fn_addScore.sqf);
 __cppfln(FUNC(THIS_MODULE,directSay),core\THIS_MODULE\functions\library\fn_directSay.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engineOn.sqf);

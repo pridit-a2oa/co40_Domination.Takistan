@@ -15,7 +15,7 @@ if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
 
 [true, "say", [player, QGVAR(sound_disarm), 20]] call FUNC(network,mp);
 
-player addScore GVAR(ied_amount_score);
+[gameLogic, "addScore", [player, GVAR(ied_amount_score)]] call FUNC(network,mp);
 
 systemChat format [
     "You have been rewarded %1 score for disarming an IED",
