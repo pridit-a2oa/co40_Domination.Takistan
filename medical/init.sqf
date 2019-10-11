@@ -16,7 +16,7 @@ GVAR(medical_player_action) = [
     false,
     true,
     "",
-    "['medkits', _target] call d_fnc_inventory_valid && {lifeState _target != 'UNCONSCIOUS'}"
+    "['medkits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
 // Set damage threshold

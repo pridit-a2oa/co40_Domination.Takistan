@@ -3,7 +3,8 @@ private ["_unit"];
 
 PARAMS_1(_unit);
 
-_unit setUnconscious false;
+showHUD true;
+
 _unit setCaptive false;
 
 {

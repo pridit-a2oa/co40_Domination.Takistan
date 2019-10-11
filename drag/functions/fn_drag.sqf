@@ -18,11 +18,11 @@ _target attachTo [player, [0, 1, 0]];
 _action = player addAction ["Drop" call FUNC(common,RedText), __function(drop), _target, 10, false, true, "", ""];
 
 while {_target getVariable QGVAR(dragging)} do {
-    if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
+    if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
         [true, "switchAction", [_target, "Die"]] call FUNC(network,mp);
     };
     
-    if (!alive _target || {lifeState _target != "UNCONSCIOUS"}) exitWith {};
+    if (!alive _target || {!(_target getVariable QGVAR(unconscious))}) exitWith {};
 };
 
 if (alive player) then {

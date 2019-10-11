@@ -9,7 +9,7 @@ PARAMS_1(_unit);
 
 _marker = str (_unit);
 
-if (lifeState _unit == "UNCONSCIOUS") exitWith {
+if (_unit getVariable QGVAR(unconscious)) exitWith {
     _marker setMarkerColorLocal "ColorRed";
     _marker setMarkerAlphaLocal 0.5;
 };

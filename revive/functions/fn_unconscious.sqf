@@ -9,7 +9,6 @@ _unit setVariable [QGVAR(unconscious), true, true];
 moveOut _unit;
 
 _unit switchMove "";
-_unit setUnconscious true;
 _unit setCaptive true;
 
 _unit spawn {
@@ -32,10 +31,35 @@ _unit spawn {
             [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
             [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
             
+            if (!isNil QMODULE(communication)) then {
+                if (!isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
+                    ["Construct", 1] call FUNC(communication,toggle);
+                };
+                
+                if (!isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
+                    ["Radio", 1] call FUNC(communication,toggle);
+                };
+            };
+            
             [_this] call FUNC(THIS_MODULE,reset);
         };
         
         sleep 1;
+    };
+};
+
+showHUD false;
+openMap [false, false];
+
+showCommandingMenu "";
+
+if (!isNil QMODULE(communication)) then {
+    if (!isNil QMODULE(construction)) then {
+        ["Construct", 0] call FUNC(communication,toggle);
+    };
+    
+    if (!isNil QMODULE(perk)) then {
+        ["Radio", 0] call FUNC(communication,toggle);
     };
 };
 

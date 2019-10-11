@@ -56,7 +56,7 @@ _object setDir ((getDir player) - 180);
 
 sleep 7;
 
-if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
+if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
     deleteVehicle _object;
 };
 

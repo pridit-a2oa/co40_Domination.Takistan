@@ -22,7 +22,7 @@ GVAR(vehicle_repair_player_action) = [
     false,
     true,
     "",
-    "['repair_kits', _target] call d_fnc_inventory_valid && {lifeState _target != 'UNCONSCIOUS'}"
+    "['repair_kits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
 if (hasInterface) then {

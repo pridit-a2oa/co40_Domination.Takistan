@@ -9,7 +9,7 @@ player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 7;
 
-if (!alive player || {lifeState player == "UNCONSCIOUS"}) exitWith {
+if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
     _ied setVariable [QGVAR(disarm), false, true];
 };
 

@@ -139,7 +139,7 @@ player addEventHandler ["HandleDamage", {
     PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
     
     if (!alive _unit) exitWith {0};
-    if (lifeState _unit == "UNCONSCIOUS") exitWith {0};
+    if (_unit getVariable QGVAR(unconscious)) exitWith {0};
     if (_part == "" && {(vehicle _unit) != _unit} && {alive (vehicle _unit)}) exitWith {0};
     if ((vehicle _unit) != (vehicle _injurer) && {!local _injurer} && {side (group _injurer) == side (group _unit)}) exitWith {0};
     
@@ -205,8 +205,6 @@ player addEventHandler ["HandleDamage", {
         
         if (_limbs != 0 && {!(_unit getVariable QGVAR(unconscious))}) then {
             if ((_limbs == 1 && {_damage >= 0.89}) || {(_limbs == 2 && {_damage >= 15})}) then {
-                openMap [false, false];
-                
                 [_unit] call FUNC(revive,unconscious);
             };
         };

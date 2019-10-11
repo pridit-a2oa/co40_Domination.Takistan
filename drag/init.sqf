@@ -16,7 +16,7 @@ GVAR(drag_player_action) = [
     false,
     true,
     "",
-    "_this != _target && {_this == vehicle _this} && {lifeState _target == 'UNCONSCIOUS'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
+    "alive _target && {_this != _target} && {_this == vehicle _this} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
 if (hasInterface) then {

@@ -10,10 +10,6 @@ _marker setMarkerColorLocal "ColorGreen";
 _marker setMarkerShapeLocal "ICON";
 _marker setMarkerTypeLocal "DOT";
 
-if (!isNil QMODULE(revive)) then {
-    [_unit] call FUNC(THIS_MODULE,unconscious);
-};
-
 _unit addMPEventHandler ["MPKilled", {
     private ["_unit"];
     
