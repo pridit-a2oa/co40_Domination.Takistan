@@ -8,6 +8,8 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {};
+
 if (isServer) then {
     [_vehicle, 1] call FUNC(THIS_MODULE,fold);
 };

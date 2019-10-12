@@ -3,13 +3,11 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_types", "_menu", "_packed", "_index", "_string", "_fold"];
+private ["_vehicle", "_menu", "_packed", "_string", "_fold", "_index"];
 
 PARAMS_1(_vehicle);
 
-_types = GVAR(vehicle_pack_types);
-
-if (_types find (typeOf _vehicle) == -1) exitWith {};
+if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {};
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
