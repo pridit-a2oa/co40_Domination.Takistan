@@ -1,0 +1,4 @@
+root = true
+
+[*.sqm]
+end_of_line = crlf
