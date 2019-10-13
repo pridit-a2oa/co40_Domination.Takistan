@@ -62,7 +62,7 @@ if (hasInterface) then {
     _trigger setTriggerArea [_size, _size, 0, true];
     _trigger setTriggerActivation ["WEST", "PRESENT", true];
     _trigger setTriggerStatements [
-        "!(player in thisList) && !((vehicle player) in thisList) && {alive player} && {!(player getVariable 'd_unconscious')}",
+        "!(player in thisList) && {!((vehicle player) in thisList)} && {alive player} && {!(player getVariable 'd_unconscious')}",
         "[thisTrigger] spawn d_fnc_perimiter_outside",
         ""
     ];
