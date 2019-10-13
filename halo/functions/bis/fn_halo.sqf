@@ -71,7 +71,7 @@ if (typename _this == typename objnull) then {
         bis_fnc_halo_soundLoop = time;
         playsound "BIS_HALO_Flapping";
 
-        bis_fnc_halo_action = _unit addaction [localize "STR_HALO_OPEN_CHUTE","ca\modules_e\Functions\misc\fn_HALO.sqf",[],1,true,true,"Eject"];
+        bis_fnc_halo_action = _unit addaction [localize "STR_HALO_OPEN_CHUTE","halo\functions\bis\fn_halo.sqf",[],1,true,true,"Eject"];
 
         bis_fnc_halo_keydown = {
             _key = _this select 1;
@@ -305,7 +305,15 @@ if (typename _this == typename []) then {
 
             //--- Crash
             _velZ = velocity _para select 2;
-            if ((_velZ - bis_fnc_halo_para_velZ) > 7 && (getposatl _para select 2) < 100) then {player setdamage 1;debuglog ["Log::::::::::::::",(_velZ - bis_fnc_halo_para_velZ)];};
+            if ((_velZ - bis_fnc_halo_para_velZ) > 7 && (getposatl _para select 2) < 100) then {
+                if (!isNil QMODULE(revive)) then {
+                    if !(player getVariable QGVAR(unconscious)) then {
+                        [player] call FUNC(revive,unconscious);
+                    };
+                } else {
+                    player setDamage 1;
+                };
+            };
             bis_fnc_halo_para_velZ = _velZ;
 
             //--- Pos
