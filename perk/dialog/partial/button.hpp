@@ -125,7 +125,7 @@ class PerkButton_Role1_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduced artillery cooldown by 300s";
+    tooltip = "Artillery cooldown reduced by 300s";
     action = "[1,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_5: XD_LinkButtonUpgradeBase
@@ -165,7 +165,7 @@ class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "IED signals will be jammed within 50m";
+    tooltip = "IED signals jammed within 50m";
     action = "[2,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
