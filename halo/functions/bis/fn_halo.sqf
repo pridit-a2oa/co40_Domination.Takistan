@@ -56,7 +56,7 @@ if (typename _this == typename objnull) then {
         /* 17 */		"",
         /* 18 */		player
         ];
-        bis_fnc_halo_clouds = "#particlesource" createVehicleLocal _pos;  
+        bis_fnc_halo_clouds = "#particlesource" createVehicleLocal _pos;
         bis_fnc_halo_clouds setParticleParams _parray;
         bis_fnc_halo_clouds setParticleRandom [0, [100, 100, 0], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 1];
         bis_fnc_halo_clouds setParticleCircle [00, [00, 00, 00]];
@@ -67,7 +67,7 @@ if (typename _this == typename objnull) then {
         bis_fnc_halo_ppRadialBlur = ppeffectcreate ["RadialBlur",464];
         bis_fnc_halo_ppRadialBlur ppEffectAdjust [0.01,0.01,0.3,0.3];
         bis_fnc_halo_ppRadialBlur ppEffectCommit 0.01;
-        bis_fnc_halo_ppRadialBlur ppEffectEnable true ; 
+        bis_fnc_halo_ppRadialBlur ppEffectEnable true;
         bis_fnc_halo_soundLoop = time;
         playsound "BIS_HALO_Flapping";
 

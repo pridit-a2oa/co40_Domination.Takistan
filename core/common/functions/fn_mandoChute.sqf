@@ -60,7 +60,7 @@ while {((getPos _object select 2) > 1)} do {
         _vh = _vh + (_acc * _deltatime);
     } else {
         if (_vh > _hspd) then {
-            _vh = _vh - (_acc * _deltatime);  
+            _vh = _vh - (_acc * _deltatime);
         };
     };
     

@@ -11,18 +11,18 @@ switch (typeOf _vehicle) do {
     };
     
     case "MV22": {
-        _vehicle animate ["engine_prop_1_1_turn", _phase];  
-        _vehicle animate ["engine_prop_1_2_turn", _phase];  
-        _vehicle animate ["engine_prop_1_3_turn", _phase];  
-        _vehicle animate ["engine_prop_2_1_turn", _phase];  
+        _vehicle animate ["engine_prop_1_1_turn", _phase];
+        _vehicle animate ["engine_prop_1_2_turn", _phase];
+        _vehicle animate ["engine_prop_1_3_turn", _phase];
+        _vehicle animate ["engine_prop_2_1_turn", _phase];
         _vehicle animate ["engine_prop_2_2_turn", _phase];
-        _vehicle animate ["engine_prop_2_3_turn", _phase];  
+        _vehicle animate ["engine_prop_2_3_turn", _phase];
         _vehicle animate ["engine_prop_1_1_close", _phase];
-        _vehicle animate ["engine_prop_1_3_close", _phase];  
-        _vehicle animate ["engine_prop_2_1_close", _phase];  
+        _vehicle animate ["engine_prop_1_3_close", _phase];
+        _vehicle animate ["engine_prop_2_1_close", _phase];
         _vehicle animate ["engine_prop_2_2_close", _phase];
         _vehicle animate ["pack_engine_1", _phase];
-        _vehicle animate ["pack_engine_2", _phase];    
+        _vehicle animate ["pack_engine_2", _phase];
         _vehicle animate ["turn_wing", _phase];
     };
     

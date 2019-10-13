@@ -176,7 +176,7 @@ switch (_type) do {
             // exit spectating with X key, must be enabled
             case 45: {if (KEGs_can_exit_spectator) then {KEGs_exit_spectator = true}};
         }
-    }; 	
+    };
     
     // Mouse events;
     case "MouseMoving": {

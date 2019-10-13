@@ -43,7 +43,7 @@ _staticWeapons = [];
 {
    if ((_x emptyPositions "gunner") > 0) then 
    {
-       _staticWeapons = _staticWeapons + [_x];    
+       _staticWeapons = _staticWeapons + [_x];
    };
 } forEach _list;
 

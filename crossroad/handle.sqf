@@ -9,13 +9,13 @@ private ["_group"];
 if (isServer) then {
     _group = createGroup west;
     
-    GVAR(crossroad) = _group createUnit ["Logic", [0,0,0], [], 0, "NONE"]; 
+    GVAR(crossroad) = _group createUnit ["Logic", [0,0,0], [], 0, "NONE"];
     [GVAR(crossroad)] joinSilent _group;
     GVAR(crossroad) enableSimulation false;
     
     _group = createGroup west;
     
-    GVAR(crossroad2) = _group createUnit ["Logic", [0,0,1], [], 0, "NONE"]; 
+    GVAR(crossroad2) = _group createUnit ["Logic", [0,0,1], [], 0, "NONE"];
     [GVAR(crossroad2)] joinSilent _group;
     GVAR(crossroad2) enableSimulation false;
     

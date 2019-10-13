@@ -128,7 +128,7 @@ class RscButton {
     sizeEx = 0.02;
     offsetX=0;
     offsetY=0;
-    offsetPressedX = 0.002; 
+    offsetPressedX = 0.002;
     offsetPressedY = 0.002;
     borderSize=0;
     default = false;

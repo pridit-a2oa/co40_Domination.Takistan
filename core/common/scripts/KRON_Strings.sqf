@@ -187,7 +187,7 @@ KRON_Compare = {
     _l=if (_l1<_l2) then {_l1} else {_l2};
     for "_i" from 0 to _l-1 do {
         if ((_s1 select _i)<(_s2 select _i)) then {
-            _s=-1; 
+            _s=-1;
             _i=_l;
         } else {
             if ((_s1 select _i)>(_s2 select _i)) then {
