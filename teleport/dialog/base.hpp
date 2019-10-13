@@ -61,9 +61,10 @@ class XD_TeleportDialog {
         {
             x = 0.0328292;
             y = 0.148153;
-            w = 0.1;
+            w = 0.2;
             h = 0.1;
             text = "Teleport";
+            style = ST_LEFT;
         };
     };
 };

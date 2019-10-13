@@ -33,7 +33,7 @@
 #define ST_VCENTER			5
 #define ST_TYPE				0xF0
 #define ST_SINGLE			0
-#define ST_MULTI			16
+#define ST_MULTI			16 + 512
 #define ST_TITLE_BAR		32
 #define ST_PICTURE			48
 #define ST_FRAME			64

@@ -38,10 +38,20 @@ class XD_HaloDialog {
         {
             x = 0.0328292;
             y = 0.148153;
-            w = 0.937627;
+            w = 0.2;
             h = 0.1;
-            text = "Select a point on the map to initiate a HALO jump";
-            style = ST_CENTER;
+            text = "HALO Jump";
+            style = ST_LEFT;
+        };
+        class RscHaloTextGuide: X3_RscText
+        {
+            x = 0.0328292;
+            y = 0.748;
+            w = 0.6;
+            h = 0.1;
+            text = "Left-click anywhere on the map to initiate a HALO jump.\nRight-click to pan.";
+            style = ST_MULTI;
+            lineSpacing = 1;
         };
     };
 };
