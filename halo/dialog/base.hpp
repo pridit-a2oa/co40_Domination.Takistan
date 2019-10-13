@@ -49,7 +49,7 @@ class XD_HaloDialog {
             y = 0.748;
             w = 0.6;
             h = 0.1;
-            text = "Left-click anywhere on the map to initiate a HALO jump.\nRight-click to pan.";
+            text = "Left-click anywhere on the map to initiate a HALO jump.\nRight-click and drag to pan.";
             style = ST_MULTI;
             lineSpacing = 1;
         };
