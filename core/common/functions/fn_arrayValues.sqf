@@ -8,7 +8,7 @@ _values = [];
 {
     _value = _x select _index;
     
-    if (typeName _value != "STRING") then {
+    if !(typeName _value in ["STRING", "ARRAY"]) then {
         _value = str _value;
     };
     

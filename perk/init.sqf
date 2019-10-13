@@ -7,10 +7,20 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
 
-// Increments of points issued dependant on score gained
+// Set role restrictions for role-based perks.
+GVAR(perk_type_roles) = [
+    [GVAR(artillery),       [1]],
+    [GVAR(engineers),       [2]],
+    [GVAR(machine_gunners), [3]],
+    [GVAR(marksman),        [4]],
+    [GVAR(medics),          [5]],
+    [GVAR(pilots),          [6]]
+];
+
+// Set increments of points rewarded.
 GVAR(perk_amount_points) = 2;
 
-// Increments of score required to issue perk points
+// Set increments of score required.
 GVAR(perk_amount_score) = 15;
 
 if (hasInterface) then {
