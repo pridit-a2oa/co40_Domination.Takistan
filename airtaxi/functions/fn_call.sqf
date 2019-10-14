@@ -97,6 +97,12 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
             _aircraft land "LAND";
             
             while {alive _aircraft && {canMove _aircraft}} do {
+                if (speed _aircraft < 1 && {(position _aircraft) select 2 > 1}) then {
+                    _aircraft land "LAND";
+                    
+                    sleep 5;
+                };
+                
                 if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 2}) exitWith {
                     deleteVehicle _helper;
                     
