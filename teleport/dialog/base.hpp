@@ -23,6 +23,8 @@ class XD_TeleportDialog {
             y = 0.231735;
             w = 0.710858;
             h = 0.501853;
+            onMouseButtonDown = "if (lbCurSel 1500 != -1) then {[d_teleport, true] call d_fnc_teleport_populate}";
+            onMouseZChanged = "if (lbCurSel 1500 != -1) then {[d_teleport, true] call d_fnc_teleport_populate}";
         };
         class RscTeleportListbox: RscListbox
         {
