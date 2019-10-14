@@ -30,6 +30,7 @@ GVAR(modules) = [
     "drag",
     "farp",
     "fortification",
+    "gesture",
     "halo",
     "idle",
     "ied",

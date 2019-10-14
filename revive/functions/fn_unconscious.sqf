@@ -31,20 +31,24 @@ _unit spawn {
             [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
             [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
             
-            if (!isNil QMODULE(communication)) then {
-                if (!isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
-                    ["Construct", 1] call FUNC(communication,toggle);
-                };
-                
-                if (!isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
-                    ["Radio", 1] call FUNC(communication,toggle);
-                };
-            };
-            
             [_this] call FUNC(THIS_MODULE,reset);
         };
         
         sleep 1;
+    };
+    
+    if (!isNil QMODULE(communication)) then {
+        if (!isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
+            ["Construct", 1] call FUNC(communication,toggle);
+        };
+        
+        if (!isNil QMODULE(gesture)) then {
+            ["Gestures", 1] call FUNC(communication,toggle);
+        };
+        
+        if (!isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
+            ["Radio", 1] call FUNC(communication,toggle);
+        };
     };
 };
 
@@ -56,6 +60,10 @@ showCommandingMenu "";
 if (!isNil QMODULE(communication)) then {
     if (!isNil QMODULE(construction)) then {
         ["Construct", 0] call FUNC(communication,toggle);
+    };
+    
+    if (!isNil QMODULE(gesture)) then {
+        ["Gestures", 0] call FUNC(communication,toggle);
     };
     
     if (!isNil QMODULE(perk)) then {

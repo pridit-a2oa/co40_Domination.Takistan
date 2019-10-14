@@ -56,6 +56,9 @@ copy x_macros.sqf farp /Y
 copy x_macros.sqf farp\modules /Y
 copy x_macros.sqf fortification /Y
 copy x_macros.sqf fortification\modules /Y
+copy x_macros.sqf gesture /Y
+copy x_macros.sqf gesture\functions /Y
+copy x_macros.sqf gesture\modules /Y
 copy x_macros.sqf halo /Y
 copy x_macros.sqf halo\functions /Y
 copy x_macros.sqf halo\functions\bis /Y

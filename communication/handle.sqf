@@ -18,6 +18,10 @@ if (hasInterface) then {
         __submodulePP(construction);
     };
     
+    if (!isNil QMODULE(gesture)) then {
+        __submodulePP(gesture);
+    };
+    
     if (!isNil QMODULE(inventory)) then {
         __submodulePP(inventory);
     };
