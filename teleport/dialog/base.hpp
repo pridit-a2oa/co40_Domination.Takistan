@@ -2,8 +2,8 @@ class XD_TeleportDialog {
     idd = -1;
     movingEnable = false;
     objects[] = {};
-    onLoad="uiNamespace setVariable ['X_TELEPORT_DIALOG', _this select 0]; d_teleport = nil; d_teleport_selected = -2";
-    onUnLoad="uiNamespace setVariable ['X_TELEPORT_DIALOG', nil]; d_teleport = nil; d_teleport_selected = -2";
+    onLoad="uiNamespace setVariable ['X_TELEPORT_DIALOG', _this select 0]; d_teleport = nil";
+    onUnLoad="uiNamespace setVariable ['X_TELEPORT_DIALOG', nil]; d_teleport = nil";
     class controlsBackground {
         class RscTeleportBackground: XD_RscPicture
         {
@@ -37,6 +37,7 @@ class XD_TeleportDialog {
             rowHeight = 0.05;
             style = ST_LEFT;
             borderSize = 1;
+            onMouseButtonDown = "[d_teleport, true] call d_fnc_teleport_populate";
             onLBSelChanged = "[_this select 1] call d_fnc_teleport_switch";
             onLBDblClick = "call d_fnc_teleport_action";
         };

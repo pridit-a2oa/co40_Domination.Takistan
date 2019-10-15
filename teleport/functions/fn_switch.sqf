@@ -9,11 +9,6 @@ disableSerialization;
 _target = call FUNC(THIS_MODULE,target);
 
 if (isNil "_target") exitWith {};
-if (_selected == GVAR(teleport_selected)) exitWith {
-    [GVAR(teleport), true] call FUNC(THIS_MODULE,populate);
-};
-
-GVAR(teleport_selected) = _selected;
 
 _map = DIALOG("X_TELEPORT_DIALOG", 1000);
 
@@ -66,7 +61,7 @@ ctrlMapAnimCommit _map;
     
     sleep 0.1;
     
-    while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY" && {lbCurSel 1500 == _selected}} do {
+    while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY"} do {
         if (lbCurSel 1500 != _selected) exitWith {};
         if (isNil "_target") exitWith {};
         if (!alive _target) exitWith {};

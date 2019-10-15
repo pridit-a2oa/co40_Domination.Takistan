@@ -5,7 +5,7 @@ disableSerialization;
 
 if (!ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
 
-(call FUNC(THIS_MODULE,target)) spawn {
+[call FUNC(THIS_MODULE,target)] spawn {
     private ["_target", "_position"];
     
     PARAMS_1(_target);
