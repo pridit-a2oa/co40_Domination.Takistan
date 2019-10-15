@@ -8,6 +8,7 @@ _action = player getVariable QGVAR(backpack_action);
 player removeAction _action;
 
 GVAR(backpack) = [];
+
 player setVariable [QGVAR(backpack_action), nil];
 
 if (primaryWeapon player != "") then {

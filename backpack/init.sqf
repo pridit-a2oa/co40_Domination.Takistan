@@ -28,6 +28,7 @@ if (hasInterface) then {
 
 __cppfln(FUNC(THIS_MODULE,action),THIS_MODULE\functions\fn_action.sqf);
 __cppfln(FUNC(THIS_MODULE,equip),THIS_MODULE\functions\fn_equip.sqf);
+__cppfln(FUNC(THIS_MODULE,magazines),THIS_MODULE\functions\fn_magazines.sqf);
 __cppfln(FUNC(THIS_MODULE,store),THIS_MODULE\functions\fn_store.sqf);
 
 MODULE(THIS_MODULE) = true;

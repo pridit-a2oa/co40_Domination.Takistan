@@ -3,13 +3,7 @@
 private ["_weapon", "_magazines", "_sidearm", "_animation"];
 
 _weapon = weaponState player;
-_magazines = [];
-
-{
-    if (_x == (_weapon select 3)) then {
-        _magazines = _magazines + [_x];
-    };
-} forEach (magazines player);
+_magazines = [_weapon] call FUNC(THIS_MODULE,magazines);
 
 GVAR(backpack) = [
     _weapon select 0,
@@ -36,6 +30,13 @@ waitUntil {animationState player != _anim};
 
 if (!isNil "_sidearm") then {
     player addWeapon _sidearm;
+};
+
+if (primaryWeapon player != "") then {
+    _weapon = weaponState player;
+    
+    player removeWeapon (_weapon select 0);
+    player removeMagazines (_weapon select 3);
 };
 
 call FUNC(THIS_MODULE,action);
