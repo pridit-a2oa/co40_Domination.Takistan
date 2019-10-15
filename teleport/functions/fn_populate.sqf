@@ -8,6 +8,8 @@ disableSerialization;
 if (_clear) then {
     lbClear 1500;
     lbSetCurSel [1500, -1];
+    
+    GVAR(teleport_selected) = -2;
 };
 
 _list = DIALOG("X_TELEPORT_DIALOG", 1500);
