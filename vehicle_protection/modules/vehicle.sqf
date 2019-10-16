@@ -8,6 +8,4 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (side _vehicle != east) then {
-    [_vehicle] __fsm(invulnerable);
-};
+[_vehicle] __fsm(invulnerable);
