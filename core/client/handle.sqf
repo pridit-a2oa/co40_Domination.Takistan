@@ -60,6 +60,17 @@ if (isMultiplayer) then {
                 
                 if (!isNil QMODULE(revive)) then {
                     _x addAction GVAR(revive_player_action);
+                    
+                    _x addAction [
+                        "Debug" call FUNC(common,GreyText),
+                        FUNCTION(revive,debug),
+                        [],
+                        10,
+                        false,
+                        true,
+                        "",
+                        "_this != _target"
+                    ];
                 };
             };
         } forEach playableUnits;
