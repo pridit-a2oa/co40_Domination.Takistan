@@ -33,7 +33,7 @@ GVAR(setting_type_valid) = [
 GVAR(setting_type_default) = [
     1,
     50,
-    3000
+    2500
 ];
 
 __cppfln(FUNC(THIS_MODULE,hide),THIS_MODULE\functions\fn_hide.sqf);
