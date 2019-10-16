@@ -15,8 +15,6 @@ if (hasInterface) then {
             };
                 
             if (!isNil "_marker") then {
-                if (!visibleMap && {isNil {uiNamespace getVariable "BIS_RscMiniMap"}} && {isNil {uiNamespace getVariable "RscMiniMapSmall"}}) exitWith {};
-                
                 [_x] __submodulePP(revive);
                 
                 _marker setMarkerTextLocal (name _x);
