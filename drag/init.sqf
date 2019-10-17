@@ -9,7 +9,7 @@
 
 // Set addAction parameters that need to apply to existing clients & JIP
 GVAR(drag_player_action) = [
-    "Drag (Experimental)" call FUNC(common,RedText),
+    "Drag (WIP)" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,drag),
     [],
     8,

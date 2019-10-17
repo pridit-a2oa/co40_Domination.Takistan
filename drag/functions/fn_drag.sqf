@@ -13,7 +13,7 @@ player forceWalk true;
 
 _target attachTo [player, [0, 1, 0]];
 
-[true, "setDir", [_target, (getDir player) - 180]] call FUNC(network,mp);
+[true, "setDir", [_target, 180]] call FUNC(network,mp);
 
 _action = player addAction ["Drop" call FUNC(common,RedText), __function(drop), _target, 10, false, true, "", ""];
 
