@@ -69,7 +69,7 @@ if (isMultiplayer) then {
                         false,
                         true,
                         "",
-                        "_this != _target"
+                        "_this != _target && {serverCommandAvailable '#logout'}"
                     ];
                 };
             };

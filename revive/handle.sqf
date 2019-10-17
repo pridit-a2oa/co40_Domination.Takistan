@@ -14,7 +14,7 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "_this != _target"
+        "_this != _target && {serverCommandAvailable '#logout'}"
     ]]] call FUNC(network,mp);
     
     [true, "addAction", [player, GVAR(revive_player_action)]] call FUNC(network,mp);
