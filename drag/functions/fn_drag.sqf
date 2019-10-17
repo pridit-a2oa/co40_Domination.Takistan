@@ -17,7 +17,7 @@ _target attachTo [player, [0, 1, 0]];
 
 _action = player addAction ["Drop" call FUNC(common,RedText), __function(drop), _target, 10, false, true, "", ""];
 
-waitUntil {!alive _target || {!(_target getVariable QGVAR(dragging))}};
+waitUntil {{!alive _x} count [player, _target] > 0 || {player getVariable QGVAR(unconscious)} || {!(_target getVariable QGVAR(dragging))}};
 
 detach _target;
 
