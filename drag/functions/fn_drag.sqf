@@ -6,7 +6,7 @@ PARAMS_1(_target);
 
 _target setVariable [QGVAR(dragging), true, true];
 
-player playAction "grabDrag";
+player playAction "grabdrag";
 player forceWalk true;
 
 [true, "switchMove", [_target, "AinjPpneMstpSnonWrflDb_still"]] call FUNC(network,mp);
@@ -17,20 +17,19 @@ _target attachTo [player, [0, 1, 0]];
 
 _action = player addAction ["Drop" call FUNC(common,RedText), __function(drop), _target, 10, false, true, "", ""];
 
-while {_target getVariable QGVAR(dragging)} do {
-    if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
-        [true, "switchAction", [_target, "Die"]] call FUNC(network,mp);
-    };
-    
-    if (!alive _target || {!(_target getVariable QGVAR(unconscious))}) exitWith {};
-};
-
-if (alive player) then {
-    player switchMove "";
-    player forceWalk false;
-    player removeAction _action;
-};
-
-_target setVariable [QGVAR(dragging), false, true];
+waitUntil {!alive _target || {!(_target getVariable QGVAR(dragging))}};
 
 detach _target;
+
+if (alive _target) then {
+    [true, "switchMove", [_target, "AidlPpneMstpSnonWnonDnon_SleepB_death"]] call FUNC(network,mp);
+};
+
+if (alive player && {!(player getVariable QGVAR(unconscious))}) then {
+    [true, "playMoveNow", [player, "amovpknlmstpsraswrfldnon"]] call FUNC(network,mp);
+};
+
+player forceWalk false;
+player removeAction _action;
+
+_target setVariable [QGVAR(dragging), false, true];
