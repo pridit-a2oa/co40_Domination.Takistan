@@ -29,6 +29,7 @@ __cppfln(FUNC(THIS_MODULE,setFuel),core\THIS_MODULE\functions\library\fn_setFuel
 __cppfln(FUNC(THIS_MODULE,setGroupId),core\THIS_MODULE\functions\library\fn_setGroupId.sqf);
 __cppfln(FUNC(THIS_MODULE,setHit),core\THIS_MODULE\functions\library\fn_setHit.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorDir),core\THIS_MODULE\functions\library\fn_setVectorDir.sqf);
+__cppfln(FUNC(THIS_MODULE,setVectorDirAndUp),core\THIS_MODULE\functions\library\fn_setVectorDirAndUp.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorUp),core\THIS_MODULE\functions\library\fn_setVectorUp.sqf);
 __cppfln(FUNC(THIS_MODULE,setVehicleAmmo),core\THIS_MODULE\functions\library\fn_setVehicleAmmo.sqf);
 __cppfln(FUNC(THIS_MODULE,setVelocity),core\THIS_MODULE\functions\library\fn_setVelocity.sqf);

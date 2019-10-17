@@ -1,11 +1,17 @@
 #include "x_macros.sqf"
-private ["_attacher", "_id", "_attachee"];
+private ["_attacher", "_id", "_attachee", "_position"];
 
 _attacher = _this select 0;
 _id = _this select 2;
 _attachee = _this select 3;
 
+_position = position _attachee;
+
 detach _attachee;
+
+_attachee setPos _position;
+
+[_attachee, "setVectorDirAndUp", [vectorDir _attacher, vectorUp _attacher]] call FUNC(network,mp);
 
 if (alive _attacher && {typeName _id == "SCALAR"}) then {
     _attacher removeAction _id;
