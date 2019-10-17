@@ -14,6 +14,8 @@ _unit setCaptive true;
 _unit spawn {
     sleep 0.5;
     
+    _this setDamage 0;
+    
     if (vehicle _this != _this) then {
         _this action ["Eject", vehicle _this];
         
@@ -26,15 +28,11 @@ _unit spawn {
     
     call FUNC(THIS_MODULE,countdown);
     
-    while {alive _this} do {
-        if !(_this getVariable QGVAR(unconscious)) exitWith {
-            [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
-            [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
-            
-            [_this] call FUNC(THIS_MODULE,reset);
-        };
+    if (alive _this && {!(_this getVariable QGVAR(unconscious))}) exitWith {
+        [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
+        [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
         
-        sleep 1;
+        [_this] call FUNC(THIS_MODULE,reset);
     };
     
     if (!isNil QMODULE(communication)) then {
