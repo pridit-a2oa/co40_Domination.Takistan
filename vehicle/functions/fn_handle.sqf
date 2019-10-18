@@ -111,6 +111,10 @@ if (!isNil QMODULE(vehicle_bonus)) then {
     [_vehicle] __submoduleVM(vehicle_bonus);
 };
 
+if (!isNil QMODULE(vehicle_deploy)) then {
+    [_vehicle] __submoduleVM(vehicle_deploy);
+};
+
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
 };

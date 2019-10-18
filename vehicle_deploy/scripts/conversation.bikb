@@ -1,7 +1,7 @@
 class Sentences 
 {
     class Deployed {
-        text = "%1 has been deployed near %2.";
+        text = "%1 has been deployed as a %2 near %3.";
         speech[] = {};
         class Arguments {
             class 1 {type = "simple";};

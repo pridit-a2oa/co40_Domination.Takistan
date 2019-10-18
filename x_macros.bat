@@ -132,11 +132,15 @@ copy x_macros.sqf vehicle_bonus\modules /Y
 copy x_macros.sqf vehicle_create /Y
 copy x_macros.sqf vehicle_create\functions /Y
 copy x_macros.sqf vehicle_create\modules /Y
+copy x_macros.sqf vehicle_deploy /Y
+copy x_macros.sqf vehicle_deploy\functions /Y
+copy x_macros.sqf vehicle_deploy\modules /Y
 copy x_macros.sqf vehicle_flip /Y
 copy x_macros.sqf vehicle_flip\functions /Y
 copy x_macros.sqf vehicle_flip\modules /Y
-copy x_macros.sqf vehicle_welcome /Y
-copy x_macros.sqf vehicle_welcome\modules /Y
+copy x_macros.sqf vehicle_fob /Y
+copy x_macros.sqf vehicle_fob\functions /Y
+copy x_macros.sqf vehicle_fob\modules /Y
 copy x_macros.sqf vehicle_lift /Y
 copy x_macros.sqf vehicle_lift\functions /Y
 copy x_macros.sqf vehicle_lift\modules /Y
@@ -172,6 +176,8 @@ copy x_macros.sqf vehicle_teleport\modules /Y
 copy x_macros.sqf vehicle_tow /Y
 copy x_macros.sqf vehicle_tow\functions /Y
 copy x_macros.sqf vehicle_tow\modules /Y
+copy x_macros.sqf vehicle_welcome /Y
+copy x_macros.sqf vehicle_welcome\modules /Y
 copy x_macros.sqf vehicle_wreck /Y
 copy x_macros.sqf vehicle_wreck\functions /Y
 copy x_macros.sqf vehicle_wreck\modules /Y

@@ -1,68 +1,39 @@
 #define THIS_MODULE vehicle_mhq
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_state"];
 
-PARAMS_1(_vehicle);
+PARAMS_2(_vehicle, _state);
 
-_position = position _vehicle;
-_city = nearestLocation [_position, "nameCity"];
+switch (_state) do {
+    case true: {
+        _net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
 
-_checks = [
-    [
-        [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
-        _position,
-        markerPos QGVAR(base_south),
-        [GVAR(vehicle_mhq_distance_base), "in excess of", "from base"]
-    ] call FUNC(helper,distanceFrom),
-    
-    [
-        [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
-        _vehicle
-    ] call FUNC(helper,isOccupied)
-];
+        {
+            if (_x select 0 == faction _vehicle) exitWith {
+                _net = _x select 1;
+            };
+        } forEach GVAR(vehicle_mhq_types_net);
 
-{
-    if (typeName _x == "STRING") exitWith {
-        hint _x;
+        _camo = createVehicle [_net, [_position select 0, _position select 1, -0.18], [], 0, "CAN_COLLIDE"];
+        _camo setDir direction _vehicle;
+        _camo setVectorUp (vectorUp _vehicle);
+        _camo setPos [_position select 0, _position select 1, -0.18];
+
+        [true, "addEventHandler", [_camo, "HandleDamage", {0}]] call FUNC(network,mp);
+
+        _vehicle setVariable [QGVAR(camo), _camo, true];
     };
-} forEach _checks;
-
-if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-
-_net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
-
-{
-    if (_x select 0 == faction _vehicle) exitWith {
-        _net = _x select 1;
-    };
-} forEach GVAR(vehicle_mhq_types_net);
-
-_camo = createVehicle [_net, [_position select 0, _position select 1, -0.18], [], 0, "CAN_COLLIDE"];
-_camo setDir direction _vehicle;
-_camo setVectorUp (vectorUp _vehicle);
-_camo setPos [_position select 0, _position select 1, -0.18];
-
-[true, "addEventHandler", [_camo, "HandleDamage", {0}]] call FUNC(network,mp);
-
-[_vehicle, "lock", true] call FUNC(network,mp);
-[_vehicle, "engineOn", false] call FUNC(network,mp);
-
-_vehicle setVariable [QGVAR(camo), _camo, true];
-_vehicle setVariable [QGVAR(deployed), true, true];
-
-if (!isNil QMODULE(vehicle_marker)) then {
-    [true, "execVM", [[_vehicle, true], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
-};
-
-if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {    
-    [player, "kbTell", [
-        GVAR(crossroad),
-        "vehicle_mhq",
-        "Deployed",
-        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-        ["2", {}, text (_city), []],
-        true
-    ]] call FUNC(network,mp);
     
-    player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
-};
+    case false: {
+        _camo = _vehicle getVariable QGVAR(camo);
+
+        // just in case it might be destroyed
+        if (isNil "_camo") then {
+            _camo = objNull;
+        };
+
+        if (!isNull _camo) then {
+            deleteVehicle _camo;
+        };
+    };
+}

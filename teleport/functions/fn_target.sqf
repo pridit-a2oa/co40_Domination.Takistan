@@ -16,7 +16,7 @@ switch (_selected) do {
     };
 };
 
-if (!isNil QMODULE(vehicle_mhq)) then {
+if (!isNil QMODULE(vehicle_deploy)) then {
     _data = DIALOG("X_TELEPORT_DIALOG", 1500) lbData _selected;
     
     {

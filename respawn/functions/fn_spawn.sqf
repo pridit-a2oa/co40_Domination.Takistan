@@ -7,19 +7,29 @@ _type = (_unit getVariable QGVAR(respawn_type)) select 1;
 
 _unit setDir 240.214;
 
-if (!isNil QMODULE(vehicle_mhq) && {_type == "mhq"}) exitWith {
-    _objects = nearestObjects [_position, GVAR(vehicle_mhq_types), GVAR(respawn_distance_valid)];
-    
-    {
-        if (_x getVariable QGVAR(deployed)) exitWith {
-            _object = _x;
+switch (_type) do {
+    case "fob": {
+        if (!isNil QMODULE(vehicle_fob)) then {
+            
         };
-    } forEach _objects;
+    };
     
-    if (!isNil "_object") then {
-        _vehicle = _object modelToWorld [0, -6, 0];
-        
-        _unit setDir (getDir _object);
-        _unit setPos [_vehicle select 0, _vehicle select 1, 0];
+    case "mhq": {
+        if (!isNil QMODULE(vehicle_mhq)) then {
+            _objects = nearestObjects [_position, GVAR(vehicle_mhq_types), GVAR(respawn_distance_valid)];
+            
+            {
+                if (_x getVariable QGVAR(deployed)) exitWith {
+                    _object = _x;
+                };
+            } forEach _objects;
+            
+            if (!isNil "_object") then {
+                _vehicle = _object modelToWorld [0, -6, 0];
+                
+                _unit setDir (getDir _object);
+                _unit setPos [_vehicle select 0, _vehicle select 1, 0];
+            };
+        };
     };
 };

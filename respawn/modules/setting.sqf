@@ -5,6 +5,10 @@
 #define THIS_MODULE respawn
 #include "x_macros.sqf"
 
+if (!isNil QMODULE(vehicle_fob)) then {
+    __submodulePP(vehicle_fob);
+};
+
 if (!isNil QMODULE(vehicle_mhq)) then {
     __submodulePP(vehicle_mhq);
 };

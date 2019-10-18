@@ -1,18 +1,21 @@
-#include "x_macros.sqf"
-private ["_valid"];
+/**
+ * Vehicle Deploy Module (Handler)
+ */
 
-_valid = [];
+#include "x_macros.sqf"
+
+_types = [];
 
 if (!isNil QMODULE(vehicle_fob)) then {
     {
-        _valid = _valid + (entities _x);
+        _types = _types + [[_x, "FOB"]];
     } forEach GVAR(vehicle_fob_types);
 };
 
 if (!isNil QMODULE(vehicle_mhq)) then {
     {
-        _valid = _valid + (entities _x);
+        _types = _types + [[_x, "MHQ"]];
     } forEach GVAR(vehicle_mhq_types);
 };
 
-_valid
+GVAR(vehicle_deploy_types) = _types;

@@ -17,8 +17,8 @@ if (!isNil QMODULE(vehicle_marker)) then {
     [_attacher, _attachee] __submoduleVM(vehicle_marker);
 };
 
-if (!isNil QMODULE(vehicle_mhq) && {_attachee getVariable QGVAR(deployed)}) then {
-    [_attachee] call FUNC(vehicle_mhq,undeploy);
+if (!isNil QMODULE(vehicle_deploy) && {_attachee getVariable QGVAR(deployed)}) then {
+    [_attachee, false] call FUNC(vehicle_deploy,deploy);
 };
 
 if (!isNil QMODULE(crossroad)) then {

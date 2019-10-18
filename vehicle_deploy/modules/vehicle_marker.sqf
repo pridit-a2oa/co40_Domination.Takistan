@@ -1,13 +1,14 @@
 /**
- * Vehicle MHQ Module - Vehicle Marker Submodule
+ * Vehicle Deploy Module - Vehicle Marker Submodule
  */
 
+#define THIS_MODULE vehicle_deploy
 #include "x_macros.sqf"
 private ["_vehicle", "_marker"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};
+if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerColorLocal "ColorYellow";

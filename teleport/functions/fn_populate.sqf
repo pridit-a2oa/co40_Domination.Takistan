@@ -19,7 +19,7 @@ if (player distance GVAR(flag) > 10) then {
     _list lbAdd "Base";
 };
 
-if (!isNil QMODULE(vehicle_mhq)) then {
+if (!isNil QMODULE(vehicle_deploy)) then {
     {
         if (alive _x && {_vehicle != _x}) then {
             _id = _x getVariable QGVAR(id);

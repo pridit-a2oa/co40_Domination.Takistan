@@ -1,5 +1,5 @@
 /**
- * Vehicle Marker - Vehicle MHQ Submodule
+ * Vehicle Marker - Vehicle Deploy Submodule
  */
 
 #include "x_macros.sqf"

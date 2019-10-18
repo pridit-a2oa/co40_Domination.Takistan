@@ -18,8 +18,8 @@ if (!isNil QMODULE(vehicle_pack)) then {
     _valid = _valid + GVAR(vehicle_pack_types);
 };
 
-if (!isNil QMODULE(vehicle_mhq)) then {
-    _valid = _valid + GVAR(vehicle_mhq_types);
+if (!isNil QMODULE(vehicle_deploy)) then {
+    _valid = _valid + ([0, GVAR(vehicle_deploy_types)] call FUNC(common,arrayValues));
 };
 
 if (_valid find (typeOf _vehicle) == -1) exitWith {};
@@ -33,5 +33,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "alive _target && {!(player in _target)} && {count (nearestObjects [_target, [d_vehicle_load_type_aircraft], 30]) == 0} && {_target getVariable 'd_menu'}"
+    "alive _target && {!(player in _target)} && {_target getVariable 'd_menu'}"
 ];
