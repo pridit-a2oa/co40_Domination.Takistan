@@ -7,9 +7,9 @@ _attachee = _this select 3;
 
 _position = position _attachee;
 
-detach _attachee;
+_attachee setPos (_attacher modelToWorld [0, 0, -14]);
 
-_attachee setPos _position;
+detach _attachee;
 
 [_attachee, "setVectorDirAndUp", [vectorDir _attacher, vectorUp _attacher]] call FUNC(network,mp);
 
