@@ -12,10 +12,13 @@ _text = markerText _marker;
 
 switch (_state) do {
     case true: {
+        _marker setMarkerColorLocal "ColorYellow";
         _marker setMarkerTextLocal (_text + " (Deployed)");
     };
     
     case false: {
+        _marker setMarkerColorLocal "ColorBlack";
         _marker setMarkerTextLocal ([typeOf (_vehicle)] call FUNC(vehicle,name));
+        _marker setMarkerAlphaLocal 0;
     };
 };

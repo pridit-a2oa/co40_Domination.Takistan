@@ -11,9 +11,10 @@ PARAMS_1(_vehicle);
 if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
-_marker setMarkerColorLocal "ColorYellow";
+_marker setMarkerColorLocal "ColorBlack";
 _marker setMarkerTypeLocal "o_uav";
 
 if (_vehicle getVariable QGVAR(deployed)) then {
+    _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerTextLocal (markerText _marker + " (Deployed)");
 };
