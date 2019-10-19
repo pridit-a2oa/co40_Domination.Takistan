@@ -7,7 +7,7 @@ PARAMS_3(_vehicle, _type, _state);
 switch (_state) do {
     case true: {
         _position = position _vehicle;
-        _city = nearestLocation [_position, "nameCity"];
+        _location = [_position] call FUNC(common,nearestLocation);
 
         _checks = [
             [
@@ -51,7 +51,7 @@ switch (_state) do {
                 "Deployed",
                 ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
                 ["2", {}, toUpper _type, []],
-                ["3", {}, text (_city), []],
+                ["3", {}, text _location, []],
                 true
             ]] call FUNC(network,mp);
             
