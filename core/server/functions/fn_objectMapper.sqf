@@ -83,6 +83,7 @@ if (count _replace > 0) then {
 };
 
 _newObjs = [];
+_units = [];
 
 private ["_posX", "_posY"];
 _posX = _pos select 0;
@@ -176,11 +177,15 @@ _multiplyMatrixFunc = {
         };
 
         _newObjs set [count _newObjs, _object];
+        
+        {
+            _units = _units + [_x];
+        } forEach _crew;
     };
     
     sleep 0.2;
 } forEach _objs;
 
 if (!isNil "_store") then {
-    _store setVariable [QGVAR(cleanup), (_store getVariable QGVAR(cleanup)) + _newObjs];
+    _store setVariable [QGVAR(cleanup), (_store getVariable QGVAR(cleanup)) + _newObjs + _units];
 };
