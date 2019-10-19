@@ -7,11 +7,11 @@ _attachee = _this select 3;
 
 _position = position _attachee;
 
-_attachee setPos (_attacher modelToWorld [0, 0, -14]);
+[true, "enableSimulation", [_attachee, false]];
 
 detach _attachee;
 
-[_attachee, "setVectorDirAndUp", [vectorDir _attacher, vectorUp _attacher]] call FUNC(network,mp);
+[true, "enableSimulation", [_attachee, true]];
 
 if (alive _attacher && {typeName _id == "SCALAR"}) then {
     _attacher removeAction _id;
