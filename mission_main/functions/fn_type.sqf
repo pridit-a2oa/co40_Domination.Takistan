@@ -17,7 +17,12 @@ switch (_type) do {
                 
                 [_group, _position] call BIS_fnc_taskDefend;
                 
-                _objects = [[_group, _target], _position, random 360, GVAR(mission_main_type_camp)] spawn FUNC(server,objectMapper);
+                _objects = [
+                    [_group, _target],
+                    _position,
+                    random 360,
+                    GVAR(mission_main_type_camp)
+                ] spawn FUNC(server,objectMapper);
                 
                 waitUntil {sleep 1; scriptDone _objects};
                 
@@ -152,7 +157,12 @@ switch (_type) do {
                 
                 [_group, _position] call BIS_fnc_taskDefend;
                 
-                [[_group, _target], _position, random 360, _x select 0] spawn FUNC(server,objectMapper);
+                [
+                    [_group, _target],
+                    _position,
+                    random 360,
+                    _x select 0
+                ] spawn FUNC(server,objectMapper);
             };
         } forEach GVAR(mission_main_type_compositions);
     };

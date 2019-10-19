@@ -37,7 +37,7 @@ if (typeName _side != "SIDE") then {
 };
 
 _rdm = if (count _this > 4) then {_this select 4} else {0};
-_replace = if (count _this > 5) then {_this select 5} else {[]};
+_replace = if (count _this > 5) then {_this select 5} else {[[]]};
 
 if (typeName _pos != typeName [] || {typeName _azi != typeName 0} || {!((typeName _objs) in [typeName "", typeName []])} || {typeName _rdm != typeName 0} || {_rdm < 0.0} || {_rdm > 1.0}) exitWith {[]};
 
@@ -76,10 +76,16 @@ if (!isNil "_script") then {_objs = call (compile (preprocessFileLineNumbers _sc
 
 if (count _objs == 0) exitWith {[]};
 
-if (count _replace > 0) then {
+if (count _replace > 0) then {    
     {
-        if (_x select 0 == (_replace select 0)) exitWith {_x set [0, _replace select 1]};
-    } forEach _objs;
+        _new = _x;
+        
+        {
+            if (_x select 0 == (_new select 0)) exitWith {
+                _x set [0, _new select 1];
+            };
+        } forEach _objs;
+    } forEach _replace;
 };
 
 _newObjs = [];
