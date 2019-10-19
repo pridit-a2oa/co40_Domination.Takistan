@@ -27,6 +27,10 @@ if (isServer) then {
     };
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
+    
+    if (!isNil QMODULE(vehicle_mhq)) then {
+        [_vehicle] __submoduleVM(vehicle_mhq);
+    };
 
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
@@ -117,10 +121,6 @@ if (!isNil QMODULE(vehicle_deploy)) then {
 
 if (!isNil QMODULE(vehicle_load)) then {
     [_vehicle] __submoduleVM(vehicle_load);
-};
-
-if (!isNil QMODULE(vehicle_mhq)) then {
-    [_vehicle] __submoduleVM(vehicle_mhq);
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {

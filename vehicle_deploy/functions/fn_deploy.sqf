@@ -8,19 +8,25 @@ switch (_state) do {
     case true: {
         _position = position _vehicle;
         _location = [_position] call FUNC(common,nearestLocation);
-
+        
+        _name = [typeOf _vehicle] call FUNC(vehicle,name);
         _checks = [
             [
-                [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
+                [_name, "deployed"],
                 _position,
                 markerPos QGVAR(base_south),
                 [GVAR(vehicle_deploy_distance_base), "in excess of", "from base"]
             ] call FUNC(helper,distanceFrom),
             
             [
-                [[typeOf _vehicle] call FUNC(vehicle,name), "deployed"],
+                [_name, "deployed"],
                 _vehicle
-            ] call FUNC(helper,isOccupied)
+            ] call FUNC(helper,isOccupied),
+            
+            [
+                [_name, "deployed"],
+                _vehicle getVariable QGVAR(deploy_cooldown)
+            ] call FUNC(helper,timeExceeded)
         ];
 
         {
@@ -32,6 +38,7 @@ switch (_state) do {
         if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
         
         _vehicle setVariable [QGVAR(deployed), true, true];
+        _vehicle setVariable [QGVAR(deploy_cooldown), time + GVAR(vehicle_deploy_cooldown_deploy)];
 
         [_vehicle, "lock", true] call FUNC(network,mp);
         [_vehicle, "engineOn", false] call FUNC(network,mp);
@@ -60,7 +67,24 @@ switch (_state) do {
     };
     
     case false: {
+        _name = [typeOf _vehicle] call FUNC(vehicle,name);
+        _checks = [            
+            [
+                [_name, "undeployed"],
+                _vehicle getVariable QGVAR(deploy_cooldown)
+            ] call FUNC(helper,timeExceeded)
+        ];
+
+        {
+            if (typeName _x == "STRING") exitWith {
+                hint _x;
+            };
+        } forEach _checks;
+
+        if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+        
         _vehicle setVariable [QGVAR(deployed), false, true];
+        _vehicle setVariable [QGVAR(deploy_cooldown), time + GVAR(vehicle_deploy_cooldown_deploy)];
         
         [_vehicle, "lock", false] call FUNC(network,mp);
         

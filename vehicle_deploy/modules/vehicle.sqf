@@ -12,6 +12,7 @@ if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
 
 if (isServer) then {
     _vehicle setVariable [QGVAR(deployed), false, true];
+    _vehicle setVariable [QGVAR(deploy_cooldown), 0];
 };
 
 _vehicle addEventHandler ["killed", {
