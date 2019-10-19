@@ -17,7 +17,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Respawn",
         "respawn_type",
-        "Set your preferred respawn position. You will respawn at base if selection unavailable",
+        "Set your preferred respawn position. You will respawn at base if selection ineligible",
         [0, player getVariable QGVAR(respawn_types)] call FUNC(common,arrayValues),
         [1, player getVariable QGVAR(respawn_types)] call FUNC(common,arrayValues)
     ]
