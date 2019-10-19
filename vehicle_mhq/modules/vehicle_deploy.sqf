@@ -1,4 +1,7 @@
-#define THIS_MODULE vehicle_mhq
+/**
+ * Vehicle MHQ Module - Vehicle Deploy Submodule
+ */
+
 #include "x_macros.sqf"
 private ["_vehicle", "_state"];
 

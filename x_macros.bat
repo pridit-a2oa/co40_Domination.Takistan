@@ -139,7 +139,6 @@ copy x_macros.sqf vehicle_flip /Y
 copy x_macros.sqf vehicle_flip\functions /Y
 copy x_macros.sqf vehicle_flip\modules /Y
 copy x_macros.sqf vehicle_fob /Y
-copy x_macros.sqf vehicle_fob\functions /Y
 copy x_macros.sqf vehicle_fob\modules /Y
 copy x_macros.sqf vehicle_lift /Y
 copy x_macros.sqf vehicle_lift\functions /Y
@@ -157,7 +156,6 @@ copy x_macros.sqf vehicle_menu /Y
 copy x_macros.sqf vehicle_menu\functions /Y
 copy x_macros.sqf vehicle_menu\modules /Y
 copy x_macros.sqf vehicle_mhq /Y
-copy x_macros.sqf vehicle_mhq\functions /Y
 copy x_macros.sqf vehicle_mhq\modules /Y
 copy x_macros.sqf vehicle_protection /Y
 copy x_macros.sqf vehicle_protection\modules /Y

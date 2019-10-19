@@ -37,7 +37,7 @@ switch (_state) do {
         [_vehicle, "engineOn", false] call FUNC(network,mp);
         
         if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
-            [_vehicle, true] call (call compile format ["d_fnc_vehicle_%1_deploy", _type]);
+            [_vehicle, true] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
         };
 
         if (!isNil QMODULE(vehicle_marker)) then {
@@ -65,7 +65,7 @@ switch (_state) do {
         [_vehicle, "lock", false] call FUNC(network,mp);
         
         if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
-            [_vehicle, false] call (call compile format ["d_fnc_vehicle_%1_deploy", _type]);
+            [_vehicle, false] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
         };
         
         if (!isNil QMODULE(vehicle_marker)) then {

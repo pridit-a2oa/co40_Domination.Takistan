@@ -1,5 +1,5 @@
 /**
- * Vehicle Wreck - Vehicle Marker Submodule
+ * Vehicle Wreck Module - Vehicle Marker Submodule
  */
 
 #include "x_macros.sqf"

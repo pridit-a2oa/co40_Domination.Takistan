@@ -13,6 +13,4 @@ GVAR(vehicle_fob_types) = [
     "C130J_US_EP1"
 ];
 
-__cppfln(FUNC(THIS_MODULE,deploy),THIS_MODULE\functions\fn_deploy.sqf);
-
 MODULE(THIS_MODULE) = true;

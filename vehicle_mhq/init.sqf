@@ -20,6 +20,4 @@ GVAR(vehicle_mhq_types_net) = [
     ["BIS_US", "Land_CamoNetB_NATO_EP1"]
 ];
 
-__cppfln(FUNC(THIS_MODULE,deploy),THIS_MODULE\functions\fn_deploy.sqf);
-
 MODULE(THIS_MODULE) = true;

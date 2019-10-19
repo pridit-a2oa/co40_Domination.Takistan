@@ -1,5 +1,5 @@
 /**
- * Vehicle Ammobox - Vehicle Menu Submodule
+ * Vehicle Ammobox Module - Vehicle Menu Submodule
  */
 
 #include "x_macros.sqf"

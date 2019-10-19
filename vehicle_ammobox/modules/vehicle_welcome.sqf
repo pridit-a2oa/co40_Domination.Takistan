@@ -1,5 +1,5 @@
 /**
- * Vehicle Ammobox - Vehicle Welcome Submodule
+ * Vehicle Ammobox Module - Vehicle Welcome Submodule
  */
 
 #include "x_macros.sqf"

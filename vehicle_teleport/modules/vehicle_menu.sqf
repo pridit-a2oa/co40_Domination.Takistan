@@ -1,5 +1,5 @@
 /**
- * Vehicle Teleport - Vehicle Menu Submodule
+ * Vehicle Teleport Module - Vehicle Menu Submodule
  */
 
 #include "x_macros.sqf"

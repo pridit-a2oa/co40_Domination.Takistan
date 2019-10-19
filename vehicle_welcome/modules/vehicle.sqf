@@ -1,5 +1,5 @@
 /**
- * Vehicle Welcome - Vehicle Submodule
+ * Vehicle Welcome Module - Vehicle Submodule
  */
 
 #define THIS_MODULE vehicle_welcome

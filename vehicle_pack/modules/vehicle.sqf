@@ -1,5 +1,5 @@
 /**
- * Vehicle Pack - Vehicle Submodule
+ * Vehicle Pack Module - Vehicle Submodule
  */
 
 #define THIS_MODULE vehicle_pack

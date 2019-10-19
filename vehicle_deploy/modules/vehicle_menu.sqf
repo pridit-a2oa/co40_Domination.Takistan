@@ -1,5 +1,5 @@
 /**
- * Vehicle Deploy - Vehicle Menu Submodule
+ * Vehicle Deploy Module - Vehicle Menu Submodule
  */
 
 #define THIS_MODULE vehicle_deploy

@@ -1,5 +1,5 @@
 /**
- * Vehicle Pack - Vehicle Menu Submodule
+ * Vehicle Pack Module - Vehicle Menu Submodule
  */
 
 #include "x_macros.sqf"
