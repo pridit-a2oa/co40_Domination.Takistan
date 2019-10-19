@@ -29,8 +29,10 @@ while {{_x distance _flag <= GVAR(mission_main_distance_camp)} count (call FUNC(
             [_name] call FUNC(marker,delete);
         };
         
-        createVehicle ["FlagCarrierUSA_EP1", position _flag, [], 0, "CAN_COLLIDE"];
+        _newFlag = createVehicle ["FlagCarrierUSA_EP1", position _flag, [], 0, "CAN_COLLIDE"];
         deleteVehicle _flag;
+        
+        _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_newFlag]];
         
         [true, "playSound", QGVAR(sound_capture)] call FUNC(network,mp);
         
