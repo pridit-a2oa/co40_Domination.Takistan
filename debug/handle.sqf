@@ -14,3 +14,5 @@
         sleep 5;
     };
 };
+
+call FUNC(THIS_MODULE,compositions);
