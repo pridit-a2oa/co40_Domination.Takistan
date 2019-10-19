@@ -15,7 +15,7 @@ GVAR(vehicle_create_types) = [
 // Set corresponding vehicle that can be produced and offset.
 GVAR(vehicle_create_types_vehicle) = [
     ["BMP2_HQ_TK_EP1",  "ATV_US_EP1",       [-4, 0, 0]],
-    ["C130J_US_EP1",    "HMMWV_DES_EP1",    [0, -12, 0]],
+    ["C130J_US_EP1",    "HMMWV_DES_EP1",    [0, -13, 0]],
     ["M1133_MEV_EP1",   "TT650_TK_EP1",     [-4, 0, 0]]
 ];
 
