@@ -20,7 +20,6 @@ GVAR(vehicle_tow_amount_speed) = 15;
 
 __cppfln(FUNC(THIS_MODULE,action),THIS_MODULE\functions\fn_action.sqf);
 __cppfln(FUNC(THIS_MODULE,detach),THIS_MODULE\functions\fn_detach.sqf);
-__cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
 __cppfln(FUNC(THIS_MODULE,tow),THIS_MODULE\functions\fn_tow.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 

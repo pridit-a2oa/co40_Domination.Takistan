@@ -3,7 +3,7 @@ private ["_vehicle", "_offset"];
 
 PARAMS_1(_vehicle);
 
-_offset = switch (typeOf _vehicle) do {
+_offset = switch (_vehicle) do {
     case "A10_US_EP1":             {[[0, 8],    [0, -1]]};
     case "BAF_Merlin_HC3_D":       {[[0, 10],   [0, 0]]};
     case "C130J_US_EP1":           {[[0, 15],   [0, -5]]};

@@ -12,21 +12,30 @@ switch (_state) do {
         _vehicle setVariable [QGVAR(cleanup), []];
         
         _vehicle spawn {
-            _this animate ["ramp_top", 1];
-            _this animate ["ramp_bottom", 1];
-
+            {
+                _this animate [_x, 1]
+            } forEach [
+                "door_1",
+                "door_2_1",
+                "door_2_2",
+                "ramp_top",
+                "ramp_bottom"
+            ];
+            
             sleep 3;
             
             [true, "enableSimulation", [_this, false]] call FUNC(network,mp);
-
+            
             if (!isNil QMODULE(ammobox)) then {
                 _box = [
                     _this modelToWorld [0, -5.5, -4.95],
                     direction _this,
                     false
                 ] call FUNC(ammobox,create);
-
-                _box setVectorUp [-0.12, -0.12, 1];
+                
+                _pitchBank = _this call BIS_fnc_getPitchBank;
+                
+                [_box, (_pitchBank select 0) + 10, _pitchBank select 1] call BIS_fnc_setPitchBank;
 
                 [_box] call FUNC(vehicle_ammobox,replenish);
                 
@@ -54,15 +63,22 @@ switch (_state) do {
     };
 
     case false: {
-        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
-        
         _vehicle spawn {
             [_this] call FUNC(vehicle_deploy,cleanup);
-
+            
             waitUntil {{!isNull _x} count (_this getVariable QGVAR(cleanup)) < 1};
-
-            _this animate ["ramp_top", 0];
-            _this animate ["ramp_bottom", 0];
+            
+            [true, "enableSimulation", [_this, true]] call FUNC(network,mp);
+            
+            {
+                _this animate [_x, 0]
+            } forEach [
+                "door_1",
+                "door_2_1",
+                "door_2_2",
+                "ramp_top",
+                "ramp_bottom"
+            ];
         };
     };
 };

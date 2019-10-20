@@ -60,7 +60,11 @@ switch (_state) do {
         };
         
         if (isServer && {_vehicle getVariable QGVAR(deployed)}) then {
-            _vehicle setVariable [QGVAR(deploy_cooldown), time + GVAR(vehicle_deploy_cooldown_deploy)];
+            [true, "setVariable", [
+                _vehicle,
+                QGVAR(deploy_cooldown),
+                time + GVAR(vehicle_deploy_cooldown_deploy)
+            ]] call FUNC(network,mp);
 
             [_vehicle, "lock", true] call FUNC(network,mp);
             [_vehicle, "engineOn", false] call FUNC(network,mp);
@@ -77,7 +81,7 @@ switch (_state) do {
     
     case false: {
         if (hasInterface) then {
-            _checks = [            
+            _checks = [
                 [
                     [[typeOf _vehicle] call FUNC(vehicle,name), "undeployed"],
                     _vehicle getVariable QGVAR(deploy_cooldown)
@@ -100,7 +104,11 @@ switch (_state) do {
         };
         
         if (isServer && {!(_vehicle getVariable QGVAR(deployed))}) then {
-            _vehicle setVariable [QGVAR(deploy_cooldown), time + GVAR(vehicle_deploy_cooldown_deploy)];
+            [true, "setVariable", [
+                _vehicle,
+                QGVAR(deploy_cooldown),
+                time + GVAR(vehicle_deploy_cooldown_deploy)
+            ]] call FUNC(network,mp);
             
             [_vehicle, "lock", false] call FUNC(network,mp);
             

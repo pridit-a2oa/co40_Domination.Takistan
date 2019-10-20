@@ -28,6 +28,7 @@ __cppfln(FUNC(THIS_MODULE,setDir),core\THIS_MODULE\functions\library\fn_setDir.s
 __cppfln(FUNC(THIS_MODULE,setFuel),core\THIS_MODULE\functions\library\fn_setFuel.sqf);
 __cppfln(FUNC(THIS_MODULE,setGroupId),core\THIS_MODULE\functions\library\fn_setGroupId.sqf);
 __cppfln(FUNC(THIS_MODULE,setHit),core\THIS_MODULE\functions\library\fn_setHit.sqf);
+__cppfln(FUNC(THIS_MODULE,setVariable),core\THIS_MODULE\functions\library\fn_setVariable.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorDir),core\THIS_MODULE\functions\library\fn_setVectorDir.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorDirAndUp),core\THIS_MODULE\functions\library\fn_setVectorDirAndUp.sqf);
 __cppfln(FUNC(THIS_MODULE,setVectorUp),core\THIS_MODULE\functions\library\fn_setVectorUp.sqf);

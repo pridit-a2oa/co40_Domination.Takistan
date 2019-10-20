@@ -19,7 +19,7 @@ _helper setPos _position;
 
 [true, "hideObject", [_helper, true]] call FUNC(network,mp);
 
-_vehicle attachTo [_helper, [0, 0, [_vehicle] call FUNC(THIS_MODULE,offset)]];
+_vehicle attachTo [_helper, [0, 0, [typeOf _vehicle] call FUNC(THIS_MODULE,offsetWreck)]];
 
 sleep 1;
 

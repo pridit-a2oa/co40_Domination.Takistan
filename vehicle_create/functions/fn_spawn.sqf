@@ -4,7 +4,7 @@ private ["_vehicle", "_type", "_offset", "_occupied", "_position", "_atv"];
 
 PARAMS_2(_vehicle, _type);
 
-_offset = [_type] call FUNC(THIS_MODULE,offset);
+_offset = [_type] call FUNC(vehicle,offsetCreate);
 _occupied = nearestObjects [_vehicle modelToWorld _offset, [_type], 10];
 
 if (count _occupied > 0) exitWith {

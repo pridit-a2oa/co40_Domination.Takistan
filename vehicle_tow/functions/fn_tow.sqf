@@ -18,7 +18,7 @@ _tow = _this select 3;
 _tow setVariable [QGVAR(towed), true, true];
 _vehicle setVariable [QGVAR(towing), _tow, true];
 
-_offset = [_tow] call FUNC(THIS_MODULE,offset);
+_offset = [typeOf _tow] call FUNC(vehicle,offsetTow);
 _axis = (_offset select 0) + [0];
 _wheel = (_offset select 1) + [0];
 

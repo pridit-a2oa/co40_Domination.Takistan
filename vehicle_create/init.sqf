@@ -22,7 +22,6 @@ GVAR(vehicle_create_types_vehicle) = [
 // Set minimum distance all players must be before deletion can occur.
 GVAR(vehicle_distance) = 150;
 
-__cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
 __cppfln(FUNC(THIS_MODULE,spawn),THIS_MODULE\functions\fn_spawn.sqf);
 
 MODULE(THIS_MODULE) = true;

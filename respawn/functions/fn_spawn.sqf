@@ -1,3 +1,4 @@
+#define THIS_MODULE respawn
 #include "x_macros.sqf"
 private ["_unit", "_position", "_type", "_objects", "_object"];
 
@@ -22,7 +23,7 @@ _objects = nearestObjects [
 } forEach _objects;
 
 if (!isNil "_object") then {
-    _vehicle = _object modelToWorld [0, -6, 0];
+    _vehicle = _object modelToWorld ([typeOf _object] call FUNC(vehicle,offsetPlayer));
     
     _unit setDir (getDir _object);
     _unit setPos [_vehicle select 0, _vehicle select 1, 0];

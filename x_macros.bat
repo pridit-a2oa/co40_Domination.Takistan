@@ -123,6 +123,7 @@ copy x_macros.sqf unit\functions /Y
 copy x_macros.sqf unit\modules /Y
 copy x_macros.sqf vehicle /Y
 copy x_macros.sqf vehicle\functions /Y
+copy x_macros.sqf vehicle\functions\offsets /Y
 copy x_macros.sqf vehicle\modules /Y
 copy x_macros.sqf vehicle_ammobox /Y
 copy x_macros.sqf vehicle_ammobox\functions /Y

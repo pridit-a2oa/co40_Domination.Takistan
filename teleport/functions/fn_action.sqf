@@ -20,7 +20,7 @@ if (!ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
     
     sleep 5;
     
-    _position = _target modelToWorld [0, -6, 0];
+    _position = _target modelToWorld ([typeOf _target] call FUNC(vehicle,offsetPlayer));
     
     player setDir (getDir _target);
     player setPos [_position select 0, _position select 1, 0];
