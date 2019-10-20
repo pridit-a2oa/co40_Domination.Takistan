@@ -40,7 +40,7 @@ class PerkIcon_General_5: XD_RscPicture
 };
 class PerkIcon_General_6: XD_RscPicture
 {
-    text = "\ca\ui\data\markers\gr_flag_ca";
+    text = "\ca\ui\data\icon_wf_support_fasttravel_ca";
     x = 0.328126;
     y = 0.216364;
     w = 0.0419193;
