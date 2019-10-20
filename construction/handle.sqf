@@ -31,3 +31,16 @@ if (isServer) then {
     
     __fsm(cleanup);
 };
+
+if (hasInterface) then {
+    {
+        _name = _x select 0;
+        _type = _x select 1;
+        
+        {
+            [_name, _x] call FUNC(THIS_MODULE,action);
+            
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects _type);
+    } forEach GVAR(construction_type_objects);
+};

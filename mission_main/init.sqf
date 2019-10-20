@@ -30,6 +30,12 @@ GVAR(mission_main_type_compositions) = [
     ["FuelDump1_TK_EP1",    1]
 ];
 
+// Set list of projectiles to negate damage inflicted on objectives
+GVAR(mission_main_type_projectiles) = [
+    "Sh_81_HE",
+    "Sh_122_HE"
+];
+
 // Set reinforcement types
 GVAR(mission_main_type_reinforcements) = [
     ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],

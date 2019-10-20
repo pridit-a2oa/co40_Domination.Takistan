@@ -89,47 +89,6 @@ if (!isNil QMODULE(ammobox)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
-["init_objects", {
-    if (!isNil QMODULE(base)) then {
-        {
-            {
-                _x addEventHandler ["HandleDamage", {0}];
-            } forEach (allMissionObjects _x);
-        } forEach GVAR(base_types_protected);
-    };
-    
-    if (!isNil QMODULE(construction)) then {
-        {
-            _name = _x select 0;
-            _type = _x select 1;
-            
-            {
-                [_name, _x] call FUNC(construction,action);
-                
-                _x addEventHandler ["HandleDamage", {0}];
-            } forEach (allMissionObjects _type);
-        } forEach GVAR(construction_type_objects);
-    };
-    
-    if (!isNil QMODULE(mission_main)) then {
-        {
-            _x addEventHandler ["HandleDamage", {0}];
-        } forEach (allMissionObjects "Land_tent_east");
-    };
-    
-    if (!isNil QMODULE(vehicle_mhq)) then {
-        _nets = [1, GVAR(vehicle_mhq_types_net)] call FUNC(common,arrayValues);
-        
-        {
-            {
-                _x addEventHandler ["HandleDamage", {0}];
-            } forEach (allMissionObjects _x);
-        } forEach _nets;
-    };
-
-    ["init_objects"] call FUNC(THIS_MODULE,removePerFrame)
-}, 0] call FUNC(THIS_MODULE,addPerFrame);
-
 ["player", {
     private ["_rating"];
     

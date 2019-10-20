@@ -110,6 +110,12 @@ switch (_type) do {
                     ]] call FUNC(network,mp);
                 };
                 
+                [true, "addEventHandler", [_radio, "HandleDamage", {
+                    if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
+                
+                    _this select 2
+                }]] call FUNC(network,mp);
+                
                 _radio addEventHandler ["killed", {
                     private ["_unit", "_target"];
                     
@@ -186,6 +192,12 @@ switch (_type) do {
         };
         
         _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
+        
+        [true, "addEventHandler", [_entity, "HandleDamage", {
+            if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
+        
+            _this select 2
+        }]] call FUNC(network,mp);
         
         if (!isNil QMODULE(task)) then {
             _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};

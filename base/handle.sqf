@@ -37,3 +37,11 @@ if (isServer) then {
         ""
     ];
 };
+
+if (hasInterface) then {
+    {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects _x);
+    } forEach GVAR(base_types_protected);
+};

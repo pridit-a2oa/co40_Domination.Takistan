@@ -6,6 +6,27 @@
 #include "x_macros.sqf"
 private ["_target", "_locations"];
 
+if (isServer) then {
+    GVAR(mission_main_targets) = [];
+    
+    _locations = [["NameCityCapital", "NameCity", "NameVillage"], [markerPos QGVAR(map_zone), 7500]] call BIS_fnc_locations;
+    
+    {
+        _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
+        _naf = _x distance (markerPos QGVAR(base_north)) > GVAR(mission_main_distance_naf);
+        
+        if (_base && {_naf}) then {
+            GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
+        };
+    } forEach _locations;
+    
+    for "_i" from 1 to GVAR(mission_main_amount_targets) do {
+        _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
+        
+        [_target] spawn FUNC(THIS_MODULE,create);
+    };
+};
+
 if (hasInterface) then {
     _target = X_JIPH getVariable QGVAR(target);
     
@@ -34,25 +55,27 @@ if (hasInterface) then {
             ] spawn FUNC(3d,create);
         } forEach (_target getVariable QGVAR(radios));
     };
-};
+    
+    0 spawn {
+        {
+            _x addEventHandler ["HandleDamage", {0}];
+        } forEach (allMissionObjects "Land_tent_east");
+        
+        {
+            {
+                {
+                    _x addEventHandler ["HandleDamage", {
+                        if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
 
-if (isServer) then {
-    GVAR(mission_main_targets) = [];
-    
-    _locations = [["NameCityCapital", "NameCity", "NameVillage"], [markerPos QGVAR(map_zone), 7500]] call BIS_fnc_locations;
-    
-    {
-        _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
-        _naf = _x distance (markerPos QGVAR(base_north)) > GVAR(mission_main_distance_naf);
-        
-        if (_base && {_naf}) then {
-            GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
-        };
-    } forEach _locations;
-    
-    for "_i" from 1 to GVAR(mission_main_amount_targets) do {
-        _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
-        
-        [_target] spawn FUNC(THIS_MODULE,create);
+                        _this select 2
+                    }];
+                } forEach (allMissionObjects _x);
+
+                sleep 0.5;
+            } forEach _x;
+        } forEach [
+            [GVAR(mission_main_type_radio)],
+            [1, [1, GVAR(mission_main_type_optional)] call FUNC(common,arrayValues)] call FUNC(common,arrayValues)
+        ];
     };
 };
