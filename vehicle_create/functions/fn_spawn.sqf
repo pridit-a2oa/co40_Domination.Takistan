@@ -1,22 +1,16 @@
+#define THIS_MODULE vehicle_create
 #include "x_macros.sqf"
-private ["_vehicle", "_occupied", "_position", "_atv"];
+private ["_vehicle", "_type", "_offset", "_occupied", "_position", "_atv"];
 
-PARAMS_1(_vehicle);
+PARAMS_2(_vehicle, _type);
 
-_type = (GVAR(vehicle_create_types_vehicle) select 0) select 1;
-
-{
-    if (_x select 0 == typeOf _vehicle) exitWith {
-        _type = _x;
-    };
-} forEach GVAR(vehicle_create_types_vehicle);
-
-_occupied = nearestObjects [_vehicle, [_type select 1], 15];
+_offset = [_type] call FUNC(THIS_MODULE,offset);
+_occupied = nearestObjects [_vehicle modelToWorld _offset, [_type], 10];
 
 if (count _occupied > 0) exitWith {
     hint format [
         "%1 already in close proximity",
-        [_type select 1] call FUNC(vehicle,name)
+        [_type] call FUNC(vehicle,name)
     ];
 
     closeDialog 0;
@@ -24,9 +18,9 @@ if (count _occupied > 0) exitWith {
     [_vehicle] call FUNC(vehicle_menu,show);
 };
 
-_position = _vehicle modelToWorld (_type select 2);
+_position = _vehicle modelToWorld _offset;
 
-_atv = createVehicle [_type select 1, [_position select 0, _position select 1, 0], [], 0, "NONE"];
+_atv = createVehicle [_type, [_position select 0, _position select 1, 0], [], 0, "NONE"];
 _atv setDir ((direction _vehicle) - 180);
 _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];

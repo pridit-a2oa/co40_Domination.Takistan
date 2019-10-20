@@ -7,11 +7,11 @@ _attachee = _this select 3;
 
 _position = position _attachee;
 
-[true, "enableSimulation", [_attachee, false]];
+[true, "enableSimulation", [_attachee, false]] call FUNC(network,mp);
 
 detach _attachee;
 
-[true, "enableSimulation", [_attachee, true]];
+[true, "enableSimulation", [_attachee, true]] call FUNC(network,mp);
 
 if (alive _attacher && {typeName _id == "SCALAR"}) then {
     _attacher removeAction _id;

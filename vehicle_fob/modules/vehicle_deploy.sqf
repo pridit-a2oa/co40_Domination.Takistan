@@ -16,6 +16,8 @@ switch (_state) do {
             _this animate ["ramp_bottom", 1];
 
             sleep 3;
+            
+            [true, "enableSimulation", [_this, false]] call FUNC(network,mp);
 
             if (!isNil QMODULE(ammobox)) then {
                 _box = [
@@ -30,6 +32,12 @@ switch (_state) do {
                 
                 _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_box]];
             };
+            
+            _heli = createVehicle ["HeliH", _this modelToWorld [-18, 15, 0], [], 0, "CAN_COLLIDE"];
+            _heli setDir ((getDir _this) - 180);
+            _heli setPos (_this modelToWorld [-18, 15, 0]);
+            
+            _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_heli]];
             
             [
                 [west, _this],
@@ -46,16 +54,10 @@ switch (_state) do {
     };
 
     case false: {
+        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+        
         _vehicle spawn {
-            {
-                if (_x isKindOf "CAManBase") then {
-                    _x setDamage 1;
-                };
-
-                deleteVehicle _x;
-
-                sleep 0.2;
-            } forEach (_this getVariable QGVAR(cleanup));
+            [_this] call FUNC(vehicle_deploy,cleanup);
 
             waitUntil {{!isNull _x} count (_this getVariable QGVAR(cleanup)) < 1};
 

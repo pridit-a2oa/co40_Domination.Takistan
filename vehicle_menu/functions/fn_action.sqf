@@ -52,14 +52,16 @@ if (!isNil QMODULE(vehicle_pack)) then {
     };
 };
 
-if (!isNil QMODULE(vehicle_create) && {_lbData == "vehicle"}) exitWith {
-    [_vehicle] call FUNC(vehicle_create,spawn);
+if (!isNil QMODULE(vehicle_create) && {_lbData isKindOf "AllVehicles"}) exitWith {
+    [_vehicle, _lbData] call FUNC(vehicle_create,spawn);
 };
 
 if (!isNil QMODULE(vehicle_teleport) && {_lbData == "teleport"}) exitWith {
     closeDialog 0;
+    
     [_vehicle] call FUNC(teleport,show);
 };
 
 closeDialog 0;
+
 [_vehicle] call FUNC(vehicle_menu,show);
