@@ -44,4 +44,22 @@ east setFriend [resistance, 0.1];
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
 
+0 spawn {
+    while {true} do {
+        sleep 30;
+        
+        {
+            if !(isPlayer _x) then {
+                _x setDamage 1;
+                
+                hideBody _x;
+                
+                endMission "END1";
+                
+                __log format ["Playable unit without player (%1) - killed", str _x]];
+            };
+        } forEach playableUnits;
+    };
+};
+
 MODULE(THIS_MODULE) = true;
