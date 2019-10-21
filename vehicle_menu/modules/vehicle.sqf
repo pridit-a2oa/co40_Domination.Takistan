@@ -19,7 +19,7 @@ if (!isNil QMODULE(vehicle_pack)) then {
 };
 
 if (!isNil QMODULE(vehicle_deploy)) then {
-    _valid = _valid + ([0, GVAR(vehicle_deploy_types)] call FUNC(common,arrayValues));
+    _valid = _valid + ([0, call FUNC(vehicle_deploy,types)] call FUNC(common,arrayValues));
 };
 
 if (_valid find (typeOf _vehicle) == -1) exitWith {};

@@ -2,23 +2,8 @@
  * Vehicle Deploy Module (Handler)
  */
 
+#define THIS_MODULE vehicle_deploy
 #include "x_macros.sqf"
-
-_types = [];
-
-if (!isNil QMODULE(vehicle_fob)) then {
-    {
-        _types = _types + [[_x, "FOB"]];
-    } forEach GVAR(vehicle_fob_types);
-};
-
-if (!isNil QMODULE(vehicle_mhq)) then {
-    {
-        _types = _types + [[_x, "MHQ"]];
-    } forEach GVAR(vehicle_mhq_types);
-};
-
-GVAR(vehicle_deploy_types) = _types;
 
 if (hasInterface) then {
     {
@@ -29,5 +14,5 @@ if (hasInterface) then {
                 _x enableSimulation _enableSimulation;
             };
         } forEach (entities _x);
-    } forEach ([0, _types] call FUNC(common,arrayValues));
+    } forEach ([0, call FUNC(THIS_MODULE,types)] call FUNC(common,arrayValues));
 };

@@ -16,5 +16,6 @@ GVAR(vehicle_deploy_cooldown_deploy) = 60;
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,deploy),THIS_MODULE\functions\fn_deploy.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
+__cppfln(FUNC(THIS_MODULE,types),THIS_MODULE\functions\fn_types.sqf);
 
 MODULE(THIS_MODULE) = true;
