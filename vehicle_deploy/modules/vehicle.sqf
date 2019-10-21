@@ -11,16 +11,17 @@ PARAMS_1(_vehicle);
 if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
 
 if (isServer) then {
-    _vehicle setVariable [QGVAR(deployed), [false, ""], true];
-    
     _vehicle setVariable [QGVAR(cleanup), []];
+    _vehicle setVariable [QGVAR(deployed), [false, ""], true];
     _vehicle setVariable [QGVAR(deploy_cooldown), 0];
     _vehicle setVariable [QGVAR(enable_simulation), true, true];
     
-    _vehicle addEventHandler ["killed", {
+    _vehicle addMPEventHandler ["MPKilled", {
         private ["_vehicle"];
         
         PARAMS_1(_vehicle);
+        
+        if (!isServer) exitWith {};
         
         _deployed = _vehicle getVariable QGVAR(deployed);
         
