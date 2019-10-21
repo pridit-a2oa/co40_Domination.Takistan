@@ -25,6 +25,8 @@ if (isServer) then {
         _deployed = _vehicle getVariable QGVAR(deployed);
         
         if (_deployed select 0) then {
+            _vehicle setVariable [QGVAR(deployed), [false, ""], true];
+            
             [_vehicle, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
             
             if (!isNil QMODULE(crossroad)) then {
