@@ -15,6 +15,7 @@ if (isServer) then {
     
     _vehicle setVariable [QGVAR(cleanup), []];
     _vehicle setVariable [QGVAR(deploy_cooldown), 0];
+    _vehicle setVariable [QGVAR(enable_simulation), true, true];
 };
 
 _vehicle addEventHandler ["killed", {

@@ -9,6 +9,8 @@ PARAMS_2(_vehicle, _state);
 
 switch (_state) do {
     case true: {
+        [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
+        
         _net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
 
         {
@@ -28,6 +30,8 @@ switch (_state) do {
     };
     
     case false: {
+        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+        
         _camo = _vehicle getVariable QGVAR(camo);
 
         // just in case it might be destroyed
