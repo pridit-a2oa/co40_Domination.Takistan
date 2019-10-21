@@ -14,7 +14,7 @@ _marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerColorLocal "ColorBlack";
 _marker setMarkerTypeLocal "o_uav";
 
-if (_vehicle getVariable QGVAR(deployed)) then {
+if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
     _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerTextLocal (markerText _marker + " (Deployed)");
 };

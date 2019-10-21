@@ -18,7 +18,7 @@ _load = (_aircraft nearEntities [["Car", "Tank", "Truck"], 20]) select 0;
 
 if (isNil "_load") exitWith {false};
 
-_deployed = _load getVariable QGVAR(deployed);
+_deployed = (_load getVariable QGVAR(deployed)) select 0;
 
 if (_deployed) exitWith {false};
 

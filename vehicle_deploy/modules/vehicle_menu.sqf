@@ -14,7 +14,7 @@ if (typeName _type == "SCALAR") exitWith {};
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
-_deployed = _vehicle getVariable QGVAR(deployed);
+_deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
 
 if (!isNil "_deployed" && {_deployed}) then {
     _string = "Undeploy " + (_type select 1);

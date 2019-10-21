@@ -38,7 +38,7 @@ switch (_state) do {
 
             if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
             
-            _vehicle setVariable [QGVAR(deployed), true, true];
+            _vehicle setVariable [QGVAR(deployed), [true, _type], true];
             
             if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {    
                 [player, "kbTell", [
@@ -59,7 +59,7 @@ switch (_state) do {
             };
         };
         
-        if (isServer && {_vehicle getVariable QGVAR(deployed)}) then {
+        if (isServer && {(_vehicle getVariable QGVAR(deployed)) select 0}) then {
             [true, "setVariable", [
                 _vehicle,
                 QGVAR(deploy_cooldown),
@@ -96,14 +96,14 @@ switch (_state) do {
 
             if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
             
-            _vehicle setVariable [QGVAR(deployed), false, true];
+            _vehicle setVariable [QGVAR(deployed), [false, ""], true];
             
             if !(isServer) then {
                 [gameLogic, "execVM", [_this, __function(deploy)]] call FUNC(network,mp);
             };
         };
         
-        if (isServer && {!(_vehicle getVariable QGVAR(deployed))}) then {
+        if (isServer && {!((_vehicle getVariable QGVAR(deployed)) select 0)}) then {
             [true, "setVariable", [
                 _vehicle,
                 QGVAR(deploy_cooldown),

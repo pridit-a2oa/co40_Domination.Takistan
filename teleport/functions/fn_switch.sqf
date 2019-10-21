@@ -24,14 +24,14 @@ if (!isNil QMODULE(vehicle_mhq) && {GVAR(vehicle_mhq_types) find (typeOf _target
         
         PARAMS_2(_target, _selected);
         
-        _deployed = _target getVariable QGVAR(deployed);
+        _deployed = (_target getVariable QGVAR(deployed)) select 0;
         
         while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY"} do {
             if (lbCurSel 1500 != _selected) exitWith {};
             if (isNil "_target") exitWith {};
             if (!alive _target) exitWith {};
             
-            if !([_target getVariable QGVAR(deployed), _deployed] call BIS_fnc_areEqual) exitWith {
+            if !([(_target getVariable QGVAR(deployed)) select 0, _deployed] call BIS_fnc_areEqual) exitWith {
                 [GVAR(teleport), true] call FUNC(THIS_MODULE,populate);
             };
             

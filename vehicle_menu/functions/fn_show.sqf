@@ -27,13 +27,13 @@ if (!isNil QMODULE(vehicle_pack)) then {
 };
 
 if (!isNil QMODULE(vehicle_create)) then {
-    if (_vehicle getVariable QGVAR(deployed)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
         [_vehicle] __submodulePP(vehicle_create);
     };
 };
 
 if (!isNil QMODULE(vehicle_teleport)) then {
-    if (_vehicle getVariable QGVAR(deployed)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
         [_vehicle] __submodulePP(vehicle_teleport);
     };
 };

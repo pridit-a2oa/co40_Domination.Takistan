@@ -18,7 +18,7 @@ if (_lbCurSel == -1 || {player distance _vehicle > 10}) exitWith {
 
 if (!isNil QMODULE(vehicle_deploy)) then {
     if (_lbData in ["fob", "mhq"]) then {
-        _deployed = _vehicle getVariable QGVAR(deployed);
+        _deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
         
         if (!isNil "_deployed" && {_deployed}) exitWith {
             [_vehicle, _lbData, false] call FUNC(vehicle_deploy,deploy);

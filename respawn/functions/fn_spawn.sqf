@@ -17,7 +17,7 @@ _objects = nearestObjects [
 ];
 
 {
-    if (_x getVariable QGVAR(deployed)) exitWith {
+    if ((_x getVariable QGVAR(deployed)) select 0) exitWith {
         _object = _x;
     };
 } forEach _objects;

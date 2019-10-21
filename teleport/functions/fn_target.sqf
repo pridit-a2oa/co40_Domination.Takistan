@@ -23,7 +23,7 @@ if (!isNil QMODULE(vehicle_deploy)) then {
         if (_x getVariable QGVAR(id) == _data) exitWith {
             _target = _x;
             
-            _deployed = _x getVariable QGVAR(deployed);
+            _deployed = (_x getVariable QGVAR(deployed)) select 0;
             
             if (isNil "_deployed" || {!_deployed}) then {
                 _button ctrlEnable false;
