@@ -171,6 +171,10 @@ _multiplyMatrixFunc = {
                 }];
             };
         };
+        
+        if (_object isKindOf "Thing" && {!(_object isKindOf "Wreck")}) then {
+            [true, "enableSimulation", [_object, false]] call FUNC(network,mp);
+        };
 
         if (_side == east && {_object isKindOf "Car"} && {!(_object isKindOf "Wheeled_APC")}) exitWith {
             [_object] call FUNC(vehicle,delete);

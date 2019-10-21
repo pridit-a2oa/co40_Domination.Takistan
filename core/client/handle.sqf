@@ -22,6 +22,16 @@
     enableEngineArtillery true;
 };
 
+{
+    {
+        if !(_x isKindOf "Wreck") then {
+            [true, "enableSimulation", [_x, false]] call FUNC(network,mp);
+        };
+    } forEach _x;
+} forEach [
+    (entities "Static")
+];
+
 onEachFrame {call d_fnc_client_perFrame};
 
 if (!isNil QMODULE(vehicle)) then {
