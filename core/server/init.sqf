@@ -54,8 +54,6 @@ resistance setFriend [east, 0.1];
                 
                 hideBody _x;
                 
-                endMission "END1";
-                
                 __log format ["Playable unit without player (%1) - killed", str _x]];
             };
         } forEach playableUnits;
