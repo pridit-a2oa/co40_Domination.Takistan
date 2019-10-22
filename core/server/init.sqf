@@ -49,12 +49,12 @@ resistance setFriend [east, 0.1];
         sleep 30;
         
         {
-            if !(isPlayer _x) then {
+            if (!isPlayer _x && {alive _x}) then {
                 _x setDamage 1;
                 
                 hideBody _x;
                 
-                __log format ["Playable unit without player (%1) - killed", str _x]];
+                __log format ["Playable unit without player (%1) [%2] - killed", str _x, name _x]];
             };
         } forEach playableUnits;
     };
