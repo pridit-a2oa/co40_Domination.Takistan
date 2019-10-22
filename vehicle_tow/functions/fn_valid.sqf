@@ -3,15 +3,16 @@ private ["_vehicle", "_towing", "_tow", "_towed", "_position_front", "_position_
 
 _vehicle = (typeOf (vehicle player)) == GVAR(vehicle_tow_type);
 
-if (!_vehicle) exitWith {false};
+if !(_vehicle) exitWith {false};
 
 _towing = (vehicle player) getVariable QGVAR(towing);
 
-if (!isNull _towing) exitWith {false};
+if !(isNull _towing) exitWith {false};
 
 _tow = ((vehicle player) nearEntities [GVAR(vehicle_tow_type_towable), 20]) select 0;
 
 if (isNil "_tow") exitWith {false};
+if !(alive _tow) exitWith {false};
 
 _towed = _tow getVariable QGVAR(towed);
 
