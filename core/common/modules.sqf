@@ -75,7 +75,7 @@ GVAR(modules) = [
     "vehicle_respawn",
     "vehicle_service",
     "vehicle_teleport",
-    "vehicle_tow",
+    // "vehicle_tow",
     "vehicle_welcome",
     "vehicle_wreck",
     "weather"
