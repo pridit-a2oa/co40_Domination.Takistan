@@ -36,7 +36,7 @@
         };
     } forEach _x;
 } forEach [
-    (entities "Static")
+    (entities "Thing")
 ];
 
 onEachFrame {call d_fnc_client_perFrame};
