@@ -20,6 +20,13 @@
     enableRadio true;
     enableSentences true;
     enableEngineArtillery true;
+    
+    if !(isClass (configFile >> "CfgPatches" >> "corepatch_a2")) then {
+        "Notice" hintC [
+            "This mission is enhanced by content directly from Arma 2, which you do not have installed.",
+            "While this is not a requirement, you will not be able to see or use some vehicles and weapons."
+        ];
+    };
 };
 
 {
