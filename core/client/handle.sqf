@@ -27,17 +27,17 @@
             "While this is not a requirement, you will not be able to see or use some vehicles and weapons."
         ];
     };
-};
-
-{
+    
     {
-        if !(_x isKindOf "Wreck") then {
-            [true, "enableSimulation", [_x, false]] call FUNC(network,mp);
-        };
-    } forEach _x;
-} forEach [
-    (entities "Thing")
-];
+        {
+            if !(_x isKindOf "Wreck") then {
+                _x enableSimulation false;
+            };
+        } forEach _x;
+    } forEach [
+        (entities "Thing")
+    ];
+};
 
 onEachFrame {call d_fnc_client_perFrame};
 
