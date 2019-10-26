@@ -3,6 +3,8 @@ private ["_vehicle", "_phase"];
 
 PARAMS_2(_vehicle, _phase);
 
+_vehicle setVariable [QGVAR(packed), (_phase > 0), true];
+
 switch (typeOf _vehicle) do {
     case "AH1Z": {
         _vehicle animate ["mainrotor_folded", 1 - _phase];
@@ -31,5 +33,3 @@ switch (typeOf _vehicle) do {
         _vehicle animate ["mainrotor_unfolded", _phase];
     };
 };
-
-_vehicle setVariable [QGVAR(packed), (_phase > 0), true];
