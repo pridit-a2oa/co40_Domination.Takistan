@@ -18,8 +18,6 @@ copy x_macros.sqf backpack /Y
 copy x_macros.sqf backpack\functions /Y
 copy x_macros.sqf base /Y
 copy x_macros.sqf base_ammobox /Y
-copy x_macros.sqf base_backpack /Y
-copy x_macros.sqf base_backpack\functions /Y
 copy x_macros.sqf base_bonus /Y
 copy x_macros.sqf base_halo /Y
 copy x_macros.sqf base_shield /Y
@@ -63,6 +61,8 @@ copy x_macros.sqf halo /Y
 copy x_macros.sqf halo\functions /Y
 copy x_macros.sqf halo\functions\bis /Y
 copy x_macros.sqf halo\modules /Y
+copy x_macros.sqf heap /Y
+copy x_macros.sqf heap\functions /Y
 copy x_macros.sqf idle /Y
 copy x_macros.sqf ied /Y
 copy x_macros.sqf ied\functions /Y

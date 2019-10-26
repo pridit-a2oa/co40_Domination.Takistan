@@ -3570,7 +3570,7 @@ class Mission
 		class Item9
 		{
 			position[]={8271.1113,296.04001,2104.5012};
-			name="d_player_backpacks_pos";
+			name="d_heap";
 			type="Empty";
 			angle=151.92101;
 		};

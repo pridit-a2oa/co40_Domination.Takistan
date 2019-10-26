@@ -1,15 +1,18 @@
 /**
- * Backpack Module
+ * Heap Module
  *
  * Description: This module spawns a backpack heap with subsequent context
  * options for players to equip a backpack.
  */
 
-#define THIS_MODULE base_backpack
+#define THIS_MODULE heap
 #include "x_macros.sqf"
 
-// Set list of backpacks
-GVAR(base_backpack_types) = [
+// Set object designated as the heap.
+GVAR(heap_type) = "Misc_Backpackheap_EP1";
+
+// Set list of backpacks that can be taken.
+GVAR(heap_type_backpacks) = [
     "TK_ALICE_Pack_EP1",
     "US_Assault_Pack_EP1",
     "TK_Assault_Pack_EP1",
