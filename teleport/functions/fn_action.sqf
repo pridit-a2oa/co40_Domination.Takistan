@@ -28,7 +28,7 @@ if (!ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
     
     titleText ["", "BLACK IN", 2];
     
-    {player reveal _x} forEach ((position player) nearObjects 50);
+    [50] call FUNC(client,reveal);
 };
 
 closeDialog 0;

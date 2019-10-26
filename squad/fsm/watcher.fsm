@@ -42,7 +42,7 @@ class FSM
       name = "_";
       init = "" \n
        "_groups = X_JIPH getVariable ""d_groups"";" \n
-       "if (isNil ""_groups"" || {grpNull in _groups}) then {" \n
+       "if (count _groups == 0 || {grpNull in _groups}) then {" \n
        "    X_JIPH setVariable [""d_groups"", [d_group_ids] call d_fnc_squad_groups, true];" \n
        "}";
       precondition = "";

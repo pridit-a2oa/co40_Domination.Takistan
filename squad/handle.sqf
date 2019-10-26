@@ -9,21 +9,20 @@ if (isServer) then {
     __fsm(watcher);
 };
 
-if (hasInterface) then {
-    waitUntil {!isNil {X_JIPH getVariable QGVAR(groups)}};
-    
-    sleep 2;
+if (hasInterface) then {    
+    waitUntil {count (X_JIPH getVariable QGVAR(groups)) == count GVAR(group_names) && {{[grpNull, _x] call BIS_fnc_areEqual} count (X_JIPH getVariable QGVAR(groups)) == 0}};
     
     call FUNC(THIS_MODULE,assign);
-    call FUNC(THIS_MODULE,reveal);
-
-    if (!isNil QMODULE(communication)) then {        
+    
+    [200] call FUNC(client,reveal);
+    
+    if (!isNil QMODULE(communication)) then {
         {
             [
                 BIS_MENU_Squad,
                 format ["Join %1", GVAR(group_names) select _forEachIndex],
                 "1",
-                format ["[player] joinSilent ((X_JIPH getVariable 'd_groups') select %1); call d_fnc_squad_reveal", _forEachIndex]
+                format ["[player] joinSilent ((X_JIPH getVariable 'd_groups') select %1); [100] call d_fnc_client_reveal", _forEachIndex]
             ] call FUNC(communication,add);
         } forEach (X_JIPH getVariable QGVAR(groups));
         
@@ -31,7 +30,7 @@ if (hasInterface) then {
             BIS_MENU_Squad,
             "Leave",
             "",
-            "[player] joinSilent grpNull; call d_fnc_squad_reveal"
+            "[player] joinSilent grpNull; [100] call d_fnc_client_reveal"
         ] call FUNC(communication,add);
     };
 };
