@@ -20,7 +20,6 @@ copy x_macros.sqf base /Y
 copy x_macros.sqf base_ammobox /Y
 copy x_macros.sqf base_bonus /Y
 copy x_macros.sqf base_halo /Y
-copy x_macros.sqf base_shield /Y
 copy x_macros.sqf base_wreck /Y
 copy x_macros.sqf base_wreck\functions /Y
 copy x_macros.sqf base_wreck\modules /Y
@@ -106,6 +105,8 @@ copy x_macros.sqf revive\functions /Y
 copy x_macros.sqf revive\modules /Y
 copy x_macros.sqf setting /Y
 copy x_macros.sqf setting\functions /Y
+copy x_macros.sqf shield /Y
+copy x_macros.sqf shield\functions /Y
 copy x_macros.sqf spectate /Y
 copy x_macros.sqf spectate\modules /Y
 copy x_macros.sqf squad /Y

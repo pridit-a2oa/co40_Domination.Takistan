@@ -30,6 +30,7 @@ GVAR(heap_type_backpacks) = [
     "Tripod_Bag"
 ];
 
+__cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,drop),THIS_MODULE\functions\fn_drop.sqf);
 __cppfln(FUNC(THIS_MODULE,list),THIS_MODULE\functions\fn_list.sqf);
 __cppfln(FUNC(THIS_MODULE,take),THIS_MODULE\functions\fn_take.sqf);
