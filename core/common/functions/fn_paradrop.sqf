@@ -76,8 +76,6 @@ if (typeName _loaded == "ARRAY") then {
         if (!isNil QMODULE(vehicle_ammobox)) then {
             [_ammobox] call FUNC(vehicle_ammobox,replenish);
         };
-        
-        [true, "execVM", [[_ammobox], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
     };
 };
 

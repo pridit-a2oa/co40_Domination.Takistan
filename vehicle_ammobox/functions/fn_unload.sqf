@@ -14,10 +14,8 @@ _box = [
     false
 ] call FUNC(ammobox,create);
 
+_vehicle setVariable [QGVAR(ammobox), false, true];
+
 [true, "say", [_box, QGVAR(sound_box), 20]] call FUNC(network,mp);
 
 [_box] call FUNC(vehicle_ammobox,replenish);
-
-[true, "execVM", [[_box], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
-
-_vehicle setVariable [QGVAR(ammobox), false, true];

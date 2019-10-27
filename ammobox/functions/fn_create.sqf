@@ -14,4 +14,8 @@ _box setPos _position;
 
 [true, "reveal", [player, _box]] call FUNC(network,mp);
 
+if !(_local) then {
+    [true, "execVM", [[_box], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
+};
+
 _box

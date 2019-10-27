@@ -19,6 +19,4 @@ if (!isNil "_nearest") then {
     deleteVehicle _ammobox;
 };
 
-[true, "say", [_vehicle, QGVAR(sound_box), 20]] call FUNC(network,mp);
-
 _vehicle setVariable [QGVAR(ammobox), true, true];
