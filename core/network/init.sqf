@@ -11,6 +11,7 @@ __cppfln(FUNC(THIS_MODULE,addMagazine),core\THIS_MODULE\functions\library\fn_add
 __cppfln(FUNC(THIS_MODULE,addScore),core\THIS_MODULE\functions\library\fn_addScore.sqf);
 __cppfln(FUNC(THIS_MODULE,directSay),core\THIS_MODULE\functions\library\fn_directSay.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
+__cppfln(FUNC(THIS_MODULE,endMission),core\THIS_MODULE\functions\library\fn_endMission.sqf);
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engineOn.sqf);
 __cppfln(FUNC(THIS_MODULE,execVM),core\THIS_MODULE\functions\library\fn_execVM.sqf);
 __cppfln(FUNC(THIS_MODULE,hideObject),core\THIS_MODULE\functions\library\fn_hideObject.sqf);

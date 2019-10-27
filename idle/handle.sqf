@@ -6,15 +6,20 @@
 
 if (hasInterface) then {
     0 spawn {
-        private ["_position", "_time"];
+        private ["_position", "_direction", "_time"];
         
         while {hasInterface} do {
             sleep 20;
             
-            _position = getPosATL player;
             _time = 0;
             
-            while {[getPosATL player, _position] call BIS_fnc_areEqual} do {
+            _position = getPosATL player;
+            _direction = direction player;
+            
+            while {alive player && {!(player getVariable QGVAR(unconscious))}} do {
+                if !([getPosATL player, _position] call BIS_fnc_areEqual) exitWith {};
+                if !([direction player, _direction] call BIS_fnc_areEqual) exitWith {};
+                
                 _time = _time + 1;
                 
                 switch (_time) do {                    
@@ -27,7 +32,7 @@ if (hasInterface) then {
                     };
                     
                     case GVAR(idle_time_static): {
-                        call FUNC(client,endMission);
+                        player call FUNC(client,endMission);
                     };
                 };
                 
