@@ -88,7 +88,7 @@ switch (_type) do {
             _x addEventHandler ["HandleDamage", {0}];
             
             [true, "enableSimulation", [_x, false]] call FUNC(network,mp);
-        } forEach (nearestObjects [position _target, ["Thing", "Land_tent_east"], GVAR(mission_main_radius_zone)]);
+        } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
     };
     
     case "radio": {

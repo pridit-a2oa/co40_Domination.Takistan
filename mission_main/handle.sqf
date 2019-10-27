@@ -34,7 +34,7 @@ if (hasInterface) then {
         {
             _x addEventHandler ["HandleDamage", {0}];
             _x enableSimulation false;
-        } forEach (nearestObjects [position _target, ["Thing", "Land_tent_east"], GVAR(mission_main_radius_zone)]);
+        } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
         
         {
             [
@@ -56,11 +56,7 @@ if (hasInterface) then {
         } forEach (_target getVariable QGVAR(radios));
     };
     
-    0 spawn {
-        {
-            _x addEventHandler ["HandleDamage", {0}];
-        } forEach (allMissionObjects "Land_tent_east");
-        
+    0 spawn {        
         {
             {
                 {

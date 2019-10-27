@@ -31,11 +31,12 @@
     {
         {
             if !(_x isKindOf "Wreck") then {
+                _x addEventHandler ["HandleDamage", {0}];
                 _x enableSimulation false;
             };
         } forEach _x;
     } forEach [
-        (entities "Thing")
+        (allMissionObjects "Thing")
     ];
 };
 
