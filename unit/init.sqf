@@ -8,7 +8,7 @@
 #define THIS_MODULE unit
 #include "x_macros.sqf"
 
-// Set infantry types
+// Set infantry types (groups).
 GVAR(unit_type_infantry) = [
     "TK_InfantrySquad",
     "TK_InfantrySection",
@@ -19,8 +19,8 @@ GVAR(unit_type_infantry) = [
     "TK_SpecialPurposeSquad"
 ];
 
-// Set light vehicle types
-GVAR(unit_type_vehicle_light) = [
+// Set light vehicle types.
+GVAR(unit_type_vehicles_light) = [
     "BTR40_TK_INS_EP1",
     "BTR40_MG_TK_INS_EP1",
     "LandRover_MG_TK_EP1",
@@ -31,23 +31,23 @@ GVAR(unit_type_vehicle_light) = [
     "UAZ_MG_TK_EP1"
 ];
 
-// Set heavy (armor) vehicle types
-GVAR(unit_type_vehicle_armor) = [
-    "BMP2_HQ_TK_EP1",
-    "BMP2_TK_EP1",
-    "BRDM2_ATGM_TK_EP1",
-    "BRDM2_TK_EP1",
-    "BTR60_TK_EP1",
-    "M113_TK_EP1",
-    "T34_TK_EP1",
-    "T55_TK_EP1",
-    "T72_TK_EP1",
-    "Ural_ZU23_TK_EP1"
+// Set heavy (armor) vehicle types along with whether they should be unique.
+GVAR(unit_type_vehicles_heavy) = [
+    ["BMP2_HQ_TK_EP1",      true],
+    ["BMP2_TK_EP1",         false],
+    ["BRDM2_ATGM_TK_EP1",   false],
+    ["BRDM2_TK_EP1",        false],
+    ["BTR60_TK_EP1",        false],
+    ["M113_TK_EP1",         false],
+    ["T34_TK_EP1",          false],
+    ["T55_TK_EP1",          false],
+    ["T72_TK_EP1",          false],
+    ["Ural_ZU23_TK_EP1",    true]
 ];
 
+__cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,defend),THIS_MODULE\functions\fn_defend.sqf);
 __cppfln(FUNC(THIS_MODULE,patrol),THIS_MODULE\functions\fn_patrol.sqf);
-__cppfln(FUNC(THIS_MODULE,road),THIS_MODULE\functions\fn_road.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

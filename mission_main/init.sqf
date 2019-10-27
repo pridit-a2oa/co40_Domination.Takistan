@@ -5,13 +5,13 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
 
-// Set camp (composition) type
+// Set camp (composition) type.
 GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
 
-// Set radio tower type
+// Set radio tower type.
 GVAR(mission_main_type_radio) = "Land_Ind_IlluminantTower";
 
-// Set possible optional task types
+// Set possible optional task types.
 GVAR(mission_main_type_optional) = [
     ["aircraft factory",        ["object",  "TK_WarfareBAircraftFactory_Base_EP1"]],
     ["anti-air radar",          ["object",  "TK_WarfareBAntiAirRadar_Base_EP1"]],
@@ -23,65 +23,72 @@ GVAR(mission_main_type_optional) = [
     ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
 ];
 
-// Set crewed object compositions
+// Set crewed object compositions.
 GVAR(mission_main_type_compositions) = [
     ["AntiAir1_TK_EP1",     2],
     ["Firebase1_TK_EP1",    1],
     ["FuelDump1_TK_EP1",    1]
 ];
 
-// Set list of projectiles to negate damage inflicted on objectives
+// Set list of projectiles to negate damage inflicted on objectives.
 GVAR(mission_main_type_projectiles) = [
     "Sh_81_HE",
     "Sh_122_HE"
 ];
 
-// Set reinforcement types
+// Set reinforcement types.
 GVAR(mission_main_type_reinforcements) = [
     ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],
     ["infantry", ["Mi17_TK_EP1"]]
 ];
 
-// Set amount of radio towers per target
-GVAR(mission_main_amount_radios) = 2;
+// Set type of units that will be seeded along with amount.
+GVAR(mission_main_type_units) = [
+    ["infantry",    6],
+    ["light",       3],
+    ["heavy",       7]
+];
 
-// Set amount of camps per target
+// Set amount of camps per target.
 GVAR(mission_main_amount_camps) = 3;
 
-// Set amount of optional objectives per main target
+// Set amount of optional objectives per main target.
 GVAR(mission_main_amount_optional) = 1;
 
-// Set amount of main targets to initially seed
+// Set amount of radio towers per target.
+GVAR(mission_main_amount_radios) = 2;
+
+// Set amount of main targets to initially seed.
 GVAR(mission_main_amount_targets) = 1;
 
-// Set distance from base before a city can become a valid target
+// Set distance from base before a city can become a valid target.
 GVAR(mission_main_distance_base) = 2600;
 
-// Set distance from flag (as part of a camp) before being able to capture
+// Set distance from flag (as part of a camp) before being able to capture.
 GVAR(mission_main_distance_camp) = 20;
 
-// Set distance from north airfield before a city can become a valid target
+// Set distance from north airfield before a city can become a valid target.
 GVAR(mission_main_distance_naf) = 1800;
 
-// Set minimum distance for reinforcements to spawn in
+// Set minimum distance for reinforcements to spawn in.
 GVAR(mission_main_distance_reinforcement) = 4000;
 
-// Set the radius for the main target zone
+// Set the radius for the main target zone.
 GVAR(mission_main_radius_zone) = 400;
 
-// Set amount of time to capture a camp
+// Set amount of time to capture a camp.
 GVAR(mission_main_time_capture) = 30;
 
-// Set amount of time (since seized) a main target is recycled back for use
+// Set amount of time (since seized) a main target is recycled back for use.
 GVAR(mission_main_time_recycle) = 4200;
 
-// Set amount of time between reinforcements
+// Set amount of time between reinforcements.
 GVAR(mission_main_time_reinforce) = 1200;
 
-// Set maximum amount of active armor before considering completion
+// Set maximum amount of active armor before considering completion.
 GVAR(mission_main_threshold_armor) = 1;
 
-// Set maximum amount of active infantry before considering completion
+// Set maximum amount of active infantry before considering completion.
 GVAR(mission_main_threshold_infantry) = 6;
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);

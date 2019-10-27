@@ -22,7 +22,23 @@ if (!isNil QMODULE(ied)) then {
 };
 
 if (!isNil QMODULE(unit)) then {
-    [_target] __submoduleVM(unit);
+    {
+        _groups = [
+            _x select 0,
+            _x select 1,
+            position _target,
+            GVAR(mission_main_radius_zone)
+        ] call FUNC(unit,create);
+        
+        {
+            [
+                _x,
+                position _target,
+                GVAR(mission_main_radius_zone),
+                4
+            ] call FUNC(unit,patrol);
+        } forEach _groups;
+    } forEach GVAR(mission_main_type_units);
 };
 
 GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name), "pause"]], true];
