@@ -9,13 +9,13 @@ if (hasInterface) then {
         private ["_position", "_time"];
         
         while {hasInterface} do {
+            sleep 20;
+            
             _position = getPosATL player;
             _time = 0;
             
-            sleep GVAR(idle_time_sleep);
-            
             while {[getPosATL player, _position] call BIS_fnc_areEqual} do {
-                _time = _time + GVAR(idle_time_sleep);
+                _time = _time + 1;
                 
                 switch (_time) do {                    
                     case (round (GVAR(idle_time_static) / 1.2)): {
@@ -27,11 +27,11 @@ if (hasInterface) then {
                     };
                     
                     case GVAR(idle_time_static): {
-                        endMission "END1";
+                        call FUNC(client,endMission);
                     };
                 };
                 
-                sleep GVAR(idle_time_sleep);
+                sleep 1;
             };
         };
     };

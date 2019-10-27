@@ -22,7 +22,7 @@ if (hasInterface) then {
             if (aniChatEvents_chatMessage != "") then {
                 {
                     if ([aniChatEvents_chatMessage, _x] call KRON_StrInStr) exitWith {
-                        endMission "END1";
+                        call FUNC(client,endMission);
                     };
                 } forEach GVAR(chat_blacklisted);
             };
