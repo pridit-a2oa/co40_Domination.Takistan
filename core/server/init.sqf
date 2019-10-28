@@ -16,6 +16,7 @@ GVAR(server_objects_banned) = [
     "Land_CamoNetB_NATO_EP1",
     "Land_CamoNetVar_EAST_EP1",
     "USBasicAmmunitionBox_EP1",
+    "USBasicWeapons_EP1",
     "USVehicleBox_EP1"
 ];
 

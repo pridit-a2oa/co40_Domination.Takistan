@@ -56,8 +56,7 @@ switch (_state) do {
                 0,
                 [
                     ["Land_CamoNetVar_NATO_EP1", "MtvrRepair_DES_EP1"],
-                    ["Paleta2", "FlagCarrierUSA_EP1"],
-                    ["USBasicWeapons_EP1", ""]
+                    ["Paleta2", "FlagCarrierUSA_EP1"]
                 ]
             ] spawn FUNC(server,objectMapper);
         };
