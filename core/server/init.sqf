@@ -50,7 +50,7 @@ resistance setFriend [east, 0.1];
         {
             if (GVAR(playable) find (str _x) != -1) then {
                 if !(isPlayer _x) then {
-                    _x call FUNC(client,endMission);
+                    _x call FUNC(common,endMission);
                     
                     __log format ["Playable unit without player (%1) [%2] - killed", str _x, name _x]];
                 };

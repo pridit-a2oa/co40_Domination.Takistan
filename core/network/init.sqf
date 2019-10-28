@@ -5,6 +5,7 @@
 #define THIS_MODULE network
 #include "x_macros.sqf"
 
+__cppfln(FUNC(THIS_MODULE,action),core\THIS_MODULE\functions\library\fn_action.sqf);
 __cppfln(FUNC(THIS_MODULE,addAction),core\THIS_MODULE\functions\library\fn_addAction.sqf);
 __cppfln(FUNC(THIS_MODULE,addEventHandler),core\THIS_MODULE\functions\library\fn_addEventHandler.sqf);
 __cppfln(FUNC(THIS_MODULE,addMagazine),core\THIS_MODULE\functions\library\fn_addMagazine.sqf);
@@ -14,6 +15,7 @@ __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\f
 __cppfln(FUNC(THIS_MODULE,endMission),core\THIS_MODULE\functions\library\fn_endMission.sqf);
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engineOn.sqf);
 __cppfln(FUNC(THIS_MODULE,execVM),core\THIS_MODULE\functions\library\fn_execVM.sqf);
+__cppfln(FUNC(THIS_MODULE,hideBody),core\THIS_MODULE\functions\library\fn_hideBody.sqf);
 __cppfln(FUNC(THIS_MODULE,hideObject),core\THIS_MODULE\functions\library\fn_hideObject.sqf);
 __cppfln(FUNC(THIS_MODULE,kbTell),core\THIS_MODULE\functions\library\fn_kbTell.sqf);
 __cppfln(FUNC(THIS_MODULE,lock),core\THIS_MODULE\functions\library\fn_lock.sqf);

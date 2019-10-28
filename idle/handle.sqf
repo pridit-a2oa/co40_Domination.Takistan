@@ -32,7 +32,7 @@ if (hasInterface) then {
                     };
                     
                     case GVAR(idle_time_static): {
-                        player call FUNC(client,endMission);
+                        player call FUNC(common,endMission);
                     };
                 };
                 
