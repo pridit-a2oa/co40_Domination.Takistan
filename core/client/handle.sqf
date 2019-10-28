@@ -21,6 +21,8 @@
     enableSentences true;
     enableEngineArtillery true;
     
+    [100] call FUNC(THIS_MODULE,reveal);
+    
     if !(isClass (configFile >> "CfgPatches" >> "corepatch_a2")) then {
         "Notice" hintC [
             "This mission is enhanced by content directly from Arma 2, which you do not have installed.",

@@ -14,8 +14,6 @@ if (hasInterface) then {
     
     call FUNC(THIS_MODULE,assign);
     
-    [200] call FUNC(client,reveal);
-    
     if (!isNil QMODULE(communication)) then {
         {
             [
