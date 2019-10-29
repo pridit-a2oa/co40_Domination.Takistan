@@ -114,6 +114,10 @@ if (!isNil QMODULE(teleport)) then {
 
 [_target] spawn FUNC(THIS_MODULE,recycle);
 
-[GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
+0 spawn {
+    sleep GVAR(mission_main_time_delay);
+
+    [GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
+};
 
 __log format ["Seized %1", _target getVariable "name"]];
