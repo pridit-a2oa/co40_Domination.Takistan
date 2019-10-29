@@ -13,15 +13,7 @@ _units = [];
 for "_i" from 1 to _amount do {    
     _units = _units + [switch (_type) do {
         case "infantry": {
-            _safe = [
-                _position,
-                50,
-                _radius / 1.5,
-                3,
-                0,
-                0.7,
-                0
-            ] call FUNC(common,safePos);
+            _safe = [_position, 50, _radius / 1.5, 3, 0, 0.7, 0] call FUNC(common,safePos);
             
             _group = [
                 _safe,

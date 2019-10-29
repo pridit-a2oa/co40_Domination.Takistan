@@ -36,9 +36,17 @@ if (!isNil QMODULE(marker)) then {
 
 switch (_type) do {
     case "enemy encampment": {        
-        [east, _position, 0, "Camp1_TK_EP1"] spawn FUNC(server,objectMapper);
+        [
+            _position,
+            random 360,
+            "Camp1_TK_EP1"
+        ] call FUNC(server,objectMapper);
         
-        _group = [_position, east, (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")] call FUNC(server,spawnGroup);
+        _group = [
+            _position,
+            east,
+            (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")
+        ] call FUNC(server,spawnGroup);
         
         if (!isNil QMODULE(marker)) then {
             GVAR(intel_trigger) setVariable ["units", units _group];
@@ -49,7 +57,9 @@ switch (_type) do {
             ];
         };
         
-        [_group, _position] call bis_fnc_taskDefend;
+        if (!isNil QMODULE(unit)) then {
+            [_group, _position] call FUNC(unit,defend);
+        };
     };
     
     case "abandoned light vehicle": {

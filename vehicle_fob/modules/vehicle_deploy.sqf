@@ -46,19 +46,27 @@ switch (_state) do {
             _heli setDir ((getDir _this) - 180);
             _heli setPos (_this modelToWorld [-18, 15, 0]);
             
-            _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_heli]];
-            
-            [
-                [west, _this],
+            _objects = [
                 _this modelToWorld [-7.2, 2, 0],
                 (direction _this) - 90,
                 "SmallBase_EP1",
-                0,
                 [
                     ["Land_CamoNetVar_NATO_EP1", "MtvrRepair_DES_EP1"],
                     ["Paleta2", "FlagCarrierUSA_EP1"]
                 ]
-            ] spawn FUNC(server,objectMapper);
+            ] call FUNC(server,objectMapper);
+            
+            _group = [
+                position _this,
+                west,
+                (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Infantry" >> "US_TeamSupport")
+            ] call FUNC(server,spawnGroup);
+            
+            if (!isNil QMODULE(unit)) then {
+                [_group, position _this] call FUNC(unit,defend);
+            };
+            
+            _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_heli] + _objects + (units _group)];
         };
     };
 

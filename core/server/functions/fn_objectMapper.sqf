@@ -6,11 +6,10 @@
     Takes an array of data about a dynamic object template and creates the objects.
 
     Parameter(s):
-    _this select 0: side (to determine crew to spawn) - Side
-    _this select 1: position of the template - Array [X, Y, Z]
-    _this select 2: azimuth of the template in degrees - Number 
-    _this select 3: objects for the template - Array / composition class - String / tag list - Array
-    _this select 4: (optional) randomizer value (how much chance each object has of being created. 0.0 is 100% chance) - Number
+    _this select 0: position of the template - Array [X, Y, Z]
+    _this select 1: azimuth of the template in degrees - Number 
+    _this select 2: objects for the template - Array / composition class - String / tag list - Array
+    _this select 3: (optional) randomizer value (how much chance each object has of being created. 0.0 is 100% chance) - Number
 
     Returns:
     Created objects (Array)
@@ -18,63 +17,67 @@
 
 #define THIS_MODULE server
 #include "x_macros.sqf"
-private ["_side", "_pos", "_azi", "_objs", "_rdm", "_replace", "_store"];
+private ["_pos", "_azi", "_objs", "_replace"];
 
-_side = _this select 0;
-_pos = _this select 1;
-_azi = _this select 2;
-_objs = _this select 3;
+_pos = [_this, 0, [0, 0]] call FUNC(common,param);
+_azi = [_this, 1, 0] call FUNC(common,param);
+_objs = _this select 2;
 
-if (typeName _side == "ARRAY") then {
-    _side = (_this select 0) select 0;
-    _store = (_this select 0) select 1;
-};
+_replace = if (count _this > 3) then {_this select 3} else {[[]]};
 
-_group = if (typeName _side == "GROUP") then {_side} else {createGroup _side};
+private ["_newObjs"];
 
-if (typeName _side != "SIDE") then {
-    _side = side _side;
-};
+// See if an object array, specific composition class or tag array was given
+private ["_cfgObjectComps", "_script"];
 
-_rdm = if (count _this > 4) then {_this select 4} else {0};
-_replace = if (count _this > 5) then {_this select 5} else {[[]]};
-
-if (typeName _pos != typeName [] || {typeName _azi != typeName 0} || {!((typeName _objs) in [typeName "", typeName []])} || {typeName _rdm != typeName 0} || {_rdm < 0.0} || {_rdm > 1.0}) exitWith {[]};
-
-private ["_cfgObjectComps", "_script", "_newObjs"];
 _cfgObjectComps = configFile >> "CfgObjectCompositions";
 
-if (typeName _objs == typeName "") then {
+if ((typeName _objs) == (typeName "")) then {
+    //Composition class was given
     _script = getText(_cfgObjectComps >> _objs >> "objectScript");
+    
     _objs = [];
 } else {
-    private "_testSample";
+    private ["_testSample"];
+    
     _testSample = _objs select 0;
-    if (typeName _testSample != typeName []) then {
-        private "_queryTags";
+    
+    if ((typeName _testSample) != (typeName [])) then {
+        // Tag list was given
+        private ["_queryTags"];
+        
         _queryTags = +_objs;
         _objs = [];
-
-        private "_candidates";
+        
+        // Make a list of candidates which match all given tags
+        private ["_candidates"];
+        
         _candidates = [];
-
-        for "_i" from 0 to (count _cfgObjectComps - 1) do {
+        
+        for "_i" from 0 to ((count _cfgObjectComps) - 1) do {
             private ["_candidate", "_candidateTags"];
+            
             _candidate = _cfgObjectComps select _i;
-            _candidateTags = getArray(_candidate >> "tags");
-
-            if (({_x in _candidateTags} count _queryTags) == count _queryTags) then {
-                _candidates set [count _candidates, getText(_candidate >> "objectScript")];
+            _candidateTags = getArray (_candidate >> "tags");
+            
+            // Are all tags in this candidate?
+            if (({_x in _candidateTags} count _queryTags) == (count _queryTags)) then {
+                _candidates = _candidates + [getText (_candidate >> "objectScript")];
             };
         };
-
+        
+        // Select a random candidate
         _script = _candidates select (floor (random (count _candidates)));
     };
 };
 
-if (!isNil "_script") then {_objs = call (compile (preprocessFileLineNumbers _script))};
+// If the object array is in a script, call it
+if (!isNil "_script") then {
+    _objs = call (compile (preprocessFileLineNumbers _script));
+};
 
-if (count _objs == 0) exitWith {[]};
+// Make sure there are definitions in the final object array
+if ((count _objs) == 0) exitWith {[]};
 
 if (count _replace > 0) then {    
     {
@@ -89,15 +92,18 @@ if (count _replace > 0) then {
 };
 
 _newObjs = [];
-_units = [];
 
 private ["_posX", "_posY"];
+
 _posX = _pos select 0;
 _posY = _pos select 1;
 
+// Function to multiply a [2, 2] matrix by a [2, 1] matrix
 private ["_multiplyMatrixFunc"];
+
 _multiplyMatrixFunc = {
     private ["_array1", "_array2", "_result"];
+    
     _array1 = _this select 0;
     _array2 = _this select 1;
 
@@ -110,92 +116,94 @@ _multiplyMatrixFunc = {
 };
 
 {
-    if ((random 1) > _rdm) then {
-        private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_object", "_crew"];
-        _type = _x select 0;
-        _relPos = _x select 1;
-        _azimuth = _x select 2;
+    private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_orientation", "_varName", "_init", "_simulation", "_ASL", "_newObj"];
+    
+    _type = _x select 0;
+    _relPos = _x select 1;
+    _azimuth = _x select 2;
+    
+    if !(_type in GVAR(server_objects_banned)) then {
+        // Optionally map certain features for backwards compatibility
+        if ((count _x) > 3) then {_fuel = _x select 3};
+        if ((count _x) > 4) then {_damage = _x select 4};
+        if ((count _x) > 5) then {_orientation = _x select 5};
+        if ((count _x) > 6) then {_varName = _x select 6};
+        if ((count _x) > 7) then {_init = _x select 7};
+        if ((count _x) > 8) then {_simulation = _x select 8};
+        if ((count _x) > 9) then {_ASL = _x select 9};
         
-        if (_type in GVAR(server_objects_banned)) exitWith {};
-        
-        if (count _x > 3) then {_fuel = _x select 3};
-        if (count _x > 4) then {_damage = _x select 4};
+        if (isNil "_ASL") then {_ASL = false;};
 
+        // Rotate the relative position using a rotation matrix
         private ["_rotMatrix", "_newRelPos", "_newPos"];
+        
         _rotMatrix = [
             [cos _azi, sin _azi],
             [-(sin _azi), cos _azi]
         ];
+        
         _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
 
-        private "_z";
-        _z = if (count _relPos > 2) then {_relPos select 2} else {0};
-    
-        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+        // Backwards compatability causes for height to be optional
+        private ["_z"];
         
-        _dir = (_azi + _azimuth);
-        
-        _vehicle = [_newPos, _dir, _type, _group] call BIS_fnc_spawnVehicle;
-        
-        _object = _vehicle select 0;
-        _crew = _vehicle select 1;
-        
-        _object setDir _dir;
-        _object setPos _newPos;
+        if ((count _relPos) > 2) then {_z = _relPos select 2} else {_z = 0};
 
-        if (!isNil "_fuel") then {_object setFuel _fuel};
-        if (!isNil "_damage") then {_object setDamage _damage};
+        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+
+        // Create the object and make sure it's in the correct location
+        _newObj = _type createVehicle _newPos;
+        _newObj setDir (_azi + _azimuth);
         
-        if (_side == west && {_object isKindOf "LandVehicle"}) then {
-            _object lock true;
-            _object allowCrewInImmobile true;
-            
-            _object addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
-            _object addEventHandler ["HandleDamage", {0}];
-            
-            {
-                _x addEventHandler ["HandleDamage", {0}];
-            } forEach crew _object;
-            
-            if !(_object isKindOf "StaticVehicle") then {
-                (driver _object) disableAI "MOVE";
-                
-                _object addEventHandler ["GetOut", {            
-                    private ["_vehicle", "_position", "_unit"];
-                    
-                    PARAMS_3(_vehicle, _position, _unit);
-                    
-                    if (_position == "driver") then {
-                        _unit moveInDriver _vehicle;
-                    };
-                }];
+        if !(_ASL) then {
+            _newObj setPos _newPos;
+        } else {
+            _newObj setPosASL _newPos;
+            _newObj setVariable ["BIS_DynO_ASL", true];
+        };
+        
+        // If fuel and damage were grabbed, map them
+        if (!isNil "_fuel") then {_newObj setFuel _fuel};
+        if (!isNil "_damage") then {_newObj setDamage _damage;};
+        
+        if (!isNil "_orientation") then {
+            if ((count _orientation) > 0) then {
+                ([_newObj] + _orientation) call BIS_fnc_setPitchBank;
             };
         };
         
-        if (_object isKindOf "Thing" && {!(_object isKindOf "Wreck")}) then {
-            [true, "enableSimulation", [_object, false]] call FUNC(network,mp);
+        if (!isNil "_varName") then {
+            if (_varName != "") then {
+                _newObj setVehicleVarName _varName;
+                
+                call (compile (_varName + " = _newObj;"));
+            };
         };
-
-        if (_side == east && {_object isKindOf "Car"} && {!(_object isKindOf "Wheeled_APC")}) exitWith {
-            [_object] call FUNC(vehicle,delete);
-        };
-
-        if (_side == east && {_object isKindOf "LandVehicle"} && {!(_object isKindOf "StaticWeapon")}) then {
-            [true, "execVM", [[_object], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-            
-            __addDead(_object);
-        };
-
-        _newObjs set [count _newObjs, _object];
         
-        {
-            _units = _units + [_x];
-        } forEach _crew;
+        if (!isNil "_init") then {
+            _newObj call (compile ("this = _this; " + _init));
+        };
+        
+        if (_newObj isKindOf "LandVehicle") then {           
+            if (faction _newObj == "BIS_US") then {
+                _newObj lock true;
+                _newObj allowCrewInImmobile true;
+            
+                _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+                _newObj addEventHandler ["HandleDamage", {0}];
+            };
+            
+            [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+            
+            __addDead(_newObj);
+        };
+        
+        if (_newObj isKindOf "Thing") then {
+            [true, "enableSimulation", [_newObj, false]] call FUNC(network,mp);
+        };
+
+        _newObjs = _newObjs + [_newObj];
     };
-    
-    sleep 0.2;
 } forEach _objs;
 
-if (!isNil "_store") then {
-    _store setVariable [QGVAR(cleanup), (_store getVariable QGVAR(cleanup)) + _newObjs + _units];
-};
+_newObjs

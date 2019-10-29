@@ -17,6 +17,4 @@ PARAMS_1(_vehicle);
     };
 
     deleteVehicle _x;
-
-    sleep 0.2;
 } forEach (_vehicle getVariable QGVAR(cleanup));

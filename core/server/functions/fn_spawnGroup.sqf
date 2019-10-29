@@ -5,8 +5,14 @@ PARAMS_3(_position, _side, _type);
 
 _group = [_position, _side, _type] call BIS_fnc_spawnGroup;
 
-{    
-    __addDead(_x);
+{
+    if (faction _x == "BIS_US") then {
+        _x addEventHandler ["HandleDamage", {0}];
+    } else {
+        __addDead(_x);
+    };
 } forEach (units _group);
+
+_group allowFleeing 0;
 
 _group
