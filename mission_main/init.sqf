@@ -80,7 +80,7 @@ GVAR(mission_main_radius_zone) = 400;
 GVAR(mission_main_time_capture) = 30;
 
 // Set amount of time to sleep before generating a target.
-GVAR(mission_main_time_delay) = 50;
+GVAR(mission_main_time_delay) = 40;
 
 // Set amount of time (since seized) a main target is recycled back for use.
 GVAR(mission_main_time_recycle) = 4200;

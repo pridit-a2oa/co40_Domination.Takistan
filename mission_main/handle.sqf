@@ -20,12 +20,14 @@ if (isServer) then {
         };
     } forEach _locations;
     
-    for "_i" from 1 to GVAR(mission_main_amount_targets) do {
-        sleep GVAR(mission_main_time_delay);
-        
-        _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
-        
-        [_target] spawn FUNC(THIS_MODULE,create);
+    0 spawn {
+        for "_i" from 1 to GVAR(mission_main_amount_targets) do {
+            sleep GVAR(mission_main_time_delay);
+            
+            _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
+            
+            [_target] spawn FUNC(THIS_MODULE,create);
+        };
     };
 };
 

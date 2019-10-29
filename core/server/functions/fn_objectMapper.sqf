@@ -184,7 +184,7 @@ _multiplyMatrixFunc = {
             _newObj call (compile ("this = _this; " + _init));
         };
         
-        if (_newObj isKindOf "LandVehicle") then {           
+        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
             if (faction _newObj == "BIS_US") then {
                 _newObj lock true;
                 _newObj allowCrewInImmobile true;
@@ -193,13 +193,13 @@ _multiplyMatrixFunc = {
                 _newObj addEventHandler ["HandleDamage", {0}];
             };
             
-            [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+            [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
             
             __addDead(_newObj);
         };
         
         if (_newObj isKindOf "Thing") then {
-            [true, "enableSimulation", [_newObj, false]] call FUNC(network,mp);
+            [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
         };
 
         _newObjs = _newObjs + [_newObj];
