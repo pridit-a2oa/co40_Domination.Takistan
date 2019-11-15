@@ -17,10 +17,6 @@ BIS_MENU_GroupCommunication = BIS_MENU_GroupCommunication + [
         BIS_MENU_Gestures,
         _x select 0,
         "",
-        format [
-            "['%1', %2] spawn d_fnc_gesture_play",
-            _x select 1,
-            _x select 2
-        ]
+        format ["['%1'] spawn d_fnc_gesture_play", _x select 0]
     ] call FUNC(communication,add);
 } forEach GVAR(gesture_types);

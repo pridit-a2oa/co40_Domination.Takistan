@@ -1,7 +1,7 @@
 #include "x_macros.sqf"
-private ["_animation", "_duration", "_checks"];
+private ["_gesture", "_checks", "_type", "_animation", "_duration"];
 
-PARAMS_2(_animation, _duration);
+PARAMS_1(_gesture);
 
 _checks = [
     [
@@ -21,6 +21,16 @@ _checks = [
 
 if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
 
+_type = ([0, GVAR(gesture_types)] call FUNC(common,arrayValues)) find _gesture;
+_type = ((GVAR(gesture_types) select _type) select 1) call BIS_fnc_selectRandom;
+
+_animation = _type select 0;
+_duration = _type select 1;
+
+if (!isNil QMODULE(communication)) then {
+    ["Gestures", 0] call FUNC(communication,toggle);
+};
+
 [true, "switchMove", [player, _animation]] call FUNC(network,mp);
 
 if (_duration > 0) then {
@@ -29,4 +39,10 @@ if (_duration > 0) then {
     if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {};
     
     [true, "switchMove", [player, ""]] call FUNC(network,mp);
+};
+
+if (!isNil QMODULE(communication)) then {
+    if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {};
+    
+    ["Gestures", 1] call FUNC(communication,toggle);
 };
