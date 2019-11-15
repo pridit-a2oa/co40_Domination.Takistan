@@ -21,6 +21,10 @@ if (hasInterface) then {
     if (!isNil QMODULE(vehicle_welcome)) then {
         __submodulePP(vehicle_welcome);
     };
+    
+    if (!isNil QMODULE(video)) then {
+        __submodulePP(video);
+    };
 
     {
         _type = [_x select 1] call FUNC(THIS_MODULE,type);

@@ -180,4 +180,7 @@ copy x_macros.sqf vehicle_welcome\modules /Y
 copy x_macros.sqf vehicle_wreck /Y
 copy x_macros.sqf vehicle_wreck\functions /Y
 copy x_macros.sqf vehicle_wreck\modules /Y
+copy x_macros.sqf video /Y
+copy x_macros.sqf video\modules /Y
+copy x_macros.sqf video\functions /Y
 copy x_macros.sqf weather /Y
