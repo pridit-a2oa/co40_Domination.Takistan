@@ -48,19 +48,21 @@ east setFriend [resistance, 0.1];
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
 
-0 spawn {
-    while {true} do {
-        sleep 30;
-        
-        {
-            if (GVAR(playable) find (str _x) != -1) then {
-                if !(isPlayer _x) then {
-                    _x call FUNC(common,endMission);
-                    
-                    __log format ["Playable unit without player (%1) [%2] - killed", str _x, name _x]];
+if (isMultiplayer) then {
+    0 spawn {
+        while {true} do {
+            sleep 30;
+            
+            {
+                if (GVAR(playable) find (str _x) != -1) then {
+                    if !(isPlayer _x) then {
+                        _x call FUNC(common,endMission);
+                        
+                        __log format ["Playable unit without player (%1) [%2] - killed", str _x, name _x]];
+                    };
                 };
-            };
-        } forEach allUnits;
+            } forEach allUnits;
+        };
     };
 };
 
