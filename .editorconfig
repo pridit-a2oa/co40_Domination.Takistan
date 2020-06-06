@@ -1,4 +1,14 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
 root = true
 
-[*.sqm]
+# Unix-style newlines ending every sqf file and no newlines
+[*.sqf]
+end_of_line = lf
+insert_final_newline = false
+
+# Windows-style newlines ending mission.sqm file and other configuration to match saving in-game
+[mission.sqm]
 end_of_line = crlf
+insert_final_newline = true
