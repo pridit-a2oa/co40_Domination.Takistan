@@ -52,7 +52,7 @@ if (typeName _loaded == "ARRAY") then {
     
     if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
         [true, "execVM", [[_load], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-        [true, "reveal", [player, _load]] call FUNC(network,mp);
+        [true, "reveal", _load] call FUNC(network,mp);
     };
     
     if ((position _aircraft) select 2 > 100) then {
@@ -72,10 +72,6 @@ if (typeName _loaded == "ARRAY") then {
         deleteVehicle _load;
 
         _ammobox = [_position, 0, false] call FUNC(ammobox,create);
-        
-        if (!isNil QMODULE(vehicle_ammobox)) then {
-            [_ammobox] call FUNC(vehicle_ammobox,replenish);
-        };
     };
 };
 

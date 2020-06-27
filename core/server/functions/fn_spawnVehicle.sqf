@@ -20,16 +20,12 @@ _object setDir _direction;
 _object setFormDir _direction;
 _object allowCrewInImmobile true;
 
-[_object] spawn {
-    private ["_vehicle"];
-    
-    PARAMS_1(_vehicle);
-    
+_object spawn {
     if (!isNil QMODULE(vehicle_respawn)) then {
-        _vehicle setVariable [QGVAR(respawnable), false, true];
+        _this setVariable [QGVAR(respawnable), false, true];
     };
     
-    [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+    [true, "execVM", [[_this], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 };
 
 _vehicle

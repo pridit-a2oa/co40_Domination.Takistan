@@ -19,6 +19,8 @@
 #include "x_macros.sqf"
 private ["_pos", "_azi", "_objs", "_replace"];
 
+if !(isServer) exitWith {};
+
 _pos = [_this, 0, [0, 0]] call FUNC(common,param);
 _azi = [_this, 1, 0] call FUNC(common,param);
 _objs = _this select 2;
@@ -116,23 +118,15 @@ _multiplyMatrixFunc = {
 };
 
 {
-    private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_orientation", "_varName", "_init", "_simulation", "_ASL", "_newObj"];
+    private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
     
     _type = _x select 0;
     _relPos = _x select 1;
     _azimuth = _x select 2;
     
     if !(_type in GVAR(server_objects_banned)) then {
-        // Optionally map certain features for backwards compatibility
         if ((count _x) > 3) then {_fuel = _x select 3};
         if ((count _x) > 4) then {_damage = _x select 4};
-        if ((count _x) > 5) then {_orientation = _x select 5};
-        if ((count _x) > 6) then {_varName = _x select 6};
-        if ((count _x) > 7) then {_init = _x select 7};
-        if ((count _x) > 8) then {_simulation = _x select 8};
-        if ((count _x) > 9) then {_ASL = _x select 9};
-        
-        if (isNil "_ASL") then {_ASL = false;};
 
         // Rotate the relative position using a rotation matrix
         private ["_rotMatrix", "_newRelPos", "_newPos"];
@@ -152,57 +146,35 @@ _multiplyMatrixFunc = {
         _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
 
         // Create the object and make sure it's in the correct location
-        _newObj = _type createVehicle _newPos;
+        _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
         _newObj setDir (_azi + _azimuth);
-        
-        if !(_ASL) then {
-            _newObj setPos _newPos;
-        } else {
-            _newObj setPosASL _newPos;
-            _newObj setVariable ["BIS_DynO_ASL", true];
-        };
+        _newObj setPos _newPos;
         
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
         
-        if (!isNil "_orientation") then {
-            if ((count _orientation) > 0) then {
-                ([_newObj] + _orientation) call BIS_fnc_setPitchBank;
-            };
-        };
-        
-        if (!isNil "_varName") then {
-            if (_varName != "") then {
-                _newObj setVehicleVarName _varName;
+        _newObj spawn {
+            if (_this isKindOf "LandVehicle" && {!(_this isKindOf "StaticWeapon")}) then {           
+                if (faction _this == "BIS_US") then {
+                    _this lock true;
+                    _this allowCrewInImmobile true;
                 
-                call (compile (_varName + " = _newObj;"));
+                    _this addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+                    _this addEventHandler ["HandleDamage", {0}];
+                };
+                
+                [true, "execVM", [[_this], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
+                
+                __addDead(_this);
+            };
+            
+            if (_this isKindOf "Thing") then {
+                [true, "enableSimulation", [_this, false], false] call FUNC(network,mp);
             };
         };
         
-        if (!isNil "_init") then {
-            _newObj call (compile ("this = _this; " + _init));
-        };
-        
-        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
-            if (faction _newObj == "BIS_US") then {
-                _newObj lock true;
-                _newObj allowCrewInImmobile true;
-            
-                _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
-                _newObj addEventHandler ["HandleDamage", {0}];
-            };
-            
-            [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
-            
-            __addDead(_newObj);
-        };
-        
-        if (_newObj isKindOf "Thing") then {
-            [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
-        };
-
-        _newObjs = _newObjs + [_newObj];
+        _newObjs set [count _newObjs, _newObj];
     };
 } forEach _objs;
 

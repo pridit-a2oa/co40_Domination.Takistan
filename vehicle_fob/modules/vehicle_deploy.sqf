@@ -36,8 +36,6 @@ switch (_state) do {
                 _pitchBank = _this call BIS_fnc_getPitchBank;
                 
                 [_box, (_pitchBank select 0) + 10, _pitchBank select 1] call BIS_fnc_setPitchBank;
-
-                [_box] call FUNC(vehicle_ammobox,replenish);
                 
                 _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_box]];
             };

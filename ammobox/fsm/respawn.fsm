@@ -47,7 +47,6 @@ class FSM
        "_box setPos (markerPos ""d_player_ammobox_pos"");" \n
        "_box setVariable [""immune"", true];" \n
        "player reveal _box;" \n
-       "[_box] call d_fnc_ammobox_replenish;" \n
        "[_box] call d_fnc_ammobox_handle;";
       precondition = "";
       class Links

@@ -18,3 +18,5 @@ PARAMS_1(_vehicle);
 
     deleteVehicle _x;
 } forEach (_vehicle getVariable QGVAR(cleanup));
+
+_vehicle setVariable [QGVAR(cleanup), []];

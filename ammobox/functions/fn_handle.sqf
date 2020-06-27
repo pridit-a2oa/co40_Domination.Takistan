@@ -8,4 +8,6 @@ if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
         [_box] __submoduleVM(perk);
     };
+    
+    [_box] call FUNC(THIS_MODULE,replenish);
 };

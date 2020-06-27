@@ -1,21 +1,25 @@
 #define THIS_MODULE ammobox
 #include "x_macros.sqf"
-private ["_position", "_direction", "_local"];
+private ["_position", "_direction", "_local", "_box"];
 
 PARAMS_3(_position, _direction, _local);
 
-_box = switch (_local) do {
-    case true: {GVAR(ammobox_type) createVehicleLocal _position};
-    case default {createVehicle [GVAR(ammobox_type), _position, [], 0, "CAN_COLLIDE"]};
+switch (_local) do {
+    case true: {
+        _box = GVAR(ammobox_type) createVehicleLocal _position;
+    };
+    
+    case false: {
+        _box = createVehicle [GVAR(ammobox_type), _position, [], 0, "CAN_COLLIDE"];
+        
+        [_box] call FUNC(THIS_MODULE,replenish);
+        
+        [true, "execVM", [[_box], __function(handle)]] call FUNC(network,mp);
+        [true, "reveal", _box] call FUNC(network,mp);
+    };
 };
 
 _box setDir _direction;
 _box setPos _position;
-
-[true, "reveal", [player, _box]] call FUNC(network,mp);
-
-if !(_local) then {
-    [true, "execVM", [[_box], FUNCTION(ammobox,handle)]] call FUNC(network,mp);
-};
 
 _box
