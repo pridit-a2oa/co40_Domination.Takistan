@@ -13,7 +13,7 @@ GVAR(airdrop_type_aircraft) = "C130J_US_EP1";
 // Set default payloads.
 GVAR(airdrop_type_payloads) = [
     ["Ammobox", "USVehicleBox_EP1"],
-    ["HMMWV", "HMMWV_DES_EP1"]
+    ["HMMMX", "HMMWV_DES_EP1"]
 ];
 
 // Set smoke grenade type.

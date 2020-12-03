@@ -6,7 +6,6 @@
     <a href="https://github.com/pridit/co40_Domination.Takistan/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/Pridit/co40_Domination.Takistan.svg">
     </a>
-    <img alt="No maintenance intended" src="http://unmaintained.tech/badge.svg">
 </p>
 
 **co40_Domination.Takistan** is an almost complete modular rewrite of the original Domination game mode for Arma 2: Operation Arrowhead, which was created by **Xeno**. This has been rebuilt from the ground up, with many new features and tweaks added in the process to provide a more enriching and immersive experience.
