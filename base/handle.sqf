@@ -25,7 +25,7 @@ if (isServer) then {
                 [
                     _x select 2
                 ]
-            ] spawn FUNC(server,objectMapper);
+            ] call FUNC(server,objectMapper);
             
             _group = [
                 markerPos _marker,

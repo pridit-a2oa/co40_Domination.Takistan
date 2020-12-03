@@ -40,7 +40,7 @@ switch (_type) do {
             _position,
             random 360,
             "Camp1_TK_EP1"
-        ] spawn FUNC(server,objectMapper);
+        ] call FUNC(server,objectMapper);
         
         _group = [
             _position,
