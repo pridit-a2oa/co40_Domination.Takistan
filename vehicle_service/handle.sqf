@@ -35,7 +35,7 @@ private ["_object", "_name", "_trigger", "_marker"];
         if (!isNil QMODULE(3d)) then {
             [
                 _object,
-                _name call FUNC(common,YellowText),
+                format ["%1<br /><t size='0.6'>Full repair, refuel, &amp; rearm</t>", _name call FUNC(common,YellowText)],
                 [],
                 true,
                 true
