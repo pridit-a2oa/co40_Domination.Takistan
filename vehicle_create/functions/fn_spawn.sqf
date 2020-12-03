@@ -1,17 +1,22 @@
 #define THIS_MODULE vehicle_create
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_offset", "_occupied", "_position", "_atv"];
+private ["_vehicle", "_type", "_offset", "_occupied", "_deployer", "_position", "_atv"];
 
 PARAMS_2(_vehicle, _type);
 
 _offset = [_type] call FUNC(vehicle,offsetCreate);
-_occupied = nearestObjects [_vehicle modelToWorld _offset, [_type], 10];
+_occupied = (_vehicle modelToWorld _offset) nearEntities [["Air", "LandVehicle"], 10];
+
+if (count _occupied > 0) then {
+    _deployer = _occupied find _vehicle;
+    
+    if (_deployer != -1) then {
+        _occupied = [_occupied, _deployer] call FUNC(common,deleteAt);
+    };
+};
 
 if (count _occupied > 0) exitWith {
-    hint format [
-        "%1 already in close proximity",
-        [_type] call FUNC(vehicle,name)
-    ];
+    hint "Deploy point is already occupied by a vehicle";
 
     closeDialog 0;
     
