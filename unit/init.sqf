@@ -1,8 +1,8 @@
 /**
  * Unit Module
  *
- * Descrption: This module is responsible for handling the behaviour pattern of
- * AI units.
+ * Descrption: This module is responsible for handling the behaviour pattern
+ * and creation of AI units.
  */
 
 #define THIS_MODULE unit

@@ -125,7 +125,7 @@ class PerkButton_Role1_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Artillery cooldown reduced by 300s";
+    tooltip = "Artillery cooldown reduced by 5 minutes";
     action = "[1,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_5: XD_LinkButtonUpgradeBase
@@ -165,7 +165,7 @@ class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "IED signals jammed within 50m";
+    tooltip = "IED trigger jammed within 50m";
     action = "[2,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
@@ -215,7 +215,7 @@ class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest cooldown reduced by 300s";
+    tooltip = "MG nest cooldown reduced by 5 minutes";
     action = "[3,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
@@ -265,7 +265,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Fortification cooldown reduced by 300s";
+    tooltip = "Fortification cooldown reduced by 5 minutes";
     action = "[4,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
@@ -355,7 +355,7 @@ class PerkButton_Role6_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Call air taxi back to base";
+    tooltip = "Call air taxi (back to base)";
     action = "[6,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
@@ -365,7 +365,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load ground vehicle into the C-130J (+1)";
+    tooltip = "Load land vehicle into the C-130J (+1)";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
@@ -375,7 +375,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load ground vehicle into the C-130J (+1)";
+    tooltip = "Load land vehicle into the C-130J (+1)";
     action = "[6,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase

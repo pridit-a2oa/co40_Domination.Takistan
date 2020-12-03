@@ -16,6 +16,6 @@ _vehicles = (GVAR(vehicle_create_types_vehicle) select _type) select 1;
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 {
-    _index = _menu lbAdd (format ["Create %1", [_x] call FUNC(vehicle,name)]);
+    _index = _menu lbAdd (format ["Deploy %1", [_x] call FUNC(vehicle,name)]);
     _menu lbSetData [_index, _x];
 } forEach _vehicles;

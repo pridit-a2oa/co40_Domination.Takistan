@@ -1,8 +1,8 @@
 /**
  * Vehicle Lift Module
  *
- * Description: This module enables players to physically attach ground
- * vehicles to aircraft designated as lifts.
+ * Description: This module enables players to physically attach land vehicles
+ * to aircraft designated as lifts.
  */
 
 #define THIS_MODULE vehicle_lift

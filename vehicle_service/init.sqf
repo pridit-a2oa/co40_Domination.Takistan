@@ -7,7 +7,7 @@
 
 // Set the different types of possible services.
 GVAR(vehicle_service_type_names) = [
-    ["ground",      "Ground Vehicle",   "LandVehicle"],
+    ["land",        "Land Vehicle",     "LandVehicle"],
     ["chopper",     "Chopper",          "Helicopter"],
     ["jet",         "Jet",              "Plane"]
 ];
