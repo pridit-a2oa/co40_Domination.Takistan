@@ -21,6 +21,18 @@ switch (_state) do {
                 
                 [
                     [_name, "deployed"],
+                    _position,
+                    GVAR(vehicle_deploy_distance_building)
+                ] call FUNC(helper,nearBuilding),
+                
+                [
+                    [_name, "deployed"],
+                    _vehicle,
+                    GVAR(vehicle_deploy_threshold_terrain)
+                ] call FUNC(helper,isSlope),
+                
+                [
+                    [_name, "deployed"],
                     _vehicle
                 ] call FUNC(helper,isOccupied),
                 
