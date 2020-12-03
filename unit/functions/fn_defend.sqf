@@ -34,7 +34,7 @@ _staticWeapons = [];
     
     _leader = leader _grp;
     
-    if (vehicle _leader == _leader && {(_x emptyPositions "driver") > 0}) then {
+    if (vehicle _leader == _leader && {(_x emptyPositions "driver") > 0} && {locked _x}) then {
         _leader assignAsDriver _x;
         _leader moveInDriver _x;
         _leader disableAI "MOVE";
