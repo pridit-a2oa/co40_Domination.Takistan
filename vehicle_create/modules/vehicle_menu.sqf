@@ -3,15 +3,17 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_menu", "_index"];
+private ["_vehicle", "_types", "_type", "_menu", "_index"];
 
 PARAMS_1(_vehicle);
 
-_type = GVAR(vehicle_create_types) find (typeOf _vehicle);
+_types = GVAR(vehicle_create_types);
+
+_type = ([0, _types] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 
 if (_type == -1) exitWith {};
 
-_vehicles = (GVAR(vehicle_create_types_vehicle) select _type) select 1;
+_vehicles = ([1, _types] call FUNC(common,arrayValues)) select _type;
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
