@@ -23,7 +23,7 @@ class XD_HaloDialog {
             y = 0.231735;
             w = 0.955858;
             h = 0.501853;
-            onMouseButtonClick = "player setPos ((_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3]);[1500] call d_fnc_halo_jump;closeDialog 0";
+            onMouseButtonDblClick = "player setPos ((_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3]);[1500] call d_fnc_halo_jump;closeDialog 0";
         };
         class RscHaloButtonClose: XD_ButtonBase
         {
@@ -49,7 +49,7 @@ class XD_HaloDialog {
             y = 0.748;
             w = 0.6;
             h = 0.1;
-            text = "Left-click anywhere on the map to initiate a HALO jump.\nRight-click and drag to pan.";
+            text = "Double left-click anywhere on the map to initiate a HALO jump.\nRight-click and drag to pan. Scroll wheel to adjust zoom.";
             style = ST_MULTI;
             lineSpacing = 1;
         };
