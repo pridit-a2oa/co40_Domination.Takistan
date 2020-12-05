@@ -108,13 +108,6 @@ switch (_type) do {
                 _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
                 _radio setVariable [QGVAR(target), _target];
                 
-                if (!isNil QMODULE(3d)) then {
-                    [player, "execVM", [
-                        [_radio, "Destroy" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], true],
-                        FUNCTION(3d,create)
-                    ]] call FUNC(network,mp);
-                };
-                
                 [true, "addEventHandler", [_radio, "HandleDamage", {
                     if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
                 

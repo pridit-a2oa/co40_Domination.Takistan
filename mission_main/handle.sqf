@@ -49,15 +49,6 @@ if (hasInterface) then {
                 true
             ] spawn FUNC(3d,create);
         } forEach (_target getVariable QGVAR(camps));
-        
-        {
-            [
-                _x,
-                "Destroy" call FUNC(common,RedText),
-                [1, GVAR(3d_distance_visible)],
-                true
-            ] spawn FUNC(3d,create);
-        } forEach (_target getVariable QGVAR(radios));
     };
     
     0 spawn {
