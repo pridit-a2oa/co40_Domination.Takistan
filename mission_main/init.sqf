@@ -9,7 +9,7 @@
 GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
 
 // Set radio tower type.
-GVAR(mission_main_type_radio) = "Land_Ind_IlluminantTower";
+GVAR(mission_main_type_radio) = "Land_radar_EP1";
 
 // Set possible optional task types.
 GVAR(mission_main_type_optional) = [
