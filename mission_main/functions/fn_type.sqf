@@ -146,6 +146,7 @@ switch (_type) do {
                 }]] call FUNC(network,mp);
                 
                 _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) + [_radio], true];
+                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_radio]];
             };
             
             sleep 0.5;
