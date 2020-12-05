@@ -34,8 +34,6 @@ if (!isNil QMODULE(marker)) then {
     if (!isNil QMODULE(teleport)) then {
         _name = format ["teleport_%1", _target getVariable "name"];
         
-        deleteVehicle ((nearestObjects [markerPos _name, ["FlagCarrier_USA_EP1"], 10]) select 0);
-        
         [_name] call FUNC(marker,delete);
     };
 };

@@ -84,6 +84,8 @@ if (!isNil QMODULE(teleport)) then {
 
     _flag = createVehicle ["FlagCarrierUSA_EP1", _position, [], 0, "NONE"];
     
+    _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_flag]];
+    
     [true, "spawn", [[_target, _flag], {
         private ["_target", "_flag"];
         
