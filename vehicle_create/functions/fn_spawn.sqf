@@ -5,7 +5,7 @@ private ["_vehicle", "_type", "_offset", "_occupied", "_deployer", "_position", 
 PARAMS_2(_vehicle, _type);
 
 _offset = [_type] call FUNC(vehicle,offsetCreate);
-_occupied = (_vehicle modelToWorld _offset) nearEntities [["Air", "LandVehicle"], 10];
+_occupied = (_vehicle modelToWorld _offset) nearEntities [["Air", "LandVehicle"], 7];
 
 if (count _occupied > 0) then {
     _deployer = _occupied find _vehicle;
