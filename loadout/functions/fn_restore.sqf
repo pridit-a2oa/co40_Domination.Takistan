@@ -9,3 +9,7 @@
 } forEach (GVAR(loadout) select 0);
 
 player selectWeapon (primaryWeapon player);
+
+if (isNull (unitBackpack player)) then {
+    player addBackpack (GVAR(loadout) select 2);
+};
