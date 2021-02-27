@@ -8,7 +8,7 @@
     </a>
 </p>
 
-**co40_Domination.Takistan** is an almost complete modular rewrite of the original Domination game mode for Arma 2: Operation Arrowhead, which was created by **Xeno**. This has been rebuilt from the ground up, with many new features and tweaks added in the process to provide a more enriching and immersive experience.
+**co40_Domination.Takistan** is an almost complete modular rewrite of the original Domination game mode, which was created by **Xeno**, for Arma 2: Operation Arrowhead. This has been rebuilt from the ground up, with many new features and tweaks added in the process to provide a more enriching and immersive experience.
 
 The project is entirely **open-source** and all contributions are welcome.
 
