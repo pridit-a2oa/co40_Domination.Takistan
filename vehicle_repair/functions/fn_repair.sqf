@@ -15,6 +15,10 @@ for "_i" from 1 to 3 do {
     [true, "say", [player, QGVAR(sound_repair), 20]] call FUNC(network,mp);
     
     if (_i == 3) then {
+        if (damage _vehicle > 0.3) then {
+            [_vehicle, "setDamage", 0.3] call FUNC(network,mp);
+        };
+        
         [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
         [_vehicle, "setHit", ["NEtrup", 0]] call FUNC(network,mp);
         
@@ -23,10 +27,6 @@ for "_i" from 1 to 3 do {
             [_vehicle, "setHit", ["wheel_1_2_steering", 0]] call FUNC(network,mp);
             [_vehicle, "setHit", ["wheel_2_1_steering", 0]] call FUNC(network,mp);
             [_vehicle, "setHit", ["wheel_2_2_steering", 0]] call FUNC(network,mp);
-        };
-        
-        if (damage _vehicle > 0.3) then {
-            [_vehicle, "setDamage", 0.3] call FUNC(network,mp);
         };
         
         if (fuel _vehicle < 0.25) then {
