@@ -194,6 +194,8 @@ switch (_type) do {
             
             case "unit": {
                 (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
+                
+                // Check for dailies
             };
         };
         
