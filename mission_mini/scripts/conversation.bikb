@@ -1,0 +1,23 @@
+class Sentences 
+{
+    class Target {
+        text = "We have received %1 that there is an %2 nearby, location has been marked.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

@@ -50,7 +50,7 @@ class FSM
           priority = 3.000000;
           to="Delay";
           precondition = "";
-          condition="X_JIPH getVariable 'd_intel'";
+          condition="gameLogic getVariable 'd_intel'";
           action="";
         };
         class time_____timeend

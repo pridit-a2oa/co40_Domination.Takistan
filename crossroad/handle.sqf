@@ -54,6 +54,10 @@ if (!isNil QMODULE(mission_main)) then {
     __submoduleVM(mission_main);
 };
 
+if (!isNil QMODULE(mission_mini)) then {
+    __submoduleVM(mission_mini);
+};
+
 if (!isNil QMODULE(uav)) then {
     __submoduleVM(uav);
 };

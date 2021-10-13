@@ -1,7 +1,7 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
 
-X_JIPH setVariable [QGVAR(intel), true, true];
+gameLogic setVariable [QGVAR(intel), true, true];
 
 0 spawn {
     private ["_road", "_direction", "_vehicle", "_car", "_crew", "_driver"];
@@ -22,9 +22,11 @@ X_JIPH setVariable [QGVAR(intel), true, true];
     _car allowCrewInImmobile true;
     _car setVariable [QGVAR(intel), true, true];
     
+    _driver disableAI "FSM";
+    _driver setBehaviour "CARELESS";
     _driver doMove (markerPos QGVAR(intel));
     
-    while {alive _driver && {alive _car} && {canMove _car}} do {        
+    while {[_driver, _car] call FUNC(THIS_MODULE,alive)} do {        
         waitUntil {_car distance (markerPos QGVAR(intel)) < 300};
         
         if (true) exitWith {
@@ -45,7 +47,21 @@ X_JIPH setVariable [QGVAR(intel), true, true];
                 "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"
             ] call RE;
             
-            while {alive _driver && {alive _car} && {canMove _car}} do {
+            // if (GVAR(intel_chance_music) > random 100) then {
+            //     [_driver, _car] spawn {
+            //         private ["_driver", "_car"];
+                    
+            //         PARAMS_2(_driver, _car);
+                    
+            //         while {_this call FUNC(THIS_MODULE,alive)} do {
+            //             [true, "say", [_car, "RadioMusic_56s", 0]] call FUNC(network,mp);
+                        
+            //             sleep 56;
+            //         };
+            //     };
+            // };
+            
+            while {[_driver, _car] call FUNC(THIS_MODULE,alive)} do {
                 _distance = _car distance (markerPos QGVAR(intel));
                 
                 if (_distance < 50 && {_car getVariable QGVAR(intel)}) then {
@@ -65,15 +81,15 @@ X_JIPH setVariable [QGVAR(intel), true, true];
     
     if (isNull _car) exitWith {};
     
+    if (alive _driver) then {
+        _driver setDamage 1;
+    };
+    
     _car setDamage 1;
     
     sleep 20;
     
-    if (!alive _driver) then {
-        deleteVehicle _driver;
-    };
+    [_car] call FUNC(THIS_MODULE,remove);
     
-    deleteVehicle _car;
-    
-    X_JIPH setVariable [QGVAR(intel), false, true];
+    gameLogic setVariable [QGVAR(intel), false, true];
 };

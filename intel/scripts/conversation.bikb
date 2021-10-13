@@ -5,14 +5,6 @@ class Sentences
         speech[] = {};
         class Arguments {};
     };
-    
-    class Target {
-        text = "We have received intel that there is an %1 nearby, location has been marked.";
-        speech[] = {};
-        class Arguments {
-            class 1 {type = "simple";};
-        };
-    };
 };
 
 class Arguments {};

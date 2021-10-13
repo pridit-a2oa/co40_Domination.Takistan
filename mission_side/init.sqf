@@ -1,7 +1,7 @@
 /**
  * Mission Side Module
  *
- * Description: This module is responsible for handling side targets.
+ * Description: This module is responsible for handling side missions.
  */
 
 #define THIS_MODULE mission_side

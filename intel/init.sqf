@@ -8,43 +8,40 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
 
-// Set the civilian vehicle type
+// Set the civilian vehicle type.
 GVAR(intel_type_vehicles) = [
     "Lada1_TK_CIV_EP1",
     "Volha_1_TK_CIV_EP1",
     "Volha_2_TK_CIV_EP1"
 ];
 
-// Set the variation in mini missions that can be given
-GVAR(intel_type_targets) = [
-    "enemy encampment",
-    "abandoned light vehicle"
-];
-
-// Set the bomb type
+// Set the bomb type.
 GVAR(intel_type_bomb) = "ARTY_Sh_81_HE";
 
-// Set chance that intel will be a car bomb
-GVAR(intel_chance_bomb) = 30;
+// Set chance that intel will be a car bomb.
+GVAR(intel_chance_bomb) = 100;
 
-// Set distance from the intel point to spawn in civilian unit
-GVAR(intel_distance_spawn) = 1300;
+// Set chance unit will be playing music.
+// GVAR(intel_chance_music) = 35;
 
-// Set distance objects will be cleared when generating a new target
-GVAR(intel_distance_cleanup) = 50;
+// Set distance from the intel point to spawn in unit.
+GVAR(intel_distance_spawn) = 100;
 
-// Set time between spawning units that can provide intel
-GVAR(intel_time_spawn) = 3600;
+// Set amount of score to deduct for killing a civilian.
+GVAR(intel_amount_score) = 10;
+
+// Set time between spawning units that can provide intel.
+GVAR(intel_time_spawn) = 20;
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(intel), false, true];
+    gameLogic setVariable [QGVAR(intel), false, true];
 };
 
-__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
+__cppfln(FUNC(THIS_MODULE,alive),THIS_MODULE\functions\fn_alive.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
-__cppfln(FUNC(THIS_MODULE,explode),THIS_MODULE\functions\fn_explode.sqf);
+__cppfln(FUNC(THIS_MODULE,detonate),THIS_MODULE\functions\fn_detonate.sqf);
 __cppfln(FUNC(THIS_MODULE,intel),THIS_MODULE\functions\fn_intel.sqf);
-__cppfln(FUNC(THIS_MODULE,target),THIS_MODULE\functions\fn_target.sqf);
-__cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
+__cppfln(FUNC(THIS_MODULE,remove),THIS_MODULE\functions\fn_remove.sqf);
+__cppfln(FUNC(THIS_MODULE,timer),THIS_MODULE\functions\fn_timer.sqf);
 
 MODULE(THIS_MODULE) = true;

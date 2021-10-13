@@ -7,11 +7,11 @@
 #define THIS_MODULE vehicle_deploy
 #include "x_macros.sqf"
 
-// Set minimum distance from the closest building to be eligible to deploy.
-GVAR(vehicle_deploy_distance_building) = 60;
-
 // Set minimum distance from base to be eligible to deploy.
 GVAR(vehicle_deploy_distance_base) = 500;
+
+// Set minimum distance from the closest building to be eligible to deploy.
+GVAR(vehicle_deploy_distance_building) = 60;
 
 // Set minimum time (seconds) between deployments.
 GVAR(vehicle_deploy_cooldown_deploy) = 30;
