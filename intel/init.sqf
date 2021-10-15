@@ -19,19 +19,19 @@ GVAR(intel_type_vehicles) = [
 GVAR(intel_type_bomb) = "ARTY_Sh_81_HE";
 
 // Set chance that intel will be a car bomb.
-GVAR(intel_chance_bomb) = 100;
+GVAR(intel_chance_bomb) = 30;
 
 // Set chance unit will be playing music.
 // GVAR(intel_chance_music) = 35;
 
 // Set distance from the intel point to spawn in unit.
-GVAR(intel_distance_spawn) = 100;
+GVAR(intel_distance_spawn) = 1300;
 
 // Set amount of score to deduct for killing a civilian.
 GVAR(intel_amount_score) = 10;
 
 // Set time between spawning units that can provide intel.
-GVAR(intel_time_spawn) = 20;
+GVAR(intel_time_spawn) = 3600;
 
 if (isServer) then {
     gameLogic setVariable [QGVAR(intel), false, true];
