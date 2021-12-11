@@ -1,4 +1,3 @@
 /.vscode
-.env
 x_macros.*
 !x_macros.sh
