@@ -980,7 +980,6 @@ class XD_UIComboBox:XD_UIList {
     wholeHeight = 0.3;
 };
 class X3_RscText {
-    access = ReadAndWrite;
     type = CT_STATIC;
     idc = -1;
     style = ST_CENTER;
