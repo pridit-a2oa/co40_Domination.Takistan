@@ -35,7 +35,7 @@ for "_i" from 1 to 3 do {
         
         _full = player getVariable QGVAR(repair_full);
 
-        if (_full) then {
+        if (_full || typeOf _vehicle == "MH6J_EP1") then {
             [_vehicle, "setDamage", 0] call FUNC(network,mp);
             
             if (fuel _vehicle < 0.6) then {
