@@ -257,7 +257,7 @@ class Mission
 					special="NONE";
 					id=256;
 					side="WEST";
-					vehicle="US_Soldier_Engineer_EP1";
+					vehicle="US_Soldier_Crew_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.59999996;
@@ -272,7 +272,7 @@ class Mission
 					special="NONE";
 					id=259;
 					side="WEST";
-					vehicle="US_Soldier_Engineer_EP1";
+					vehicle="US_Soldier_Crew_EP1";
 					player="PLAY CDG";
 					skill=0.2;
 					text="ENGINEER2";
