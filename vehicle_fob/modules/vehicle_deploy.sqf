@@ -50,7 +50,7 @@ switch (_state) do {
                 "SmallBase_EP1",
                 [
                     ["Land_CamoNetVar_NATO_EP1", "MtvrRepair_DES_EP1"],
-                    ["Paleta2", "FlagCarrierUSA_EP1"]
+                    ["Paleta2", "FlagPole_EP1"]
                 ]
             ] call FUNC(server,objectMapper);
             
