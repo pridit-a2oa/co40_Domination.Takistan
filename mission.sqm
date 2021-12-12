@@ -257,7 +257,7 @@ class Mission
 					special="NONE";
 					id=256;
 					side="WEST";
-					vehicle="US_Soldier_Crew_EP1";
+					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.59999996;
@@ -272,7 +272,7 @@ class Mission
 					special="NONE";
 					id=259;
 					side="WEST";
-					vehicle="US_Soldier_Crew_EP1";
+					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					skill=0.2;
 					text="ENGINEER2";
@@ -620,7 +620,7 @@ class Mission
 					special="NONE";
 					id=278;
 					side="WEST";
-					vehicle="US_Soldier_Medic_EP1";
+					vehicle="US_Soldier_AR_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.59999996;
@@ -635,7 +635,7 @@ class Mission
 					special="NONE";
 					id=285;
 					side="WEST";
-					vehicle="US_Soldier_Medic_EP1";
+					vehicle="US_Soldier_AR_EP1";
 					player="PLAY CDG";
 					skill=0.82534337;
 					text="MEDIC2";
@@ -770,12 +770,12 @@ class Mission
 					special="NONE";
 					id=290;
 					side="WEST";
-					vehicle="BAF_Pilot_MTP";
+					vehicle="US_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					skill=0.33333331;
 					text="PILOT3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot (BAF)";
+					description="Pilot";
 				};
 				class Item3
 				{
@@ -784,12 +784,12 @@ class Mission
 					special="NONE";
 					id=289;
 					side="WEST";
-					vehicle="BAF_Pilot_MTP";
+					vehicle="US_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					skill=0.33333331;
 					text="PILOT4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot (BAF)";
+					description="Pilot";
 				};
 				class Item4
 				{
@@ -798,12 +798,12 @@ class Mission
 					special="NONE";
 					id=288;
 					side="WEST";
-					vehicle="US_Pilot_Light_EP1";
+					vehicle="BAF_Pilot_MTP";
 					player="PLAY CDG";
 					skill=0.46666664;
 					text="PILOT5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot (Light)";
+					description="Pilot (BAF)";
 				};
 				class Item5
 				{
@@ -812,12 +812,12 @@ class Mission
 					special="NONE";
 					id=287;
 					side="WEST";
-					vehicle="US_Pilot_Light_EP1";
+					vehicle="BAF_Pilot_MTP";
 					player="PLAY CDG";
 					skill=0.2;
 					text="PILOT6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot (Light)";
+					description="Pilot (BAF)";
 				};
 			};
 		};
