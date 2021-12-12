@@ -9,10 +9,18 @@ GVAR(repairing) = true;
 player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
+sleep 2;
+
+if (alive player) then {
+    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
+};
+
 for "_i" from 1 to 3 do {
-    sleep 2;
-    
+    if (!alive player) exitWith {};
+
     [true, "say", [player, QGVAR(sound_repair), 20]] call FUNC(network,mp);
+
+    sleep 2;
     
     if (_i == 3) then {
         if (damage _vehicle > 0.3) then {

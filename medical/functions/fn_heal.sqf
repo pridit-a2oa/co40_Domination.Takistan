@@ -6,8 +6,16 @@ GVAR(healing) = true;
 player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) - 1, true];
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
-sleep 6;
+sleep 2;
 
-player setDamage 0;
+if (alive player) then {
+    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
+};
+
+sleep 5;
+
+if (alive player) then {
+	player setDamage 0;
+};
 
 GVAR(healing) = false;

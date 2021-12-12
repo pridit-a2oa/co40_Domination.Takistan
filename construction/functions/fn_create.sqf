@@ -53,12 +53,18 @@ if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
+sleep 2;
+
+if (alive player) then {
+    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
+};
+
 _position = player modelToWorld [0, 7, 0];
 
 _object = createVehicle [_type, [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
 _object setDir ((getDir player) - 180);
 
-sleep 7;
+sleep 5;
 
 if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
     deleteVehicle _object;
