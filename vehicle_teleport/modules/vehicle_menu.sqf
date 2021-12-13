@@ -11,5 +11,5 @@ if (!isNil QMODULE(perk) && {!(player getVariable QGVAR(teleport))}) exitWith {}
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
-_index = _menu lbAdd "Teleport";
+_index = _menu lbAdd "Fast Travel";
 _menu lbSetData [_index, "teleport"];

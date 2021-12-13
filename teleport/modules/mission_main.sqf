@@ -10,4 +10,4 @@ PARAMS_1(_flag);
 
 waitUntil {!isNil {MODULE(common)}};
 
-_flag addAction ["Teleport" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", ""];
+_flag addAction ["Fast Travel" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", ""];

@@ -48,7 +48,7 @@ class XD_TeleportDialog {
             y = 0.72744;
             w = 0.237627;
             h = 0.113468;
-            text = "Teleport";
+            text = "Fast Travel";
             action = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonClose: XD_ButtonBase
@@ -66,7 +66,7 @@ class XD_TeleportDialog {
             y = 0.148153;
             w = 0.2;
             h = 0.1;
-            text = "Teleport";
+            text = "Fast Travel";
             style = ST_LEFT;
         };
     };
