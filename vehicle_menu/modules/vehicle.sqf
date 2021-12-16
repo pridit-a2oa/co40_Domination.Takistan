@@ -14,6 +14,10 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     _valid = _valid + GVAR(vehicle_ammobox_types);
 };
 
+if (!isNil QMODULE(vehicle_loadout)) then {
+    _valid = _valid + ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues));
+};
+
 if (!isNil QMODULE(vehicle_pack)) then {
     _valid = _valid + GVAR(vehicle_pack_types);
 };

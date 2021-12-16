@@ -16,27 +16,33 @@ _vehicle setVariable [QGVAR(servicing), true, true];
 [_vehicle, "lock", true] call FUNC(network,mp);
 [_vehicle, "setFuel", 0] call FUNC(network,mp);
 
-[true, "setVehicleAmmo", [_vehicle, 1]] call FUNC(network,mp);
-
 sleep 1;
 
-_magazines = getArray (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "magazines");
+if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loadout)}}) then {
+    [true, "setVehicleAmmo", [_vehicle, 0]] call FUNC(network,mp);
 
-if (count _magazines > 0) then {
-    {
-        [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
-    } forEach _magazines;
-};
+    [_vehicle] __submodulePP(vehicle_loadout);
+} else {
+    [true, "setVehicleAmmo", [_vehicle, 1]] call FUNC(network,mp);
 
-_turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets");
+    _magazines = getArray (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "magazines");
 
-for "_i" from 0 to (_turrets - 1) do {
-    _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets") select _i;
-    _magazines = getArray (_config >> "magazines");
-    
-    {
-        [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
-    } forEach _magazines;
+    if (count _magazines > 0) then {
+        {
+            [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
+        } forEach _magazines;
+    };
+
+    _turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets");
+
+    for "_i" from 0 to (_turrets - 1) do {
+        _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets") select _i;
+        _magazines = getArray (_config >> "magazines");
+        
+        {
+            [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
+        } forEach _magazines;
+    };
 };
 
 [true, "vehicleChat", [_vehicle, "Repairing"]] call FUNC(network,mp);
@@ -65,5 +71,3 @@ if (!isNil QMODULE(3d)) then {
 
 _service setVariable [QGVAR(time), GVAR(vehicle_service_time_cooldown) + call FUNC(common,time)];
 _vehicle setVariable [QGVAR(servicing), false, true];
-
-reload _vehicle;

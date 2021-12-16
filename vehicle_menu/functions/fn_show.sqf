@@ -22,6 +22,10 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     [_vehicle] __submodulePP(vehicle_ammobox);
 };
 
+if (!isNil QMODULE(vehicle_loadout)) then {
+    [_vehicle] __submodulePP(vehicle_loadout);
+};
+
 if (!isNil QMODULE(vehicle_pack)) then {
     [_vehicle] __submodulePP(vehicle_pack);
 };

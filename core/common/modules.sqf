@@ -70,6 +70,7 @@ GVAR(modules) = [
     "vehicle_fob",
     "vehicle_lift",
     "vehicle_load",
+    "vehicle_loadout",
     "vehicle_marker",
     "vehicle_pack",
     "vehicle_menu",

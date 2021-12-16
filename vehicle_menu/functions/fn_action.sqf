@@ -40,6 +40,12 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     };
 };
 
+if (!isNil QMODULE(vehicle_loadout)) then {
+    if (_lbData == "loadout") then {
+        [_vehicle] call FUNC(vehicle_loadout,set);
+    };
+};
+
 if (!isNil QMODULE(vehicle_pack)) then {
     if (_lbData == "pack" && {!isEngineOn _vehicle}) then {        
         _packed = _vehicle getVariable QGVAR(packed);
