@@ -27,7 +27,7 @@ if (hasInterface) then {
 	} forEach _checks;
 };
 
-if (isServer || {hasInterface} && {{str (_x) == "true"} count _checks == count _checks}) then {
+if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _checks)}) then {
 	_loadout = ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 	_types = [0, (GVAR(vehicle_loadout_types) select _loadout) select 1] call FUNC(common,arrayValues);
 
