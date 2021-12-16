@@ -21,7 +21,7 @@ _turrets = [
 
 {
 	if (["120Rnd_CMFlare_Chaff_Magazine", "60Rnd_CMFlare_Chaff_Magazine"] find _x == -1) then {
-		[_vehicle, "removeMagazines", _x] call FUNC(network,mp);
+		[_vehicle, "removeMagazine", _x] call FUNC(network,mp);
 	};
 } forEach _magazines;
 
