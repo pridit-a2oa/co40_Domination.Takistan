@@ -18,7 +18,9 @@ while {true} do {
         
         hint "You do not have the required perk to pilot attack aircraft";
         
-        call FUNC(THIS_MODULE,show);
+        if (player getVariable QGVAR(perk_points) > 0) then {
+            call FUNC(THIS_MODULE,show);
+        };
         
         _vehicle addEventHandler ["getout", {
             if (player getVariable QGVAR(pilot)) exitWith {};
