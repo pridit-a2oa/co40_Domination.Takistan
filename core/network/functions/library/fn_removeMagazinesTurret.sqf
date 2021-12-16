@@ -1,0 +1,1 @@
+(_this select 0) removeMagazinesTurret (_this select 1);

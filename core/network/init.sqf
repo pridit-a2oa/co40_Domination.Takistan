@@ -26,6 +26,7 @@ __cppfln(FUNC(THIS_MODULE,playActionNow),core\THIS_MODULE\functions\library\fn_p
 __cppfln(FUNC(THIS_MODULE,playMoveNow),core\THIS_MODULE\functions\library\fn_playMoveNow.sqf);
 __cppfln(FUNC(THIS_MODULE,playSound),core\THIS_MODULE\functions\library\fn_playSound.sqf);
 __cppfln(FUNC(THIS_MODULE,removeMagazines),core\THIS_MODULE\functions\library\fn_removeMagazines.sqf);
+__cppfln(FUNC(THIS_MODULE,removeMagazinesTurret),core\THIS_MODULE\functions\library\fn_removeMagazinesTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,removeWeapon),core\THIS_MODULE\functions\library\fn_removeWeapon.sqf);
 __cppfln(FUNC(THIS_MODULE,reveal),core\THIS_MODULE\functions\library\fn_reveal.sqf);
 __cppfln(FUNC(THIS_MODULE,say),core\THIS_MODULE\functions\library\fn_say.sqf);
