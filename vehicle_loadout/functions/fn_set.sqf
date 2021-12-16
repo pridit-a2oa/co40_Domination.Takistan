@@ -25,15 +25,9 @@ if (hasInterface) then {
 			hint _x;
 		};
 	} forEach _checks;
-
-	if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-
-	if !(isServer) then {
-        [gameLogic, "execVM", [_this, __function(set)]] call FUNC(network,mp);
-    };
 };
 
-if (isServer) then {
+if (isServer || {hasInterface} && {{str (_x) == "true"} count _checks == count _checks}) then {
 	_loadout = ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 	_types = [0, (GVAR(vehicle_loadout_types) select _loadout) select 1] call FUNC(common,arrayValues);
 
