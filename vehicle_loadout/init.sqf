@@ -11,15 +11,6 @@
 // Set types of vehicles and possible configurations
 GVAR(vehicle_loadout_types) = [
 	["A10_US_EP1", [
-		["Default", [
-			["GAU8", 1],
-			["MaverickLauncher", 1],
-			["SidewinderLaucher_AH1Z", 1],
-			["BombLauncherA10", 1],
-			["FFARLauncher_14", 1],
-			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
-		]],
-
 		["Air Supremacy", [
 			["GAU8", 2],
 			["SidewinderLaucher_AH1Z", 3],
@@ -32,6 +23,15 @@ GVAR(vehicle_loadout_types) = [
 			["BombLauncherA10", 2],
 			["FFARLauncher_14", 1],
 			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
+		]],
+
+		["Standard", [
+			["GAU8", 1],
+			["MaverickLauncher", 1],
+			["SidewinderLaucher_AH1Z", 1],
+			["BombLauncherA10", 1],
+			["FFARLauncher_14", 1],
+			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
 		]]
 	]]
 ];
@@ -41,6 +41,8 @@ GVAR(vehicle_loadout_distance_base) = 450;
 
 __cppfln(FUNC(THIS_MODULE,arm),THIS_MODULE\functions\fn_arm.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
+__cppfln(FUNC(THIS_MODULE,find),THIS_MODULE\functions\fn_find.sqf);
+__cppfln(FUNC(THIS_MODULE,rearm),THIS_MODULE\functions\fn_rearm.sqf);
 __cppfln(FUNC(THIS_MODULE,set),THIS_MODULE\functions\fn_set.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 

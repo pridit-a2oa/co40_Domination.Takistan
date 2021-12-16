@@ -14,4 +14,6 @@ if (_loadout == -1) exitWith {};
 
 if (isServer) then {
     [_vehicle] call FUNC(THIS_MODULE,set);
+    [_vehicle] call FUNC(THIS_MODULE,rearm);
+    [_vehicle] call FUNC(THIS_MODULE,arm);
 };

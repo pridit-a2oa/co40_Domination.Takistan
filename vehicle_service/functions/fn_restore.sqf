@@ -19,8 +19,6 @@ _vehicle setVariable [QGVAR(servicing), true, true];
 sleep 1;
 
 if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loadout)}}) then {
-    [true, "setVehicleAmmo", [_vehicle, 0]] call FUNC(network,mp);
-
     [_vehicle] __submodulePP(vehicle_loadout);
 } else {
     [true, "setVehicleAmmo", [_vehicle, 1]] call FUNC(network,mp);

@@ -1,6 +1,6 @@
 #define THIS_MODULE vehicle_loadout
 #include "x_macros.sqf"
-private ["_vehicle", "_name", "_checks", "_loadout", "_types", "_type"];
+private ["_vehicle", "_name", "_checks", "_find", "_loadout", "_loadouts", "_type"];
 
 PARAMS_1(_vehicle);
 
@@ -28,18 +28,25 @@ if (hasInterface) then {
 };
 
 if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _checks)}) then {
-	_loadout = ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
-	_types = [0, (GVAR(vehicle_loadout_types) select _loadout) select 1] call FUNC(common,arrayValues);
+	_find = [_vehicle] call FUNC(THIS_MODULE,find);
+
+	_loadouts = _find select 0;
+	_loadout = _find select 1;
 
 	{
 		_index = (_forEachIndex + 1);
 
 		if (isNil {_vehicle getVariable QGVAR(loadout)} || {_x == (_vehicle getVariable QGVAR(loadout)) select 0}) exitWith {
-			_type = _types select _index;
+			_type = _loadouts select _index;
 
-			if (isNil {_vehicle getVariable QGVAR(loadout)} || count _types == _index) then {
+			if (count _loadouts == _index) then {
+				_type = _loadouts select 0;
 				_index = 0;
-				_type = _types select 0;
+			};
+
+			if (isNil {_vehicle getVariable QGVAR(loadout)}) then {
+				_type = _loadouts select (_loadouts find "Standard");
+				_index = _loadouts find "Standard";
 			};
 
 			_vehicle setVariable [
@@ -53,5 +60,5 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
 
 			[_vehicle] call FUNC(THIS_MODULE,clear);
 		};
-	} forEach _types;
+	} forEach _loadouts;
 };
