@@ -11,7 +11,7 @@ class XD_SettingDialog {
             x = 0.28125;
             y = 0.25;
             w = 0.591856;
-            h = 0.561785;
+            h = 0.551785;
         };
     };
     class controls {
@@ -21,7 +21,7 @@ class XD_SettingDialog {
             x = 0.282;
             y = 0.304;
             w = 0.162;
-            h = 0.342;
+            h = 0.336;
             sizeEx = 0.025;
             rowHeight = 0.042;
             onLBSelChanged = "call d_fnc_setting_switch";
@@ -61,7 +61,7 @@ class XD_SettingDialog {
             x = 0.443;
             y = 0.540;
             w = 0.273;
-            h = 0.107;
+            h = 0.100;
             size = 0.025;
             colorBackground[] = {0.173, 0.157, 0.094, 1};
         };
@@ -89,7 +89,7 @@ class XD_SettingDialog {
             text = "Close";
             action = "CloseDialog 0";
             x = 0.546717;
-            y = 0.627946;
+            y = 0.617946;
             w = 0.160038;
             h = 0.111785;
         };
