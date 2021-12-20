@@ -26,10 +26,15 @@ if (!isNil QMODULE(vehicle_deploy)) then {
             _deployed = (_x getVariable QGVAR(deployed)) select 0;
             
             if (isNil "_deployed" || {!_deployed}) then {
+                _button ctrlSetText "Not Deployed";
                 _button ctrlEnable false;
             };
         };
     } forEach (call FUNC(vehicle_teleport,valid));
+};
+
+if (ctrlEnabled _button) then {
+    _button ctrlSetText "Go";
 };
 
 _target

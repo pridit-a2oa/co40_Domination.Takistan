@@ -13,6 +13,7 @@
 #define CT_ACTIVETEXT		11
 #define CT_TREE				12
 #define CT_STRUCTURED_TEXT	13 
+#define CT_NO_BORDER        16
 #define CT_3DSTATIC			20
 #define CT_3DACTIVETEXT		21
 #define CT_3DLISTBOX		22

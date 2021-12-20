@@ -10,10 +10,10 @@ if (_clear) then {
     lbSetCurSel [1500, -1];
 };
 
-_list = DIALOG("X_TELEPORT_DIALOG", 1500);
 _button = DIALOG("X_TELEPORT_DIALOG", 2000);
-
 _button ctrlEnable false;
+
+_list = DIALOG("X_TELEPORT_DIALOG", 1500);
 
 if (player distance GVAR(flag) > 10) then {
     _list lbAdd "Base";
@@ -33,4 +33,8 @@ if (!isNil QMODULE(vehicle_deploy)) then {
             _list lbSetData [_index, _id];
         };
     } forEach (call FUNC(vehicle_teleport,valid));
+};
+
+if (ctrlEnabled _button) then {
+    _button ctrlSetText "Go";
 };

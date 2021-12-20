@@ -29,15 +29,15 @@ class XD_TeleportDialog {
         class RscTeleportListbox: RscListbox
         {
             idc = 1500;
-            x = 0.733113;
+            x = 0.732113;
             y = 0.231735;
-            w = 0.241676;
+            w = 0.243676;
             h = 0.500000;
             sizeEx = 0.023;
             rowHeight = 0.05;
-            style = ST_LEFT;
+            style = CT_NO_BORDER + ST_LEFT;
             borderSize = 1;
-            onMouseButtonDown = "[d_teleport, true] call d_fnc_teleport_populate";
+            onMouseButtonUp = "[d_teleport, true] call d_fnc_teleport_populate";
             onLBSelChanged = "[_this select 1] call d_fnc_teleport_switch";
             onLBDblClick = "call d_fnc_teleport_action";
         };
@@ -48,7 +48,7 @@ class XD_TeleportDialog {
             y = 0.72744;
             w = 0.237627;
             h = 0.113468;
-            text = "Fast Travel";
+            text = "No Selection";
             action = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonClose: XD_ButtonBase

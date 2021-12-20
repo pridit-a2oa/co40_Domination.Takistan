@@ -8,7 +8,10 @@ disableSerialization;
 
 _target = call FUNC(THIS_MODULE,target);
 
-if (isNil "_target") exitWith {};
+if (isNil "_target") exitWith {
+    _button = DIALOG("X_TELEPORT_DIALOG", 2000);
+    _button ctrlSetText "No Selection";
+};
 
 _map = DIALOG("X_TELEPORT_DIALOG", 1000);
 
@@ -29,9 +32,8 @@ if (!isNil QMODULE(vehicle_mhq) && {GVAR(vehicle_mhq_types) find (typeOf _target
         while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY"} do {
             if (lbCurSel 1500 != _selected) exitWith {};
             if (isNil "_target") exitWith {};
-            if (!alive _target) exitWith {};
             
-            if !([(_target getVariable QGVAR(deployed)) select 0, _deployed] call BIS_fnc_areEqual) exitWith {
+            if (!([(_target getVariable QGVAR(deployed)) select 0, _deployed] call BIS_fnc_areEqual) || {!alive _target}) exitWith {
                 [GVAR(teleport), true] call FUNC(THIS_MODULE,populate);
             };
             
@@ -54,6 +56,8 @@ ctrlMapAnimCommit _map;
     PARAMS_3(_map, _animations, _selected);
     
     _target = call FUNC(THIS_MODULE,target);
+
+    if (isNil "_target") exitWith {};
     
     if !(_target isKindOf "AllVehicles") exitWith {};
     
