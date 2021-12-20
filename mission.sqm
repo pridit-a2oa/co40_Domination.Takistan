@@ -830,7 +830,7 @@ class Mission
 				class Item0
 				{
 					position[]={7910.0698,302.86459,2454.7026};
-					id=308;
+					id=304;
 					side="LOGIC";
 					vehicle="FunctionsManager";
 					leader=1;
@@ -842,7 +842,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=273;
+		items=269;
 		class Item0
 		{
 			position[]={8332.1318,296.04001,2044.3177};
@@ -3256,92 +3256,99 @@ class Mission
 		};
 		class Item251
 		{
-			position[]={8289.3838,296.04001,2082.302};
-			azimut=509.73499;
-			special="NONE";
-			id=299;
-			side="EMPTY";
-			vehicle="MtvrRefuel_DES_EP1";
-			skill=0.33333331;
-		};
-		class Item252
-		{
-			position[]={8284.2119,296.04001,2079.3135};
-			azimut=509.73499;
-			special="NONE";
-			id=300;
-			side="EMPTY";
-			vehicle="MtvrRepair_DES_EP1";
-			skill=0.33333331;
-		};
-		class Item253
-		{
-			position[]={8278.9932,296.04001,2076.29};
-			azimut=509.73499;
-			special="NONE";
-			id=301;
-			side="EMPTY";
-			vehicle="MtvrRepair_DES_EP1";
-			skill=0.33333331;
-		};
-		class Item254
-		{
-			position[]={8294.4814,296.04001,2085.2539};
-			azimut=509.73499;
-			special="NONE";
-			id=302;
-			side="EMPTY";
-			vehicle="MtvrRefuel_DES_EP1";
-			skill=0.33333331;
-		};
-		class Item255
-		{
 			position[]={8308.6846,296.04001,2105.9414};
 			azimut=-391.79099;
 			special="NONE";
-			id=303;
+			id=299;
 			side="EMPTY";
 			vehicle="HMMWV_Ambulance_DES_EP1";
 			skill=0.33333331;
 		};
-		class Item256
+		class Item252
 		{
 			position[]={8249.8398,296.04001,2118.6182};
 			azimut=-28.3703;
 			special="NONE";
-			id=304;
+			id=300;
 			side="EMPTY";
 			vehicle="HeliHEmpty";
 			lock="UNLOCKED";
 			skill=0.60000002;
 		};
-		class Item257
+		class Item253
 		{
 			position[]={7964.5625,296.12076,1689.7336};
 			azimut=-118;
-			id=305;
+			id=301;
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
-		class Item258
+		class Item254
 		{
 			position[]={8016.8403,296.12076,1720.4272};
 			azimut=-118;
-			id=306;
+			id=302;
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
-		class Item259
+		class Item255
 		{
 			position[]={7909.104,296.12076,1658.5116};
 			azimut=-118;
+			id=303;
+			side="EMPTY";
+			vehicle="ATV_US_EP1";
+			leader=1;
+			skill=0.60000002;
+			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
+		};
+		class Item256
+		{
+			position[]={8064.4971,296.04001,1867.0511};
+			azimut=-28.504801;
+			special="NONE";
+			id=305;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_service_chopper";
+		};
+		class Item257
+		{
+			position[]={7894.7173,296.04001,1769.8344};
+			azimut=-28.504801;
+			special="NONE";
+			id=306;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_service_wreck";
+		};
+		class Item258
+		{
+			position[]={7980.4341,296.04001,1996.9509};
+			azimut=-28.3703;
+			special="NONE";
 			id=307;
+			side="EMPTY";
+			vehicle="HeliHRescue";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_service_land";
+		};
+		class Item259
+		{
+			position[]={7919.4912,296.04001,1789.1141};
+			azimut=599.87451;
+			id=308;
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			leader=1;
@@ -3350,145 +3357,98 @@ class Mission
 		};
 		class Item260
 		{
-			position[]={8064.4971,296.04001,1867.0511};
-			azimut=-28.504801;
-			special="NONE";
-			id=309;
-			side="EMPTY";
-			vehicle="HeliH";
-			lock="UNLOCKED";
-			skill=0.60000002;
-			text="d_service_chopper";
-		};
-		class Item261
-		{
-			position[]={7894.7173,296.04001,1769.8344};
-			azimut=-28.504801;
-			special="NONE";
-			id=310;
-			side="EMPTY";
-			vehicle="HeliH";
-			lock="UNLOCKED";
-			skill=0.60000002;
-			text="d_service_wreck";
-		};
-		class Item262
-		{
-			position[]={7980.4341,296.04001,1996.9509};
-			azimut=-28.3703;
-			special="NONE";
-			id=311;
-			side="EMPTY";
-			vehicle="HeliHRescue";
-			lock="UNLOCKED";
-			skill=0.60000002;
-			text="d_service_land";
-		};
-		class Item263
-		{
-			position[]={7919.4912,296.04001,1789.1141};
-			azimut=599.87451;
-			id=312;
-			side="EMPTY";
-			vehicle="ATV_US_EP1";
-			leader=1;
-			skill=0.60000002;
-			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
-		};
-		class Item264
-		{
 			position[]={7915.5068,296.04001,1783.6814};
 			azimut=-300.27844;
 			special="NONE";
-			id=313;
+			id=309;
 			side="EMPTY";
 			vehicle="US_WarfareBAircraftFactory_Base_EP1";
 			skill=0.33333331;
 			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
-		class Item265
+		class Item261
 		{
 			position[]={8087.9512,296.04001,1885.4674};
 			azimut=599.87451;
-			id=314;
+			id=310;
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
-		class Item266
+		class Item262
 		{
 			position[]={8083.9668,296.04001,1880.0347};
 			azimut=-300.27844;
 			special="NONE";
-			id=315;
+			id=311;
 			side="EMPTY";
 			vehicle="US_WarfareBAircraftFactory_Base_EP1";
 			skill=0.33333331;
 			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
-		class Item267
+		class Item263
 		{
 			position[]={8078.6353,296.04001,1722.8362};
 			azimut=-300.27802;
 			special="NONE";
-			id=316;
+			id=312;
 			side="EMPTY";
 			vehicle="US_WarfareBArtilleryRadar_Base_EP1";
 			skill=0.33333331;
 			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
-		class Item268
+		class Item264
 		{
 			position[]={7733.5425,296.29001,1693.0626};
 			azimut=420.50037;
-			id=317;
+			id=313;
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			leader=1;
 			skill=0.60000002;
 			init="this setPos [getPos this select 0, getPos this select 1,1.5];";
 		};
-		class Item269
+		class Item265
 		{
 			position[]={7737.5874,296.29001,1698.4523};
 			azimut=-479.65247;
 			special="NONE";
-			id=318;
+			id=314;
 			side="EMPTY";
 			vehicle="US_WarfareBAircraftFactory_Base_EP1";
 			skill=0.33333331;
 			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
-		class Item270
+		class Item266
 		{
 			position[]={7719.6938,296.04001,1725.8008};
 			azimut=-120.34;
 			special="NONE";
-			id=319;
+			id=315;
 			side="EMPTY";
 			vehicle="HeliHEmpty";
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="d_service_jet";
 		};
-		class Item271
+		class Item267
 		{
 			position[]={8098.9551,296.04001,2073.6741};
 			azimut=95.5028;
 			special="NONE";
-			id=320;
+			id=316;
 			side="EMPTY";
 			vehicle="MtvrReammo_DES_EP1";
 			skill=0.33333331;
 		};
-		class Item272
+		class Item268
 		{
 			position[]={8106.1421,296.04001,2077.5876};
 			azimut=95.5028;
 			special="NONE";
-			id=321;
+			id=317;
 			side="EMPTY";
 			vehicle="MtvrReammo_DES_EP1";
 			skill=0.33333331;
