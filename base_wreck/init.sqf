@@ -15,7 +15,7 @@ GVAR(base_wreck_type_hangar) = "Land_Mil_hangar_EP1";
 GVAR(base_wreck_amount_hangar) = 3;
 
 // Set amount of score to reward a player when rebuilding a wreck
-GVAR(base_wreck_amount_score) = 10;
+GVAR(base_wreck_amount_score) = 5;
 
 // Set curated rebuild times based on vehicle type
 GVAR(base_wreck_time_rebuild) = [
