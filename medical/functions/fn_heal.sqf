@@ -15,7 +15,7 @@ if (alive player) then {
 sleep 5;
 
 if (alive player) then {
-	player setDamage 0;
+    player setDamage 0;
 };
 
 GVAR(healing) = false;

@@ -9,7 +9,7 @@ if !([_key] call FUNC(THIS_MODULE,valid)) exitWith {};
 _variable = profileNamespace getVariable _key;
 
 if (isNil "_variable" && !isNil "_value") then {
-	[_key, _value] call FUNC(THIS_MODULE,set);
+    [_key, _value] call FUNC(THIS_MODULE,set);
 } else {
-	_variable
+    _variable
 };

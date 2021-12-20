@@ -19,10 +19,10 @@ _name = (_vehicle getVariable QGVAR(loadout)) select 0;
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _index = _menu lbAdd format [
-	"Change Loadout (%1/%2: %3)",
-	(_loadouts find _name) + 1,
-	count _loadouts,
-	_name
+    "Change Loadout (%1/%2: %3)",
+    (_loadouts find _name) + 1,
+    count _loadouts,
+    _name
 ];
 
 _menu lbSetData [_index, "loadout"];

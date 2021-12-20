@@ -10,30 +10,30 @@
 
 // Set types of vehicles and possible configurations
 GVAR(vehicle_loadout_types) = [
-	["A10_US_EP1", [
-		["Air Supremacy", [
-			["GAU8", 2],
-			["SidewinderLaucher_AH1Z", 3],
-			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
-		]],
+    ["A10_US_EP1", [
+        ["Air Supremacy", [
+            ["GAU8", 2],
+            ["SidewinderLaucher_AH1Z", 3],
+            [["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]],
 
-		["Close Air Support", [
-			["GAU8", 1],
-			["MaverickLauncher", 1],
-			["BombLauncherA10", 2],
-			["FFARLauncher_14", 1],
-			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
-		]],
+        ["Close Air Support", [
+            ["GAU8", 1],
+            ["MaverickLauncher", 1],
+            ["BombLauncherA10", 2],
+            ["FFARLauncher_14", 1],
+            [["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]],
 
-		["Standard", [
-			["GAU8", 1],
-			["MaverickLauncher", 1],
-			["SidewinderLaucher_AH1Z", 1],
-			["BombLauncherA10", 1],
-			["FFARLauncher_14", 1],
-			[["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
-		]]
-	]]
+        ["Standard", [
+            ["GAU8", 1],
+            ["MaverickLauncher", 1],
+            ["SidewinderLaucher_AH1Z", 1],
+            ["BombLauncherA10", 1],
+            ["FFARLauncher_14", 1],
+            [["CMFlareLauncher", "120Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]]
+    ]]
 ];
 
 // Set maximum distance from base the loadout can be changed

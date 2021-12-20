@@ -76,8 +76,8 @@ _handle = _units spawn {
             
             sleep 0.5;
             
-            _x action ["SitDown", _x];	
-        };	
+            _x action ["SitDown", _x];
+        };
     } forEach _this;
 };
 

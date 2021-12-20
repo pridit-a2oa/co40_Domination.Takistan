@@ -128,7 +128,7 @@ KEGs_updatemarkers = {
             _OriginalSide = _u call KEGs_CheckOriginalSide;
             if (!(_OriginalSide in KEGs_ShownSides)) then {
                 if (markerAlpha _m != 0) then {_m setMarkerAlphaLocal 0};
-            } else { 				
+            } else {
                 if (markerAlpha _m == 0) then {_m setMarkerAlphaLocal 1};
                 if (KEGs_MarkerNames || {KEGs_MinimapZoom < 0.15}) then {
                     if (ctrlVisible _cMapFull) then {
@@ -373,7 +373,7 @@ KEGs_CheckNew = {
             };
         } forEach _newUnits;
 
-        KEGs_deathCam = [KEGs_deathCam, _nunits] call KEGs_fnc_arrayPushStack;				
+        KEGs_deathCam = [KEGs_deathCam, _nunits] call KEGs_fnc_arrayPushStack;
 
         KEGs_NeedUpdateLB = true;
     };

@@ -9,7 +9,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-	GVAR(profile_type_save) = [];
+    GVAR(profile_type_save) = [];
 };
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);

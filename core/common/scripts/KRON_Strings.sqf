@@ -178,7 +178,7 @@ KRON_Compare = {
         if (_n==1) then {
             if (_s1<_s2) then {_s=-1} else {if (_s1>_s2) then {_s=1}};
         };
-        _s	
+        _s
     };
     _s1 = toArray(_s1);
     _s2 = toArray(_s2);

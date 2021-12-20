@@ -52,7 +52,7 @@ switch (_type) do {
     case "KeyDown": {
         _key = _param select 1;
         // WSAD keys: camera movement in dropped mode;
-        switch (_key) do {		
+        switch (_key) do {
             case 32: {KEGs_CamRight = true};
             case 30: {KEGs_CamLeft = true};
             case 17: {KEGs_CamForward = true};
@@ -81,7 +81,7 @@ switch (_type) do {
                     lbSetCurSel [KCLBTARGETS, _cur];
                 };
                 KEGs_CamRight = false;
-            };	
+            };
             case 30: {
                 // A = Previous target;
                 if (!KEGs_DroppedCamera) then {
@@ -99,7 +99,7 @@ switch (_type) do {
                     lbSetCurSel [KCLBCAMERAS, KEGs_cameraIdx];
                 };
                 KEGs_CamForward = false;
-            };	
+            };
             case 31: {
                 // S = Next camera;
                 if (!KEGs_DroppedCamera) then {
@@ -118,13 +118,13 @@ switch (_type) do {
                 };
             };
             
-            case 33: {		
+            case 33: {
                 // F = Toggle filter;
                 KEGs_AIfilter = abs (KEGs_AIfilter - 1);
                 KEGs_NeedUpdateLB = true;
             };
             
-            case 34: {		
+            case 34: {
                 // G = Toggle Group/Formation Leader filter;
                 KEGs_gfleader = !KEGs_gfleader;
                 KEGs_NeedUpdateLB = true;
@@ -199,11 +199,11 @@ switch (_type) do {
         _y = _param select 3;
         _button = _param select 1;
         KEGs_MouseButtons set [_button, false];
-    };	
+    };
     
     case "MouseZChanged": {
         KEGs_MouseScroll = KEGs_MouseScroll + (_param select 1);
-    };	
+    };
 
     case "MouseZChangedminimap": {
         KEGs_MinimapZoom = KEGs_MinimapZoom + ((_param select 1) * 0.066);
@@ -211,7 +211,7 @@ switch (_type) do {
             case (KEGs_MinimapZoom > 0.5): {KEGs_MinimapZoom = 0.5};
             case (KEGs_MinimapZoom < 0.05): {KEGs_MinimapZoom = 0.05};
         };
-    };			
+    };
         
     case "ToggleCameraMenu": {
         // Hide/unhide camera menu;
@@ -335,7 +335,7 @@ switch (_type) do {
                 {(_x select 1) setDropInterval 0} foreach KEGs_Tagsources;
             };
         };
-    };	
+    };
     
     /*// Add string to event log;
     case "EventLogAdd": {
@@ -408,7 +408,7 @@ switch (_type) do {
                 _m setMarkerColorLocal "ColorYellow";
                 [_m2, _m] spawn KEGs_markerdel2;
             }
-        } else {		
+        } else {
             // Missile camera;
             if (KEGs_UseMissileCam == 1 && {!KEGs_DroppedCamera}) then {
                 if (_u == vehicle KEGs_target && {(_type in ["shotMissile", "shotRocket", "shotShell"])} && {!KEGs_MissileCamActive}) then {

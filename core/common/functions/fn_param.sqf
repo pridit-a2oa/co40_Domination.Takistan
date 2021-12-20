@@ -6,7 +6,7 @@
         Define script parameter
 
     Parameter(s):
-        0: ARRAY	- list of params
+        0: ARRAY  - list of params
         1: NUMBER - selected index
         2: ANY (Optional) - default param (used when param is missing or of wrong type)
                           - you can overload default value by setting 'BIS_fnc_<functionName>_<index>'

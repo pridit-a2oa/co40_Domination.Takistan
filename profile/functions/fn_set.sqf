@@ -7,6 +7,6 @@ PARAMS_2(_key, _value);
 if !([_key] call FUNC(THIS_MODULE,valid)) exitWith {};
 
 profileNamespace setVariable [
-	_key,
-	_value
+    _key,
+    _value
 ];

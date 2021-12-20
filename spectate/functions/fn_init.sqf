@@ -575,7 +575,7 @@ while {dialog} do {
             _spdbase = -_spd * _tbase;
             _cspeedx = _cspeedx + (_spdbase * sin _fangle);
             _cspeedy = _cspeedy + (_spdbase * cos _fangle);
-        };		
+        };
         if (KEGs_CamLeft) then {
             _spd = (_sdistance max 1) * 20;
             _spdbase = _spd * _tbase;
@@ -587,7 +587,7 @@ while {dialog} do {
             _spdbase = -_spd * _tbase;
             _cspeedx = _cspeedx + (_spdbase * sin (_fangle - 90));
             _cspeedy = _cspeedy + (_spdbase * cos (_fangle - 90));
-        };				
+        };
 
         _cxpos = _cxpos + (_cspeedx * _tbase);
         _cypos = _cypos + (_cspeedy * _tbase);

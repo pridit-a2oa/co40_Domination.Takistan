@@ -7,6 +7,6 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(setting)) then {
-		__submodulePP(setting);
-	};
+        __submodulePP(setting);
+    };
 };

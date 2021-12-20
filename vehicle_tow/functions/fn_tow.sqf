@@ -33,20 +33,20 @@ while {alive _tow && {_tow getVariable QGVAR(towed)}} do {
     
     //get the x and y length of the difference vector
     _dx_axis = (_aTpos select 0) - (_aPpos select 0);
-    _dy_axis = (_aTpos select 1) - (_aPpos select 1);		
+    _dy_axis = (_aTpos select 1) - (_aPpos select 1);
     _d_axis = sqrt(_dx_axis^2 + _dy_axis^2);//absolute length of diff vector
     
-    if (_d_axis > 0.05) then {		
+    if (_d_axis > 0.05) then {
         //get global distance between the T axis and P wheelpos
         _dx = (_aTpos select 0) - (_wheelPpos select 0);
-        _dy = (_aTpos select 1) - (_wheelPpos select 1);		
+        _dy = (_aTpos select 1) - (_wheelPpos select 1);
         _dirdeg = _dx atan2 _dy; //convert to direction in deg
         
         [_tow, "setVectorDir", [_dx, _dy, 0]] call FUNC(network,mp); //set the direction of P, preserving pitch and bank
         
-        //velocity implementation (smoother but elastic)		
-        _dirdeg_axis = _dx_axis atan2 _dy_axis;	//get the direction of the difference vector						
-        _speed = _d_axis * 4; //control the speed needed to make this distance smaller TWEAK HERE	Higher value means less elasticty, but more choppy.
+        //velocity implementation (smoother but elastic)
+        _dirdeg_axis = _dx_axis atan2 _dy_axis; //get the direction of the difference vector
+        _speed = _d_axis * 4; //control the speed needed to make this distance smaller TWEAK HERE Higher value means less elasticty, but more choppy.
         _speed = _speed min 15; //set max speed for safety.
         _Pvel = velocity _tow;
         
