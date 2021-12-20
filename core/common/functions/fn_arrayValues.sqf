@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_index", "_haystack"];
+private ["_index", "_haystack", "_values", "_value"];
 
 PARAMS_2(_index, _haystack);
 
