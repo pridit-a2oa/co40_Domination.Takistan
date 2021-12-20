@@ -4,6 +4,7 @@
 
 #define THIS_MODULE setting
 #include "x_macros.sqf"
+private ["_type", "_default"];
 
 if (hasInterface) then {
     if (!isNil QMODULE(3d)) then {
@@ -30,16 +31,18 @@ if (hasInterface) then {
         _type = [_x select 1] call FUNC(THIS_MODULE,type);
         _default = GVAR(setting_type_default) select _forEachIndex;
 
+        if (!isNil QMODULE(profile)) then {
+            private ["_load"];
+
+            _load = [__profile(_x select 1), _default] call FUNC(profile,load);
+
+            _default = if (!isNil "_load") then {_load} else {_default};
+        };
+
         if (typeName _type == "ARRAY") then {
             (call compile format ["%1 %2", _type select 0, _default]);
         };
-        
-        _value = _default;
-        
-        if (typeName _default != "STRING") then {
-            _value = str _value;
-        };
 
-        player setVariable [format ["d_%1", _x select 1], [(_x select 4) find _default, _value]];
+        player setVariable [format ["d_%1", _x select 1], [(_x select 4) find _default, _default]];
     } forEach GVAR(setting_type_valid);
 };

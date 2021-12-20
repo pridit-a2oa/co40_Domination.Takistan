@@ -51,6 +51,7 @@ GVAR(modules) = [
     "option",
     "perimiter",
     "perk",
+    "profile",
     "respawn",
     "revive",
     "setting",

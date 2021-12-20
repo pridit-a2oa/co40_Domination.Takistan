@@ -2,7 +2,7 @@ class XD_SettingDialog {
     idd = 1000;
     movingEnable = 1;
     onLoad = "uiNamespace setVariable ['X_SETTING_DIALOG', _this select 0]";
-    onUnLoad = "uiNamespace setVariable ['X_SETTING_DIALOG', nil]";
+    onUnLoad = "uiNamespace setVariable ['X_SETTING_DIALOG', nil];if (!isNil ""d_mdl_profile"") then {saveProfileNamespace}";
     objects[] = {};
     class controlsBackground {
         class PictureBackground: XD_RscPicture

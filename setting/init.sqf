@@ -8,6 +8,13 @@
 // Set valid setting types
 GVAR(setting_type_valid) = [
     [
+        "Custom Sounds",
+        "sounds",
+        "Set whether custom sounds will play (MT seized, score rewards)",
+        ["Yes", "No"],
+        [1, 0]
+    ],
+    [
         "Earplugs",
         "earplugs",
         "Set to reduce the volume of in-game sound effects",
@@ -19,18 +26,19 @@ GVAR(setting_type_valid) = [
         "grass",
         "Set grass density",
         ["None", "Medium", "High"],
-        [50, 25, 12.5]
+        [50, 25, 10]
     ],
     [
         "View Distance",
         "view_distance",
-        "Set the distance which terrain and objects will be visible (high performance impact)",
+        "Set distance for terrain and object visibility (significant performance impact)",
         [500, 10000]
     ]
 ];
 
 // Set default values corresponding with valid types
 GVAR(setting_type_default) = [
+    1,
     1,
     50,
     2500

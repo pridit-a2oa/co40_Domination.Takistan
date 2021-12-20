@@ -12,7 +12,7 @@ if (!(_vehicle isKindOf "Helicopter") && {typeOf _vehicle != "MV22"}) exitWith {
 
 _vehicle addEventHandler ["getin", {
     if ((_this select 1) != "driver" || {(_this select 2) != player}) exitWith {};
-    if ((player getVariable QGVAR(vehicle_welcome)) select 1 == "false") exitWith {};
+    if ((player getVariable QGVAR(vehicle_welcome)) select 1 == 0) exitWith {};
     
     67322 cutRsc ["XD_VehicleWelcomeDialog", "PLAIN"];
     
