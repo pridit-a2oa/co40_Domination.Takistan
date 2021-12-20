@@ -5,6 +5,10 @@
 #define THIS_MODULE respawn
 #include "x_macros.sqf"
 
+if (!isNil QMODULE(mash)) then {
+    __submodulePP(mash);
+};
+
 if (!isNil QMODULE(vehicle_mhq)) then {
     __submodulePP(vehicle_mhq);
 };

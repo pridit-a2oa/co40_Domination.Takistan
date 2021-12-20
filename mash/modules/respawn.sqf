@@ -4,11 +4,11 @@
 
 #include "x_macros.sqf"
 
-// Set distance within deployed MHQ to be able to respawn.
-GVAR(vehicle_mhq_distance_respawn) = 2000;
+// Set distance within MASH to be able to respawn.
+GVAR(mash_distance_respawn) = 300;
 
 if (!isNil QMODULE(setting)) then {    
     player setVariable [QGVAR(respawn_types), (player getVariable QGVAR(respawn_types)) + [
-        [format ["MHQ (%1km)", GVAR(vehicle_mhq_distance_respawn) / 1000], "mhq"]
+        [format ["MASH (%1m)", GVAR(mash_distance_respawn)], "mash"]
     ]];
 };
