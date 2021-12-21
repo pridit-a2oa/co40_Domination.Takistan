@@ -4,7 +4,7 @@
 
 #define THIS_MODULE 3d
 #include "x_macros.sqf"
-private ["_object", "_text", "_countdown", "_dialog", "_width", "_height"];
+private ["_object", "_text", "_visibility", "_setting", "_countdown", "_dialog", "_width", "_height"];
 
 PARAMS_5(_object, _text, _visibility, _setting, _countdown);
 
@@ -30,7 +30,7 @@ _width = safezoneW;
 _height = safezoneH;
 
 while {alive _object} do {
-    if (player getVariable QGVAR(3d) select 1 == 10 || {!_setting}) then {
+    if (!_setting || {player getVariable QGVAR(3d) select 1 == 10}) then {
         _distance = player distance (position _object);
         _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
         
