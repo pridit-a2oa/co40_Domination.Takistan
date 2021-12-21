@@ -76,6 +76,25 @@ class XD_SettingDialog {
             size = 0.025;
             style = ST_CENTER;
         };
+        class TextSave: X3_RscText
+        {
+            idc = 700;
+            text = "";
+            x = 0.303656;
+            y = 0.622263;
+            w = 0.1;
+            h = 0.1;
+            size = 0.001;
+        };
+        class PictureSave: XD_RscPicture
+        {
+            idc = 800;
+            text = "";
+            x = 0.293141;
+            y = 0.655249;
+            w = 0.03;
+            h = 0.04;
+        };
         class TextTitle: X3_RscText
         {
             text = "Settings";
