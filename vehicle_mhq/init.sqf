@@ -16,8 +16,8 @@ GVAR(vehicle_mhq_types) = [
 
 // Set net types associated with faction.
 GVAR(vehicle_mhq_types_net) = [
-    ["BIS_TK", "Land_CamoNetB_EAST_EP1"],
-    ["BIS_US", "Land_CamoNetB_NATO_EP1"]
+    ["BIS_TK", "Land_CamoNetVar_EAST_EP1"],
+    ["BIS_US", "Land_CamoNetVar_NATO_EP1"]
 ];
 
 MODULE(THIS_MODULE) = true;

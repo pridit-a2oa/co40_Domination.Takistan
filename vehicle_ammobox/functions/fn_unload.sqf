@@ -6,7 +6,7 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
 
-_position = _vehicle modelToWorld [4,0,0];
+_position = _vehicle modelToWorld [6, 0, 0];
 
 if (!isNil QMODULE(ammobox)) then {
     _box = [

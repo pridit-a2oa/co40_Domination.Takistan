@@ -19,10 +19,12 @@ switch (_state) do {
             };
         } forEach GVAR(vehicle_mhq_types_net);
 
-        _camo = createVehicle [_net, [_position select 0, _position select 1, -0.18], [], 0, "CAN_COLLIDE"];
-        _camo setDir direction _vehicle;
+        _position = _vehicle modelToWorld [0.3, 0, 0];
+
+        _camo = createVehicle [_net, [_position select 0, _position select 1, 0.85], [], 0, "CAN_COLLIDE"];
+        _camo setDir ((direction _vehicle) - 90);
         _camo setVectorUp (vectorUp _vehicle);
-        _camo setPos [_position select 0, _position select 1, -0.18];
+        _camo setPos [_position select 0, _position select 1, 0.85];
 
         [true, "addEventHandler", [_camo, "HandleDamage", {0}]] call FUNC(network,mp);
 
