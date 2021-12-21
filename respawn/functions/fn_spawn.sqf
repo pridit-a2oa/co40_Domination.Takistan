@@ -1,6 +1,6 @@
 #define THIS_MODULE respawn
 #include "x_macros.sqf"
-private ["_unit", "_position", "_type", "_objects", "_object"];
+private ["_unit", "_position", "_type", "_types", "_objects", "_deployed", "_object"];
 
 PARAMS_2(_unit, _position);
 
@@ -10,21 +10,31 @@ _unit setDir 240.214;
 
 if (_type == "base") exitWith {};
 
+_types = call compile format ["d_%1_type%2", _type, if (_type != "mash") then {"s"} else {""}];
+
 _objects = nearestObjects [
     _position,
-    call compile format ["d_vehicle_%1_types", _type],
-    call compile format ["d_vehicle_%1_distance_respawn", _type]
+    if (typeName _types == "ARRAY") then {_types} else {[_types]},
+    call compile format ["d_%1_distance_respawn", _type]
 ];
 
 {
-    if ((_x getVariable QGVAR(deployed)) select 0) exitWith {
+    if !(isNil QMODULE(vehicle_deploy)) then {
+        _deployed = _x getVariable QGVAR(deployed);
+    };
+
+    if (isNil "_deployed") exitWith {
+        _object = _x;
+    };
+
+    if (!isNil "_deployed" && {(_x getVariable QGVAR(deployed)) select 0}) exitWith {
         _object = _x;
     };
 } forEach _objects;
 
-if (!isNil "_object") then {
-    _vehicle = _object modelToWorld ([typeOf _object] call FUNC(vehicle,offsetPlayer));
+if !(isNil "_object") then {
+    _model = _object modelToWorld ([typeOf _object] call FUNC(vehicle,offsetPlayer));
     
     _unit setDir (getDir _object);
-    _unit setPos [_vehicle select 0, _vehicle select 1, 0];
+    _unit setPos [_model select 0, _model select 1, 0];
 };
