@@ -29,6 +29,10 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(deployed), [false, ""], true];
             
             [_vehicle, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
+
+            {
+                _x setDamage 1;
+            } forEach (nearestObjects [position _vehicle, ["LandVehicle", "USVehicleBox_EP1"], 8]);
             
             if (!isNil QMODULE(crossroad)) then {
                 [GVAR(crossroad), "kbTell", [
