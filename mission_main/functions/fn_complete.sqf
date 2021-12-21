@@ -108,9 +108,11 @@ if (!isNil QMODULE(teleport)) then {
 
 [true, "spawn", [[], {
     playSound "fanfare";
-    
+
+    if (isNil QMODULE(setting) || {(player getVariable QGVAR(sounds) select 1 == 0)}) exitWith {};
+
     sleep 3;
-    
+
     playSound QGVAR(sound_complete);
 }]] call FUNC(network,mp);
 
