@@ -40,9 +40,16 @@ if (hasInterface) then {
         };
 
         if (typeName _type == "ARRAY") then {
-            (call compile format ["%1 %2", _type select 0, _default]);
+            (call compile format [
+                "%1 %2",
+                _type select 0,
+                _default / 10
+            ]);
         };
 
-        player setVariable [format ["d_%1", _x select 1], [(_x select 4) find _default, _default]];
+        player setVariable [
+            format ["d_%1", _x select 1],
+            [(_x select 4) find _default, _default]
+        ];
     } forEach GVAR(setting_type_valid);
 };

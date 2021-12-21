@@ -46,8 +46,8 @@ if (!isNil {GVAR(option) select 4}) exitWith {
 
 _value = call compile format ["%1", ([GVAR(option) select 1] call FUNC(THIS_MODULE,type)) select 1];
 
-_minimum = (GVAR(option) select 3) select 0;
-_maximum = (GVAR(option) select 3) select 1;
+_minimum = ((GVAR(option) select 3) select 0) / 10;
+_maximum = ((GVAR(option) select 3) select 1) / 10;
 
 DIALOG("X_SETTING_DIALOG", 400) ctrlShow true;
 DIALOG("X_SETTING_DIALOG", 400) sliderSetRange [_minimum, _maximum];

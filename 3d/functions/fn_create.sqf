@@ -30,7 +30,7 @@ _width = safezoneW;
 _height = safezoneH;
 
 while {alive _object} do {
-    if (player getVariable QGVAR(3d) select 1 == 1 || {!_setting}) then {
+    if (player getVariable QGVAR(3d) select 1 == 10 || {!_setting}) then {
         _distance = player distance (position _object);
         _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
         

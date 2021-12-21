@@ -10,10 +10,10 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
         "video",
         "Set whether media content can play within the GPS",
         ["Yes", "No"],
-        [true, false]
+        [10, 0]
     ]
 ];
 
 GVAR(setting_type_default) = GVAR(setting_type_default) + [
-    true
+    10
 ];

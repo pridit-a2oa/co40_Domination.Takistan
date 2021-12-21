@@ -8,7 +8,7 @@ if (!isNil {GVAR(option) select 4}) then {
     _data = DIALOG("X_SETTING_DIALOG", _idc) lbData (_setting select 1);
 
     if (_data == "") then {
-        _data = DIALOG("X_SETTING_DIALOG", _idc) lbValue (_setting select 1);
+        _data = (DIALOG("X_SETTING_DIALOG", _idc) lbValue (_setting select 1)) / 10;
     };
 } else {
     _data = _setting select 1;
@@ -21,10 +21,19 @@ if (typeName _type == "ARRAY") then {
 };
 
 if (!isNil QMODULE(profile)) then {
-    [__profile(GVAR(option) select 1), _data] call FUNC(profile,set);
+    [
+        __profile(GVAR(option) select 1),
+        if (typeName _data == "SCALAR") then {_data * 10} else {_data}
+    ] call FUNC(profile,set);
 };
 
-player setVariable [format ["d_%1", GVAR(option) select 1], [_setting select 1, _data]];
+player setVariable [
+    format ["d_%1", GVAR(option) select 1],
+    [
+        _setting select 1,
+        if (typeName _data == "SCALAR") then {_data * 10} else {_data}
+    ]
+];
 
 if (isNil {GVAR(option) select 4}) then {
     DIALOG("X_SETTING_DIALOG", 600) ctrlSetText (str (round (_setting select 1)));
