@@ -10,3 +10,5 @@ profileNamespace setVariable [
     _key,
     _value
 ];
+
+profileNamespace getVariable _key

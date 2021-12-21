@@ -13,6 +13,7 @@ if (hasInterface) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);
+__cppfln(FUNC(THIS_MODULE,sanitized),THIS_MODULE\functions\fn_sanitized.sqf);
 __cppfln(FUNC(THIS_MODULE,set),THIS_MODULE\functions\fn_set.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
