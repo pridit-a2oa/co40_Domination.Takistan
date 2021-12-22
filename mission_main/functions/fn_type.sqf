@@ -59,7 +59,7 @@ switch (_type) do {
             ];
             
             if (!isNil QMODULE(3d)) then {
-                [player, "execVM", [
+                [true, "execVM", [
                     [_x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true],
                     FUNCTION(3d,create)
                 ]] call FUNC(network,mp);
