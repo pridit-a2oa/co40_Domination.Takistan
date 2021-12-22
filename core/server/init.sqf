@@ -5,6 +5,9 @@
 #define THIS_MODULE server
 #include "x_macros.sqf"
 
+// Set maximum distance from base friendly AI units should be invulnerable
+GVAR(server_distance_base_invulnerable) = 500;
+
 // Set list of objects that should not be spawned as part of compositions
 GVAR(server_objects_banned) = [
     "Barrel1",

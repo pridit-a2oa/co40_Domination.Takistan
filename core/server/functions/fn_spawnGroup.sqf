@@ -6,7 +6,7 @@ PARAMS_3(_position, _side, _type);
 _group = [_position, _side, _type] call BIS_fnc_spawnGroup;
 
 {
-    if (faction _x == "BIS_US") then {
+    if (faction _x == "BIS_US" && {_x distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) then {
         _x addEventHandler ["HandleDamage", {0}];
     } else {
         // Check for dailies

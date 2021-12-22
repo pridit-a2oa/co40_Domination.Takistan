@@ -156,7 +156,7 @@ _multiplyMatrixFunc = {
         
         _newObj spawn {
             if (_this isKindOf "LandVehicle" && {!(_this isKindOf "StaticWeapon")}) then {           
-                if (faction _this == "BIS_US") then {
+                if (faction _this == "BIS_US" && {_this distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) then {
                     _this lock true;
                     _this allowCrewInImmobile true;
                 
