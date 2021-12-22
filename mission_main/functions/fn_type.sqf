@@ -51,9 +51,10 @@ switch (_type) do {
             _trigger = createTrigger ["EmptyDetector", position _x];
             _trigger setVariable [QGVAR(flag), _x];
             _trigger setTriggerArea [GVAR(mission_main_distance_camp) - 1, GVAR(mission_main_distance_camp) - 1, 0, false];
-            _trigger setTriggerActivation ["WEST", "PRESENT", true];
+            _trigger setTriggerActivation ["WEST", "PRESENT", false];
+            _trigger setTriggerTimeout [GVAR(mission_main_time_capture), GVAR(mission_main_time_capture), GVAR(mission_main_time_capture), true];
             _trigger setTriggerStatements [
-                "{isPlayer _x} count thisList > 0 && {!((thisTrigger getVariable ""d_flag"") getVariable 'd_capturing')}",
+                "[thisTrigger getVariable ""d_flag"", thisList] call d_fnc_mission_main_valid",
                 "[thisTrigger getVariable ""d_flag"", thisTrigger] spawn d_fnc_mission_main_capture",
                 ""
             ];
