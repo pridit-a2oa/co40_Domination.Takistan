@@ -32,8 +32,6 @@ switch (_state) do {
     };
     
     case false: {
-        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
-        
         _camo = _vehicle getVariable QGVAR(camo);
 
         // just in case it might be destroyed
@@ -44,5 +42,7 @@ switch (_state) do {
         if (!isNull _camo) then {
             deleteVehicle _camo;
         };
+
+        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
     };
 }
