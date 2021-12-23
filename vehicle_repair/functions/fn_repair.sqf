@@ -21,6 +21,8 @@ for "_i" from 1 to 3 do {
     [true, "say", [player, QGVAR(sound_repair), 20]] call FUNC(network,mp);
 
     sleep 2;
+
+    if (!alive _vehicle) exitWith {};
     
     if (_i == 3) then {
         if (damage _vehicle > 0.3) then {

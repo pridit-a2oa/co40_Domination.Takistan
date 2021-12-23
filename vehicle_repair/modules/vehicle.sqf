@@ -16,5 +16,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "!(player in _target) && {vehicle player == player} && {player getVariable 'd_repair_kits' > 0} && {!d_repairing} && {!canMove _target || damage _target >= d_vehicle_repair_amount_damage || fuel _target < d_vehicle_repair_amount_fuel}"
+    "[_target] call d_fnc_vehicle_repair_valid"
 ];
