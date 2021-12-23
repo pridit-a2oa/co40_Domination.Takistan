@@ -1,6 +1,6 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
-private ["_wreck", "_time", "_lifter", "_position", "_vehicle"];
+private ["_wreck", "_time", "_lifter", "_wrecked", "_position", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
 
@@ -8,6 +8,7 @@ PARAMS_2(_wreck, _time);
 [_wreck, "setVectorUp", surfaceNormal (position GVAR(service_wreck))] call FUNC(network,mp);
 
 _lifter = _wreck getVariable QGVAR(lifter);
+_wrecked = _wreck getVariable QGVAR(wrecked);
 
 if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
@@ -88,7 +89,7 @@ while {call FUNC(common,time) < _time} do {
 
 sleep 2;
 
-if (!isNil "_lifter") then {
+if (!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(base_wreck_distance_score)}) then {
     {
         if (name _x == _lifter) exitWith {
             _x addScore GVAR(base_wreck_amount_score);
