@@ -3,6 +3,8 @@ private ["_key", "_value", "_index", "_type"];
 
 PARAMS_2(_key, _value);
 
+_value = if (typeName _value == "SCALAR") then {_value / 10} else {_value};
+
 _index = [0, GVAR(profile_type_save)] call FUNC(common,arrayValues) find _key;
 _type = GVAR(profile_type_save) select _index;
 
