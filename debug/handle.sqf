@@ -15,4 +15,4 @@
     };
 };
 
-call FUNC(THIS_MODULE,compositions);
+// call FUNC(THIS_MODULE,compositions);
