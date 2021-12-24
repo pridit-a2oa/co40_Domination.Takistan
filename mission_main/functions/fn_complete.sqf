@@ -95,7 +95,7 @@ if (!isNil QMODULE(teleport)) then {
             format ["teleport_%1", _target getVariable "name"],
             position _flag,
             "Town",
-            " Teleport",
+            " Fast Travel",
             "ColorYellow",
             0.8,
             "ICON",
