@@ -276,19 +276,23 @@ player addEventHandler ["respawn", {
         titleText ["", "BLACK IN", 2];
     };
     
-    if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) exitWith {
+    if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
+    } else {
+        {
+            _unit addMagazine _x;
+        } forEach magazines _corpse;
+        
+        {
+            _unit addWeapon _x;
+        } forEach weapons _corpse;
+        
+        _unit selectWeapon (primaryWeapon _unit);
     };
     
-    {
-        _unit addMagazine _x;
-    } forEach magazines _corpse;
-    
-    {
-        _unit addWeapon _x;
-    } forEach weapons _corpse;
-    
-    _unit selectWeapon (primaryWeapon _unit);
+    if (sunOrMoon == 0 && {(weapons _unit) find "NVGoggles" != -1}) then {
+        _unit action ["NVGoggles", _unit];
+    };
 }];
 
 player addEventHandler ["killed", {
