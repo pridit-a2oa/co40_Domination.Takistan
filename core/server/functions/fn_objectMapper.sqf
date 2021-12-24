@@ -153,24 +153,24 @@ _multiplyMatrixFunc = {
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
-        
-        _newObj spawn {
-            if (_this isKindOf "LandVehicle" && {!(_this isKindOf "StaticWeapon")}) then {           
-                if (faction _this == "BIS_US" && {_this distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) then {
-                    _this lock true;
-                    _this allowCrewInImmobile true;
-                
-                    _this addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
-                    _this addEventHandler ["HandleDamage", {0}];
-                };
-                
-                [true, "execVM", [[_this], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
-                
-                __addDead(_this);
-            };
+
+        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
+            if (faction _newObj == "BIS_US" && {_newObj distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) exitWith {
+                _newObj lock true;
+                _newObj allowCrewInImmobile true;
             
-            if (_this isKindOf "Thing") then {
-                [true, "enableSimulation", [_this, false], false] call FUNC(network,mp);
+                _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+                _newObj addEventHandler ["HandleDamage", {0}];
+            };
+
+            __addDead(_this);
+
+            _newObj spawn {
+                [true, "execVM", [[_this], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
+
+                if (_this isKindOf "Thing") then {
+                    [true, "enableSimulation", [_this, false], false] call FUNC(network,mp);
+                };
             };
         };
         
