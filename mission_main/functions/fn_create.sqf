@@ -114,6 +114,6 @@ waitUntil {sleep 5; [_target] call FUNC(THIS_MODULE,clear)};
 
 deleteVehicle _trigger;
 
-sleep 15;
+sleep GVAR(mission_main_time_complete);
 
 [_target] call FUNC(THIS_MODULE,complete);

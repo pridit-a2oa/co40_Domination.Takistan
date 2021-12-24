@@ -79,6 +79,9 @@ GVAR(mission_main_radius_zone) = 400;
 // Set amount of time to capture a camp.
 GVAR(mission_main_time_capture) = 30;
 
+// Set the amount of time once meeting the completion criteria to announce.
+GVAR(mission_main_time_complete) = 45;
+
 // Set amount of time to sleep before generating a target.
 GVAR(mission_main_time_delay) = 40;
 
