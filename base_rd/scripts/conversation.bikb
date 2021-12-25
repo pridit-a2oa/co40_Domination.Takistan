@@ -1,0 +1,39 @@
+class Sentences 
+{
+    class Construct {
+        text = "Constructing %1, this will take approx. %2 minutes.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+        };
+    };
+
+    class Ready {
+        text = "%1 is ready at the R&D point.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+
+    class Researched {
+        text = "%1 has been researched and can now be built at the R&D point.";
+        speech[] = {};
+        class Arguments {
+            class 1 {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

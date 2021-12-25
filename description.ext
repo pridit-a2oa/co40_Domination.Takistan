@@ -12,6 +12,7 @@ onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
 #include "define.hpp"
+#include "base_rd\dialog\base.hpp"
 #include "halo\dialog\base.hpp"
 #include "inventory\dialog\base.hpp"
 #include "perk\dialog\base.hpp"

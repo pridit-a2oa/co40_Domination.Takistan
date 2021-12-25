@@ -842,7 +842,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=269;
+		items=270;
 		class Item0
 		{
 			position[]={8332.1318,296.04001,2044.3177};
@@ -3452,6 +3452,18 @@ class Mission
 			side="EMPTY";
 			vehicle="MtvrReammo_DES_EP1";
 			skill=0.33333331;
+		};
+		class Item269
+		{
+			position[]={8057.4067,296.04001,1976.6008};
+			azimut=151;
+			special="NONE";
+			id=318;
+			side="EMPTY";
+			vehicle="HeliH";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			text="d_base_rd";
 		};
 	};
 	class Markers
