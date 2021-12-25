@@ -44,9 +44,9 @@ GVAR(mission_main_type_reinforcements) = [
 
 // Set type of units that will be seeded along with amount.
 GVAR(mission_main_type_units) = [
-    ["infantry",    6],
-    ["light",       3],
-    ["heavy",       7]
+    ["infantry", 6],
+    ["light", 3],
+    ["heavy", 7]
 ];
 
 // Set amount of camps per target.
