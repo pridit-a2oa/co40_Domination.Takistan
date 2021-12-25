@@ -55,9 +55,9 @@ class CfgRadio
     sounds[] = {};
     class Exclamation
     {
-        name	= "Exclamation";
-        sound[]	= {"\intel\sounds\exclamation.wss", db - 100, 1.0 };
-        title	= "Allahu akbar!";
+        name    = "Exclamation";
+        sound[] = {"\intel\sounds\exclamation.wss", db - 100, 1.0 };
+        title   = "Allahu akbar!";
     };
 };
 

@@ -11,7 +11,7 @@ if (!(vehicle player == player)) exitWith {false};
 if (count crew _target > 0 && {{!isPlayer _x} count crew _target > 0}) exitWith {false};
 
 if (!canMove _target || {damage _target >= GVAR(vehicle_repair_amount_damage)} || {fuel _target < GVAR(vehicle_repair_amount_fuel)}) exitWith {
-	true
+    true
 };
 
 false

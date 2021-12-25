@@ -7,17 +7,17 @@
 
 if (hasInterface) then {
     player addAction [
-		"R&amp;D" call FUNC(common,BlueText),
-		__function(show),
-		[],
-		2,
-		false,
-		true,
-		"",
-		"player == _target"
-	];
+        "R&amp;D" call FUNC(common,BlueText),
+        __function(show),
+        [],
+        2,
+        false,
+        true,
+        "",
+        "player == _target"
+    ];
 
-	if (!isNil QMODULE(3d)) then {
+    if (!isNil QMODULE(3d)) then {
         [
             GVAR(base_rd),
             format ["%1<br /><t size='0.6'>Deconstruct and build OPFOR vehicles</t>", "R&amp;D" call FUNC(common,BlueText)],
@@ -29,13 +29,13 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-	{
-		[GVAR(base_rd_progress), [_x, 2]] call BIS_fnc_arrayPush;
-	} forEach GVAR(base_rd_type_vehicles);
+    {
+        [GVAR(base_rd_progress), [_x, 2]] call BIS_fnc_arrayPush;
+    } forEach GVAR(base_rd_type_vehicles);
 
-	[
-		position GVAR(base_rd),
-		175,
-		GVAR(base_rd_type_composition)
-	] call FUNC(server,objectMapper);
+    [
+        position GVAR(base_rd),
+        175,
+        GVAR(base_rd_type_composition)
+    ] call FUNC(server,objectMapper);
 };
