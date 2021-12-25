@@ -163,7 +163,7 @@ _multiplyMatrixFunc = {
                 _newObj addEventHandler ["HandleDamage", {0}];
             };
 
-            __addDead(_this);
+            __addDead(_newObj);
 
             _newObj spawn {
                 [true, "execVM", [[_this], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
