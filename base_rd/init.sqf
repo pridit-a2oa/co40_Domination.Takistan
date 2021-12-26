@@ -39,32 +39,32 @@ GVAR(base_rd_amount_required) = [
 // Set amount of score to reward a player once a vehicle has been deconstructed.
 GVAR(base_rd_amount_score) = 3;
 
-// Set amount of time it takes to deconstruct.
-GVAR(base_rd_time_deconstruct) = [
-    [240, "Truck"],
-    [300, "M113_Base"],
-    [300, "Tracked_APC"],
-    [300, "Wheeled_APC"],
-    [360, "UH1H_base"],
-    [420, "Tank"],
-    [480, "Helicopter"],
-    [480, "Plane"]
+// Set amount of time it takes to construct vehicles.
+GVAR(base_rd_time_construct) = [
+    [1200, "Truck"],
+    [1500, "M113_Base"],
+    [1500, "Tracked_APC"],
+    [1500, "Wheeled_APC"],
+    [1800, "UH1H_base"],
+    [2400, "Tank"],
+    [2700, "Helicopter"],
+    [2700, "Plane"]
 ];
 
-// Set the multiplier from the deconstruction time to construct.
-GVAR(base_rd_time_multiplier) = 5;
+// Set the divisor against the construction time to deconstruct vehicles.
+GVAR(base_rd_time_divisor) = 6;
 
 if (isServer) then {
-    GVAR(base_rd_progress) = [];
-
+    GVAR(base_rd) setVariable [QGVAR(process), true, false];
     GVAR(base_rd) setVariable [QGVAR(time), 0, true];
 };
 
-hint format ["%1", inheritsFrom (configFile >> "CfgVehicles" >> "M113_TK_EP1")];
-
+// __cppfln(FUNC(THIS_MODULE,construct),THIS_MODULE\functions\fn_construct.sqf);
+__cppfln(FUNC(THIS_MODULE,deconstruct),THIS_MODULE\functions\fn_deconstruct.sqf);
 __cppfln(FUNC(THIS_MODULE,item),THIS_MODULE\functions\fn_item.sqf);
 __cppfln(FUNC(THIS_MODULE,populate),THIS_MODULE\functions\fn_populate.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

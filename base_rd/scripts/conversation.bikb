@@ -18,7 +18,7 @@ class Sentences
     };
 
     class Researched {
-        text = "%1 has been researched and can now be built at the R&D point.";
+        text = "%1 has been researched and can be built at the R&D point.";
         speech[] = {};
         class Arguments {
             class 1 {type = "simple";};

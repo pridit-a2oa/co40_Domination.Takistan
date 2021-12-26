@@ -20,24 +20,22 @@ class XD_BaseRdDialog {
             idc = 100;
             x = 0.280303;
             y = 0.311448;
-            w = 0.323485;
+            w = 0.316485;
             h = 0.350842;
             sizeEx = 0.023;
             rowHeight = 0.05;
             style = CT_NO_BORDER + ST_LEFT;
             borderSize = 1;
-            onMouseButtonUp = "";
             onLBSelChanged = "[_this select 1] call d_fnc_base_rd_switch";
-            onLBDblClick = "";
         };
         class RscBaseRdVehiclePicture: XD_RscPicture
         {
             idc = 200;
             text = "";
-            x = 0.623737;
-            y = 0.537037;
-            w = 0.0949496;
-            h = 0.123569;
+            x = 0.618687;
+            y = 0.538721;
+            w = 0.102525;
+            h = 0.115151;
             style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
             colorText[] = {0.6,0.5,0.3,1};
         };
@@ -45,7 +43,7 @@ class XD_BaseRdDialog {
         {
             idc = 300;
             text = "";
-            x = 0.636363;
+            x = 0.636364;
             y = 0.3367;
             w = 0.072222;
             h = 0.0545455;
@@ -54,7 +52,7 @@ class XD_BaseRdDialog {
         class RscBaseRdTimeAmountText: X3_RscText
         {
             idc = 400;
-            text = "40:00";
+            text = "";
             x = 0.636364;
             y = 0.437711;
             w = 0.072222;
@@ -69,6 +67,16 @@ class XD_BaseRdDialog {
             y = 0.649831;
             w = 0.179924;
             h = 0.110354;
+            action = "[DIALOG(""X_RD_DIALOG"", 100) lbData (lbCurSel 100)] call d_fnc_base_rd_construct"
+        };
+        class RscBaseRdCloseShortcutButton: XD_ButtonBase
+        {
+            text = "Close";
+            x = 0.277455;
+            y = 0.649831;
+            w = 0.179924;
+            h = 0.110354;
+            action = "closeDialog 0";
         };
         class RscBaseRdTitleText: X3_RscText
         {
@@ -81,7 +89,7 @@ class XD_BaseRdDialog {
         class RscBaseRdProgessFrame: RscFrame
         {
             text = "Progress";
-            x = 0.626264;
+            x = 0.626262;
             y = 0.313131;
             w = 0.092424;
             h = 0.0915827;
