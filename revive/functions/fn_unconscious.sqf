@@ -28,7 +28,7 @@ _unit spawn {
     
     call FUNC(THIS_MODULE,countdown);
     
-    if (alive _this && {!(_this getVariable QGVAR(unconscious))}) exitWith {
+    if (alive _this && {!(_this getVariable QGVAR(unconscious))}) then {
         [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
         [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
         
