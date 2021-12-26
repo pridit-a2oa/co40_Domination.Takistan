@@ -4,7 +4,7 @@ private ["_trigger", "_vehicle", "_time", "_progress"];
 
 PARAMS_1(_trigger);
 
-GVAR(base_rd) setVariable [QGVAR(process), false, true];
+GVAR(base_rd) setVariable [QGVAR(processing), true, true];
 
 _vehicle = _trigger getVariable QGVAR(vehicle);
 
@@ -26,7 +26,6 @@ sleep 2;
 __log format ["Deconstructing %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 
 _time = ([typeOf _vehicle, "time"] call FUNC(THIS_MODULE,item)) select 1;
-_time = 10;
 
 if (!isNil QMODULE(3d)) then {
     [true, "spawn", [[_time], {
@@ -42,6 +41,9 @@ _time = _time + call FUNC(common,time);
 
 while {call FUNC(common,time) < _time} do {    
     if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
+        // remaining time is greater than the maximum it could ever be
+    	if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
+        
         _vehicle spawn {
             sleep (random 10);
             
@@ -86,4 +88,4 @@ if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1
 
 deleteVehicle _vehicle;
 
-GVAR(base_rd) setVariable [QGVAR(process), true, true];
+GVAR(base_rd) setVariable [QGVAR(processing), false, true];

@@ -4,11 +4,11 @@ private ["_clear", "_button", "_list", "_progress", "_time", "_color"];
 
 PARAMS_1(_clear);
 
+disableSerialization;
+
 if (!isNil "_clear" && {_clear}) then {
     lbClear 100;
 };
-
-disableSerialization;
 
 _button = DIALOG("X_RD_DIALOG", 500);
 _button ctrlEnable false;

@@ -67,7 +67,7 @@ class XD_BaseRdDialog {
             y = 0.649831;
             w = 0.179924;
             h = 0.110354;
-            action = "[DIALOG(""X_RD_DIALOG"", 100) lbData (lbCurSel 100)] call d_fnc_base_rd_construct"
+            action = "[((uiNamespace getVariable ""X_RD_DIALOG"") displayCtrl 100) lbData (lbCurSel 100)] spawn d_fnc_base_rd_construct";
         };
         class RscBaseRdCloseShortcutButton: XD_ButtonBase
         {

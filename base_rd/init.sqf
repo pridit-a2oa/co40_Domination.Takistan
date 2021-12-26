@@ -54,14 +54,23 @@ GVAR(base_rd_time_construct) = [
 // Set the divisor against the construction time to deconstruct vehicles.
 GVAR(base_rd_time_divisor) = 6;
 
+// Set cooldown after building before being able to construct another vehicle.
+GVAR(base_rd_time_cooldown) = 180;
+
+if (hasInterface) then {
+    player setVariable [QGVAR(base_rd_cooldown), time + GVAR(base_rd_time_cooldown)];
+};
+
 if (isServer) then {
-    GVAR(base_rd) setVariable [QGVAR(process), true, false];
+    GVAR(base_rd) setVariable [QGVAR(build), false, true];
+    GVAR(base_rd) setVariable [QGVAR(processing), false, true];
     GVAR(base_rd) setVariable [QGVAR(time), 0, true];
 };
 
-// __cppfln(FUNC(THIS_MODULE,construct),THIS_MODULE\functions\fn_construct.sqf);
+__cppfln(FUNC(THIS_MODULE,construct),THIS_MODULE\functions\fn_construct.sqf);
 __cppfln(FUNC(THIS_MODULE,deconstruct),THIS_MODULE\functions\fn_deconstruct.sqf);
 __cppfln(FUNC(THIS_MODULE,item),THIS_MODULE\functions\fn_item.sqf);
+__cppfln(FUNC(THIS_MODULE,max),THIS_MODULE\functions\fn_max.sqf);
 __cppfln(FUNC(THIS_MODULE,populate),THIS_MODULE\functions\fn_populate.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
