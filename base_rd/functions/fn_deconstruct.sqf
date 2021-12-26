@@ -42,7 +42,7 @@ _time = _time + call FUNC(common,time);
 while {call FUNC(common,time) < _time} do {    
     if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         // remaining time is greater than the maximum it could ever be
-    	if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
+        if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
         
         _vehicle spawn {
             sleep (random 10);
@@ -57,23 +57,23 @@ while {call FUNC(common,time) < _time} do {
 _progress = [typeOf _vehicle, "progress"] call FUNC(THIS_MODULE,item);
 
 (GVAR(base_rd) getVariable QGVAR(progress)) set [
-	([0, GVAR(base_rd) getVariable QGVAR(progress)] call FUNC(common,arrayValues)) find (typeOf _vehicle),
-	[typeOf _vehicle, (_progress select 0) + 1]
+    ([0, GVAR(base_rd) getVariable QGVAR(progress)] call FUNC(common,arrayValues)) find (typeOf _vehicle),
+    [typeOf _vehicle, (_progress select 0) + 1]
 ];
 
 GVAR(base_rd) setVariable [QGVAR(progress), GVAR(base_rd) getVariable QGVAR(progress), true];
 
 [true, "spawn", [[], {
-	private ["_selected"];
+    private ["_selected"];
 
-	if (isNil {uiNamespace getVariable "X_RD_DIALOG"}) exitWith {};
+    if (isNil {uiNamespace getVariable "X_RD_DIALOG"}) exitWith {};
 
-	_selected = lbCurSel 100;
+    _selected = lbCurSel 100;
 
     [true] call FUNC(THIS_MODULE,populate);
-	[_selected] call FUNC(THIS_MODULE,switch);
+    [_selected] call FUNC(THIS_MODULE,switch);
 
-	DIALOG("X_BASE_RD_DIALOG", 100) lbSetCurSel _selected;
+    DIALOG("X_BASE_RD_DIALOG", 100) lbSetCurSel _selected;
 }]] call FUNC(network,mp);
 
 if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1}) then {
