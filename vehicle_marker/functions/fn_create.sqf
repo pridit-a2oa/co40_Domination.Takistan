@@ -25,6 +25,8 @@ if (alive _vehicle) then {
 
         PARAMS_1(_vehicle);
 
+        if (isServer) exitWith {};
+
         _wreckable = _vehicle getVariable QGVAR(wreckable);
 
         if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {        

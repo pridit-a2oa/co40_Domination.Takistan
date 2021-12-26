@@ -69,22 +69,18 @@ switch (_state) do {
     };
 
     case false: {
-        _vehicle spawn {
-            [_this] call FUNC(vehicle_deploy,cleanup);
+        [_vehicle] call FUNC(vehicle_deploy,cleanup);
             
-            waitUntil {{!isNull _x} count (_this getVariable QGVAR(cleanup)) < 1};
-            
-            [true, "enableSimulation", [_this, true]] call FUNC(network,mp);
-            
-            {
-                _this animate [_x, 0]
-            } forEach [
-                "door_1",
-                "door_2_1",
-                "door_2_2",
-                "ramp_top",
-                "ramp_bottom"
-            ];
-        };
+        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+        
+        {
+            _vehicle animate [_x, 0]
+        } forEach [
+            "door_1",
+            "door_2_1",
+            "door_2_2",
+            "ramp_top",
+            "ramp_bottom"
+        ];
     };
 };
