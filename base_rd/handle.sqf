@@ -37,7 +37,7 @@ if (hasInterface) then {
         "R&amp;D" call FUNC(common,BlueText),
         __function(show),
         [],
-        2,
+        -6,
         false,
         true,
         "",
