@@ -11,7 +11,6 @@ _crew = _vehicle select 1;
 _pilot = driver _aircraft;
 
 _aircraft flyInHeight 80;
-_aircraft allowCrewInImmobile true;
 
 if (!isNil QMODULE(vehicle_respawn)) then {
     _aircraft setVariable [QGVAR(respawnable), false, true];

@@ -22,7 +22,10 @@ _crew = _vehicle select 1;
 
 _object setDir _direction;
 _object setFormDir _direction;
-_object allowCrewInImmobile true;
+
+if (faction _object == "BIS_US") then {
+    _object allowCrewInImmobile true;
+};
 
 _object spawn {
     if (!isNil QMODULE(vehicle_respawn)) then {

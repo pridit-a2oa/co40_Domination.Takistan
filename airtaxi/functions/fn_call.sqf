@@ -81,7 +81,6 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     
     _aircraft flyInHeight 80;
     _aircraft lockDriver true;
-    _aircraft allowCrewInImmobile true;
     
     _pilot setSkill 1;
     _pilot doMove _position;
