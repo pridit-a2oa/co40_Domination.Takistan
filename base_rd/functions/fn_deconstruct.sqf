@@ -86,6 +86,6 @@ if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1
     ];
 };
 
-deleteVehicle _vehicle;
+[_vehicle] call FUNC(vehicle,delete);
 
 GVAR(base_rd) setVariable [QGVAR(processing), false, true];

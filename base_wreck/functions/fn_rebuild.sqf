@@ -14,13 +14,12 @@ if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
 };
 
-deleteMarker (_wreck getVariable QGVAR(id));
-deleteVehicle _wreck;
+[_wreck] call FUNC(vehicle,delete);
 
 _position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
 
 _vehicle = createVehicle [typeOf _wreck, _position, [], 0, "NONE"];
-_vehicle setDir (getDir _wreck);
+_vehicle setDir (getDir GVAR(service_wreck));
 _vehicle setPos _position;
 _vehicle setVelocity [0, 0, 0];
 _vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));

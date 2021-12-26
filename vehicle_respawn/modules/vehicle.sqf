@@ -46,7 +46,7 @@ if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
         _disabled = _empty && {_dead} && {call FUNC(common,time) > _expiration};
     
         if (_expired || {_disabled}) exitWith {
-            deleteVehicle _vehicle;
+            [_vehicle] call FUNC(vehicle,delete);
             
             _vehicle = objNull;
             _vehicle = createVehicle [_type, _position, [], 0, "NONE"];

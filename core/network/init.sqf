@@ -12,6 +12,7 @@ __cppfln(FUNC(THIS_MODULE,addMagazine),core\THIS_MODULE\functions\library\fn_add
 __cppfln(FUNC(THIS_MODULE,addMagazineTurret),core\THIS_MODULE\functions\library\fn_addMagazineTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,addScore),core\THIS_MODULE\functions\library\fn_addScore.sqf);
 __cppfln(FUNC(THIS_MODULE,addWeapon),core\THIS_MODULE\functions\library\fn_addWeapon.sqf);
+__cppfln(FUNC(THIS_MODULE,deleteMarkerLocal),core\THIS_MODULE\functions\library\fn_deleteMarkerLocal.sqf);
 __cppfln(FUNC(THIS_MODULE,directSay),core\THIS_MODULE\functions\library\fn_directSay.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
 __cppfln(FUNC(THIS_MODULE,endMission),core\THIS_MODULE\functions\library\fn_endMission.sqf);
