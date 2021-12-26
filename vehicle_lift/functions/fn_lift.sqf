@@ -13,6 +13,16 @@ _attacher setVariable [QGVAR(release), _attacher addAction ["Release" call FUNC(
 _attacher setVariable [QGVAR(attached), _attachee];
 _attacher setVariable [QGVAR(attach), nil];
 
+{
+    [_x, "action", ["Eject", vehicle _x]] call FUNC(network,mp);
+} forEach crew _attachee;
+
+waitUntil {count crew _attachee < 1};
+
+[_attachee, "lock", true] call FUNC(network,mp);
+
+[true, "enableSimulation", [_attachee, false]] call FUNC(network,mp);
+
 if (!isNil QMODULE(vehicle_marker)) then {
     [_attacher, _attachee] __submoduleVM(vehicle_marker);
 };

@@ -1,13 +1,9 @@
 #include "x_macros.sqf"
-private ["_attacher", "_id", "_attachee", "_position"];
+private ["_attacher", "_id", "_attachee"];
 
 _attacher = _this select 0;
 _id = _this select 2;
 _attachee = _this select 3;
-
-_position = position _attachee;
-
-[true, "enableSimulation", [_attachee, false]] call FUNC(network,mp);
 
 detach _attachee;
 
@@ -16,6 +12,8 @@ _attachee setPos (_attacher modelToWorld [0, 0, -14]);
 [_attachee, "setVectorDirAndUp", [vectorDir _attacher, vectorUp _attacher]] call FUNC(network,mp);
 
 [true, "enableSimulation", [_attachee, true]] call FUNC(network,mp);
+
+[_attachee, "lock", false] call FUNC(network,mp);
 
 if (alive _attacher && {typeName _id == "SCALAR"}) then {
     _attacher removeAction _id;
