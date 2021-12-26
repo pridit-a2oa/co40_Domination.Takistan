@@ -15,7 +15,7 @@ if (hasInterface) then {
     _checks = [
         [
             _name,
-            QGVAR(airdrop_progress)
+            X_JIPH getVariable QGVAR(airdrop_progress)
         ] call FUNC(helper,inProgress),
         
         [

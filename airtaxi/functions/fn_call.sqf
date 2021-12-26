@@ -9,7 +9,7 @@ if (hasInterface) then {
     _checks = [
         [
             _name,
-            QGVAR(air_taxi_progress)
+            X_JIPH getVariable QGVAR(air_taxi_progress)
         ] call FUNC(helper,inProgress),
     
         [

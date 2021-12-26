@@ -9,7 +9,7 @@ if (hasInterface) then {
     _checks = [
         [
             _name,
-            QGVAR(artillery_progress)
+            X_JIPH getVariable QGVAR(artillery_progress)
         ] call FUNC(helper,inProgress),
         
         [
