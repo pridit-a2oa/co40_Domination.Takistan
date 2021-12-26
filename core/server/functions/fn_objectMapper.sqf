@@ -155,7 +155,7 @@ _multiplyMatrixFunc = {
         if (!isNil "_damage") then {_newObj setDamage _damage;};
 
         if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
-            if (faction _newObj == "BIS_US" && {_newObj distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) exitWith {
+            if (faction _newObj == "BIS_US") exitWith {
                 _newObj lock true;
                 _newObj allowCrewInImmobile true;
             
