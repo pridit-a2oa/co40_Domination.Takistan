@@ -55,6 +55,7 @@ GVAR(modules) = [
     "profile",
     "respawn",
     "revive",
+    "reward",
     "setting",
     "shield",
     "spectate",

@@ -1,14 +1,11 @@
 #include "x_macros.sqf"
-private ["_amount", "_awarded"];
+private ["_amount"];
 
 PARAMS_1(_amount);
 
-disableSerialization;
-
-40111 cutRsc ["XD_Awarded", "PLAIN"];
-
-_awarded = DIALOG("X_AWARD_DIALOG", 1001);
-_awarded ctrlSetText (str _amount);
+if (!isNil QMODULE(reward)) then {
+	["perk", _amount, [0.941, 0.902, 0.549]] call FUNC(reward,alert);
+};
 
 if (isNil QMODULE(setting) || {(player getVariable QGVAR(sounds) select 1 == 0)}) exitWith {};
 

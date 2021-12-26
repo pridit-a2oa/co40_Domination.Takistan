@@ -12,6 +12,10 @@ if (!isNil QMODULE(3d)) then {
     [_save, [__profile("3d"), ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(reward)) then {
+    [_save, [__profile("reward"), ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
+};
+
 if (!isNil QMODULE(vehicle_welcome)) then {
     [_save, [__profile("vehicle_welcome"), ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
 };

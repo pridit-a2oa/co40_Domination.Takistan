@@ -19,6 +19,10 @@ if (hasInterface) then {
         __submodulePP(respawn);
     };
 
+    if (!isNil QMODULE(reward)) then {
+        __submodulePP(reward);
+    };
+
     if (!isNil QMODULE(vehicle_welcome)) then {
         __submodulePP(vehicle_welcome);
     };
