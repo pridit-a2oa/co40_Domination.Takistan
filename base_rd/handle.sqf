@@ -43,14 +43,4 @@ if (hasInterface) then {
         "",
         "player == _target && {d_base_rd distance (position player) < 18}"
     ];
-
-    if (!isNil QMODULE(3d)) then {
-        [
-            GVAR(base_rd),
-            format ["%1<br /><t size='0.6'>Deconstruct and build OPFOR vehicles</t>", "R&amp;D" call FUNC(common,BlueText)],
-            [],
-            true,
-            true
-        ] spawn FUNC(3d,create);
-    };
 };
