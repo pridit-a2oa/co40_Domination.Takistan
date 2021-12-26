@@ -28,6 +28,10 @@ _vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
 _vehicle lock true;
 _vehicle allowDamage false;
 
+sleep 2;
+
+[true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
+
 __log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 
 if (!isNil QMODULE(3d)) then {

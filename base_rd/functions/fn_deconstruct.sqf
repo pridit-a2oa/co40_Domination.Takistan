@@ -21,7 +21,7 @@ _vehicle setVectorUp surfaceNormal (position GVAR(base_rd));
 
 sleep 2;
 
-[true, "enableSimulation", [_vehicle, false], false] call FUNC(network,mp);
+[true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
 __log format ["Deconstructing %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 

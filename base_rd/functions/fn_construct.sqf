@@ -61,7 +61,9 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
     _vehicle lock true;
     _vehicle allowDamage false;
 
-    [true, "enableSimulation", [_vehicle, false], false] call FUNC(network,mp);
+    sleep 2;
+
+    [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
@@ -122,7 +124,7 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
     _vehicle lock false;
     _vehicle allowDamage true;
 
-    [true, "enableSimulation", [_vehicle, true], false] call FUNC(network,mp);
+    [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
 
     if (!isNil QMODULE(crossroad)) then {
         GVAR(crossroad) kbTell [
