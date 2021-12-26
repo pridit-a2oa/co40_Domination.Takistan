@@ -229,6 +229,7 @@ player addEventHandler ["respawn", {
     
     _handlers = [
         "backpack",
+        "base_rd",
         "drag",
         "medical",
         "perk",
