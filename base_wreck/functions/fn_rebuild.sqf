@@ -46,7 +46,7 @@ if (!isNil QMODULE(3d)) then {
 _time = _time + call FUNC(common,time);
 
 if ((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"]) then {
-    _vehicle setVariable [QGVAR(rebuilt), true, true];
+    _vehicle setVariable [QGVAR(built), true, true];
     
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];

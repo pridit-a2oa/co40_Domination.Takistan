@@ -65,20 +65,6 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
-    if (!isNil QMODULE(vehicle_respawn)) then {
-        _vehicle setVariable [QGVAR(respawnable), false, true];
-    };
-
-    if (!isNil QMODULE(vehicle_wreck)) then {
-        _vehicle setVariable [QGVAR(wreckable), false, true];
-    };
-    
-    __addDead(_vehicle);
-
-    if (!isNil QMODULE(vehicle)) then {
-        [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-    };
-
     __log format ["Constructing %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 
     _time = ([_type, "time"] call FUNC(THIS_MODULE,item)) select 0;
@@ -105,6 +91,24 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
     };
 
     _time = _time + call FUNC(common,time);
+
+    _vehicle setVariable [QGVAR(built), true, true];
+
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        _vehicle setVariable [QGVAR(respawnable), false, true];
+    };
+
+    if (!isNil QMODULE(vehicle_wreck)) then {
+        _vehicle setVariable [QGVAR(wreckable), false, true];
+    };
+
+    if (!isNil QMODULE(vehicle)) then {
+        [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+    };
+
+    [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+
+    __addDead(_vehicle);
 
     while {call FUNC(common,time) < _time} do {    
         // remaining time is greater than the maximum it could ever be

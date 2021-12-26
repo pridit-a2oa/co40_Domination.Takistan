@@ -15,6 +15,10 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
+
+    if (isNil {_vehicle getVariable QGVAR(built)}) then {
+        _vehicle setVariable [QGVAR(built), false, true];
+    };
     
     if (isNil {_vehicle getVariable QGVAR(spawn)}) then {
         _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
@@ -45,10 +49,6 @@ if (isServer) then {
     };
     
     if (!isNil QMODULE(vehicle_wreck)) then {
-        if (isNil {_vehicle getVariable QGVAR(rebuilt)}) then {
-            _vehicle setVariable [QGVAR(rebuilt), false, true];
-        };
-
         if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
             _vehicle setVariable [QGVAR(wreckable), false, true];
         };

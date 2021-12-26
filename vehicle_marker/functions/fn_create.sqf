@@ -5,7 +5,7 @@ private ["_spawn", "_name", "_position"];
 PARAMS_1(_vehicle);
 
 if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
-if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"] && {!(_vehicle isKindOf "Air")})} && {!(_vehicle getVariable QGVAR(rebuilt))}) exitWith {};
+if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"] && {!(_vehicle isKindOf "Air")})} && {!(_vehicle getVariable QGVAR(built))}) exitWith {};
 
 _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 
