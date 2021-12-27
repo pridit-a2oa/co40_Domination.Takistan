@@ -55,6 +55,14 @@ if (hasInterface) then {
 __ccppfln(core\THIS_MODULE\modules.sqf);
 __ccppfln(core\THIS_MODULE\handlers.sqf);
 
+0 spawn {
+    {
+        _x addEventHandler ["HandleDamage", {0}];
+
+        sleep 0.01;
+    } forEach (nearestObjects [markerPos QGVAR(base_south), ["Building"], 400]);
+};
+
 if (hasInterface && {isMultiplayer}) then {
     player enableSimulation true;
     

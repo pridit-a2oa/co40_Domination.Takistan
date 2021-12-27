@@ -67,7 +67,3 @@ if (hasInterface) then {
         } forEach (allMissionObjects _x);
     } forEach GVAR(base_types_protected);
 };
-
-{
-    _x addEventHandler ["HandleDamage", {0}];
-} forEach (nearestObjects [markerPos QGVAR(base_south), ["Building"], 400]);
