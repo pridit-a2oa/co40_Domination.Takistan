@@ -21,7 +21,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Respawn",
         "respawn_type",
-        "Set your preferred respawn position. Defaults to base if you die outside distance",
+        "Set preferred respawn position. Defaults to base if you die outside distance",
         [0, player getVariable QGVAR(respawn_types)] call FUNC(common,arrayValues),
         [1, player getVariable QGVAR(respawn_types)] call FUNC(common,arrayValues)
     ]

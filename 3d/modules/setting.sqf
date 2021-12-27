@@ -8,7 +8,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "3D Text",
         "3d",
-        "Set whether 3D text is visible. Does not impact camp capture countdown",
+        "Set whether 3D text is visible. (except camp capture countdown)",
         ["Show", "Hide"],
         [10, 0]
     ]

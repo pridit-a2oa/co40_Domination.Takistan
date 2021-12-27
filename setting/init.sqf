@@ -10,7 +10,7 @@ GVAR(setting_type_valid) = [
     [
         "Camera",
         "camera",
-        "Set your default camera mode",
+        "Set default camera mode",
         ["1st Person", "3rd Person"],
         ["INTERNAL", "EXTERNAL"]
     ],
