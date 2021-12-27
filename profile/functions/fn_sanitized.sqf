@@ -12,7 +12,8 @@ if !([(_type select 1) select 0, typeName _value] call BIS_fnc_areEqual) exitWit
 
 _array = (_type select 1) select 1;
 
-if (count _array == 2 && ({_value < _array select 0 || {_value > _array select 1}})) exitWith {false};
-if (count _array > 2 && {_array find _value == -1}) exitWith {false};
+if (typeName _value == "SCALAR" && {count _array == 2} && ({_value < _array select 0 || {_value > _array select 1}})) exitWith {false};
+if (typeName _value == "SCALAR" && {count _array > 2} && {_array find _value == -1}) exitWith {false};
+if (typeName _value == "STRING" && {_array find _value == -1}) exitWith {false};
 
 true

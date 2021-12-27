@@ -8,6 +8,13 @@
 // Set valid setting types
 GVAR(setting_type_valid) = [
     [
+        "Camera",
+        "camera",
+        "Set your default camera mode",
+        ["1st Person", "3rd Person"],
+        ["INTERNAL", "EXTERNAL"]
+    ],
+    [
         "Custom Sounds",
         "sounds",
         "Set whether custom sounds will play (MT seized, score rewards)",
@@ -38,6 +45,7 @@ GVAR(setting_type_valid) = [
 
 // Set default values corresponding with valid types
 GVAR(setting_type_default) = [
+    "EXTERNAL",
     10,
     10,
     500,

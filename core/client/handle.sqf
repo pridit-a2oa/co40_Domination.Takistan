@@ -225,7 +225,9 @@ player addEventHandler ["respawn", {
         [_unit, position _corpse] call FUNC(respawn,spawn);
     };
     
-    _unit switchCamera "EXTERNAL";
+    if (!isNil QMODULE(setting)) then {
+        _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
+    };
     
     _handlers = [
         "backpack",

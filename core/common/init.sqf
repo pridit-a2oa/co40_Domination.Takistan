@@ -63,12 +63,18 @@ __ccppfln(core\THIS_MODULE\handlers.sqf);
     } forEach (nearestObjects [markerPos QGVAR(base_south), ["Building"], 400]);
 };
 
-if (hasInterface && {isMultiplayer}) then {
-    player enableSimulation true;
+if (hasInterface) then {
+    if (!isNil QMODULE(setting)) then {
+        player switchCamera ((player getVariable QGVAR(camera)) select 1);
+    };
+
+    if (isMultiplayer) then {
+        player enableSimulation true;
     
-    sleep 1;
-    
-    titleText ["", "BLACK IN", 4];
+        sleep 1;
+        
+        titleText ["", "BLACK IN", 4];
+    };
 };
 
 if (isDedicated) then {
