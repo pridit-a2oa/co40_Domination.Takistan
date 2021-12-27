@@ -6,24 +6,28 @@ PARAMS_2(_target, _caller);
 
 _target setVariable [QGVAR(reviving), true, true];
 
-player playMove "AinvPknlMstpSlayWrflDnon_medic";
+if ([_target] call FUNC(THIS_MODULE,valid)) then {
+    player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
-sleep 2;
+    sleep 2;
 
-if (!alive player || !alive _target) exitWith {};
+    if (!([_target] call FUNC(THIS_MODULE,valid))) exitWith {};
 
-[true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
+    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
 
-sleep 5;
+    sleep 5;
 
-if (!alive player || !alive _target) exitWith {};
+    if (!([_target] call FUNC(THIS_MODULE,valid))) exitWith {};
 
-_target setVariable [QGVAR(unconscious), false, true];
+    _target setDamage (player getVariable QGVAR(revive_damage));
 
-_target setDamage (player getVariable QGVAR(revive_damage));
+    [true, "systemChat", format [
+        "%1 has been revived by %2",
+        name _target,
+        name _caller
+    ]] call FUNC(network,mp);
 
-[true, "systemChat", format [
-    "%1 has been revived by %2",
-    name _target,
-    name _caller
-]] call FUNC(network,mp);
+    _target setVariable [QGVAR(unconscious), false, true];
+};
+
+_target setVariable [QGVAR(reviving), false, true];

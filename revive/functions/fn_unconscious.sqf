@@ -12,7 +12,8 @@ disableUserInput true;
 
 moveOut _unit;
 
-_unit switchMove "";
+[true, "switchMove", [_unit, ""]] call FUNC(network,mp);
+
 _unit setCaptive true;
 
 showHUD false;
