@@ -83,7 +83,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
                 GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "LowFuel", true];
             };
             
-            [_aircraft] call FUNC(server,exitMap);
+            [_aircraft] spawn FUNC(server,exitMap);
         };
         
         if (_aircraft getVariable QGVAR(uav_range)) then {

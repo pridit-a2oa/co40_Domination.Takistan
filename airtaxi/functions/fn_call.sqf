@@ -129,7 +129,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
 
                                     _aircraft lock true;
                                     
-                                    [_aircraft] call FUNC(server,exitMap);
+                                    [_aircraft] spawn FUNC(server,exitMap);
                                 };
                                 
                                 sleep 2;

@@ -70,7 +70,7 @@ switch (_type select 0) do {
                         
                         sleep 10;
                         
-                        [_aircraft] call FUNC(server,exitMap);
+                        [_aircraft] spawn FUNC(server,exitMap);
                     };
                     
                     sleep 2;

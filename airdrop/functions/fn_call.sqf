@@ -90,7 +90,7 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
             
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (unitReady _pilot) exitWith {
-                    [_aircraft] call FUNC(server,exitMap);
+                    [_aircraft] spawn FUNC(server,exitMap);
                 };
                 
                 sleep 2;
