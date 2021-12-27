@@ -196,7 +196,7 @@ player addEventHandler ["HandleDamage", {
         
         _damage = _new_damage;
         
-        if (_limbs != 0 && {!(_unit getVariable QGVAR(unconscious))}) then {
+        if (_limbs != 0) then {
             if ((_limbs == 1 && {_damage >= 0.89}) || {(_limbs == 2 && {_damage >= 15})}) then {
                 [_unit] call FUNC(revive,unconscious);
             };

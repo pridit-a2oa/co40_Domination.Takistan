@@ -4,12 +4,35 @@ private ["_unit"];
 
 PARAMS_1(_unit);
 
+if (_unit getVariable QGVAR(unconscious)) exitWith {};
+
 _unit setVariable [QGVAR(unconscious), true, true];
+
+disableUserInput true;
 
 moveOut _unit;
 
 _unit switchMove "";
 _unit setCaptive true;
+
+showHUD false;
+openMap [false, false];
+
+showCommandingMenu "";
+
+if (!isNil QMODULE(communication)) then {
+    if (!isNil QMODULE(construction)) then {
+        ["Construct", 0] call FUNC(communication,toggle);
+    };
+    
+    if (!isNil QMODULE(gesture)) then {
+        ["Gestures", 0] call FUNC(communication,toggle);
+    };
+    
+    if (!isNil QMODULE(perk)) then {
+        ["Radio", 0] call FUNC(communication,toggle);
+    };
+};
 
 _unit spawn {
     sleep 0.5;
@@ -23,8 +46,12 @@ _unit spawn {
     };
     
     [_this, "playActionNow", "Die"] call FUNC(network,mp);
+
+    [true, "systemChat", format ["%1 is unconscious", name _this]] call FUNC(network,mp);
     
     sleep 1;
+
+    disableUserInput false;
     
     call FUNC(THIS_MODULE,countdown);
     
@@ -49,24 +76,3 @@ _unit spawn {
         };
     };
 };
-
-showHUD false;
-openMap [false, false];
-
-showCommandingMenu "";
-
-if (!isNil QMODULE(communication)) then {
-    if (!isNil QMODULE(construction)) then {
-        ["Construct", 0] call FUNC(communication,toggle);
-    };
-    
-    if (!isNil QMODULE(gesture)) then {
-        ["Gestures", 0] call FUNC(communication,toggle);
-    };
-    
-    if (!isNil QMODULE(perk)) then {
-        ["Radio", 0] call FUNC(communication,toggle);
-    };
-};
-
-[true, "systemChat", format ["%1 is unconscious", name _unit]] call FUNC(network,mp);

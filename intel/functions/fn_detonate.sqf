@@ -9,9 +9,7 @@ _explosive = createVehicle [GVAR(intel_type_bomb), position _vehicle, [], 0, "CA
 {
     if (isPlayer _x) then {
         if (!isNil QMODULE(revive)) then {
-            if !(_x getVariable QGVAR(unconscious)) then {
-                [_x] call FUNC(revive,unconscious);
-            };
+            [_x] call FUNC(revive,unconscious);
         } else {
             _x setDamage 1;
         };

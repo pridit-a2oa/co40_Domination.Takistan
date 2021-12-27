@@ -307,9 +307,7 @@ if (typename _this == typename []) then {
             _velZ = velocity _para select 2;
             if ((_velZ - bis_fnc_halo_para_velZ) > 7 && (getposatl _para select 2) < 100) then {
                 if (!isNil QMODULE(revive)) then {
-                    if !(player getVariable QGVAR(unconscious)) then {
-                        [player] call FUNC(revive,unconscious);
-                    };
+                    [player] call FUNC(revive,unconscious);
                 } else {
                     player setDamage 1;
                 };
