@@ -19,6 +19,7 @@ gameLogic setVariable [QGVAR(intel), true, true];
     } forEach _crew;
     
     _car lock true;
+    _car allowCrewInImmobile true;
     _car setVariable [QGVAR(intel), true, true];
     
     _driver disableAI "FSM";
