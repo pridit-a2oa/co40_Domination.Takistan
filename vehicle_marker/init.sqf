@@ -12,7 +12,7 @@ GVAR(vehicle_marker_types) = [
     "Air",
     "Tank",
     "Truck",
-    "StrykerBase_EP1"
+    "Wheeled_APC"
 ];
 
 // Set sides to determine marker color
