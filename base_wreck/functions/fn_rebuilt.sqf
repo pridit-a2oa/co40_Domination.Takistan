@@ -14,6 +14,8 @@ _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
     };
 } forEach GVAR(wreck_hangar_triggers);
 
+[true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+
 _vehicle lock false;
 _vehicle allowDamage true;
 
