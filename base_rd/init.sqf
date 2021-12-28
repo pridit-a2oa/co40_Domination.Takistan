@@ -14,6 +14,7 @@ GVAR(base_rd_type_composition) = "HeliParking1_US_EP1";
 // Set types of vehicles that can be researched & subsequently built.
 GVAR(base_rd_type_vehicles) = [
     "BMP2_TK_EP1",
+    "BRDM2_ATGM_TK_EP1",
     "BRDM2_TK_EP1",
     "BTR60_TK_EP1",
     "L39_TK_EP1",
@@ -44,6 +45,7 @@ GVAR(base_rd_time_construct) = [
     [1200, "Truck"],
     [1500, "M113_Base"],
     [1500, "Tracked_APC"],
+    [2100, "BRDM2_ATGM_Base"],
     [1500, "Wheeled_APC"],
     [1800, "UH1H_base"],
     [2400, "Tank"],
@@ -51,11 +53,11 @@ GVAR(base_rd_time_construct) = [
     [2700, "Plane"]
 ];
 
-// Set the divisor against the construction time to deconstruct vehicles.
-GVAR(base_rd_time_divisor) = 6;
-
 // Set cooldown after building before being able to construct another vehicle.
 GVAR(base_rd_time_cooldown) = 180;
+
+// Set the divisor against the construction time to deconstruct vehicles.
+GVAR(base_rd_time_divisor) = 6;
 
 if (hasInterface) then {
     player setVariable [QGVAR(base_rd_cooldown), time + GVAR(base_rd_time_cooldown)];

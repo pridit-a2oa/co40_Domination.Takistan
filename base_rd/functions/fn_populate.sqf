@@ -29,7 +29,7 @@ _list = DIALOG("X_RD_DIALOG", 100);
         _color = [1, 1, 0, 0.8];
     };
 
-    if (_progress select 0 == _progress select 1) then {
+    if (_progress select 0 >= _progress select 1) then {
         _color = [0, 1, 0, 0.8];
     };
 
