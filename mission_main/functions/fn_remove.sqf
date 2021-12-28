@@ -1,6 +1,6 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target"];
+private ["_target", "_targets"];
 
 PARAMS_1(_target);
 

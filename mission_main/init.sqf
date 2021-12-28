@@ -25,9 +25,9 @@ GVAR(mission_main_type_optional) = [
 
 // Set crewed object compositions.
 GVAR(mission_main_type_compositions) = [
-    ["AntiAir1_TK_EP1",     2],
-    ["Firebase1_TK_EP1",    1],
-    ["FuelDump1_TK_EP1",    1]
+    ["AntiAir1_TK_EP1", 2],
+    ["Firebase1_TK_EP1", 1],
+    ["FuelDump1_TK_EP1", 1]
 ];
 
 // Set list of projectiles to negate damage inflicted on objectives.
@@ -98,11 +98,11 @@ GVAR(mission_main_threshold_armor) = 1;
 GVAR(mission_main_threshold_infantry) = 6;
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
-__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,detected),THIS_MODULE\functions\fn_detected.sqf);
+__cppfln(FUNC(THIS_MODULE,kill),THIS_MODULE\functions\fn_kill.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
 __cppfln(FUNC(THIS_MODULE,recycle),THIS_MODULE\functions\fn_recycle.sqf);

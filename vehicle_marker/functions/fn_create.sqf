@@ -1,6 +1,6 @@
 #define THIS_MODULE vehicle_marker
 #include "x_macros.sqf"
-private ["_spawn", "_name", "_position"];
+private ["_vehicle", "_marker"];
 
 PARAMS_1(_vehicle);
 
@@ -25,15 +25,15 @@ if (alive _vehicle) then {
 
         PARAMS_1(_vehicle);
 
-        if (isServer) exitWith {};
-
         _wreckable = _vehicle getVariable QGVAR(wreckable);
 
         if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {        
             [_vehicle] __submoduleVM(vehicle_wreck);
         };
 
-        deleteMarkerLocal (_vehicle getVariable QGVAR(id));
+        if (!isNil QMODULE(vehicle_marker)) then {
+            deleteMarkerLocal (_vehicle getVariable QGVAR(id));
+        };
     }];
 } else {
     if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {        

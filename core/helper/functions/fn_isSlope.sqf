@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_name", "_position", "_threshold", "_surface", "_slope"];
+private ["_name", "_entity", "_threshold", "_degrees", "_pitch", "_bank"];
 
 PARAMS_3(_name, _entity, _threshold);
 

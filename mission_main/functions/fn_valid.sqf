@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_flag", "_players", "_valid", "_time"];
+private ["_flag", "_players", "_valid"];
 
 PARAMS_2(_flag, _players);
 

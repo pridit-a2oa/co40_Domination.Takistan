@@ -1,11 +1,13 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_type", "_camps", "_position", "_near", "_group", "_objects"];
+private ["_target", "_type"];
 
 PARAMS_2(_target, _type);
 
 switch (_type) do {
     case "camp": {
+        private ["_camps", "_position", "_near", "_objects", "_group", "_trigger"];
+
         _camps = 0;
         
         while {_camps != GVAR(mission_main_amount_camps)} do {
@@ -30,6 +32,7 @@ switch (_type) do {
                 };
                 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects + (units _group)];
+                _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
                 
                 _camps = _camps + 1;
             };
@@ -98,6 +101,8 @@ switch (_type) do {
     };
     
     case "radio": {
+        private ["_position", "_near", "_radio"];
+
         while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 100];
@@ -155,6 +160,8 @@ switch (_type) do {
     };
     
     case "composition": {
+        private ["_position", "_objects", "_group"];
+
         {
             for "_i" from 1 to (_x select 1) do {
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.2, 10, 0, 0.3, 0] call FUNC(common,safePos);
@@ -176,39 +183,52 @@ switch (_type) do {
                 };
                 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects + (units _group)];
+                _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
             };
         } forEach GVAR(mission_main_type_compositions);
     };
     
     case "optional": {
+        private ["_objective", "_goal", "_type", "_position", "_entity", "_fort"];
+
         _objective = GVAR(mission_main_type_optional) call BIS_fnc_selectRandom;
         
         _goal = _objective select 0;
         _type = _objective select 1;
         
-        _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.3, 0] call FUNC(common,safePos);
+        _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 7, 0, 0.3, 0] call FUNC(common,safePos);
         
-        _entity = switch (_type select 0) do {
+        switch (_type select 0) do {
             case "object": {
-                ([_position, random 360, _type select 1, east] call BIS_fnc_spawnVehicle) select 0;
+                _entity = ([_position, random 360, _type select 1, east] call BIS_fnc_spawnVehicle) select 0;
+
+                [true, "addEventHandler", [_entity, "HandleDamage", {
+                    if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
+                
+                    _this select 2
+                }]] call FUNC(network,mp);
+
+                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
             };
             
             case "unit": {
-                (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
-                
-                // Check for dailies
+                _fort = createVehicle ["CampEast_EP1", [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
+                _fort setDir (random 360);
+                _fort setPos [_position select 0, _position select 1, 0];
+                _fort setVectorUp (surfaceNormal _position);
+
+                _entity = (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
+                _entity setPos [_position select 0, _position select 1, 0];
+                _entity setVectorUp (surfaceNormal _position);
+
+                _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_fort]];
+                _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + [_entity]];
             };
         };
         
-        _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
-        
-        [true, "addEventHandler", [_entity, "HandleDamage", {
-            if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
-        
-            _this select 2
-        }]] call FUNC(network,mp);
-        
         if (!isNil QMODULE(task)) then {
+            private ["_action", "_task"];
+
             _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
             
             _task = [
@@ -248,7 +268,7 @@ switch (_type) do {
                 
                 _task = [(_unit getVariable QGVAR(task)) select 0] call FUNC(task,get);
                 
-                if (taskState _task == "Created") then {
+                if ((_unit getVariable QGVAR(task)) select 3 == "Created" && {taskState _task in ["Created", "Assigned"]}) then {
                     _task setTaskState "Succeeded";
                     
                     [_task, "succeeded"] call FUNC(task,hint);

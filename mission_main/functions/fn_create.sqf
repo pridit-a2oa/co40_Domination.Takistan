@@ -1,6 +1,6 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_name", "_ieds", "_trigger"];
+private ["_target", "_name", "_trigger"];
 
 PARAMS_1(_target);
 
@@ -16,12 +16,16 @@ _name = _target getVariable "name";
 } forEach ["camp", "radio", "composition"];
 
 if (!isNil QMODULE(ied)) then {
+    private ["_ieds"];
+
     _ieds = [_target, 600] call FUNC(ied,create);
     
     _target setVariable [QGVAR(ieds), _ieds];
 };
 
 if (!isNil QMODULE(unit)) then {
+    private ["_groups"];
+
     {
         _groups = [
             _x select 0,
@@ -37,6 +41,8 @@ if (!isNil QMODULE(unit)) then {
                 GVAR(mission_main_radius_zone),
                 4
             ] call FUNC(unit,patrol);
+
+            _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _x)];
         } forEach _groups;
     } forEach GVAR(mission_main_type_units);
 };
@@ -46,6 +52,8 @@ GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {},
 waitUntil {sleep 0.1; GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 
 if (!isNil QMODULE(task)) then {
+    private ["_task"];
+
     _task = [
         _name,
         position _target,

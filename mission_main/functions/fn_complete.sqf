@@ -4,16 +4,6 @@ private ["_target"];
 
 PARAMS_1(_target);
 
-{
-    if (side _x == east) then {
-        if (_x isKindOf "AllVehicles") then {
-            {_x setDamage 1} forEach crew _x;
-        } else {
-            _x setDamage 1;
-        };
-    };
-} forEach (_target nearEntities [["Man", "StaticWeapon"], GVAR(mission_main_radius_zone)]);
-
 if (!isNil QMODULE(ied)) then {
     {
          deleteVehicle _x;
@@ -21,6 +11,8 @@ if (!isNil QMODULE(ied)) then {
 };
 
 if (!isNil QMODULE(marker)) then {
+    private ["_name"];
+
     _name = format ["mission_main_%1", _target getVariable "name"];
     
     [_name] call FUNC(marker,delete);
@@ -44,6 +36,8 @@ if (!isNil QMODULE(marker)) then {
 };
 
 if (!isNil QMODULE(task)) then {
+    private ["_task"];
+
     _task = (_target getVariable QGVAR(tasks)) select 0;
     
     [_task, "Succeeded"] call FUNC(task,state);
@@ -80,6 +74,8 @@ if (!isNil QMODULE(crossroad)) then {
 };
 
 if (!isNil QMODULE(teleport)) then {
+    private ["_position", "_flag"];
+
     _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
 
     _flag = createVehicle ["FlagCarrierUSA_EP1", _position, [], 0, "NONE"];
@@ -116,6 +112,7 @@ if (!isNil QMODULE(teleport)) then {
     playSound QGVAR(sound_complete);
 }]] call FUNC(network,mp);
 
+[_target] spawn FUNC(THIS_MODULE,kill);
 [_target] spawn FUNC(THIS_MODULE,recycle);
 
 0 spawn {

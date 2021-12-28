@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_target", "_type"];
+private ["_target", "_type", "_vehicle", "_aircraft", "_crew", "_pilot"];
 
 PARAMS_2(_target, _type);
 
@@ -34,6 +34,8 @@ switch (_type select 0) do {
     };
 
     case "infantry": {
+        private ["_land", "_helper"];
+        
         __addDead(_aircraft);
         
         if (!isNil QMODULE(unit)) then {
