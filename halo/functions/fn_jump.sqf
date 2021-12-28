@@ -8,4 +8,8 @@ if (count _this > 1) then {
     _altitude = _this select 0;
 };
 
+if ((vehicle player) != player) then {
+    moveOut player;
+};
+
 [player, _altitude] spawn BIS_fnc_halo;
