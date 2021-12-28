@@ -10,8 +10,8 @@ _remaining = [player, 20] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
 
-DIALOG(QGVAR(notice), 1000) ctrlSetText "Outside of playable area";
-DIALOG(QGVAR(notice), 1001) ctrlSetText "Return towards the center of the map or you will be killed";
+DIALOG(QGVAR(notice), 1000) ctrlSetText "Out of bounds";
+DIALOG(QGVAR(notice), 1001) ctrlSetText "Return towards the center of the map";
 
 _handler = (vehicle player) addEventHandler ["getout", {
     private ["_vehicle"];
