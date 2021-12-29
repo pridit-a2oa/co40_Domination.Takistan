@@ -19,6 +19,10 @@ _vehicle setPos (position GVAR(base_rd));
 _vehicle setVelocity [0, 0, 0];
 _vehicle setVectorUp surfaceNormal (position GVAR(base_rd));
 
+if (!isNil QMODULE(vehicle_menu)) then {
+    _vehicle setVariable [QGVAR(menu), false, true];
+};
+
 sleep 2;
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);

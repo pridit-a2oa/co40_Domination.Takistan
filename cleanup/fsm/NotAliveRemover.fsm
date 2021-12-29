@@ -64,7 +64,7 @@ class FSM
        "" \n
        "if (count d_allunits_add > 0) then {" \n
        "	d_allunits_add = d_allunits_add - [objNull, nil];" \n
-       "	[_allunits, d_allunits_add] call d_fnc_server_arrayPushStack;" \n
+       "	[_allunits, d_allunits_add] call d_fnc_common_arrayPushStack;" \n
        "	d_allunits_add = [];" \n
        "	_allunits = _allunits - [objNull];" \n
        "};" \n

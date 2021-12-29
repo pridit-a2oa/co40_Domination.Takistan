@@ -94,16 +94,16 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     _vehicle setVariable [QGVAR(built), true, true];
 
+    if (!isNil QMODULE(vehicle_menu)) then {
+        _vehicle setVariable [QGVAR(menu), false, true];
+    };
+
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };
 
     if (!isNil QMODULE(vehicle_wreck)) then {
         _vehicle setVariable [QGVAR(wreckable), false, true];
-    };
-
-    if (!isNil QMODULE(vehicle)) then {
-        [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
     };
 
     [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
@@ -127,6 +127,10 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     _vehicle lock false;
     _vehicle allowDamage true;
+
+    if (!isNil QMODULE(vehicle_menu)) then {
+        _vehicle setVariable [QGVAR(menu), true, true];
+    };
 
     [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
 

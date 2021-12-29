@@ -4,29 +4,11 @@
 
 #define THIS_MODULE vehicle_menu
 #include "x_macros.sqf"
-private ["_vehicle", "_valid"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_valid = [];
-
-if (!isNil QMODULE(vehicle_ammobox)) then {
-    _valid = _valid + GVAR(vehicle_ammobox_types);
-};
-
-if (!isNil QMODULE(vehicle_loadout)) then {
-    _valid = _valid + ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues));
-};
-
-if (!isNil QMODULE(vehicle_pack)) then {
-    _valid = _valid + GVAR(vehicle_pack_types);
-};
-
-if (!isNil QMODULE(vehicle_deploy)) then {
-    _valid = _valid + ([0, call FUNC(vehicle_deploy,types)] call FUNC(common,arrayValues));
-};
-
-if (_valid find (typeOf _vehicle) == -1) exitWith {};
+if (GVAR(vehicle_menu_types) find (typeOf _vehicle) == -1) exitWith {};
 
 _vehicle addAction [
     format ["%1 Menu" call FUNC(common,YellowText),
