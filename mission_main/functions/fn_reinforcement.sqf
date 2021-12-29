@@ -34,7 +34,7 @@ switch (_type select 0) do {
     };
 
     case "infantry": {
-        private ["_land", "_helper"];
+        private ["_land", "_helper", "_group"];
         
         __addDead(_aircraft);
         
@@ -44,6 +44,8 @@ switch (_type select 0) do {
             {
                 _x moveInCargo _aircraft;
             } forEach (units _group);
+
+            _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
         };
         
         _land = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 3, 0, 0.7, 0] call FUNC(common,safePos);
@@ -69,6 +71,10 @@ switch (_type select 0) do {
                             
                             sleep (0.5 + random 0.5);
                         } forEach crew _aircraft;
+
+                        if (!isNil QMODULE(unit)) then {
+                            [_group, _land] call FUNC(unit,defend);
+                        };
                         
                         sleep 10;
                         
@@ -80,14 +86,6 @@ switch (_type select 0) do {
             };
             
             sleep 2;
-        };
-        
-        if (!canMove _aircraft) then {
-            {
-                deleteVehicle _x;
-            } forEach _crew;
-            
-            _aircraft setDamage 1;
         };
     };
 };
