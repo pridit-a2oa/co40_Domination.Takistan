@@ -48,11 +48,11 @@ if (!isNil QMODULE(3d)) then {
 
 _time = _time + call FUNC(common,time);
 
-while {call FUNC(common,time) < _time} do {    
-    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
-        // remaining time is greater than the maximum it could ever be
-        if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
-        
+while {call FUNC(common,time) < _time} do {   
+    // remaining time is greater than the maximum it could ever be
+    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
+
+    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {      
         _vehicle spawn {
             sleep (random 10);
             
