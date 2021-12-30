@@ -33,7 +33,7 @@ GVAR(modules) = [
     "gesture",
     "halo",
     "heap",
-    "idle",
+    // "idle",
     "ied",
     "intel",
     "inventory",
