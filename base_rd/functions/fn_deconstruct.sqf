@@ -10,25 +10,22 @@ _vehicle = _trigger getVariable QGVAR(vehicle);
 
 if (isNil "_vehicle") exitWith {};
 
-[_vehicle, "lock", true] call FUNC(network,mp);
-[_vehicle, "allowDamage", false] call FUNC(network,mp);
+[_vehicle] call FUNC(vehicle,delete);
 
-if (isEngineOn _vehicle) then {
-    [_vehicle, "setFuel", 0] call FUNC(network,mp);
-};
+_position = [(position GVAR(base_rd)) select 0, (position GVAR(base_rd)) select 1, 0];
 
-[true, "setDir", [_vehicle, getDir GVAR(base_rd)]] call FUNC(network,mp);
+_vehicle = createVehicle [typeOf _vehicle, _position, [], 0, "NONE"];
+_vehicle setDir (getDir GVAR(base_rd));
+_vehicle setPos _position;
+_vehicle setVelocity [0, 0, 0];
+_vehicle setVectorUp surfaceNormal (position GVAR(base_rd));
 
-_vehicle setPos (position GVAR(base_rd));
+_vehicle lock true;
+_vehicle allowDamage false;
 
-[_vehicle, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
-[_vehicle, "setVectorUp", surfaceNormal (position GVAR(base_rd))] call FUNC(network,mp);
+[true, "setObjectTexture", [_vehicle, [0, "#(argb,512,512,1)r2t(rendersurface,1.333)"]]] call FUNC(network,mp);
 
-if (!isNil QMODULE(vehicle_menu)) then {
-    _vehicle setVariable [QGVAR(menu), false, true];
-};
-
-waitUntil {sleep 1; speed _vehicle == 0};
+sleep 2;
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
@@ -47,6 +44,16 @@ if (!isNil QMODULE(3d)) then {
 };
 
 _time = _time + call FUNC(common,time);
+
+if (!isNil QMODULE(vehicle_menu)) then {
+    _vehicle setVariable [QGVAR(menu), false, true];
+};
+
+if (!isNil QMODULE(vehicle_respawn)) then {
+    _vehicle setVariable [QGVAR(respawnable), false, true];
+};
+
+[true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
 while {call FUNC(common,time) < _time} do {   
     // remaining time is greater than the maximum it could ever be
