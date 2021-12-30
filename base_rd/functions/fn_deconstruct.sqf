@@ -10,14 +10,19 @@ _vehicle = _trigger getVariable QGVAR(vehicle);
 
 if (isNil "_vehicle") exitWith {};
 
-_vehicle lock true;
-_vehicle allowDamage false;
-_vehicle engineOn false;
+[_vehicle, "lock", true] call FUNC(network,mp);
+[_vehicle, "allowDamage", false] call FUNC(network,mp);
 
-_vehicle setDir (getDir GVAR(base_rd));
+if (isEngineOn _vehicle) then {
+    [_vehicle, "setFuel", 0] call FUNC(network,mp);
+};
+
+[true, "setDir", [_vehicle, getDir GVAR(base_rd)]] call FUNC(network,mp);
+
 _vehicle setPos (position GVAR(base_rd));
-_vehicle setVelocity [0, 0, 0];
-_vehicle setVectorUp surfaceNormal (position GVAR(base_rd));
+
+[_vehicle, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
+[_vehicle, "setVectorUp", surfaceNormal (position GVAR(base_rd))] call FUNC(network,mp);
 
 if (!isNil QMODULE(vehicle_menu)) then {
     _vehicle setVariable [QGVAR(menu), false, true];
