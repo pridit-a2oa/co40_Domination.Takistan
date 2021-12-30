@@ -21,6 +21,10 @@ waitUntil {count crew _attachee < 1};
 
 [_attachee, "lock", true] call FUNC(network,mp);
 
+if (isEngineOn _attachee) then {
+    [_attachee, "engineOn", false] call FUNC(network,mp);
+};
+
 [true, "enableSimulation", [_attachee, false]] call FUNC(network,mp);
 
 if (!isNil QMODULE(vehicle_marker)) then {
