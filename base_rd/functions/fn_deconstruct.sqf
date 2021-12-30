@@ -23,7 +23,7 @@ if (!isNil QMODULE(vehicle_menu)) then {
     _vehicle setVariable [QGVAR(menu), false, true];
 };
 
-sleep 2;
+waitUntil {sleep 1; speed _vehicle == 0};
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
