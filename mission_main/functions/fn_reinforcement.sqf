@@ -1,7 +1,10 @@
+#define THIS_MODULE mission_main
 #include "x_macros.sqf"
 private ["_target", "_type", "_vehicle", "_aircraft", "_crew", "_pilot"];
 
 PARAMS_2(_target, _type);
+
+if ([_target, [1, GVAR(mission_main_type_reinforcements), true] call FUNC(common,arrayValues)] call FUNC(THIS_MODULE,exists)) exitWith {};
 
 _vehicle = (_type select 1) call BIS_fnc_selectRandom;
 _vehicle = [position _target, _vehicle, GVAR(mission_main_distance_reinforcement), 200, east] call FUNC(server,spawnVehicle);
@@ -18,7 +21,7 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 
 _pilot setSkill 1;
 
-(group _pilot) setBehaviour "AWARE";
+(group _pilot) setBehaviour "CARELESS";
 
 switch (_type select 0) do {
     case "aircraft": {
