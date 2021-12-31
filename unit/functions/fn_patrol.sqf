@@ -4,7 +4,7 @@
  */
 
 #include "x_macros.sqf"
-private ["_group", "_position", "_range", "_waypoints"];
+private ["_group", "_position", "_range", "_waypoints", "_distance", "_wdir", "_wx", "_wy", "_wp"];
 
 PARAMS_4(_group, _position, _range, _waypoints);
 
@@ -19,7 +19,7 @@ for "_i" from 1 to _waypoints do {
         [_group, _i] setWaypointBehaviour "SAFE";
         [_group, _i] setWaypointCombatMode "RED";
         [_group, _i] setWaypointFormation "COLUMN";
-        [_group, _i] setWaypointSpeed "LIMITED";
+        [_group, _i] setWaypointSpeed (if ((vehicle (leader _group)) isKindOf "Air") then {"NORMAL"} else {"LIMITED"});
     };
 };
 

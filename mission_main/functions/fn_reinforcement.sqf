@@ -26,8 +26,6 @@ switch (_type select 0) do {
             [_aircraft] spawn FUNC(vehicle_wreck,handle);
         };
         
-        (group _pilot) setSpeedMode "LIMITED";
-        
         if (!isNil QMODULE(unit)) then {
             [group _pilot, position _target, 600, 4] call FUNC(unit,patrol);
         };
