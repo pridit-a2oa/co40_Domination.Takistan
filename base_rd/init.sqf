@@ -19,6 +19,7 @@ GVAR(base_rd_type_vehicles) = [
     "BTR60_TK_EP1",
     "L39_TK_EP1",
     "M113_TK_EP1",
+    "Mi17_TK_EP1",
     "Mi24_D_TK_EP1",
     "Su25_TK_EP1",
     "T34_TK_EP1",
@@ -47,9 +48,9 @@ GVAR(base_rd_time_construct) = [
     [1500, "Tracked_APC"],
     [2100, "BRDM2_ATGM_Base"],
     [1500, "Wheeled_APC"],
-    [1800, "UH1H_base"],
+    [2700, "Mi24_Base"],
+    [1800, "Helicopter"],
     [2400, "Tank"],
-    [2700, "Helicopter"],
     [2700, "Plane"]
 ];
 
