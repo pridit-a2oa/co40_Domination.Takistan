@@ -10,7 +10,7 @@ _aircraft = _vehicle select 0;
 _crew = _vehicle select 1;
 _pilot = driver _aircraft;
 
-_aircraft flyInHeight 80;
+_aircraft flyInHeight 140;
 
 if (!isNil QMODULE(vehicle_respawn)) then {
     _aircraft setVariable [QGVAR(respawnable), false, true];
@@ -18,7 +18,7 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 
 _pilot setSkill 1;
 
-(group _pilot) setBehaviour "CARELESS";
+(group _pilot) setBehaviour "AWARE";
 
 switch (_type select 0) do {
     case "aircraft": {
