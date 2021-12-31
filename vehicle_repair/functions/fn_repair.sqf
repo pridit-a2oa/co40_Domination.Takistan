@@ -25,8 +25,8 @@ for "_i" from 1 to 3 do {
     if (!alive _vehicle) exitWith {};
     
     if (_i == 3) then {
-        if (damage _vehicle > 0.3) then {
-            [_vehicle, "setDamage", 0.3] call FUNC(network,mp);
+        if (damage _vehicle > GVAR(vehicle_repair_amount_damage)) then {
+            [_vehicle, "setDamage", GVAR(vehicle_repair_amount_damage)] call FUNC(network,mp);
         };
         
         [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
