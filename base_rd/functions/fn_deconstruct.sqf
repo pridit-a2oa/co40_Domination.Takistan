@@ -1,6 +1,6 @@
 #define THIS_MODULE base_rd
 #include "x_macros.sqf"
-private ["_trigger", "_vehicle", "_time", "_progress"];
+private ["_trigger", "_vehicle", "_player", "_time", "_progress"];
 
 PARAMS_1(_trigger);
 
@@ -9,6 +9,8 @@ GVAR(base_rd) setVariable [QGVAR(processing), true, true];
 _vehicle = _trigger getVariable QGVAR(vehicle);
 
 if (isNil "_vehicle") exitWith {};
+
+_player = call FUNC(THIS_MODULE,player);
 
 [_vehicle] call FUNC(vehicle,delete);
 
@@ -103,5 +105,18 @@ if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1
 };
 
 [_vehicle] call FUNC(vehicle,delete);
+
+if !([_player, objNull] call BIS_fnc_areEqual) then {
+    {
+        if (name _x == _player) exitWith {
+            _x addScore GVAR(base_rd_amount_score);
+            
+            [_x, "systemChat", format [
+                "You have been rewarded %1 score for deconstructing a vehicle",
+                GVAR(base_rd_amount_score)
+            ]] call FUNC(network,mp);
+        };
+    } forEach (call FUNC(common,players));
+};
 
 GVAR(base_rd) setVariable [QGVAR(processing), false, true];

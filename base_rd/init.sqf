@@ -74,6 +74,7 @@ __cppfln(FUNC(THIS_MODULE,construct),THIS_MODULE\functions\fn_construct.sqf);
 __cppfln(FUNC(THIS_MODULE,deconstruct),THIS_MODULE\functions\fn_deconstruct.sqf);
 __cppfln(FUNC(THIS_MODULE,item),THIS_MODULE\functions\fn_item.sqf);
 __cppfln(FUNC(THIS_MODULE,max),THIS_MODULE\functions\fn_max.sqf);
+__cppfln(FUNC(THIS_MODULE,player),THIS_MODULE\functions\fn_player.sqf);
 __cppfln(FUNC(THIS_MODULE,populate),THIS_MODULE\functions\fn_populate.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
