@@ -102,6 +102,7 @@ __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,detected),THIS_MODULE\functions\fn_detected.sqf);
+__cppfln(FUNC(THIS_MODULE,exists),THIS_MODULE\functions\fn_exists.sqf);
 __cppfln(FUNC(THIS_MODULE,kill),THIS_MODULE\functions\fn_kill.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
