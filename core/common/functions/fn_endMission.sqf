@@ -11,3 +11,5 @@ if (alive _this) then {
 if (isPlayer _this) then {
     [_this, "endMission", "END1"] call d_fnc_network_mp;
 };
+
+deleteVehicle _this;
