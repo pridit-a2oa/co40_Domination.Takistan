@@ -16,6 +16,10 @@ if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
 
+    if (sunOrMoon == 0 && {_vehicle isKindOf "Air"}) then {
+        gameLogic action ["lightOn", _vehicle];
+    };
+
     if (isNil {_vehicle getVariable QGVAR(built)}) then {
         _vehicle setVariable [QGVAR(built), false, true];
     };
