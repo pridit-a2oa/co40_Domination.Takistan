@@ -16,7 +16,7 @@ _type = typeOf _vehicle;
 
 [_vehicle] call FUNC(vehicle,delete);
 
-sleep 1;
+sleep 0.5;
 
 _position = [(position GVAR(base_rd)) select 0, (position GVAR(base_rd)) select 1, 0];
 

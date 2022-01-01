@@ -18,7 +18,7 @@ _type = typeOf _wreck;
 
 [_wreck] call FUNC(vehicle,delete);
 
-sleep 1;
+sleep 0.5;
 
 _position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
 
