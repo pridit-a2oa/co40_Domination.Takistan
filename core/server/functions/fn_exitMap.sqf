@@ -10,7 +10,7 @@ _group = group _vehicle;
 sleep 0.1;
 
 for "_i" from count waypoints _group - 1 to 0 step -1 do {
-	deleteWaypoint [_group, _i];
+    deleteWaypoint [_group, _i];
 };
 
 _waypoint = _group addWaypoint [[markerPos QGVAR(map_zone), 9500, getDir _vehicle] call BIS_fnc_relPos, 0];

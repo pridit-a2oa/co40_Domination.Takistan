@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-	if (!isNil QMODULE(base_rd)) then {
-		__submodulePP(base_rd);
-	};
+    if (!isNil QMODULE(base_rd)) then {
+        __submodulePP(base_rd);
+    };
 };

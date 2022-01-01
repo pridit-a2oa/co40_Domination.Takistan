@@ -10,10 +10,10 @@
 
 // Set kinds of vehicles and corresponding times.
 GVAR(vehicle_abandon_types) = [
-	[300, "ATV_Base_EP1"],
-	[300, "Motorcycle"],
-	[900, "HMMWV_Base"],
-	[3600, "AllVehicles"]
+    [300, "ATV_Base_EP1"],
+    [300, "Motorcycle"],
+    [900, "HMMWV_Base"],
+    [3600, "AllVehicles"]
 ];
 
 // Set minimum distance players have to be from the vehicle before it will delete.
