@@ -10,6 +10,7 @@ _vehicle = (nearestObjects [position _service, _type, 10]) select 0;
 
 if (isNil "_vehicle") exitWith {false};
 if (!alive _vehicle) exitWith {false};
+if ({isPlayer _x} count crew _vehicle < 1) exitWith {false};
 
 _time = _service getVariable QGVAR(time);
 
