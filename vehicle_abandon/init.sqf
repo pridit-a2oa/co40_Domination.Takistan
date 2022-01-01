@@ -11,8 +11,9 @@
 // Set kinds of vehicles and corresponding times.
 GVAR(vehicle_abandon_types) = [
     [300, "ATV_Base_EP1"],
-    [300, "Motorcycle"],
-    [900, "HMMWV_Base"],
+    [300, "TT650_Base"],
+    [600, "HMMWV_Base"],
+    [900, "AH6_Base_EP1"],
     [3600, "AllVehicles"]
 ];
 
