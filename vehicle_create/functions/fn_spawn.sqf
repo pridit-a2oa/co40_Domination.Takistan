@@ -30,6 +30,10 @@ _atv setDir ((direction _vehicle) - 180);
 _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];
 
+if (!isNil QMODULE(vehicle_abandon)) then {
+    _atv setVariable [QGVAR(abandon), true, true];
+};
+
 if (!isNil QMODULE(vehicle_respawn)) then {
     _atv setVariable [QGVAR(respawnable), false, true];
 };
@@ -38,19 +42,5 @@ player reveal _atv;
 
 [true, "say", [_atv, QGVAR(sound_build), 20]] call FUNC(network,mp);
 [true, "execVM", [[_atv], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-
-_atv spawn {
-    sleep 10;
-    
-    while {true} do {
-        _far = {_x distance _this < GVAR(vehicle_distance)} count (call FUNC(common,players)) < 1;
-        
-        if (_far && {_this call FUNC(common,empty)}) exitWith {
-            deleteVehicle _this;
-        };
-        
-        sleep 5;
-    };
-};
 
 closeDialog 0;

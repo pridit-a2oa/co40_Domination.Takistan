@@ -65,6 +65,7 @@ GVAR(modules) = [
     "uav",
     "unit",
     "vehicle",
+    "vehicle_abandon",
     "vehicle_ammobox",
     "vehicle_bonus",
     "vehicle_create",

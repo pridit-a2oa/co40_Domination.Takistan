@@ -27,12 +27,10 @@ if (faction _object == "BIS_US") then {
     _object allowCrewInImmobile true;
 };
 
-_object spawn {
-    if (!isNil QMODULE(vehicle_respawn)) then {
-        _this setVariable [QGVAR(respawnable), false, true];
-    };
-    
-    [true, "execVM", [[_this], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+if (!isNil QMODULE(vehicle_respawn)) then {
+    _object setVariable [QGVAR(respawnable), false, true];
 };
+
+[true, "execVM", [[_object], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
 _vehicle

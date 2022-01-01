@@ -81,12 +81,18 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     while {alive _aircraft && {canMove _aircraft}} do {
         if (_aircraft distance _position < 650) exitWith {
             _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
-            
-            __addDead(_load);
-            
-            if (!isNil QMODULE(vehicle_respawn) && {_load isKindOf "AllVehicles"}) then {
-                _load setVariable [QGVAR(respawnable), false, true];
+
+            if !((typeOf _load) isKindOf "ReammoBox") then {
+                if (!isNil QMODULE(vehicle_abandon)) then {
+                    _load setVariable [QGVAR(abandon), true];
+                };
+                
+                if (!isNil QMODULE(vehicle_respawn)) then {
+                    _load setVariable [QGVAR(respawnable), false, true];
+                };
             };
+
+            __addDead(_load);
             
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (unitReady _pilot) exitWith {

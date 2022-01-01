@@ -50,10 +50,11 @@ if (typeName _loaded == "ARRAY") then {
         detach _load;
     };
     
-    if (!isNil QMODULE(vehicle) && {_load isKindOf "AllVehicles"}) then {
+    if (!isNil QMODULE(vehicle) && {!(_load isKindOf "ReammoBox")}) then {
         [true, "execVM", [[_load], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-        [true, "reveal", _load] call FUNC(network,mp);
     };
+
+    [true, "reveal", _load] call FUNC(network,mp);
     
     if ((position _aircraft) select 2 > 100) then {
         _parachute = createVehicle ["ParachuteMediumWest", _position, [], 0, "NONE"];

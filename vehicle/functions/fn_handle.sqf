@@ -36,6 +36,10 @@ if (isServer) then {
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
+    if (!isNil QMODULE(vehicle_abandon)) then {
+        [_vehicle] __submoduleVM(vehicle_abandon);
+    };
+
     if (!isNil QMODULE(vehicle_loadout)) then {
         [_vehicle] __submoduleVM(vehicle_loadout);
     };
