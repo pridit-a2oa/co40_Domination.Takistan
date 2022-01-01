@@ -16,6 +16,8 @@ if (!isNil QMODULE(crossroad)) then {
 
 [_wreck] call FUNC(vehicle,delete);
 
+sleep 1;
+
 _position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
 
 _vehicle = createVehicle [typeOf _wreck, _position, [], 0, "NONE"];

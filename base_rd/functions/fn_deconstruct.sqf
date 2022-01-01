@@ -14,6 +14,8 @@ _player = call FUNC(THIS_MODULE,player);
 
 [_vehicle] call FUNC(vehicle,delete);
 
+sleep 1;
+
 _position = [(position GVAR(base_rd)) select 0, (position GVAR(base_rd)) select 1, 0];
 
 _vehicle = createVehicle [typeOf _vehicle, _position, [], 0, "NONE"];
