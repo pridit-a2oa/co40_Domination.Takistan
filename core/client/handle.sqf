@@ -18,7 +18,7 @@
     };
     
     enableRadio true;
-    enableSentences true;
+    enableSentences false;
     enableEngineArtillery true;
     
     [100] call FUNC(THIS_MODULE,reveal);
