@@ -13,7 +13,7 @@ if ({isPlayer _x && {alive _x}} count crew _vehicle > 0) then {
     deleteVehicle _x;
 } forEach crew _vehicle;
 
-if (!isNil QMODULE(vehicle_marker)) then {
+if (!isNil QMODULE(vehicle_marker) && {!(str (markerPos (_vehicle getVariable QGVAR(id))) == "[0,0,0]")}) then {
     [true, "deleteMarkerLocal", _vehicle getVariable QGVAR(id)] call FUNC(network,mp);
 };
 

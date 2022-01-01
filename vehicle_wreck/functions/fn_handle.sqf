@@ -17,6 +17,12 @@ if (_chance > round (random 100)) then {
         private ["_vehicle"];
         
         PARAMS_1(_vehicle);
+
+        if !(_vehicle getVariable QGVAR(wreckable)) exitWith {
+            if (isServer) then {
+                __addDead(_vehicle);
+            };
+        };
         
         _vehicle spawn {
             sleep GVAR(vehicle_wreck_time_announce);

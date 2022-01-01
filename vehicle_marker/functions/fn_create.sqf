@@ -31,7 +31,7 @@ if (alive _vehicle) then {
             [_vehicle] __submoduleVM(vehicle_wreck);
         };
 
-        if (!isNil QMODULE(vehicle_marker)) then {
+        if (!isNil QMODULE(vehicle_marker) && {!(str (markerPos (_vehicle getVariable QGVAR(id))) == "[0,0,0]")}) then {
             deleteMarkerLocal (_vehicle getVariable QGVAR(id));
         };
     }];
