@@ -8,7 +8,7 @@ _exists = false;
 _vehicles = nearestObjects [position _target, ["Air"], GVAR(mission_main_radius_zone) + 500];
 
 {
-    if ((typeOf _x) in _objects && {{!isPlayer _x && {alive _x}} count crew _x > 0}) exitWith {
+    if ((typeOf _x) in _objects && {{!isPlayer _x && {alive _x && {side _x == east}}} count crew _x > 0}) exitWith {
         _exists = true;
     };
 } forEach _vehicles;
