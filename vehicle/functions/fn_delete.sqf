@@ -9,12 +9,20 @@ if ({isPlayer _x && {alive _x}} count crew _vehicle > 0) then {
     } forEach crew _vehicle;
 };
 
+if (!isNil QMODULE(vehicle_marker)) then {
+    [true, "spawn", [[_vehicle getVariable QGVAR(id)], {
+        private ["_marker"];
+        
+        PARAMS_1(_marker);
+        
+        if (str (markerPos _marker) == "[0,0,0]") exitWith {};
+        
+        deleteMarkerLocal _marker;
+    }]] call FUNC(network,mp);
+};
+
 {
     deleteVehicle _x;
 } forEach crew _vehicle;
-
-if (!isNil QMODULE(vehicle_marker) && {!(str (markerPos (_vehicle getVariable QGVAR(id))) == "[0,0,0]")}) then {
-    [true, "deleteMarkerLocal", _vehicle getVariable QGVAR(id)] call FUNC(network,mp);
-};
 
 deleteVehicle _vehicle;
