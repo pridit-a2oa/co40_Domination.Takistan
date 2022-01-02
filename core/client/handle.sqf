@@ -14,6 +14,8 @@
     player addWeapon "NVGoggles";
     
     if (sunOrMoon == 0) then {
+        if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
+
         player action ["NVGoggles", player];
     };
     
@@ -294,6 +296,8 @@ player addEventHandler ["respawn", {
     };
     
     if (sunOrMoon == 0 && {(weapons _unit) find "NVGoggles" != -1}) then {
+        if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
+
         _unit action ["NVGoggles", _unit];
     };
 }];

@@ -36,6 +36,13 @@ GVAR(setting_type_valid) = [
         [500, 250, 125]
     ],
     [
+        "Nightvision",
+        "nightvision",
+        "Set whether nightvision goggles will automatically be toggled at night (if equipped)",
+        ["Yes", "No"],
+        [10, 0]
+    ],
+    [
         "View Distance",
         "view_distance",
         "Set distance for terrain and object visibility (significant performance impact)",
@@ -49,6 +56,7 @@ GVAR(setting_type_default) = [
     10,
     10,
     500,
+    10,
     25000
 ];
 

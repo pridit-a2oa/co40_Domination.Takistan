@@ -6,6 +6,7 @@ _save = [
     [__profile("camera"), ["STRING", ["INTERNAL", "EXTERNAL"]]],
     [__profile("sounds"), ["SCALAR", [0, 1]]],
     [__profile("grass"), ["SCALAR", [50, 25, 10]]],
+    [__profile("nightvision"), ["SCALAR", [0, 1]]],
     [__profile("view_distance"), ["SCALAR", [500, 10000]]]
 ];
 
