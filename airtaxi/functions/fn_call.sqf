@@ -8,14 +8,14 @@ if (hasInterface) then {
     _name = "Air taxi";
     _checks = [
         [
-            _name,
-            X_JIPH getVariable QGVAR(air_taxi_progress)
-        ] call FUNC(helper,inProgress),
-    
-        [
             [_name, "called"],
             player getVariable QGVAR(air_taxi_cooldown)
         ] call FUNC(helper,timeExceeded),
+
+        [
+            _name,
+            X_JIPH getVariable QGVAR(air_taxi_progress)
+        ] call FUNC(helper,inProgress),
     
         [
             _name,

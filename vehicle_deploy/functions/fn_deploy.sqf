@@ -14,6 +14,11 @@ switch (_state) do {
             _checks = [
                 [
                     [_name, "deployed"],
+                    _vehicle getVariable QGVAR(deploy_cooldown)
+                ] call FUNC(helper,timeExceeded),
+
+                [
+                    [_name, "deployed"],
                     _position,
                     markerPos QGVAR(base_south),
                     [GVAR(vehicle_deploy_distance_base), "in excess of", "from base"]
@@ -34,12 +39,7 @@ switch (_state) do {
                 [
                     [_name, "deployed"],
                     _vehicle
-                ] call FUNC(helper,isOccupied),
-                
-                [
-                    [_name, "deployed"],
-                    _vehicle getVariable QGVAR(deploy_cooldown)
-                ] call FUNC(helper,timeExceeded)
+                ] call FUNC(helper,isOccupied)
             ];
 
             {

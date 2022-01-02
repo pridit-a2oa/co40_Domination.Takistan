@@ -8,21 +8,14 @@ if (hasInterface) then {
     _name = "Artillery";
     _checks = [
         [
-            _name,
-            X_JIPH getVariable QGVAR(artillery_progress)
-        ] call FUNC(helper,inProgress),
-        
-        [
             [_name, "called"],
             player getVariable QGVAR(artillery_cooldown)
         ] call FUNC(helper,timeExceeded),
-    
+
         [
             _name,
-            _position,
-            WEST,
-            GVAR(artillery_distance_friendly)
-        ] call FUNC(helper,nearSide),
+            X_JIPH getVariable QGVAR(artillery_progress)
+        ] call FUNC(helper,inProgress),
     
         [
             [_name, "called"],
@@ -40,7 +33,14 @@ if (hasInterface) then {
         
         [
             [_name, "called"]
-        ] call FUNC(helper,inVehicle)
+        ] call FUNC(helper,inVehicle),
+
+        [
+            _name,
+            _position,
+            WEST,
+            GVAR(artillery_distance_friendly)
+        ] call FUNC(helper,nearSide)
     ];
     
     {

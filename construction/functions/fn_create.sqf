@@ -36,11 +36,11 @@ _checks = [
     
     [
         [_name, "constructed"]
-    ] call FUNC(helper,inVehicle),
-    
+    ] call FUNC(helper,inAir),
+
     [
         [_name, "constructed"]
-    ] call FUNC(helper,inAir)
+    ] call FUNC(helper,inVehicle)
 ];
 
 {

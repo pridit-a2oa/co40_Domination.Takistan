@@ -14,20 +14,27 @@ if (hasInterface) then {
     _name = "Airdrop";
     _checks = [
         [
-            _name,
-            X_JIPH getVariable QGVAR(airdrop_progress)
-        ] call FUNC(helper,inProgress),
-        
-        [
             [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
         ] call FUNC(helper,timeExceeded),
-        
+    
+        [
+            _name,
+            X_JIPH getVariable QGVAR(airdrop_progress)
+        ] call FUNC(helper,inProgress),
+
         [
             [_name, "called"],
             _position,
             player,
             [GVAR(airdrop_distance_player), "within", "of your location"]
+        ] call FUNC(helper,distanceFrom),
+
+        [
+            [_name, "called"],
+            _position,
+            markerPos QGVAR(base_south),
+            [GVAR(airdrop_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
         
         [

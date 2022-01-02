@@ -10,6 +10,11 @@ if (hasInterface) then {
     _name = "R&D point";
     _checks = [
         [
+            [_name, "used to construct"],
+            player getVariable QGVAR(base_rd_cooldown)
+        ] call FUNC(helper,timeExceeded),
+
+        [
             _name,
             GVAR(base_rd) getVariable QGVAR(processing),
             true
@@ -18,12 +23,7 @@ if (hasInterface) then {
         [
             _name,
             position GVAR(base_rd)
-        ] call FUNC(helper,nearAny),
-
-        [
-            [_name, "used to construct"],
-            player getVariable QGVAR(base_rd_cooldown)
-        ] call FUNC(helper,timeExceeded)
+        ] call FUNC(helper,nearAny)
     ];
 
     {

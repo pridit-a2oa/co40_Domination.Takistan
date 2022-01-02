@@ -8,14 +8,14 @@ if (hasInterface) then {
     _name = "UAV";
     _checks = [
         [
-            _name,
-            X_JIPH getVariable QGVAR(uav_progress)
-        ] call FUNC(helper,inProgress),
-        
-        [
             [_name, "called"],
             player getVariable QGVAR(uav_cooldown)
         ] call FUNC(helper,timeExceeded),
+
+        [
+            _name,
+            X_JIPH getVariable QGVAR(uav_progress)
+        ] call FUNC(helper,inProgress),
         
         [
             [_name, "called"],
