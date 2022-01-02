@@ -56,10 +56,11 @@ class Mission
 		briefingDescription="Domination we all know and love, rebuilt from the ground up. With tremendous thanks to Xeno, who pioneered this mode.";
 		startWeather=0;
 		forecastWeather=0;
-		year=2019;
-		month=6;
-		hour=5;
-		minute=0;
+		year=2018;
+		month=10;
+		day=28;
+		hour=6;
+		minute=15;
 	};
 	class Groups
 	{
