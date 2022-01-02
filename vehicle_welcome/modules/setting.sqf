@@ -8,7 +8,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Vehicle Welcome",
         "vehicle_welcome",
-        "Set whether the functional capabilities of helicopters are shown when entering as pilot",
+        "Set whether the functional capabilities of applicable aircraft are shown when entering as pilot",
         ["Show", "Hide"],
         [10, 0]
     ]

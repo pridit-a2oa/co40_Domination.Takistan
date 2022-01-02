@@ -116,7 +116,7 @@ if !([_player, objNull] call BIS_fnc_areEqual) then {
             _x addScore GVAR(base_rd_amount_score);
             
             [_x, "systemChat", format [
-                "You have been rewarded %1 score for deconstructing a vehicle",
+                "You have been given %1 score for deconstructing a vehicle",
                 GVAR(base_rd_amount_score)
             ]] call FUNC(network,mp);
         };

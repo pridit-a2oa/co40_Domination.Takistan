@@ -102,7 +102,7 @@ if (!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(
             _x addScore GVAR(base_wreck_amount_score);
             
             [_x, "systemChat", format [
-                "You have been rewarded %1 score for rebuilding a wreck",
+                "You have been given %1 score for rebuilding a wreck",
                 GVAR(base_wreck_amount_score)
             ]] call FUNC(network,mp);
         };
