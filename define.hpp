@@ -152,11 +152,11 @@ class RscListBox
  colorText[] = {0.6,0.6,0.6,1};
  colorScrollbar[] = {0.6,0.5,0.3,1};
  colorSelect[] = {0,0,0,1};
- colorSelectBackground[] = {0.6,0.6,0.6,1};
+ colorSelectBackground[] = {0.467,0.467,0.467,1};
  colorBackground[] = {0.6,0.5,0.3,1};
- maxHistoryDelay = 1.0;
+ maxHistoryDelay = 0;
  soundSelect[] = {"",0.1,1};
- period = 1;
+ period = 0;
  autoScrollSpeed = -1;
  autoScrollDelay = 5;
  autoScrollRewind = 0;
