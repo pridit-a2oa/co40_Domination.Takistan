@@ -24,8 +24,7 @@ GVAR(modules) = [
     "cleanup",
     "communication",
     "construction",
-    "crossroad",
-    // "daily",
+    "crossroad"
     // "debug",
     "drag",
     "farp",
