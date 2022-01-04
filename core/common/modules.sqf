@@ -21,7 +21,6 @@ GVAR(modules) = [
     "base_rd",
     "base_wreck",
     "board",
-    // "chat",
     "cleanup",
     "communication",
     "construction",
