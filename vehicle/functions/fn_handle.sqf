@@ -37,15 +37,15 @@ if (isServer) then {
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
     if (!isNil QMODULE(vehicle_abandon)) then {
-        [_vehicle] __submoduleVM(vehicle_abandon);
+        [_vehicle] __submodulePP(vehicle_abandon);
     };
 
     if (!isNil QMODULE(vehicle_loadout)) then {
-        [_vehicle] __submoduleVM(vehicle_loadout);
+        [_vehicle] __submodulePP(vehicle_loadout);
     };
     
     if (!isNil QMODULE(vehicle_mhq)) then {
-        [_vehicle] __submoduleVM(vehicle_mhq);
+        [_vehicle] __submodulePP(vehicle_mhq);
     };
 
     if (!isNil QMODULE(vehicle_respawn)) then {
@@ -53,7 +53,7 @@ if (isServer) then {
     };
     
     if (!isNil QMODULE(vehicle_service)) then {
-        [_vehicle] __submoduleVM(vehicle_service);
+        [_vehicle] __submodulePP(vehicle_service);
     };
     
     if (!isNil QMODULE(vehicle_wreck)) then {
@@ -61,7 +61,7 @@ if (isServer) then {
             _vehicle setVariable [QGVAR(wreckable), false, true];
         };
         
-        [_vehicle] __submoduleVM(vehicle_wreck);
+        [_vehicle] __submodulePP(vehicle_wreck);
     };
     
     if (_vehicle isKindOf "Air") then {
@@ -83,43 +83,43 @@ if (hasInterface) then {
     waitUntil {!isNil {_vehicle getVariable QGVAR(id)}};
     
     if (!isNil QMODULE(halo)) then {
-        [_vehicle] __submoduleVM(halo);
+        [_vehicle] __submodulePP(halo);
     };
     
     if (!isNil QMODULE(perk)) then {
-        [_vehicle] __submoduleVM(perk);
+        [_vehicle] __submodulePP(perk);
     };
     
     if (!isNil QMODULE(option)) then {
-        [_vehicle] __submoduleVM(option);
+        [_vehicle] __submodulePP(option);
     };
     
     if (!isNil QMODULE(vehicle_flip)) then {
-        [_vehicle] __submoduleVM(vehicle_flip);
+        [_vehicle] __submodulePP(vehicle_flip);
     };
     
     if (!isNil QMODULE(vehicle_lift)) then {
-        [_vehicle] __submoduleVM(vehicle_lift);
+        [_vehicle] __submodulePP(vehicle_lift);
     };
     
     if (!isNil QMODULE(vehicle_marker)) then {
-        [_vehicle] __submoduleVM(vehicle_marker);
+        [_vehicle] __submodulePP(vehicle_marker);
     };
     
     if (!isNil QMODULE(vehicle_menu)) then {
-        [_vehicle] __submoduleVM(vehicle_menu);
+        [_vehicle] __submodulePP(vehicle_menu);
     };
     
     if (!isNil QMODULE(vehicle_protection)) then {
-        [_vehicle] __submoduleVM(vehicle_protection);
+        [_vehicle] __submodulePP(vehicle_protection);
     };
     
     if (!isNil QMODULE(vehicle_repair)) then {
-        [_vehicle] __submoduleVM(vehicle_repair);
+        [_vehicle] __submodulePP(vehicle_repair);
     };
     
     if (!isNil QMODULE(vehicle_welcome)) then {
-        [_vehicle] __submoduleVM(vehicle_welcome);
+        [_vehicle] __submodulePP(vehicle_welcome);
     };
 };
 
@@ -128,7 +128,7 @@ if (!isNil QMODULE(vehicle_bonus)) then {
 };
 
 if (!isNil QMODULE(vehicle_deploy)) then {
-    [_vehicle] __submoduleVM(vehicle_deploy);
+    [_vehicle] __submodulePP(vehicle_deploy);
 };
 
 if (!isNil QMODULE(vehicle_load)) then {
@@ -136,7 +136,7 @@ if (!isNil QMODULE(vehicle_load)) then {
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {
-    [_vehicle] __submoduleVM(vehicle_pack);
+    [_vehicle] __submodulePP(vehicle_pack);
 };
 
 if (!isNil QMODULE(vehicle_tow)) then {

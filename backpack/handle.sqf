@@ -7,6 +7,6 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {
-        __submoduleVM(perk);
+        __submodulePP(perk);
     };
 };

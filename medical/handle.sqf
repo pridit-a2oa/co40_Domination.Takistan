@@ -7,7 +7,7 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(inventory)) then {
-        __submoduleVM(inventory);
+        __submodulePP(inventory);
     };
 
     if (GVAR(medics) find (str(player)) == -1) then {

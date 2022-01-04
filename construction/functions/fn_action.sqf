@@ -7,13 +7,13 @@ PARAMS_2(_type, _object);
 switch (_type) do {
     if (!isNil QMODULE(vehicle_repair)) then {
         case "FARP": {
-            [_object] __submoduleVM(vehicle_repair);
+            [_object] __submodulePP(vehicle_repair);
         };
     };
     
     if (!isNil QMODULE(medical)) then {
         case "MASH": {
-            [_object] __submoduleVM(medical);
+            [_object] __submodulePP(medical);
         };
     };
 };

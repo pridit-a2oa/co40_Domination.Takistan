@@ -43,37 +43,37 @@ GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
 
 if (!isNil QMODULE(base_rd)) then {
-    __submoduleVM(base_rd);
+    __submodulePP(base_rd);
 };
 
 if (!isNil QMODULE(base_wreck)) then {
-    __submoduleVM(base_wreck);
+    __submodulePP(base_wreck);
 };
 
 if (!isNil QMODULE(intel)) then {
-    __submoduleVM(intel);
+    __submodulePP(intel);
 };
 
 if (!isNil QMODULE(mission_main)) then {
-    __submoduleVM(mission_main);
+    __submodulePP(mission_main);
 };
 
 if (!isNil QMODULE(mission_mini)) then {
-    __submoduleVM(mission_mini);
+    __submodulePP(mission_mini);
 };
 
 if (!isNil QMODULE(uav)) then {
-    __submoduleVM(uav);
+    __submodulePP(uav);
 };
 
 if (!isNil QMODULE(vehicle_deploy)) then {
-    __submoduleVM(vehicle_deploy);
+    __submodulePP(vehicle_deploy);
 };
 
 if (!isNil QMODULE(vehicle_lift)) then {
-    __submoduleVM(vehicle_lift);
+    __submodulePP(vehicle_lift);
 };
 
 if (!isNil QMODULE(vehicle_wreck)) then {
-    __submoduleVM(vehicle_wreck);
+    __submodulePP(vehicle_wreck);
 };

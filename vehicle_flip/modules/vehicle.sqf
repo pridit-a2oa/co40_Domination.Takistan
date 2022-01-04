@@ -9,5 +9,5 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 if (!isNil QMODULE(perk)) then {
-    [_vehicle] __submoduleVM(perk);
+    [_vehicle] __submodulePP(perk);
 };

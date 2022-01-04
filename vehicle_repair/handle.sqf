@@ -7,6 +7,6 @@
 
 if (hasInterface) then {
     if (!isNil QMODULE(inventory)) then {
-        __submoduleVM(inventory);
+        __submodulePP(inventory);
     };
 };

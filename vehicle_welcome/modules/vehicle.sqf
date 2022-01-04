@@ -17,15 +17,15 @@ _vehicle addEventHandler ["getin", {
     67322 cutRsc ["XD_VehicleWelcomeDialog", "PLAIN"];
     
     if (!isNil QMODULE(vehicle_ammobox)) then {
-        [(_this select 0)] __submoduleVM(vehicle_ammobox);
+        [(_this select 0)] __submodulePP(vehicle_ammobox);
     };
     
     if (!isNil QMODULE(vehicle_lift)) then {
-        [(_this select 0)] __submoduleVM(vehicle_lift);
+        [(_this select 0)] __submodulePP(vehicle_lift);
     };
     
     if (!isNil QMODULE(vehicle_wreck)) then {
-        [(_this select 0)] __submoduleVM(vehicle_wreck);
+        [(_this select 0)] __submodulePP(vehicle_wreck);
     };
 }];
 
