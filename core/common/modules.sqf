@@ -17,6 +17,7 @@ GVAR(modules) = [
     "base_ammobox",
     "base_bonus",
     "base_halo",
+    "base_protect",
     "base_rd",
     "base_wreck",
     "board",
