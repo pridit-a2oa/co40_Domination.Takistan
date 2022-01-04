@@ -36,6 +36,10 @@ if (isServer) then {
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
+    if (!isNil QMODULE(base_protect)) then {
+        [_vehicle] __submodulePP(base_protect);
+    };
+
     if (!isNil QMODULE(vehicle_abandon)) then {
         [_vehicle] __submodulePP(vehicle_abandon);
     };
@@ -81,10 +85,6 @@ if (isServer) then {
 
 if (hasInterface) then {
     waitUntil {!isNil {_vehicle getVariable QGVAR(id)}};
-
-    if (!isNil QMODULE(base_protect)) then {
-        [_vehicle] __submodulePP(base_protect);
-    };
     
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);
