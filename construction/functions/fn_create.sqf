@@ -6,7 +6,7 @@ PARAMS_1(_name);
 
 _type = call FUNC(THIS_MODULE,type);
 _amount = format ["d_%1", toLower(_name)];
-_cooldown = format ["d_%1_cooldown", toLower(_name)];
+_cooldown = format ["d_%1_time_cooldown", toLower(_name)];
 
 _checks = [
     [
@@ -62,7 +62,7 @@ if (alive player) then {
 _position = player modelToWorld [0, 7, 0];
 
 _object = createVehicle [_type, [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
-_object setDir ((getDir player) - 180);
+_object setDir ((getDir player) - (call compile (format [QUOTE(%1), format ["d_%1_amount_rotation", toLower(_name)]])));
 
 sleep 5;
 
