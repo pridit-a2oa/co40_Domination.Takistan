@@ -6,6 +6,7 @@ root = true
 # Unix-style newlines ending every sqf file and no newlines
 [*.sqf]
 end_of_line = lf
+indent_style = space
 insert_final_newline = false
 
 # Windows-style newlines ending mission.sqm file and other configuration to match saving in-game
