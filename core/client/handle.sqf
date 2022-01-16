@@ -212,6 +212,8 @@ player addEventHandler ["respawn", {
     private ["_unit", "_corpse", "_respawn", "_handlers"];
     
     PARAMS_2(_unit, _corpse);
+
+    setPlayerRespawnTime 30;
     
     titleText ["", "BLACK FADED"];
     

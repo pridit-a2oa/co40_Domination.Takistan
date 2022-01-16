@@ -26,6 +26,8 @@ while {player getVariable QGVAR(unconscious) && {alive player}} do {
     DIALOG(QGVAR(notice), 1002) ctrlSetText format ["%1", [_time] call FUNC(common,displayTime)];
     
     if (_time < 0) exitWith {
+        setPlayerRespawnTime 3;
+
         player setDamage 1;
     };
     
