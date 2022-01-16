@@ -6,27 +6,25 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    ["Tips", [
-        "<img image='ca\missions_e\campaign\missions\CE8_scenePressConf.Zargabad\overview_ce8_ca' width='200'/><br />",
-        "Construction: Objects constructed, that have been gained through perks, have a lifetime of 30 minutes before disappearing.<br />",
-        "Perks: Medkits are replenished at medical tents. Repair kits are replenished at vehicle service point structures (i.e. ammo point or land vehicle service).<br />",
-        "Perks: One medkit &amp; one repair kit can be given to other players, should they not have them.<br />",
-        "Roles: Medics are able to heal other players, should they be injured. While this may seem obvious, this is the only class to have an inherent function.<br />",
-        "Squads: Leaving any of the default squads puts you in a new, empty squad. Squads can be joined by other players via a context action on your body.<br />",
-        "Wrecks: Only wrecks designated on the map can be rebuilt. Wrecks without markers can still be lifted, but can't be rebuilt."
+    if (!isNil QMODULE(base_wreck)) then {
+        __submodulePP(base_wreck);
+    };
+
+    ["Travel", [
+        "<img image='ca\missions_e\bootcamp\TE06_Parachute.Zargabad\overview_ca' width='200'/><br />",
+        "There are <marker name=''>several</marker> ways to navigate around the map, either quickly or slowly.<br />",
+        "Approaching the flag next to the [<marker name='d_player_ammobox_pos'>ammobox</marker>] at base will reveal options to <marker name=''>Fast Travel</marker> and <marker name=''>HALO Jump</marker>.<br />",
+        "Only vehicles that are actively <marker name=''>deployed</marker> can be fast travelled to and from.<br />",
+        "Once a main target has been captured, a fast travel <marker name=''>flag</marker> will be available to use within the area."
     ]] call FUNC(THIS_MODULE,create);
+
+    if (!isNil QMODULE(squad)) then {
+        __submodulePP(squad);
+    };
 
     if (!isNil QMODULE(setting)) then {
         __submodulePP(setting);
     };
-
-    ["Roles", [
-        "<img image='ca\missions_e\bootcamp\TE11_Team_command.Zargabad\overview_ca' width='200'/><br />",
-        "The primary purpose of class selection is to determine which role based perks you can unlock.<br />",
-        "Aside from Medic, these classes do not automatically grant you any special ability outside of those unlocked via perks.<br />",
-        "In a similar fashion, no restrictions (such as limited weapons) are placed on the basis of class.<br />",
-        "Please note that medics are not able to equip a backpack, and the non-special forces classes have less gear slots. This is an engine limitation."
-    ]] call FUNC(THIS_MODULE,create);
 
     if (!isNil QMODULE(base_rd)) then {
         __submodulePP(base_rd);
@@ -44,5 +42,15 @@ if (hasInterface) then {
         __submodulePP(intel);
     };
 
-    
+    if (!isNil QMODULE(construction)) then {
+        __submodulePP(construction);
+    };
+
+    ["Classes", [
+        "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/><br />",
+        "The main purpose of class selection is to determine which role based <marker name=''>perks</marker> you can unlock.<br />",
+        "Aside from medic, classes do not automatically grant you any special ability outside of those unlocked via <marker name=''>perks</marker>.<br />",
+        "In a similar fashion, <marker name=''>no restrictions</marker> (scripting wise) are placed on the basis of class.<br />",
+        "Due to an engine limitation, medics are not able to equip a backpack, and the non-special forces types have less gear slots."
+    ]] call FUNC(THIS_MODULE,create);
 };

@@ -6,6 +6,7 @@
 
 ["Perks", [
     "<img image='ca\missions_e\bootcamp\TE12_Supports.Zargabad\overview_ca' width='200'/><br />",
+    "This is the main <marker name=''>progression</marker> system within the mission, providing support options and abilities based on accumulated score.<br />",
     format ["You are given <marker name=''>1</marker> perk point to allocate when you first join. Further perk points are given every <marker name=''>%1</marker> score.<br />", GVAR(perk_amount_score)],
     "You can only unlock the bottom perks for the role you are currently in. This is indicated by a <marker name=''>white arrow</marker> above the column.<br />",
     "Role based perks <marker name=''>must be unlocked in sequence</marker>, starting with the first one at the top and then continuing down.<br />",
