@@ -6,6 +6,7 @@ FUNC(THIS_MODULE,RedText) = {"<t color='#c54a30'>" + _this + "</t>"};
 FUNC(THIS_MODULE,YellowText) = {"<t color='#a3ae55'>" + _this + "</t>"};
 FUNC(THIS_MODULE,BlueText) = {"<t color='#5398b6'>" + _this + "</t>"};
 FUNC(THIS_MODULE,BrownText) = {"<t color='#614c15'>" + _this + "</t>"};
+FUNC(THIS_MODULE,KhakiText) = {"<t color='#809966'>" + _this + "</t>"};
 
 GVAR(artillery) = [];
 GVAR(engineers) = [];

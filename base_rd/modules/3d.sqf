@@ -7,7 +7,7 @@
 
 [
     GVAR(base_rd),
-    format ["%1<br /><t size='0.6'>Deconstruct and build OPFOR vehicles</t>", "R&amp;D" call FUNC(common,BlueText)],
+    format ["%1<br /><t size='0.6'>Deconstruct and build OPFOR vehicles</t>", "R&amp;D" call FUNC(common,KhakiText)],
     [],
     true,
     true

@@ -18,7 +18,7 @@ if (isServer) then {
 
     [
         position GVAR(base_rd),
-        175,
+        direction GVAR(base_rd) + 30,
         GVAR(base_rd_type_composition)
     ] call FUNC(server,objectMapper);
 
@@ -34,7 +34,7 @@ if (isServer) then {
 
 if (hasInterface) then {
     player addAction [
-        "R&amp;D" call FUNC(common,BlueText),
+        "R&amp;D" call FUNC(common,KhakiText),
         __function(show),
         [],
         -6,

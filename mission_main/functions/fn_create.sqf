@@ -58,7 +58,12 @@ if (!isNil QMODULE(task)) then {
         _name,
         position _target,
         [
-            format ["Seize %1 from oppressive forces", _name],
+            format [
+                "<img image='ca\missions_e\scenarios\SPE1_Vehicles_Civilian.Zargabad\overview_vehicles_civilian_ca' width='200'/><br /><br />Seize the town of <marker name='%2'>%1</marker> from oppressive forces",
+                _name,
+                format ["mission_main_%1", _name],
+                _name
+            ],
             format ["Main Target: %1", _name],
             _name
         ],

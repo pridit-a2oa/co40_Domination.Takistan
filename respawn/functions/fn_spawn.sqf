@@ -6,7 +6,7 @@ PARAMS_2(_unit, _position);
 
 _type = (_unit getVariable QGVAR(respawn_type)) select 1;
 
-_unit setDir 240.214;
+_unit setDir 149.75;
 
 if (_type == "base") exitWith {};
 
