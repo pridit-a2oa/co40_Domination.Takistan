@@ -1,7 +1,7 @@
 class Sentences 
 {
     class Airlift {
-        text = "%1 is being transported by airlift.";
+        text = "%1%2 is being transported by airlift.";
         speech[] = {};
         class Arguments {};
     };

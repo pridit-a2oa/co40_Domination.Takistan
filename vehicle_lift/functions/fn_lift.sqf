@@ -31,34 +31,26 @@ if (!isNil QMODULE(vehicle_marker)) then {
     [_attacher, _attachee] __submoduleVM(vehicle_marker);
 };
 
-if (!isNil QMODULE(crossroad)) then {
-    if (!isNil QMODULE(vehicle_wreck) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
-        if (!alive _attachee && {_attachee getVariable QGVAR(wreckable)}) then {
-            [player, "kbTell", [
-                GVAR(crossroad),
-                "vehicle_lift",
-                "Airlift",
-                ["1", {}, format ["%1 wreck", [typeOf (_attachee)] call FUNC(vehicle,name)], []],
-                true
-            ]] call FUNC(network,mp);
-            
-            player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
-        };
-    };
+if (!isNil QMODULE(crossroad) && {call FUNC(common,time) > player getVariable QGVAR(cooldown)}) then {
+    private ["_broadcast"];
     
-    if (!isNil QMODULE(vehicle_mhq) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {
-        if (GVAR(vehicle_mhq_types) find (typeOf _attachee) != -1) then {
-            [player, "kbTell", [
-                GVAR(crossroad),
-                "vehicle_lift",
-                "Airlift",
-                ["1", {}, [typeOf (_attachee)] call FUNC(vehicle,name), []],
-                true
-            ]] call FUNC(network,mp);
-            
-            player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
-        };
-    };
+    _broadcast = false;
+
+    if (!isNil QMODULE(vehicle_mhq) && {alive _attachee} && {GVAR(vehicle_mhq_types) find (typeOf _attachee) != -1}) then {_broadcast = true};
+    if (!isNil QMODULE(vehicle_wreck) && {!alive _attachee} && {_attachee getVariable QGVAR(wreckable)} && {(position _attacher) distance (markerPos QGVAR(base_south)) > 500}) then {_broadcast = true};
+
+    if !(_broadcast) exitWith {};
+
+    [player, "kbTell", [
+        GVAR(crossroad),
+        "vehicle_lift",
+        "Airlift",
+        ["1", {}, [typeOf _attachee] call FUNC(vehicle,name), []],
+        ["2", {}, if !(alive _attachee) then {" wreck"} else {""}, []],
+        true
+    ]] call FUNC(network,mp);
+    
+    player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
 };
 
 while {alive _attacher && {!isNull (_attacher getVariable QGVAR(attached))}} do {
