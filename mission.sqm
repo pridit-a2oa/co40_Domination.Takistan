@@ -841,7 +841,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=269;
+		items=272;
 		class Item0
 		{
 			position[]={8332.1318,296.04001,2044.3177};
@@ -3460,6 +3460,42 @@ class Mission
 			lock="UNLOCKED";
 			skill=0.60000002;
 			text="d_base_rd";
+		};
+		class Item269
+		{
+			position[]={8200.251,296.04001,2129.1794};
+			azimut=110.706;
+			special="NONE";
+			id=318;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this setVariable [""d_name"", ""M1133_MEV_EP1""]";
+		};
+		class Item270
+		{
+			position[]={8191.6187,296.04001,2124.1584};
+			azimut=110.706;
+			special="NONE";
+			id=319;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this setVariable [""d_name"", ""M1133_MEV_EP1""]";
+		};
+		class Item271
+		{
+			position[]={8115.3989,296.04001,1993.4594};
+			azimut=-28.3703;
+			special="NONE";
+			id=320;
+			side="EMPTY";
+			vehicle="HeliHEmpty";
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this setVariable [""d_name"", ""C130J_US_EP1""]";
 		};
 	};
 	class Markers

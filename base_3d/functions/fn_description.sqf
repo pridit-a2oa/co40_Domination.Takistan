@@ -10,6 +10,14 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     _description = _description + ([_name] __submodulePP(vehicle_ammobox));
 };
 
+if (!isNil QMODULE(vehicle_fob)) then {
+    _description = _description + ([_name] __submodulePP(vehicle_fob));
+};
+
+if (!isNil QMODULE(vehicle_mhq)) then {
+    _description = _description + ([_name] __submodulePP(vehicle_mhq));
+};
+
 if (!isNil QMODULE(vehicle_lift)) then {
     _description = _description + ([_name] __submodulePP(vehicle_lift));
 };
