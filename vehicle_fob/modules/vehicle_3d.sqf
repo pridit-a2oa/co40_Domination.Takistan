@@ -1,5 +1,5 @@
 /**
- * Vehicle FOB Module - Base 3D Submodule
+ * Vehicle FOB Module - Vehicle 3D Submodule
  */
 
 #include "x_macros.sqf"

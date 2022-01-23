@@ -1,5 +1,5 @@
 /**
- * Vehicle Ammobox Module - Base 3D Submodule
+ * Vehicle Ammobox Module - Vehicle 3D Submodule
  */
 
 #include "x_macros.sqf"

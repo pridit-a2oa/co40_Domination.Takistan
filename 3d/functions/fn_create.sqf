@@ -32,7 +32,16 @@ _height = safezoneH;
 while {alive _object} do {
     if (!_setting || {player getVariable QGVAR(3d) select 1 == 10}) then {
         _distance = player distance (position _object);
+
         _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
+
+        if (_object isKindOf "Static") then {
+            _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
+        } else {
+            if (_object distance (markerPos QGVAR(base_south)) > 500 || {!simulationEnabled _object} || {locked _object} || {count crew _object > 0} || {(position _object) select 2 > 1}) then {
+                _alpha = 2;
+            };
+        };
         
         if (_alpha <= 1 && {!visibleMap}) then {
             _pos2D = worldToScreen (position _object);

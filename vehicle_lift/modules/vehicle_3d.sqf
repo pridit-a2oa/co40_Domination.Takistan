@@ -1,5 +1,5 @@
 /**
- * Vehicle Lift Module - Base 3D Submodule
+ * Vehicle Lift Module - Vehicle 3D Submodule
  */
 
 #include "x_macros.sqf"

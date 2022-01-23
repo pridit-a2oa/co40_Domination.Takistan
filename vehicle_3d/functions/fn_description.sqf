@@ -1,4 +1,4 @@
-#define THIS_MODULE base_3d
+#define THIS_MODULE vehicle_3d
 #include "x_macros.sqf"
 private ["_name", "_description"];
 
