@@ -14,6 +14,7 @@ GVAR(modules) = [
     "artillery",
     "backpack",
     "base",
+    "base_3d",
     "base_ammobox",
     "base_bonus",
     "base_halo",
