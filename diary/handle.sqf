@@ -34,6 +34,10 @@ if (hasInterface) then {
         __submodulePP(perk);
     };
 
+    if (!isNil QMODULE(vehicle_deploy)) then {
+        __submodulePP(vehicle_deploy);
+    };
+
     if (!isNil QMODULE(mission_main)) then {
         __submodulePP(mission_main);
     };
