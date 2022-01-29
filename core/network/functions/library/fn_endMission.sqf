@@ -1,1 +1,0 @@
-endMission (_this select 1);

@@ -60,9 +60,13 @@ if (isMultiplayer) then {
             {
                 if (GVAR(playable) find (str _x) != -1) then {
                     if !(isPlayer _x) then {
-                        _x call FUNC(common,endMission);
+                        __log format ["Playable unit without player (%1) [%2] - clearing", str _x, name _x]];
                         
-                        __log format ["Playable unit without player (%1) [%2] - killed", str _x, name _x]];
+                        if (alive _x) then {
+                            _x setDamage 1;
+                        };
+
+                        hideBody _x;
                     };
                 };
             } forEach allUnits;
