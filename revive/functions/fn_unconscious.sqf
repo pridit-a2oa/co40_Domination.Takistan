@@ -8,8 +8,6 @@ if (_unit getVariable QGVAR(unconscious)) exitWith {};
 
 _unit setVariable [QGVAR(unconscious), true, true];
 
-disableUserInput true;
-
 moveOut _unit;
 
 [true, "switchMove", [_unit, ""]] call FUNC(network,mp);
@@ -37,6 +35,8 @@ if (!isNil QMODULE(communication)) then {
 
 _unit spawn {
     sleep 0.5;
+
+    if !(alive _this) exitWith {};
     
     _this setDamage 0;
     
@@ -45,6 +45,8 @@ _unit spawn {
         
         sleep 1;
     };
+
+    if !(alive _this) exitWith {};
     
     [_this, "playActionNow", "Die"] call FUNC(network,mp);
 
@@ -52,7 +54,7 @@ _unit spawn {
     
     sleep 1;
 
-    disableUserInput false;
+    if !(alive _this) exitWith {};
     
     call FUNC(THIS_MODULE,countdown);
     
@@ -61,19 +63,5 @@ _unit spawn {
         [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
         
         [_this] call FUNC(THIS_MODULE,reset);
-    };
-    
-    if (!isNil QMODULE(communication)) then {
-        if (!isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
-            ["Construct", 1] call FUNC(communication,toggle);
-        };
-        
-        if (!isNil QMODULE(gesture)) then {
-            ["Gestures", 1] call FUNC(communication,toggle);
-        };
-        
-        if (!isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
-            ["Radio", 1] call FUNC(communication,toggle);
-        };
     };
 };
