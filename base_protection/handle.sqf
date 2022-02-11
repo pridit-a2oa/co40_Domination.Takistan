@@ -1,8 +1,8 @@
 /**
- * Base Protect Module (Handler)
+ * Base Protection Module (Handler)
  */
 
-#define THIS_MODULE base_protect
+#define THIS_MODULE base_protection
 #include "x_macros.sqf"
 
 if (hasInterface) then {
@@ -11,9 +11,9 @@ if (hasInterface) then {
 
         PARAMS_7(_unit, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile);
 
-        if ((position _unit) distance (markerPos QGVAR(base_south)) >= GVAR(base_protect_distance)) exitWith {};
+        if ((position _unit) distance (markerPos QGVAR(base_south)) >= GVAR(base_protection_distance)) exitWith {};
 
-        if (_magazine in GVAR(base_protect_projectiles_player)) then {
+        if (_magazine in GVAR(base_protection_projectiles_player)) then {
             deleteVehicle _projectile;
         };
     }];

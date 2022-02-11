@@ -2,7 +2,7 @@
  * Base Protect Module - Vehicle Submodule
  */
 
-#define THIS_MODULE base_protect
+#define THIS_MODULE base_protection
 #include "x_macros.sqf"
 private ["_vehicle"];
 
@@ -13,9 +13,11 @@ _vehicle addEventHandler ["fired", {
 
     PARAMS_7(_unit, _weapon, _muzzle, _mode, _ammo, _magazine, _projectile);
 
-    if ((position _unit) distance (markerPos QGVAR(base_south)) >= GVAR(base_protect_distance)) exitWith {};
+    if ((position _unit) distance (markerPos QGVAR(base_south)) >= GVAR(base_protection_distance)) exitWith {};
 
-    if (_ammo in GVAR(base_protect_projectiles_vehicle)) then {
+    if (_ammo in GVAR(base_protection_projectiles_vehicle)) then {
         deleteVehicle _projectile;
     };
 }];
+
+[_vehicle] __fsm(invulnerable);

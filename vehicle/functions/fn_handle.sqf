@@ -36,8 +36,8 @@ if (isServer) then {
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
-    if (!isNil QMODULE(base_protect)) then {
-        [_vehicle] __submodulePP(base_protect);
+    if (!isNil QMODULE(base_protection)) then {
+        [_vehicle] __submodulePP(base_protection);
     };
 
     if (!isNil QMODULE(vehicle_abandon)) then {
