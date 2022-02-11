@@ -19,5 +19,3 @@ _vehicle addEventHandler ["fired", {
         deleteVehicle _projectile;
     };
 }];
-
-[_vehicle] __fsm(invulnerable);

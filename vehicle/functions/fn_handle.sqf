@@ -81,6 +81,17 @@ if (isServer) then {
             };
         }];
     };
+
+    _vehicle addEventHandler ["HandleDamage", {
+        private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
+
+        PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
+
+        if ({isPlayer _x} count crew _unit > 0 && {isPlayer _injurer}) exitWith {0};
+        if (_unit distance (getMarkerPos QGVAR(base_south)) < 500 && {{side _x in [east, civilian]} count crew _unit < 1}) exitWith {0};
+
+        _damage
+    }];
 };
 
 if (hasInterface) then {
