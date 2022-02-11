@@ -58,7 +58,6 @@ __ccppfln(core\THIS_MODULE\handlers.sqf);
 0 spawn {
     {
         _x allowDamage false;
-        _x addEventHandler ["HandleDamage", {0}];
 
         sleep 0.01;
     } forEach (nearestObjects [markerPos QGVAR(base_south), ["Building"], 400]);
