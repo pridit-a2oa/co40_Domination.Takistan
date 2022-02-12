@@ -1,1 +1,1 @@
-hideBody (_this select 0);
+hideBody (_this select 1);
