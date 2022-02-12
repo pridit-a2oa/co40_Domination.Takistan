@@ -235,7 +235,7 @@ class PerkButton_Role3_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "M1A1 available as airdrop (requires call airdrop perk)";
+    tooltip = "M1A2 TUSK available as airdrop (requires call airdrop perk)";
     action = "[3,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_1: XD_LinkButtonUpgradeBase

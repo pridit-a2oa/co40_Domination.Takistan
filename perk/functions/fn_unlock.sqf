@@ -214,7 +214,7 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
                     
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M1A1", "M1A1_US_DES_EP1"]]];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]]];
                     
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
