@@ -64,7 +64,11 @@ if (isMultiplayer) then {
                         
                         if (alive _x) then {
                             _x setDamage 1;
+
+                            sleep 1;
                         };
+
+                        [true, "hideBody", _x] call FUNC(network,mp);
 
                         hideBody _x;
                     };
