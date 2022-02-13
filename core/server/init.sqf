@@ -61,16 +61,18 @@ if (isMultiplayer) then {
                 if (GVAR(playable) find (str _x) != -1) then {
                     if !(isPlayer _x) then {
                         __log format ["Playable unit without player (%1) [%2] - clearing", str _x, name _x]];
+
+                        [_x] joinSilent grpNull;
                         
                         if (alive _x) then {
                             _x setDamage 1;
 
-                            sleep 1;
+                            sleep 5;
                         };
 
-                        [true, "hideBody", _x] call FUNC(network,mp);
+                        sleep 1;
 
-                        hideBody _x;
+                        [true, "hideBody", _x] call FUNC(network,mp);
                     };
                 };
             } forEach allUnits;
