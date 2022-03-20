@@ -25,6 +25,14 @@
     
     [100] call FUNC(THIS_MODULE,reveal);
     
+    if !(isClass (configFile >> "cfgVehicles" >> "MV22")) then {
+        "Missing" hintC [
+            "This mission is enhanced by content from Arma 2, which has not been detected as part of your install.",
+            "While this is not a requirement to play, you will not be able to see/use some vehicles and weapons.",
+            "If this message has displayed in error please report on the Discord server."
+        ];
+    };
+    
     {
         {
             if !(_x isKindOf "Wreck") then {
