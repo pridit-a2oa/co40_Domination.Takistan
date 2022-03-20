@@ -13,8 +13,10 @@ GVAR(vehicle_bonus_types) = [
     "A10_US_EP1",
     "AH1Z",
     "AH64D_EP1",
+    "AV8B2",
     "AW159_Lynx_BAF",
     "F35B",
+    "Ka60_PMC",
     "L39_TK_EP1",
     "Mi24_D_TK_EP1",
     "Su25_TK_EP1"

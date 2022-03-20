@@ -3606,7 +3606,7 @@ class Mission
 		{
 			position[]={8263.7363,296.03671,1799.1827};
 			name="d_bonus_air_5";
-			text="AW159_Lynx_BAF";
+			text="[""AW159_Lynx_BAF"",""Ka60_PMC""]";
 			type="Empty";
 			angle=-27.133801;
 		};
@@ -3614,7 +3614,7 @@ class Mission
 		{
 			position[]={8148.3872,296.12735,2040.7798};
 			name="d_bonus_air_2";
-			text="F35B";
+			text="[""AV8B2"",""F35B""]";
 			type="Empty";
 			angle=150.07401;
 		};
