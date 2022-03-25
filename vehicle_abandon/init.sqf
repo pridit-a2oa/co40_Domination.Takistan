@@ -17,7 +17,10 @@ GVAR(vehicle_abandon_types) = [
     [3600, "AllVehicles"]
 ];
 
-// Set minimum distance players have to be from the vehicle before it will delete.
+// Set minimum distance the vehicle has to be from the base to be eligible to despawn.
+GVAR(vehicle_abandon_distance_base) = 500;
+
+// Set minimum distance players have to be from the vehicle to be eligible to despawn.
 GVAR(vehicle_abandon_distance_player) = 100;
 
 __cppfln(FUNC(THIS_MODULE,time),THIS_MODULE\functions\fn_time.sqf);
