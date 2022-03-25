@@ -21,7 +21,7 @@ if (player distance GVAR(flag) > 10) then {
 
 if (!isNil QMODULE(vehicle_deploy)) then {
     {
-        if (alive _x && {_vehicle != _x}) then {
+        if (alive _x && {_vehicle != _x} && {{!isPlayer _x} count crew _x == 0}) then {
             _id = _x getVariable QGVAR(id);
             _name = [typeOf _x] call FUNC(vehicle,name);
             
