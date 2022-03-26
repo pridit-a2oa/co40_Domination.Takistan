@@ -13,7 +13,7 @@ if (hasInterface) then {
     ["Travel", [
         "<img image='ca\missions_e\bootcamp\TE06_Parachute.Zargabad\overview_ca' width='200'/><br />",
         "There are <marker name=''>several</marker> ways to navigate around the map, either quickly or slowly.<br />",
-        "Approaching the flag next to the [<marker name='d_player_ammobox_pos'>ammobox</marker>] at base will reveal options to <marker name=''>Fast Travel</marker> and <marker name=''>HALO Jump</marker>.<br />",
+        "Approaching the [<marker name='teleport_Loy Manara'>flag</marker>] at base will reveal options to <marker name=''>Fast Travel</marker> and <marker name=''>HALO Jump</marker>.<br />",
         "Only vehicles that are actively <marker name=''>deployed</marker> can be fast travelled to and from.<br />",
         "Once a main target has been captured, a fast travel <marker name=''>flag</marker> will be available to use within the area."
     ]] call FUNC(THIS_MODULE,create);

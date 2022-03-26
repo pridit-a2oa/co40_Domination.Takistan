@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_clear", "_list", "_button", "_name", "_position", "_index"];
+private ["_vehicle", "_clear", "_button", "_list", "_location", "_position", "_name", "_index", "_id"];
 
 PARAMS_2(_vehicle, _clear);
 
@@ -14,10 +14,27 @@ _button = DIALOG("X_TELEPORT_DIALOG", 2000);
 _button ctrlEnable false;
 
 _list = DIALOG("X_TELEPORT_DIALOG", 1500);
+    
+{
+    _location = text ([position _x] call FUNC(common,nearestLocation));
+    _position = markerPos format ["teleport_%1", _location];
 
-if (player distance GVAR(flag) > 10) then {
-    _list lbAdd "Base";
-};
+    if (player distance _x > 50) then {
+        if !([_position, [(position _x) select 0, (position _x) select 1, 0]] call BIS_fnc_areEqual) exitWith {};
+
+        if (_location == "Loy Manara") then {
+            _name = "Flag: Airfield";
+        } else {
+            _name = format ["Flag: %1", _location];
+        };
+
+        _index = _list lbAdd _name;
+        _list lbSetData [_index, _location];
+        _list lbSetValue [_index, if (_location == "Loy Manara") then {0} else {player distance _x}];
+    };
+} forEach (allMissionObjects "FlagCarrierUSA_EP1");
+
+lbSortByValue _list;
 
 if (!isNil QMODULE(vehicle_deploy)) then {
     {
