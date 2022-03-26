@@ -10,6 +10,7 @@ if (isNil {_vehicle getVariable QGVAR(wreckable)}) exitWith {false};
 if (!isNil {GVAR(wreck)}) exitWith {false};
 
 if (alive _vehicle) exitWith {false};
+if !(simulationEnabled _vehicle) exitWith {false};
 if (((position _vehicle) select 2) > 5) exitWith {false};
 if !(_vehicle getVariable QGVAR(wreckable)) exitWith {false};
 if (GVAR(wreck_hangars_occupied) == count (X_JIPH getVariable QGVAR(wreck_hangars))) exitWith {false};
