@@ -42,7 +42,7 @@ switch (_tier) do {
                             BIS_MENU_Radio,
                             "Airdrop",
                             "CursorOnGround",
-                            "[player, screenToWorld [0.5, 0.5]] execVM 'airdrop\functions\fn_call.sqf'",
+                            "[player, screenToWorld [0.5, 0.5], getPlayerUID player] execVM 'airdrop\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_tactical_ca"
                         ] call FUNC(communication,add);
                     };

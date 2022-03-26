@@ -1,18 +1,23 @@
 #define THIS_MODULE airdrop
 #include "x_macros.sqf"
-private ["_unit", "_position", "_drop", "_name", "_checks", "_vehicle", "_aircraft", "_crew", "_pilot", "_group", "_load"];
+private ["_unit", "_position", "_caller", "_drop", "_name", "_checks", "_vehicle", "_aircraft", "_crew", "_pilot", "_group", "_load"];
 
-PARAMS_3(_unit, _position, _drop);
+PARAMS_4(_unit, _position, _caller, _drop);
 
 if (hasInterface) then {
     if (isNil "_drop") then {
         _drop = (player getVariable QGVAR(airdrop_type)) select 1;
         
-        _this set [2, _drop];
+        _this set [3, _drop];
     };
     
     _name = "Airdrop";
     _checks = [
+        [
+            [_name, "called"],
+            player getVariable QGVAR(airdrop_type)
+        ] call FUNC(helper,isDuplicate),
+
         [
             [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
@@ -90,6 +95,10 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
             _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
 
             if !((typeOf _load) isKindOf "ReammoBox") then {
+                if !(isNil "_caller") then {
+                    _load setVariable [QGVAR(caller), _caller, true];
+                };
+
                 if (!isNil QMODULE(vehicle_abandon)) then {
                     _load setVariable [QGVAR(abandon), true];
                 };
