@@ -54,6 +54,8 @@ resistance setFriend [east, 0.1];
 
 if (isDedicated) then {
     onPlayerConnected {
+        if (_name == "__SERVER__") exitWith {};
+        
         __log format ["Player %1 (%2) connected", _name, _uid]];
     };
 
