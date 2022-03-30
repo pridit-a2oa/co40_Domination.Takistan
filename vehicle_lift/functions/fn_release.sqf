@@ -15,7 +15,7 @@ _attachee setPos (_attacher modelToWorld [0, 0, -14]);
 
 [_attachee, "lock", false] call FUNC(network,mp);
 
-if (alive _attacher && {typeName _id == "SCALAR"}) then {
+if (alive _attacher && {!isNil "_id"} && {typeName _id == "SCALAR"}) then {
     _attacher removeAction _id;
 };
 
