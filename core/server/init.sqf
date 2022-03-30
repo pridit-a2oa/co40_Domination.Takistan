@@ -56,11 +56,11 @@ if (isDedicated) then {
     onPlayerConnected {
         if (_name == "__SERVER__") exitWith {};
         
-        __log format ["Player %1 (%2) connected", _name, _uid]];
+        __log format ["Player %1 (%2) entered the world", _name, _uid]];
     };
 
     onPlayerDisconnected {
-        __log format ["Player %1 (%2) disconnected", _name, _uid]];
+        __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
         {
             if (getPlayerUID _x == _uid) exitWith {
