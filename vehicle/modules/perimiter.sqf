@@ -3,12 +3,15 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_spawn"];
 
 PARAMS_1(_vehicle);
 
-if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) then {
-    _vehicle setPos (_vehicle getVariable QGVAR(spawn));
-} else {
-    _vehicle setDamage 1;
-};
+_spawn = _vehicle getVariable QGVAR(spawn);
+
+_vehicle setPos [_spawn select 0, _spawn select 1, 0];
+
+[_vehicle, "setVectorUp", surfaceNormal _spawn] call FUNC(network,mp);
+[_vehicle, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
+
+_vehicle setDamage 1;

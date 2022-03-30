@@ -1,10 +1,17 @@
 #define THIS_MODULE perimiter
 #include "x_macros.sqf"
-private ["_trigger", "_remaining", "_vehicle"];
+private ["_trigger", "_vehicle", "_position", "_remaining", "_handler", "_vehicle"];
 
 PARAMS_1(_trigger);
 
 disableSerialization;
+
+_vehicle = (vehicle player);
+_vehicle setVariable [QGVAR(spawn), position _vehicle, true];
+
+sleep 2;
+
+if !(triggerActivated _trigger) exitWith {};
 
 _remaining = [player, 20] call FUNC(3d,time);
 
@@ -13,7 +20,7 @@ _remaining = [player, 20] call FUNC(3d,time);
 DIALOG(QGVAR(notice), 1000) ctrlSetText "Out of bounds";
 DIALOG(QGVAR(notice), 1001) ctrlSetText "Return towards the center of the map";
 
-_handler = (vehicle player) addEventHandler ["getout", {
+_handler = _vehicle addEventHandler ["getout", {
     private ["_vehicle"];
     
     PARAMS_1(_vehicle);
@@ -24,7 +31,7 @@ _handler = (vehicle player) addEventHandler ["getout", {
 }];
 
 if (!isNil QMODULE(vehicle_lift)) then {
-    [(vehicle player)] __submodulePP(vehicle_lift);
+    [_vehicle] __submodulePP(vehicle_lift);
 };
 
 while {triggerActivated _trigger && {alive player}} do {
@@ -33,14 +40,10 @@ while {triggerActivated _trigger && {alive player}} do {
     DIALOG(QGVAR(notice), 1002) ctrlSetText format ["%1", [_remaining] call FUNC(common,displayTime)];
     
     if (_remaining < 0) exitWith {
-        _vehicle = vehicle player;
-        
         player setDamage 1;
         
         if (_vehicle != player && {alive _vehicle}) then {
             if (!isNil QMODULE(vehicle)) then {
-                _vehicle setDamage 1;
-                
                 [_vehicle] __submodulePP(vehicle);
             };
         };
@@ -49,6 +52,6 @@ while {triggerActivated _trigger && {alive player}} do {
     sleep 0.01;
 };
 
-(vehicle player) removeEventHandler ["getout", _handler];
+_vehicle removeEventHandler ["getout", _handler];
 
 3000 cutRsc ["Default", "PLAIN"];
