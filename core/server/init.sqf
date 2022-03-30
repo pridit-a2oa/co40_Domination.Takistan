@@ -52,31 +52,40 @@ east setFriend [resistance, 0.1];
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
 
-if (isMultiplayer) then {
-    0 spawn {
-        while {true} do {
-            sleep 30;
-            
-            {
-                if (GVAR(playable) find (str _x) != -1) then {
-                    if !(isPlayer _x) then {
-                        __log format ["Playable unit without player (%1) [%2] - clearing", str _x, name _x]];
+if (isDedicated) then {
+    onPlayerConnected {
+        __log format ["Player %1 (%2) connected", _name, _uid]];
+    };
 
-                        [_x] joinSilent grpNull;
-                        
-                        if (alive _x) then {
-                            _x setDamage 1;
+    onPlayerDisconnected {
+        __log format ["Player %1 (%2) disconnected", _name, _uid]];
 
-                            sleep 5;
-                        };
+        {
+            if (getPlayerUID _x == _uid) exitWith {
+                if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
+                    _x addScore -10;
 
-                        sleep 1;
-
-                        [true, "hideBody", _x] call FUNC(network,mp);
-                    };
+                    [true, "systemChat", format [
+                        "%1 has lost score for disconnecting while dead/unconscious",
+                        _name
+                    ]] call FUNC(network,mp);
                 };
-            } forEach allUnits;
-        };
+
+                _x spawn {
+                    sleep 1;
+
+                    [_this] joinSilent grpNull;
+
+                    if (alive _this) then {
+                        _this setDamage 1;
+
+                        sleep 5;
+                    };
+
+                    hideBody _this;
+                };
+            };
+        } forEach (allUnits + allDead);
     };
 };
 
