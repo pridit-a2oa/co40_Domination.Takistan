@@ -9,10 +9,6 @@ disableSerialization;
 _vehicle = (vehicle player);
 _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
 
-sleep 2;
-
-if !(triggerActivated _trigger) exitWith {};
-
 _remaining = [player, 20] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
