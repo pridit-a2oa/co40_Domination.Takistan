@@ -101,7 +101,7 @@ sleep 2;
 
 if (!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(base_wreck_distance_score)}) then {
     {
-        if (name _x == _lifter) exitWith {
+        if (getPlayerUID _x == _lifter) exitWith {
             _x addScore GVAR(base_wreck_amount_score);
             
             [_x, "systemChat", format [

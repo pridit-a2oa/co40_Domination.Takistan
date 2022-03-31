@@ -112,7 +112,7 @@ if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1
 
 if !([_player, objNull] call BIS_fnc_areEqual) then {
     {
-        if (name _x == _player) exitWith {
+        if (getPlayerUID _x == _player) exitWith {
             _x addScore GVAR(base_rd_amount_score);
             
             [_x, "systemChat", format [

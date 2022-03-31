@@ -8,11 +8,11 @@ _vehicles = nearestObjects [GVAR(base_rd), ["AllVehicles"], 25];
 if (count _vehicles > 0) then {
     {
         if (_x isKindOf "CAManBase" && {isPlayer _x}) exitWith {
-            _player = name _x;
+            _player = getPlayerUID _x;
         };
 
         if ((vehicle _x) == _x && {{isPlayer _x} count crew _x > 0}) exitWith {
-            _player = name (driver _x);
+            _player = getPlayerUID (driver _x);
         };
     } forEach _vehicles;
 };
