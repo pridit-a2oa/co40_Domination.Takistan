@@ -73,7 +73,3 @@ if (!isNil QMODULE(vehicle_deploy)) then {
 if (!isNil QMODULE(vehicle_lift)) then {
     __submodulePP(vehicle_lift);
 };
-
-if (!isNil QMODULE(vehicle_wreck)) then {
-    __submodulePP(vehicle_wreck);
-};

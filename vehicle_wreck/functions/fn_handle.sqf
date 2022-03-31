@@ -30,10 +30,6 @@ if (_chance > round (random 100)) then {
             if (!isNil QMODULE(vehicle_marker)) then {
                 [_this] call FUNC(vehicle_marker,create);
             };
-            
-            if (!isNil QMODULE(crossroad)) then {
-                GVAR(crossroad) kbTell [GVAR(crossroad2), "vehicle_wreck", "Detected", ["1", {}, [typeOf _this] call FUNC(vehicle,name), []], true];
-            };
         };
     }];
     
