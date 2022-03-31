@@ -1,6 +1,6 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
-private ["_wreck", "_time", "_lifter", "_wrecked", "_type", "_position", "_vehicle"];
+private ["_wreck", "_time", "_lifter", "_wrecked", "_spawn", "_type", "_position", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
 
@@ -9,6 +9,7 @@ PARAMS_2(_wreck, _time);
 
 _lifter = _wreck getVariable QGVAR(lifter);
 _wrecked = _wreck getVariable QGVAR(wrecked);
+_spawn = _wreck getVariable QGVAR(position);
 
 if (!isNil QMODULE(crossroad)) then {
     GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
@@ -35,19 +36,7 @@ sleep 2;
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
 
-__log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
-
-if (!isNil QMODULE(3d)) then {
-    [true, "spawn", [[_time], {
-        private ["_time"];
-        
-        PARAMS_1(_time);
-        
-        [GVAR(service_wreck), _time] call FUNC(3d,time);
-    }]] call FUNC(network,mp);
-};
-
-_time = _time + call FUNC(common,time);
+_vehicle setVariable [QGVAR(position), _spawn, true];
 
 if ((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"]) then {
     _vehicle setVariable [QGVAR(built), true, true];
@@ -76,6 +65,20 @@ if (!isNil QMODULE(vehicle_tow)) then {
 };
 
 [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+
+__log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
+
+if (!isNil QMODULE(3d)) then {
+    [true, "spawn", [[_time], {
+        private ["_time"];
+        
+        PARAMS_1(_time);
+        
+        [GVAR(service_wreck), _time] call FUNC(3d,time);
+    }]] call FUNC(network,mp);
+};
+
+_time = _time + call FUNC(common,time);
 
 while {call FUNC(common,time) < _time} do {
     // remaining time to rebuild is greater than the maximum it could ever be
