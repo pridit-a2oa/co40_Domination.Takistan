@@ -17,7 +17,7 @@ if (hasInterface) then {
                 _marker setMarkerPosLocal (getPosASL _x);
                 
                 _alive = alive _x;
-                _distance = _x distance (_x getVariable QGVAR(spawn)) > GVAR(vehicle_marker_visible);
+                _distance = _x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible);
                 _hidden = _x getVariable QGVAR(hidden);
                 
                 if (markerColor _marker == "ColorBlack" || {!(_x call FUNC(common,empty))}) then {
