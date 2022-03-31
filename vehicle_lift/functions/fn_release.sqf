@@ -1,13 +1,15 @@
 #include "x_macros.sqf"
 private ["_attacher", "_id", "_attachee"];
 
-_attacher = _this select 0;
-_id = _this select 2;
-_attachee = _this select 3;
+PARAMS_4(_attacher, _caller, _id, _attachee);
+
+if (typeName _caller == "OBJECT" && {count (nearestObjects [_attachee, ["AllVehicles"], 15]) > 2}) exitWith {
+    hint format ["%1 cannot be released due to an obstruction or close proximity with another vehicle", [typeOf _attachee] call FUNC(vehicle,name)];
+};
 
 detach _attachee;
 
-_attachee setPos (_attacher modelToWorld [0, 0, -14]);
+_attachee setPos [(position _attacher) select 0, (position _attacher) select 1, 0];
 
 [_attachee, "setVectorDirAndUp", [vectorDir _attacher, vectorUp _attacher]] call FUNC(network,mp);
 
