@@ -21,8 +21,7 @@
 */
 
 #define THIS_MODULE network
-#define GVAR(variable) d##_##variable
-#define FUNC(module,function) d##_fnc_##module##_##function
+#include "x_macros.sqf"
 
 private ["_target", "_functionName", "_params", "_isCall", "_mode"];
 
@@ -77,6 +76,8 @@ if (_mode == 0 && {isMultiplayer}) then {
     
     //--- Server execution (for all or server only)
     if (_ownerID < 0 || {_ownerID == _serverID}) then {
+        __log format ["Server-side execution %1", BIS_fnc_MP_packet]];
+
         BIS_fnc_MP_packet call FUNC(THIS_MODULE,mp);
     };
 } else {
