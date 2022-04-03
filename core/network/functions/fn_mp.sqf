@@ -21,7 +21,10 @@
 */
 
 #define THIS_MODULE network
-#include "x_macros.sqf"
+#define GVAR(variable) d##_##variable
+#define FUNC(module,function) d##_fnc_##module##_##function
+#define QUOTE(qtext) #qtext
+#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
 
 private ["_target", "_functionName", "_params", "_isCall", "_mode"];
 
