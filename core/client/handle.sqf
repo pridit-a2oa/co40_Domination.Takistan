@@ -142,9 +142,9 @@ player addEventHandler ["HandleDamage", {
     PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
     
     if (!alive _unit) exitWith {0};
-    if (isPlayer _injurer) exitWith {0};
     if (_unit getVariable QGVAR(unconscious)) exitWith {0};
     if (_part == "" && {(vehicle _unit) != _unit} && {alive (vehicle _unit)}) exitWith {0};
+    if (isPlayer _injurer && {!([animationState _injurer, "halofreefall"] call KRON_StrInStr)}) exitWith {0};
     if ((vehicle _unit) != (vehicle _injurer) && {!local _injurer} && {side (group _injurer) == side (group _unit)}) exitWith {0};
     
     if (!isNil QMODULE(revive)) then {
