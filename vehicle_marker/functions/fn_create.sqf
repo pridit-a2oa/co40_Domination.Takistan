@@ -10,15 +10,11 @@ if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {((fa
 _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 
 if (alive _vehicle) then {
-    _marker setMarkerTextLocal ([typeOf (_vehicle)] call FUNC(vehicle,name));
+    _marker setMarkerTextLocal (format [" %1", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
     _marker setMarkerColorLocal "ColorBlack";
     _marker setMarkerAlphaLocal 0;
-    
-    if (_vehicle isKindOf "Tank") then {
-        _marker setMarkerTypeLocal "o_armor";
-    } else {
-        _marker setMarkerTypeLocal "o_air";
-    };
+
+    _marker setMarkerTypeLocal ([_vehicle] call FUNC(THIS_MODULE,type));
     
     _vehicle addMPEventHandler ["MPKilled", {
         private ["_vehicle"];

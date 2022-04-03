@@ -20,8 +20,8 @@ if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
             [_vehicle] __submoduleVM(vehicle_deploy);
         };
 
-        if (!isNil QMODULE(vehicle_service)) then {
-            [_vehicle] __submoduleVM(vehicle_service);
+        if (!isNil QMODULE(vehicle_mhq)) then {
+            [_vehicle] __submoduleVM(vehicle_mhq);
         };
         
         if (!isNil QMODULE(vehicle_wreck)) then {
