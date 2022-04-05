@@ -23,10 +23,10 @@ GVAR(base_wreck_distance_score) = 2500;
 // Set curated rebuild times based on vehicle type
 GVAR(base_wreck_time_rebuild) = [
     [240, "Truck"],
-    [360, "Wheeled_APC"],
-    [480, "Tank"],
-    [600, "Helicopter"],
-    [720, "Plane"]
+    [300, "Wheeled_APC"],
+    [360, "Tank"],
+    [420, "Helicopter"],
+    [480, "Plane"]
 ];
 
 if (isServer) then {
