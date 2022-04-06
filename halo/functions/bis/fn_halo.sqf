@@ -153,8 +153,8 @@ if (typename _this == typename objnull) then {
                     if (_h < -_hLimit) then {_hAnim = "L"};
                     _anim = "HaloFreeFall_" + _vAnim + _hAnim;
                 };
-                
-                [true, "playMoveNow", [player, _anim]] call FUNC(network,mp);
+
+                player playMoveNow _anim;
 
                 //--- Sound
                 if ((time - bis_fnc_halo_soundLoop) > 4.5) then {
