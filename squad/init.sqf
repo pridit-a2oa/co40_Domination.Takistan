@@ -32,5 +32,6 @@ if (isServer) then {
 __cppfln(FUNC(THIS_MODULE,assign),THIS_MODULE\functions\fn_assign.sqf);
 __cppfln(FUNC(THIS_MODULE,join),THIS_MODULE\functions\fn_join.sqf);
 __cppfln(FUNC(THIS_MODULE,groups),THIS_MODULE\functions\fn_groups.sqf);
+__cppfln(FUNC(THIS_MODULE,populate),THIS_MODULE\functions\fn_populate.sqf);
 
 MODULE(THIS_MODULE) = true;
