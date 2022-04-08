@@ -52,7 +52,7 @@ while {alive _object} do {
                 _timeLeft = [_object] call FUNC(THIS_MODULE,time);
                 
                 if (_timeLeft > 0) then {
-                    _newText = _text + format ["<br /><t size='0.6'>%1</t>", [_timeLeft] call FUNC(common,displayTime)];
+                    _newText = _text + format ["<br /><t color='#f0bfbfbf' size='0.6'>%1</t>", [_timeLeft] call FUNC(common,displayTime)];
                 };
             };
             

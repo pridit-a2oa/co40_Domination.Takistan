@@ -60,7 +60,7 @@ if (hasInterface) then {
     if (!isNil QMODULE(3d)) then {
         [
             GVAR(service_wreck),
-            format ["%1<br /><t size='0.6'>Reconstruct destroyed vehicles</t>", _name call FUNC(common,YellowText)],
+            format ["%1<br /><t color='#f0bfbfbf' size='0.6'>Reconstruct destroyed vehicles</t>", _name call FUNC(common,YellowText)],
             [],
             true,
             true
