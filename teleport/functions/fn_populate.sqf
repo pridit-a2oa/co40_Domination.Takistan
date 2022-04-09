@@ -46,7 +46,7 @@ if (!isNil QMODULE(vehicle_deploy)) then {
                 _name = markerText _id;
             };
             
-            _index = _list lbAdd _name;
+            _index = _list lbAdd ("-" + _name);
             _list lbSetData [_index, _id];
         };
     } forEach (call FUNC(vehicle_teleport,valid));
