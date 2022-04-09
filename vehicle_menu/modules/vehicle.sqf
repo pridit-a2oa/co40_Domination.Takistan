@@ -19,5 +19,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "alive _target && {!(player in _target)} && {_target getVariable 'd_menu'}"
+    "alive _target && {!(player in _target)} && (vehicle player) == player && {_target getVariable 'd_menu'}"
 ];
