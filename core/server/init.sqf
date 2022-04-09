@@ -73,19 +73,19 @@ if (isDedicated) then {
                     ]] call FUNC(network,mp);
                 };
 
-                _x spawn {
-                    sleep 1;
+                // _x spawn {
+                //     sleep 1;
 
-                    [_this] joinSilent grpNull;
+                //     [_this] joinSilent grpNull;
 
-                    if (alive _this) then {
-                        _this setDamage 1;
+                //     if (alive _this) then {
+                //         _this setDamage 1;
 
-                        sleep 5;
-                    };
+                //         sleep 5;
+                //     };
 
-                    hideBody _this;
-                };
+                //     hideBody _this;
+                // };
             };
         } forEach (allUnits + allDead);
     };
