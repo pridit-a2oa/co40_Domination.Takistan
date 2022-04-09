@@ -1,6 +1,6 @@
 #define THIS_MODULE vehicle
 #include "x_macros.sqf"
-private ["_vehicle", "_helper"];
+private ["_vehicle", "_position", "_helper"];
 
 PARAMS_1(_vehicle);
 

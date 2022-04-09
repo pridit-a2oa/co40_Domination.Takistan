@@ -3,7 +3,7 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_state"];
+private ["_vehicle", "_state", "_net", "_position", "_camo"];
 
 PARAMS_2(_vehicle, _state);
 

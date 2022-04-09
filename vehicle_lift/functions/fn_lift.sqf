@@ -10,7 +10,7 @@ _attachee attachTo [_attacher, [0, 0, -12]];
 _attachee setVariable [QGVAR(lifter), getPlayerUID player, true];
 
 _attacher setVariable [QGVAR(release), _attacher addAction ["Release" call FUNC(common,RedText), __function(release), _attachee, 10, false, true, "", "player == driver _target && {(position _target) select 2 < 17}"]];
-_attacher setVariable [QGVAR(attached), _attachee];
+_attacher setVariable [QGVAR(attached), _attachee, true];
 _attacher setVariable [QGVAR(attach), nil];
 
 {

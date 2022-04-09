@@ -4,7 +4,7 @@ private ["_vehicle", "_types", "_alive", "_attached", "_nearest", "_attach", "_a
 
 PARAMS_3(_vehicle, _types, _alive);
 
-_vehicle setVariable [QGVAR(attached), objNull];
+_vehicle setVariable [QGVAR(attached), objNull, true];
 
 while {player == driver _vehicle} do {
     _attach = _vehicle getVariable QGVAR(attach);

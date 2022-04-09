@@ -9,6 +9,8 @@ if ({isPlayer _x && {alive _x}} count crew _vehicle > 0) then {
     } forEach crew _vehicle;
 };
 
+[true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
+
 if (!isNil QMODULE(vehicle_marker)) then {
     [true, "spawn", [[_vehicle getVariable QGVAR(id)], {
         private ["_marker"];
@@ -19,6 +21,16 @@ if (!isNil QMODULE(vehicle_marker)) then {
         
         deleteMarkerLocal _marker;
     }]] call FUNC(network,mp);
+};
+
+if (!isNil QMODULE(vehicle_lift)) then {
+    private ["_attached"];
+
+    _attached = _vehicle getVariable QGVAR(attached);
+
+    if (!isNil "_attached" && {!isNull _attached}) then {
+        [_vehicle, "", "", _attached] call FUNC(vehicle_lift,release);
+    };
 };
 
 {

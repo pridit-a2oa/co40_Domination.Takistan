@@ -4,7 +4,7 @@
 
 #define THIS_MODULE vehicle_respawn
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_empty", "_dead", "_respawnable"];
+private ["_vehicle", "_type", "_position", "_direction", "_threshold", "_expiration", "_respawnable", "_empty", "_far", "_dead", "_moved", "_type", "_expired", "_disabled"];
 
 PARAMS_1(_vehicle);
 
