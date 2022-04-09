@@ -57,7 +57,7 @@ if (typeName _loaded == "ARRAY") then {
     [true, "reveal", _load] call FUNC(network,mp);
     
     if ((position _aircraft) select 2 > 100) then {
-        _parachute = createVehicle ["ParachuteMediumWest", _position, [], 0, "NONE"];
+        _parachute = createVehicle ["ParachuteMediumWest_EP1", _position, [], 0, "NONE"];
         _parachute setPos _position;
 
         _load attachTo [_parachute, [0, 0, 1]];
