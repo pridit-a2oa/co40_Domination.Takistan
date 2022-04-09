@@ -4,6 +4,7 @@ private ["_vehicle", "_type"];
 PARAMS_1(_vehicle);
 
 _type = switch (true) do {
+    case (_vehicle isKindOf "APC" || {_vehicle isKindOf "Tracked_APC"} || {_vehicle isKindOf "Wheeled_APC"}): {"_mech_inf"};
     case (_vehicle isKindOf "Tank"): {"_armor"};
     case (_vehicle isKindOf "Helicopter"): {"_air"};
     case (_vehicle isKindOf "UAV"): {"_recon"};
