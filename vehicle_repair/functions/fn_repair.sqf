@@ -25,8 +25,22 @@ for "_i" from 1 to 3 do {
     if (!alive _vehicle) exitWith {};
     
     if (_i == 3) then {
-        if (damage _vehicle > GVAR(vehicle_repair_amount_damage)) then {
-            [_vehicle, "setDamage", GVAR(vehicle_repair_amount_damage)] call FUNC(network,mp);
+        switch (true) do {
+            case (player getVariable QGVAR(repair_full)): {
+                [_vehicle, "setDamage", 0] call FUNC(network,mp);
+            };
+
+            case (typeOf _vehicle in ["AH1Z", "Mi24_D_TK_EP1", "MH6J_EP1"]): {
+                [_vehicle, "setDamage", 0] call FUNC(network,mp);
+            };
+
+            case ((damage _vehicle) <= 0.33): {
+                [_vehicle, "setDamage", 0] call FUNC(network,mp);
+            };
+
+            default {
+                [_vehicle, "setDamage", (damage _vehicle) - 0.33] call FUNC(network,mp);
+            };
         };
         
         [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
@@ -44,16 +58,6 @@ for "_i" from 1 to 3 do {
         
         if (fuel _vehicle < 0.25) then {
             [_vehicle, "setFuel", 0.25] call FUNC(network,mp);
-        };
-        
-        _full = player getVariable QGVAR(repair_full);
-
-        if (_full || typeOf _vehicle in ["AH1Z", "MH6J_EP1"]) then {
-            [_vehicle, "setDamage", 0] call FUNC(network,mp);
-            
-            if (fuel _vehicle < 0.6) then {
-                [_vehicle, "setFuel", 0.6] call FUNC(network,mp);
-            };
         };
     };
 };

@@ -9,7 +9,7 @@
 
 // Set addAction parameters that need to apply to existing clients & JIP
 GVAR(medical_player_action) = [
-    "Give Medkit" call FUNC(common,BlueText),
+    "Give Medkit" call FUNC(common,BrownText),
     FUNCTION(inventory,transfer),
     "medkits",
     8,

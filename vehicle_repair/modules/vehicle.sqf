@@ -9,7 +9,7 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 _vehicle addAction [
-    "Use Repair Kit" call FUNC(common,YellowText),
+    "Use Repair Kit" call FUNC(common,BlueText),
     __function(repair),
     [],
     10,

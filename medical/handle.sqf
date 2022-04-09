@@ -12,7 +12,7 @@ if (hasInterface) then {
 
     if (GVAR(medics) find (str(player)) == -1) then {
         player addAction [
-            "Use Medkit" call FUNC(common,YellowText),
+            "Use Medkit" call FUNC(common,BlueText),
             __function(heal),
             [],
             9,
