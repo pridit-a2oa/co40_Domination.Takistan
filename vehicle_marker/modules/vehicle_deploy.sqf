@@ -18,7 +18,7 @@ switch (_state) do {
     
     case false: {
         _marker setMarkerColorLocal "ColorBlack";
-        _marker setMarkerTextLocal ([typeOf (_vehicle)] call FUNC(vehicle,name));
+        _marker setMarkerTextLocal (format [" %1", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
         _marker setMarkerAlphaLocal 0;
     };
 };
