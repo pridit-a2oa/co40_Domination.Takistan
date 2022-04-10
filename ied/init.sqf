@@ -27,7 +27,7 @@ GVAR(ied_trigger_speed) = 5;
 GVAR(ied_trigger_distances) = [2, 6];
 
 if (hasInterface) then {
-    player setVariable [QGVAR(ied), false];
+    player setVariable [QGVAR(ied), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);

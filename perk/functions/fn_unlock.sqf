@@ -149,7 +149,7 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(ied)) then {
-                    player setVariable [QGVAR(ied), true];
+                    player setVariable [QGVAR(ied), true, true];
                 };
             };
             
