@@ -105,17 +105,7 @@ if (isMultiplayer) then {
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
         {
-            [_x] spawn FUNC(ammobox,handle);
-            
-            // Server will have a disparity between clients which results in not
-            // being able to take anything despite there being sufficient 
-            // quantity. Since the global variants for these functions can't be 
-            // used due to desync and keeping these in line between client &
-            // server by tracking amounts isn't very feasible let's just ensure
-            // that the server has more (or as much) as the amount the client
-            // will when they join. Existing players are kinda out of luck if
-            // there becomes insufficient quantity.
-            [gameLogic, "execVM", [[_x], FUNCTION(ammobox,replenish)]] call FUNC(network,mp);
+            [_x] call FUNC(ammobox,handle);
         } forEach (allMissionObjects GVAR(ammobox_type));
 
         ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)

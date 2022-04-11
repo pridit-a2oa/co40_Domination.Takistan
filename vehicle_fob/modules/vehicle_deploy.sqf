@@ -12,6 +12,8 @@ switch (_state) do {
         _vehicle setVariable [QGVAR(cleanup), []];
         
         _vehicle spawn {
+            private ["_heli", "_objects", "_group"];
+
             {
                 _this animate [_x, 1]
             } forEach [
@@ -27,7 +29,9 @@ switch (_state) do {
             [true, "enableSimulation", [_this, false]] call FUNC(network,mp);
             
             if (!isNil QMODULE(ammobox)) then {
-                _box = [
+                private ["_ammobox", "_pitchBank"];
+
+                _ammobox = [
                     _this modelToWorld [0, -5.5, -4.95],
                     direction _this,
                     false
@@ -35,9 +39,9 @@ switch (_state) do {
                 
                 _pitchBank = _this call BIS_fnc_getPitchBank;
                 
-                [_box, (_pitchBank select 0) + 10, _pitchBank select 1] call BIS_fnc_setPitchBank;
+                [_ammobox, (_pitchBank select 0) + 10, _pitchBank select 1] call BIS_fnc_setPitchBank;
                 
-                _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_box]];
+                _this setVariable [QGVAR(cleanup), (_this getVariable QGVAR(cleanup)) + [_ammobox]];
             };
             
             _heli = createVehicle ["HeliH", _this modelToWorld [-18, 15, 0], [], 0, "CAN_COLLIDE"];

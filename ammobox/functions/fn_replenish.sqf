@@ -1,14 +1,23 @@
 #include "x_macros.sqf"
-private ["_box"];
+private ["_ammobox", "_local"];
 
-PARAMS_1(_box);
+PARAMS_2(_ammobox, _local);
 
-clearMagazineCargo _box;
-clearWeaponCargo _box;
+if (_local) then {
+    clearMagazineCargo _ammobox;
+    clearWeaponCargo _ammobox;
+} else {
+    clearMagazineCargoGlobal _ammobox;
+    clearWeaponCargoGlobal _ammobox;
+};
 
 {
     {
-        _box addWeaponCargo [_x, 10];
+        if (_local) then {
+            _ammobox addWeaponCargo [_x, 10];
+        } else {
+            _ammobox addWeaponCargoGlobal [_x, 10];
+        };
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_rifles_assault),
@@ -22,12 +31,20 @@ clearWeaponCargo _box;
 ];
 
 {
-    _box addMagazineCargo [_x, 50];
+    if (_local) then {
+        _ammobox addMagazineCargo [_x, 50];
+    } else {
+        _ammobox addMagazineCargoGlobal [_x, 50];
+    };
 } forEach GVAR(ammobox_type_ammo_gun);
 
 {
     {
-        _box addMagazineCargo [_x, 50];
+        if (_local) then {
+            _ammobox addMagazineCargo [_x, 50];
+        } else {
+            _ammobox addMagazineCargoGlobal [_x, 50];
+        };
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_ammo_launcher)
@@ -35,7 +52,11 @@ clearWeaponCargo _box;
 
 {
     {
-        _box addMagazineCargo [_x, 20];
+        if (_local) then {
+            _ammobox addMagazineCargo [_x, 20];
+        } else {
+            _ammobox addMagazineCargoGlobal [_x, 20];
+        };
     } forEach _x;
 } forEach [
     GVAR(ammobox_type_ammo_launcher_grenade),
@@ -45,5 +66,9 @@ clearWeaponCargo _box;
 ];
 
 {
-    _box addWeaponCargo [_x, 5];
+    if (_local) then {
+        _ammobox addWeaponCargo [_x, 5];
+    } else {
+        _ammobox addWeaponCargoGlobal [_x, 5];
+    };
 } forEach GVAR(ammobox_type_equipment);

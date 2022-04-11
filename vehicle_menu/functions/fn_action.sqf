@@ -17,6 +17,8 @@ if (_lbCurSel == -1 || {player distance _vehicle > 10}) exitWith {
 };
 
 if (!isNil QMODULE(vehicle_deploy)) then {
+    private ["_deployed"];
+
     if (_lbData in ["fob", "mhq"]) then {
         _deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
         
@@ -29,6 +31,8 @@ if (!isNil QMODULE(vehicle_deploy)) then {
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {
+    private ["_ammobox"];
+
     if (_lbData == "ammobox") then {        
         _ammobox = _vehicle getVariable QGVAR(ammobox);
 
@@ -47,6 +51,8 @@ if (!isNil QMODULE(vehicle_loadout)) then {
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {
+    private ["_packed"];
+    
     if (_lbData == "pack" && {!isEngineOn _vehicle}) then {        
         _packed = _vehicle getVariable QGVAR(packed);
         
