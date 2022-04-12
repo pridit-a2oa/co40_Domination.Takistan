@@ -6,7 +6,7 @@ PARAMS_2(_flag, _players);
 _valid = true;
 
 if ({isPlayer _x} count _players < 1) then {_valid = false};
-if ({!alive _x || {_x getVariable QGVAR(unconscious)}} count _players == count _players) then {_valid = false};
+if ({!alive _x || {_x isKindOf "Air"} || {_x getVariable QGVAR(unconscious)}} count _players == count _players) then {_valid = false};
 
 if !(_valid) exitWith {
     if (_flag getVariable QGVAR(capturing)) then {
