@@ -32,7 +32,11 @@ if (hasInterface) then {
                     };
                 };
                 
-                _alpha = if (!_hidden && {!_alive || {_alive && {_distance}}}) then {1} else {0};
+                _alpha = if (!_hidden && {!_alive || {_alive && {_distance}}}) then {
+                    if (canMove _x) then {1} else {0.65};
+                } else {
+                    0
+                };
                 
                 if (_alpha != markerAlpha _marker) then {
                     _marker setMarkerAlphaLocal _alpha;
