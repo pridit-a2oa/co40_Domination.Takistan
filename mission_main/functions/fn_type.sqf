@@ -114,7 +114,7 @@ switch (_type) do {
 
         while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
-            _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 100];
+            _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 200];
             
             if (count _near < 1) then {
                 _radio = ([_position, random 360, GVAR(mission_main_type_radio), east] call BIS_fnc_spawnVehicle) select 0;
