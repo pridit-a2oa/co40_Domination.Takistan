@@ -5,8 +5,11 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
 
-// Set camp (composition) type.
-GVAR(mission_main_type_camp) = "Camp2_TK_EP1";
+// Set camp (composition) type along with whether they should be unique.
+GVAR(mission_main_types_camp) = [
+    ["Camp2_TK_EP1",            false],
+    ["MediumTentCamp3_TK_EP1",  true]
+];
 
 // Set radio tower type.
 GVAR(mission_main_type_radio) = "Land_radar_EP1";

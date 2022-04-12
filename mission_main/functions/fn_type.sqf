@@ -6,19 +6,24 @@ PARAMS_2(_target, _type);
 
 switch (_type) do {
     case "camp": {
-        private ["_camps", "_position", "_near", "_objects", "_group", "_trigger"];
+        private ["_camps", "_compositions", "_composition", "_position", "_near", "_camp", "_objects", "_group", "_trigger"];
 
         _camps = 0;
+
+        _compositions = GVAR(mission_main_types_camp);
         
         while {_camps != GVAR(mission_main_amount_camps)} do {
+            _composition = [0, _compositions] call FUNC(common,arrayValues);
             _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 10, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, ["Land_tent_east"], 100];
             
             if (count _near < 1) then {
+                _camp = _composition call BIS_fnc_selectRandom;
+
                 _objects = [
                     _position,
                     random 360,
-                    GVAR(mission_main_type_camp)
+                    _camp
                 ] call FUNC(server,objectMapper);
                 
                 _group = [
@@ -29,6 +34,10 @@ switch (_type) do {
                 
                 if (!isNil QMODULE(unit)) then {
                     [_group, _position] call FUNC(unit,defend);
+                };
+
+                if (([1, _compositions] call FUNC(common,arrayValues)) select (_composition find _camp)) then {
+                    _compositions = [_compositions, _composition find _camp] call FUNC(common,deleteAt);
                 };
                 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects + (units _group)];
