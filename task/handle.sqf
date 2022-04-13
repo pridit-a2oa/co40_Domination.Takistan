@@ -14,8 +14,11 @@ if (hasInterface) then {
         } else {
             player createSimpleTask [_x select 0];
         };
+
+        if (typeName (_x select 1) == "ARRAY") then {
+            _task setSimpleTaskDestination (_x select 1);
+        };
         
-        _task setSimpleTaskDestination (_x select 1);
         _task setSimpleTaskDescription (_x select 2);
         _task setTaskState (_x select 3);
         

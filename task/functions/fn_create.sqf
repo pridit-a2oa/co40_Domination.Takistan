@@ -9,7 +9,10 @@ _task = if (!isNil "_parent") then {
     player createSimpleTask [_name];
 };
 
-_task setSimpleTaskDestination [_position select 0, _position select 1, 0];
+if (typeName _position == "ARRAY") then {
+    _task setSimpleTaskDestination [_position select 0, _position select 1, 0];
+};
+
 _task setSimpleTaskDescription _description;
 _task setTaskState _state;
 

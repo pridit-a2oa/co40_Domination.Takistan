@@ -244,7 +244,7 @@ switch (_type) do {
             
             _task = [
                 _goal + str ((position _entity) select 0),
-                position _entity,
+                "",
                 [
                     format ["%1 %2", _action, _goal],
                     format ["> Optional: %1 %2", _action, _goal],
