@@ -5,8 +5,11 @@ PARAMS_2(_flag, _players);
 
 _valid = true;
 
-if ({isPlayer _x} count _players < 1) then {_valid = false};
-if ({!alive _x || {_x isKindOf "Air"} || {_x getVariable QGVAR(unconscious)}} count _players == count _players) then {_valid = false};
+if (true) then {
+    if ({isPlayer _x} count _players < 1) exitWith {_valid = false};
+    if (east countSide (_flag nearEntities [["Man", "Car", "Tank", "StaticWeapon"], 40]) > 0) exitWith {_valid = false};
+    if ({!alive _x || {_x isKindOf "Air"} || {_x getVariable QGVAR(unconscious)}} count _players == count _players) exitWith {_valid = false};
+};
 
 if !(_valid) exitWith {
     if (_flag getVariable QGVAR(capturing)) then {
