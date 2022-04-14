@@ -23,7 +23,10 @@ switch (_type) do {
                 _objects = [
                     _position,
                     random 360,
-                    _camp
+                    _camp,
+                    [
+                        ["BMP2_TK_EP1", "ZSU_TK_EP1"]
+                    ]
                 ] call FUNC(server,objectMapper);
                 
                 _group = [
