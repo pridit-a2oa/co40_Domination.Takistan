@@ -14,6 +14,11 @@ GVAR(mission_main_types_camp) = [
 // Set radio tower type.
 GVAR(mission_main_type_radio) = "Land_radar_EP1";
 
+// Set town seed exceptions.
+GVAR(mission_main_type_exceptions) = [
+    "Shamali"
+];
+
 // Set possible optional task types.
 GVAR(mission_main_type_optional) = [
     ["aircraft factory",        ["object",  "TK_WarfareBAircraftFactory_Base_EP1"]],
