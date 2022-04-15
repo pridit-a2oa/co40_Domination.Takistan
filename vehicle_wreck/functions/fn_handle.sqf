@@ -10,7 +10,7 @@ _chance = if (_vehicle isKindOf "LandVehicle") then {
     GVAR(vehicle_wreck_chance_air)
 };
 
-if (_chance > round (random 100)) then {
+if (_chance < floor (random 100)) then {
     _vehicle setVariable [QGVAR(wreckable), true, true];
     
     _handler = _vehicle addMPEventHandler ["MPKilled", {

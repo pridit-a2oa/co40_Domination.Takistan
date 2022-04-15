@@ -6,7 +6,7 @@ PARAMS_1(_position);
 
 _mission = GVAR(mission_side_type_missions) call BIS_fnc_selectRandom;
 
-if (_mission select 1 > random 100) then {
+if (_mission select 1 < floor (random 100)) then {
     _time = GVAR(mission_side_time_threshold);
 
     _min = _time select 0;

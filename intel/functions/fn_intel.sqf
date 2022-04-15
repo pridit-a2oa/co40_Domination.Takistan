@@ -10,7 +10,7 @@ if !(isServer) exitWith {
 
 _vehicle setVariable [QGVAR(intel), false, true];
 
-if (GVAR(intel_chance_bomb) > round (random 100)) exitWith {
+if (GVAR(intel_chance_bomb) < floor (random 100)) exitWith {
     // Remove killed handler for deducting points, as its not a civilian
     [_vehicle] spawn FUNC(THIS_MODULE,timer);
 };
