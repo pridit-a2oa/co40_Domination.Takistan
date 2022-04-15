@@ -26,7 +26,7 @@ switch (_type) do {
                     if (count _roads > 0) then {([_roads select 0, _position] call BIS_fnc_dirTo) - 90} else {random 360},
                     _camp,
                     [
-                        ["BMP2_TK_EP1", "Ural_ZU23_TK_EP1"]
+                        ["BMP2_TK_EP1", "Igla_AA_pod_TK_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
                 
