@@ -6,26 +6,27 @@ PARAMS_2(_target, _type);
 
 switch (_type) do {
     case "camp": {
-        private ["_camps", "_compositions", "_composition", "_position", "_near", "_camp", "_objects", "_group", "_trigger"];
+        private ["_camps", "_compositions", "_composition", "_position", "_roads", "_near", "_camp", "_objects", "_group", "_trigger"];
 
         _camps = 0;
 
-        _compositions = GVAR(mission_main_types_camp);
+        _compositions = GVAR(mission_main_type_camps);
         
         while {_camps != GVAR(mission_main_amount_camps)} do {
             _composition = [0, _compositions] call FUNC(common,arrayValues);
-            _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 10, 0, 0.5, 0] call FUNC(common,safePos);
-            _near = nearestObjects [_position, ["Land_tent_east"], 100];
+            _position = [position _target, 20, GVAR(mission_main_radius_zone) / 2, 8, 0, 0.5, 0] call FUNC(common,safePos);
+            _roads = _position nearRoads 70;
+            _near = nearestObjects [_position, ["FlagCarrierTakistanKingdom_EP1"], 150];
             
             if (count _near < 1) then {
                 _camp = _composition call BIS_fnc_selectRandom;
 
                 _objects = [
                     _position,
-                    random 360,
+                    if (count _roads > 0) then {([_roads select 0, _position] call BIS_fnc_dirTo) - 90} else {random 360},
                     _camp,
                     [
-                        ["BMP2_TK_EP1", "ZSU_TK_EP1"]
+                        ["BMP2_TK_EP1", "Ural_ZU23_TK_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
                 
@@ -116,8 +117,8 @@ switch (_type) do {
         private ["_position", "_near", "_radio"];
 
         while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
-            _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 2, 0, 0.3, 0] call FUNC(common,safePos);
-            _near = nearestObjects [_position, [GVAR(mission_main_type_radio)], 200];
+            _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.8, 3, 0, 0.5, 0] call FUNC(common,safePos);
+            _near = nearestObjects [_position, [GVAR(mission_main_type_radio), "FlagCarrierTakistanKingdom_EP1"], 150];
             
             if (count _near < 1) then {
                 _radio = ([_position, random 360, GVAR(mission_main_type_radio), east] call BIS_fnc_spawnVehicle) select 0;
@@ -177,7 +178,9 @@ switch (_type) do {
 
         {
             for "_i" from 1 to (_x select 1) do {
-                _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.2, 10, 0, 0.3, 0] call FUNC(common,safePos);
+                if (_x select 2 <= floor (random 100)) exitWith {};
+
+                _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 5, 0, 0.7, 0] call FUNC(common,safePos);
                 
                 _objects = [
                     _position,
@@ -209,7 +212,7 @@ switch (_type) do {
         _goal = _objective select 0;
         _type = _objective select 1;
         
-        _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 7, 0, 0.3, 0] call FUNC(common,safePos);
+        _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.5, 0] call FUNC(common,safePos);
         
         switch (_type select 0) do {
             case "object": {

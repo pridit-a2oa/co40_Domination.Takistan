@@ -22,7 +22,6 @@ GVAR(base_rd_type_vehicles) = [
     "Mi17_TK_EP1",
     "Mi24_D_TK_EP1",
     "Su25_TK_EP1",
-    "T34_TK_EP1",
     "T55_TK_EP1",
     "T72_TK_EP1",
     "UH1H_TK_EP1",

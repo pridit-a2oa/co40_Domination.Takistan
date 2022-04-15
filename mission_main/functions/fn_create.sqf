@@ -18,7 +18,7 @@ _name = _target getVariable "name";
 if (!isNil QMODULE(ied)) then {
     private ["_ieds"];
 
-    _ieds = [_target, 600] call FUNC(ied,create);
+    _ieds = [_target, GVAR(mission_main_radius_zone) * 1.2] call FUNC(ied,create);
     
     _target setVariable [QGVAR(ieds), _ieds];
 };

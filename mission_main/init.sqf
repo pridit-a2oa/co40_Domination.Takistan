@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 // Set camp (composition) type along with whether they should be unique.
-GVAR(mission_main_types_camp) = [
+GVAR(mission_main_type_camps) = [
     ["Camp2_TK_EP1",            false],
     ["MediumTentCamp3_TK_EP1",  true]
 ];
@@ -31,11 +31,11 @@ GVAR(mission_main_type_optional) = [
     ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
 ];
 
-// Set crewed object compositions.
+// Set crewed object compositions along with amount and chance they will spawn.
 GVAR(mission_main_type_compositions) = [
-    ["AntiAir1_TK_EP1", 2],
-    ["Firebase1_TK_EP1", 1],
-    ["FuelDump1_TK_EP1", 1]
+    ["AntiAir1_TK_EP1", 2, 100],
+    ["Firebase1_TK_EP1", 1, 100],
+    ["FuelDump1_TK_EP1", 1, 50]
 ];
 
 // Set list of projectiles to negate damage inflicted on objectives.
@@ -52,9 +52,10 @@ GVAR(mission_main_type_reinforcements) = [
 
 // Set type of units that will be seeded along with amount.
 GVAR(mission_main_type_units) = [
-    ["infantry", 6],
-    ["light", 3],
-    ["heavy", 7]
+    ["infantry",    6],
+    ["light",       4],
+    ["apc",         4],
+    ["tank",        3]
 ];
 
 // Set amount of camps per target.
@@ -75,20 +76,17 @@ GVAR(mission_main_distance_base) = 2600;
 // Set distance from flag (as part of a camp) before being able to capture.
 GVAR(mission_main_distance_camp) = 20;
 
-// Set distance from north airfield before a city can become a valid target.
-GVAR(mission_main_distance_naf) = 1800;
-
 // Set minimum distance for reinforcements to spawn in.
 GVAR(mission_main_distance_reinforcement) = 4000;
 
 // Set the radius for the main target zone.
-GVAR(mission_main_radius_zone) = 400;
+GVAR(mission_main_radius_zone) = 500;
 
 // Set amount of time to capture a camp.
-GVAR(mission_main_time_capture) = 30;
+GVAR(mission_main_time_capture) = 45;
 
 // Set the amount of time once meeting the completion criteria to announce.
-GVAR(mission_main_time_complete) = 45;
+GVAR(mission_main_time_complete) = 30;
 
 // Set amount of time to sleep before generating a target.
 GVAR(mission_main_time_delay) = 40;

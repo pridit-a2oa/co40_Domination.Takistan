@@ -31,18 +31,20 @@ GVAR(unit_type_vehicles_light) = [
     "UAZ_MG_TK_EP1"
 ];
 
-// Set heavy (armor) vehicle types along with whether they should be unique.
-GVAR(unit_type_vehicles_heavy) = [
+// Set APC vehicle types along with uniqueness.
+GVAR(unit_type_vehicles_apc) = [
     ["BMP2_HQ_TK_EP1",      true],
     ["BMP2_TK_EP1",         false],
     ["BRDM2_ATGM_TK_EP1",   false],
     ["BRDM2_TK_EP1",        false],
     ["BTR60_TK_EP1",        false],
-    ["M113_TK_EP1",         false],
-    ["T34_TK_EP1",          false],
-    ["T55_TK_EP1",          false],
-    ["T72_TK_EP1",          false],
-    ["Ural_ZU23_TK_EP1",    true]
+    ["M113_TK_EP1",         false]
+];
+
+// Set Tank vehicle types.
+GVAR(unit_type_vehicles_tank) = [
+    "T55_TK_EP1",
+    "T72_TK_EP1"
 ];
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
