@@ -106,6 +106,10 @@ class CfgSounds {
         sound[]     = {"\vehicle_flip\sounds\flip.wss", db, 1, 30};
         titles[]    = {};
     };
+    class d_sound_refuel {
+        sound[]     = {"\vehicle_refuel\sounds\refuel.wss", db, 1, 30};
+        titles[]    = {};
+    };
     class d_sound_repair {
         sound[]     = {"\vehicle_repair\sounds\repair.wss", db, 1, 30};
         titles[]    = {};

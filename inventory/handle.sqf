@@ -13,6 +13,10 @@ if (!isNil QMODULE(vehicle_repair)) then {
     __submodulePP(vehicle_repair);
 };
 
+if (!isNil QMODULE(vehicle_refuel)) then {
+    __submodulePP(vehicle_refuel);
+};
+
 if (!isNil QMODULE(fortification)) then {
     __submodulePP(fortification);
 };
