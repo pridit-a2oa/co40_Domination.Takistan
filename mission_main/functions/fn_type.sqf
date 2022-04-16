@@ -178,7 +178,7 @@ switch (_type) do {
 
         {
             for "_i" from 1 to (_x select 1) do {
-                if (_x select 2 > floor (random 100)) exitWith {};
+                if (_x select 2 < floor (random 100)) exitWith {};
 
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 5, 0, 0.7, 0] call FUNC(common,safePos);
                 
