@@ -104,9 +104,15 @@ if (isMultiplayer) then {
 
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
-        {
-            [_x] call FUNC(ammobox,handle);
-        } forEach (allMissionObjects GVAR(ammobox_type));
+        private ["_type"];
+        
+        _type = [faction player] call FUNC(ammobox,type);
+
+        if (_type select 2) then {
+            {
+                [_x] call FUNC(ammobox,handle);
+            } forEach (allMissionObjects (_type select 1));
+        };
 
         ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);

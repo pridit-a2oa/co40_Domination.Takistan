@@ -7,11 +7,24 @@
 #define THIS_MODULE ammobox
 #include "x_macros.sqf"
 
-// Set ammobox module
-GVAR(ammobox_type) = "USVehicleBox_EP1";
+// Set ammobox types according to faction & dictate full ordnance.
+GVAR(ammobox_types) = [
+    [
+        ["BIS_TK", "BIS_TK_INS"],
+        "TKBasicWeapons_EP1",
+        false
+    ],
+
+    [
+        [],
+        "USVehicleBox_EP1",
+        true
+    ]
+];
 
 // Set list of assault rifles
 GVAR(ammobox_type_rifles_assault) = [
+    "AK_74",
     "AK_74_GL",
     "AK_74_GL_kobra",
     "AK_47_M",
@@ -295,5 +308,6 @@ GVAR(ammobox_type_misc) = [
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,handle),THIS_MODULE\functions\fn_handle.sqf);
 __cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
+__cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

@@ -69,10 +69,10 @@ if (typeName _loaded == "ARRAY") then {
         _position = [(position _load) select 0, (position _load) select 1, 0];
     };
     
-    if (!isNil QMODULE(ammobox) && {typeOf _load == GVAR(ammobox_type)}) then {
+    if (!isNil QMODULE(ammobox) && {[typeOf _load, ([faction _load] call FUNC(ammobox,type)) select 1] call BIS_fnc_areEqual}) then {
         deleteVehicle _load;
 
-        _ammobox = [_position, 0, false] call FUNC(ammobox,create);
+        _ammobox = [faction _aircraft, _position, 0, false] call FUNC(ammobox,create);
     };
 };
 

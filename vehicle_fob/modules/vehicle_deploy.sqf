@@ -32,6 +32,7 @@ switch (_state) do {
                 private ["_ammobox", "_pitchBank"];
 
                 _ammobox = [
+                    faction _vehicle,
                     _this modelToWorld [0, -5.5, -4.95],
                     direction _this,
                     false

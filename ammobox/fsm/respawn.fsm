@@ -42,7 +42,7 @@ class FSM
     {
       name = "_";
       init = "if (!isNull _ammobox) then {deleteVehicle _ammobox;};" \n
-       "_ammobox = [markerPos ""d_player_ammobox_pos"", markerDir ""d_player_ammobox_pos"", true] call d_fnc_ammobox_create;" \n
+       "_ammobox = [faction player, markerPos ""d_player_ammobox_pos"", markerDir ""d_player_ammobox_pos"", true] call d_fnc_ammobox_create;" \n
        "_ammobox setVariable [""immune"", true];" \n
        "player reveal _ammobox;" \n
        "[_ammobox, true] call d_fnc_ammobox_handle;";

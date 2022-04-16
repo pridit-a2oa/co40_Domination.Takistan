@@ -7,6 +7,7 @@
 private ["_ammobox"];
 
 _ammobox = [
+    faction player,
     markerPos QGVAR(player_ammobox_pos),
     markerDir QGVAR(player_ammobox_pos),
     true

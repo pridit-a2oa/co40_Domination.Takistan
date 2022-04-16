@@ -12,6 +12,7 @@ if (!isNil QMODULE(ammobox)) then {
     private ["_ammobox"];
 
     _ammobox = [
+        faction _vehicle,
         [_position select 0, _position select 1, 0],
         direction _vehicle,
         false
