@@ -6,9 +6,8 @@ PARAMS_2(_flag, _players);
 _valid = true;
 
 if (true) then {
-    if ({isPlayer _x} count _players < 1) exitWith {_valid = false};
-    if (east countSide (_flag nearEntities [["Man", "Car", "Tank", "StaticWeapon"], 75]) > 0) exitWith {_valid = false};
-    if ({!alive _x || {_x isKindOf "Air"} || {_x getVariable QGVAR(unconscious)}} count _players == count _players) exitWith {_valid = false};
+    if (_players < 1) exitWith {_valid = false};
+    if (east countSide (_flag nearEntities [["Man", "Car", "Tank", "StaticWeapon"], 75]) > _players) exitWith {_valid = false};
 };
 
 if !(_valid) exitWith {
