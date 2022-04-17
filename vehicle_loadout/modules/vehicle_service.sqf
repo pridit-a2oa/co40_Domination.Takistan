@@ -9,5 +9,11 @@ private ["_vehicle"];
 PARAMS_1(_vehicle);
 
 [_vehicle] call FUNC(THIS_MODULE,clear);
-[_vehicle, true] call FUNC(THIS_MODULE,rearm);
-[_vehicle] call FUNC(THIS_MODULE,arm);
+
+sleep 1;
+
+[_vehicle, true] call FUNC(THIS_MODULE,addMagazines);
+
+sleep 1;
+
+[_vehicle] call FUNC(THIS_MODULE,addWeapons);

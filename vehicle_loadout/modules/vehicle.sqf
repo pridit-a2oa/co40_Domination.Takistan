@@ -14,6 +14,12 @@ if (_loadout == -1) exitWith {};
 
 if (isServer) then {
     [_vehicle] call FUNC(THIS_MODULE,set);
-    [_vehicle] call FUNC(THIS_MODULE,rearm);
-    [_vehicle] call FUNC(THIS_MODULE,arm);
+
+    sleep 1;
+    
+    [_vehicle] call FUNC(THIS_MODULE,addMagazines);
+
+    sleep 1;
+    
+    [_vehicle] call FUNC(THIS_MODULE,addWeapons);
 };

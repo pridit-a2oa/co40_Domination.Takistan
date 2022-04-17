@@ -1,10 +1,12 @@
 #define THIS_MODULE vehicle_loadout
 #include "x_macros.sqf"
-private ["_vehicle", "_name", "_checks", "_find", "_loadout", "_loadouts", "_type"];
+private ["_vehicle", "_checks"];
 
 PARAMS_1(_vehicle);
 
 if (hasInterface) then {
+    private ["_name"];
+
     _name = [typeOf _vehicle] call FUNC(vehicle,name);
     _checks = [
         [
@@ -28,12 +30,16 @@ if (hasInterface) then {
 };
 
 if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _checks)}) then {
+    private ["_find", "_loadouts", "_loadout"];
+
     _find = [_vehicle] call FUNC(THIS_MODULE,find);
 
     _loadouts = _find select 0;
     _loadout = _find select 1;
 
     {
+        private ["_index", "_type"];
+
         _index = (_forEachIndex + 1);
 
         if (isNil {_vehicle getVariable QGVAR(loadout)} || {_x == (_vehicle getVariable QGVAR(loadout)) select 0}) exitWith {
@@ -58,7 +64,11 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
                 true
             ];
 
-            [_vehicle] call FUNC(THIS_MODULE,clear);
+            if !(isServer) then {
+                [gameLogic, "execVM", [[_vehicle], FUNCTION(THIS_MODULE,clear)]] call FUNC(network,mp);
+            } else {
+                [_vehicle] call FUNC(THIS_MODULE,clear);
+            };
         };
     } forEach _loadouts;
 };

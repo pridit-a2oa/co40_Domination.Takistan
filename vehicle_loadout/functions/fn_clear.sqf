@@ -1,36 +1,58 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_weapons", "_magazines", "_turrets"];
+private ["_vehicle", "_types"];
 
-PARAMS_1(_vehicle);
+PARAMS_2(_vehicle, _types);
 
-_weapons = weapons _vehicle;
-_magazines = magazines _vehicle;
-
-_turrets = [
-    _vehicle magazinesTurret [-1],
-    _vehicle magazinesTurret [0],
-    _vehicle magazinesTurret [1],
-    _vehicle magazinesTurret [2]
-];
+if (isNil "_types") then {
+    _types = ["magazines", "weapons"];
+};
 
 {
-    if (["CMFlareLauncher"] find _x == -1) then {
-        [_vehicle, "removeWeapon", _x] call FUNC(network,mp);
-    };
-} forEach _weapons;
+    switch (_x) do {
+        case "magazines": {
+            private ["_magazines"];
 
-{
-    if (["120Rnd_CMFlare_Chaff_Magazine", "60Rnd_CMFlare_Chaff_Magazine"] find _x == -1) then {
-        [_vehicle, "removeMagazine", _x] call FUNC(network,mp);
-    };
-} forEach _magazines;
+            _magazines = [
+                _vehicle magazinesTurret [-1],
+                _vehicle magazinesTurret [0]
+            ];
 
-{
-    _path = _forEachIndex - 1;
+            {
+                private ["_path"];
 
-    {
-        if (["120Rnd_CMFlare_Chaff_Magazine", "60Rnd_CMFlare_Chaff_Magazine"] find _x == -1) then {
-            [_vehicle, "removeMagazinesTurret", [_x, [_path]]] call FUNC(network,mp);
+                _path = [_forEachIndex - 1];
+
+                {
+                    [
+                        [_vehicle, _path] call FUNC(vehicle,owner),
+                        "removeMagazinesTurret",
+                        [_vehicle, _x, _path]
+                    ] call FUNC(network,mp);
+                } forEach (_magazines select _forEachIndex);
+            } forEach _magazines;
         };
-    } forEach (_turrets select _forEachIndex);
-} forEach _turrets;
+
+        case "weapons": {
+            private ["_weapons"];
+
+            _weapons = [
+                _vehicle weaponsTurret [-1],
+                _vehicle weaponsTurret [0]
+            ];
+
+            {
+                private ["_path"];
+
+                _path = [_forEachIndex - 1];
+
+                {
+                    [
+                        [_vehicle, _path] call FUNC(vehicle,owner),
+                        "removeWeaponTurret",
+                        [_vehicle, _x, _path]
+                    ] call FUNC(network,mp);
+                } forEach (_weapons select _forEachIndex);
+            } forEach _weapons;
+        };
+    };
+} forEach _types;

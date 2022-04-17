@@ -19,7 +19,11 @@ _vehicle setVariable [QGVAR(servicing), true, true];
 sleep 1;
 
 if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loadout)}}) then {
-    [_vehicle] __submodulePP(vehicle_loadout);
+    private ["_handle"];
+    
+    _handle = [_vehicle] __submoduleVM(vehicle_loadout);
+
+    waitUntil {sleep 0.5; scriptDone _handle};
 } else {
     [true, "setVehicleAmmo", [_vehicle, 1]] call FUNC(network,mp);
 
@@ -31,10 +35,10 @@ if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loado
         } forEach _magazines;
     };
 
-    _turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets");
+    _turrets = count (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "turrets");
 
     for "_i" from 0 to (_turrets - 1) do {
-        _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "Turrets") select _i;
+        _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "turrets") select _i;
         _magazines = getArray (_config >> "magazines");
         
         {

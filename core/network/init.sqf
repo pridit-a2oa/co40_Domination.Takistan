@@ -12,6 +12,7 @@ __cppfln(FUNC(THIS_MODULE,addMagazine),core\THIS_MODULE\functions\library\fn_add
 __cppfln(FUNC(THIS_MODULE,addMagazineTurret),core\THIS_MODULE\functions\library\fn_addMagazineTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,addScore),core\THIS_MODULE\functions\library\fn_addScore.sqf);
 __cppfln(FUNC(THIS_MODULE,addWeapon),core\THIS_MODULE\functions\library\fn_addWeapon.sqf);
+__cppfln(FUNC(THIS_MODULE,addWeaponTurret),core\THIS_MODULE\functions\library\fn_addWeaponTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,allowDamage),core\THIS_MODULE\functions\library\fn_allowDamage.sqf);
 __cppfln(FUNC(THIS_MODULE,directSay),core\THIS_MODULE\functions\library\fn_directSay.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
@@ -29,6 +30,7 @@ __cppfln(FUNC(THIS_MODULE,removeMagazine),core\THIS_MODULE\functions\library\fn_
 __cppfln(FUNC(THIS_MODULE,removeMagazines),core\THIS_MODULE\functions\library\fn_removeMagazines.sqf);
 __cppfln(FUNC(THIS_MODULE,removeMagazinesTurret),core\THIS_MODULE\functions\library\fn_removeMagazinesTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,removeWeapon),core\THIS_MODULE\functions\library\fn_removeWeapon.sqf);
+__cppfln(FUNC(THIS_MODULE,removeWeaponTurret),core\THIS_MODULE\functions\library\fn_removeWeaponTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,reveal),core\THIS_MODULE\functions\library\fn_reveal.sqf);
 __cppfln(FUNC(THIS_MODULE,say),core\THIS_MODULE\functions\library\fn_say.sqf);
 __cppfln(FUNC(THIS_MODULE,setDamage),core\THIS_MODULE\functions\library\fn_setDamage.sqf);
