@@ -14,7 +14,7 @@ GVAR(vehicle_loadout_types) = [
         ["Close Air Support", [
             ["GAU8", 1],
             ["MaverickLauncher", 1],
-            ["BombLauncherF35", 2],
+            ["BombLauncherA10", 1],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]],
