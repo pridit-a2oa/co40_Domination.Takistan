@@ -11,23 +11,18 @@
 // Set types of vehicles and possible configurations
 GVAR(vehicle_loadout_types) = [
     ["A10_US_EP1", [
-        ["Air Supremacy", [
-            ["GAU8", 1],
-            ["SidewinderLaucher_AH1Z", 2],
-            [["FFARLauncher", "28Rnd_FFAR"], 1],
-            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
-        ]],
-
         ["Close Air Support", [
             ["GAU8", 1],
+            ["MaverickLauncher", 1],
             ["BombLauncherF35", 2],
-            [["FFARLauncher", "28Rnd_FFAR"], 1],
+            ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]],
 
         ["Standard", [
             ["GAU8", 1],
             ["MaverickLauncher", 1],
+            ["SidewinderLaucher_F35", 1],
             ["BombLauncherF35", 1],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
@@ -35,39 +30,45 @@ GVAR(vehicle_loadout_types) = [
     ]],
 
     ["AH1Z", [
-        ["Air Supremacy", [
-            ["M197", 1, [0]],
-            ["SidewinderLaucher_AH1Z", 2, [0]],
-            ["FFARLauncher_14", 1],
-            [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
-        ]],
-
         ["Close Air Support", [
             ["M197", 1, [0]],
-            [["FFARLauncher", "38Rnd_FFAR"], 1],
+            ["MaverickLauncher", 2, [0]],
+            [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]],
 
         ["Standard", [
             ["M197", 1, [0]],
             ["MaverickLauncher", 2, [0]],
+            ["SidewinderLaucher_AH1Z", 1, [0]],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]]
     ]],
 
     ["AH64D_EP1", [
-        ["Close Air Support", [
-            ["M230", 1, [0]],
-            [["FFARLauncher", "38Rnd_FFAR"], 1],
-            [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
-        ]],
-
         ["Standard", [
             ["M230", 1, [0]],
             ["MaverickLauncher", 2, [0]],
-            ["FFARLauncher_14", 1],
+            [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
+    ["AV8B2", [
+        ["Air Supremacy", [
+            ["GAU12", 1],
+            ["SidewinderLaucher_F35", 2],
+            [["FFARLauncher", "28Rnd_FFAR"], 1],
+            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]],
+
+        ["Standard", [
+            ["GAU12", 1],
+            ["Mk82BombLauncher", 1],
+            ["SidewinderLaucher_AH1Z", 1],
+            ["FFARLauncher_14", 1],
+            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]]
     ]],
 
@@ -75,12 +76,6 @@ GVAR(vehicle_loadout_types) = [
         ["Air Supremacy", [
             ["GAU12", 1],
             ["SidewinderLaucher_F35", 2],
-            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
-        ]],
-
-        ["Close Air Support", [
-            ["GAU12", 1],
-            ["BombLauncherF35", 2],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]],
 
