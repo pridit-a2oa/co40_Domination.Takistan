@@ -22,7 +22,7 @@ GVAR(vehicle_loadout_types) = [
         ["Standard", [
             ["GAU8", 1],
             ["MaverickLauncher", 1],
-            ["SidewinderLaucher_F35", 1],
+            ["SidewinderLaucher_AH1Z", 1],
             ["BombLauncherF35", 1],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
@@ -58,7 +58,7 @@ GVAR(vehicle_loadout_types) = [
     ["AV8B2", [
         ["Air Supremacy", [
             ["GAU12", 1],
-            ["SidewinderLaucher_F35", 2],
+            ["SidewinderLaucher_AH1Z", 2],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]],
