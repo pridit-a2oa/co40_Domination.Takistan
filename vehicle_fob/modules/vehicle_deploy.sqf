@@ -2,6 +2,7 @@
  * Vehicle FOB Module - Vehicle Deploy Submodule
  */
 
+#define THIS_MODULE vehicle_fob
 #include "x_macros.sqf"
 private ["_vehicle", "_state"];
 
@@ -31,12 +32,7 @@ switch (_state) do {
             if (!isNil QMODULE(ammobox)) then {
                 private ["_ammobox", "_pitchBank"];
 
-                _ammobox = [
-                    faction _this,
-                    _this modelToWorld [0, -5.5, -4.95],
-                    direction _this,
-                    false
-                ] call FUNC(ammobox,create);
+                _ammobox = [_this] __submodulePP(ammobox);
                 
                 _pitchBank = _this call BIS_fnc_getPitchBank;
                 
