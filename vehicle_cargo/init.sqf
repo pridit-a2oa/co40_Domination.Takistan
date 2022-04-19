@@ -1,21 +1,21 @@
 /**
- * Vehicle Load Module
+ * Vehicle Cargo Module
  *
- *  Description: This module enables players to load land vehicles into an
- *  aircraft & paradrop them.
+ * Description: This module enables players to load land vehicles into an
+ * aircraft & paradrop them.
  */
 
-#define THIS_MODULE vehicle_load
+#define THIS_MODULE vehicle_cargo
 #include "x_macros.sqf"
 
 // Set aircraft type capable of loading vehicles
-GVAR(vehicle_load_type_aircraft) = "C130J_US_EP1";
+GVAR(vehicle_cargo_type_aircraft) = "C130J_US_EP1";
 
 // Set maximum amount of vehicles that can ever be loaded at once
-GVAR(vehicle_load_amount_max) = 2;
+GVAR(vehicle_cargo_amount_max) = 2;
 
 if (hasInterface) then {
-    player setVariable [QGVAR(vehicle_load), 0];
+    player setVariable [QGVAR(vehicle_cargo), 0];
 };
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);

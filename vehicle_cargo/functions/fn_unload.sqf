@@ -1,4 +1,4 @@
-#define THIS_MODULE vehicle_load
+#define THIS_MODULE vehicle_cargo
 #include "x_macros.sqf"
 private ["_aircraft", "_load", "_loaded", "_actions", "_vehicle", "_types", "_id"];
 

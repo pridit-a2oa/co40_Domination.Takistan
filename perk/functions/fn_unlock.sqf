@@ -358,14 +358,14 @@ switch (_tier) do {
             };
             
             case 3: {
-                if (!isNil QMODULE(vehicle_load)) then {
-                    player setVariable [QGVAR(vehicle_load), 1];
+                if (!isNil QMODULE(vehicle_cargo)) then {
+                    player setVariable [QGVAR(vehicle_cargo), 1];
                 };
             };
             
             case 4: {
-                if (!isNil QMODULE(vehicle_load)) then {
-                    player setVariable [QGVAR(vehicle_load), (player getVariable QGVAR(vehicle_load)) + 1];
+                if (!isNil QMODULE(vehicle_cargo)) then {
+                    player setVariable [QGVAR(vehicle_cargo), (player getVariable QGVAR(vehicle_cargo)) + 1];
                 };
             };
             

@@ -1,20 +1,20 @@
 /**
- * Vehicle Load Module - Vehicle Submodule
+ * Vehicle Cargo Module - Vehicle Submodule
  */
 
-#define THIS_MODULE vehicle_load
+#define THIS_MODULE vehicle_cargo
 #include "x_macros.sqf"
 private ["_vehicle", "_loaded", "_actions", "_load", "_action"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_load_type_aircraft) != typeOf _vehicle) exitWith {};
+if (GVAR(vehicle_cargo_type_aircraft) != typeOf _vehicle) exitWith {};
 
 if (isServer) then {
     _loaded = [];
     _actions = [];
     
-    for "_i" from 1 to GVAR(vehicle_load_amount_max) do {
+    for "_i" from 1 to GVAR(vehicle_cargo_amount_max) do {
         _loaded set [(_i - 1), [nil]];
         _actions set [(_i - 1), false];
     };

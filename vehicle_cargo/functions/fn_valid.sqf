@@ -1,14 +1,14 @@
-#define THIS_MODULE vehicle_load
+#define THIS_MODULE vehicle_cargo
 #include "x_macros.sqf"
 private ["_aircraft", "_filled", "_animation", "_load", "_deployed", "_distance", "_range"];
 
-_aircraft = (player nearEntities [[GVAR(vehicle_load_type_aircraft)], 20]) select 0;
+_aircraft = (player nearEntities [[GVAR(vehicle_cargo_type_aircraft)], 20]) select 0;
 
 if (isNil "_aircraft") exitWith {false};
 
 _filled = {typeName _x == "STRING"} count ([_aircraft] call FUNC(THIS_MODULE,types));
 
-if (_filled >= player getVariable QGVAR(vehicle_load)) exitWith {false};
+if (_filled >= player getVariable QGVAR(vehicle_cargo)) exitWith {false};
 
 _animation = _aircraft animationPhase "ramp_bottom";
 

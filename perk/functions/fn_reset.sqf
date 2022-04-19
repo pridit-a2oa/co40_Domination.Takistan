@@ -18,8 +18,8 @@ _modules = [
     "perk",
     "uav",
     "vehicle_bonus",
+    // "vehicle_cargo",
     "vehicle_flip",
-    // "vehicle_load",
     "vehicle_repair",
     "vehicle_teleport"
 ];
