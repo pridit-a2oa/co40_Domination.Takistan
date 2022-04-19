@@ -19,7 +19,7 @@ _modules = [
     "uav",
     "vehicle_bonus",
     "vehicle_flip",
-    "vehicle_load",
+    // "vehicle_load",
     "vehicle_repair",
     "vehicle_teleport"
 ];
