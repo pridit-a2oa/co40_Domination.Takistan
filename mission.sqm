@@ -3615,7 +3615,7 @@ class Mission
 		{
 			position[]={8263.7363,296.03671,1799.1827};
 			name="d_bonus_air_5";
-			text="[""AW159_Lynx_BAF"",""Ka60_PMC""]";
+			text="AW159_Lynx_BAF";
 			type="Empty";
 			angle=-27.133801;
 		};
