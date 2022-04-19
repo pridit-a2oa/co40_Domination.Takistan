@@ -10,7 +10,7 @@ createDialog "XD_VehicleMenuDialog";
 
 GVAR(vehicle_dialog) = _vehicle;
 
-DIALOG("X_VEHICLE_MENU_DIALOG", 1000) ctrlSetText (getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayName"));
+DIALOG("X_VEHICLE_MENU_DIALOG", 1000) ctrlSetText format ["%1 Menu", (getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayName"))];
 DIALOG("X_VEHICLE_MENU_DIALOG", 1201) ctrlSetText (getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "picture"));
 DIALOG("X_VEHICLE_MENU_DIALOG", 1202) ctrlSetText (getText (configFile >> "cfgVehicles" >> "USVehicleBox_EP1" >> "icon"));
 
