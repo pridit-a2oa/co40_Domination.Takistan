@@ -72,6 +72,15 @@ GVAR(vehicle_loadout_types) = [
         ]]
     ]],
 
+    ["AW159_Lynx_BAF", [
+        ["Standard", [
+            ["Laserdesignator_mounted", 1, [0]],
+            ["BAF_M621", 1],
+            [["CRV7_PG", "12Rnd_CRV7"], 1],
+            [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
     ["F35B", [
         ["Air Supremacy", [
             ["GAU12", 1],
