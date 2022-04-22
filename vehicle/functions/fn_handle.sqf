@@ -43,6 +43,10 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_abandon)) then {
         [_vehicle] __submodulePP(vehicle_abandon);
     };
+
+    if (!isNil QMODULE(vehicle_loadout)) then {
+        [_vehicle] __submodulePP(vehicle_loadout);
+    };
     
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submodulePP(vehicle_mhq);
@@ -141,10 +145,6 @@ if (!isNil QMODULE(vehicle_cargo)) then {
 
 if (!isNil QMODULE(vehicle_deploy)) then {
     [_vehicle] __submodulePP(vehicle_deploy);
-};
-
-if (!isNil QMODULE(vehicle_loadout)) then {
-    [_vehicle] __submodulePP(vehicle_loadout);
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {
