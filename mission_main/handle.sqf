@@ -4,12 +4,19 @@
 
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_target", "_locations"];
 
 if (isServer) then {
+    private ["_locations", "_base"];
+
     GVAR(mission_main_targets) = [];
     
-    _locations = [["NameCityCapital", "NameCity", "NameVillage"], [markerPos QGVAR(map_zone), 7500]] call BIS_fnc_locations;
+    _locations = [
+        ["NameCityCapital", "NameCity", "NameVillage"],
+        [
+            markerPos QGVAR(map_zone),
+            7500
+        ]
+    ] call BIS_fnc_locations;
     
     {
         _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
@@ -18,19 +25,23 @@ if (isServer) then {
             GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
         };
     } forEach _locations;
+
+    GVAR(mission_main_targets_maximum) = round (count GVAR(mission_main_targets) / GVAR(mission_main_location_divisor));
     
     0 spawn {
         for "_i" from 1 to GVAR(mission_main_amount_targets) do {
             sleep GVAR(mission_main_time_delay);
             
-            _target = GVAR(mission_main_targets) call BIS_fnc_selectRandom;
-            
-            [_target] spawn FUNC(THIS_MODULE,create);
+            [
+                GVAR(mission_main_targets) call BIS_fnc_selectRandom
+            ] spawn FUNC(THIS_MODULE,create);
         };
     };
 };
 
 if (hasInterface) then {
+    private ["_target"];
+
     _target = X_JIPH getVariable QGVAR(target);
     
     if (!isNil "_target") then {

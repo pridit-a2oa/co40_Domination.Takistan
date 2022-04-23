@@ -115,10 +115,18 @@ if (!isNil QMODULE(teleport)) then {
 [_target] spawn FUNC(THIS_MODULE,kill);
 [_target] spawn FUNC(THIS_MODULE,recycle);
 
+if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
+    GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
+};
+
+GVAR(mission_main_targets_completed) = GVAR(mission_main_targets_completed) + [_target];
+
 0 spawn {
     sleep GVAR(mission_main_time_delay);
 
-    [GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
+    [
+        (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed)) call BIS_fnc_selectRandom
+    ] spawn FUNC(THIS_MODULE,create);
 };
 
 __log format ["Seized %1", _target getVariable "name"]];

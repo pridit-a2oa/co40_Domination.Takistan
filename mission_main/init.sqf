@@ -79,6 +79,9 @@ GVAR(mission_main_distance_camp) = 20;
 // Set minimum distance for reinforcements to spawn in.
 GVAR(mission_main_distance_reinforcement) = 4000;
 
+// Set the divisor to determine location repetition based on total amount of main targets in circulation.
+GVAR(mission_main_location_divisor) = 2;
+
 // Set the radius for the main target zone.
 GVAR(mission_main_radius_zone) = 500;
 
@@ -102,6 +105,10 @@ GVAR(mission_main_threshold_armor) = 1;
 
 // Set maximum amount of active infantry before considering completion.
 GVAR(mission_main_threshold_infantry) = 6;
+
+if (isServer) then {
+    GVAR(mission_main_targets_completed) = [];
+};
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
