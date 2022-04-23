@@ -10,6 +10,9 @@
 
 // Set types of vehicles and possible configurations
 GVAR(vehicle_loadout_types) = [
+    /**
+    * BLUFOR
+    */
     ["A10_US_EP1", [
         ["Close Air Support", [
             ["GAU8", 1],
@@ -92,6 +95,36 @@ GVAR(vehicle_loadout_types) = [
             ["GAU12", 1],
             ["BombLauncherF35", 1],
             ["SidewinderLaucher_F35", 1],
+            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]]
+    ]],
+
+    /**
+    * OPFOR
+    */
+    ["L39_TK_EP1", [
+        ["Standard", [
+            [["GSh23L_L39", "150Rnd_23mm_GSh23L"], 1],
+            [["57mmLauncher", "64Rnd_57mm"], 1],
+            [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
+        ]]
+    ]],
+
+    ["Mi24_D_TK_EP1", [
+        ["Standard", [
+            ["YakB", 1, [0]],
+            ["AT2Launcher", 1, [0]],
+            [["57mmLauncher_128", "64Rnd_57mm"], 1],
+            [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
+    ["Su25_TK_EP1", [
+        ["Standard", [
+            ["GSh302", 1],
+            ["AirBombLauncher", 1],
+            ["R73Launcher_2", 1],
+            [["S8Launcher", "40Rnd_S8T"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlare_Chaff_Magazine"], 1]
         ]]
     ]]
