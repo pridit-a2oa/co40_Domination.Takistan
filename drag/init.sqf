@@ -9,14 +9,14 @@
 
 // Set addAction parameters that need to apply to existing clients & JIP
 GVAR(drag_player_action) = [
-    "Drag (WIP)" call FUNC(common,RedText),
+    "Drag" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,drag),
     [],
-    8,
+    9,
     false,
     true,
     "",
-    "alive _target && {_this != _target} && {_this == vehicle _this} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
+    "alive _target && {_this != _target} && {_this == vehicle _this} && {_this distance _target < 4} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
 if (hasInterface) then {

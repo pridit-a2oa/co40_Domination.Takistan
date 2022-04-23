@@ -28,7 +28,7 @@ GVAR(revive_player_action) = [
     false,
     true,
     "",
-    "alive _target && {_this != _target} && {_this == vehicle _this} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
+    "alive _target && {_this != _target} && {_this == vehicle _this} && {_this distance _target < 4} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
 // Set amount of time before respawning a player that is unconscious.

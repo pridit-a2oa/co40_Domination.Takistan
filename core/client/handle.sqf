@@ -77,10 +77,6 @@ if (isMultiplayer) then {
                     };
                 };
                 
-                if (!isNil QMODULE(drag)) then {
-                    _x addAction GVAR(drag_player_action);
-                };
-                
                 if (!isNil QMODULE(revive)) then {
                     _x addAction GVAR(revive_player_action);
                     
@@ -94,6 +90,10 @@ if (isMultiplayer) then {
                         "",
                         "_this != _target && {serverCommandAvailable '#logout'}"
                     ];
+                };
+
+                if (!isNil QMODULE(drag)) then {
+                    _x addAction GVAR(drag_player_action);
                 };
             };
         } forEach playableUnits;
