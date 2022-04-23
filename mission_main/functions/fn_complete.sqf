@@ -121,12 +121,42 @@ if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maxim
 
 GVAR(mission_main_targets_completed) = GVAR(mission_main_targets_completed) + [_target];
 
-0 spawn {
+[_target] spawn {
+    private ["_target", "_targets"];
+
+    PARAMS_1(_target);
+
     sleep GVAR(mission_main_time_delay);
 
-    [
-        (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed)) call BIS_fnc_selectRandom
-    ] spawn FUNC(THIS_MODULE,create);
+    _targets = [];
+
+    {
+        private ["_location"];
+
+        _location = _x;
+
+        if (_target distance _x > GVAR(mission_main_distance_location) && {{_x distance _location < GVAR(mission_main_distance_player)} count (call FUNC(common,players)) < 1}) then {
+            _targets = _targets + [_x];
+        };
+    } forEach (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
+
+    if (count _targets == 0) then {
+        __log "Exhausted conditionable locations, cycling with completed excluded"];
+
+        _targets = (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
+    };
+
+    if (count _targets == 0) then {
+        __log "Exhausted all conditionable locations, cycling without conditions"];
+
+        _targets = GVAR(mission_main_targets);
+    };
+
+    if (count _targets == 0) exitWith {
+        __log "Exhausted all locations, can't cycle"];
+    };
+
+    [_targets call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
 };
 
 __log format ["Seized %1", _target getVariable "name"]];

@@ -30,9 +30,7 @@ if (isServer) then {
         for "_i" from 1 to GVAR(mission_main_amount_targets) do {
             sleep GVAR(mission_main_time_delay);
             
-            [
-                GVAR(mission_main_targets) call BIS_fnc_selectRandom
-            ] spawn FUNC(THIS_MODULE,create);
+            [GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
         };
     };
 };

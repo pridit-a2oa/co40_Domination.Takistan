@@ -76,6 +76,12 @@ GVAR(mission_main_distance_base) = 2600;
 // Set distance from flag (as part of a camp) before being able to capture.
 GVAR(mission_main_distance_camp) = 20;
 
+// Set minimum distance from current target location a new target location must be.
+GVAR(mission_main_distance_location) = 2600;
+
+// Set minimum distance any player has to be from a location before eligible as a target.
+GVAR(mission_main_distance_player) = 1000;
+
 // Set minimum distance for reinforcements to spawn in.
 GVAR(mission_main_distance_reinforcement) = 4000;
 
