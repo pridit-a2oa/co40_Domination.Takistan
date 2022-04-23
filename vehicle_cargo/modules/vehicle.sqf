@@ -77,14 +77,14 @@ if (hasInterface) then {
                         _vehicle,
                         "per",
                         rAddAction,
-                        format ["Unload %1", [_load select 0] call FUNC(vehicle,name)] call FUNC(common,BlueText),
+                        format ["Unload %1", [_load select 0] call FUNC(vehicle,name)] call FUNC(common,RedText),
                         __function(unload),
                         _load,
                         10,
                         false,
                         true,
                         "",
-                        "player == driver _target",
+                        "player == driver _target && {_target animationPhase ""ramp_top"" == 1}",
                         format ["vehicleLoad%1", _forEachIndex]
                     ] call RE;
                 

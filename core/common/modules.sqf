@@ -69,7 +69,7 @@ GVAR(modules) = [
     "vehicle_abandon",
     "vehicle_ammobox",
     "vehicle_bonus",
-    // "vehicle_cargo",
+    "vehicle_cargo",
     "vehicle_create",
     "vehicle_deploy",
     "vehicle_flip",

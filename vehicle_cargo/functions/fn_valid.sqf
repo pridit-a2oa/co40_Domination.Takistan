@@ -12,7 +12,7 @@ if (_filled >= player getVariable QGVAR(vehicle_cargo)) exitWith {false};
 
 _animation = _aircraft animationPhase "ramp_bottom";
 
-if (_animation != 0) exitWith {false};
+if (_animation != 1) exitWith {false};
 
 _load = (_aircraft nearEntities [["Car", "Tank", "Truck"], 20]) select 0;
 
