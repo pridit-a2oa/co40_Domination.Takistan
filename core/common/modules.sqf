@@ -80,6 +80,7 @@ GVAR(modules) = [
     "vehicle_pack",
     "vehicle_menu",
     "vehicle_mhq",
+    "vehicle_ramp",
     "vehicle_refuel",
     "vehicle_repair",
     "vehicle_respawn",

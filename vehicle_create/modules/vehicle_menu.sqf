@@ -19,5 +19,5 @@ _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 {
     _index = _menu lbAdd (format ["Deploy %1", [_x] call FUNC(vehicle,name)]);
-    _menu lbSetData [_index, _x];
+    _menu lbSetData [_index, format ["[""create"", ""%1""]", _x]];
 } forEach _vehicles;

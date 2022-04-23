@@ -23,4 +23,4 @@ if (!isNil "_deployed" && {_deployed}) then {
 };
 
 _index = _menu lbAdd _string;
-_menu lbSetData [_index, toLower (_type select 1)];
+_menu lbSetData [_index, format ["[""deploy"", ""%1""]", toLower (_type select 1)]];

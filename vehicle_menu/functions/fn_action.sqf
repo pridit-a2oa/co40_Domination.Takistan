@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_menu", "_lbCurSel", "_lbData"];
+private ["_vehicle", "_menu", "_lbCurSel", "_lbData", "_refresh"];
 
 disableSerialization;
 
@@ -11,68 +11,105 @@ _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _lbCurSel = lbCurSel _menu;
 _lbData = _menu lbData _lbCurSel;
+_lbData = if ([_lbData, "["] call KRON_StrInStr) then {call compile _lbData} else {_lbData};
 
-if (_lbCurSel == -1 || {player distance _vehicle > 10}) exitWith {
+if (_lbCurSel == -1 || {player distance _vehicle > 10} || {locked _vehicle}) exitWith {
     closeDialog 0;
 };
 
-if (!isNil QMODULE(vehicle_deploy)) then {
-    private ["_deployed"];
+_refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
+    if !(isNil QMODULE(vehicle_ammobox)) then {
+        case "ammobox": {
+            private ["_ammobox"];
 
-    if (_lbData in ["fob", "mhq"]) then {
-        _deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
-        
-        if (!isNil "_deployed" && {_deployed}) exitWith {
-            [_vehicle, _lbData, false] call FUNC(vehicle_deploy,deploy);
+            _ammobox = _vehicle getVariable QGVAR(ammobox);
+
+            if (!isNil "_ammobox" && {_ammobox}) exitWith {
+                [_vehicle] call FUNC(vehicle_ammobox,unload);
+
+                true
+            };
+            
+            [_vehicle] call FUNC(vehicle_ammobox,load);
+
+            true
         };
-        
-        [_vehicle, _lbData, true] call FUNC(vehicle_deploy,deploy);
     };
-};
 
-if (!isNil QMODULE(vehicle_ammobox)) then {
-    private ["_ammobox"];
+    if !(isNil QMODULE(vehicle_deploy)) then {
+        case "deploy": {
+            private ["_deployed"];
 
-    if (_lbData == "ammobox") then {        
-        _ammobox = _vehicle getVariable QGVAR(ammobox);
-
-        if (!isNil "_ammobox" && {_ammobox}) exitWith {
-            [_vehicle] call FUNC(vehicle_ammobox,unload);
+            _deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
+            
+            if (!isNil "_deployed" && {_deployed}) exitWith {
+                [_vehicle, _lbData select 1, false] call FUNC(vehicle_deploy,deploy);
+            };
+            
+            [_vehicle, _lbData select 1, true] call FUNC(vehicle_deploy,deploy);
+            
+            true
         };
-        
-        [_vehicle] call FUNC(vehicle_ammobox,load);
     };
-};
 
-if (!isNil QMODULE(vehicle_loadout)) then {
-    if (_lbData == "loadout") then {
-        [_vehicle] call FUNC(vehicle_loadout,set);
+    if !(isNil QMODULE(vehicle_create)) then {
+        case "create": {
+            if !([_vehicle, _lbData select 1] call FUNC(vehicle_create,spawn)) exitWith {
+                true
+            };
+
+            false
+        };
     };
-};
 
-if (!isNil QMODULE(vehicle_pack)) then {
-    private ["_packed"];
+    if !(isNil QMODULE(vehicle_loadout)) then {
+        case "loadout": {
+            [_vehicle] call FUNC(vehicle_loadout,set);
+
+            true
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_pack)) then {
+        case "pack": {
+            private ["_packed"];
+
+            if !(isEngineOn _vehicle) then {        
+                _packed = _vehicle getVariable QGVAR(packed);
+                
+                if (!isNil "_packed" && {_packed}) exitWith {
+                    [_vehicle, 0] call FUNC(vehicle_pack,fold);
+
+                    true
+                };
+                
+                [_vehicle, 1] call FUNC(vehicle_pack,fold);
+
+                true
+            };
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_ramp)) then {
+        case "ramp": {
+            [_vehicle] call FUNC(vehicle_ramp,toggle);
+
+            true
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_teleport)) then {
+        case "teleport": {
+            closeDialog 0;
     
-    if (_lbData == "pack" && {!isEngineOn _vehicle}) then {        
-        _packed = _vehicle getVariable QGVAR(packed);
-        
-        if (!isNil "_packed" && {_packed}) exitWith {
-            [_vehicle, 0] call FUNC(vehicle_pack,fold);
+            [_vehicle] call FUNC(teleport,show);
+
+            false
         };
-        
-        [_vehicle, 1] call FUNC(vehicle_pack,fold);
     };
-};
+});
 
-if (!isNil QMODULE(vehicle_create) && {_lbData isKindOf "AllVehicles"}) exitWith {
-    [_vehicle, _lbData] call FUNC(vehicle_create,spawn);
-};
-
-if (!isNil QMODULE(vehicle_teleport) && {_lbData == "teleport"}) exitWith {
-    closeDialog 0;
-    
-    [_vehicle] call FUNC(teleport,show);
-};
+if !(_refresh) exitWith {};
 
 closeDialog 0;
 

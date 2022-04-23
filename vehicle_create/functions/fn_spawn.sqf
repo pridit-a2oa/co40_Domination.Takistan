@@ -18,9 +18,7 @@ if (count _occupied > 0) then {
 if (count _occupied > 0) exitWith {
     hint "Deploy point is already occupied by a vehicle";
 
-    closeDialog 0;
-    
-    [_vehicle] call FUNC(vehicle_menu,show);
+    false
 };
 
 _position = _vehicle modelToWorld _offset;
@@ -44,3 +42,5 @@ player reveal _atv;
 [true, "execVM", [[_atv], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
 closeDialog 0;
+
+true

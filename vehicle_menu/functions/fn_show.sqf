@@ -30,6 +30,10 @@ if (!isNil QMODULE(vehicle_pack)) then {
     [_vehicle] __submodulePP(vehicle_pack);
 };
 
+if (!isNil QMODULE(vehicle_ramp)) then {
+    [_vehicle] __submodulePP(vehicle_ramp);
+};
+
 if (!isNil QMODULE(vehicle_create)) then {
     if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
         [_vehicle] __submodulePP(vehicle_create);
