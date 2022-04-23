@@ -7,8 +7,6 @@
 
 if (isServer) then {
     private ["_locations", "_base"];
-
-    GVAR(mission_main_targets) = [];
     
     _locations = [
         ["NameCityCapital", "NameCity", "NameVillage"],

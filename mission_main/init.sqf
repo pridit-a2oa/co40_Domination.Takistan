@@ -107,6 +107,7 @@ GVAR(mission_main_threshold_armor) = 1;
 GVAR(mission_main_threshold_infantry) = 6;
 
 if (isServer) then {
+    GVAR(mission_main_targets) = [];
     GVAR(mission_main_targets_completed) = [];
 };
 
@@ -120,7 +121,6 @@ __cppfln(FUNC(THIS_MODULE,kill),THIS_MODULE\functions\fn_kill.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
 __cppfln(FUNC(THIS_MODULE,recycle),THIS_MODULE\functions\fn_recycle.sqf);
-__cppfln(FUNC(THIS_MODULE,remove),THIS_MODULE\functions\fn_remove.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);

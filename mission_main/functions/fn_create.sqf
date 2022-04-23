@@ -9,7 +9,11 @@ X_JIPH setVariable [QGVAR(target), _target, true];
 _name = _target getVariable "name";
 
 [_target] call FUNC(THIS_MODULE,reset);
-[_target] call FUNC(THIS_MODULE,remove);
+
+GVAR(mission_main_targets) = [
+    GVAR(mission_main_targets),
+    GVAR(mission_main_targets) find _target
+] call FUNC(common,deleteAt);
 
 {
     [_target, _x] call FUNC(THIS_MODULE,type);
