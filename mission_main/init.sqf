@@ -61,6 +61,9 @@ GVAR(mission_main_type_units) = [
 // Set amount of camps per target.
 GVAR(mission_main_amount_camps) = 3;
 
+// Set amount of score to reward players capturing a camp upon capture.
+GVAR(mission_main_amount_camps_score) = 3;
+
 // Set amount of optional objectives per main target.
 GVAR(mission_main_amount_optional) = 1;
 

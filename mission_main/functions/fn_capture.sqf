@@ -1,8 +1,8 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
-private ["_flag", "_trigger", "_target"];
+private ["_flag", "_trigger", "_units", "_target"];
 
-PARAMS_2(_flag, _trigger);
+PARAMS_3(_flag, _trigger, _units);
 
 _target = _flag getVariable QGVAR(target);
 
@@ -32,3 +32,14 @@ deleteVehicle _flag;
 if !(isNil "_trigger") then {
     deleteVehicle _trigger;
 };
+
+{
+    if (isPlayer _x && {alive _x} && {!(_x isKindOf "Air")} && {!(_x getVariable QGVAR(unconscious))}) then {
+        _x addScore GVAR(mission_main_amount_camps_score);
+            
+        [_x, "systemChat", format [
+            "You have been given %1 score for capturing a camp",
+            GVAR(mission_main_amount_camps_score)
+        ]] call FUNC(network,mp);
+    };
+} forEach _units;

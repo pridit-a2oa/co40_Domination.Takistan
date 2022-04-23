@@ -71,7 +71,7 @@ switch (_type) do {
             _trigger setTriggerTimeout [GVAR(mission_main_time_capture), GVAR(mission_main_time_capture), GVAR(mission_main_time_capture), true];
             _trigger setTriggerStatements [
                 "[thisTrigger getVariable ""d_flag"", {isPlayer _x && {alive _x} && {!(_x isKindOf ""Air"")} && {!(_x getVariable ""d_unconscious"")}} count thisList] call d_fnc_mission_main_valid",
-                "[thisTrigger getVariable ""d_flag"", thisTrigger] spawn d_fnc_mission_main_capture",
+                "[thisTrigger getVariable ""d_flag"", thisTrigger, thisList] spawn d_fnc_mission_main_capture",
                 ""
             ];
             
