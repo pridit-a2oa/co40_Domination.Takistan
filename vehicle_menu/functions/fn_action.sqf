@@ -13,7 +13,7 @@ _lbCurSel = lbCurSel _menu;
 _lbData = _menu lbData _lbCurSel;
 _lbData = if ([_lbData, "["] call KRON_StrInStr) then {call compile _lbData} else {_lbData};
 
-if (_lbCurSel == -1 || {player distance _vehicle > 10} || {locked _vehicle}) exitWith {
+if (_lbCurSel == -1 || {player distance _vehicle > 10}) exitWith {
     closeDialog 0;
 };
 
