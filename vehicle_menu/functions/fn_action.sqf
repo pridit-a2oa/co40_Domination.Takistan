@@ -107,6 +107,14 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
             false
         };
     };
+
+    if !(isNil QMODULE(vehicle_texture)) then {
+        case "texture": {
+            [_vehicle] call FUNC(vehicle_texture,set);
+
+            true
+        };
+    };
 });
 
 if !(_refresh) exitWith {};

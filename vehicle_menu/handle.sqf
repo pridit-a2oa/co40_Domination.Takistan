@@ -27,4 +27,8 @@ if (!isNil QMODULE(vehicle_ramp)) then {
     [_valid, GVAR(vehicle_ramp_types)] call FUNC(common,arrayPushStack);
 };
 
+if (!isNil QMODULE(vehicle_texture)) then {
+    [_valid, [0, GVAR(vehicle_texture_types)] call FUNC(common,arrayValues)] call FUNC(common,arrayPushStack);
+};
+
 GVAR(vehicle_menu_types) = GVAR(vehicle_menu_types) + _valid;

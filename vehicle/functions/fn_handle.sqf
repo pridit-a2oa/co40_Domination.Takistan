@@ -155,6 +155,10 @@ if (!isNil QMODULE(vehicle_ramp)) then {
     [_vehicle] __submodulePP(vehicle_ramp);
 };
 
+if (!isNil QMODULE(vehicle_texture)) then {
+    [_vehicle] __submoduleVM(vehicle_texture);
+};
+
 if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
 };
