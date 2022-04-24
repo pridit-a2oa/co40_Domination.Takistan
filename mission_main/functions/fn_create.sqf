@@ -4,8 +4,6 @@ private ["_target", "_name", "_trigger"];
 
 PARAMS_1(_target);
 
-X_JIPH setVariable [QGVAR(target), _target, true];
-
 _name = _target getVariable "name";
 
 [_target] call FUNC(THIS_MODULE,reset);
@@ -124,6 +122,8 @@ _trigger setTriggerStatements [
     "[thisTrigger getVariable ""d_target"", thisTrigger] call d_fnc_mission_main_detected",
     ""
 ];
+
+X_JIPH setVariable [QGVAR(target), _target, true];
 
 __log format ["Seeded %1", _name]];
 
