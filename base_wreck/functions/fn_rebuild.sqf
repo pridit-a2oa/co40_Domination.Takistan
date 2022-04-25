@@ -80,9 +80,13 @@ if (!isNil QMODULE(3d)) then {
 
 _time = _time + call FUNC(common,time);
 
+sleep 1;
+
 while {call FUNC(common,time) < _time} do {
     // remaining time to rebuild is greater than the maximum it could ever be
-    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {};
+    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {
+        __log format ["Time exceeded possible maximum, exiting %1", [_time, _time - call FUNC(common,time)]]];
+    };
     
     if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         _vehicle spawn {
