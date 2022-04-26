@@ -13,7 +13,7 @@ _ids = player getVariable QGVAR(perk_ids);
 _unlocked = player getVariable QGVAR(perks_unlocked);
 
 // no perk points available to allocate
-if (_points == 0) exitWith {};
+if (_points == 0 && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
 
 // perk already unlocked
 if (_ids find _id != -1) exitWith {};
@@ -23,7 +23,10 @@ if (ctrlText (DIALOG("X_PERK_DIALOG", 200 + _id)) == "\ca\ui\data\cmdbar_donotfi
 
 [_tier, _perk] call FUNC(THIS_MODULE,unlock);
 
-player setVariable [QGVAR(perk_points), _points - 1];
+if (_points > 0) then {
+    player setVariable [QGVAR(perk_points), _points - 1];
+};
+
 player setVariable [QGVAR(perk_ids), (_ids + [_id])];
 player setVariable [QGVAR(perks_unlocked), (_unlocked + [[_tier, _perk]])];
 

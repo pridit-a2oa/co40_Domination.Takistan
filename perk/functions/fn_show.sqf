@@ -1,3 +1,4 @@
+#define THIS_MODULE perk
 #include "x_macros.sqf"
 private ["_points", "_unlocked", "_roles"];
 
@@ -10,7 +11,7 @@ _unlocked = player getVariable QGVAR(perk_ids);
 
 DIALOG("X_PERK_DIALOG", 1) ctrlSetText (str _points);
 
-if (_points > 0) then {
+if (_points > 0 || {!isNil QMODULE(admin) && {__submodulePP(admin)}}) then {
     for "_i" from 1 to 10 do {
         DIALOG("X_PERK_DIALOG", 200 + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
     };
@@ -19,7 +20,7 @@ if (_points > 0) then {
 _roles = [0, GVAR(perk_type_roles)] call FUNC(common,arrayValues);
 
 {
-    if (str player in _x) exitWith {
+    if (str player in _x || {!isNil QMODULE(admin) && {__submodulePP(admin)}}) then {
         _unlockable = ([1, GVAR(perk_type_roles)] call FUNC(common,arrayValues)) select _forEachIndex;
         
         {
@@ -28,7 +29,7 @@ _roles = [0, GVAR(perk_type_roles)] call FUNC(common,arrayValues);
             DIALOG("X_PERK_DIALOG", 500 + _column) ctrlSetText "\ca\ui\data\icon_task_ca";
             
             for "_i" from 1 to 5 do {
-                if (_points < 1) exitWith {};
+                if (_points < 1 && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
                 
                 DIALOG("X_PERK_DIALOG", 200 + (_column * 10) + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
                 
