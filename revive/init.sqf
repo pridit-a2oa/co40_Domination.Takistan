@@ -31,8 +31,11 @@ GVAR(revive_player_action) = [
     "alive _target && {_this != _target} && {_this == vehicle _this} && {_this distance _target < 4} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
+// Set maximum distance to a capable player before an incapacitated player will call for help.
+GVAR(revive_distance_exclaim) = 400;
+
 // Set amount of time before respawning a player that is unconscious.
-GVAR(revive_time_respawn) = 180;
+GVAR(revive_time_respawn) = 240;
 
 if (hasInterface) then {
     player setVariable [QGVAR(head_hit), 0];

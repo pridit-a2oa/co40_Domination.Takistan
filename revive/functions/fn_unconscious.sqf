@@ -50,7 +50,7 @@ _unit spawn {
     
     [_this, "playActionNow", "Die"] call FUNC(network,mp);
 
-    [true, "systemChat", format ["%1 is unconscious", name _this]] call FUNC(network,mp);
+    [true, "systemChat", format ["%1 is incapacitated", name _this]] call FUNC(network,mp);
     
     sleep 1;
 

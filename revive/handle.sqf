@@ -6,6 +6,8 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
+    player kbAddTopic ["Medic", __bikb];
+
     [true, "addAction", [player, [
         "Debug" call FUNC(common,GreyText),
         FUNCTION(THIS_MODULE,debug),

@@ -1,0 +1,32 @@
+class Sentences 
+{
+    class InjuredCallMedic {
+        text = "Medic! I'm wounded!";
+        speech[] = {MedicE, pause, WoundedE};
+        class Arguments {};
+    };
+    
+    class InjuredHelpMe {
+        text = "I'm injured! Somebody help me!";
+        speech[] = {Injured, pause, SomebodyHelpMeE};
+        class Arguments {};
+    };
+
+    class InjuredNeedHelp {
+        text = "I need help! I'm injured!";
+        speech[] = {NeedHelpE, pause, Injured};
+        class Arguments {};
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

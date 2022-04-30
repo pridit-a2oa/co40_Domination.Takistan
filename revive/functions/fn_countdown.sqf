@@ -7,8 +7,41 @@ _time = [player, GVAR(revive_time_respawn)] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
 
-DIALOG(QGVAR(notice), 1000) ctrlSetText "You are unconscious";
+DIALOG(QGVAR(notice), 1000) ctrlSetText "You are incapacitated";
 DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn faster by selecting Respawn from the escape menu";
+
+0 spawn {
+    sleep (7 + random 4);
+
+    while {player getVariable QGVAR(unconscious) && {alive player}} do {
+        private ["_distances", "_distance", "_closest"];
+        
+        _distances = [];
+
+        {
+
+            if (!([_x, player] call BIS_fnc_areEqual) && {_x distance player < GVAR(revive_distance_exclaim)} && {alive _x} && {!(_x getVariable QGVAR(unconscious))}) then {
+                if (_x distance player > 20 && {!(_x in units (group player))}) exitWith {};
+
+                _distances = _distances + [[_x, player distance _x]];
+            };
+        } forEach (call FUNC(common,players));
+
+        if (count _distances > 0) then {
+            _distance = ([1, _distances] call FUNC(common,arrayValues)) call BIS_fnc_lowestNum;
+            _closest = ([1, _distances] call FUNC(common,arrayValues)) find _distance;
+            
+            player kbTell [
+                (_distances select _closest) select 0,
+                "Medic",
+                ["InjuredCallMedic", "InjuredHelpMe", "InjuredNeedHelp"] call BIS_fnc_selectRandom,
+                false
+            ];
+        };
+
+        sleep 50;
+    };
+};
 
 while {player getVariable QGVAR(unconscious) && {alive player}} do {
     _time = [player] call FUNC(3d,time);
@@ -26,12 +59,14 @@ while {player getVariable QGVAR(unconscious) && {alive player}} do {
     DIALOG(QGVAR(notice), 1002) ctrlSetText format ["%1", [_time] call FUNC(common,displayTime)];
     
     if (_time < 0) exitWith {
-        setPlayerRespawnTime 3;
+        setPlayerRespawnTime 5;
 
         player setDamage 1;
     };
     
-    sleep 0.01;
+    sleep 0.1;
 };
 
 3000 cutRsc ["Default", "PLAIN"];
+
+
