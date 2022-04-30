@@ -20,17 +20,17 @@ class Sentences
     
     class Detected {
         text = "We have been detected at %1, enemy reinforcements inbound.";
-        speech[] = {};
+        speech[] = {StayAlert};
         class Arguments {
             class 1 {type = "simple";};
         };
     };
 
     class NewTarget {
-        text = "New Target: %1";
-        speech[] = {Attack, %1};
+        text = "New Target: %Town";
+        speech[] = {Attack, pause, %Town, pause};
         class Arguments {
-            class 1 {type = "simple";};
+            class Town {type = "simple";};
         };
     };
     
@@ -40,6 +40,12 @@ class Sentences
         class Arguments {
             class 1 {type = "simple";};
         };
+    };
+
+    class StandBy {
+        text = "";
+        speech[] = {JobWellDone, pause, StandByForMissionUpdate};
+        class Arguments {};
     };
 };
 

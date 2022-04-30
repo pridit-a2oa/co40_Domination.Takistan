@@ -1,25 +1,25 @@
 class Sentences 
 {
     class CrossroadRequest {
-        text = "Crossroad, requesting %1 at grid %2 acknowledge.";
-        speech[] = {%2};
+        text = "Crossroad, requesting %Type at grid %Location acknowledge.";
+        speech[] = {pause, %Request, pause, %Location};
         class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
+            class Type {type = "simple";};
+            class Location {type = "simple";};
         };
     };
     
     class CrossroadAcknowledged {
-        text = "Roger, %1 en route - stand by.";
-        speech[] = {Roger};
+        text = "Roger, %Type en route - stand by.";
+        speech[] = {Roger, pause, StandByOver};
         class Arguments {
-            class 1 {type = "simple";};
+            class Type {type = "simple";};
         };
     };
     
     class CrossroadDepart {
         text = "Be advised, %1 is on location and will depart in %2.";
-        speech[] = {};
+        speech[] = {BeAdvised};
         class Arguments {
             class 1 {type = "simple";};
             class 2 {type = "simple";};

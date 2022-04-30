@@ -49,7 +49,13 @@ if (!isNil QMODULE(unit)) then {
     } forEach GVAR(mission_main_type_units);
 };
 
-GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "NewTarget", ["1", {}, _name, ["pause", [_name] call FUNC(THIS_MODULE,name), "pause"]], true];
+GVAR(crossroad) kbTell [
+    GVAR(crossroad2),
+    "mission_main",
+    "NewTarget",
+    ["Town", {}, _name, [[_name] call FUNC(THIS_MODULE,name)]],
+    true
+];
 
 waitUntil {sleep 0.1; GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
 

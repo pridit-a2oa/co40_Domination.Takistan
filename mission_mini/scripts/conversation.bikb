@@ -2,7 +2,7 @@ class Sentences
 {
     class Target {
         text = "We have received %1 that there is an %2 nearby, location has been marked.";
-        speech[] = {};
+        speech[] = {NewIntelAvailable};
         class Arguments {
             class 1 {type = "simple";};
             class 2 {type = "simple";};

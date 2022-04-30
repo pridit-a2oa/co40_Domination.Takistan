@@ -1,13 +1,13 @@
 class Sentences 
 {
     class InRange {
-        text = "Be advised, UAV is now in position and broadcasting targets.";
+        text = "UAV is now in position and broadcasting targets.";
         speech[] = {};
         class Arguments {};
     };
     
     class LowFuel {
-        text = "Be advised, UAV is low on fuel and will now cease observation.";
+        text = "UAV is low on fuel and will now cease observation.";
         speech[] = {};
         class Arguments {};
     };

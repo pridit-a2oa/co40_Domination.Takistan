@@ -17,5 +17,6 @@ if (hasInterface) then {
 
 __cppfln(FUNC(THIS_MODULE,kbAddTopic),THIS_MODULE\functions\fn_kbAddTopic.sqf);
 __cppfln(FUNC(THIS_MODULE,request),THIS_MODULE\functions\fn_request.sqf);
+__cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

@@ -11,7 +11,7 @@ class Sentences
     
     class Destroyed {
         text = "Be advised, a deployed %1 has been destroyed.";
-        speech[] = {};
+        speech[] = {BeAdvised};
         class Arguments {
             class 1 {type = "simple";};
         };

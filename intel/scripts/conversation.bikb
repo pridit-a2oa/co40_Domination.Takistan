@@ -2,7 +2,7 @@ class Sentences
 {
     class Approach {
         text = "Be advised, we have a civilian vehicle on approach to the base.";
-        speech[] = {};
+        speech[] = {BeAdvised};
         class Arguments {};
     };
 };

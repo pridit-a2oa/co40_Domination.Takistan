@@ -126,7 +126,16 @@ GVAR(mission_main_targets_completed) = GVAR(mission_main_targets_completed) + [_
 
     PARAMS_1(_target);
 
-    sleep GVAR(mission_main_time_delay);
+    sleep GVAR(mission_main_time_delay) / 2;
+
+    GVAR(crossroad) kbTell [
+        GVAR(crossroad2),
+        "mission_main",
+        "StandBy",
+        true
+    ];
+
+    sleep GVAR(mission_main_time_delay) / 2;
 
     _targets = [];
 

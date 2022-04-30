@@ -1,3 +1,4 @@
+#define THIS_MODULE crossroad
 #include "x_macros.sqf"
 private ["_unit", "_position", "_type"];
 
@@ -14,7 +15,9 @@ PARAMS_3(_unit, _position, _type);
         GVAR(crossroad),
         "HQ",
         "CrossroadRequest",
-        ["1", {}, _type, []], ["2", {}, _position, _grid],
+        ["Request", {}, "", [[_type] call FUNC(THIS_MODULE,type)]],
+        ["Type", {}, _type, []],
+        ["Location", {}, _position, _grid],
         true
     ]] call FUNC(network,mp);
     
@@ -24,7 +27,7 @@ PARAMS_3(_unit, _position, _type);
         _unit,
         "HQ",
         "CrossroadAcknowledged",
-        ["1", {}, _type, []],
+        ["Type", {}, _type, []],
         true
     ];
 };
