@@ -14,14 +14,14 @@ DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn f
     sleep (7 + random 4);
 
     while {player getVariable QGVAR(unconscious) && {alive player}} do {
-        private ["_distances", "_distance", "_closest"];
+        private ["_distances", "_distance", "_closest", "_player"];
         
         _distances = [];
 
         {
 
             if (!([_x, player] call BIS_fnc_areEqual) && {_x distance player < GVAR(revive_distance_exclaim)} && {alive _x} && {!(_x getVariable QGVAR(unconscious))}) then {
-                if (_x distance player > 15 && {!(_x in units (group player))}) exitWith {};
+                if (_x distance player > 35 && {!(_x in units (group player))}) exitWith {};
 
                 _distances = _distances + [[_x, player distance _x]];
             };
@@ -30,9 +30,12 @@ DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn f
         if (count _distances > 0) then {
             _distance = ([1, _distances] call FUNC(common,arrayValues)) call BIS_fnc_lowestNum;
             _closest = ([1, _distances] call FUNC(common,arrayValues)) find _distance;
-            
+            _player = (_distances select _closest) select 0;
+
+            if (player distance _player < 5) exitWith {};
+
             player kbTell [
-                (_distances select _closest) select 0,
+                if (player distance _player < 35) then {player} else {_player},
                 "Medic",
                 ["InjuredCallMedic", "InjuredHelpMe", "InjuredNeedHelp"] call BIS_fnc_selectRandom,
                 false
