@@ -21,7 +21,7 @@ DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn f
         {
 
             if (!([_x, player] call BIS_fnc_areEqual) && {_x distance player < GVAR(revive_distance_exclaim)} && {alive _x} && {!(_x getVariable QGVAR(unconscious))}) then {
-                if (_x distance player > 20 && {!(_x in units (group player))}) exitWith {};
+                if (_x distance player > 15 && {!(_x in units (group player))}) exitWith {};
 
                 _distances = _distances + [[_x, player distance _x]];
             };
