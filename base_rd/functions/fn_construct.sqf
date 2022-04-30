@@ -36,7 +36,7 @@ if (hasInterface) then {
 
     player setVariable [
         QGVAR(base_rd_cooldown),
-        (([_type, "time"] call FUNC(THIS_MODULE,item)) select 0) + GVAR(base_rd_time_cooldown) + call FUNC(common,time)
+        time + (([_type, "time"] call FUNC(THIS_MODULE,item)) select 0) + GVAR(base_rd_time_cooldown)
     ];
 
     GVAR(base_rd) setVariable [QGVAR(build), true, true];
