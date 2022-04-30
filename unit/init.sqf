@@ -10,13 +10,17 @@
 
 // Set infantry types (groups).
 GVAR(unit_type_infantry) = [
-    "TK_InfantrySquad",
-    "TK_InfantrySection",
-    "TK_InfantrySectionAT",
-    "TK_InfantrySectionAA",
-    "TK_InfantrySectionMG",
-    "TK_SniperTeam",
-    "TK_SpecialPurposeSquad"
+    ["BIS_TK",      "TK_InfantrySquad"],
+    ["BIS_TK",      "TK_InfantrySection"],
+    ["BIS_TK",      "TK_InfantrySectionAT"],
+    ["BIS_TK",      "TK_InfantrySectionAA"],
+    ["BIS_TK",      "TK_InfantrySectionMG"],
+    ["BIS_TK",      "TK_SniperTeam"],
+    ["BIS_TK",      "TK_SpecialPurposeSquad"],
+    ["BIS_TK_INS",  "TK_INS_Group"],
+    ["BIS_TK_INS",  "TK_INS_Patrol"],
+    ["BIS_TK_INS",  "TK_INS_AATeam"],
+    ["BIS_TK_INS",  "TK_INS_ATTeam"]
 ];
 
 // Set light vehicle types.

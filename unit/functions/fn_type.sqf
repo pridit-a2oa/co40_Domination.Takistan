@@ -3,6 +3,4 @@ private ["_type"];
 
 PARAMS_1(_type);
 
-_type = configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> _type;
-
-_type
+configFile >> "CfgGroups" >> "East" >> (_type select 0) >> "Infantry" >> (_type select 1)
