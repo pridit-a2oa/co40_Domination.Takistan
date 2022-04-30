@@ -7,13 +7,17 @@
 
 if (hasInterface) then {
     ["marker_vehicles", {
+        private ["_sides", "_colors"];
+
         _sides = [0, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
         _colors = [1, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
         
         {
+            private ["_marker", "_alive", "_distance", "_hidden", "_side", "_color", "_alpha"];
+            
             _marker = [_x] call FUNC(THIS_MODULE,valid);
             
-            if (!isNil "_marker") then {            
+            if !(isNil "_marker") then {            
                 _marker setMarkerPosLocal (getPosASL _x);
                 
                 _alive = alive _x;

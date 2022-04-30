@@ -17,7 +17,7 @@ if (!isNil QMODULE(vehicle_marker)) then {
         
         PARAMS_1(_marker);
         
-        if (str (markerPos _marker) == "[0,0,0]") exitWith {};
+        if (isNil "_marker" || {[markerPos _marker, [0,0,0]] call BIS_fnc_areEqual}) exitWith {};
         
         deleteMarkerLocal _marker;
     }]] call FUNC(network,mp);
