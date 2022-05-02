@@ -4,9 +4,10 @@
 
 #define THIS_MODULE crossroad
 #include "x_macros.sqf"
-private ["_group"];
 
 if (isServer) then {
+    private ["_group"];
+    
     _group = createGroup west;
     
     GVAR(crossroad) = _group createUnit ["Logic", [0,0,0], [], 0, "NONE"];
@@ -41,6 +42,10 @@ GVAR(crossroad2) kbAddTopic ["HQ", __bikb];
 GVAR(crossroad2) setIdentity "DHQ_EN2";
 GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
+
+if (!isNil QMODULE(airtaxi)) then {
+    __submodulePP(airtaxi);
+};
 
 if (!isNil QMODULE(base_rd)) then {
     __submodulePP(base_rd);

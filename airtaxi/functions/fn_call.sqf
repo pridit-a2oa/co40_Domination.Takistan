@@ -106,7 +106,13 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                     deleteVehicle _helper;
                     
                     if (!isNil QMODULE(crossroad)) then {
-                        GVAR(crossroad) kbTell [GVAR(crossroad2), "HQ", "CrossroadDepart", ["1", {}, "air taxi", []], ["2", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []], true];
+                        GVAR(crossroad) kbTell [
+                            GVAR(crossroad2),
+                            "airtaxi",
+                            "Depart",
+                            ["Time", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []],
+                            true
+                        ];
                     };
                     
                     sleep GVAR(air_taxi_time_wait);

@@ -1,0 +1,22 @@
+class Sentences 
+{
+    class Depart {
+        text = "Be advised, air taxi is on location and will depart in %Time.";
+        speech[] = {BeAdvised};
+        class Arguments {
+            class Time {type = "simple";};
+        };
+    };
+};
+
+class Arguments {};
+class Special {};
+
+startWithVocal[] = {
+    hour
+};
+
+startWithConsonant[] = {
+    europe,
+    university
+};

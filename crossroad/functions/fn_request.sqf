@@ -14,21 +14,21 @@ PARAMS_3(_unit, _position, _type);
     [_unit, "kbTell", [
         GVAR(crossroad),
         "HQ",
-        "CrossroadRequest",
+        "Request",
         ["Request", {}, "", [[_type] call FUNC(THIS_MODULE,type)]],
         ["Type", {}, _type, []],
         ["Location", {}, _position, _grid],
         true
     ]] call FUNC(network,mp);
     
-    waitUntil {sleep 0.1; _unit kbWasSaid [GVAR(crossroad), "HQ", "CrossroadRequest", 1]};
+    waitUntil {sleep 0.1; _unit kbWasSaid [GVAR(crossroad), "HQ", "Request", 1]};
 
     sleep 1;
     
     GVAR(crossroad) kbTell [
         _unit,
         "HQ",
-        "CrossroadAcknowledged",
+        "Acknowledge",
         ["Type", {}, _type, []],
         true
     ];
