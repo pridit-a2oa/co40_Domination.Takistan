@@ -21,7 +21,9 @@ PARAMS_3(_unit, _position, _type);
         true
     ]] call FUNC(network,mp);
     
-    sleep 5;
+    waitUntil {sleep 0.1; _unit kbWasSaid [GVAR(crossroad), "HQ", "CrossroadRequest", 1]};
+
+    sleep 1;
     
     GVAR(crossroad) kbTell [
         _unit,
