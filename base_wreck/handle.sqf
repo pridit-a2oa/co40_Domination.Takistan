@@ -53,14 +53,14 @@ if (hasInterface) then {
     
     _marker = createMarkerLocal ["wreck_rebuild", _position];
     _marker setMarkerTextLocal _name;
-    _marker setMarkerColorLocal "ColorYellow";
+    _marker setMarkerColorLocal "ColorBrown";
     _marker setMarkerShapeLocal "ICON";
     _marker setMarkerTypeLocal "DOT";
     
     if (!isNil QMODULE(3d)) then {
         [
             GVAR(service_wreck),
-            format ["%1<br /><t color='#f0bfbfbf' size='0.6'>Reconstruct destroyed vehicles</t>", _name call FUNC(common,YellowText)],
+            format ["%1<br /><t color='#f0bfbfbf' size='0.6'>Reconstruct destroyed vehicles</t>", _name call FUNC(common,BrownText)],
             [],
             true,
             true
