@@ -21,7 +21,7 @@
     
     enableRadio true;
     enableSentences false;
-    enableEngineArtillery true;
+    enableEngineArtillery ((str player) in GVAR(artillery));
     
     [100] call FUNC(THIS_MODULE,reveal);
     
