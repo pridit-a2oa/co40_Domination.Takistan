@@ -32,7 +32,7 @@ GVAR(base_wreck_time_rebuild) = [
 if (isServer) then {
     X_JIPH setVariable [QGVAR(wreck_hangars), [], true];
     
-    GVAR(service_wreck) setVariable [QGVAR(time), 0, true];
+    GVAR(base_wreck) setVariable [QGVAR(time), 0, true];
     
     GVAR(rebuilding) = false;
     

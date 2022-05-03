@@ -5,7 +5,7 @@ private ["_wreck", "_time", "_lifter", "_wrecked", "_spawn", "_type", "_position
 PARAMS_2(_wreck, _time);
 
 [_wreck, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
-[_wreck, "setVectorUp", surfaceNormal (position GVAR(service_wreck))] call FUNC(network,mp);
+[_wreck, "setVectorUp", surfaceNormal (position GVAR(base_wreck))] call FUNC(network,mp);
 
 _lifter = _wreck getVariable QGVAR(lifter);
 _wrecked = _wreck getVariable QGVAR(wrecked);
@@ -21,13 +21,13 @@ _type = typeOf _wreck;
 
 sleep 0.5;
 
-_position = [(position GVAR(service_wreck)) select 0, (position GVAR(service_wreck)) select 1, 0];
+_position = [(position GVAR(base_wreck)) select 0, (position GVAR(base_wreck)) select 1, 0];
 
 _vehicle = createVehicle [_type, _position, [], 0, "NONE"];
-_vehicle setDir (getDir GVAR(service_wreck));
+_vehicle setDir (getDir GVAR(base_wreck));
 _vehicle setPos _position;
 _vehicle setVelocity [0, 0, 0];
-_vehicle setVectorUp surfaceNormal (position GVAR(service_wreck));
+_vehicle setVectorUp surfaceNormal (position GVAR(base_wreck));
 
 _vehicle lock true;
 _vehicle allowDamage false;
@@ -74,7 +74,7 @@ if (!isNil QMODULE(3d)) then {
         
         PARAMS_1(_time);
         
-        [GVAR(service_wreck), _time] call FUNC(3d,time);
+        [GVAR(base_wreck), _time] call FUNC(3d,time);
     }]] call FUNC(network,mp);
 };
 

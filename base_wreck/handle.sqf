@@ -35,7 +35,7 @@ if (isServer) then {
         GVAR(vehicle_wreck_types) = GVAR(vehicle_wreck_types) + [_x select 1];
     } forEach GVAR(base_wreck_time_rebuild);
     
-    _trigger = createTrigger ["EmptyDetector", position GVAR(service_wreck)];
+    _trigger = createTrigger ["EmptyDetector", position GVAR(base_wreck)];
     _trigger setTriggerArea [8, 8, 0, false];
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [
@@ -49,7 +49,7 @@ if (hasInterface) then {
     private ["_name", "_position", "_marker"];
     
     _name = "Wreck Rebuild";
-    _position = position GVAR(service_wreck);
+    _position = position GVAR(base_wreck);
     
     _marker = createMarkerLocal ["wreck_rebuild", _position];
     _marker setMarkerTextLocal _name;
@@ -59,7 +59,7 @@ if (hasInterface) then {
     
     if (!isNil QMODULE(3d)) then {
         [
-            GVAR(service_wreck),
+            GVAR(base_wreck),
             format ["%1<br /><t color='#f0bfbfbf' size='0.6'>Reconstruct destroyed vehicles</t>", _name call FUNC(common,BrownText)],
             [],
             true,

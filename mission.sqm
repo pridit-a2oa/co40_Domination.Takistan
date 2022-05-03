@@ -3309,7 +3309,7 @@ class Mission
 			vehicle="HeliH";
 			lock="UNLOCKED";
 			skill=0.60000002;
-			text="d_service_wreck";
+			text="d_base_wreck";
 		};
 		class Item256
 		{
