@@ -4,13 +4,21 @@ private ["_name", "_time", "_format"];
 PARAMS_2(_name, _time);
 
 if (time < _time) exitWith {
-    if (_time - time > 60) then {
-        _time = (_time - time) / 60;
-        _format = "minutes";
-    } else {
-        _time = _time - time;
-        _format = "second(s)";
-    };
+    _format = (switch (true) do {
+        case (_time - time > 60): {
+            "minutes"
+        };
+
+        case (_time - time > 2): {
+            "seconds"
+        };
+
+        default {
+            "second"
+        };
+    });
+
+    _time = if ([_format, "minute"] call KRON_StrInStr) then {(_time - time) / 60} else {_time - time};
     
     format [
         "%1 cannot be %2 for another %3 %4",
