@@ -40,7 +40,11 @@ switch (_type select 0) do {
         __addDead(_aircraft);
         
         if (!isNil QMODULE(unit)) then {
-            _group = [[0, 0, 0], east, 4 + round (random 2)] call FUNC(server,spawnGroup);
+             _group = [
+                [0, 0, 0],
+                east,
+                (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_SpecialPurposeSquad")
+            ] call FUNC(server,spawnGroup);
             
             {
                 _x moveInCargo _aircraft;
@@ -62,8 +66,6 @@ switch (_type select 0) do {
 
                 while {alive _aircraft && {canMove _aircraft}} do {
                     if ((position _aircraft) select 2 < 5) exitWith {
-                        deleteVehicle _helper;
-                        
                         {
                             if (assignedVehicleRole _x find "Cargo" != -1) then {
                                 unassignVehicle _x;
@@ -74,10 +76,12 @@ switch (_type select 0) do {
                         } forEach crew _aircraft;
 
                         if (!isNil QMODULE(unit)) then {
-                            [_group, _land] call FUNC(unit,defend);
+                            [_group, position _target, 600, 4] call FUNC(unit,patrol);
                         };
                         
-                        sleep 10;
+                        sleep 8;
+
+                        deleteVehicle _helper;
                         
                         [_aircraft] spawn FUNC(server,exitMap);
                     };
