@@ -44,7 +44,7 @@ _maximumFog = _minimumFog;
 
 // Overcast intensity never falls below this value. Must be between 0 and 1 and less than or equal to _maximumOvercast
 // (0 = no overcast, 1 = maximum overcast). (Suggested value: 0).
-_minimumOvercast = 0;
+_minimumOvercast = 0.7;
 
 // Overcast intensity never exceeds this value. Must be between 0 and 1 and greater than or equal to _minimumOvercast
 // (0 = no overcast, 1 = maximum overcast). (Suggested value: 1).
@@ -298,7 +298,7 @@ if (isServer) then {
         
         // Set initial fog level
         _fogLevel = 2;
-        _overcastLevel = 2;
+        _overcastLevel = 3;
         
         while {true} do {
             // Sleep a while until next weather change
