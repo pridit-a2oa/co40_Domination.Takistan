@@ -8,17 +8,6 @@ if (isNil QMODULE(setting) || {(player getVariable QGVAR(tutorial)) select 1 == 
     GVAR(tutorial) = false;
 };
 
-0 spawn {
-    while {GVAR(tutorial)} do {
-        waitUntil {sleep 0.1; !isNull (findDisplay 49)};
-
-        if !(GVAR(tutorial)) exitWith {};
-
-        _ctrl = (findDisplay 49) displayCtrl 1010;
-        _ctrl ctrlEnable false;
-    };
-};
-
 _sequences = [
     [
         [8273.95,2107.88,0],

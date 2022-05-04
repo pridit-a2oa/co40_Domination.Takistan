@@ -3,8 +3,6 @@
 if (hasInterface) then {
     if (isMultiplayer) then {
         titleText ["", "BLACK FADED"];
-        
-        player enableSimulation false;
     };
     
     QGVAR(base_south) setMarkerAlphaLocal 0.3;
@@ -12,8 +10,25 @@ if (hasInterface) then {
     QGVAR(map_zone) setMarkerAlphaLocal 0;
 };
 
-waitUntil {!(isNil "bis_fnc_init")};
-waitUntil {!(isNil "BIS_MPF_InitDone")};
+waitUntil {!isNil "bis_fnc_init"};
+waitUntil {!isNil "BIS_MPF_InitDone"};
+
+if (hasInterface && {isMultiplayer}) then {
+    player enableSimulation false;
+
+    0 spawn {
+        disableSerialization;
+        
+        while {!(simulationEnabled player)} do {
+            waitUntil {sleep 0.01; !isNull (findDisplay 49)};
+
+            if (simulationEnabled player) exitWith {};
+
+            _ctrl = (findDisplay 49) displayCtrl 1010;
+            _ctrl ctrlEnable false;
+        };
+    };
+};
 
 if (!isDedicated) then {
     X_INIT = false;
