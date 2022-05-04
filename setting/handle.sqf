@@ -23,6 +23,10 @@ if (hasInterface) then {
         __submodulePP(reward);
     };
 
+    if (!isNil QMODULE(tutorial)) then {
+        __submodulePP(tutorial);
+    };
+
     if (!isNil QMODULE(vehicle_welcome)) then {
         __submodulePP(vehicle_welcome);
     };

@@ -62,6 +62,7 @@ GVAR(modules) = [
     "squad",
     "task",
     "teleport",
+    "tutorial",
     "uav",
     "unit",
     "vehicle",

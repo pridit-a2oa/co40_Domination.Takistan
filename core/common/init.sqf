@@ -69,11 +69,19 @@ if (hasInterface) then {
     };
 
     if (isMultiplayer) then {
-        player enableSimulation true;
-    
-        sleep 1;
+        player spawn {
+            if (!isNil QMODULE(setting) && {(player getVariable QGVAR(tutorial)) select 1 == 10}) then {
+                call FUNC(tutorial,handle);
+
+                waitUntil {sleep 1; !GVAR(tutorial)};
+            };
         
-        titleText ["", "BLACK IN", 4];
+            player enableSimulation true;
+        
+            sleep 1;
+            
+            titleText ["", "BLACK IN", 4];
+        };
     };
 };
 
