@@ -140,11 +140,11 @@ player addEventHandler ["HandleDamage", {
     if !(alive _unit) exitWith {0};
     if (_unit getVariable QGVAR(unconscious)) exitWith {0};
 
-    // don't damage if injurer is self while occupying a vehicle
-    if ([_unit, _injurer] call BIS_fnc_areEqual && {!([vehicle _unit, _unit] call BIS_fnc_areEqual)}) exitWith {0};
-
     // don't damage units by vehicle proxy, unless vehicle sustained significant damage (avoid exploding vehicle not injuring occupants but occupants may die before the vehicle does)
     if ([_part, ""] call BIS_fnc_areEqual && {!([vehicle _unit, _unit] call BIS_fnc_areEqual)} && {damage (vehicle _unit) < 0.7}) exitWith {0};
+
+    // don't damage if injurer is self, unless satcheled or impacting the ground via freefall
+    if ([_unit, _injurer] call BIS_fnc_areEqual && {!([_projectile, "PipeBomb"] call BIS_fnc_areEqual)} && {!([animationState _injurer, "halofreefall"] call KRON_StrInStr)}) exitWith {0};
 
     // don't damage friendly units, unless self-inflicted or occupying the same vehicle
     if (!([_unit, _injurer] call BIS_fnc_areEqual) && {!([vehicle _unit, vehicle _injurer] call BIS_fnc_areEqual)} && {[side (group _injurer), side (group _unit)] call BIS_fnc_areEqual}) exitWith {0};
