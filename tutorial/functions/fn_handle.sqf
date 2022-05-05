@@ -2,8 +2,6 @@
 #include "x_macros.sqf"
 private ["_sequences"];
 
-disableSerialization;
-
 if (isNil QMODULE(setting) || {(player getVariable QGVAR(tutorial)) select 1 == 0}) exitWith {
     GVAR(tutorial) = false;
 };

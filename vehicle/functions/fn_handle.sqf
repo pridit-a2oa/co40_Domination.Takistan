@@ -16,7 +16,7 @@ if (isServer) then {
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
 
-    if (sunOrMoon == 0 && {_vehicle isKindOf "Air"}) then {
+    if (sunOrMoon == 0 && {_vehicle isKindOf "Air"} && {simulationEnabled _vehicle}) then {
         gameLogic action ["lightOn", _vehicle];
     };
 
