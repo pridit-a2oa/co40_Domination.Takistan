@@ -58,4 +58,8 @@ if (hasInterface) then {
         "With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of class.<br />",
         "Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and non-special forces units have less gear slots."
     ]] call FUNC(THIS_MODULE,create);
+
+    if (!isNil QMODULE(admin)) then {
+        __submodulePP(admin);
+    };
 };
