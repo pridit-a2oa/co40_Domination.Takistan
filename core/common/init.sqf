@@ -81,6 +81,14 @@ if (hasInterface) then {
             sleep 1;
             
             titleText ["", "BLACK IN", 4];
+
+            if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
+                "Missing Content" hintC [
+                    "This mission is enhanced by content from Arma 2, which has not been detected as part of your install.",
+                    "While this is not a requirement to play there will be missing content such as some weapons & vehicles.",
+                    "If this message has displayed in error please report on Discord."
+                ];
+            };
         };
     };
 };
