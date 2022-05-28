@@ -23,7 +23,7 @@ if (isServer) then {
 };
 
 __ccppfln(core\THIS_MODULE\scripts\common.sqf);
-__ccppfln(core\THIS_MODULE\scripts\KRON_Strings.sqf);
+__ccppfln(core\THIS_MODULE\scripts\KRON.sqf);
 
 __cppfln(FUNC(THIS_MODULE,arrayPushStack),core\THIS_MODULE\functions\fn_arrayPushStack.sqf);
 __cppfln(FUNC(THIS_MODULE,arrayValues),core\THIS_MODULE\functions\fn_arrayValues.sqf);
