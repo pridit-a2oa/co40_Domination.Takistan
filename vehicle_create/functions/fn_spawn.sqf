@@ -24,7 +24,7 @@ if (count _occupied > 0) exitWith {
 _position = _vehicle modelToWorld _offset;
 
 _atv = createVehicle [_type, [_position select 0, _position select 1, 0], [], 0, "NONE"];
-_atv setDir (direction _vehicle);
+_atv setDir (if (_atv isKindOf "LandVehicle") then {direction _vehicle} else {direction _vehicle - 180});
 _atv setVectorUp (vectorUp _vehicle);
 _atv setPos [_position select 0, _position select 1, 0];
 
