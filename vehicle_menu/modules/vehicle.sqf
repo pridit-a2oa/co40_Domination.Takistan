@@ -19,5 +19,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "alive _target && {!(player in _target)} && (vehicle player) == player && {_target getVariable 'd_menu'} && {{alive _x && {side _x == east}} count crew _target < 1}"
+    "alive _target && {!(player in _target)} && {(vehicle player) == player} && {simulationEnabled _target} && {_target getVariable 'd_menu'} && {{alive _x && {side _x == east}} count crew _target < 1}"
 ];
