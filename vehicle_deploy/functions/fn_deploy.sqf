@@ -1,15 +1,19 @@
 #define THIS_MODULE vehicle_deploy
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_state"];
+private ["_vehicle", "_type", "_state", "_checks"];
 
 PARAMS_3(_vehicle, _type, _state);
 
 switch (_state) do {
     case true: {
+        private ["_position", "_location"];
+
         _position = position _vehicle;
         _location = [_position] call FUNC(common,nearestLocation);
         
         if (hasInterface) then {
+            private ["_name"];
+
             _name = [typeOf _vehicle] call FUNC(vehicle,name);
             _checks = [
                 [
@@ -123,7 +127,7 @@ switch (_state) do {
             ]] call FUNC(network,mp);
             
             [_vehicle, "lock", false] call FUNC(network,mp);
-            
+
             if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
                 [_vehicle, false] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
             };

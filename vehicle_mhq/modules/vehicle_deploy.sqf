@@ -3,13 +3,15 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_state", "_net", "_position", "_camo"];
+private ["_vehicle", "_state"];
 
 PARAMS_2(_vehicle, _state);
 
 switch (_state) do {
     case true: {
-        [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
+        private ["_net", "_position", "_camo"];
+
+        [_vehicle] call FUNC(vehicle,attach);
         
         _net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
 
@@ -32,6 +34,8 @@ switch (_state) do {
     };
     
     case false: {
+        private ["_camo"];
+
         _camo = _vehicle getVariable QGVAR(camo);
 
         // just in case it might be destroyed
@@ -43,6 +47,6 @@ switch (_state) do {
             deleteVehicle _camo;
         };
 
-        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+        [_vehicle] call FUNC(vehicle,detach);
     };
 }

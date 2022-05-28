@@ -26,8 +26,8 @@ switch (_state) do {
             ];
             
             sleep 3;
-            
-            [true, "enableSimulation", [_this, false]] call FUNC(network,mp);
+
+            [_this] call FUNC(vehicle,attach);
             
             if (!isNil QMODULE(ammobox)) then {
                 private ["_ammobox", "_pitchBank"];
@@ -71,8 +71,7 @@ switch (_state) do {
 
     case false: {
         [_vehicle] call FUNC(vehicle_deploy,cleanup);
-            
-        [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
+        [_vehicle] call FUNC(vehicle,detach);
         
         {
             _vehicle animate [_x, 0]
