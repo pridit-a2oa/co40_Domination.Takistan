@@ -11,7 +11,7 @@ if (hasInterface) then {
     _heap setPos _position;
     
     _heap addAction [
-        "Drop" call FUNC(common,RedText),
+        "Discard" call FUNC(common,RedText),
         __function(drop),
         [],
         10,
