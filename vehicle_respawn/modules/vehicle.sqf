@@ -10,6 +10,8 @@ PARAMS_1(_vehicle);
 
 if ((markerPos QGVAR(base_south)) distance (_vehicle getVariable QGVAR(position)) >= GVAR(vehicle_respawn_distance_base)) exitWith {};
 
+_vehicle setVectorUp (surfaceNormal (position _vehicle));
+
 if (_vehicle isKindOf "Car" || {_vehicle isKindOf "Air"}) then {
     while {true} do {
         _position = _vehicle getVariable QGVAR(position);
