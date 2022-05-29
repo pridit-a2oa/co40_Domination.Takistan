@@ -4,11 +4,11 @@ private ["_target"];
 
 PARAMS_1(_target);
 
-if (!isNil QMODULE(ied)) then {
-    {
-         deleteVehicle _x;
-    } forEach (_target getVariable QGVAR(ieds));
+if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
+    GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
 };
+
+GVAR(mission_main_targets_completed) = GVAR(mission_main_targets_completed) + [_target];
 
 if (!isNil QMODULE(marker)) then {
     private ["_name"];
@@ -112,14 +112,18 @@ if (!isNil QMODULE(teleport)) then {
     playSound QGVAR(sound_complete);
 }]] call FUNC(network,mp);
 
-[_target] spawn FUNC(THIS_MODULE,kill);
-[_target] spawn FUNC(THIS_MODULE,recycle);
+_target spawn {
+    sleep GVAR(mission_main_time_clear);
 
-if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
-    GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
+    if (!isNil QMODULE(ied)) then {
+        {
+            deleteVehicle _x;
+        } forEach (_this getVariable QGVAR(ieds));
+    };
+
+    [_this] call FUNC(THIS_MODULE,kill);
+    [_this] spawn FUNC(THIS_MODULE,recycle);
 };
-
-GVAR(mission_main_targets_completed) = GVAR(mission_main_targets_completed) + [_target];
 
 [_target] spawn {
     private ["_target", "_targets"];

@@ -97,14 +97,17 @@ GVAR(mission_main_radius_zone) = 500;
 // Set amount of time to capture a camp.
 GVAR(mission_main_time_capture) = 45;
 
+// Set amount of time before clearing remaining threats once target is complete.
+GVAR(mission_main_time_clear) = 600;
+
 // Set the amount of time once meeting the completion criteria to announce.
 GVAR(mission_main_time_complete) = 30;
 
 // Set amount of time to sleep before generating a target.
 GVAR(mission_main_time_delay) = 40;
 
-// Set amount of time (since seized) a main target is recycled back for use.
-GVAR(mission_main_time_recycle) = 4200;
+// Set amount of time (since seized) a main target is recycled back for use. Combines with clear time.
+GVAR(mission_main_time_recycle) = 3600;
 
 // Set amount of time between reinforcements.
 GVAR(mission_main_time_reinforce) = 1200;
