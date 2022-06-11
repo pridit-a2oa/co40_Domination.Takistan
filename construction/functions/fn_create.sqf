@@ -83,6 +83,15 @@ if ([typeOf _object, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_are
 
 [true, "execVM", [[_name, _object], __function(action)]] call FUNC(network,mp);
 
-X_JIPH setVariable [QGVAR(constructed), (X_JIPH getVariable QGVAR(constructed)) + [[_object, call FUNC(common,time) + GVAR(construction_time_lifetime)]], true];
+[gameLogic, "spawn", [[_object], {
+    private ["_object"];
+
+    PARAMS_1(_object);
+
+    gameLogic setVariable [
+        QGVAR(constructed),
+        (gameLogic getVariable QGVAR(constructed)) + [[_object, call FUNC(common,time) + GVAR(construction_time_lifetime)]]
+    ];
+}]] call FUNC(network,mp);
 
 [_amount, _cooldown] call FUNC(THIS_MODULE,consume);

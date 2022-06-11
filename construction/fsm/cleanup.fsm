@@ -46,7 +46,7 @@ class FSM
        "    if (call d_fnc_common_time > (_x select 1) && {{_x distance _object < d_construction_distance_cleanup} count (call d_fnc_common_players) < 1}) then {" \n
        "        deleteVehicle _object;" \n
        "    };" \n
-       "} forEach (X_JIPH getVariable 'd_constructed');";
+       "} forEach (gameLogic getVariable 'd_constructed');";
       precondition = "";
       class Links
       {

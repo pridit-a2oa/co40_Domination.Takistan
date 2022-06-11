@@ -27,7 +27,7 @@ if (!isNil QMODULE(fortification)) then {
 GVAR(construction_type_objects) = _objects;
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(constructed), [], true];
+    gameLogic setVariable [QGVAR(constructed), []];
     
     __fsm(cleanup);
 };
