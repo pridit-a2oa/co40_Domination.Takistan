@@ -1,0 +1,1 @@
+(_this select 0) setAmmoCargo (_this select 1);

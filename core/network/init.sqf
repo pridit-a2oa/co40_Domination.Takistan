@@ -33,6 +33,7 @@ __cppfln(FUNC(THIS_MODULE,removeWeapon),core\THIS_MODULE\functions\library\fn_re
 __cppfln(FUNC(THIS_MODULE,removeWeaponTurret),core\THIS_MODULE\functions\library\fn_removeWeaponTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,reveal),core\THIS_MODULE\functions\library\fn_reveal.sqf);
 __cppfln(FUNC(THIS_MODULE,say),core\THIS_MODULE\functions\library\fn_say.sqf);
+__cppfln(FUNC(THIS_MODULE,setAmmoCargo),core\THIS_MODULE\functions\library\fn_setAmmoCargo.sqf);
 __cppfln(FUNC(THIS_MODULE,setDamage),core\THIS_MODULE\functions\library\fn_setDamage.sqf);
 __cppfln(FUNC(THIS_MODULE,setDir),core\THIS_MODULE\functions\library\fn_setDir.sqf);
 __cppfln(FUNC(THIS_MODULE,setFuel),core\THIS_MODULE\functions\library\fn_setFuel.sqf);
