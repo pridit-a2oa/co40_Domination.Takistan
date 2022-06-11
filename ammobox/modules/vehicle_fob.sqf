@@ -13,7 +13,7 @@ _ammobox = [
     _object modelToWorld [0, -5.5, -4.95],
     direction _object,
     false
-] call FUNC(ammobox,create);
+] call FUNC(THIS_MODULE,create);
 
 _ammobox setVariable [QGVAR(immune), true];
 
