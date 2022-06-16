@@ -51,7 +51,7 @@ class Mission
 	class Intel
 	{
 		briefingName="COOP 40 Domination Rebuilt";
-		briefingDescription="Domination we all know and love, rebuilt from the ground up. With tremendous thanks to Xeno, who pioneered this mode.";
+		briefingDescription="Domination mission rebuilt from the ground up. With tremendous thanks to Xeno, the author of the original.";
 		startWeather=0;
 		forecastWeather=0;
 		year=2018;
