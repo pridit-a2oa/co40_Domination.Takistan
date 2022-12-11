@@ -1,5 +1,5 @@
 /**
- * Teleport Module - Base Teleport Submodule
+ * Teleport Module - Mission Main Submodule
  */
 
 #define THIS_MODULE teleport
