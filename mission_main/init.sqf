@@ -116,7 +116,7 @@ GVAR(mission_main_time_reinforce) = 1200;
 GVAR(mission_main_threshold_armor) = 1;
 
 // Set maximum amount of active infantry before considering completion.
-GVAR(mission_main_threshold_infantry) = 6;
+GVAR(mission_main_threshold_infantry) = 3;
 
 if (isServer) then {
     GVAR(mission_main_targets) = [];
