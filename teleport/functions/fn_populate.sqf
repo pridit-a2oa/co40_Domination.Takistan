@@ -32,7 +32,7 @@ _list = DIALOG("X_TELEPORT_DIALOG", 1500);
         _list lbSetData [_index, _location];
         _list lbSetValue [_index, if (_location == "Loy Manara") then {0} else {player distance _x}];
     };
-} forEach (allMissionObjects "FlagCarrierUSA_EP1");
+} forEach (allMissionObjects GVAR(teleport_type_object));
 
 lbSortByValue _list;
 

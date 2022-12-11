@@ -13,7 +13,7 @@ _button ctrlEnable true;
 _data = DIALOG("X_TELEPORT_DIALOG", 1500) lbData _selected;
 
 if (str (markerPos format ["teleport_%1", _data]) != "[0,0,0]") then {
-    _target = nearestObject [markerPos format ["teleport_%1", _data], "FlagCarrierUSA_EP1"];
+    _target = nearestObject [markerPos format ["teleport_%1", _data], GVAR(teleport_type_object)];
 };
 
 if (!isNil QMODULE(vehicle_deploy)) then {

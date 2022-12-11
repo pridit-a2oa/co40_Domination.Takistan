@@ -7,8 +7,8 @@
 
 if (hasInterface) then {
     {
-        _x addAction ["Fast Travel" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", ""];
-    } forEach (allMissionObjects "FlagCarrierUSA_EP1");
+        _x addAction ["Fast Travel" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", "!isNil {_target getVariable ""d_teleport""}"];
+    } forEach (allMissionObjects GVAR(teleport_type_object));
 
     [
         "teleport_Loy Manara",
@@ -20,4 +20,8 @@ if (hasInterface) then {
         "ICON",
         [0.6, 0.6]
     ] call FUNC(marker,create);
+};
+
+if (isServer) then {
+    GVAR(flag) setVariable [QGVAR(teleport), true, true];
 };

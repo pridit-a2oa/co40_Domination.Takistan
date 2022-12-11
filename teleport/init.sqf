@@ -8,6 +8,9 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
 
+// Set the static object to associate the action to.
+GVAR(teleport_type_object) = "FlagCarrierUSA_EP1";
+
 // Set animation timing and zoom level for map dialog transitions.
 GVAR(teleport_type_animations) = [
     [1, 0.07],
@@ -15,6 +18,7 @@ GVAR(teleport_type_animations) = [
 ];
 
 __cppfln(FUNC(THIS_MODULE,action),THIS_MODULE\functions\fn_action.sqf);
+__cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,populate),THIS_MODULE\functions\fn_populate.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
