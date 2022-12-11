@@ -1536,7 +1536,6 @@ class Mission
 			vehicle="FlagCarrierNATO_EP1";
 			leader=1;
 			skill=0.46666664;
-			description="Rescue Operator";
 		};
 		class Item65
 		{
@@ -1548,7 +1547,6 @@ class Mission
 			vehicle="FlagCarrierUSA_EP1";
 			leader=1;
 			skill=0.46666664;
-			description="Rescue Operator";
 		};
 		class Item66
 		{
@@ -1560,7 +1558,6 @@ class Mission
 			vehicle="FlagCarrierBAF";
 			leader=1;
 			skill=0.46666664;
-			description="Rescue Operator";
 		};
 		class Item67
 		{
