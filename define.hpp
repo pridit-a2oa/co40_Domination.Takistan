@@ -69,7 +69,6 @@
 #define XCMainCapt			colorText[] = {0.543, 0.5742, 0.4102, 1.0}
 
 class BBRscStructuredText {
-    access = 0;
     type = CT_STRUCTURED_TEXT;
     idc = -1;
     style = 0;
@@ -141,7 +140,6 @@ class RscNavButton:RscButton {
 };
 class RscListBox
 {
- access = 0;
  type = 5;
  style = 16;
  w = 0.4;

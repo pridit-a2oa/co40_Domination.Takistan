@@ -23,7 +23,6 @@ class Task {
 };
 
 class KEGsRscText {
-    access = ReadAndWrite;
     type = 0;
     idc = -1;
     style = 0;
@@ -37,7 +36,6 @@ class KEGsRscText {
     shadow = 2;
 };
 class KEGsRscListBox {
-    access = ReadAndWrite;
     type = 5;
     style = 0;
     w = 0.4;
@@ -69,7 +67,6 @@ class KEGsRscListBox {
     shadow = 2;
 };
 class KEGsRscActiveText {
-    access = ReadAndWrite;
     type = 11;
     style = 2;
     h = 0.05;
@@ -87,7 +84,6 @@ class KEGsRscActiveText {
     shadow = 2;
 };
 class KEGsRscMapControl {
-    access = ReadAndWrite;
     type = 101;
     idc = 51;
     style = 48;

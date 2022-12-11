@@ -35,4 +35,4 @@
 #define __ccppfln(file) call compile preprocessFileLineNumbers #file
 #define __cppfln(function,file) function = compile preprocessFileLineNumbers #file
 
-#define __addDead(xunitx) GVAR(allunits_add) set [count GVAR(allunits_add), xunitx];
+#define __addDead(xunitx) GVAR(allunits_add) set [count GVAR(allunits_add), xunitx]
