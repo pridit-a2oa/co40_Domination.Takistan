@@ -6,8 +6,14 @@ PARAMS_3(_flag, _trigger, _units);
 
 _target = _flag getVariable QGVAR(target);
 
-if (!isNil QMODULE(crossroad) && {({alive _x} count (_target getVariable QGVAR(camps))) - 1 == 0}) then {
-    GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "Captured", ["1", {}, _target getVariable "name", []], true];
+if (!isNil QMODULE(conversation) && {({alive _x} count (_target getVariable QGVAR(camps))) - 1 == 0}) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Captured"],
+        [
+            ["1", {}, _target getVariable "name", []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 if (!isNil QMODULE(marker)) then {

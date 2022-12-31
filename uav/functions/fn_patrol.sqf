@@ -23,9 +23,12 @@ while {alive _aircraft && {canMove _aircraft} && {call FUNC(common,time) < _airc
     
     _angle = _angle + 60;
     
-    if (!isNil QMODULE(crossroad)) then {
+    if !(isNil QMODULE(conversation)) then {
         if (_angle == _angle_threshold) then {
-            GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "InRange", true];
+            [
+                [GVAR(crossroad), GVAR(crossroad2)],
+                [QUOTE(THIS_MODULE), "InRange"]
+            ] call FUNC(conversation,radio);
             
             _aircraft setVariable [QGVAR(uav_range), true];
         };

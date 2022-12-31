@@ -35,18 +35,19 @@ if (isServer) then {
             _x setDamage 1;
         } forEach (nearestObjects [position _vehicle, ["USVehicleBox_EP1"], 8]);
 
-        if (isNil QMODULE(crossroad)) exitWith {};
+        if (isNil QMODULE(conversation)) exitWith {};
 
         _vehicle spawn {
             sleep 5;
 
-            [GVAR(crossroad), "kbTell", [
-                GVAR(crossroad2),
-                "vehicle_deploy",
-                "Destroyed",
-                ["1", {}, [typeOf _this] call FUNC(vehicle,name), []],
+            [
+                [GVAR(crossroad), GVAR(crossroad2)],
+                [QUOTE(THIS_MODULE), "Destroyed"],
+                [
+                    ["1", {}, [typeOf _this] call FUNC(vehicle,name), []]
+                ],
                 true
-            ]] call FUNC(network,mp);
+            ] call FUNC(conversation,radio);
         };
     }];
 };

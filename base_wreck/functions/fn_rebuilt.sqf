@@ -1,3 +1,4 @@
+#define THIS_MODULE base_wreck
 #include "x_macros.sqf"
 private ["_vehicle", "_hangars", "_hangar", "_full"];
 
@@ -33,8 +34,15 @@ if (GVAR(wreck_hangars_occupied) == (count _hangars - 1)) then {
     _full = "";
 };
 
-if (!isNil QMODULE(crossroad)) then {
-    GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilt", ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []], ["2", {}, _full, []], true];
+if !(isNil QMODULE(conversation)) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Rebuilt"],
+        [
+            ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+            ["2", {}, _full, []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 GVAR(base_wreck) setVariable [QGVAR(time), 0, true];

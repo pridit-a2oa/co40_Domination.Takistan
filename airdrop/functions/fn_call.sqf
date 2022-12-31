@@ -67,8 +67,8 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     X_JIPH setVariable [QGVAR(airdrop_call), false, true];
     X_JIPH setVariable [QGVAR(airdrop_progress), true, true];
     
-    if (!isNil QMODULE(crossroad)) then {
-        [_unit, _position, "airdrop"] call FUNC(crossroad,request);
+    if !(isNil QMODULE(conversation)) then {
+        [_unit, _position, "airdrop"] call FUNC(conversation,request);
     };
     
     GVAR(airdrop_type_smoke) createVehicle _position;

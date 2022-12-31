@@ -10,6 +10,14 @@ if ({alive _x} count (_target getVariable QGVAR(radios)) == 0) exitWith {
     deleteVehicle _trigger;
 };
 
-GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "Detected", ["1", {}, _target getVariable "name", []], true];
+if !(isNil QMODULE(conversation)) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Detected"],
+        [
+            ["1", {}, _target getVariable "name", []]
+        ]
+    ] call FUNC(conversation,radio);
+};
 
 [_target] __fsm(reinforce);

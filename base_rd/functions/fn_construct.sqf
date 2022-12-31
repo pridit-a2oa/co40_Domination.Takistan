@@ -69,15 +69,15 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     _time = ([_type, "time"] call FUNC(THIS_MODULE,item)) select 0;
 
-    if (!isNil QMODULE(crossroad)) then {
-        GVAR(crossroad) kbTell [
-            GVAR(crossroad2),
-            "base_rd",
-            "Construct",
-            ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-            ["2", {}, str floor(_time / 60), []],
-            true
-        ];
+    if !(isNil QMODULE(conversation)) then {
+        [
+            [GVAR(crossroad), GVAR(crossroad2)],
+            [QUOTE(THIS_MODULE), "Construct"],
+            [
+                ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+                ["2", {}, str floor(_time / 60), []]
+            ]
+        ] call FUNC(conversation,radio);
     };
 
     if (!isNil QMODULE(3d)) then {
@@ -136,14 +136,14 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
 
-    if (!isNil QMODULE(crossroad)) then {
-        GVAR(crossroad) kbTell [
-            GVAR(crossroad2),
-            "base_rd",
-            "Ready",
-            ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-            true
-        ];
+    if !(isNil QMODULE(conversation)) then {
+        [
+            [GVAR(crossroad), GVAR(crossroad2)],
+            [QUOTE(THIS_MODULE), "Ready"],
+            [
+                ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []]
+            ]
+        ] call FUNC(conversation,radio);
     };
 
     GVAR(base_rd) setVariable [QGVAR(processing), false, true];

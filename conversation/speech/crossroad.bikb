@@ -10,7 +10,7 @@ class Sentences
     
     class Request {
         text = "Crossroad, requesting %Type at grid %Location acknowledge.";
-        speech[] = {pause, %Request, pause, %Location};
+        speech[] = {pause, %Payload, pause, %Location};
         class Arguments {
             class Type {type = "simple";};
             class Location {type = "simple";};

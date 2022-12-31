@@ -11,8 +11,15 @@ _lifter = _wreck getVariable QGVAR(lifter);
 _wrecked = _wreck getVariable QGVAR(wrecked);
 _spawn = _wreck getVariable QGVAR(position);
 
-if (!isNil QMODULE(crossroad)) then {
-    GVAR(crossroad) kbTell [GVAR(crossroad2), "base_wreck", "Rebuilding", ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []], ["2", {}, str floor(_time / 60), []], true];
+if !(isNil QMODULE(conversation)) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Rebuilding"],
+        [
+            ["1", {}, [typeOf _wreck] call FUNC(vehicle,name), []],
+            ["2", {}, str floor(_time / 60), []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 _type = typeOf _wreck;

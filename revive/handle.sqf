@@ -6,7 +6,9 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    player kbAddTopic ["Medic", __bikb];
+    if !(isNil QMODULE(conversation)) then {
+        player kbAddTopic ["Medic", format ["conversation\speech\%1.bikb", QUOTE(THIS_MODULE)]];
+    };
 
     [true, "addAction", [player, [
         "Debug" call FUNC(common,GreyText),

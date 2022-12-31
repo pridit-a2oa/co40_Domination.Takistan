@@ -1,3 +1,4 @@
+#define THIS_MODULE mission_mini
 #include "x_macros.sqf"
 private ["_type", "_missions", "_mission"];
 
@@ -48,15 +49,15 @@ if (!isNil QMODULE(marker)) then {
     GVAR(intel_trigger) setVariable ["marker", _name];
 };
 
-if (!isNil QMODULE(crossroad)) then {
-    GVAR(crossroad) kbTell [
-        GVAR(crossroad2),
-        "mission_mini",
-        "Target",
-        ["1", {}, _type, []],
-        ["2", {}, toLower (_mission select 1), []],
-        true
-    ];
+if !(isNil QMODULE(conversation)) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Target"],
+        [
+            ["1", {}, _type, []],
+            ["2", {}, toLower (_mission select 1), []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 _handle = format ["mission_mini\missions\%1", _mission select 0];

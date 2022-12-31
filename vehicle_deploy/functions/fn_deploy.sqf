@@ -56,18 +56,22 @@ switch (_state) do {
             
             _vehicle setVariable [QGVAR(deployed), [true, _type], true];
             
-            if (!isNil QMODULE(crossroad) && call FUNC(common,time) > player getVariable QGVAR(cooldown)) then {    
-                [player, "kbTell", [
-                    GVAR(crossroad),
-                    "vehicle_deploy",
-                    "Deployed",
-                    ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-                    ["2", {}, toUpper _type, []],
-                    ["3", {}, text _location, []],
+            if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {    
+                [
+                    [player, GVAR(crossroad)],
+                    [QUOTE(THIS_MODULE), "Deployed"],
+                    [
+                        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+                        ["2", {}, toUpper _type, []],
+                        ["3", {}, text _location, []]
+                    ],
                     true
-                ]] call FUNC(network,mp);
-                
-                player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
+                ] call FUNC(conversation,radio);
+
+                player setVariable [
+                    QGVAR(conversation_cooldown),
+                    call FUNC(common,time) + GVAR(conversation_time_cooldown)
+                ];
             };
             
             if !(isServer) then {

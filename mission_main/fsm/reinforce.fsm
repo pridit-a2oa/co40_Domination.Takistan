@@ -33,7 +33,7 @@ class FSM
           to="End";
           precondition = "";
           condition="{alive _x} count ((_this select 0) getVariable ""d_radios"") < 1";
-          action="d_crossroad kbTell [d_crossroad2, ""mission_main"", ""Destroyed"", [""1"", {}, ""communication array"", []], [""2"", {}, (_this select 0) getVariable ""name"", []], [""3"", {}, "" They can no longer call in reinforcements."", []], true];";
+          action="[[d_crossroad, d_crossroad2], [""mission_main"", ""Destroyed""], [[""1"", {}, ""communication array"", []], [""2"", {}, (_this select 0) getVariable ""name"", []], [""3"", {}, "" They can no longer call in reinforcements."", []]] call d_fnc_conversation_radio;";
         };
         class no_players
         {

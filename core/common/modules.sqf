@@ -23,7 +23,7 @@ GVAR(modules) = [
     "cleanup",
     "communication",
     "construction",
-    "crossroad",
+    "conversation",
     // "debug",
     "diary",
     "drag",

@@ -69,8 +69,14 @@ if (!isNil QMODULE(task)) then {
     }]] call FUNC(network,mp);
 };
 
-if (!isNil QMODULE(crossroad)) then {
-    GVAR(crossroad) kbTell [GVAR(crossroad2), "mission_main", "Seized", ["1", {}, _target getVariable "name", []], true];
+if !(isNil QMODULE(conversation)) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Seized"],
+        [
+            ["1", {}, _target getVariable "name", []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 if (!isNil QMODULE(teleport)) then {
@@ -132,12 +138,12 @@ _target spawn {
 
     sleep GVAR(mission_main_time_delay) / 2;
 
-    GVAR(crossroad) kbTell [
-        GVAR(crossroad2),
-        "mission_main",
-        "StandBy",
-        true
-    ];
+    [
+        [
+            [GVAR(crossroad), GVAR(crossroad2)],
+            [QUOTE(THIS_MODULE), "StandBy"]
+        ]
+    ] call FUNC(conversation,radio);
 
     sleep GVAR(mission_main_time_delay) / 2;
 

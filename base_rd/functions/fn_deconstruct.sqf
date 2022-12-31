@@ -100,14 +100,14 @@ GVAR(base_rd) setVariable [QGVAR(progress), GVAR(base_rd) getVariable QGVAR(prog
     DIALOG("X_BASE_RD_DIALOG", 100) lbSetCurSel _selected;
 }]] call FUNC(network,mp);
 
-if (!isNil QMODULE(crossroad) && {_progress select 1 == (_progress select 0) + 1}) then {
-    GVAR(crossroad) kbTell [
-        GVAR(crossroad2),
-        "base_rd",
-        "Researched",
-        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-        true
-    ];
+if (!isNil QMODULE(conversation) && {_progress select 1 == (_progress select 0) + 1}) then {
+    [
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "Researched"],
+        [
+            ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []]
+        ]
+    ] call FUNC(conversation,radio);
 };
 
 [_vehicle] call FUNC(vehicle,delete);

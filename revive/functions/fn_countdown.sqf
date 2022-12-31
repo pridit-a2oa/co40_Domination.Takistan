@@ -34,12 +34,14 @@ DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn f
 
             if (player distance _player < 5) exitWith {};
 
-            player kbTell [
-                if (player distance _player < 35) then {player} else {_player},
-                "Medic",
-                ["InjuredCallMedic", "InjuredHelpMe", "InjuredNeedHelp"] call BIS_fnc_selectRandom,
-                false
-            ];
+            if !(isNil QMODULE(conversation)) then {
+                player kbTell [
+                    if (player distance _player < 35) then {player} else {_player},
+                    "Medic",
+                    ["InjuredCallMedic", "InjuredHelpMe", "InjuredNeedHelp"] call BIS_fnc_selectRandom,
+                    false
+                ];
+            };
         };
 
         sleep 50;

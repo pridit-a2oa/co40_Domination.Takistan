@@ -49,8 +49,8 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     X_JIPH setVariable [QGVAR(uav_call), false, true];
     X_JIPH setVariable [QGVAR(uav_progress), true, true];
     
-    if (!isNil QMODULE(crossroad)) then {
-        [_unit, _position, "UAV"] call FUNC(crossroad,request);
+    if !(isNil QMODULE(conversation)) then {
+        [_unit, _position, "UAV"] call FUNC(conversation,request);
     };
     
     _vehicle = [
@@ -79,8 +79,11 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     
     while {alive _aircraft && {canMove _aircraft}} do {        
         if (call FUNC(common,time) > _aircraft getVariable QGVAR(uav_airborne)) exitWith {
-            if (!isNil QMODULE(crossroad)) then {
-                GVAR(crossroad) kbTell [GVAR(crossroad2), "uav", "LowFuel", true];
+            if !(isNil QMODULE(conversation)) then {
+                [
+                    [GVAR(crossroad), GVAR(crossroad2)],
+                    [QUOTE(THIS_MODULE), "LowFuel"]
+                ] call FUNC(conversation,radio);
             };
             
             [_aircraft] spawn FUNC(server,exitMap);

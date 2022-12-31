@@ -63,8 +63,8 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
     X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
     
-    if (!isNil QMODULE(crossroad)) then {
-        [_unit, _position, "air taxi"] call FUNC(crossroad,request);
+    if !(isNil QMODULE(conversation)) then {
+        [_unit, _position, "air taxi"] call FUNC(conversation,request);
     };
     
     GVAR(air_taxi_type_smoke) createVehicle _position;
@@ -105,14 +105,14 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                 if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 2}) exitWith {
                     deleteVehicle _helper;
                     
-                    if (!isNil QMODULE(crossroad)) then {
-                        GVAR(crossroad) kbTell [
-                            GVAR(crossroad2),
-                            "airtaxi",
-                            "Depart",
-                            ["Time", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []],
-                            true
-                        ];
+                    if !(isNil QMODULE(conversation)) then {
+                        [
+                            [GVAR(crossroad), GVAR(crossroad2)],
+                            [QUOTE(THIS_MODULE), "Depart"],
+                            [
+                                ["Time", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []]
+                            ]
+                        ] call FUNC(conversation,radio);
                     };
                     
                     sleep GVAR(air_taxi_time_wait);

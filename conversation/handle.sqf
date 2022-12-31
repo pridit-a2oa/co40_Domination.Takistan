@@ -1,9 +1,10 @@
 /**
- * Crossroad Module (Handler)
+ * Conversation Module (Handler)
  */
 
-#define THIS_MODULE crossroad
+#define THIS_MODULE conversation
 #include "x_macros.sqf"
+private ["_path"];
 
 if (isServer) then {
     private ["_group"];
@@ -24,57 +25,46 @@ if (isServer) then {
     X_JIPH setVariable [QGVAR(crossroad2), GVAR(crossroad2), true];
 };
 
+_path = format ["%1\speech\crossroad.bikb", QUOTE(THIS_MODULE)];
+
 if (hasInterface) then {
     waitUntil {!isNil {X_JIPH getVariable QGVAR(crossroad2)}};
     
     GVAR(crossroad) = X_JIPH getVariable QGVAR(crossroad);
     GVAR(crossroad2) = X_JIPH getVariable QGVAR(crossroad2);
     
-    player kbAddTopic ["HQ", __bikb];
+    player kbAddTopic ["HQ", _path];
 };
 
-GVAR(crossroad) kbAddTopic ["HQ", __bikb];
+GVAR(crossroad) kbAddTopic ["HQ", _path];
 GVAR(crossroad) setIdentity "DHQ_EN1";
 GVAR(crossroad) setRank "COLONEL";
 GVAR(crossroad) setGroupId ["Crossroad"];
 
-GVAR(crossroad2) kbAddTopic ["HQ", __bikb];
+GVAR(crossroad2) kbAddTopic ["HQ", _path];
 GVAR(crossroad2) setIdentity "DHQ_EN2";
 GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
 
-if (!isNil QMODULE(airtaxi)) then {
-    __submodulePP(airtaxi);
-};
+{
+    if !(isNil (format [QMODULE(%1), _x])) then {
+        _path = format ["%1\speech\%2.bikb", QUOTE(THIS_MODULE), _x];
 
-if (!isNil QMODULE(base_rd)) then {
-    __submodulePP(base_rd);
-};
+        if (hasInterface) then {
+            player kbAddTopic [_x, _path];
+        };
 
-if (!isNil QMODULE(base_wreck)) then {
-    __submodulePP(base_wreck);
-};
-
-if (!isNil QMODULE(intel)) then {
-    __submodulePP(intel);
-};
-
-if (!isNil QMODULE(mission_main)) then {
-    __submodulePP(mission_main);
-};
-
-if (!isNil QMODULE(mission_mini)) then {
-    __submodulePP(mission_mini);
-};
-
-if (!isNil QMODULE(uav)) then {
-    __submodulePP(uav);
-};
-
-if (!isNil QMODULE(vehicle_deploy)) then {
-    __submodulePP(vehicle_deploy);
-};
-
-if (!isNil QMODULE(vehicle_lift)) then {
-    __submodulePP(vehicle_lift);
-};
+        GVAR(crossroad) kbAddTopic [_x, _path];
+        GVAR(crossroad2) kbAddTopic [_x, _path];
+    };
+} forEach [
+    "airtaxi",
+    "base_rd",
+    "base_wreck",
+    "intel",
+    "mission_main",
+    "mission_mini",
+    "uav",
+    "vehicle_deploy",
+    "vehicle_lift"
+];

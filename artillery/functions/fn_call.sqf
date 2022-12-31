@@ -63,7 +63,7 @@ if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
     X_JIPH setVariable [QGVAR(artillery_call), false, true];
     X_JIPH setVariable [QGVAR(artillery_progress), true, true];
     
-    if (!isNil QMODULE(crossroad)) then {
+    if !(isNil QMODULE(conversation)) then {
         [
             _unit,
             _position,
@@ -72,7 +72,7 @@ if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
                 _salvoes,
                 if (_salvoes > 1) then {"es"} else {""}
             ]
-        ] call FUNC(crossroad,request);
+        ] call FUNC(conversation,request);
     };
     
     _smoke = GVAR(artillery_type_smoke) createVehicle _position;

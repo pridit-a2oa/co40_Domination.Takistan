@@ -30,7 +30,12 @@ gameLogic setVariable [QGVAR(intel), true, true];
         waitUntil {_car distance (markerPos QGVAR(intel)) < 300};
         
         if (true) exitWith {
-            GVAR(crossroad) kbTell [GVAR(crossroad2), "intel", "Approach", true];
+            if !(isNil QMODULE(conversation)) then {
+                [
+                    [GVAR(crossroad), GVAR(crossroad2)],
+                    [QUOTE(THIS_MODULE), "Approach"]
+                ] call FUNC(conversation,radio);
+            };
             
             [
                 nil,

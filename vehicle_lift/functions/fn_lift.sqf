@@ -31,7 +31,7 @@ if (!isNil QMODULE(vehicle_marker)) then {
     [_attacher, _attachee] __submoduleVM(vehicle_marker);
 };
 
-if (!isNil QMODULE(crossroad) && {call FUNC(common,time) > player getVariable QGVAR(cooldown)}) then {
+if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {
     private ["_broadcast"];
     
     _broadcast = false;
@@ -41,16 +41,20 @@ if (!isNil QMODULE(crossroad) && {call FUNC(common,time) > player getVariable QG
 
     if !(_broadcast) exitWith {};
 
-    [player, "kbTell", [
-        GVAR(crossroad),
-        "vehicle_lift",
-        "Airlift",
-        ["1", {}, [typeOf _attachee] call FUNC(vehicle,name), []],
-        ["2", {}, if !(alive _attachee) then {" wreck"} else {""}, []],
+    [
+        [player, GVAR(crossroad)],
+        [QUOTE(THIS_MODULE), "Airlift"],
+        [
+            ["1", {}, [typeOf _attachee] call FUNC(vehicle,name), []],
+            ["2", {}, if !(alive _attachee) then {" wreck"} else {""}, []]
+        ],
         true
-    ]] call FUNC(network,mp);
-    
-    player setVariable [QGVAR(cooldown), call FUNC(common,time) + GVAR(crossroad_time_cooldown)];
+    ] call FUNC(conversation,radio);
+
+    player setVariable [
+        QGVAR(conversation_cooldown),
+        call FUNC(common,time) + GVAR(conversation_time_cooldown)
+    ];
 };
 
 while {alive _attacher && {!isNull (_attacher getVariable QGVAR(attached))}} do {
