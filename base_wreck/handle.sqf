@@ -8,7 +8,7 @@
 if (isServer) then {
     private ["_marker", "_position", "_hangar", "_trigger"];
     
-    for "_i" from 1 to GVAR(base_wreck_amount_hangar) do {
+    for "_i" from 1 to 3 do {
         _marker = format [QGVAR(wreck_hangar_%1), _i];
         _position = markerPos _marker;
         
