@@ -19,7 +19,6 @@ PARAMS_3(_unit, _position, _type);
             ["Type", {}, _type, []],
             ["Location", {}, _position, _grid]
         ],
-        false,
         true
     ] call FUNC(THIS_MODULE,radio);
     
