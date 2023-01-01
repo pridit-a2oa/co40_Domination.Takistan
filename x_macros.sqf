@@ -26,7 +26,6 @@
 #define __submoduleRE(module) format ["%1\modules\%2.sqf", #module, QUOTE(THIS_MODULE)]
 #define __handler(module) execVM format ["%1\handle.sqf", module]
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
-#define __functionRE(module,file) format ["%1\functions\fn_%2.sqf", #module, #file]
 #define __profile(option) format ["pdt|%1|%2", QUOTE(THIS_MODULE), option]
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 #define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 

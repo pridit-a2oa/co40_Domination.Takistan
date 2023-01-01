@@ -212,7 +212,7 @@ player addEventHandler ["HandleDamage", {
 }];
 
 player addEventHandler ["respawn", {
-    private ["_unit", "_corpse", "_respawn", "_handlers"];
+    private ["_unit", "_corpse", "_respawn"];
     
     PARAMS_2(_unit, _corpse);
 
@@ -236,7 +236,11 @@ player addEventHandler ["respawn", {
         _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
     };
     
-    _handlers = [
+    {
+        if !(isNil (format [QMODULE(%1), _x])) then {
+            __handler(_x);
+        };
+    } forEach [
         "backpack",
         "base_rd",
         "drag",
@@ -246,12 +250,6 @@ player addEventHandler ["respawn", {
         "revive",
         "vehicle_repair"
     ];
-
-    {
-        if (!isNil (format [QMODULE(%1), _x])) then {
-            __handler(_x);
-        };
-    } forEach _handlers;
     
     if (!isNil QMODULE(revive)) then {
         [_unit] call FUNC(revive,reset);

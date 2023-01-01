@@ -18,7 +18,7 @@ _handlers = [];
 _count = count _handlers;
 
 {
-    if (!isNil (format [QMODULE(%1), _x])) then {
+    if !(isNil (format [QMODULE(%1), _x])) then {
         _handle = __handler(_x);
         
         if (hasInterface && {isMultiplayer}) then {
