@@ -99,6 +99,12 @@ GVAR(vehicle_loadout_types) = [
         ]]
     ]],
 
+    ["MH6J_EP1", [
+        ["Standard", [
+            [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
     /**
     * OPFOR
     */
