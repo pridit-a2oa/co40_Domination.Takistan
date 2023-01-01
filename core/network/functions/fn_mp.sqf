@@ -24,7 +24,6 @@
 #define GVAR(variable) d##_##variable
 #define FUNC(module,function) d##_fnc_##module##_##function
 #define QUOTE(qtext) #qtext
-#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
 
 private ["_target", "_functionName", "_params", "_isCall", "_mode"];
 
@@ -79,8 +78,6 @@ if (_mode == 0 && {isMultiplayer}) then {
     
     //--- Server execution (for all or server only)
     if (_ownerID < 0 || {_ownerID == _serverID}) then {
-        __log format ["Server-side execution %1", BIS_fnc_MP_packet]];
-
         BIS_fnc_MP_packet call FUNC(THIS_MODULE,mp);
     };
 } else {
