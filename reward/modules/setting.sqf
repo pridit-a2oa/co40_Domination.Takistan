@@ -6,9 +6,9 @@
 
 GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
-        "Rewards",
+        "Overlay: Rewards",
         "reward",
-        "Set whether an overlay will display whenever you have earned score rewards",
+        "Set whether an overlay will appear whenever you have earned score rewards",
         ["Show", "Hide"],
         [10, 0]
     ]

@@ -147,10 +147,10 @@ class RscListBox
  font = FontM;
  sizeEx = 0.04;
  rowHeight = 0;
- colorText[] = {0.6,0.6,0.6,1};
+ colorText[] = {0.639,0.576,0.427,1};
  colorScrollbar[] = {0.6,0.5,0.3,1};
- colorSelect[] = {0,0,0,1};
- colorSelectBackground[] = {0.467,0.467,0.467,1};
+ colorSelect[] = {0.247,0.2,0.137,1};
+ colorSelectBackground[] = {0.639,0.576,0.427,1};
  colorBackground[] = {0.6,0.5,0.3,1};
  maxHistoryDelay = 0;
  soundSelect[] = {"",0.1,1};
