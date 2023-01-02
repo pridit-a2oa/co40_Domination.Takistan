@@ -35,6 +35,8 @@
     } forEach [
         (allMissionObjects "Thing")
     ];
+
+    [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
 };
 
 onEachFrame {call d_fnc_client_perFrame};
