@@ -29,7 +29,7 @@ if (!isNil QMODULE(communication)) then {
         ["Construct", 1] call FUNC(communication,toggle);
     };
 
-    if (!isNil QMODULE(gesture)) then {
+    if (!isNil QMODULE(gesture) && {count BIS_MENU_Gestures > 1}) then {
         ["Gestures", 1] call FUNC(communication,toggle);
     };
 
