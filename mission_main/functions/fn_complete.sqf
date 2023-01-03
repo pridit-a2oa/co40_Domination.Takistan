@@ -139,10 +139,8 @@ _target spawn {
     sleep GVAR(mission_main_time_delay) / 2;
 
     [
-        [
-            [GVAR(crossroad), GVAR(crossroad2)],
-            [QUOTE(THIS_MODULE), "StandBy"]
-        ]
+        [GVAR(crossroad), GVAR(crossroad2)],
+        [QUOTE(THIS_MODULE), "StandBy"]
     ] call FUNC(conversation,radio);
 
     sleep GVAR(mission_main_time_delay) / 2;
