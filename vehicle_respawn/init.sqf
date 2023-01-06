@@ -14,6 +14,7 @@ GVAR(vehicle_respawn_type_vehicles) = [
     [900, "BAF_Offroad_D"],
     [900, "HMMWV_DES_EP1"],
     [900, "MH6J_EP1"],
+    [1800, "HMMWV_Ambulance_DES_EP1"],
     [1800, "UH60M_EP1"],
     [5400, "BAF_Merlin_HC3_D"],
     [5400, "CH_47F_EP1"],
