@@ -7,7 +7,7 @@
 #define THIS_MODULE base
 #include "x_macros.sqf"
 
-// Set objects which cannot be destroyed.
+// Objects which cannot be destroyed
 GVAR(base_types_protected) = [
     "US_WarfareBAntiAirRadar_EP1"
 ];

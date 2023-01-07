@@ -8,16 +8,16 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
 
-// Set wreck hangar object model
+// Wreck hangar object model
 GVAR(base_wreck_type_hangar) = "Land_Mil_hangar_EP1";
 
-// Set amount of score to reward a player when rebuilding a wreck
+// Amount of score to reward a player when rebuilding a wreck
 GVAR(base_wreck_amount_score) = 5;
 
-// Set minimum distance a wreck can originate from the base to be eligible for a score reward
+// Minimum distance a wreck can originate from the base to be eligible for a score reward
 GVAR(base_wreck_distance_score) = 2500;
 
-// Set curated rebuild times based on vehicle type
+// Curated rebuild times based on vehicle type
 GVAR(base_wreck_time_rebuild) = [
     [240, "Truck"],
     [300, "Wheeled_APC"],

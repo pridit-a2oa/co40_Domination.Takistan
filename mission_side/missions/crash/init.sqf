@@ -8,10 +8,10 @@
 #define THIS_MODULE mission_side_crash
 #include "x_macros.sqf"
 
-// Set aircraft type.
+// Aircraft type
 GVAR(mission_crash_type_aircraft) = "C130J_US_EP1";
 
-// Set possible types of vehicles to be picked to recover.
+// Possible types of vehicles to be picked to recover
 GVAR(mission_crash_types_vehicle) = [
     "BAF_FV510_D",
     "M1128_MGS_EP1",

@@ -10,16 +10,16 @@
 
 if (!isMultiplayer) exitWith {};
 
-// Set blood effects
+// Blood effects
 GVAR(revive_type_blood) = [
     QGVAR(revive_blood_1),
     QGVAR(revive_blood_2)
 ];
 
-// Set amount of damage a revived player will have
+// Amount of damage a revived player will have
 GVAR(revive_amount_damage) = 0.4;
 
-// Set addAction parameters that need to apply to existing clients & JIP
+// AddAction parameters that need to apply to existing clients & JIP
 GVAR(revive_player_action) = [
     "Revive" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,revive),
@@ -31,10 +31,10 @@ GVAR(revive_player_action) = [
     "alive _target && {_this != _target} && {_this == vehicle _this} && {_this distance _target < 4} && {_target getVariable 'd_unconscious'} && {!(_target getVariable 'd_reviving')} && {!(_target getVariable 'd_dragging')}"
 ];
 
-// Set maximum distance to a capable player before an incapacitated player will call for help.
+// Maximum distance to a capable player before an incapacitated player will call for help
 GVAR(revive_distance_exclaim) = 400;
 
-// Set amount of time before respawning a player that is unconscious.
+// Amount of time before respawning a player that is unconscious
 GVAR(revive_time_respawn) = 240;
 
 if (hasInterface) then {

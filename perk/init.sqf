@@ -7,7 +7,7 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
 
-// Set role restrictions for role-based perks.
+// Role restrictions for role-based perks
 GVAR(perk_type_roles) = [
     [GVAR(artillery),       [1]],
     [GVAR(engineers),       [2]],
@@ -17,10 +17,10 @@ GVAR(perk_type_roles) = [
     [GVAR(pilots),          [6]]
 ];
 
-// Set increments of points rewarded.
+// Increments of points rewarded
 GVAR(perk_amount_points) = 2;
 
-// Set increments of score required.
+// Increments of score required
 GVAR(perk_amount_score) = 15;
 
 if (hasInterface) then {

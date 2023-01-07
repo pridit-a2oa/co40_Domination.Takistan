@@ -8,7 +8,7 @@
 #define THIS_MODULE unit
 #include "x_macros.sqf"
 
-// Set infantry types (groups).
+// Infantry types (groups)
 GVAR(unit_type_infantry) = [
     ["BIS_TK",      "TK_InfantrySquad"],
     ["BIS_TK",      "TK_InfantrySection"],
@@ -23,7 +23,7 @@ GVAR(unit_type_infantry) = [
     ["BIS_TK_INS",  "TK_INS_ATTeam"]
 ];
 
-// Set light vehicle types.
+// Light vehicle types
 GVAR(unit_type_vehicles_light) = [
     "LandRover_MG_TK_EP1",
     "LandRover_MG_TK_INS_EP1",
@@ -33,7 +33,7 @@ GVAR(unit_type_vehicles_light) = [
     "UAZ_MG_TK_EP1"
 ];
 
-// Set APC vehicle types along with uniqueness.
+// APC vehicle types along with uniqueness
 GVAR(unit_type_vehicles_apc) = [
     ["BMP2_HQ_TK_EP1",      true],
     ["BMP2_TK_EP1",         false],
@@ -43,7 +43,7 @@ GVAR(unit_type_vehicles_apc) = [
     ["M113_TK_EP1",         false]
 ];
 
-// Set Tank vehicle types.
+// Tank vehicle types
 GVAR(unit_type_vehicles_tank) = [
     "T55_TK_EP1",
     "T72_TK_EP1"

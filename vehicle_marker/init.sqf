@@ -7,7 +7,7 @@
 #define THIS_MODULE vehicle_marker
 #include "x_macros.sqf"
 
-// Set valid vehicle types for markers
+// Valid vehicle types for markers
 GVAR(vehicle_marker_types) = [
     "Air",
     "HMMWV_Ambulance",
@@ -16,7 +16,7 @@ GVAR(vehicle_marker_types) = [
     "Wheeled_APC"
 ];
 
-// Set sides to determine marker color
+// Sides to determine marker color
 GVAR(vehicle_marker_types_side) = [
     [civilian, "ColorBlue"],
     [east, "ColorRed"],

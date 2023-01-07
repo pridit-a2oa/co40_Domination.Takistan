@@ -8,10 +8,10 @@
 #define THIS_MODULE vehicle_cargo
 #include "x_macros.sqf"
 
-// Set aircraft type capable of loading vehicles
+// Aircraft type capable of loading vehicles
 GVAR(vehicle_cargo_type_aircraft) = "C130J_US_EP1";
 
-// Set maximum amount of vehicles that can ever be loaded at once
+// Maximum amount of vehicles that can ever be loaded at once
 GVAR(vehicle_cargo_amount_max) = 2;
 
 if (hasInterface) then {

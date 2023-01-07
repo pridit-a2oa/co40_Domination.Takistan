@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_pack
 #include "x_macros.sqf"
 
-// Set vehicles with the ability to fold rotors/wings.
+// Vehicles with the ability to fold rotors/wings
 GVAR(vehicle_pack_types) = [
     "AH1Z",
     "MV22",

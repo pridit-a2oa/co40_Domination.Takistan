@@ -8,13 +8,13 @@
 #define THIS_MODULE vehicle_mhq
 #include "x_macros.sqf"
 
-// Set vehicles that can be deployed as a MHQ.
+// Vehicles that can be deployed as a MHQ
 GVAR(vehicle_mhq_types) = [
     "BMP2_HQ_TK_EP1",
     "M1133_MEV_EP1"
 ];
 
-// Set net types associated with faction.
+// Net types associated with faction
 GVAR(vehicle_mhq_types_net) = [
     ["BIS_TK", "Land_CamoNetVar_EAST_EP1"],
     ["BIS_US", "Land_CamoNetVar_NATO_EP1"]

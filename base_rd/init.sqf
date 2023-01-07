@@ -8,10 +8,10 @@
 #define THIS_MODULE base_rd
 #include "x_macros.sqf"
 
-// Set composition of the R&D point.
+// Composition of the R&D point
 GVAR(base_rd_type_composition) = "HeliParking1_US_EP1";
 
-// Set types of vehicles that can be researched & subsequently built.
+// Types of vehicles that can be researched & subsequently built
 GVAR(base_rd_type_vehicles) = [
     "BMP2_TK_EP1",
     "BRDM2_ATGM_TK_EP1",
@@ -29,7 +29,7 @@ GVAR(base_rd_type_vehicles) = [
     "ZSU_TK_EP1"
 ];
 
-// Set amount of deconstructed vehicles (based on type) before being able to construct.
+// Amount of deconstructed vehicles (based on type) before being able to construct
 GVAR(base_rd_amount_required) = [
     [3, "Air"],
     [3, "Tank"],
@@ -37,10 +37,10 @@ GVAR(base_rd_amount_required) = [
     [2, "Truck"]
 ];
 
-// Set amount of score to reward a player once a vehicle has been deconstructed.
+// Amount of score to reward a player once a vehicle has been deconstructed
 GVAR(base_rd_amount_score) = 3;
 
-// Set amount of time it takes to construct vehicles.
+// Amount of time it takes to construct vehicles
 GVAR(base_rd_time_construct) = [
     [1200, "Truck"],
     [1500, "M113_Base"],
@@ -53,10 +53,10 @@ GVAR(base_rd_time_construct) = [
     [2700, "Plane"]
 ];
 
-// Set cooldown after building before being able to construct another vehicle.
+// Cooldown after building before being able to construct another vehicle
 GVAR(base_rd_time_cooldown) = 180;
 
-// Set the divisor against the construction time to deconstruct vehicles.
+// The divisor against the construction time to deconstruct vehicles
 GVAR(base_rd_time_divisor) = 6;
 
 if (hasInterface) then {

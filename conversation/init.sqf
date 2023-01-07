@@ -9,7 +9,7 @@
 #define THIS_MODULE conversation
 #include "x_macros.sqf"
 
-// Set cooldown between broadcasts over radio.
+// Cooldown between broadcasts over radio
 GVAR(conversation_time_cooldown) = 60;
 
 if (hasInterface) then {

@@ -7,7 +7,7 @@
 #define THIS_MODULE drag
 #include "x_macros.sqf"
 
-// Set addAction parameters that need to apply to existing clients & JIP
+// AddAction parameters that need to apply to existing clients & JIP
 GVAR(drag_player_action) = [
     "Drag" call FUNC(common,RedText),
     FUNCTION(THIS_MODULE,drag),

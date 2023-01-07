@@ -8,7 +8,7 @@
 #define THIS_MODULE admin
 #include "x_macros.sqf"
 
-// Set UID of players that have access to administrative functions.
+// UID of players that have access to administrative functions
 GVAR(admin_type_players) = [
     "76561197992228102"
 ];

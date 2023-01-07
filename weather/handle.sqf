@@ -149,13 +149,13 @@ drn_fnc_DynamicWeather_SetWeatherLocal = {
     _currentWindX = _this select 6;
     _currentWindZ = _this select 7;
     
-    // Set current weather values
+    // Current weather values
     0 setOvercast _currentOvercast;
     0 setFog _currentFog;
     drn_var_DynamicWeather_Rain = _currentRain;
     setWind [_currentWindX, _currentWindZ, true];
     
-    // Set forecast
+    // Forecast
     if (_currentWeatherChange == "OVERCAST") then {
         _timeUntilCompletion setOvercast _targetWeatherValue;
     };
@@ -296,7 +296,7 @@ if (isServer) then {
         _windChangeProbability = _this select 10;
         _debug = _this select 11;
         
-        // Set initial fog level
+        // Initial fog level
         _fogLevel = 2;
         _overcastLevel = 3;
         

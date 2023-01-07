@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_fob
 #include "x_macros.sqf"
 
-// Set vehicles that can be deployed as a FOB.
+// Vehicles that can be deployed as a FOB
 GVAR(vehicle_fob_types) = [
     "C130J_US_EP1"
 ];

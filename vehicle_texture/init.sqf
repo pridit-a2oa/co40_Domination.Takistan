@@ -7,7 +7,7 @@
 #define THIS_MODULE vehicle_texture
 #include "x_macros.sqf"
 
-// Set valid types of vehicles as well as possible textures.
+// Valid types of vehicles as well as possible textures
 GVAR(vehicle_texture_types) = [
     ["A10_US_EP1", [
         ["Black Shark", [
@@ -17,7 +17,7 @@ GVAR(vehicle_texture_types) = [
     ]]
 ];
 
-// Set maximum distance from base the texture can be changed.
+// Maximum distance from base the texture can be changed
 GVAR(vehicle_texture_distance_base) = 450;
 
 __cppfln(FUNC(THIS_MODULE,default),THIS_MODULE\functions\fn_default.sqf);

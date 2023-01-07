@@ -7,13 +7,13 @@
 #define THIS_MODULE vehicle_repair
 #include "x_macros.sqf"
 
-// Set minimum damage to initiate repair
+// Minimum damage to initiate repair
 GVAR(vehicle_repair_amount_damage) = 0.05;
 
-// Set maximum fuel level to initiate repair, if damage threshold not met
+// Maximum fuel level to initiate repair, if damage threshold not met
 GVAR(vehicle_repair_amount_fuel) = 0.10;
 
-// Set addAction parameters that need to apply to existing clients & JIP
+// AddAction parameters that need to apply to existing clients & JIP
 GVAR(vehicle_repair_player_action) = [
     "Give Repair Kit" call FUNC(common,BrownText),
     FUNCTION(inventory,transfer),

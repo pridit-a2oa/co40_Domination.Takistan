@@ -8,10 +8,10 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
 
-// Set the static object to associate the action to.
+// The static object to associate the action to
 GVAR(teleport_type_object) = "FlagCarrierUSA_EP1";
 
-// Set animation timing and zoom level for map dialog transitions.
+// Animation timing and zoom level for map dialog transitions
 GVAR(teleport_type_animations) = [
     [1, 0.07],
     [0.4, 0.04]

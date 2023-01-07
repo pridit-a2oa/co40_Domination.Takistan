@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_loadout
 #include "x_macros.sqf"
 
-// Set types of vehicles and possible configurations
+// Types of vehicles and possible configurations
 GVAR(vehicle_loadout_types) = [
     /**
     * BLUFOR
@@ -136,7 +136,7 @@ GVAR(vehicle_loadout_types) = [
     ]]
 ];
 
-// Set maximum distance from base the loadout can be changed
+// Maximum distance from base the loadout can be changed
 GVAR(vehicle_loadout_distance_base) = 450;
 
 __cppfln(FUNC(THIS_MODULE,addMagazines),THIS_MODULE\functions\fn_addMagazines.sqf);

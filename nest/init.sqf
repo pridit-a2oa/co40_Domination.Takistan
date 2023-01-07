@@ -5,13 +5,13 @@
 #define THIS_MODULE nest
 #include "x_macros.sqf"
 
-// Set the model
+// The model
 GVAR(nest_type) = "WarfareBMGNest_M240_US_EP1";
 
-// Set rotation of the model in relation to the player to apply when constructed
+// Rotation of the model in relation to the player to apply when constructed
 GVAR(nest_amount_rotation) = 0;
 
-// Set time between constructing
+// Time between constructing
 GVAR(nest_time_cooldown) = 900;
 
 if (hasInterface) then {

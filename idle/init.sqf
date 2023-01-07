@@ -8,7 +8,7 @@
 #define THIS_MODULE idle
 #include "x_macros.sqf"
 
-// Set maximum amount of time (seconds) that a player can be idle.
+// Maximum amount of time (seconds) that a player can be idle
 GVAR(idle_time_static) = 3600;
 
 MODULE(THIS_MODULE) = true;

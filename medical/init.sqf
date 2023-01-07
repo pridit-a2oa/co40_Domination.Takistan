@@ -7,7 +7,7 @@
 #define THIS_MODULE medical
 #include "x_macros.sqf"
 
-// Set addAction parameters that need to apply to existing clients & JIP
+// AddAction parameters that need to apply to existing clients & JIP
 GVAR(medical_player_action) = [
     "Give Medkit" call FUNC(common,BrownText),
     FUNCTION(inventory,transfer),
@@ -19,7 +19,7 @@ GVAR(medical_player_action) = [
     "['medkits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
-// Set damage threshold
+// Damage threshold
 GVAR(medical_threshold_damage) = 0.15;
 
 if (hasInterface) then {

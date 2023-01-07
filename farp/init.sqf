@@ -5,13 +5,13 @@
 #define THIS_MODULE farp
 #include "x_macros.sqf"
 
-// Set the model
+// The model
 GVAR(farp_type) = "US_WarfareBVehicleServicePoint_Base_EP1";
 
-// Set rotation of the model in relation to the player to apply when constructed
+// Rotation of the model in relation to the player to apply when constructed
 GVAR(farp_amount_rotation) = 90;
 
-// Set time between constructing
+// Time between constructing
 GVAR(farp_time_cooldown) = 900;
 
 if (hasInterface) then {

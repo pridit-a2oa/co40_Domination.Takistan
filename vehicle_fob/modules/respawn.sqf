@@ -4,7 +4,7 @@
 
 #include "x_macros.sqf"
 
-// Set distance within deployed FOB to be able to respawn.
+// Distance within deployed FOB to be able to respawn.
 GVAR(vehicle_fob_distance_respawn) = 6000;
 
 if (!isNil QMODULE(setting)) then {    

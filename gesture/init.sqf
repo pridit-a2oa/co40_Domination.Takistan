@@ -7,7 +7,7 @@
 #define THIS_MODULE gesture
 #include "x_macros.sqf"
 
-// Set list of gestures that can be performed as well as their cutoff duration.
+// List of gestures that can be performed as well as their cutoff duration
 GVAR(gesture_types) = [
     ["Bow", [
         ["c7a_bravoTOerc_idle15", 6]

@@ -8,7 +8,7 @@
 #define THIS_MODULE squad
 #include "x_macros.sqf"
 
-// Set the default, joinable group names
+// The default, joinable group names
 GVAR(group_names) = [
     "Alpha",
     "Bravo",
@@ -18,7 +18,7 @@ GVAR(group_names) = [
     "Foxtrot"
 ];
 
-// Set the group ids which will match Group as a string
+// The group ids which will match Group as a string
 GVAR(group_ids) = [];
 
 {

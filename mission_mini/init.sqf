@@ -10,13 +10,13 @@
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
 
-// Set possible types of mini missions. Populated by missions themselves.
+// Possible types of mini missions. Populated by missions themselves
 GVAR(mission_mini_types) = [];
 
-// Set the min & max distance from base a mini mission can generate between.
+// The min & max distance from base a mini mission can generate between
 GVAR(mission_mini_distance_base) = [800, 1600];
 
-// Set amount of time following completion to clean up remaining entities.
+// Amount of time following completion to clean up remaining entities
 GVAR(mission_mini_time_cleanup) = 300;
 
 if (isServer) then {

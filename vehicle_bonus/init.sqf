@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_bonus
 #include "x_macros.sqf"
 
-// Set bonus vehicle types
+// Bonus vehicle types
 GVAR(vehicle_bonus_types) = [
     "A10_US_EP1",
     "AH1Z",

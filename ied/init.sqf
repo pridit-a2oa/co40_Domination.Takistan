@@ -8,22 +8,22 @@
 #define THIS_MODULE ied
 #include "x_macros.sqf"
 
-// Set possible object types
+// Possible object types
 GVAR(ied_type_objects) = [
     "Land_IED_v1_PMC",
     "Land_IED_v2_PMC"
 ];
 
-// Set the explosion type
+// The explosion type
 GVAR(ied_type_explosion) = "Bo_GBU12_LGB";
 
-// Set amount of score to reward for disarming.
+// Amount of score to reward for disarming
 GVAR(ied_amount_score) = 2;
 
-// Set the maximum unit speed before triggering
+// The maximum unit speed before triggering
 GVAR(ied_trigger_speed) = 5;
 
-// Set minimum and maximum distance thresholds before triggering
+// Minimum and maximum distance thresholds before triggering
 GVAR(ied_trigger_distances) = [2, 6];
 
 if (hasInterface) then {

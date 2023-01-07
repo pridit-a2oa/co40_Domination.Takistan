@@ -4,7 +4,7 @@
 
 #include "x_macros.sqf"
 
-// Set distance within MASH to be able to respawn.
+// Distance within MASH to be able to respawn.
 GVAR(mash_distance_respawn) = 300;
 
 if (!isNil QMODULE(setting)) then {    

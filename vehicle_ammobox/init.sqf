@@ -7,7 +7,7 @@
 #define THIS_MODULE vehicle_ammobox
 #include "x_macros.sqf"
 
-// Set vehicle(s) as ammobox loaders
+// Vehicle(s) as ammobox loaders
 GVAR(vehicle_ammobox_types) = [
     "BMP2_HQ_TK_EP1",
     "M1133_MEV_EP1",

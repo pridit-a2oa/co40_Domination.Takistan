@@ -7,28 +7,28 @@
 #define THIS_MODULE airdrop
 #include "x_macros.sqf"
 
-// Set aircraft type.
+// Aircraft type
 GVAR(airdrop_type_aircraft) = "C130J_US_EP1";
 
-// Set default payloads.
+// Default payloads
 GVAR(airdrop_type_payloads) = [
     ["Ammobox", "USVehicleBox_EP1"],
     ["HMMMX", "HMMWV_DES_EP1"]
 ];
 
-// Set smoke grenade type.
+// Smoke grenade type
 GVAR(airdrop_type_smoke) = "SmokeShellGreen";
 
-// Set minimum distance from base the drop position has to be.
+// Minimum distance from base the drop position has to be
 GVAR(airdrop_distance_base) = 500;
 
-// Set maximum distance the player can call within.
+// Maximum distance the player can call within
 GVAR(airdrop_distance_player) = 300;
 
-// Set initial spawn distance when calling.
+// Initial spawn distance when calling
 GVAR(airdrop_distance_spawn) = 4000;
 
-// Set minimum time (seconds) between requests.
+// Minimum time (seconds) between requests
 GVAR(airdrop_time_cooldown) = 600;
 
 if (hasInterface) then {

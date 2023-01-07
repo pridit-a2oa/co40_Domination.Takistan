@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_lift
 #include "x_macros.sqf"
 
-// Set vehicle(s) as lift types
+// Vehicle(s) as lift types
 GVAR(vehicle_lift_types) = [
     "BAF_Merlin_HC3_D",
     "CH_47F_EP1",

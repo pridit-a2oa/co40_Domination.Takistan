@@ -8,10 +8,10 @@
 #define THIS_MODULE heap
 #include "x_macros.sqf"
 
-// Set object designated as the heap.
+// Object designated as the heap
 GVAR(heap_type) = "Misc_Backpackheap_EP1";
 
-// Set list of backpacks that can be taken.
+// List of backpacks that can be taken
 GVAR(heap_type_backpacks) = [
     "TK_ALICE_Pack_EP1",
     "US_Assault_Pack_EP1",

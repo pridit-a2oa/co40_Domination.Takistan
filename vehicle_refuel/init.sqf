@@ -8,7 +8,7 @@
 #define THIS_MODULE vehicle_refuel
 #include "x_macros.sqf"
 
-// Set vehicle type to replenish from.
+// Vehicle type to replenish from
 GVAR(fuel_type_vehicle) = "MtvrRefuel_DES_EP1";
 
 if (hasInterface) then {

@@ -8,7 +8,7 @@
 #define THIS_MODULE backpack
 #include "x_macros.sqf"
 
-// Set transitional animations for actions to be hidden
+// Transitional animations for actions to be hidden
 GVAR(backpack_animations) = [
     "amovpercmstpsnonwnondnon_amovpercmstpsraswrfldnon",
     "amovpercmstpsraswrfldnon_amovpercmstpsnonwnondnon",

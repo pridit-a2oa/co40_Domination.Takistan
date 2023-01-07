@@ -5,21 +5,21 @@
 #define THIS_MODULE mission_main
 #include "x_macros.sqf"
 
-// Set camp (composition) type along with whether they should be unique.
+// Camp (composition) type along with whether they should be unique
 GVAR(mission_main_type_camps) = [
     ["Camp2_TK_EP1",            false],
     ["MediumTentCamp3_TK_EP1",  true]
 ];
 
-// Set radio tower type.
+// Radio tower type
 GVAR(mission_main_type_radio) = "Land_radar_EP1";
 
-// Set town seed exceptions.
+// Town seed exceptions
 GVAR(mission_main_type_exceptions) = [
     "Shamali"
 ];
 
-// Set possible optional task types.
+// Possible optional task types
 GVAR(mission_main_type_optional) = [
     ["aircraft factory",        ["object",  "TK_WarfareBAircraftFactory_Base_EP1"]],
     ["anti-air radar",          ["object",  "TK_WarfareBAntiAirRadar_Base_EP1"]],
@@ -31,26 +31,26 @@ GVAR(mission_main_type_optional) = [
     ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
 ];
 
-// Set crewed object compositions along with amount and chance they will spawn.
+// Crewed object compositions along with amount and chance they will spawn
 GVAR(mission_main_type_compositions) = [
     ["AntiAir1_TK_EP1", 2, 100],
     ["Firebase1_TK_EP1", 1, 100],
     ["FuelDump1_TK_EP1", 1, 50]
 ];
 
-// Set list of projectiles to negate damage inflicted on objectives.
+// List of projectiles to negate damage inflicted on objectives
 GVAR(mission_main_type_projectiles) = [
     "Sh_81_HE",
     "Sh_122_HE"
 ];
 
-// Set reinforcement types.
+// Reinforcement types
 GVAR(mission_main_type_reinforcements) = [
     ["aircraft", ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]],
     ["infantry", ["Mi17_TK_EP1"]]
 ];
 
-// Set type of units that will be seeded along with amount.
+// Type of units that will be seeded along with amount
 GVAR(mission_main_type_units) = [
     ["infantry",    6],
     ["light",       4],
@@ -58,64 +58,64 @@ GVAR(mission_main_type_units) = [
     ["tank",        3]
 ];
 
-// Set amount of camps per target.
+// Amount of camps per target
 GVAR(mission_main_amount_camps) = 3;
 
-// Set amount of score to reward players capturing a camp upon capture.
+// Amount of score to reward players capturing a camp upon capture
 GVAR(mission_main_amount_camps_score) = 3;
 
-// Set amount of optional objectives per main target.
+// Amount of optional objectives per main target
 GVAR(mission_main_amount_optional) = 1;
 
-// Set amount of radio towers per target.
+// Amount of radio towers per target
 GVAR(mission_main_amount_radios) = 2;
 
-// Set amount of main targets to initially seed.
+// Amount of main targets to initially seed
 GVAR(mission_main_amount_targets) = 1;
 
-// Set distance from base before a city can become a valid target.
+// Distance from base before a city can become a valid target
 GVAR(mission_main_distance_base) = 2600;
 
-// Set distance from flag (as part of a camp) before being able to capture.
+// Distance from flag (as part of a camp) before being able to capture
 GVAR(mission_main_distance_camp) = 20;
 
-// Set minimum distance from current target location a new target location must be.
+// Minimum distance from current target location a new target location must be
 GVAR(mission_main_distance_location) = 2600;
 
-// Set minimum distance any player has to be from a location before eligible as a target.
+// Minimum distance any player has to be from a location before eligible as a target
 GVAR(mission_main_distance_player) = 1000;
 
-// Set minimum distance for reinforcements to spawn in.
+// Minimum distance for reinforcements to spawn in
 GVAR(mission_main_distance_reinforcement) = 4000;
 
-// Set the divisor to determine location repetition based on total amount of main targets in circulation.
+// The divisor to determine location repetition based on total amount of main targets in circulation
 GVAR(mission_main_location_divisor) = 2;
 
-// Set the radius for the main target zone.
+// The radius for the main target zone
 GVAR(mission_main_radius_zone) = 500;
 
-// Set amount of time to capture a camp.
+// Amount of time to capture a camp
 GVAR(mission_main_time_capture) = 45;
 
-// Set amount of time before clearing remaining threats once target is complete.
+// Amount of time before clearing remaining threats once target is complete
 GVAR(mission_main_time_clear) = 600;
 
-// Set the amount of time once meeting the completion criteria to announce.
+// The amount of time once meeting the completion criteria to announce
 GVAR(mission_main_time_complete) = 30;
 
-// Set amount of time to sleep before generating a target.
+// Amount of time to sleep before generating a target
 GVAR(mission_main_time_delay) = 40;
 
-// Set amount of time (since seized) a main target is recycled back for use. Combines with clear time.
+// Amount of time (since seized) a main target is recycled back for use. Combines with clear time
 GVAR(mission_main_time_recycle) = 3600;
 
-// Set amount of time between reinforcements.
+// Amount of time between reinforcements
 GVAR(mission_main_time_reinforce) = 1200;
 
-// Set maximum amount of active armor before considering completion.
+// Maximum amount of active armor before considering completion
 GVAR(mission_main_threshold_armor) = 1;
 
-// Set maximum amount of active infantry before considering completion.
+// Maximum amount of active infantry before considering completion
 GVAR(mission_main_threshold_infantry) = 3;
 
 if (isServer) then {

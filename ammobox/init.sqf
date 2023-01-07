@@ -7,7 +7,7 @@
 #define THIS_MODULE ammobox
 #include "x_macros.sqf"
 
-// Set ammobox types according to faction & dictate full ordnance.
+// Ammobox types according to faction & dictate full ordnance
 GVAR(ammobox_types) = [
     [
         ["BIS_TK", "BIS_TK_INS"],
@@ -22,7 +22,7 @@ GVAR(ammobox_types) = [
     ]
 ];
 
-// Set list of assault rifles
+// List of assault rifles
 GVAR(ammobox_type_rifles_assault) = [
     "AK_74",
     "AK_74_GL",
@@ -81,7 +81,7 @@ GVAR(ammobox_type_rifles_assault) = [
     "Sa58V_CCO_EP1"
 ];
 
-// Set list of sniper rifles
+// List of sniper rifles
 GVAR(ammobox_type_rifles_sniper) = [
     "DMR",
     "KSVK",
@@ -96,7 +96,7 @@ GVAR(ammobox_type_rifles_sniper) = [
     "VSS_Vintorez"
 ];
 
-// Set list of machine guns
+// List of machine guns
 GVAR(ammobox_type_machine_guns) = [
     "MG36",
     "MG36_camo",
@@ -111,7 +111,7 @@ GVAR(ammobox_type_machine_guns) = [
     "RPK_74"
 ];
 
-// Set list of handguns
+// List of handguns
 GVAR(ammobox_type_handguns) = [
     "glock17_EP1",
     "Colt1911",
@@ -126,7 +126,7 @@ GVAR(ammobox_type_handguns) = [
     "UZI_SD_EP1"
 ];
 
-// Set list of launchers
+// List of launchers
 GVAR(ammobox_type_launchers) = [
     "Javelin",
     "Stinger",
@@ -140,14 +140,14 @@ GVAR(ammobox_type_launchers) = [
     "SMAW"
 ];
 
-// Set list of grenade launchers
+// List of grenade launchers
 GVAR(ammobox_type_launchers_grenade) = [
     "Mk13_EP1",
     "M32_EP1",
     "M79_EP1"
 ];
 
-// Set list of British Armed Forces (BAF) weapons
+// List of British Armed Forces (BAF) weapons
 GVAR(ammobox_type_baf) = [
     "BAF_L85A2_RIS_Holo",
     "BAF_L85A2_UGL_Holo",
@@ -166,7 +166,7 @@ GVAR(ammobox_type_baf) = [
     "BAF_NLAW_Launcher"
 ];
 
-// Set list of Private Military Company (PMC) weapons
+// List of Private Military Company (PMC) weapons
 GVAR(ammobox_type_pmc) = [
     "AA12_PMC",
     "m8_Carbine",
@@ -176,7 +176,7 @@ GVAR(ammobox_type_pmc) = [
     "m8_SAW"
 ];
 
-// Set list of gun ammunition
+// List of gun ammunition
 GVAR(ammobox_type_ammo_gun) = [
     "200Rnd_556x45_M249",
     "200Rnd_556x45_L110A1",
@@ -227,7 +227,7 @@ GVAR(ammobox_type_ammo_gun) = [
     "10x_303"
 ];
 
-// Set list of launcher ammunition
+// List of launcher ammunition
 GVAR(ammobox_type_ammo_launcher) = [
     "Javelin",
     "Stinger",
@@ -247,13 +247,13 @@ GVAR(ammobox_type_ammo_launcher) = [
     "SMAW_HEDP"
 ];
 
-// Set list of grenade launcher ammunition
+// List of grenade launcher ammunition
 GVAR(ammobox_type_ammo_launcher_grenade) = [
     "6Rnd_HE_M203",
     "1Rnd_HE_M203"
 ];
 
-// Set list of smoke grenades
+// List of smoke grenades
 GVAR(ammobox_type_ammo_smoke) = [
     "1Rnd_Smoke_GP25",
     "1Rnd_SmokeRed_GP25",
@@ -265,7 +265,7 @@ GVAR(ammobox_type_ammo_smoke) = [
     "1Rnd_SmokeYellow_M203"
 ];
 
-// Set list of flare grenades
+// List of flare grenades
 GVAR(ammobox_type_ammo_flare) = [
     "FlareWhite_GP25",
     "FlareGreen_GP25",
@@ -277,7 +277,7 @@ GVAR(ammobox_type_ammo_flare) = [
     "FlareYellow_M203"
 ];
 
-// Set list of equipment
+// List of equipment
 GVAR(ammobox_type_equipment) = [
     "Binocular",
     "Binocular_Vector",
@@ -285,7 +285,7 @@ GVAR(ammobox_type_equipment) = [
     "NVGoggles"
 ];
 
-// Set list of miscellaneous items
+// List of miscellaneous items
 GVAR(ammobox_type_misc) = [
     "HandGrenade",
     "HandGrenade_West",

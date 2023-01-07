@@ -5,7 +5,7 @@
 #define THIS_MODULE setting
 #include "x_macros.sqf"
 
-// Set valid setting types
+// Valid setting types
 GVAR(setting_type_valid) = [
     [
         "Camera",
@@ -50,7 +50,7 @@ GVAR(setting_type_valid) = [
     ]
 ];
 
-// Set default values corresponding with valid types
+// Default values corresponding with valid types
 GVAR(setting_type_default) = [
     "EXTERNAL",
     10,
