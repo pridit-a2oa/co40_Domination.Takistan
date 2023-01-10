@@ -15,8 +15,12 @@ if (hasInterface) then {
         _marker setMarkerAlphaLocal (_x select 5);
         _marker setMarkerShapeLocal (_x select 6);
 
-        if (count (_x select 7) == 2) then {
-            _marker setMarkerSizeLocal (_x select 7);
+        if !([_x select 7, ""] call BIS_fnc_areEqual) then {
+            _marker setMarkerBrushLocal (_x select 7);
+        };
+
+        if (count (_x select 8) == 2) then {
+            _marker setMarkerSizeLocal (_x select 8);
         };
     } forEach (X_JIPH getVariable QGVAR(markers));
 };

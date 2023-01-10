@@ -31,6 +31,26 @@ while {alive _aircraft && {canMove _aircraft} && {call FUNC(common,time) < _airc
             ] call FUNC(conversation,radio);
             
             _aircraft setVariable [QGVAR(uav_range), true];
+
+            [true, "spawn", [[_position], {
+                private ["_position"];
+
+                PARAMS_1(_position);
+
+                if (isNil QMODULE(marker)) exitWith {};
+
+                [
+                    format ["uav_%1", _position],
+                    _position,
+                    "",
+                    "",
+                    "Default",
+                    0.6,
+                    "ELLIPSE",
+                    "FDiagonal",
+                    [GVAR(uav_distance_scan), GVAR(uav_distance_scan)]
+                ] call FUNC(marker,create);
+            }]] call FUNC(network,mp);
         };
     };
     

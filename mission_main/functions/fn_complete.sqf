@@ -30,6 +30,7 @@ if (!isNil QMODULE(marker)) then {
             "ColorGreen",
             0.6,
             "ELLIPSE",
+            "Solid",
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
     }]] call FUNC(network,mp);
@@ -101,6 +102,7 @@ if (!isNil QMODULE(teleport)) then {
             "ColorYellow",
             0.8,
             "ICON",
+            "",
             [0.6, 0.6]
         ] call FUNC(marker,create);
     }]] call FUNC(network,mp);

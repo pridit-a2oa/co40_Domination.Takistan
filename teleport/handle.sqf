@@ -18,6 +18,7 @@ if (hasInterface) then {
         "ColorBlue",
         0.8,
         "ICON",
+        "",
         [0.6, 0.6]
     ] call FUNC(marker,create);
 };

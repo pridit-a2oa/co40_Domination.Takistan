@@ -99,6 +99,7 @@ if (!isNil QMODULE(task)) then {
             "ColorRed",
             0.8,
             "ELLIPSE",
+            "Solid",
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
     };

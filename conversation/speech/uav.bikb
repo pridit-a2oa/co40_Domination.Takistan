@@ -1,7 +1,7 @@
 class Sentences 
 {
     class InRange {
-        text = "UAV is now in position and broadcasting targets.";
+        text = "UAV is now in position and broadcasting targets in the area.";
         speech[] = {};
         class Arguments {};
     };

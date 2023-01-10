@@ -85,6 +85,10 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
                     [QUOTE(THIS_MODULE), "LowFuel"]
                 ] call FUNC(conversation,radio);
             };
+
+            if !(isNil QMODULE(marker)) then {
+                [format ["uav_%1", _position]] call FUNC(marker,delete);
+            };
             
             [_aircraft] spawn FUNC(server,exitMap);
         };

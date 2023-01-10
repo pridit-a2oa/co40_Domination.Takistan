@@ -17,6 +17,7 @@
 #define PARAMS_6(param1,param2,param3,param4,param5,param6) PARAMS_5(param1,param2,param3,param4,param5); param6 = _this select 5
 #define PARAMS_7(param1,param2,param3,param4,param5,param6,param7) PARAMS_6(param1,param2,param3,param4,param5,param6); param7 = _this select 6
 #define PARAMS_8(param1,param2,param3,param4,param5,param6,param7,param8) PARAMS_7(param1,param2,param3,param4,param5,param6,param7); param8 = _this select 7
+#define PARAMS_9(param1,param2,param3,param4,param5,param6,param7,param8,param9) PARAMS_8(param1,param2,param3,param4,param5,param6,param7,param8); param9 = _this select 8
 
 #define __corePP(module) call compile preprocessFileLineNumbers format ["core\%1\init.sqf", #module]
 #define __coreVM(module) execVM format ["core\%1\init.sqf", #module]

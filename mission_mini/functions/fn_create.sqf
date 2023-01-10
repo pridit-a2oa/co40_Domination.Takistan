@@ -41,6 +41,7 @@ if (!isNil QMODULE(marker)) then {
                 "ColorOrange",
                 1,
                 "ICON",
+                "",
                 [0.8, 0.8]
             ] call FUNC(marker,create);
         };

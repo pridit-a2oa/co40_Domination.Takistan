@@ -96,6 +96,7 @@ switch (_type) do {
                         "ColorBlack",
                         0.9,
                         "ICON",
+                        "",
                         [0.5, 0.5]
                     ] call FUNC(marker,create);
                 };
@@ -161,6 +162,7 @@ switch (_type) do {
                             "ColorBlack",
                             0.9,
                             "ICON",
+                            "",
                             [0.7, 0.9]
                         ] call FUNC(marker,create);
                     };
