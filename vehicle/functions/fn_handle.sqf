@@ -163,6 +163,18 @@ if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
 };
 
+if (_vehicle isKindOf "Air") then {
+    _vehicle addEventHandler ["getout", {
+        private ["_vehicle", "_position", "_unit"];
+
+        PARAMS_3(_vehicle, _position, _unit);
+
+        if (!([_position, "driver"] call BIS_fnc_areEqual) || {!([_unit, player] call BIS_fnc_areEqual)}) exitWith {};
+
+        gameLogic action ["autoHoverCancel", _vehicle];
+    }];
+};
+
 _vehicle addEventHandler ["HandleDamage", {
     private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
 
