@@ -1,8 +1,6 @@
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
-private ["_type", "_missions", "_mission"];
-
-PARAMS_1(_type);
+private ["_missions", "_mission", "_position", "_name", "_handle"];
 
 _missions = GVAR(mission_mini_types);
 
@@ -55,8 +53,7 @@ if !(isNil QMODULE(conversation)) then {
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "Target"],
         [
-            ["1", {}, _type, []],
-            ["2", {}, toLower (_mission select 1), []]
+            ["1", {}, toLower (_mission select 1), []]
         ]
     ] call FUNC(conversation,radio);
 };

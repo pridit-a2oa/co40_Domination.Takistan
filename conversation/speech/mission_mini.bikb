@@ -1,11 +1,10 @@
 class Sentences 
 {
     class Target {
-        text = "We have received %1 that there is an %2 nearby, location has been marked.";
+        text = "We have received intel of an %1 nearby, location marked.";
         speech[] = {NewIntelAvailable};
         class Arguments {
             class 1 {type = "simple";};
-            class 2 {type = "simple";};
         };
     };
 };
