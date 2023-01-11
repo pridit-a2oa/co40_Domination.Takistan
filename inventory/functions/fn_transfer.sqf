@@ -6,7 +6,7 @@ _type = (format [QGVAR(%1), _this select 3]);
 
 _target = _this select 0;
 
-[true, "say", [_target, QGVAR(sound_shuffle), 20]] call FUNC(network,mp);
+[true, "say3D", [_target, QGVAR(sound_shuffle), 20]] call FUNC(network,mp);
 
 _target setVariable [_type, (_target getVariable _type) + 1, true];
 player setVariable [_type, (player getVariable _type) - 1, true];

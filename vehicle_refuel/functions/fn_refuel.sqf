@@ -18,7 +18,7 @@ if (alive player) then {
 for "_i" from 1 to 2 do {
     if (!alive player) exitWith {};
 
-    [true, "say", [player, QGVAR(sound_refuel), 20]] call FUNC(network,mp);
+    [true, "say3D", [player, QGVAR(sound_refuel), 20]] call FUNC(network,mp);
 
     sleep 3;
 

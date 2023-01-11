@@ -99,7 +99,7 @@ while {call FUNC(common,time) < _time} do {
         _vehicle spawn {
             sleep (random 10);
             
-            [true, "say", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
+            [true, "say3D", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
         };
     };
     

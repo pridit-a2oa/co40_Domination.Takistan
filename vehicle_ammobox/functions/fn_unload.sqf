@@ -18,7 +18,7 @@ if (!isNil QMODULE(ammobox)) then {
         false
     ] call FUNC(ammobox,create);
     
-    [true, "say", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
+    [true, "say3D", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
 };
 
 _vehicle setVariable [QGVAR(ammobox), false, true];
