@@ -13,6 +13,6 @@ if (isServer) then {
             GVAR(intel_type_roads) = GVAR(intel_type_roads) + [_x]
         };
     } forEach ((markerPos QGVAR(intel)) nearRoads GVAR(intel_distance_spawn));
-    
+
     __fsm(civilian);
 };

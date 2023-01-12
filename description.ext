@@ -29,20 +29,24 @@ class Header
     playerCountMultipleOf   = 1;
 };
 
-class CfgIdentities {
-    class DHQ_EN1 {
+class CfgIdentities
+{
+    class DHQ_EN1
+    {
         name = "Winters, HQ";
         face = "Default";
         glasses = "None";
         speaker = "Male03EN";
         pitch = 1.0;
     };
-    class DHQ_EN2: DHQ_EN1 {
+    class DHQ_EN2: DHQ_EN1
+    {
         name = "Meyers, HQ";
     };
 };
 
-class RscTitles { 
+class RscTitles
+{ 
     #include "3d\dialog\titles.hpp"
     #include "core\client\dialog\titles.hpp"
     #include "reward\dialog\titles.hpp"
@@ -53,64 +57,77 @@ class RscTitles {
 class CfgRadio
 {
     sounds[] = {};
-    class Exclamation
+    class d_radio_exclaim
     {
-        name    = "Exclamation";
-        sound[] = {"\intel\sounds\exclamation.wss", db - 100, 1.0 };
+        name    = "";
+        sound[] = {"\intel\sounds\exclamation", db - 100, 1.0 };
         title   = "Allahu akbar!";
     };
 };
 
 class CfgSounds {
-    class d_sound_weld {
+    class d_sound_weld
+    {
         sound[]     = {"\base_wreck\sounds\weld.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_task {
+    class d_sound_task
+    {
         sound[]     = {"\core\client\sounds\task.wss", 1, 1.0};
         titles[]    = {};
     };
-    class d_sound_shuffle {
+    class d_sound_shuffle
+    {
         sound[]     = {"\core\client\sounds\shuffle.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_disarm {
+    class d_sound_disarm
+    {
         sound[]     = {"\ied\sounds\disarm.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_tick {
+    class d_sound_tick
+    {
         sound[]     = {"\intel\sounds\tick.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_impressive {
+    class d_sound_impressive
+    {
         sound[]     = {"\perk\sounds\impressive.ogg", 1, 1.0};
         titles[]    = {};
     };
-    class d_sound_capture {
+    class d_sound_capture
+    {
         sound[]     = {"\mission_main\sounds\capture.wss", 1, 1.0};
         titles[]    = {};
     };
-    class d_sound_complete {
+    class d_sound_complete
+    {
         sound[]     = {"\mission_main\sounds\pizzatime.ogg", 1, 1.0};
         titles[]    = {};
     };
-    class d_sound_box {
+    class d_sound_box
+    {
         sound[]     = {"\vehicle_ammobox\sounds\box.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_build {
+    class d_sound_build
+    {
         sound[]     = {"\vehicle_create\sounds\build.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_flip {
+    class d_sound_flip
+    {
         sound[]     = {"\vehicle_flip\sounds\flip.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_refuel {
+    class d_sound_refuel
+    {
         sound[]     = {"\vehicle_refuel\sounds\refuel.wss", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_repair {
+    class d_sound_repair
+    {
         sound[]     = {"\vehicle_repair\sounds\repair.wss", db, 1, 30};
         titles[]    = {};
     };

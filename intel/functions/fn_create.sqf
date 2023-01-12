@@ -54,19 +54,21 @@ gameLogic setVariable [QGVAR(intel), true, true];
                 "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_intel'}"
             ] call RE;
             
-            // if (GVAR(intel_chance_music) > random 100) then {
-            //     [_driver, _car] spawn {
-            //         private ["_driver", "_car"];
+            if (GVAR(intel_chance_music) > floor (random 100)) then {
+                [_driver, _car] spawn {
+                    private ["_driver", "_car"];
                     
-            //         PARAMS_2(_driver, _car);
+                    PARAMS_2(_driver, _car);
                     
-            //         while {_this call FUNC(THIS_MODULE,alive)} do {
-            //             [true, "say", [_car, "RadioMusic_56s", 0]] call FUNC(network,mp);
+                    while {_this call FUNC(THIS_MODULE,alive)} do {
+                        if ({_x distance _car < 1000} count (call FUNC(common,players)) > 0) then {
+                            [true, "say3D", [_car, "RadioMusic_56s", 0]] call FUNC(network,mp);
+                        };
                         
-            //             sleep 56;
-            //         };
-            //     };
-            // };
+                        sleep 60;
+                    };
+                };
+            };
             
             while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {
                 _distance = _car distance (markerPos QGVAR(intel));

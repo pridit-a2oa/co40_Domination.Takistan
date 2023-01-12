@@ -22,13 +22,10 @@ GVAR(intel_type_bomb) = "ARTY_Sh_81_HE";
 GVAR(intel_chance_bomb) = 30;
 
 // Chance unit will be playing music
-// GVAR(intel_chance_music) = 35;
+GVAR(intel_chance_music) = 40;
 
 // Distance from the intel point to spawn in unit
 GVAR(intel_distance_spawn) = 1300;
-
-// Amount of score to deduct for killing a civilian
-GVAR(intel_amount_score) = 10;
 
 // Time between spawning units that can provide intel
 GVAR(intel_time_spawn) = 3600;

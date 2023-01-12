@@ -24,7 +24,7 @@ sleep 5;
 
 if (!alive (driver _vehicle)) exitWith {};
 
-[true, "directSay", [driver _vehicle, "Exclamation"]] call FUNC(network,mp);
+[true, "directSay", [driver _vehicle, QGVAR(radio_exclaim)]] call FUNC(network,mp);
 
 sleep 1.5;
 
