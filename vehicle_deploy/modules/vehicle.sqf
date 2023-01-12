@@ -11,33 +11,35 @@ PARAMS_1(_vehicle);
 if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
 
 if (isServer) then {
+    private ["_expression"];
+
     _vehicle setVariable [QGVAR(cleanup), []];
     _vehicle setVariable [QGVAR(deployed), [false, ""], true];
     _vehicle setVariable [QGVAR(deploy_cooldown), 0];
     _vehicle setVariable [QGVAR(enable_simulation), true, true];
-    
-    _vehicle addMPEventHandler ["MPKilled", {
-        private ["_vehicle", "_deployed"];
-        
-        PARAMS_1(_vehicle);
-        
+
+    _expression = {
+        private ["_unit", "_deployed"];
+            
+        PARAMS_1(_unit);
+
         if !(isServer) exitWith {};
 
-        _deployed = _vehicle getVariable QGVAR(deployed);
+        _deployed = _unit getVariable QGVAR(deployed);
 
         if !(_deployed select 0) exitWith {};
 
-        _vehicle setVariable [QGVAR(deployed), [false, ""], true];
+        _unit setVariable [QGVAR(deployed), [false, ""], true];
     
-        [_vehicle, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
+        [_unit, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
 
         {
             _x setDamage 1;
-        } forEach (nearestObjects [position _vehicle, ["USVehicleBox_EP1"], 8]);
+        } forEach (nearestObjects [position _unit, ["USVehicleBox_EP1"], 8]);
 
         if (isNil QMODULE(conversation)) exitWith {};
 
-        _vehicle spawn {
+        _unit spawn {
             sleep 5;
 
             [
@@ -49,5 +51,8 @@ if (isServer) then {
                 true
             ] call FUNC(conversation,radio);
         };
-    }];
+    };
+
+    _vehicle addEventHandler ["killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };
