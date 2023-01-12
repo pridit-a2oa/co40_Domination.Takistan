@@ -57,9 +57,9 @@ if !(isNil QMODULE(conversation)) then {
             ["Town", {}, _name, [[_name] call FUNC(THIS_MODULE,name)]]
         ]
     ] call FUNC(conversation,radio);
-};
 
-waitUntil {sleep 0.1; GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
+    waitUntil {sleep 0.1; GVAR(crossroad) kbWasSaid [GVAR(crossroad2), "mission_main", "NewTarget", 5]};
+};
 
 if (!isNil QMODULE(task)) then {
     private ["_task"];
