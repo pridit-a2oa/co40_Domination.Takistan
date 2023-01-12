@@ -14,7 +14,6 @@ __cppfln(FUNC(THIS_MODULE,addScore),core\THIS_MODULE\functions\library\fn_addSco
 __cppfln(FUNC(THIS_MODULE,addWeapon),core\THIS_MODULE\functions\library\fn_addWeapon.sqf);
 __cppfln(FUNC(THIS_MODULE,addWeaponTurret),core\THIS_MODULE\functions\library\fn_addWeaponTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,allowDamage),core\THIS_MODULE\functions\library\fn_allowDamage.sqf);
-__cppfln(FUNC(THIS_MODULE,directSay),core\THIS_MODULE\functions\library\fn_directSay.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engineOn.sqf);
 __cppfln(FUNC(THIS_MODULE,execVM),core\THIS_MODULE\functions\library\fn_execVM.sqf);

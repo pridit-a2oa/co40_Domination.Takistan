@@ -10,7 +10,7 @@ sleep 1;
 
 _vehicle spawn {
     while {alive (driver _this)} do {
-        [true, "say", [_this, QGVAR(sound_tick), 20]] call FUNC(network,mp);
+        [true, "say3D", [_this, QGVAR(sound_tick), 20]] call FUNC(network,mp);
         
         if (damage _this > 0.5 || {!canMove _this} || {!([_this] call FUNC(common,canMove))}) exitWith {
             [_this] spawn FUNC(THIS_MODULE,detonate);
@@ -24,7 +24,7 @@ sleep 5;
 
 if (!alive (driver _vehicle)) exitWith {};
 
-[true, "directSay", [driver _vehicle, QGVAR(radio_exclaim)]] call FUNC(network,mp);
+[true, "say3D", [(driver _vehicle), QGVAR(sound_exclaim), 20]] call FUNC(network,mp);
 
 sleep 1.5;
 

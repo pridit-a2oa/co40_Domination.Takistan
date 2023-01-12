@@ -1,1 +1,0 @@
-((_this select 1) select 0) directSay ((_this select 1) select 1);
