@@ -18,7 +18,7 @@ if (GVAR(intel_chance_bomb) > floor (random 100)) exitWith {
 sleep 5;
 
 if (!isNil QMODULE(mission_mini) && {alive _vehicle} && {alive (driver _vehicle)}) then {
-    spawn FUNC(mission_mini,create);
+    [] spawn FUNC(mission_mini,create);
 };
 
 sleep 2;
