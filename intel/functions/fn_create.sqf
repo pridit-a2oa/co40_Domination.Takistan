@@ -1,6 +1,8 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
 
+if (count (call FUNC(common,players)) < 1) exitWith {};
+
 gameLogic setVariable [QGVAR(intel), true, true];
 
 0 spawn {
@@ -26,8 +28,8 @@ gameLogic setVariable [QGVAR(intel), true, true];
     _driver setBehaviour "CARELESS";
     _driver doMove (markerPos QGVAR(intel));
     
-    while {[_driver, _car] call FUNC(THIS_MODULE,alive)} do {        
-        waitUntil {_car distance (markerPos QGVAR(intel)) < 300};
+    while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {      
+        waitUntil {sleep 0.5; _car distance (markerPos QGVAR(intel)) < 300};
         
         if (true) exitWith {
             if !(isNil QMODULE(conversation)) then {
@@ -66,7 +68,7 @@ gameLogic setVariable [QGVAR(intel), true, true];
             //     };
             // };
             
-            while {[_driver, _car] call FUNC(THIS_MODULE,alive)} do {
+            while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {
                 _distance = _car distance (markerPos QGVAR(intel));
                 
                 if (_distance < 50 && {_car getVariable QGVAR(intel)}) then {
