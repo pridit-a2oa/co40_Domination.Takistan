@@ -38,6 +38,8 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 
 player reveal _atv;
 
+__addDead(_atv);
+
 [true, "say3D", [_atv, QGVAR(sound_build), 20]] call FUNC(network,mp);
 [true, "execVM", [[_atv], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
