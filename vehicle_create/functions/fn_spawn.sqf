@@ -1,6 +1,6 @@
 #define THIS_MODULE vehicle_create
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_offset", "_occupied", "_deployer", "_position", "_atv"];
+private ["_vehicle", "_type", "_offset", "_occupied", "_deployer"];
 
 PARAMS_2(_vehicle, _type);
 
@@ -16,33 +16,42 @@ if (count _occupied > 0) then {
 };
 
 if (count _occupied > 0) exitWith {
-    hint "Deploy point is already occupied by a vehicle";
+    if (hasInterface) then {
+        hint "Creation point is already occupied by a vehicle";
+    };
 
     false
 };
 
-_position = _vehicle modelToWorld _offset;
-
-_atv = createVehicle [_type, [_position select 0, _position select 1, 0], [], 0, "NONE"];
-_atv setDir (if (_atv isKindOf "LandVehicle") then {direction _vehicle} else {direction _vehicle - 180});
-_atv setVectorUp (vectorUp _vehicle);
-_atv setPos [_position select 0, _position select 1, 0];
-
-if (!isNil QMODULE(vehicle_abandon)) then {
-    _atv setVariable [QGVAR(abandon), true, true];
+if (hasInterface) then {
+    if !(isServer) then {
+        [gameLogic, "execVM", [_this, __function(spawn)]] call FUNC(network,mp);
+    };
 };
 
-if (!isNil QMODULE(vehicle_respawn)) then {
-    _atv setVariable [QGVAR(respawnable), false, true];
+if (isServer) then {
+    private ["_position", "_new"];
+
+    _position = _vehicle modelToWorld _offset;
+
+    _new = createVehicle [_type, [_position select 0, _position select 1, 0], [], 0, "NONE"];
+    _new setDir (if (_new isKindOf "LandVehicle") then {direction _vehicle} else {direction _vehicle - 180});
+    _new setVectorUp (vectorUp _vehicle);
+    _new setPos [_position select 0, _position select 1, 0];
+    _new engineOn true;
+
+    if (!isNil QMODULE(vehicle_abandon)) then {
+        _new setVariable [QGVAR(abandon), true, true];
+    };
+
+    if (!isNil QMODULE(vehicle_respawn)) then {
+        _new setVariable [QGVAR(respawnable), false, true];
+    };
+
+    [true, "say3D", [_new, QGVAR(sound_build), 20]] call FUNC(network,mp);
+    [true, "execVM", [[_new], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+
+    __addDead(_new);
+
+    [true, "reveal", _new] call FUNC(network,mp);
 };
-
-player reveal _atv;
-
-__addDead(_atv);
-
-[true, "say3D", [_atv, QGVAR(sound_build), 20]] call FUNC(network,mp);
-[true, "execVM", [[_atv], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-
-closeDialog 0;
-
-true

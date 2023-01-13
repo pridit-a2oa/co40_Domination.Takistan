@@ -58,6 +58,8 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
                 true
             };
 
+            closeDialog 0;
+
             false
         };
     };
