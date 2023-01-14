@@ -51,8 +51,8 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
             };
 
             if (isNil {_vehicle getVariable QGVAR(loadout)}) then {
-                _type = _loadouts select (_loadouts find "Standard");
-                _index = _loadouts find "Standard";
+                _type = _loadouts select (_loadouts find "Default");
+                _index = _loadouts find "Default";
             };
 
             _vehicle setVariable [
