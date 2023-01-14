@@ -1473,7 +1473,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Fort_Watchtower_EP1";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}]; ";
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item61
 		{
@@ -1483,7 +1483,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Fort_Watchtower_EP1";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}]; ";
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item62
 		{
@@ -3414,6 +3414,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item269
 		{
@@ -3424,6 +3425,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item270
 		{
@@ -3434,6 +3436,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item271
 		{
@@ -3455,6 +3458,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item273
 		{
@@ -3465,6 +3469,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item274
 		{
@@ -3475,6 +3480,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item275
 		{
@@ -3496,6 +3502,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item277
 		{
@@ -3506,6 +3513,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item278
 		{
@@ -3516,6 +3524,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item279
 		{
@@ -3526,6 +3535,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item280
 		{
@@ -3536,6 +3546,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item281
 		{
@@ -3546,6 +3557,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item282
 		{
@@ -3556,6 +3568,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 	};
 	class Markers
