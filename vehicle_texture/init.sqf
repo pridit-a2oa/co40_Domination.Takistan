@@ -2,6 +2,9 @@
  * Vehicle Texture Module
  *
  * Description: This module enables players to switch textures of vehicles.
+ * 
+ * Attribution: Stiltman (A-10 textures)
+ * 
  */
 
 #define THIS_MODULE vehicle_texture
@@ -10,9 +13,14 @@
 // Valid types of vehicles as well as possible textures
 GVAR(vehicle_texture_types) = [
     ["A10_US_EP1", [
-        ["Black Shark", [
-            "vehicle_texture\textures\a10_01_co_black_shark",
+        ["Black", [
+            "vehicle_texture\textures\a10_01_co_black",
             "vehicle_texture\textures\a10_02_co_black"
+        ]],
+
+        ["Winter", [
+            "vehicle_texture\textures\a10_01_co_winter",
+            "vehicle_texture\textures\a10_02_co_winter"
         ]]
     ]]
 ];
