@@ -19,7 +19,7 @@ _name = (_vehicle getVariable QGVAR(texture)) select 0;
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _index = _menu lbAdd format [
-    "Change Texture (%1/%2: %3)",
+    "Switch Texture (%1/%2: %3)",
     (_textures find _name) + 1,
     count _textures,
     _name
