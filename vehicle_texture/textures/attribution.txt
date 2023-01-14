@@ -1,0 +1,7 @@
+A-10 Textures:
+- a10_01_co_black.paa
+- a10_01_co_winter.paa
+- a10_02_co_black.paa
+- a10_02_co_winter.paa
+
+Credits: EddyD, Stiltman - https://forums.bohemia.net/forums/topic/90900-sti-a-10/

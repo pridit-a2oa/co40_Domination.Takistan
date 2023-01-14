@@ -3,8 +3,6 @@
  *
  * Description: This module enables players to switch textures of vehicles.
  * 
- * Attribution: Stiltman (A-10 textures)
- * 
  */
 
 #define THIS_MODULE vehicle_texture
