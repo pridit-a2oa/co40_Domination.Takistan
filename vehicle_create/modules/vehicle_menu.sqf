@@ -18,6 +18,6 @@ _vehicles = ([1, _types] call FUNC(common,arrayValues)) select _type;
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 {
-    _index = _menu lbAdd (format ["Deploy %1", [_x] call FUNC(vehicle,name)]);
+    _index = _menu lbAdd (format ["Unpack %1", [_x] call FUNC(vehicle,name)]);
     _menu lbSetData [_index, format ["[""create"", ""%1""]", _x]];
 } forEach _vehicles;

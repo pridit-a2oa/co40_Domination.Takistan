@@ -16,8 +16,6 @@ _string = "Ammobox";
 
 if (!isNil "_ammobox" && {_ammobox}) then {
     _string = "Unload " + _string;
-    
-    DIALOG("X_VEHICLE_MENU_DIALOG", 1202) ctrlSetTextColor [0.6, 0.5, 0.3, 1];
 } else {
     _string = "Load " + _string;
 };
