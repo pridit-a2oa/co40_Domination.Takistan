@@ -13,25 +13,18 @@ _type = [_vehicle] call FUNC(THIS_MODULE,type);
 if (typeName _type == "SCALAR") exitWith {};
 
 if (isServer) then {
-    private ["_texture"];
+    private ["_type", "_texture"];
 
-    _texture = ([0, GVAR(vehicle_texture_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
+    _type = ([0, GVAR(vehicle_texture_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 
-    _vehicle setVariable [
-        QGVAR(texture),
-        ((GVAR(vehicle_texture_types) select _texture) select 1) select 0,
-        true
-    ];
+    _texture = ((GVAR(vehicle_texture_types) select _type) select 1) select 0;
+    _texture = if ([typeName _texture, "ARRAY"] call BIS_fnc_areEqual) then {_texture select 0} else {_texture};
+
+    _vehicle setVariable [QGVAR(texture), _texture, true];
 };
 
 if (hasInterface) then {
-    private ["_texture"];
-
     waitUntil {!isNil {_vehicle getVariable QGVAR(texture)}};
 
-    _texture = (_vehicle getVariable QGVAR(texture)) select 1;
-
-    {
-        _vehicle setObjectTexture [_forEachIndex, format ["%1.paa", _x]];
-    } forEach _texture;
+    [_vehicle] call FUNC(THIS_MODULE,switch);
 };

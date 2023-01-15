@@ -38,32 +38,26 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
     _texture = _find select 1;
 
     {
-        private ["_index", "_type", "_new"];
+        private ["_index", "_colour", "_type"];
 
         _index = (_forEachIndex + 1);
+        _colour = if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {_x select 0} else {_x};
 
-        if (_x == (_vehicle getVariable QGVAR(texture)) select 0) exitWith {
+        if (_colour == _vehicle getVariable QGVAR(texture)) exitWith {
             _type = _textures select _index;
+
+            if ([typeName _type, "ARRAY"] call BIS_fnc_areEqual) then {
+                _type = _type select 0;
+            };
 
             if (count _textures == _index) then {
                 _type = _textures select 0;
                 _index = 0;
             };
 
-            _new = ([1, (GVAR(vehicle_texture_types) select _texture) select 1] call FUNC(common,arrayValues)) select _index;
-
-            _vehicle setVariable [
-                QGVAR(texture),
-                [
-                    _type,
-                    _new
-                ],
-                true
-            ];
-
-            {
-                [true, "setObjectTexture", [_vehicle, [_forEachIndex, format ["%1.paa", _x]]]] call FUNC(network,mp);
-            } forEach _new;
+            _vehicle setVariable [QGVAR(texture), _type, true];
+            
+            [true, "execVM", [[_vehicle, _type], __function(switch)]] call FUNC(network,mp);
         };
     } forEach _textures;
 };
