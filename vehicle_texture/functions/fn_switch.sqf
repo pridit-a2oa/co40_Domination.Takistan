@@ -21,8 +21,6 @@ _textures = [];
 
 _texture = ((GVAR(vehicle_texture_types) select (_find select 1)) select 1) select (_textures find _type);
 
-hint format ["%1", _texture];
-
 if ([typeName (_texture select 0), "STRING"] call BIS_fnc_areEqual || {[typeName (_texture select 0), "ARRAY"] call BIS_fnc_areEqual && {isClass ((_texture select 0) select 1)}}) then {
     {
         _vehicle setObjectTexture [_forEachIndex, format ["%1.paa", _x]];
