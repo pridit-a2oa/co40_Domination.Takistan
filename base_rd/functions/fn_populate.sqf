@@ -19,7 +19,7 @@ _list = DIALOG("X_RD_DIALOG", 100);
     _progress = [_x, "progress"] call FUNC(THIS_MODULE,item);
     _time = [_x, "time"] call FUNC(THIS_MODULE,item);
 
-    _list lbAdd (if (_progress select 0 > 0) then {[_x] call FUNC(vehicle,name)} else {"???"});
+    _list lbAdd (if (_progress select 0 > 0) then {[_x] call FUNC(vehicle,name)} else {"-- UNKNOWN --"});
     _list lbSetData [_forEachIndex, _x];
     _list lbSetValue [_forEachIndex, (_time select 1) + _forEachIndex];
 
