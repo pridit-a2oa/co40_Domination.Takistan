@@ -20,7 +20,7 @@ if (!isNil "_ammobox" && {_ammobox}) then {
     _string = "Load " + _string;
 
     DIALOG("X_VEHICLE_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
-        "<t size='0.8'>&#160;</t><br/><t color='#c54a30' size='1' align='left' valign='bottom'>%1</t>",
+        "<t size='0.9'>&#160;</t><br/><t color='#c54a30' size='1' align='left' valign='bottom'>%1</t>",
         "(!) No ammobox loaded"
     ];
 };

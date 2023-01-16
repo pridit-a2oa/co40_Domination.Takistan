@@ -62,7 +62,7 @@ class XD_SettingDialog {
             w = 0.276788;
             h = 0.108562;
             size = 0.025;
-            colorBackground[] = {0.173, 0.157, 0.094, 1};
+            colorBackground[] = {0.173, 0.157, 0.094, 0.75};
         };
         class TextValue: X3_RscText
         {

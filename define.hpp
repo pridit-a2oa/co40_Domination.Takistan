@@ -75,7 +75,7 @@ class BBRscStructuredText {
     colorText[] = {0.8784,0.8471,0.651,1};
     class Attributes {
         font = "Zeppelin32";
-        color = "#e0d8a6";
+        color = "#a3936d";
         align = "center";
         valign = "middle";
         shadow = 1;

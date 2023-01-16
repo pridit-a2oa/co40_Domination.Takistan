@@ -35,7 +35,7 @@ _menu lbSetData [_index, "texture"];
 
 if ([_texture, "*"] call KRON_StrInStr) then {
     DIALOG("X_VEHICLE_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
-        "<t size='0.8'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
+        "<t size='0.9'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
         "* Requires addon"
     ];
 };
