@@ -37,6 +37,10 @@ if (!isNil QMODULE(vehicle_deploy)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_deploy)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(vehicle_flip)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_flip)] call BIS_fnc_arrayPush;
+};
+
 if (!isNil QMODULE(vehicle_loadout)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_loadout)] call BIS_fnc_arrayPush;
 };

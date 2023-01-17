@@ -102,10 +102,6 @@ if (hasInterface) then {
         [_vehicle] __submodulePP(vehicle_3d);
     };
     
-    if (!isNil QMODULE(vehicle_flip)) then {
-        [_vehicle] __submodulePP(vehicle_flip);
-    };
-    
     if (!isNil QMODULE(vehicle_lift)) then {
         [_vehicle] __submodulePP(vehicle_lift);
     };
