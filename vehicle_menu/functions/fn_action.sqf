@@ -65,25 +65,25 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
-    if !(isNil QMODULE(inventory_fuel)) then {
+    if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_fuel)}) then {
         case "inv_fuel_can": {
-            call FUNC(inventory_fuel,replenish);
+            ["fuel_cans"] call FUNC(inventory,replenish);
 
             true
         };
     };
 
-    if !(isNil QMODULE(inventory_medical)) then {
+    if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
         case "inv_medkit": {
-            call FUNC(inventory_medical,replenish);
+            ["medkits"] call FUNC(inventory,replenish);
 
             true
         };
     };
 
-    if !(isNil QMODULE(inventory_repair)) then {
+    if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
         case "inv_repair_kit": {
-            call FUNC(inventory_repair,replenish);
+            ["repair_kits"] call FUNC(inventory,replenish);
 
             true
         };

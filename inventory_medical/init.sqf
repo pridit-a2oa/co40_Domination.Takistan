@@ -10,6 +10,4 @@ if (hasInterface) then {
     player setVariable [QGVAR(medkits_max), 0, true];
 };
 
-__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
-
 MODULE(THIS_MODULE) = true;

@@ -19,6 +19,7 @@ GVAR(inventory_type_visible) = [];
 GVAR(inventory_amount_slots) = 24;
 
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
+__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,transfer),THIS_MODULE\functions\fn_transfer.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);

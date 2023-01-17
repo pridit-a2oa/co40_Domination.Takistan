@@ -10,6 +10,4 @@ if (hasInterface) then {
     player setVariable [QGVAR(fuel_cans_max), 0];
 };
 
-__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
-
 MODULE(THIS_MODULE) = true;
