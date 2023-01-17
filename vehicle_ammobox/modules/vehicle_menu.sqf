@@ -3,13 +3,11 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_menu", "_ammobox", "_string", "_index"];
+private ["_vehicle", "_ammobox", "_string"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
-
-_menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
+if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {false};
 
 _ammobox = _vehicle getVariable QGVAR(ammobox);
 _string = "Ammobox";
@@ -25,5 +23,6 @@ if (!isNil "_ammobox" && {_ammobox}) then {
     ];
 };
 
-_index = _menu lbAdd _string;
-_menu lbSetData [_index, "ammobox"];
+[_string, "ammobox"] call FUNC(vehicle_menu,populate);
+
+true

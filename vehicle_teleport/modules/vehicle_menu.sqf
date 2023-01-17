@@ -3,13 +3,12 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_menu", "_index"];
+private ["_vehicle"];
 
-PARAMS_2(_vehicle);
+PARAMS_1(_vehicle);
 
-if (!isNil QMODULE(perk) && {!(player getVariable QGVAR(teleport))}) exitWith {};
+if (!isNil QMODULE(perk) && {!(player getVariable QGVAR(teleport))}) exitWith {false};
 
-_menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
+["Fast Travel", "teleport"] call FUNC(vehicle_menu,populate);
 
-_index = _menu lbAdd "Fast Travel";
-_menu lbSetData [_index, "teleport"];
+true

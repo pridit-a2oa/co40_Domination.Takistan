@@ -3,18 +3,17 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_menu", "_packed", "_string", "_fold", "_index"];
+private ["_vehicle", "_packed", "_string", "_fold"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {};
-
-_menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
+if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {false};
 
 _packed = _vehicle getVariable QGVAR(packed);
 
 _string = if (!isNil "_packed" && {_packed}) then {"Unfold"} else {"Fold"};
 _fold = if (_vehicle isKindOf "Plane") then {"Wings"} else {"Main Rotor"};
 
-_index = _menu lbAdd (_string + " " + _fold);
-_menu lbSetData [_index, "pack"];
+[_string + " " + _fold, "pack"] call FUNC(vehicle_menu,populate);
+
+true

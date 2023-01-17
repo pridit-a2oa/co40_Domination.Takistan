@@ -3,13 +3,12 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_menu", "_index"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_ramp_types) find (typeOf _vehicle) == -1) exitWith {};
+if (GVAR(vehicle_ramp_types) find (typeOf _vehicle) == -1) exitWith {false};
 
-_menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
+["Raise/Lower Ramp", "ramp"] call FUNC(vehicle_menu,populate);
 
-_index = _menu lbAdd "Raise/Lower Ramp";
-_menu lbSetData [_index, "ramp"];
+true
