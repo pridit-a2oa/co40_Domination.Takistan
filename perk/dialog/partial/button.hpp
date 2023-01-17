@@ -85,7 +85,7 @@ class PerkButton_General_9: XD_LinkButtonUpgradeBase
     y = 0.216364;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Flip any overturned vehicle";
+    tooltip = "Set any overturned vehicle upright";
     action = "[0,9] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_1: XD_LinkButtonUpgradeBase
