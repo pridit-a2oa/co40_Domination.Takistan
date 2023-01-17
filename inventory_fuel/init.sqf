@@ -7,7 +7,7 @@
 
 if (hasInterface) then {
     player setVariable [QGVAR(fuel_cans), 0];
-    player setVariable [QGVAR(fuel_cans_max), 0];
+    player setVariable [QGVAR(fuel_cans_max), 1];
 };
 
 MODULE(THIS_MODULE) = true;

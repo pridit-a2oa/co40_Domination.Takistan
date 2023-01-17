@@ -15,9 +15,6 @@ GVAR(vehicle_refuel_types) = [
 
 if (hasInterface) then {
     GVAR(refuelling) = false;
-    
-    player setVariable [QGVAR(fuel_cans), 0];
-    player setVariable [QGVAR(fuel_cans_max), 1];
 };
 
 __cppfln(FUNC(THIS_MODULE,refuel),THIS_MODULE\functions\fn_refuel.sqf);

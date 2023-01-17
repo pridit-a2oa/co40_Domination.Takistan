@@ -4,7 +4,7 @@ private ["_target"];
 PARAMS_1(_target);
 
 if (GVAR(repairing)) exitWith {false};
-if (player getVariable QGVAR(repair_kits) < 1) exitWith {false};
+if (!isNil QMODULE(inventory_repair) && {player getVariable QGVAR(repair_kits) < 1}) exitWith {false};
 
 if (!alive _target) exitWith {false};
 if (!(vehicle player == player)) exitWith {false};

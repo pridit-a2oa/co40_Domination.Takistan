@@ -3,7 +3,10 @@ private ["_sound", "_perk"];
 
 GVAR(healing) = true;
 
-player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) - 1, true];
+if !(isNil QMODULE(inventory_medkits)) then {
+    player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) - 1, true];
+};
+
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 2;
