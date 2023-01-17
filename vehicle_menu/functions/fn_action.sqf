@@ -145,6 +145,16 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
+    if !(isNil QMODULE(vehicle_repair)) then {
+        case "repair": {
+            closeDialog 0;
+            
+            [_vehicle] spawn FUNC(vehicle_repair,repair);
+
+            false
+        };
+    };
+
     if !(isNil QMODULE(vehicle_teleport)) then {
         case "teleport": {
             closeDialog 0;

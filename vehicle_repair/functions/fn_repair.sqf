@@ -4,6 +4,8 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
+
 GVAR(repairing) = true;
 
 if !(isNil QMODULE(inventory_repair)) then {

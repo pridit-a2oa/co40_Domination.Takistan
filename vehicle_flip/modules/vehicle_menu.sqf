@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
+if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {false};
 
 [
     format ["%1Unflip", if !(isNil QMODULE(perk)) then {"Perk: "} else {""}],
