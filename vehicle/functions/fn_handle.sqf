@@ -121,10 +121,6 @@ if (hasInterface) then {
     if (!isNil QMODULE(vehicle_protection)) then {
         [_vehicle] __submodulePP(vehicle_protection);
     };
-
-    if (!isNil QMODULE(vehicle_refuel)) then {
-        [_vehicle] __submodulePP(vehicle_refuel);
-    };
     
     if (!isNil QMODULE(vehicle_repair)) then {
         [_vehicle] __submodulePP(vehicle_repair);
