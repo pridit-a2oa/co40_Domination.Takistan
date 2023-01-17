@@ -9,6 +9,9 @@ PARAMS_1(_vehicle);
 
 if (!isNil QMODULE(perk) && {!(player getVariable QGVAR(teleport))}) exitWith {false};
 
-["Perk: Fast Travel", "teleport"] call FUNC(vehicle_menu,populate);
+[
+    format ["%1Fast Travel", if !(isNil QMODULE(perk)) then {"Perk: "} else {""}],
+    "teleport"
+] call FUNC(vehicle_menu,populate);
 
 true
