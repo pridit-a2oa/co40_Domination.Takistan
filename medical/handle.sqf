@@ -19,7 +19,7 @@ if (hasInterface) then {
             false,
             true,
             "",
-            "player == _target && {player == vehicle player} && {(position player) select 2 < 1} && {player getVariable 'd_medkits' > 0} && {!d_healing} && {(damage player >= d_medical_threshold_damage) || !(canStand player)}"
+            "call d_fnc_medical_valid"
         ];
     };
 };

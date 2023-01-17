@@ -24,13 +24,11 @@ GVAR(medical_player_action) = [
     "['medkits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
-// Damage threshold
-GVAR(medical_threshold_damage) = 0.15;
-
 if (hasInterface) then {
     GVAR(healing) = false;
 };
 
 __cppfln(FUNC(THIS_MODULE,heal),THIS_MODULE\functions\fn_heal.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

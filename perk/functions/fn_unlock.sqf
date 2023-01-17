@@ -8,7 +8,7 @@ switch (_tier) do {
     case 0: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(inventory_medkits)) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) + 1, true];
                     player setVariable [QGVAR(medkits_max), (player getVariable QGVAR(medkits_max)) + 1, true];
                 };
@@ -295,7 +295,7 @@ switch (_tier) do {
             };
             
             case 2: {
-                if (!isNil QMODULE(inventory_medkits)) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) + 1, true];
                     player setVariable [QGVAR(medkits_max), (player getVariable QGVAR(medkits_max)) + 1, true];
                 };
@@ -315,7 +315,7 @@ switch (_tier) do {
             };
             
             case 5: {
-                if (!isNil QMODULE(inventory_medkits)) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(medkits), (player getVariable QGVAR(medkits)) + 1, true];
                     player setVariable [QGVAR(medkits_max), (player getVariable QGVAR(medkits_max)) + 1, true];
                 };
