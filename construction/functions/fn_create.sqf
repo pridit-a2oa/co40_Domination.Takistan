@@ -81,8 +81,6 @@ if ([typeOf _object, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_are
     [_object, "setAmmoCargo", 0] call FUNC(network,mp);
 };
 
-[true, "execVM", [[_name, _object], __function(action)]] call FUNC(network,mp);
-
 [gameLogic, "spawn", [[_object], {
     private ["_object"];
 
