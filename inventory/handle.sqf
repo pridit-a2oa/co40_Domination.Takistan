@@ -5,16 +5,16 @@
 #define THIS_MODULE inventory
 #include "x_macros.sqf"
 
-if (!isNil QMODULE(medical)) then {
-    __submodulePP(medical);
+if (!isNil QMODULE(inventory_medical)) then {
+    __submodulePP(inventory_medical);
 };
 
-if (!isNil QMODULE(vehicle_repair)) then {
-    __submodulePP(vehicle_repair);
+if (!isNil QMODULE(inventory_repair)) then {
+    __submodulePP(inventory_repair);
 };
 
-if (!isNil QMODULE(vehicle_refuel)) then {
-    __submodulePP(vehicle_refuel);
+if (!isNil QMODULE(inventory_fuel)) then {
+    __submodulePP(inventory_fuel);
 };
 
 if (!isNil QMODULE(fortification)) then {

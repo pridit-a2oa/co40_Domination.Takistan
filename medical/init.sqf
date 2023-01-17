@@ -7,6 +7,11 @@
 #define THIS_MODULE medical
 #include "x_macros.sqf"
 
+// Vehicles designated with medical capacity
+GVAR(medical_type_vehicles) = [
+    "HMMWV_Ambulance_DES_EP1"
+];
+
 // AddAction parameters that need to apply to existing clients & JIP
 GVAR(medical_player_action) = [
     "Give Medkit" call FUNC(common,BrownText),
@@ -24,12 +29,8 @@ GVAR(medical_threshold_damage) = 0.15;
 
 if (hasInterface) then {
     GVAR(healing) = false;
-    
-    player setVariable [QGVAR(medkits), 0, true];
-    player setVariable [QGVAR(medkits_max), 0, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,heal),THIS_MODULE\functions\fn_heal.sqf);
-__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 
 MODULE(THIS_MODULE) = true;

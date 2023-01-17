@@ -20,10 +20,10 @@ _name = (_vehicle getVariable QGVAR(loadout)) select 0;
 
 [
     format [
-        "Switch Loadout (%1/%2: %3)",
+        "Loadout: %1 (%2/%3)",
+        _name,
         (_loadouts find _name) + 1,
-        count _loadouts,
-        _name
+        count _loadouts
     ],
     "loadout"
 ] call FUNC(vehicle_menu,populate);

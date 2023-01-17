@@ -26,10 +26,10 @@ _name = _vehicle getVariable QGVAR(texture);
 
 [
     format [
-        "Switch Texture (%1/%2: %3)",
+        "Texture: %1 (%2/%3)",
+        _name,
         (_textures find _name) + 1,
-        count _textures,
-        _name
+        count _textures
     ],
     "texture"
 ] call FUNC(vehicle_menu,populate);

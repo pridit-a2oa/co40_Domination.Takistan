@@ -1,13 +1,13 @@
 /**
- * Vehicle Repair Module - Inventory Submodule
+ * Inventory Medical Module - Inventory Submodule
  */
 
 #include "x_macros.sqf"
 
 GVAR(inventory_types) = GVAR(inventory_types) + [
-    ["Repair Kit", "repair_kits"]
+    ["Medkit", "medkits"]
 ];
 
 GVAR(inventory_type_visible) = GVAR(inventory_type_visible) + [
-    ["repair_kits", "ca\ui\data\ui_action_repair_ca"]
+    ["medkits", "ca\ui\data\cursor_firstaid_ca"]
 ];

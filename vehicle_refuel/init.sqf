@@ -8,8 +8,10 @@
 #define THIS_MODULE vehicle_refuel
 #include "x_macros.sqf"
 
-// Vehicle type to replenish from
-GVAR(fuel_type_vehicle) = "MtvrRefuel_DES_EP1";
+// Vehicles designated with refuel capacity
+GVAR(vehicle_refuel_types) = [
+    "MtvrRefuel_DES_EP1"
+];
 
 if (hasInterface) then {
     GVAR(refuelling) = false;
@@ -19,7 +21,6 @@ if (hasInterface) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,refuel),THIS_MODULE\functions\fn_refuel.sqf);
-__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

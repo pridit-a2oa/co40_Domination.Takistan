@@ -8,8 +8,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_menu_types) find (typeOf _vehicle) == -1) exitWith {};
-
 _vehicle addAction [
     format ["%1 Menu" call FUNC(common,YellowText),
     [typeOf (_vehicle)] call FUNC(vehicle,name)],

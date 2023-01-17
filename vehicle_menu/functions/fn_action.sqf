@@ -1,3 +1,4 @@
+#define THIS_MODULE vehicle_menu
 #include "x_macros.sqf"
 private ["_vehicle", "_menu", "_lbCurSel", "_lbData", "_refresh"];
 
@@ -24,15 +25,27 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
 
             _ammobox = _vehicle getVariable QGVAR(ammobox);
 
+            closeDialog 0;
+
             if (!isNil "_ammobox" && {_ammobox}) exitWith {
                 [_vehicle] call FUNC(vehicle_ammobox,unload);
 
+                false
+            };
+
+            !([_vehicle] call FUNC(vehicle_ammobox,load));
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_create)) then {
+        case "create": {
+            if !([_vehicle, _lbData select 1] call FUNC(vehicle_create,spawn)) exitWith {
                 true
             };
-            
-            [_vehicle] call FUNC(vehicle_ammobox,load);
 
-            true
+            closeDialog 0;
+
+            false
         };
     };
 
@@ -52,15 +65,27 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
-    if !(isNil QMODULE(vehicle_create)) then {
-        case "create": {
-            if !([_vehicle, _lbData select 1] call FUNC(vehicle_create,spawn)) exitWith {
-                true
-            };
+    if !(isNil QMODULE(inventory_fuel)) then {
+        case "inv_fuel_can": {
+            call FUNC(inventory_fuel,replenish);
 
-            closeDialog 0;
+            true
+        };
+    };
 
-            false
+    if !(isNil QMODULE(inventory_medical)) then {
+        case "inv_medkit": {
+            call FUNC(inventory_medical,replenish);
+
+            true
+        };
+    };
+
+    if !(isNil QMODULE(inventory_repair)) then {
+        case "inv_repair_kit": {
+            call FUNC(inventory_repair,replenish);
+
+            true
         };
     };
 
@@ -102,6 +127,16 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
+    if !(isNil QMODULE(vehicle_refuel)) then {
+        case "refuel": {
+            closeDialog 0;
+            
+            [_vehicle] spawn FUNC(vehicle_refuel,refuel);
+
+            false
+        };
+    };
+
     if !(isNil QMODULE(vehicle_teleport)) then {
         case "teleport": {
             closeDialog 0;
@@ -125,4 +160,4 @@ if !(_refresh) exitWith {};
 
 closeDialog 0;
 
-[_vehicle] call FUNC(vehicle_menu,show);
+[_vehicle] call FUNC(THIS_MODULE,show);

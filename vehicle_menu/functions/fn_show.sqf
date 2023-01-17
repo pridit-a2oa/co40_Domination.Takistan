@@ -15,16 +15,36 @@ DIALOG("X_VEHICLE_MENU_DIALOG", 1201) ctrlSetText (getText (configFile >> "cfgVe
 
 _valid = [];
 
+if (!isNil QMODULE(inventory_fuel)) then {
+    [_valid, [_vehicle] __submodulePP(inventory_fuel)] call BIS_fnc_arrayPush;
+};
+
+if (!isNil QMODULE(inventory_medical)) then {
+    [_valid, [_vehicle] __submodulePP(inventory_medical)] call BIS_fnc_arrayPush;
+};
+
+if (!isNil QMODULE(inventory_repair)) then {
+    [_valid, [_vehicle] __submodulePP(inventory_repair)] call BIS_fnc_arrayPush;
+};
+
+if (!isNil QMODULE(vehicle_create)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
+        [_valid, [_vehicle] __submodulePP(vehicle_create)] call BIS_fnc_arrayPush;
+    };
+};
+
 if (!isNil QMODULE(vehicle_deploy)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_deploy)] call BIS_fnc_arrayPush;
 };
 
-if (!isNil QMODULE(vehicle_ammobox)) then {
-    [_valid, [_vehicle] __submodulePP(vehicle_ammobox)] call BIS_fnc_arrayPush;
-};
-
 if (!isNil QMODULE(vehicle_loadout)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_loadout)] call BIS_fnc_arrayPush;
+};
+
+if (!isNil QMODULE(vehicle_teleport)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
+        [_valid, [_vehicle] __submodulePP(vehicle_teleport)] call BIS_fnc_arrayPush;
+    };
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {
@@ -35,25 +55,23 @@ if (!isNil QMODULE(vehicle_ramp)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_ramp)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(vehicle_refuel)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_refuel)] call BIS_fnc_arrayPush;
+};
+
 if (!isNil QMODULE(vehicle_texture)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_texture)] call BIS_fnc_arrayPush;
 };
 
-if (!isNil QMODULE(vehicle_create)) then {
-    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
-        [_valid, [_vehicle] __submodulePP(vehicle_create)] call BIS_fnc_arrayPush;
-    };
+if (!isNil QMODULE(vehicle_ammobox)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_ammobox)] call BIS_fnc_arrayPush;
 };
 
-if (!isNil QMODULE(vehicle_teleport)) then {
-    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
-        [_valid, [_vehicle] __submodulePP(vehicle_teleport)] call BIS_fnc_arrayPush;
-    };
-};
-
-if ({str (_x) == "false"} count _valid == count _valid) then {
+if ({str (_x) == "false"} count _valid == count _valid) exitWith {
     DIALOG("X_VEHICLE_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
         "<t size='0.9'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
         "No options available"
     ];
 };
+
+lbSort (DIALOG("X_VEHICLE_MENU_DIALOG", 1500));

@@ -9,6 +9,6 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ramp_types) find (typeOf _vehicle) == -1) exitWith {false};
 
-["Raise/Lower Ramp", "ramp"] call FUNC(vehicle_menu,populate);
+["Ramp: Lower/Raise", "ramp"] call FUNC(vehicle_menu,populate);
 
 true

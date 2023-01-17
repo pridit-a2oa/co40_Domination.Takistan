@@ -16,7 +16,7 @@ if (isServer) then {
 
 if (hasInterface) then {
     _vehicle addAction [
-        "Raise/Lower Ramp" call FUNC(common,YellowText),
+        "Lower/Raise Ramp" call FUNC(common,YellowText),
         FUNCTION(THIS_MODULE,toggle),
         [],
         10,

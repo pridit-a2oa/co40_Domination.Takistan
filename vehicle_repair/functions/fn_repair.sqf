@@ -6,7 +6,10 @@ PARAMS_1(_vehicle);
 
 GVAR(repairing) = true;
 
-player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
+if !(isNil QMODULE(inventory_repair)) then {
+    player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
+};
+
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 2;

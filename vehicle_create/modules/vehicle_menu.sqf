@@ -17,7 +17,7 @@ _vehicles = ([1, _types] call FUNC(common,arrayValues)) select _type;
 
 {
     [
-        format ["Unpack %1", [_x] call FUNC(vehicle,name)],
+        format ["Create: %1", [_x] call FUNC(vehicle,name)],
         format ["[""create"", ""%1""]", _x]
     ] call FUNC(vehicle_menu,populate);
 } forEach _vehicles;

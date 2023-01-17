@@ -6,7 +6,10 @@ PARAMS_1(_vehicle);
 
 GVAR(refuelling) = true;
 
-player setVariable [QGVAR(fuel_cans), (player getVariable QGVAR(fuel_cans)) - 1];
+if !(isNil QMODULE(inventory_refuel)) then {
+    player setVariable [QGVAR(fuel_cans), (player getVariable QGVAR(fuel_cans)) - 1];
+};
+
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 
 sleep 2;

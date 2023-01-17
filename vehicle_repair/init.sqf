@@ -7,6 +7,11 @@
 #define THIS_MODULE vehicle_repair
 #include "x_macros.sqf"
 
+// Vehicles designated with repair capacity
+GVAR(vehicle_repair_types) = [
+    "MtvrRepair_DES_EP1"
+];
+
 // Minimum damage to initiate repair
 GVAR(vehicle_repair_amount_damage) = 0.05;
 
@@ -29,12 +34,9 @@ if (hasInterface) then {
     GVAR(repairing) = false;
     
     player setVariable [QGVAR(repair_full), false];
-    player setVariable [QGVAR(repair_kits), 0, true];
-    player setVariable [QGVAR(repair_kits_max), 0, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,repair),THIS_MODULE\functions\fn_repair.sqf);
-__cppfln(FUNC(THIS_MODULE,replenish),THIS_MODULE\functions\fn_replenish.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
