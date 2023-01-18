@@ -18,6 +18,7 @@ _group = [
 GVAR(mission_mini_cleanup) = _objects + units _group;
 
 if (!isNil QMODULE(marker)) then {
+    GVAR(intel_trigger) = createTrigger ["EmptyDetector", _position];
     GVAR(intel_trigger) setVariable ["units", units _group];
     GVAR(intel_trigger) setTriggerStatements [
         "({!alive _x} count (thisTrigger getVariable ""units"")) > 2",
@@ -29,3 +30,5 @@ if (!isNil QMODULE(marker)) then {
 if (!isNil QMODULE(unit)) then {
     [_group, _position] call FUNC(unit,defend);
 };
+
+_position

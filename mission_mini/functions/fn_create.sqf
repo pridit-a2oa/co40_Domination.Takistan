@@ -1,12 +1,10 @@
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
-private ["_missions", "_mission", "_position", "_name", "_handle"];
+private ["_mission", "_position", "_handle", "_target", "_name"];
 
-_missions = GVAR(mission_mini_types);
+_mission = GVAR(mission_mini_types) call BIS_fnc_selectRandom;
 
-if (count _missions < 1) exitWith {};
-
-_mission = _missions call BIS_fnc_selectRandom;
+if ([count _mission, 0] call BIS_fnc_areEqual) exitWith {};
 
 _position = [
     markerPos QGVAR(base_south),
@@ -18,22 +16,29 @@ _position = [
     0
 ] call FUNC(common,safePos);
 
-_name = format ["mission_mini_%1", str _position];
+_handle = format ["mission_mini\missions\%1", _mission select 0];
 
-GVAR(intel_trigger) = createTrigger ["EmptyDetector", _position];
+while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do {
+    _target = [_position] __handlerPP(_handle);
+
+    sleep 0.5;
+};
+
+_name = format ["mission_mini_%1", str _target];
+
 GVAR(intel_trigger) setTriggerArea [200, 200, 0, false];
 GVAR(intel_trigger) setTriggerActivation ["WEST", "PRESENT", false];
 
 if (!isNil QMODULE(marker)) then {
-    [true, "spawn", [[_position, _name], {
-        private ["_position", "_name"];
+    [true, "spawn", [[_target, _name], {
+        private ["_target", "_name"];
 
-        PARAMS_2(_position, _name);
+        PARAMS_2(_target, _name);
 
         if (!isNil QMODULE(marker)) then {
             [
                 _name,
-                _position,
+                _target,
                 "mil_unknown",
                 " Investigate",
                 "ColorOrange",
@@ -57,7 +62,3 @@ if !(isNil QMODULE(conversation)) then {
         ]
     ] call FUNC(conversation,radio);
 };
-
-_handle = format ["mission_mini\missions\%1", _mission select 0];
-
-[_position] __handler(_handle);
