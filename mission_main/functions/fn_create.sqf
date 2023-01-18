@@ -17,12 +17,8 @@ GVAR(mission_main_targets) = [
     [_target, _x] call FUNC(THIS_MODULE,type);
 } forEach ["camp", "radio", "composition"];
 
-if (!isNil QMODULE(ied)) then {
-    private ["_ieds"];
-
-    _ieds = [_target, GVAR(mission_main_radius_zone) * 1.2] call FUNC(ied,create);
-    
-    _target setVariable [QGVAR(ieds), _ieds];
+if (!isNil QMODULE(ied)) then {    
+    _target setVariable [QGVAR(ieds), [_target, GVAR(mission_main_radius_zone) * 1.2] call FUNC(ied,radius)];
 };
 
 if (!isNil QMODULE(unit)) then {

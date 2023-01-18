@@ -24,7 +24,7 @@ GVAR(ied_amount_score) = 2;
 GVAR(ied_trigger_speed) = 5;
 
 // Minimum and maximum distance thresholds before triggering
-GVAR(ied_trigger_distances) = [2, 6];
+GVAR(ied_trigger_distances) = [2, 9];
 
 if (hasInterface) then {
     player setVariable [QGVAR(ied), false, true];
@@ -34,6 +34,7 @@ __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,detonate),THIS_MODULE\functions\fn_detonate.sqf);
 __cppfln(FUNC(THIS_MODULE,disarm),THIS_MODULE\functions\fn_disarm.sqf);
 __cppfln(FUNC(THIS_MODULE,near),THIS_MODULE\functions\fn_near.sqf);
+__cppfln(FUNC(THIS_MODULE,radius),THIS_MODULE\functions\fn_radius.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
