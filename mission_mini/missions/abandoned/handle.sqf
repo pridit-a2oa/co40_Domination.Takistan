@@ -1,15 +1,12 @@
 #include "x_macros.sqf"
-private ["_position", "_roads", "_road", "_type", "_vehicle"];
+private ["_position", "_road", "_type", "_vehicle"];
 
 PARAMS_1(_position);
 
-_roads = _position nearRoads 400;
+_road = (_position nearRoads (GVAR(mission_mini_distance_base) select 0)) call BIS_fnc_selectRandom;
 
-if (count _roads < 6) exitWith {false};
-
-_road = _roads select (round (random 5));
-
-if ((markerPos QGVAR(base_south)) distance _road < 600) exitWith {false};
+if ((markerPos QGVAR(base_south)) distance _road < (GVAR(mission_mini_distance_base) select 0)) exitWith {false};
+if ((markerPos QGVAR(base_south)) distance _road > (GVAR(mission_mini_distance_base) select 1)) exitWith {false};
 
 _type = GVAR(mission_mini_abandoned_types_vehicle) call BIS_fnc_selectRandom;
 

@@ -14,7 +14,7 @@
 GVAR(mission_mini_types) = [];
 
 // The min & max distance from base a mini mission can generate between
-GVAR(mission_mini_distance_base) = [800, 1600];
+GVAR(mission_mini_distance_base) = [1100, 2100];
 
 // Amount of time following completion to clean up remaining entities
 GVAR(mission_mini_time_cleanup) = 300;
