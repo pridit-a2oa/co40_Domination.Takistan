@@ -240,7 +240,7 @@ player addEventHandler ["respawn", {
     
     {
         if !(isNil (format [QMODULE(%1), _x])) then {
-            __handler(_x);
+            __handlerVM(_x);
         };
     } forEach [
         "backpack",

@@ -19,7 +19,7 @@ _count = count _handlers;
 
 {
     if !(isNil (format [QMODULE(%1), _x])) then {
-        _handle = __handler(_x);
+        _handle = __handlerVM(_x);
         
         if (hasInterface && {isMultiplayer}) then {
             titleText [format [
