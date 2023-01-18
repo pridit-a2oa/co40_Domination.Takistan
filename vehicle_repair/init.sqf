@@ -9,7 +9,8 @@
 
 // Vehicles designated with repair capacity
 GVAR(vehicle_repair_types) = [
-    "MtvrRepair_DES_EP1"
+    "MtvrRepair_DES_EP1",
+    "UralRepair_TK_EP1"
 ];
 
 // Minimum damage to initiate repair
