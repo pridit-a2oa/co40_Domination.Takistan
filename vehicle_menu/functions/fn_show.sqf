@@ -27,6 +27,10 @@ if (!isNil QMODULE(inventory_repair)) then {
     [_valid, [_vehicle] __submodulePP(inventory_repair)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(vehicle_ammobox)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_ammobox)] call BIS_fnc_arrayPush;
+};
+
 if (!isNil QMODULE(vehicle_create)) then {
     if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
         [_valid, [_vehicle] __submodulePP(vehicle_create)] call BIS_fnc_arrayPush;
@@ -69,10 +73,6 @@ if (!isNil QMODULE(vehicle_repair)) then {
 
 if (!isNil QMODULE(vehicle_texture)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_texture)] call BIS_fnc_arrayPush;
-};
-
-if (!isNil QMODULE(vehicle_ammobox)) then {
-    [_valid, [_vehicle] __submodulePP(vehicle_ammobox)] call BIS_fnc_arrayPush;
 };
 
 if ({str (_x) == "false"} count _valid == count _valid) exitWith {
