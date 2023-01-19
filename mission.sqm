@@ -2992,7 +2992,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item228
 		{
@@ -3002,7 +3002,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item229
 		{
@@ -3012,7 +3012,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item230
 		{
@@ -3022,7 +3022,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item231
 		{
@@ -3032,7 +3032,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item232
 		{
@@ -3042,7 +3042,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item233
 		{
@@ -3052,7 +3052,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item234
 		{
@@ -3062,7 +3062,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item235
 		{
@@ -3072,7 +3072,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item236
 		{
@@ -3082,7 +3082,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item237
 		{
@@ -3092,7 +3092,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item238
 		{
@@ -3102,7 +3102,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item239
 		{
@@ -3112,7 +3112,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item240
 		{
@@ -3122,7 +3122,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item241
 		{
@@ -3132,7 +3132,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item242
 		{
@@ -3142,7 +3142,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_BagFenceLong";
 			skill=1;
-			init="this setPos [getPos this select 0, getPos this select 1, -0.4]; this addEventHandler [""HandleDamage"", {false}];";
+			init="this setPos [getPos this select 0, getPos this select 1, -0.4];";
 		};
 		class Item243
 		{
@@ -3183,6 +3183,7 @@ class Mission
 			side="EMPTY";
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item247
 		{
@@ -3193,6 +3194,7 @@ class Mission
 			side="EMPTY";
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item248
 		{
@@ -3203,6 +3205,7 @@ class Mission
 			side="EMPTY";
 			vehicle="US_WarfareBVehicleServicePoint_Base_EP1";
 			skill=1;
+			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item249
 		{
@@ -3414,7 +3417,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item269
 		{
@@ -3425,7 +3427,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item270
 		{
@@ -3436,7 +3437,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item271
 		{
@@ -3458,7 +3458,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item273
 		{
@@ -3469,7 +3468,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item274
 		{
@@ -3480,7 +3478,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item275
 		{
@@ -3502,7 +3499,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item277
 		{
@@ -3513,7 +3509,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item278
 		{
@@ -3524,7 +3519,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item279
 		{
@@ -3535,7 +3529,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item280
 		{
@@ -3546,7 +3539,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item281
 		{
@@ -3557,7 +3549,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 		class Item282
 		{
@@ -3568,7 +3559,6 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_runway_edgelight";
 			skill=1;
-			init="this addEventHandler [""HandleDamage"", {false}];";
 		};
 	};
 	class Markers

@@ -9,6 +9,10 @@
 
 // Objects which cannot be destroyed
 GVAR(base_types_protected) = [
+    "Base_WarfareBBarrier10xTall",
+    "Land_BagFenceLong",
+    "Land_HBarrier5",
+    "Land_runway_edgelight",
     "US_WarfareBAntiAirRadar_EP1"
 ];
 
