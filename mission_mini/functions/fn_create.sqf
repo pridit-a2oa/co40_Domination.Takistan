@@ -64,3 +64,5 @@ if !(isNil QMODULE(conversation)) then {
         ]
     ] call FUNC(conversation,radio);
 };
+
+__log format ["Seeded %1", _mission select 1]];
