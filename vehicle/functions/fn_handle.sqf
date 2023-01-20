@@ -4,12 +4,12 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(isNil {_vehicle getVariable QGVAR(handler)}) exitWith {};
-
-_vehicle setVariable [QGVAR(handler), true];
-
 if (_vehicle isKindOf "StaticWeapon") exitWith {};
 if (_vehicle isKindOf "Thing" && {!(_vehicle isKindOf "Wreck")}) exitWith {};
+
+if !(isNil {_vehicle getVariable QGVAR(handled)}) exitWith {};
+
+_vehicle setVariable [QGVAR(handled), true];
 
 if (isNil {_vehicle getVariable QGVAR(position)}) then {
     _vehicle setVariable [QGVAR(position), position _vehicle, true];
