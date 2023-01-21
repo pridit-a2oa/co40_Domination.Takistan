@@ -9,6 +9,8 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {false};
 
+disableSerialization;
+
 _ammobox = _vehicle getVariable QGVAR(ammobox);
 
 if (!isNil "_ammobox" && {_ammobox}) then {

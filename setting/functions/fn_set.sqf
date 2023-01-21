@@ -4,6 +4,8 @@ private ["_setting", "_idc", "_data", "_type", "_value"];
 
 PARAMS_2(_setting, _idc);
 
+disableSerialization;
+
 if (!isNil {GVAR(option) select 4}) then {
     _data = DIALOG("X_SETTING_DIALOG", _idc) lbData (_setting select 1);
 

@@ -1,5 +1,7 @@
 #include "x_macros.sqf"
 
+disableSerialization;
+
 lbClear (DIALOG("X_SETTING_DIALOG", 300));
 
 DIALOG("X_SETTING_DIALOG", 200) ctrlSetText "";

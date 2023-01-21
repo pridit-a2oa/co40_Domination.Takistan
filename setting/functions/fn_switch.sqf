@@ -1,6 +1,8 @@
 #define THIS_MODULE setting
 #include "x_macros.sqf"
 
+disableSerialization;
+
 _selected = DIALOG("X_SETTING_DIALOG", 100) lbData (lbCurSel 100);
 
 GVAR(option) = {

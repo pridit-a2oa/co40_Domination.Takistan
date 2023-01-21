@@ -8,6 +8,8 @@ private ["_vehicle", "_type", "_textures", "_name"];
 
 PARAMS_1(_vehicle);
 
+disableSerialization;
+
 _type = [_vehicle] call FUNC(THIS_MODULE,type);
 
 if (typeName _type == "SCALAR") exitWith {false};
