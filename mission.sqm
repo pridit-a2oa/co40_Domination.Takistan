@@ -17,18 +17,16 @@ class Mission
 		"CAWheeled_E_ATV",
 		"CAAir2_MV22",
 		"caair_e",
-		"caweapons",
-		"caweapons_warfare_weapons",
 		"ca_baf",
 		"warfarebuildings",
 		"caair_e_ch_47f",
 		"CACharacters_BAF",
-		"cabuildings"
+		"cabuildings",
+		"caweapons_e"
 	};
 	addOnsAuto[]=
 	{
-		"caweapons",
-		"caweapons_warfare_weapons",
+		"caweapons_e",
 		"cacharacters_e",
 		"CACharacters_BAF",
 		"ca_modules_functions",
@@ -99,7 +97,7 @@ class Mission
 					special="NONE";
 					id=69;
 					side="WEST";
-					vehicle="M2StaticMG";
+					vehicle="M2StaticMG_US_EP1";
 					leader=1;
 					lock="LOCKED";
 					rank="COLONEL";
@@ -113,7 +111,7 @@ class Mission
 					special="NONE";
 					id=68;
 					side="WEST";
-					vehicle="M2StaticMG";
+					vehicle="M2StaticMG_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
@@ -126,7 +124,7 @@ class Mission
 					special="NONE";
 					id=247;
 					side="WEST";
-					vehicle="TOW_TriPod";
+					vehicle="TOW_TriPod_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
@@ -139,7 +137,7 @@ class Mission
 					special="NONE";
 					id=242;
 					side="WEST";
-					vehicle="TOW_TriPod";
+					vehicle="TOW_TriPod_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
@@ -160,7 +158,7 @@ class Mission
 					special="NONE";
 					id=71;
 					side="WEST";
-					vehicle="M2StaticMG";
+					vehicle="M2StaticMG_US_EP1";
 					leader=1;
 					lock="LOCKED";
 					rank="COLONEL";
@@ -174,7 +172,7 @@ class Mission
 					special="NONE";
 					id=70;
 					side="WEST";
-					vehicle="M2StaticMG";
+					vehicle="M2StaticMG_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
@@ -187,7 +185,7 @@ class Mission
 					special="NONE";
 					id=72;
 					side="WEST";
-					vehicle="TOW_TriPod";
+					vehicle="TOW_TriPod_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
@@ -200,7 +198,7 @@ class Mission
 					special="NONE";
 					id=237;
 					side="WEST";
-					vehicle="TOW_TriPod";
+					vehicle="TOW_TriPod_US_EP1";
 					lock="LOCKED";
 					rank="COLONEL";
 					skill=1;
