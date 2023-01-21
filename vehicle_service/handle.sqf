@@ -13,7 +13,7 @@ private ["_object", "_name"];
     if (isServer) then {
         private ["_area", "_trigger"];
 
-        _area = if ([_x select 0, "jet"] call BIS_fnc_areEqual) then {[5, 15, direction _object, true]} else {[6, 6, 0, false]};
+        _area = if ([_x select 0, "jet"] call BIS_fnc_areEqual) then {[10, 15, direction _object, true]} else {[6, 6, 0, false]};
 
         _trigger = createTrigger ["EmptyDetector", position _object];
         _trigger setVariable ["object", _object];
