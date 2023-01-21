@@ -19,8 +19,6 @@ _count = count _handlers;
 
 {
     if !(isNil (format [QMODULE(%1), _x])) then {
-        _handle = __handlerVM(_x);
-        
         if (hasInterface && {isMultiplayer}) then {
             titleText [format [
                 "%1%2\n\n%3",
@@ -28,8 +26,10 @@ _count = count _handlers;
                 "%",
                 toUpper _x
             ], "BLACK FADED", 1.6];
+
+            sleep 0.05;
         };
-        
-        waitUntil {scriptDone _handle};
+
+        __handlerPP(_x);
     };
 } forEach _handlers;

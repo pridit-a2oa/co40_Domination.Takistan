@@ -26,3 +26,5 @@ _save = [];
 ];
 
 GVAR(profile_type_save) = GVAR(profile_type_save) + _save;
+
+true

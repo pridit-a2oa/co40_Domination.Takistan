@@ -25,3 +25,5 @@ _types = GVAR(vehicle_texture_types);
 } forEach _types;
 
 GVAR(vehicle_texture_types) = _types;
+
+true
