@@ -84,6 +84,12 @@ GVAR(vehicle_loadout_types) = [
         ]]
     ]],
 
+    ["BAF_Merlin_HC3_D", [
+        ["Default", [
+            [["CMFlareLauncher", "120Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
     ["F35B", [
         ["Default", [
             ["GAU12", 1],
