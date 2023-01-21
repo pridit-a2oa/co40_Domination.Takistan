@@ -6,7 +6,7 @@ _mission = GVAR(mission_mini_types) call BIS_fnc_selectRandom;
 
 if ([count _mission, 0] call BIS_fnc_areEqual) exitWith {};
 
-_handle = format ["mission_mini\missions\%1", _mission select 0];
+_handle = format ["mission_mini\types\%1", _mission select 0];
 
 while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do {
     private ["_position"];
