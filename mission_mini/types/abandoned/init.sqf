@@ -20,6 +20,9 @@ GVAR(mission_mini_abandoned_types_vehicle) = [
     "HMMWV_M1151_M2_DES_EP1"
 ];
 
+// Chance the vehicle will be flipped
+GVAR(mission_mini_abandoned_chance_flip) = 40;
+
 // Chance an IED will accompany the abandoned vehicle
 GVAR(mission_mini_abandoned_chance_ied) = 65;
 

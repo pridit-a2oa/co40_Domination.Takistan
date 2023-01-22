@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_position", "_road", "_type", "_vehicle"];
+private ["_position", "_road", "_connectedRoads", "_connectedRoad", "_type", "_vehicle", "_pitchBank"];
 
 PARAMS_1(_position);
 
@@ -8,10 +8,13 @@ _road = (_position nearRoads (GVAR(mission_mini_distance_base) select 0)) call B
 if ((markerPos QGVAR(base_south)) distance _road < (GVAR(mission_mini_distance_base) select 0)) exitWith {false};
 if ((markerPos QGVAR(base_south)) distance _road > (GVAR(mission_mini_distance_base) select 1)) exitWith {false};
 
+_connectedRoads = roadsConnectedTo _road;
+_connectedRoad = if ([count _connectedRoads, 0] call BIS_fnc_areEqual) then { _road} else {_connectedRoads select 0};
+
 _type = GVAR(mission_mini_abandoned_types_vehicle) call BIS_fnc_selectRandom;
 
 _vehicle = _type createVehicle (getPos _road);
-_vehicle setDir ([_position, (getPos _road)] call BIS_fnc_dirTo);
+_vehicle setDir ([getPos _vehicle, getPos _connectedRoad] call BIS_fnc_dirTo);
 _vehicle setPos (getPos _road);
 _vehicle setVectorUp surfaceNormal (getPos _road);
 _vehicle setFuel random (0.3);
@@ -38,6 +41,12 @@ switch (round (random 3)) do {
         _vehicle setHit ["wheel_2_1_steering", 1];
         _vehicle setHit ["wheel_2_2_steering", 1];
     };
+};
+
+if (GVAR(mission_mini_abandoned_chance_flip) > floor (random 100)) then {
+    _pitchBank = _vehicle call BIS_fnc_getPitchBank;
+                
+    [_vehicle, _pitchBank select 0, (_pitchBank select 1) + 65] call BIS_fnc_setPitchBank;
 };
 
 if (!isNil QMODULE(ied) && {GVAR(mission_mini_abandoned_chance_ied) > floor (random 100)}) then {
