@@ -174,6 +174,21 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
     };
 });
 
+// Refresh dialog for all clients (excl. actioning player) with it open
+[true, "spawn", [[player, _vehicle], {
+    private ["_unit", "_vehicle"];
+    
+    PARAMS_2(_unit, _vehicle);
+
+    if ([_unit, player] call BIS_fnc_areEqual) exitWith {};
+    if !([typeName (uiNamespace getVariable "X_VEHICLE_MENU_DIALOG"), "DISPLAY"] call BIS_fnc_areEqual) exitWith {};
+    if !([_vehicle, GVAR(vehicle_dialog)] call BIS_fnc_areEqual) exitWith {};
+
+    closeDialog 0;
+
+    [_vehicle] call FUNC(THIS_MODULE,show);
+}]] call FUNC(network,mp);
+
 if !(_refresh) exitWith {};
 
 closeDialog 0;
