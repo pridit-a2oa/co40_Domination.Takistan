@@ -3,14 +3,22 @@
  */
 
 #include "x_macros.sqf"
-private ["_handlers"];
+private ["_handlers", "_count"];
 
 _handlers = [];
 
 {
-    _file = format ["%1\handle.sqf", _x];
+    private ["_file", "_path"];
+
+    _file = _x;
+
+    if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {
+        _file = _x select 1;
+    };
+
+    _path = format ["%1\handle.sqf", _file];
     
-    if (count (toArray loadFile _file) > 100) then {
+    if (count (toArray loadFile _path) > 100) then {
         _handlers = _handlers + [_x];
     };
 } forEach GVAR(modules);
@@ -18,18 +26,28 @@ _handlers = [];
 _count = count _handlers;
 
 {
-    if !(isNil (format [QMODULE(%1), _x])) then {
+    private ["_module", "_path"];
+
+    _module = _x;
+    _path = _module;
+
+    if ([typeName _module, "ARRAY"] call BIS_fnc_areEqual) then {
+        _module = _x select 0;
+        _path = _x select 1;
+    };
+
+    if !(isNil (format [QMODULE(%1), _module])) then {
         if (hasInterface && {isMultiplayer}) then {
             titleText [format [
                 "%1%2\n\n%3",
                 round ((round (_forEachIndex + 1) / _count) * 100),
                 "%",
-                toUpper _x
+                toUpper _module
             ], "BLACK FADED", 1.6];
 
             sleep 0.05;
         };
 
-        __handlerPP(_x);
+        diag_log __handlerPP(_path);
     };
 } forEach _handlers;

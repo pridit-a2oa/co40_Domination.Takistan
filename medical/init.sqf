@@ -16,12 +16,12 @@ GVAR(medical_type_vehicles) = [
 GVAR(medical_player_action) = [
     "Give Medkit" call FUNC(common,BrownText),
     FUNCTION(inventory,transfer),
-    "medkits",
+    "medical",
     8,
     false,
     true,
     "",
-    "['medkits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
+    "['medical', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
 if (hasInterface) then {

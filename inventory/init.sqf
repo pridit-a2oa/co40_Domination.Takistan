@@ -9,13 +9,13 @@
 #define THIS_MODULE inventory
 #include "x_macros.sqf"
 
-// Valid (transferrable) types
+// Valid types
 GVAR(inventory_types) = [];
 
-// Types of items to be visible within the inventory dialog
+// Types of items visible within the inventory dialog
 GVAR(inventory_type_visible) = [];
 
-// Amount of visual slots that can be occupied
+// Amount of visual (dialog) slots that can be occupied
 GVAR(inventory_amount_slots) = 24;
 
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);

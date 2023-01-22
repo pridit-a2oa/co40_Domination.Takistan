@@ -5,8 +5,8 @@
 #define THIS_MODULE respawn
 #include "x_macros.sqf"
 
-if (!isNil QMODULE(mash)) then {
-    __submodulePP(mash);
+if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_mash)}) then {
+    __submodulePP(construction);
 };
 
 if (!isNil QMODULE(vehicle_mhq)) then {

@@ -8,6 +8,8 @@
 #define THIS_MODULE construction
 #include "x_macros.sqf"
 
+GVAR(construction_types) = [];
+
 // Minimum distance from base
 GVAR(construction_distance_base) = 800;
 

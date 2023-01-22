@@ -23,12 +23,12 @@ GVAR(vehicle_repair_amount_fuel) = 0.10;
 GVAR(vehicle_repair_player_action) = [
     "Give Repair Kit" call FUNC(common,BrownText),
     FUNCTION(inventory,transfer),
-    "repair_kits",
+    "repair",
     8,
     false,
     true,
     "",
-    "['repair_kits', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
+    "['repair', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
 ];
 
 if (hasInterface) then {

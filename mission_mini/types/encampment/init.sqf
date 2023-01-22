@@ -16,4 +16,6 @@ GVAR(mission_mini_types) = GVAR(mission_mini_types) + [
 // The object composition to use to generate the camp
 GVAR(mission_mini_encampment_type) = "Camp1_TK_EP1";
 
+__cppfln(FUNC(THIS_MODULE,create),mission_mini\types\encampment\functions\fn_create.sqf);
+
 MODULE(THIS_MODULE) = true;

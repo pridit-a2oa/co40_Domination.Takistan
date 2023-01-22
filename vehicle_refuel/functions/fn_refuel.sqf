@@ -8,8 +8,8 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 
 GVAR(refuelling) = true;
 
-if !(isNil QMODULE(inventory_fuel)) then {
-    player setVariable [QGVAR(fuel_cans), (player getVariable QGVAR(fuel_cans)) - 1, true];
+if !(isNil QMODULE(inventory_refuel)) then {
+    player setVariable [QGVAR(inventory_refuel), (player getVariable QGVAR(inventory_refuel)) - 1, true];
 };
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";

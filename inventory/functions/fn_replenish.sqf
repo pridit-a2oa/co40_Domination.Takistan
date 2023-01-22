@@ -4,8 +4,8 @@ private ["_type"];
 PARAMS_1(_type);
 
 player setVariable [
-    format ["d_%1", _type],
-    player getVariable (format ["d_%1_max", _type]),
+    format ["d_inventory_%1", _type],
+    player getVariable (format ["d_inventory_%1_max", _type]),
     true
 ];
 

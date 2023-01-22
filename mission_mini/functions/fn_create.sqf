@@ -1,12 +1,10 @@
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
-private ["_mission", "_handle", "_target", "_name"];
+private ["_mission", "_target", "_name"];
 
 _mission = GVAR(mission_mini_types) call BIS_fnc_selectRandom;
 
 if ([count _mission, 0] call BIS_fnc_areEqual) exitWith {};
-
-_handle = format ["mission_mini\types\%1", _mission select 0];
 
 while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do {
     private ["_position"];
@@ -21,7 +19,11 @@ while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do
         0
     ] call FUNC(common,safePos);
 
-    _target = [_position] __handlerPP(_handle);
+    _target = [_position] call (call compile format [
+        "d_fnc_%1_%2_create",
+        QUOTE(THIS_MODULE),
+        _mission select 0
+    ]);
 
     sleep 0.5;
 };

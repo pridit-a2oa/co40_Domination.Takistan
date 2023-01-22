@@ -2,19 +2,17 @@
 #include "x_macros.sqf"
 private ["_modules"];
 
-_modules = [
+{
+    __module(_x);
+} forEach [
     "airdrop",
     "airtaxi",
     "artillery",
     "backpack",
-    "farp",
-    "fortification",
     "halo",
     "ied",
     "loadout",
-    "mash",
     "medical",
-    "nest",
     "perk",
     "uav",
     "vehicle_bonus",
@@ -23,10 +21,6 @@ _modules = [
     "vehicle_repair",
     "vehicle_teleport"
 ];
-
-{
-    __module(_x);
-} forEach _modules;
 
 BIS_MENU_Construct resize 1;
 BIS_MENU_Radio resize 1;

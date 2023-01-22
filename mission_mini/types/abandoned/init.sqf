@@ -23,4 +23,6 @@ GVAR(mission_mini_abandoned_types_vehicle) = [
 // Chance an IED will accompany the abandoned vehicle
 GVAR(mission_mini_abandoned_chance_ied) = 65;
 
+__cppfln(FUNC(THIS_MODULE,create),mission_mini\types\abandoned\functions\fn_create.sqf);
+
 MODULE(THIS_MODULE) = true;

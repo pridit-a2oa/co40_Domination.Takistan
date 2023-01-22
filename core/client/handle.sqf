@@ -239,18 +239,34 @@ player addEventHandler ["respawn", {
     };
     
     {
-        if !(isNil (format [QMODULE(%1), _x])) then {
-            __handlerVM(_x);
+        private ["_module", "_path"];
+
+        _module = _x;
+        _path = _module;
+
+        if ([typeName _module, "ARRAY"] call BIS_fnc_areEqual) then {
+            _module = _x select 0;
+            _path = _x select 1;
+        };
+
+        if !(isNil (format [QMODULE(%1), _module])) then {
+            __handlerPP(_path);
         };
     } forEach [
         "backpack",
         "base_rd",
+        ["construction_farp", "construction\types\farp"],
+        ["construction_fortification", "construction\types\fortification"],
+        ["construction_mash", "construction\types\mash"],
+        ["construction_nest", "construction\types\nest"],
         "drag",
+        ["inventory_medical", "inventory\types\medical"],
+        ["inventory_refuel", "inventory\types\refuel"],
+        ["inventory_repair", "inventory\types\repair"],
         "medical",
         "perk",
         "option",
-        "revive",
-        "vehicle_repair"
+        "revive"
     ];
     
     if (!isNil QMODULE(revive)) then {

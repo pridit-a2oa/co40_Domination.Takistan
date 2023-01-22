@@ -2,7 +2,7 @@
 #include "x_macros.sqf"
 private ["_target", "_type"];
 
-_type = (format [QGVAR(%1), _this select 3]);
+_type = format ["d_inventory_%1", _this select 3];
 
 _target = _this select 0;
 

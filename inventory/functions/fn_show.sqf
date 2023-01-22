@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_available", "_slot", "_amount", "_icon"];
+private ["_available"];
 
 disableSerialization;
 
@@ -8,6 +8,8 @@ createDialog "XD_InventoryDialog";
 _available = GVAR(inventory_amount_slots);
 
 {
+    private ["_slot", "_amount", "_icon"];
+
     _slot = abs (_available - GVAR(inventory_amount_slots));
     _amount = player getVariable (format [QUOTE(d_%1), _x select 0]);
     
@@ -22,7 +24,7 @@ _available = GVAR(inventory_amount_slots);
             _icon ctrlCommit 0;
         };
         
-        if (_x select 2) then {
+        if (_x select 1 in ["ca\ui\data\icon_mission_repair_ca", "ca\ui\data\icon_unit_agony_ca"]) then {
             DIALOG("X_INVENTORY_DIALOG", 200 + (_slot + 1)) ctrlSetText "ca\ui\data\markers\n_unknown";
         };
         

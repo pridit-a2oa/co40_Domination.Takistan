@@ -9,7 +9,7 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 GVAR(repairing) = true;
 
 if !(isNil QMODULE(inventory_repair)) then {
-    player setVariable [QGVAR(repair_kits), (player getVariable QGVAR(repair_kits)) - 1];
+    player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) - 1];
 };
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";

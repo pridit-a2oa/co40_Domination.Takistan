@@ -23,12 +23,14 @@ GVAR(modules) = [
     "cleanup",
     "communication",
     "construction",
+    ["construction_farp", "construction\types\farp"],
+    ["construction_fortification", "construction\types\fortification"],
+    ["construction_mash", "construction\types\mash"],
+    ["construction_nest", "construction\types\nest"],
     "conversation",
     // "debug",
     "diary",
     "drag",
-    "farp",
-    "fortification",
     "gesture",
     "halo",
     "heap",
@@ -36,19 +38,17 @@ GVAR(modules) = [
     "ied",
     "intel",
     "inventory",
-    "inventory_fuel",
-    "inventory_medical",
-    "inventory_repair",
+    ["inventory_medical", "inventory\types\medical"],
+    ["inventory_refuel", "inventory\types\refuel"],
+    ["inventory_repair", "inventory\types\repair"],
     "loadout",
     "marker",
-    "mash",
     "medical",
     "mission_main",
     "mission_mini",
-    "mission_mini\types\abandoned",
-    "mission_mini\types\encampment",
+    ["mission_mini_abandoned", "mission_mini\types\abandoned"],
+    ["mission_mini_encampment", "mission_mini\types\encampment"],
     "name",
-    "nest",
     "option",
     "perimiter",
     "perk",
@@ -97,6 +97,10 @@ GVAR(modules) = [
 ];
 
 {
+    if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {
+        _x = _x select 1;
+    };
+
     __module(_x);
 } forEach GVAR(modules);
 

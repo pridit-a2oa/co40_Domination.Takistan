@@ -15,16 +15,8 @@ DIALOG("X_VEHICLE_MENU_DIALOG", 1201) ctrlSetText (getText (configFile >> "cfgVe
 
 _valid = [];
 
-if (!isNil QMODULE(inventory_fuel)) then {
-    [_valid, [_vehicle] __submodulePP(inventory_fuel)] call BIS_fnc_arrayPush;
-};
-
-if (!isNil QMODULE(inventory_medical)) then {
-    [_valid, [_vehicle] __submodulePP(inventory_medical)] call BIS_fnc_arrayPush;
-};
-
-if (!isNil QMODULE(inventory_repair)) then {
-    [_valid, [_vehicle] __submodulePP(inventory_repair)] call BIS_fnc_arrayPush;
+if (!isNil QMODULE(inventory)) then {
+    [_valid, [_vehicle] __submodulePP(inventory)] call BIS_fnc_arrayPush;
 };
 
 if (!isNil QMODULE(vehicle_ammobox)) then {

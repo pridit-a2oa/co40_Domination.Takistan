@@ -1,4 +1,6 @@
-_type = format ["d_%1", (_this select 0)];
+private ["_type", "_target", "_targetKits", "_targetMax"];
+
+_type = format ["d_inventory_%1", (_this select 0)];
 _target = _this select 1;
 
 _targetKits = _target getVariable _type;
