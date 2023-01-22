@@ -48,6 +48,6 @@ _count = count _handlers;
             sleep 0.05;
         };
 
-        diag_log __handlerPP(_path);
+        __handlerPP(_path);
     };
 } forEach _handlers;
