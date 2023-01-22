@@ -37,7 +37,7 @@ if (hasInterface) then {
                 };
                 
                 _alpha = if (!_hidden && {!_alive || {_alive && {_distance}}}) then {
-                    if (canMove _x) then {1} else {0.65};
+                    if (canMove _x) then {1} else {0.4};
                 } else {
                     0
                 };
