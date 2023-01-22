@@ -109,8 +109,6 @@ switch (_tier) do {
             case 4: {
                 if (!isNil QMODULE(artillery)) then {
                     GVAR(artillery_time_cooldown) = GVAR(artillery_time_cooldown) - 300;
-                    
-                    player setVariable [QGVAR(artillery_cooldown), (player getVariable QGVAR(artillery_cooldown)) - 300];
                 };
             };
             
@@ -196,8 +194,6 @@ switch (_tier) do {
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
                     GVAR(construction_nest_time_cooldown) = GVAR(construction_nest_time_cooldown) - 300;
-                    
-                    player setVariable [QGVAR(construction_nest_time_cooldown), (player getVariable QGVAR(construction_nest_time_cooldown)) - 300];
                 };
             };
             
@@ -250,8 +246,6 @@ switch (_tier) do {
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     GVAR(construction_fortification_time_cooldown) = GVAR(construction_fortification_time_cooldown) - 300;
-                    
-                    player setVariable [QGVAR(construction_fortification_time_cooldown), (player getVariable QGVAR(construction_fortification_time_cooldown)) - 300];
                 };
             };
             

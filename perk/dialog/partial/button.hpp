@@ -125,7 +125,7 @@ class PerkButton_Role1_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Artillery cooldown reduced by 5 minutes";
+    tooltip = "Artillery cooldown reduced by 5 minutes (applies after next use)";
     action = "[1,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_5: XD_LinkButtonUpgradeBase
@@ -215,7 +215,7 @@ class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest cooldown reduced by 5 minutes";
+    tooltip = "MG nest cooldown reduced by 5 minutes (applies after next use)";
     action = "[3,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
@@ -265,7 +265,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Fortification cooldown reduced by 5 minutes";
+    tooltip = "Fortification cooldown reduced by 5 minutes (applies after next use)";
     action = "[4,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase
