@@ -41,7 +41,7 @@ switch (_tier) do {
                         [
                             BIS_MENU_Radio,
                             "Airdrop",
-                            "CursorOnGround",
+                            "CursorOnGround * PlayerOwnRadio",
                             "[player, screenToWorld [0.5, 0.5], getPlayerUID player] execVM 'airdrop\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_tactical_ca"
                         ] call FUNC(communication,add);
@@ -86,7 +86,7 @@ switch (_tier) do {
                         [
                             BIS_MENU_Radio,
                             "Artillery Strike",
-                            "CursorOnGround",
+                            "CursorOnGround * PlayerOwnRadio",
                             "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_artillery_salvoes'] execVM 'artillery\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_attack_ca"
                         ] call FUNC(communication,add);
@@ -327,7 +327,7 @@ switch (_tier) do {
                         [
                             BIS_MENU_Radio,
                             "UAV",
-                            "CursorOnGround",
+                            "CursorOnGround * PlayerOwnRadio",
                             "0 = [player, screenToWorld [0.5, 0.5]] execVM 'uav\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_support_ca"
                         ] call FUNC(communication,add);
@@ -343,7 +343,7 @@ switch (_tier) do {
                         [
                             BIS_MENU_Radio,
                             "Air Taxi",
-                            "CursorOnGround",
+                            "CursorOnGround * PlayerOwnRadio",
                             "0 = [player, screenToWorld [0.5, 0.5]] execVM 'airtaxi\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_getin_ca"
                         ] call FUNC(communication,add);
