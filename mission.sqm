@@ -3564,7 +3564,7 @@ class Mission
 		items=20;
 		class Item0
 		{
-			position[]={8271.2393,296.04001,2113.7263};
+			position[]={8286.3984,296.04001,2121.2886};
 			name="respawn_west";
 			type="Empty";
 			colorName="ColorGreen";
