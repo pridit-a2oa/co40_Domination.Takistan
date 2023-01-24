@@ -15,7 +15,7 @@ GVAR(intel_type_item) = "EvMap";
 GVAR(intel_type_objects) = [
     "Fort_Crate_wood"
 ];
- 
+
 // Score to reward when delivered
 GVAR(intel_amount_score) = 10;
 

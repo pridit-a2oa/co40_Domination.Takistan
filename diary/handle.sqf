@@ -30,12 +30,12 @@ if (hasInterface) then {
         __submodulePP(vehicle_deploy);
     };
 
-    if (!isNil QMODULE(mission_main)) then {
-        __submodulePP(mission_main);
+    if (!isNil QMODULE(mission_mini)) then {
+        __submodulePP(mission_mini);
     };
 
-    if (!isNil QMODULE(intel)) then {
-        __submodulePP(intel);
+    if (!isNil QMODULE(mission_main)) then {
+        __submodulePP(mission_main);
     };
 
     ["Fast Travel", [
