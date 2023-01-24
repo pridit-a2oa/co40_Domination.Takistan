@@ -1,6 +1,6 @@
-#define THIS_MODULE intel
+#define THIS_MODULE bomber
 #include "x_macros.sqf"
-private ["_vehicle", "_explosive"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 

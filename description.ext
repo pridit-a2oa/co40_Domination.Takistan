@@ -60,6 +60,16 @@ class CfgSounds {
         sound[]     = {"\base_wreck\sounds\weld", db, 1, 30};
         titles[]    = {};
     };
+    class d_sound_exclaim
+    {
+        sound[]     = {"\bomber\sounds\exclamation", db, 1, 30};
+        titles[]    = {};
+    };
+    class d_sound_tick
+    {
+        sound[]     = {"\bomber\sounds\tick", db, 1, 30};
+        titles[]    = {};
+    };
     class d_sound_task
     {
         sound[]     = {"\core\client\sounds\task", 1, 1.0};
@@ -73,16 +83,6 @@ class CfgSounds {
     class d_sound_disarm
     {
         sound[]     = {"\ied\sounds\disarm", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_tick
-    {
-        sound[]     = {"\intel\sounds\tick", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_exclaim
-    {
-        sound[]     = {"\intel\sounds\exclamation", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_impressive

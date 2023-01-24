@@ -1,10 +1,10 @@
-#define THIS_MODULE intel
+#define THIS_MODULE bomber
 #include "x_macros.sqf"
 private ["_vehicle", "_explosive"];
 
 PARAMS_1(_vehicle);
 
-_explosive = createVehicle [GVAR(intel_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
+_explosive = createVehicle [GVAR(bomber_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
 
 {
     if (isPlayer _x) then {

@@ -4,8 +4,8 @@ private ["_trigger"];
 
 PARAMS_1(_trigger);
 
-if (!isNil QMODULE(intel)) then {
-    gameLogic setVariable [QGVAR(intel), false, true];
+if (!isNil QMODULE(bomber)) then {
+    gameLogic setVariable [QGVAR(bomber), false, true];
 };
 
 if (!isNil QMODULE(marker)) then {

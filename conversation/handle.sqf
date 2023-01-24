@@ -61,7 +61,7 @@ GVAR(crossroad2) setGroupId ["Crossroad1"];
     "airtaxi",
     "base_rd",
     "base_wreck",
-    "intel",
+    "bomber",
     "mission_main",
     "mission_mini",
     "uav",

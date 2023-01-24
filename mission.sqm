@@ -3695,7 +3695,7 @@ class Mission
 		class Item16
 		{
 			position[]={8218.7109,295.52502,2176.6636};
-			name="d_intel";
+			name="d_bomber";
 			type="Empty";
 			colorName="ColorKhaki";
 		};

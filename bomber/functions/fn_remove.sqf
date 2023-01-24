@@ -1,4 +1,3 @@
-#define THIS_MODULE intel
 #include "x_macros.sqf"
 private ["_vehicle"];
 

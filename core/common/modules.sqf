@@ -20,6 +20,7 @@ GVAR(modules) = [
     "base_protection",
     "base_rd",
     "base_wreck",
+    "bomber",
     "cleanup",
     "communication",
     "construction",
