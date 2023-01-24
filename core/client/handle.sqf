@@ -291,7 +291,11 @@ player addEventHandler ["respawn", {
         
         _backpack = unitBackpack _corpse;
         
-        if (!isNull _backpack) then {
+        if !(isNull _backpack) then {
+            if ({[_x select 0, "EvMap"] call BIS_fnc_areEqual} count (getWeaponCargo _backpack) > 0) then {
+                clearWeaponCargo _backpack;
+            };
+
             _unit action ["AddBag", _corpse, typeOf _backpack];
             
             sleep 2;
@@ -310,7 +314,9 @@ player addEventHandler ["respawn", {
         } forEach magazines _corpse;
         
         {
-            _unit addWeapon _x;
+            if !([_x, "EvMap"] call BIS_fnc_areEqual) then {
+                _unit addWeapon _x;
+            };
         } forEach weapons _corpse;
         
         _unit selectWeapon (primaryWeapon _unit);

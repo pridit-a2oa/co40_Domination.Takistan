@@ -5,7 +5,9 @@
 } forEach (GVAR(loadout) select 1);
 
 {
-    player addWeapon _x;
+    if !([_x, "EvMap"] call BIS_fnc_areEqual) then {
+        player addWeapon _x;
+    };
 } forEach (GVAR(loadout) select 0);
 
 player selectWeapon (primaryWeapon player);

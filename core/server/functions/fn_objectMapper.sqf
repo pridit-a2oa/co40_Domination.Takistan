@@ -149,6 +149,12 @@ _multiplyMatrixFunc = {
         _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
+
+        if !(isNil QMODULE(intel)) then {            
+            {
+                [_newObjs, _x] call BIS_fnc_arrayPush;
+            } forEach ([_newObj] call FUNC(intel,create));
+        };
         
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
@@ -173,8 +179,8 @@ _multiplyMatrixFunc = {
                 };
             };
         };
-        
-        _newObjs set [count _newObjs, _newObj];
+
+        [_newObjs, _newObj] call BIS_fnc_arrayPush;
     };
 } forEach _objs;
 
