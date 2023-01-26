@@ -9,7 +9,7 @@ _save = [];
 } forEach [
     ["camera", ["STRING", ["INTERNAL", "EXTERNAL"]]],
     ["sounds", ["SCALAR", [0, 1]]],
-    ["grass", ["SCALAR", [50, 25, 10]]],
+    ["grass", ["SCALAR", [50, 25, 12.5]]],
     ["nightvision", ["SCALAR", [0, 1]]],
     ["view_distance", ["SCALAR", [500, 10000]]]
 ];
