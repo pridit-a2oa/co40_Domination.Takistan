@@ -3227,7 +3227,7 @@ class Mission
 		};
 		class Item251
 		{
-			position[]={7948.106,296.12076,1679.6063};
+			position[]={7946.9014,296.12076,1678.1027};
 			azimut=-118;
 			id=299;
 			side="EMPTY";
@@ -3238,7 +3238,7 @@ class Mission
 		};
 		class Item252
 		{
-			position[]={8000.3838,296.12076,1710.2999};
+			position[]={7999.1792,296.12076,1708.7963};
 			azimut=-118;
 			id=300;
 			side="EMPTY";
@@ -3249,7 +3249,7 @@ class Mission
 		};
 		class Item253
 		{
-			position[]={7892.6475,296.12076,1648.3843};
+			position[]={7891.4429,296.12076,1646.8806};
 			azimut=-118;
 			id=301;
 			side="EMPTY";
@@ -3648,7 +3648,7 @@ class Mission
 		};
 		class Item11
 		{
-			position[]={7892.9751,296.04001,1626.1727};
+			position[]={7891.7705,296.12076,1624.6691};
 			name="d_wreck_hangar_1";
 			type="Empty";
 			colorName="ColorBrown";
@@ -3656,7 +3656,7 @@ class Mission
 		};
 		class Item12
 		{
-			position[]={7947.8921,296.04001,1658.2743};
+			position[]={7946.6875,296.12076,1656.7706};
 			name="d_wreck_hangar_2";
 			type="Empty";
 			colorName="ColorBrown";
@@ -3664,7 +3664,7 @@ class Mission
 		};
 		class Item13
 		{
-			position[]={8000.3438,296.04001,1688.5817};
+			position[]={7999.1392,296.12076,1687.078};
 			name="d_wreck_hangar_3";
 			type="Empty";
 			colorName="ColorBrown";
