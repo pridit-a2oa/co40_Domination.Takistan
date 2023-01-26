@@ -8,6 +8,8 @@
 GVAR(modules) = [
     "3d",
     "admin",
+    "admin_captive",
+    "admin_spectate",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -60,7 +62,6 @@ GVAR(modules) = [
     "reward",
     "setting",
     "shield",
-    "spectate",
     "squad",
     "task",
     "teleport",
