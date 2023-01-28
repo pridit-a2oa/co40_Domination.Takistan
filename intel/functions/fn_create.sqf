@@ -11,11 +11,17 @@ if !(GVAR(intel_chance_spawn) > floor (random 100)) exitWith {};
 _objects = [];
 
 {
-    private ["_object"];
+    private ["_offset", "_object"];
+
+    _offset = [typeOf _parent] call FUNC(THIS_MODULE,offset);
+
+    if ([_x, GVAR(intel_type_item)] call BIS_fnc_areEqual && {isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")}) then {
+        _offset = [0, 0, -1];
+    };
 
     _object = createVehicle [_x, getPosATL _parent, [], 0, "CAN_COLLIDE"];
     _object setDir (random 360);
-    _object setPos (_parent modelToWorld ([typeOf _parent] call FUNC(THIS_MODULE,offset)));
+    _object setPos (_parent modelToWorld _offset);
 
     if ([_x, "WeaponHolder"] call BIS_fnc_areEqual) then {
         _object addWeaponCargo [GVAR(intel_type_item), 1];
