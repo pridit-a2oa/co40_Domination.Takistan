@@ -150,6 +150,10 @@ _multiplyMatrixFunc = {
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
 
+        if (_newObj isKindOf "Thing") then {
+            [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
+        };
+
         if !(isNil QMODULE(intel)) then {            
             {
                 [_newObjs, _x] call BIS_fnc_arrayPush;
@@ -169,15 +173,9 @@ _multiplyMatrixFunc = {
                 _newObj addEventHandler ["HandleDamage", {0}];
             };
 
+            [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
+
             __addDead(_newObj);
-
-            _newObj spawn {
-                [true, "execVM", [[_this], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
-
-                if (_this isKindOf "Thing") then {
-                    [true, "enableSimulation", [_this, false], false] call FUNC(network,mp);
-                };
-            };
         };
 
         [_newObjs, _newObj] call BIS_fnc_arrayPush;
