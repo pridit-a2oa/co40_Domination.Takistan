@@ -5,7 +5,11 @@
 #define THIS_MODULE communication
 #include "x_macros.sqf"
 
-if (hasInterface) then {    
+if (hasInterface) then {
+    BIS_MENU_GroupCommunication = [
+        ["Options", false]
+    ];
+
     if (!isNil QMODULE(admin)) then {
         __submodulePP(admin);
     };

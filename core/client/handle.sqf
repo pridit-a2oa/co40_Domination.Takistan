@@ -237,6 +237,10 @@ player addEventHandler ["respawn", {
     if (!isNil QMODULE(setting)) then {
         _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
     };
+
+    if (!isNil QMODULE(revive)) then {
+        [_unit] call FUNC(revive,reset);
+    };
     
     {
         private ["_module", "_path"];
@@ -255,6 +259,7 @@ player addEventHandler ["respawn", {
     } forEach [
         "backpack",
         "base_rd",
+        "communication",
         ["construction_farp", "construction\types\farp"],
         ["construction_fortification", "construction\types\fortification"],
         ["construction_mash", "construction\types\mash"],
@@ -268,10 +273,6 @@ player addEventHandler ["respawn", {
         "option",
         "revive"
     ];
-    
-    if (!isNil QMODULE(revive)) then {
-        [_unit] call FUNC(revive,reset);
-    };
     
     if (!isNil QMODULE(perk)) then {
         [true] call FUNC(perk,calculate);
