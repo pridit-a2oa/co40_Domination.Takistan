@@ -89,14 +89,6 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
-    if !(isNil QMODULE(vehicle_flip)) then {
-        case "flip": {
-            [_vehicle] call FUNC(vehicle_flip,flip);
-
-            true
-        };
-    };
-
     if !(isNil QMODULE(vehicle_loadout)) then {
         case "loadout": {
             if (count ([_vehicle] call FUNC(vehicle_loadout,find) select 0) > 1) then {
@@ -168,6 +160,14 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
     if !(isNil QMODULE(vehicle_texture)) then {
         case "texture": {
             [_vehicle] call FUNC(vehicle_texture,set);
+
+            true
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_unflip)) then {
+        case "unflip": {
+            [_vehicle] call FUNC(vehicle_unflip,unflip);
 
             true
         };

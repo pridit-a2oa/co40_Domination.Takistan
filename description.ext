@@ -110,11 +110,6 @@ class CfgSounds {
         sound[]     = {"\vehicle_create\sounds\build", db, 1, 30};
         titles[]    = {};
     };
-    class d_sound_flip
-    {
-        sound[]     = {"\vehicle_flip\sounds\flip", db, 1, 30};
-        titles[]    = {};
-    };
     class d_sound_refuel
     {
         sound[]     = {"\vehicle_refuel\sounds\refuel", db, 1, 30};
@@ -123,6 +118,11 @@ class CfgSounds {
     class d_sound_repair
     {
         sound[]     = {"\vehicle_repair\sounds\repair", db, 1, 30};
+        titles[]    = {};
+    };
+    class d_sound_unflip
+    {
+        sound[]     = {"\vehicle_unflip\sounds\unflip", db, 1, 30};
         titles[]    = {};
     };
 };

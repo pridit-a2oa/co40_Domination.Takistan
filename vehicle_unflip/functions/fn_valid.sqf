@@ -3,7 +3,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(player getVariable QGVAR(flip)) exitWith {false};
+if !(player getVariable QGVAR(unflip)) exitWith {false};
 if (player in _vehicle) exitWith {false};
 if (player distance _vehicle > 10) exitWith {false};
 if !(simulationEnabled _vehicle) exitWith {false};

@@ -1,8 +1,8 @@
 /**
- * Vehicle Flip Module - Vehicle Menu Submodule
+ * Vehicle Unflip Module - Vehicle Menu Submodule
  */
 
-#define THIS_MODULE vehicle_flip
+#define THIS_MODULE vehicle_unflip
 #include "x_macros.sqf"
 private ["_vehicle"];
 
@@ -12,7 +12,7 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {false};
 
 [
     format ["%1Unflip", if !(isNil QMODULE(perk)) then {"Perk: "} else {""}],
-    "flip"
+    "unflip"
 ] call FUNC(vehicle_menu,populate);
 
 true

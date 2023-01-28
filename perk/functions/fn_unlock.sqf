@@ -68,8 +68,8 @@ switch (_tier) do {
             };
             
             case 9: {
-                if (!isNil QMODULE(vehicle_flip)) then {
-                    player setVariable [QGVAR(flip), true];
+                if (!isNil QMODULE(vehicle_unflip)) then {
+                    player setVariable [QGVAR(unflip), true];
                 };
             };
         };

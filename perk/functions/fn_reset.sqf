@@ -17,9 +17,9 @@ private ["_modules"];
     "uav",
     "vehicle_bonus",
     // "vehicle_cargo",
-    "vehicle_flip",
     "vehicle_repair",
-    "vehicle_teleport"
+    "vehicle_teleport",
+    "vehicle_unflip"
 ];
 
 BIS_MENU_Construct resize 1;
