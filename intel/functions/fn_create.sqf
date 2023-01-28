@@ -24,7 +24,7 @@ _objects = [];
     _object setPos (_parent modelToWorld _offset);
 
     if ([_x, "WeaponHolder"] call BIS_fnc_areEqual) then {
-        _object addWeaponCargo [GVAR(intel_type_item), 1];
+        _object addWeaponCargoGlobal [GVAR(intel_type_item), 1];
 
         [_parent, _object] spawn {
             private ["_parent", "_container", "_position"];
