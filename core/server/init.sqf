@@ -14,6 +14,7 @@ GVAR(server_objects_banned) = [
     "Barrel4",
     "Barrel5",
     "Barrels",
+    "Fort_EnvelopeBig_EP1",
     "HeliH",
     "HMMWV_DES_EP1",
     "Land_Barrel_sand",
