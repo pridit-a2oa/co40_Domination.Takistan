@@ -52,9 +52,9 @@ if (hasInterface) then {
     ["Classes", [
         "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/><br />",
         "The primary purpose of class selection is to determine which role based <marker name=''>perks</marker> you can unlock.<br />",
-        "A limited amount of classes provide <marker name=''>inherent functions</marker>, they are as follows:<br />",
+        "A limited amount of classes provide <marker name=''>inherent functions</marker>. These are as follows:<br />",
         "- Artillery Operators are able to use the artillery computer.",
-        "- Medics can heal self or other players, without requiring a medkit.<br />",
+        "- Medics can heal self or other players without requiring a medkit.<br />",
         "With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of class.<br />",
         "Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and non-special forces units have less gear slots."
     ]] call FUNC(THIS_MODULE,create);
