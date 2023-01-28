@@ -37,7 +37,7 @@ _objects = [];
 
             if (isNull _parent) exitWith {};
 
-            __log "Found"];
+            __log format ["Found %1", GVAR(intel_type_item)]];
 
             deleteVehicle (nearestObject [_position, GVAR(intel_type_item)]);
         };
