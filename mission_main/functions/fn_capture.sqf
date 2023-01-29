@@ -47,5 +47,7 @@ if !(isNil "_trigger") then {
             "You have been given %1 score for capturing a camp",
             GVAR(mission_main_amount_camps_score)
         ]] call FUNC(network,mp);
+
+        [_x, "playSound", "beep"] call FUNC(network,mp);
     };
 } forEach _units;

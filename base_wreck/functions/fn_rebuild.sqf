@@ -119,6 +119,8 @@ if (!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(
                 "You have been given %1 score for rebuilding a wreck",
                 GVAR(base_wreck_amount_score)
             ]] call FUNC(network,mp);
+
+            [_x, "playSound", "beep"] call FUNC(network,mp);
         };
     } forEach (call FUNC(common,players));
 };

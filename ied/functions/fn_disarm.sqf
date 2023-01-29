@@ -21,6 +21,8 @@ if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
 
 [true, "say3D", [player, QGVAR(sound_disarm), 20]] call FUNC(network,mp);
 
+deleteVehicle _ied;
+
 [gameLogic, "addScore", [player, GVAR(ied_amount_score)]] call FUNC(network,mp);
 
 systemChat format [
@@ -28,4 +30,4 @@ systemChat format [
     GVAR(ied_amount_score)
 ];
 
-deleteVehicle _ied;
+playSound "beep";

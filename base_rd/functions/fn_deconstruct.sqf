@@ -121,6 +121,8 @@ if !([_player, objNull] call BIS_fnc_areEqual) then {
                 "You have been given %1 score for deconstructing a vehicle",
                 GVAR(base_rd_amount_score)
             ]] call FUNC(network,mp);
+
+            [_x, "playSound", "beep"] call FUNC(network,mp);
         };
     } forEach (call FUNC(common,players));
 };
