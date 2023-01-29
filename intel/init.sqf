@@ -24,5 +24,7 @@ GVAR(intel_chance_spawn) = 5;
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
+__cppfln(FUNC(THIS_MODULE,process),THIS_MODULE\functions\fn_process.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
