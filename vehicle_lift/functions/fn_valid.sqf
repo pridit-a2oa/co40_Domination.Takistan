@@ -31,7 +31,7 @@ while {player == driver _vehicle} do {
         if (!isNil "_nearest") then {
             if (locked _nearest) exitWith {};
             if (_nearest isKindOf "StaticWeapon") exitWith {};
-            if ((vectorUp _nearest) select 2 < 0.6) exitWith {};
+            if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {};
             
             if (isNull _attached && {str (alive _nearest) == str (_alive)} && {{alive _x && {!isPlayer _x}} count crew _nearest < 1}) then {
                 _vehicle setVariable [QGVAR(attach), [
