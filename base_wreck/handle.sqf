@@ -37,7 +37,7 @@ if (isServer) then {
         _trigger setTriggerArea [12, 20, -30, true];
         _trigger setTriggerActivation ["ANY", "PRESENT", true];
         _trigger setTriggerStatements [
-            "{typeOf _x != 'ATV_US_EP1'} count thisList > 0",
+            "{!(typeOf _x in ['ATV_US_EP1', 'ClutterCutter_EP1'])} count thisList > 0",
             "d_wreck_hangars_occupied = d_wreck_hangars_occupied + 1",
             "d_wreck_hangars_occupied = d_wreck_hangars_occupied - 1"
         ];
