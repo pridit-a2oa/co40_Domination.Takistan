@@ -33,8 +33,6 @@ _target setVariable [
 
 deleteVehicle _flag;
 
-[true, "playSound", QGVAR(sound_capture)] call FUNC(network,mp);
-
 if !(isNil "_trigger") then {
     deleteVehicle _trigger;
 };
