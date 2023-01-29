@@ -220,11 +220,11 @@ class Mission
 					id=248;
 					side="WEST";
 					vehicle="US_Delta_Force_Air_Controller_EP1";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					skill=1;
 					text="ARTY1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";player setPos (markerPos ""respawn_west"");";
+					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
 					description="Artillery Operator";
 				};
 				class Item1
