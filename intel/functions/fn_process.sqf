@@ -1,10 +1,7 @@
 #define THIS_MODULE intel
 #include "x_macros.sqf"
-private ["_trigger", "_holder"];
 
-PARAMS_1(_trigger);
-
-if !(call FUNC(THIS_MODULE,valid));
+if !(call FUNC(THIS_MODULE,valid)) exitWith {};
 
 player removeWeapon GVAR(intel_type_item);
 
