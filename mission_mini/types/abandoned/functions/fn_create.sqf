@@ -57,6 +57,8 @@ if (!isNil QMODULE(vehicle)) then {
     [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 };
 
+__addDead(_vehicle);
+
 if (!isNil QMODULE(marker)) then {
     GVAR(intel_trigger) = createTrigger ["EmptyDetector", position _road];
     GVAR(intel_trigger) setVariable ["vehicle", _vehicle];
