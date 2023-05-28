@@ -95,7 +95,7 @@ if (!isNil QMODULE(teleport)) then {
         PARAMS_2(_target, _flag);
         
         [
-            format ["teleport_%1", _target getVariable "name"],
+            format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))],
             position _flag,
             "Town",
             " Fast Travel",

@@ -11,7 +11,7 @@ if (hasInterface) then {
     } forEach (allMissionObjects GVAR(teleport_type_object));
 
     [
-        "teleport_Loy Manara",
+        "teleport_[8622.05,2454.22,-315.322]",
         position GVAR(flag),
         "Town",
         " Fast Travel",

@@ -35,14 +35,14 @@ if (!isNil QMODULE(task)) then {
 };
 
 if (!isNil QMODULE(marker)) then {
-    [format ["mission_main_%1", _target getVariable "name"]] call FUNC(marker,delete);
+    [
+        format ["mission_main_%1", _target getVariable "name"]
+    ] call FUNC(marker,delete);
     
     if (!isNil QMODULE(teleport)) then {
-        private ["_name"];
-
-        _name = format ["teleport_%1", _target getVariable "name"];
-        
-        [_name] call FUNC(marker,delete);
+        [
+            format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))]
+        ] call FUNC(marker,delete);
     };
 };
 

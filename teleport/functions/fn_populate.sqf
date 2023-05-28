@@ -17,19 +17,19 @@ _list = DIALOG("X_TELEPORT_DIALOG", 1500);
     
 {
     if !(isNil {_x getVariable QGVAR(teleport)}) then {
-        _location = text ([position _x] call FUNC(common,nearestLocation));
-        _position = markerPos format ["teleport_%1", _location];
+        _location = [position _x] call FUNC(common,nearestLocation);
+        _position = locationPosition _location;
 
         if (player distance _x > 50) then {
-            if (_location == "Loy Manara") then {
+            if ([str _position, "[8622.05,2454.22,-315.322]"] call BIS_fnc_areEqual) then {
                 _name = "Flag: Airfield";
             } else {
-                _name = format ["Flag: %1", _location];
+                _name = format ["Flag: %1", text _location];
             };
 
             _index = _list lbAdd _name;
-            _list lbSetData [_index, _location];
-            _list lbSetValue [_index, if (_location == "Loy Manara") then {0} else {player distance _x}];
+            _list lbSetData [_index, str _position];
+            _list lbSetValue [_index, if ([str _position, "[8622.05,2454.22,-315.322]"] call BIS_fnc_areEqual) then {0} else {player distance _x}];
         };
     };
 } forEach (allMissionObjects GVAR(teleport_type_object));
