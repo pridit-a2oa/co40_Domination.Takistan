@@ -1,6 +1,6 @@
 #define THIS_MODULE drag
 #include "x_macros.sqf"
-private ["_target"];
+private ["_target", "_action"];
 
 PARAMS_1(_target);
 
@@ -15,9 +15,22 @@ _target attachTo [player, [0, 1, 0]];
 
 [true, "setDir", [_target, 180]] call FUNC(network,mp);
 
-_action = player addAction ["Drop" call FUNC(common,RedText), __function(drop), _target, 10, false, true, "", ""];
+_action = player addAction [
+    "Drop" call FUNC(common,RedText),
+    __function(drop),
+    _target,
+    10,
+    false,
+    true,
+    "",
+    ""
+];
 
-waitUntil {{!alive _x} count [player, _target] > 0 || {player getVariable QGVAR(unconscious)} || {!(_target getVariable QGVAR(dragging))}};
+waitUntil {
+    sleep 0.1;
+    
+    {!alive _x} count [player, _target] > 0 || {player getVariable QGVAR(unconscious)} || {!(_target getVariable QGVAR(dragging))}
+};
 
 detach _target;
 

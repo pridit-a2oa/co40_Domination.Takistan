@@ -61,7 +61,7 @@ ctrlMapAnimCommit _map;
     
     if !(_target isKindOf "AllVehicles") exitWith {};
     
-    waitUntil {ctrlMapAnimDone _map};
+    waitUntil {sleep 0.1; ctrlMapAnimDone _map};
     
     sleep 0.1;
     

@@ -9,11 +9,11 @@ private ["_vehicle", "_fly"];
 PARAMS_1(_vehicle);
 
 while {true} do {
-    waitUntil {!isNull player};
+    waitUntil {sleep 0.1; !isNull player};
     
     _fly = player getVariable QGVAR(pilot);
     
-    if (!_fly && {player == driver _vehicle}) then {
+    if (!_fly && {[player, driver _vehicle] call BIS_fnc_areEqual}) then {
         player action ["Eject", _vehicle];
         
         hint "You do not have the required perk to pilot attack aircraft";

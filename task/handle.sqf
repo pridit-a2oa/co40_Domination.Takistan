@@ -6,16 +6,18 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    waitUntil {!isNil {X_JIPH getVariable QGVAR(tasks)}};
+    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(tasks)}};
     
     {
-        _task = if (!isNil {_x select 4}) then {
+        private ["_task"];
+
+        _task = if !(isNil {_x select 4}) then {
             player createSimpleTask [_x select 0, [_x select 4] call FUNC(task,get)];
         } else {
             player createSimpleTask [_x select 0];
         };
 
-        if (typeName (_x select 1) == "ARRAY") then {
+        if ([typeName (_x select 1), "ARRAY"] call BIS_fnc_areEqual) then {
             _task setSimpleTaskDestination (_x select 1);
         };
         

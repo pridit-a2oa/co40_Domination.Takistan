@@ -88,7 +88,7 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {!isNil {_vehicle getVariable QGVAR(id)}};
+    waitUntil {sleep 0.1; !isNil {_vehicle getVariable QGVAR(id)}};
 
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);

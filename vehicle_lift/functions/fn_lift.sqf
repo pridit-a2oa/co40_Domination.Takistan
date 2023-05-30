@@ -17,7 +17,7 @@ _attacher setVariable [QGVAR(attach), nil];
     [_x, "action", ["Eject", vehicle _x]] call FUNC(network,mp);
 } forEach crew _attachee;
 
-waitUntil {count crew _attachee < 1};
+waitUntil {sleep 0.1; count crew _attachee < 1};
 
 [_attachee, "lock", true] call FUNC(network,mp);
 

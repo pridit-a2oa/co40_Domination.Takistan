@@ -43,8 +43,12 @@ onEachFrame {call d_fnc_client_perFrame};
 
 if (!isNil QMODULE(vehicle)) then {
     0 spawn {
-        if (!isNil QMODULE(base_bonus)) then {
-            waitUntil {X_JIPH getVariable QGVAR(vehicle_bonus) == GVAR(base_bonus_amount)};
+        if !(isNil QMODULE(base_bonus)) then {
+            waitUntil {
+                sleep 0.1;
+                
+                [X_JIPH getVariable QGVAR(vehicle_bonus), GVAR(base_bonus_amount)] call BIS_fnc_areEqual
+            };
         };
         
         ["init_vehicles", {
@@ -336,7 +340,7 @@ player addEventHandler ["killed", {
     PARAMS_1(_unit);
     
     _unit spawn {
-        waitUntil {_this != player};
+        waitUntil {sleep 1; !([_this, player] call BIS_fnc_areEqual)};
         
         hideBody _this;
     };

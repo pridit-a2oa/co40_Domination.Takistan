@@ -7,18 +7,18 @@
 private ["_path"];
 
 if (isServer) then {
-    private ["_group"];
+    private ["_crossroad", "_crossroad2"];
     
-    _group = createGroup west;
+    _crossroad = createGroup west;
     
-    GVAR(crossroad) = _group createUnit ["Logic", [0,0,0], [], 0, "NONE"];
-    [GVAR(crossroad)] joinSilent _group;
+    GVAR(crossroad) = _crossroad createUnit ["Logic", [0,0,0], [], 0, "NONE"];
+    [GVAR(crossroad)] joinSilent _crossroad;
     GVAR(crossroad) enableSimulation false;
     
-    _group = createGroup west;
+    _crossroad2 = createGroup west;
     
-    GVAR(crossroad2) = _group createUnit ["Logic", [0,0,1], [], 0, "NONE"];
-    [GVAR(crossroad2)] joinSilent _group;
+    GVAR(crossroad2) = _crossroad2 createUnit ["Logic", [0,0,1], [], 0, "NONE"];
+    [GVAR(crossroad2)] joinSilent _crossroad2;
     GVAR(crossroad2) enableSimulation false;
     
     X_JIPH setVariable [QGVAR(crossroad), GVAR(crossroad), true];
@@ -28,7 +28,7 @@ if (isServer) then {
 _path = format ["%1\speech\crossroad.bikb", QUOTE(THIS_MODULE)];
 
 if (hasInterface) then {
-    waitUntil {!isNil {X_JIPH getVariable QGVAR(crossroad2)}};
+    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(crossroad2)}};
     
     GVAR(crossroad) = X_JIPH getVariable QGVAR(crossroad);
     GVAR(crossroad2) = X_JIPH getVariable QGVAR(crossroad2);

@@ -10,8 +10,8 @@ if (hasInterface) then {
     QGVAR(map_zone) setMarkerAlphaLocal 0;
 };
 
-waitUntil {!isNil "bis_fnc_init"};
-waitUntil {!isNil "BIS_MPF_InitDone"};
+waitUntil {sleep 0.1; !isNil "bis_fnc_init"};
+waitUntil {sleep 0.1; !isNil "BIS_MPF_InitDone"};
 
 if (hasInterface && {isMultiplayer}) then {
     player enableSimulation false;

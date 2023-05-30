@@ -10,7 +10,7 @@ PARAMS_1(_vehicle);
 
 _type = [_vehicle] call FUNC(THIS_MODULE,type);
 
-if (typeName _type == "SCALAR") exitWith {};
+if ([typeName _type, "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 
 if (isServer) then {
     private ["_type", "_texture"];
@@ -24,7 +24,7 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {!isNil {_vehicle getVariable QGVAR(texture)}};
+    waitUntil {sleep 0.1; !isNil {_vehicle getVariable QGVAR(texture)}};
 
     [_vehicle] call FUNC(THIS_MODULE,switch);
 };

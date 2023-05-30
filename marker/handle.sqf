@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    waitUntil {!isNil {X_JIPH getVariable QGVAR(markers)}};
+    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(markers)}};
     
     {
         _marker = createMarkerLocal [(_x select 0), (_x select 1)];
@@ -19,7 +19,7 @@ if (hasInterface) then {
             _marker setMarkerBrushLocal (_x select 7);
         };
 
-        if (count (_x select 8) == 2) then {
+        if ([count (_x select 8), 2] call BIS_fnc_areEqual) then {
             _marker setMarkerSizeLocal (_x select 8);
         };
     } forEach (X_JIPH getVariable QGVAR(markers));
