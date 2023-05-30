@@ -33,13 +33,15 @@ _objects = [];
 
             _position = position _container;
 
-            waitUntil {sleep 2 + (random 0.5); {[_x select 0, GVAR(intel_type_item)] call BIS_fnc_areEqual} count (getWeaponCargo _container) < 1};
-
-            if (isNull _parent) exitWith {};
-
-            __log format ["Found %1", GVAR(intel_type_item)]];
+            waitUntil {sleep 2 + (random 0.5); {[_x select 0, GVAR(intel_type_item)] call BIS_fnc_areEqual} count (getWeaponCargo _container) < 1 || !alive _parent};
 
             deleteVehicle (nearestObject [_position, GVAR(intel_type_item)]);
+
+            if !(alive _parent) exitWith {
+                clearWeaponCargoGlobal _container;
+            };
+
+            __log format ["Found %1", GVAR(intel_type_item)]];
         };
     };
 
