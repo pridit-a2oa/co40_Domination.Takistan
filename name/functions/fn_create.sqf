@@ -4,7 +4,7 @@ private ["_unit", "_marker"];
 
 PARAMS_1(_unit);
 
-_marker = createMarkerLocal [str (_unit), position _unit];
+_marker = createMarkerLocal [str _unit, position _unit];
 _marker setMarkerTextLocal (name _unit);
 _marker setMarkerColorLocal "ColorGreen";
 _marker setMarkerShapeLocal "ICON";
@@ -15,7 +15,7 @@ _unit addMPEventHandler ["MPKilled", {
     
     PARAMS_1(_unit);
     
-    deleteMarkerLocal (str (_unit));
+    deleteMarkerLocal (str _unit);
 }];
 
 _marker
