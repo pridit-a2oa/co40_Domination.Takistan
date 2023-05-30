@@ -23,11 +23,10 @@ if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
 
 deleteVehicle _ied;
 
-[gameLogic, "addScore", [player, GVAR(ied_amount_score)]] call FUNC(network,mp);
-
-systemChat format [
-    "You have been given %1 score for disarming an IED",
-    GVAR(ied_amount_score)
-];
-
-playSound "beep";
+if !(isNil QMODULE(reward)) then {
+    [
+        player,
+        GVAR(ied_amount_score),
+        "disarming an IED"
+    ] call FUNC(reward,score);
+};

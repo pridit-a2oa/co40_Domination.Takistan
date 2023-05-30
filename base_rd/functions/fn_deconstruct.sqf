@@ -114,15 +114,12 @@ if (!isNil QMODULE(conversation) && {_progress select 1 == (_progress select 0) 
 
 if !([_player, objNull] call BIS_fnc_areEqual) then {
     {
-        if (getPlayerUID _x == _player) exitWith {
-            _x addScore GVAR(base_rd_amount_score);
-            
-            [_x, "systemChat", format [
-                "You have been given %1 score for deconstructing a vehicle",
-                GVAR(base_rd_amount_score)
-            ]] call FUNC(network,mp);
-
-            [_x, "playSound", "beep"] call FUNC(network,mp);
+        if (!isNil QMODULE(reward) && {[getPlayerUID _x, _player] call BIS_fnc_areEqual}) exitWith {
+            [
+                _x,
+                GVAR(base_rd_amount_score),
+                "deconstructing a vehicle"
+            ] call FUNC(reward,score);
         };
     } forEach (call FUNC(common,players));
 };

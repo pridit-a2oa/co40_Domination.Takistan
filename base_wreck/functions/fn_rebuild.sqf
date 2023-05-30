@@ -110,17 +110,14 @@ while {call FUNC(common,time) < _time} do {
 
 sleep 2;
 
-if (!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(base_wreck_distance_score)}) then {
+if (!isNil QMODULE(reward) && {!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(base_wreck_distance_score)}}) then {
     {
-        if (getPlayerUID _x == _lifter) exitWith {
-            _x addScore GVAR(base_wreck_amount_score);
-            
-            [_x, "systemChat", format [
-                "You have been given %1 score for rebuilding a wreck",
-                GVAR(base_wreck_amount_score)
-            ]] call FUNC(network,mp);
-
-            [_x, "playSound", "beep"] call FUNC(network,mp);
+        if ([getPlayerUID _x, _lifter] call BIS_fnc_areEqual) exitWith {
+            [
+                _x,
+                GVAR(base_wreck_amount_score),
+                "rebuilding a wreck"
+            ] call FUNC(reward,score);
         };
     } forEach (call FUNC(common,players));
 };

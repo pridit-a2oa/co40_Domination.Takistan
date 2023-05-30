@@ -14,6 +14,7 @@ GVAR(client_time_invulnerable) = 10;
 
 __cppfln(FUNC(THIS_MODULE,addPerFrame),core\THIS_MODULE\functions\fn_addPerFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,perFrame),core\THIS_MODULE\functions\fn_perFrame.sqf);
+__cppfln(FUNC(THIS_MODULE,ready),core\THIS_MODULE\functions\fn_ready.sqf);
 __cppfln(FUNC(THIS_MODULE,removePerFrame),core\THIS_MODULE\functions\fn_removePerFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,reveal),core\THIS_MODULE\functions\fn_reveal.sqf);
 

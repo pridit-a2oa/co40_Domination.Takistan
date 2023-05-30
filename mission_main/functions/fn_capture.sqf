@@ -38,14 +38,11 @@ if !(isNil "_trigger") then {
 };
 
 {
-    if (isPlayer _x && {alive _x} && {!(_x isKindOf "Air")} && {!(_x getVariable QGVAR(unconscious))}) then {
-        _x addScore GVAR(mission_main_amount_camps_score);
-            
-        [_x, "systemChat", format [
-            "You have been given %1 score for capturing a camp",
-            GVAR(mission_main_amount_camps_score)
-        ]] call FUNC(network,mp);
-
-        [_x, "playSound", "beep"] call FUNC(network,mp);
+    if (!isNil QMODULE(reward) && {isPlayer _x && {[_x] call FUNC(client,ready)}}) then {
+        [
+            _x,
+            GVAR(mission_main_amount_camps_score),
+            "capturing a camp"
+        ] call FUNC(reward,score);
     };
 } forEach _units;
