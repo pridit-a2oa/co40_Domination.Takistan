@@ -9,7 +9,7 @@ if (time < _time) exitWith {
             "minutes"
         };
 
-        case (_time - time > 2): {
+        case (_time - time > 1): {
             "seconds"
         };
 
