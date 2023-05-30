@@ -127,14 +127,8 @@ switch (_type) do {
                 
                 _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
                 _radio setVariable [QGVAR(target), _target];
-                
-                [true, "addEventHandler", [_radio, "HandleDamage", {
-                    if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
-                    if (true in [(_this select 3) isKindOf "Car", (_this select 3) isKindOf "Tank"] && {(_this select 3) distance (_this select 0) > 150}) exitWith {0};
-                    if ((_this select 3) isKindOf "Air" && {!([_this select 4, "Bo_"] call KRON_StrInStr)} && {(_this select 3) distance (_this select 0) > 300}) exitWith {0};
-                
-                    _this select 2
-                }]] call FUNC(network,mp);
+
+                [true, "execVM", [[_radio], __function(protect)]] call FUNC(network,mp);
                 
                 _radio addEventHandler ["killed", {
                     private ["_unit", "_target"];
@@ -221,13 +215,7 @@ switch (_type) do {
             case "object": {
                 _entity = ([_position, random 360, _type select 1, east] call BIS_fnc_spawnVehicle) select 0;
 
-                [true, "addEventHandler", [_entity, "HandleDamage", {
-                    if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
-                    if (true in [(_this select 3) isKindOf "Car", (_this select 3) isKindOf "Tank"] && {(_this select 3) distance (_this select 0) > 150}) exitWith {0};
-                    if ((_this select 3) isKindOf "Air" && {!([_this select 4, "Bo_"] call KRON_StrInStr)} && {(_this select 3) distance (_this select 0) > 300}) exitWith {0};
-                
-                    _this select 2
-                }]] call FUNC(network,mp);
+                [true, "execVM", [[_entity], __function(protect)]] call FUNC(network,mp);
 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
             };

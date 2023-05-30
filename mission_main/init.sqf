@@ -131,6 +131,7 @@ __cppfln(FUNC(THIS_MODULE,detected),THIS_MODULE\functions\fn_detected.sqf);
 __cppfln(FUNC(THIS_MODULE,exists),THIS_MODULE\functions\fn_exists.sqf);
 __cppfln(FUNC(THIS_MODULE,kill),THIS_MODULE\functions\fn_kill.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
+__cppfln(FUNC(THIS_MODULE,protect),THIS_MODULE\functions\fn_protect.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
 __cppfln(FUNC(THIS_MODULE,recycle),THIS_MODULE\functions\fn_recycle.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
