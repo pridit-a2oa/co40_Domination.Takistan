@@ -6,7 +6,7 @@
 
 ["Perks", [
     "<img image='ca\missions_e\bootcamp\TE12_Supports.Zargabad\overview_ca' width='200'/><br />",
-    "This is the main <marker name=''>progression</marker> system within the mission, providing support options and abilities as reward for contribution.<br />",
+    "This is the main <marker name=''>progression</marker> system within the mission, providing support options and abilities as reward for effort.<br />",
     format [
         "Perk points must be earned and are awarded every <marker name=''>%1</marker> score. Acquiring <marker name=''>%2</marker> score will allow unlocking every available perk.<br />",
         GVAR(perk_amount_score),

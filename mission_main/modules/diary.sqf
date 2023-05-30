@@ -16,5 +16,5 @@
     "- Most actively occupied vehicles must be <marker name=''>destroyed</marker> or outside of the area.<br />",
     "In order to prevent railroading conditions the following restrictions are in place:<br />",
     "- Artillery fire (excl. perk) on radio towers are <marker name=''>ineffective</marker>, as well as vehicle fire (excl. bombs) unless close.",
-    "- Camps <marker name=''>cannot</marker> be captured with an active enemy presence in the immediate area, nor from within aircraft."
+    "- Camps <marker name=''>cannot</marker> be captured with an active enemy presence in the immediate area, and only on foot."
 ]] call FUNC(diary,create);
