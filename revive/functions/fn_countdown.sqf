@@ -7,8 +7,8 @@ _time = [player, GVAR(revive_time_respawn)] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
 
-DIALOG(QGVAR(notice), 1000) ctrlSetText "You are incapacitated";
-DIALOG(QGVAR(notice), 1001) ctrlSetText "You can wait to be revived or respawn faster by selecting Respawn from the escape menu";
+DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>You are incapacitated</t>";
+DIALOG(QGVAR(notice), 1001) ctrlSetText "Wait to be revived\n\nOR\n\nRespawn from the escape menu";
 
 0 spawn {
     sleep (7 + random 4);

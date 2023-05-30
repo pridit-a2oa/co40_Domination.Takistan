@@ -14,6 +14,10 @@ class XD_Notice {
             w = 0.377525;
             h = 0.116583;
             size = 0.05;
+            class Attributes {
+                color = "#ffffff";
+                align = "center";
+            };
         };
         class RscStructuredText_1100: BBRscStructuredText
         {
@@ -21,8 +25,12 @@ class XD_Notice {
             x = 0.25;
             y = 0.6;
             w = 0.501263;
-            h = 0.126684;
+            h = 0.166684;
             size = 0.034;
+            class Attributes {
+                color = "#ffffff";
+                align = "center";
+            };
         };
         class RscText_1000: BBRscStructuredText
         {
