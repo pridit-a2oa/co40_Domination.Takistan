@@ -58,7 +58,7 @@ switch (_state) do {
             
             if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {    
                 [
-                    [player, GVAR(crossroad)],
+                    [GVAR(crossroad), GVAR(crossroad2)],
                     [QUOTE(THIS_MODULE), "Deployed"],
                     [
                         ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
