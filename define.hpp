@@ -152,6 +152,7 @@ class RscListBox
  colorSelect[] = {0.247,0.2,0.137,1};
  colorSelectBackground[] = {0.639,0.576,0.427,1};
  colorBackground[] = {0.6,0.5,0.3,1};
+ colorPicture[] = {0.639,0.576,0.427,1};
  maxHistoryDelay = 0;
  soundSelect[] = {"",0.1,1};
  period = 0;

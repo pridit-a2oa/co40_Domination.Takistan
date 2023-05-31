@@ -1,8 +1,6 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_name"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_name = getText (configFile >> "CfgVehicles" >> _vehicle >> "displayName");
-
-_name
+getText (configFile >> "CfgVehicles" >> _vehicle >> "displayName")
