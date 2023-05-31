@@ -1,3 +1,4 @@
+#define THIS_MODULE halo
 #include "x_macros.sqf"
 
 scriptName "modules_e\Functions\objects\fn_HALO.sqf";
@@ -5,18 +6,19 @@ scriptName "modules_e\Functions\objects\fn_HALO.sqf";
 sleep 0.01;
 
 //--- HALO -------------------------------------------------------------------------------------------------------------------------------------
-if (typename _this == typename objnull) then {
-
+if ([typeName _this, typeName objNull] call BIS_fnc_areEqual) then {
     _unit = _this;
 
     //--- Eject!
     waituntil {(vehicle _unit) iskindof "ParachuteBase" || !isnil {_unit getvariable "bis_fnc_halo_now"}};
-    if (!local _unit) exitwith {};
+
+    if !(local _unit) exitwith {};
 
     //--- Delete parachute
     _parachute = vehicle _unit;
-    if (_parachute != _unit) then {
-        deletevehicle _parachute;
+
+    if !([_parachute, _unit] call BIS_fnc_areEqual) then {
+        deleteVehicle _parachute;
     };
 
     //--- Init
@@ -25,7 +27,7 @@ if (typename _this == typename objnull) then {
     [true, "switchMove", [_unit, "HaloFreeFall_non"]] call FUNC(network,mp);
 
     //--- Key controls
-    if (_unit == player) then {
+    if ([player, _unit] call BIS_fnc_areEqual) then {
         //--- PLAYER ------------------------------------------------
 
         _brightness = 0.99;
@@ -71,7 +73,9 @@ if (typename _this == typename objnull) then {
         bis_fnc_halo_soundLoop = time;
         playsound "BIS_HALO_Flapping";
 
-        bis_fnc_halo_action = _unit addaction [localize "STR_HALO_OPEN_CHUTE","halo\functions\bis\fn_halo.sqf",[],1,true,true,"Eject"];
+        if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(parachute)) select 1, 0] call BIS_fnc_areEqual}) then {
+            bis_fnc_halo_action = _unit addAction [localize "STR_HALO_OPEN_CHUTE","halo\functions\bis\fn_halo.sqf",[],1,true,true,"Eject"];
+        };
 
         bis_fnc_halo_keydown = {
             _key = _this select 1;
@@ -112,8 +116,7 @@ if (typename _this == typename objnull) then {
 
         [] spawn {
             _time = time - 0.1;
-            while {alive player && !(player getVariable QGVAR(unconscious)) && vehicle player == player && isnil {player getvariable "bis_fnc_halo_terminate"}} do {
-
+            while {[player] call FUNC(common,ready) && {isNil {player getvariable "bis_fnc_halo_terminate"}}} do {
                 //--- FPS counter
                 _fpsCoef = ((time - _time) * 60) / acctime; //Script is optimized for 60 FPS
                 _time = time;
@@ -165,10 +168,18 @@ if (typename _this == typename objnull) then {
                 //--- Effects
                 bis_fnc_halo_ppRadialBlur ppEffectAdjust [0.02,0.02,0.3 - (bis_fnc_halo_vel/7)/_fpsCoef,0.3 - (bis_fnc_halo_vel/7)/_fpsCoef];
                 bis_fnc_halo_ppRadialBlur ppEffectCommit 0.01;
+
+                if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(parachute)) select 1, 10] call BIS_fnc_areEqual && {(getPosATL player select 2) < GVAR(halo_distance_minimum)}}) exitWith {
+                    [player] call BIS_fnc_halo;
+                };
+
                 sleep 0.01;
             };
             //--- End
-            player removeaction bis_fnc_halo_action;
+            if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(parachute)) select 1, 0] call BIS_fnc_areEqual}) then {
+                player removeAction bis_fnc_halo_action;
+            };
+            
             (finddisplay 46) displayremoveeventhandler ["keydown",bis_fnc_halo_keydown_eh];
             ppeffectdestroy bis_fnc_halo_ppRadialBlur;
             deletevehicle bis_fnc_halo_clouds;
@@ -184,7 +195,7 @@ if (typename _this == typename objnull) then {
             bis_fnc_halo_keydown = nil;
             bis_fnc_halo_keydown_eh = nil;
 
-            if (!alive player) then {
+            if !(alive player) then {
                 [true, "switchMove", [player, "adthppnemstpsraswrfldnon_1"]] call FUNC(network,mp);
             };
         };
@@ -213,13 +224,13 @@ if (typename _this == typename objnull) then {
 };
 
 //--- PARA -------------------------------------------------------------------------------------------------------------------------------------
-if (typename _this == typename []) then {
-
+if ([typeName _this, typeName []] call BIS_fnc_areEqual) then {
     _unit = _this select 0;
-    if (!local _unit) exitwith {};
+
+    if !(local _unit) exitWith {};
 
     //--- Free fall
-    if (count _this == 2) exitwith {
+    if ([count _this, 2] call BIS_fnc_areEqual) exitWith {
         _alt = _this select 1;
         _unit setpos [position _unit select 0,position _unit select 1,_alt];
         _unit setvariable ["bis_fnc_halo_now",true];
@@ -239,7 +250,7 @@ if (typename _this == typename []) then {
     bis_fnc_halo_para_dirAbs = direction _para;
 
     //--- Key controls
-    if (_unit == player) then {
+    if ([player, _unit] call BIS_fnc_areEqual) then {
         _para setvelocity [(_vel select 0),(_vel select 1),(_vel select 2)*1];
 
         bis_fnc_halo_DynamicBlur = ppeffectcreate ["DynamicBlur",464];
@@ -282,8 +293,8 @@ if (typename _this == typename []) then {
         bis_fnc_halo_para_loop_time = time - 0.1;
         bis_fnc_halo_para_velZ = velocity _para select 2;
         bis_fnc_halo_para_loop = {
-            if (!isnil {player getvariable "bis_fnc_halo_terminate"}) exitwith {};
-            if (time == bis_fnc_halo_para_loop_time) exitwith {}; //--- FPS too high
+            if !(isNil {player getvariable "bis_fnc_halo_terminate"}) exitwith {};
+            if ([time, bis_fnc_halo_para_loop_time] call BIS_fnc_areEqual) exitWith {}; //--- FPS too high
 
             _para = vehicle player;
 
@@ -306,7 +317,7 @@ if (typename _this == typename []) then {
             //--- Crash
             _velZ = velocity _para select 2;
             if ((_velZ - bis_fnc_halo_para_velZ) > 7 && (getposatl _para select 2) < 100) then {
-                if (!isNil QMODULE(revive)) then {
+                if !(isNil QMODULE(revive)) then {
                     [player] call FUNC(revive,unconscious);
                 } else {
                     player setDamage 1;

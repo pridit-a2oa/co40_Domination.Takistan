@@ -15,6 +15,10 @@ if (hasInterface) then {
         __submodulePP(airdrop);
     };
 
+    if (!isNil QMODULE(halo)) then {
+        __submodulePP(halo);
+    };
+
     if (!isNil QMODULE(respawn)) then {
         __submodulePP(respawn);
     };

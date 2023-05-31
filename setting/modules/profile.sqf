@@ -15,11 +15,22 @@ _save = [];
 ];
 
 {
-    if !(isNil (format [QMODULE(%1), _x])) then {
-        [_save, [format [__profile("%1"), _x], ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
+    private ["_module", "_option"];
+
+    _module = _x;
+    _option = _x;
+
+    if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {
+        _module = _x select 0;
+        _option = _x select 1;
+    };
+
+    if !(isNil (format [QMODULE(%1), _module])) then {
+        [_save, [format [__profile("%1"), _option], ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
     };
 } forEach [
     "3d",
+    ["halo", "parachute"],
     "reward",
     "tutorial",
     "vehicle_welcome"

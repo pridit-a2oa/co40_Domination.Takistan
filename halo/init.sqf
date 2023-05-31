@@ -8,6 +8,9 @@
 #define THIS_MODULE halo
 #include "x_macros.sqf"
 
+// Set minimum height before option is available to use
+GVAR(halo_distance_minimum) = 300;
+
 if (hasInterface) then {
     player setVariable [QGVAR(halo), false];
 };
