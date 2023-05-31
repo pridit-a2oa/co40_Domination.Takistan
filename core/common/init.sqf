@@ -38,6 +38,7 @@ __cppfln(FUNC(THIS_MODULE,numbersToWords),core\THIS_MODULE\functions\fn_numbersT
 __cppfln(FUNC(THIS_MODULE,paradrop),core\THIS_MODULE\functions\fn_paradrop.sqf);
 __cppfln(FUNC(THIS_MODULE,param),core\THIS_MODULE\functions\fn_param.sqf);
 __cppfln(FUNC(THIS_MODULE,players),core\THIS_MODULE\functions\fn_players.sqf);
+__cppfln(FUNC(THIS_MODULE,ready),core\THIS_MODULE\functions\fn_ready.sqf);
 __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);
 

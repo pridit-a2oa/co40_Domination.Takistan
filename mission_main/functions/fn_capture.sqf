@@ -38,7 +38,7 @@ if !(isNil "_trigger") then {
 };
 
 {
-    if (!isNil QMODULE(reward) && {isPlayer _x && {[_x] call FUNC(client,ready)}}) then {
+    if (!isNil QMODULE(reward) && {isPlayer _x && {[_x] call FUNC(common,ready)}}) then {
         [
             _x,
             GVAR(mission_main_amount_camps_score),
