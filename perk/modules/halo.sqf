@@ -16,5 +16,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "player getVariable 'd_halo' && {!([player, vehicle player] call BIS_fnc_areEqual) && {((getPos (vehicle player)) select 2) > d_halo_distance_minimum}}"
+    "(player getVariable 'd_halo' || ([(vehicle player) animationPhase ""ramp_bottom"", 1] call BIS_fnc_areEqual)) && {!([player, vehicle player] call BIS_fnc_areEqual) && {((getPos (vehicle player)) select 2) > d_halo_distance_minimum}}"
 ];
