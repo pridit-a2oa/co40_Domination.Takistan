@@ -8,7 +8,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Parachute",
         "parachute",
-        "Set whether chute automatically opens during a HALO jump when close to the ground",
+        "Set whether chute opens automatically during a HALO jump (close to the ground)",
         ["Yes", "No"],
         [10, 0]
     ]
