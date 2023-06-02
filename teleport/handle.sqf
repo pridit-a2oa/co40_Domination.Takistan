@@ -7,7 +7,16 @@
 
 if (hasInterface) then {
     {
-        _x addAction ["Fast Travel" call FUNC(common,YellowText), __function(show), [], 2, false, true, "", "!isNil {_target getVariable ""d_teleport""}"];
+        _x addAction [
+            "Fast Travel" call FUNC(common,YellowText),
+            __function(show),
+            [],
+            2,
+            false,
+            true,
+            "",
+            "!isNil {_target getVariable ""d_teleport""} && {[player, vehicle player] call BIS_fnc_areEqual}"
+        ];
     } forEach (allMissionObjects GVAR(teleport_type_object));
 
     [

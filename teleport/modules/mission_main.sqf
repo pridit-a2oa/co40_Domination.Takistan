@@ -18,5 +18,5 @@ _flag addAction [
     false,
     true,
     "",
-    ""
+    "[player, vehicle player] call BIS_fnc_areEqual"
 ];
