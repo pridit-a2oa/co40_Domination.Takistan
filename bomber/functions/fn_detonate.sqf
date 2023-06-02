@@ -7,8 +7,8 @@ PARAMS_1(_vehicle);
 _explosive = createVehicle [GVAR(bomber_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
 
 {
-    if (isPlayer _x) then {
-        if (!isNil QMODULE(revive)) then {
+    if (isPlayer _x && {[_x] call FUNC(common,ready)}) then {
+        if !(isNil QMODULE(revive)) then {
             [_x] call FUNC(revive,unconscious);
         } else {
             _x setDamage 1;
