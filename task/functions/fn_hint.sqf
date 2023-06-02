@@ -1,11 +1,11 @@
 #include "x_macros.sqf"
 private ["_task", "_status", "_params"];
 
-if (!hasInterface) exitWith {};
+if !(hasInterface) exitWith {};
 
 PARAMS_2(_task, _status);
 
-_params = switch(_status) do {
+_params = switch (_status) do {
     case "created": {
         [localize "str_taskNew", [1, 1, 1, 1], "taskNew"];
     };
@@ -23,4 +23,8 @@ _params = switch(_status) do {
     };
 };
 
-taskHint [format [(_params select 0) + "\n%1", (taskDescription _task) select 1], _params select 1, _params select 2];
+taskHint [
+    format [(_params select 0) + "\n%1", (taskDescription _task) select 1],
+    _params select 1,
+    _params select 2
+];
