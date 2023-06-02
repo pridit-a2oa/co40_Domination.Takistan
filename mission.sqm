@@ -3621,7 +3621,7 @@ class Mission
 		class Item6
 		{
 			position[]={8190.5796,296.13214,2064.4309};
-			name="d_bonus_air_1";
+			name="d_base_bonus_1";
 			text="A10_US_EP1";
 			type="Empty";
 			angle=150.07401;
@@ -3629,7 +3629,7 @@ class Mission
 		class Item7
 		{
 			position[]={8224.0488,296.03088,1774.6044};
-			name="d_bonus_air_4";
+			name="d_base_bonus_4";
 			text="AH64D_EP1";
 			type="Empty";
 			angle=-27.133801;
@@ -3637,7 +3637,7 @@ class Mission
 		class Item8
 		{
 			position[]={8180.9897,296.04001,1751.2283};
-			name="d_bonus_air_3";
+			name="d_base_bonus_3";
 			text="AH1Z";
 			type="Empty";
 			angle=-27.133801;
@@ -3720,7 +3720,7 @@ class Mission
 		class Item18
 		{
 			position[]={8263.7363,296.03671,1799.1827};
-			name="d_bonus_air_5";
+			name="d_base_bonus_5";
 			text="AW159_Lynx_BAF";
 			type="Empty";
 			angle=-27.133801;
@@ -3728,7 +3728,7 @@ class Mission
 		class Item19
 		{
 			position[]={8148.3872,296.12735,2040.7798};
-			name="d_bonus_air_2";
+			name="d_base_bonus_2";
 			text="[""AV8B2"",""F35B""]";
 			type="Empty";
 			angle=150.07401;
