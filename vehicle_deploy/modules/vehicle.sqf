@@ -14,9 +14,14 @@ if (isServer) then {
     private ["_expression"];
 
     _vehicle setVariable [QGVAR(cleanup), []];
+    _vehicle setVariable [QGVAR(handled), false];
     _vehicle setVariable [QGVAR(deployed), [false, ""], true];
     _vehicle setVariable [QGVAR(deploy_cooldown), 0];
     _vehicle setVariable [QGVAR(enable_simulation), true, true];
+
+    if !(isNil QMODULE(teleport)) then {
+        [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+    };
 
     _expression = {
         private ["_unit", "_deployed"];
@@ -24,10 +29,17 @@ if (isServer) then {
         PARAMS_1(_unit);
 
         if !(isServer) exitWith {};
+        if (_unit getVariable QGVAR(handled)) exitWith {};
+
+        _unit setVariable [QGVAR(handled), true];
 
         _deployed = _unit getVariable QGVAR(deployed);
 
-        if !(_deployed select 0) exitWith {};
+        if !(_deployed select 0) exitWith {
+            if !(isNil QMODULE(teleport)) then {
+                [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+            };
+        };
 
         __log format ["Destroyed %1", [typeOf _unit] call FUNC(vehicle,name)]];
 

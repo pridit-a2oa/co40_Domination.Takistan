@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_target", "_selected", "_button", "_data", "_deployed"];
+private ["_selected", "_button", "_data", "_target"];
 
 disableSerialization;
 
@@ -8,16 +8,18 @@ _selected = lbCurSel 1500;
 if ([_selected, -1] call BIS_fnc_areEqual) exitWith {nil};
 
 _button = DIALOG("X_TELEPORT_DIALOG", 2000);
-_button ctrlEnable true;
-
 _data = DIALOG("X_TELEPORT_DIALOG", 1500) lbData _selected;
 
-if !([str (markerPos format ["teleport_%1", _data]), "[0,0,0]"] call BIS_fnc_areEqual) then {
+_button ctrlEnable true;
+
+if !([markerPos format ["teleport_%1", _data], [0,0,0]] call BIS_fnc_areEqual) then {
     _target = nearestObject [markerPos format ["teleport_%1", _data], GVAR(teleport_type_object)];
 };
 
 if !(isNil QMODULE(vehicle_deploy)) then {
     {
+        private ["_deployed"];
+
         if ([_x getVariable QGVAR(id), _data] call BIS_fnc_areEqual) exitWith {
             _target = _x;
             

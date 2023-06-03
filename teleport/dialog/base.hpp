@@ -23,8 +23,8 @@ class XD_TeleportDialog {
             y = 0.231735;
             w = 0.710858;
             h = 0.501853;
-            onMouseButtonDown = "if (lbCurSel 1500 != -1) then {[d_teleport, true] call d_fnc_teleport_populate}";
-            onMouseZChanged = "if (lbCurSel 1500 != -1) then {[d_teleport, true] call d_fnc_teleport_populate}";
+            onMouseButtonDown = "if !([lbCurSel 1500, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
+            onMouseZChanged = "if !([lbCurSel 1500, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
         };
         class RscTeleportListbox: RscListbox
         {
@@ -37,7 +37,6 @@ class XD_TeleportDialog {
             rowHeight = 0.05;
             style = CT_NO_BORDER + ST_LEFT;
             borderSize = 1;
-            onMouseButtonUp = "[d_teleport, true] call d_fnc_teleport_populate";
             onLBSelChanged = "[_this select 1] call d_fnc_teleport_switch";
             onLBDblClick = "call d_fnc_teleport_action";
         };

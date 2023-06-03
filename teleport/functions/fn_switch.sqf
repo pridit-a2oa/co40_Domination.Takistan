@@ -1,6 +1,6 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
-private ["_map", "_target", "_time", "_zoom"];
+private ["_selected", "_target", "_button", "_map", "_animations", "_time", "_zoom"];
 
 PARAMS_1(_selected);
 
@@ -21,27 +21,6 @@ _animations = GVAR(teleport_type_animations);
 _time = (_animations select 0) select 0;
 _zoom = (_animations select 0) select 1;
 
-if (!isNil QMODULE(vehicle_mhq) && {GVAR(vehicle_mhq_types) find (typeOf _target) != -1}) then {
-    [_target, _selected] spawn {
-        private ["_target", "_selected"];
-        
-        PARAMS_2(_target, _selected);
-        
-        _deployed = (_target getVariable QGVAR(deployed)) select 0;
-        
-        while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY"} do {
-            if (lbCurSel 1500 != _selected) exitWith {};
-            if (isNil "_target") exitWith {};
-            
-            if (!([(_target getVariable QGVAR(deployed)) select 0, _deployed] call BIS_fnc_areEqual) || {!alive _target}) exitWith {
-                [GVAR(teleport), true] call FUNC(THIS_MODULE,populate);
-            };
-            
-            sleep 0.2;
-        };
-    };
-};
-
 _map ctrlMapAnimAdd [
     _time,
     if (ctrlMapScale _map != (_animations select 1) select 1) then {_zoom} else {ctrlMapScale _map},
@@ -51,31 +30,30 @@ _map ctrlMapAnimAdd [
 ctrlMapAnimCommit _map;
 
 [_map, _animations, _selected] spawn {
-    private ["_map", "_animations", "_selected", "_deployed"];
+    private ["_map", "_animations", "_selected", "_target"];
     
     PARAMS_3(_map, _animations, _selected);
     
     _target = call FUNC(THIS_MODULE,target);
 
     if (isNil "_target") exitWith {};
-    
     if !(_target isKindOf "AllVehicles") exitWith {};
     
     waitUntil {sleep 0.1; ctrlMapAnimDone _map};
     
     sleep 0.1;
     
-    while {typeName (uiNamespace getVariable "X_TELEPORT_DIALOG") == "DISPLAY"} do {
-        if (lbCurSel 1500 != _selected) exitWith {};
+    while {call FUNC(THIS_MODULE,valid)} do {
+        if !([lbCurSel 1500, _selected] call BIS_fnc_areEqual) exitWith {};
         if (isNil "_target") exitWith {};
-        if (!alive _target) exitWith {};
+        if !(alive _target) exitWith {};
         
         if (!isNil QMODULE(vehicle_marker)) then {
             ctrlMapAnimClear _map;
             
             _marker = [_target] call FUNC(vehicle_marker,valid);
             
-            if (!isNil "_marker") then {
+            if !(isNil "_marker") then {
                 _map ctrlMapAnimAdd [
                     (_animations select 1) select 0,
                     (_animations select 1) select 1,

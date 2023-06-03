@@ -80,12 +80,14 @@ if !(isNil QMODULE(conversation)) then {
     ] call FUNC(conversation,radio);
 };
 
-if (!isNil QMODULE(teleport)) then {
+if !(isNil QMODULE(teleport)) then {
     private ["_position", "_flag"];
 
     _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
 
     _flag = [_position] call FUNC(teleport,create);
+
+    [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
     
     _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_flag]];
     

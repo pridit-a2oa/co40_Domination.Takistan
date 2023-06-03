@@ -16,19 +16,21 @@ waitUntil {sleep 5; _time < call FUNC(common,time)};
     };
 } forEach (_target getVariable QGVAR(cleanup));
 
-[true, "spawn", [[_target], {
-    private ["_target", "_name", "_description"];
+if !(isNil QMODULE(teleport)) then {
+    [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+};
 
-    PARAMS_1(_target);
+if (!isNil QMODULE(task)) then {
+    [true, "spawn", [[_target], {
+        private ["_target", "_name", "_description"];
 
-    if (!isNil QMODULE(task)) then {
+        PARAMS_1(_target);
+
         {
             player removeSimpleTask ([_x select 0] call FUNC(task,get));
         } forEach (_target getVariable QGVAR(tasks));
-    };
-}]] call FUNC(network,mp);
+    }]] call FUNC(network,mp);
 
-if (!isNil QMODULE(task)) then {
     {
         [_x select 0] call FUNC(task,delete);
     } forEach (_target getVariable QGVAR(tasks));

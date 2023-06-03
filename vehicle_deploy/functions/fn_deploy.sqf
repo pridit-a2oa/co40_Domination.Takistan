@@ -142,3 +142,7 @@ switch (_state) do {
         };
     };
 };
+
+if !(isNil QMODULE(teleport)) then {
+    [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+};

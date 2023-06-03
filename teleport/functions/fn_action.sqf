@@ -3,7 +3,8 @@
 
 disableSerialization;
 
-if (!ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
+if !(call FUNC(THIS_MODULE,valid)) exitWith {};
+if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
 
 [call FUNC(THIS_MODULE,target)] spawn {
     private ["_target", "_position"];

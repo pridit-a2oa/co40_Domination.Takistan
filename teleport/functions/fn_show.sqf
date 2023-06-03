@@ -1,12 +1,11 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
+private ["_parent"];
 
-PARAMS_1(_vehicle);
-
-disableSerialization;
+PARAMS_1(_parent);
 
 createDialog "XD_TeleportDialog";
 
-[_vehicle, false] call FUNC(THIS_MODULE,populate);
+GVAR(teleport) = _parent;
 
-GVAR(teleport) = _vehicle;
+call FUNC(THIS_MODULE,populate);
