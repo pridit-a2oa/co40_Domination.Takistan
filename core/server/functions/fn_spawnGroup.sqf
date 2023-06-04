@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_position", "_side", "_type"];
+private ["_position", "_side", "_type", "_group"];
 
 PARAMS_3(_position, _side, _type);
 

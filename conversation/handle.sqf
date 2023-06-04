@@ -47,6 +47,8 @@ GVAR(crossroad2) setRank "COLONEL";
 GVAR(crossroad2) setGroupId ["Crossroad1"];
 
 {
+    private ["_path"];
+    
     if !(isNil (format [QMODULE(%1), _x])) then {
         _path = format ["%1\speech\%2.bikb", QUOTE(THIS_MODULE), _x];
 

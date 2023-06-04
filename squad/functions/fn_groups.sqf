@@ -1,21 +1,22 @@
 #include "x_macros.sqf"
-private ["_groups_all", "_groups", "_name"];
+private ["_all", "_groups"];
 
-_groups_all = [];
-
-{
-    _groups_all = _groups_all + [str _x];
-} forEach allGroups;
-
+_all = [];
 _groups = [];
 
 {
-    if (_x in _groups_all) then {
+    [_all, str _x] call BIS_fnc_arrayPush;
+} forEach allGroups;
+
+{
+    private ["_name"];
+
+    if (_x in _all) then {
         _name = _x;
         
         {    
-            if (_name == str _x) exitWith {
-                _groups = _groups + [_x];
+            if ([_name, str _x] call BIS_fnc_areEqual) exitWith {
+                [_groups, _x] call BIS_fnc_arrayPush;
             };
         } forEach allGroups;
     } else {

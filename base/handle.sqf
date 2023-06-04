@@ -6,12 +6,16 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    private ["_amount", "_trigger"];
+    private ["_trigger"];
     
     {
+        private ["_amount"];
+
         _amount = if (count _x > 3) then {_x select 3} else {1};
         
         for "_i" from 1 to _amount do {
+            private ["_marker", "_group"];
+
             _marker = format [
                 "d_%1%2",
                 _x select 0,

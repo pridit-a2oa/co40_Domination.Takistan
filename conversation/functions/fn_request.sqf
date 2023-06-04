@@ -9,15 +9,13 @@ PARAMS_3(_unit, _position, _type);
     
     PARAMS_3(_unit, _position, _type);
     
-    _grid = _position call FUNC(common,numbersToWords);
-
     [
         [_unit, GVAR(crossroad)],
         ["HQ", "Request"],
         [
             ["Payload", {}, "", [[_type] call FUNC(THIS_MODULE,type)]],
             ["Type", {}, _type, []],
-            ["Location", {}, _position, _grid]
+            ["Location", {}, _position, _position call FUNC(common,numbersToWords)]
         ],
         true
     ] call FUNC(THIS_MODULE,radio);
