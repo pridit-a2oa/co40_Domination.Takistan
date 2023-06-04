@@ -57,7 +57,7 @@ if !(isNil QMODULE(vehicle_deploy)) then {
 
             _list lbSetPicture [
                 _index,
-                getText (configFile >> "CfgVehicleIcons" >> format ["icon%1", [typeOf _x] call FUNC(vehicle,type)])
+                ([typeOf _x] call FUNC(vehicle,type)) select 1
             ];
 
             _list lbSetData [_index, _id];

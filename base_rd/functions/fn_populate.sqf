@@ -16,17 +16,19 @@ _button ctrlEnable false;
 _list = DIALOG("X_RD_DIALOG", 100);
 
 {
-    private ["_progress", "_time"];
+    private ["_progress", "_time", "_type"];
 
     _progress = [_x, "progress"] call FUNC(THIS_MODULE,item);
     _time = [_x, "time"] call FUNC(THIS_MODULE,item);
+
+    _type = [_x] call FUNC(vehicle,type);
 
     if (_progress select 0 > 0) then {
         _list lbAdd ([_x] call FUNC(vehicle,name));
 
         _list lbSetPicture [
             _forEachIndex,
-            getText (configFile >> "CfgVehicleIcons" >> format ["icon%1", [_x] call FUNC(vehicle,type)])
+            _type select 1
         ];
 
         _list lbSetValue [
@@ -39,7 +41,7 @@ _list = DIALOG("X_RD_DIALOG", 100);
             ]
         ];
     } else {
-        _list lbAdd (format ["[Unknown %1]", [_x] call FUNC(vehicle,type)]);
+        _list lbAdd (format ["[Unknown %1]", _type select 0]);
         _list lbSetValue [_forEachIndex, 0];
     };
 

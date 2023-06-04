@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_type"];
+private ["_vehicle", "_type", "_icon"];
 
 PARAMS_1(_vehicle);
 
@@ -11,8 +11,12 @@ switch (_type) do {
     };
 
     case "Truck": {
-        _type = "Car";
+        _icon = "\ca\ui\data\icontruck_ca.paa";
     };
 };
 
-_type
+if (isNil "_icon") then {
+    _icon = getText (configFile >> "CfgVehicleIcons" >> format ["icon%1", _type]);
+};
+
+[_type, _icon]
