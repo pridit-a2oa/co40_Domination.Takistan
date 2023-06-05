@@ -9,7 +9,7 @@
     while {hasInterface} do {
         _groups = call FUNC(THIS_MODULE,groups);
         
-        hint format ["%1", _groups];
+        hintSilent format ["%1", _groups];
         
         sleep 5;
     };
