@@ -31,5 +31,5 @@ if (isServer) then {
         };
     };
 
-    X_JIPH setVariable [QGVAR(vehicle_bonus), GVAR(base_bonus_amount), true];
+    X_JIPH setVariable [QGVAR(base_bonus), true, true];
 };

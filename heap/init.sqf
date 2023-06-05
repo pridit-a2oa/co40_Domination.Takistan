@@ -27,7 +27,8 @@ GVAR(heap_type_backpacks) = [
     "US_Patrol_Pack_EP1",
     "TK_RPG_Backpack_EP1",
     "TOW_TriPod_US_Bag_EP1",
-    "Tripod_Bag"
+    "Tripod_Bag",
+    "US_UAV_Pack_EP1"
 ];
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);

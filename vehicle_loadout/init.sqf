@@ -111,6 +111,12 @@ GVAR(vehicle_loadout_types) = [
         ]]
     ]],
 
+    ["MQ9PredatorB_US_EP1", [
+        ["Default", [
+            ["Laserdesignator_mounted", 1, [0]]
+        ]]
+    ]],
+
     /**
     * OPFOR
     */

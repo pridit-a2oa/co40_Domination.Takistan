@@ -47,7 +47,7 @@ if (!isNil QMODULE(vehicle)) then {
             waitUntil {
                 sleep 0.1;
                 
-                [X_JIPH getVariable QGVAR(vehicle_bonus), GVAR(base_bonus_amount)] call BIS_fnc_areEqual
+                [X_JIPH getVariable QGVAR(base_bonus), true] call BIS_fnc_areEqual
             };
         };
         
