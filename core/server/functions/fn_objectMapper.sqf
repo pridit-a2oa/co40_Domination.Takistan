@@ -74,20 +74,22 @@ if ((typeName _objs) == (typeName "")) then {
 };
 
 // If the object array is in a script, call it
-if (!isNil "_script") then {
+if !(isNil "_script") then {
     _objs = call (compile (preprocessFileLineNumbers _script));
 };
 
 // Make sure there are definitions in the final object array
-if ((count _objs) == 0) exitWith {[]};
+if ([count _objs, 0] call BIS_fnc_areEqual) exitWith {[]};
 
 if (count _replace > 0) then {    
     {
+        private ["_new"];
+
         _new = _x;
         
         {
-            if (_x select 0 == (_new select 0)) exitWith {
-                _x set [0, _new select 1];
+            if ([_x select 0, _new select 0] call BIS_fnc_areEqual) then {
+                _x set [0, if (count _new > 1) then {_new select 1} else {""}];
             };
         } forEach _objs;
     } forEach _replace;
