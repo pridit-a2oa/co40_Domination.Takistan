@@ -12,4 +12,5 @@ if !([GVAR(vehicle_uav_type), typeOf _vehicle] call BIS_fnc_areEqual) exitWith {
 
 if (isServer) then {
     _vehicle lock true;
+    _vehicle allowCrewInImmobile true;
 };
