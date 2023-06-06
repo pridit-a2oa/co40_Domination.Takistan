@@ -16,6 +16,10 @@ _vehicle = [_spawn, _direction, _type, _group] call BIS_fnc_spawnVehicle;
 _object = _vehicle select 0;
 _crew = _vehicle select 1;
 
+if ([_height, 0] call BIS_fnc_areEqual) then {
+    _object setVelocity [0, 0, 0];
+};
+
 {
     __addDead(_x);
 } forEach _crew;

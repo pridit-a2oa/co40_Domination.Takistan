@@ -38,7 +38,7 @@ while {alive _object} do {
         if (_object isKindOf "Static") then {
             _alpha = abs ((_distance / (_visibility select 1)) - (_visibility select 0));
         } else {
-            if (_object distance (markerPos QGVAR(base_south)) > 500 || {!simulationEnabled _object} || {locked _object} || {count crew _object > 0} || {(position _object) select 2 > 1}) then {
+            if (_object distance (markerPos QGVAR(base_south)) > 500 || {!simulationEnabled _object} || {{isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}} count crew _object > 0} || {(position _object) select 2 > 1}) then {
                 _alpha = 2;
             };
         };

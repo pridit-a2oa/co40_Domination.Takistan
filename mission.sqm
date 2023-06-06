@@ -841,7 +841,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=284;
+		items=285;
 		class Item0
 		{
 			position[]={8332.1318,296.04001,2044.3177};
@@ -3567,6 +3567,17 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_HBarrier5";
 			skill=1;
+		};
+		class Item284
+		{
+			position[]={8031.4448,296.04001,1944.45};
+			azimut=509.95374;
+			special="NONE";
+			id=333;
+			side="EMPTY";
+			vehicle="HeliH";
+			skill=1;
+			text="d_base_uav";
 		};
 	};
 	class Markers

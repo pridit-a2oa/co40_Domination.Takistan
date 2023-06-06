@@ -22,6 +22,10 @@ if (!isNil QMODULE(vehicle_lift)) then {
     _description = _description + ([_name] __submodulePP(vehicle_lift));
 };
 
+if (!isNil QMODULE(vehicle_uav)) then {
+    _description = _description + ([_name] __submodulePP(vehicle_uav));
+};
+
 if (!isNil QMODULE(vehicle_wreck)) then {
     _description = _description + ([_name] __submodulePP(vehicle_wreck));
 };
