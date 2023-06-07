@@ -2,7 +2,7 @@
  * Vehicle UAV Module
  *
  * Description: This module facilitates remote controlling of specific vehicle
- * types.
+ * types, designated as UAVs.
  */
 
 #define THIS_MODULE vehicle_uav
@@ -10,5 +10,8 @@
 
 // Vehicle type that can be remote controlled
 GVAR(vehicle_uav_type) = "MQ9PredatorB_US_EP1";
+
+__cppfln(FUNC(THIS_MODULE,assume),THIS_MODULE\functions\fn_assume.sqf);
+__cppfln(FUNC(THIS_MODULE,release),THIS_MODULE\functions\fn_release.sqf);
 
 MODULE(THIS_MODULE) = true;

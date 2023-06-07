@@ -55,7 +55,7 @@ if (!isNil QMODULE(vehicle)) then {
             waitUntil {
                 sleep 0.1;
                 
-                [X_JIPH getVariable QGVAR(base_uav), true] call BIS_fnc_areEqual
+                !([X_JIPH getVariable QGVAR(base_uav), objNull] call BIS_fnc_areEqual)
             };
         };
         

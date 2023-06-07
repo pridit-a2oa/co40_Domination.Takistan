@@ -14,3 +14,16 @@ if (isServer) then {
     _vehicle lock true;
     _vehicle allowCrewInImmobile true;
 };
+
+if (hasInterface) then {
+    _vehicle addAction [
+        "Exit" call FUNC(common,RedText),
+        __function(release),
+        [],
+        10,
+        false,
+        true,
+        "",
+        "[typeOf _target, d_vehicle_uav_type] call BIS_fnc_areEqual"
+    ];
+};
