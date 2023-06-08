@@ -12,6 +12,7 @@ _offset = switch (_vehicle) do {
     case "L39_TK_EP1":          {1.7};
     case "Mi17_TK_EP1":         {2};
     case "Mi24_D_TK_EP1":       {1.7};
+    case "MQ9PredatorB_US_EP1": {-0.8};
     case "MV22":                {2};
     case "Su25_TK_EP1":         {0.8};
     case "UH1H_TK_EP1":         {1.7};
