@@ -136,11 +136,11 @@ class PerkIcon_Role2_2: XD_RscPicture
 };
 class PerkIcon_Role2_3: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_takemine_ca";
-    x = 0.359375;
-    y = 0.575;
-    w = 0.0419193;
-    h = 0.0562289;
+    text = "ca\sounds\data\icon_soundsource_ca";
+    x = 0.349375; // 0.359375
+    y = 0.560; // 0.575
+    w = 0.0619193; // 0.0419193
+    h = 0.0862289; // 0.0562289
 };
 class PerkIcon_Role2_4: XD_RscPicture
 {
