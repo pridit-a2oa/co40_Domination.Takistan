@@ -29,6 +29,7 @@ GVAR(server_objects_banned) = [
     "UAZ_Unarmed_TK_EP1",
     "USBasicAmmunitionBox_EP1",
     "USBasicWeapons_EP1",
+    "USLaunchers_EP1",
     "USVehicleBox_EP1",
     "UralReammo_TK_EP1",
     "UralRefuel_TK_EP1"
