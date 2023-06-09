@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    private ["_vehicle", "_zone"];
+    private ["_vehicle"];
 
     if (isNil {GVAR(base_uav)}) exitWith {};
 
