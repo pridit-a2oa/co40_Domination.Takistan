@@ -28,7 +28,7 @@ GVAR(vehicle_respawn_distance_base) = 400;
 GVAR(vehicle_respawn_distance_player) = 50;
 
 // Minimum time before a destroyed vehicle can respawn
-GVAR(vehicle_respawn_time_expiration) = 30;
+GVAR(vehicle_respawn_time_expiration) = 60;
 
 __cppfln(FUNC(THIS_MODULE,threshold),THIS_MODULE\functions\fn_threshold.sqf);
 
