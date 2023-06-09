@@ -62,6 +62,10 @@ if (isServer) then {
         "{if (!isPlayer _x && {_x isKindOf 'CAManBase'}) then {_x setDamage 1}} forEach thisList",
         ""
     ];
+
+    if !(isNil QMODULE(base_uav)) then {
+        __submodulePP(base_uav);
+    };
 };
 
 {
