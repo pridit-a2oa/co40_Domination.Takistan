@@ -8,8 +8,6 @@
 if (isServer) then {
     private ["_vehicle"];
 
-    if (isNil {GVAR(base_uav)}) exitWith {};
-
     _vehicle = createVehicle [GVAR(base_uav_type_vehicle), position GVAR(base_uav), [], 0, "CAN_COLLIDE"];
     _vehicle setDir (direction GVAR(base_uav));
     _vehicle setPosATL (GVAR(base_uav) modelToWorld ([typeOf _vehicle] call FUNC(THIS_MODULE,offset)));

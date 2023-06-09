@@ -8,6 +8,8 @@
 #define THIS_MODULE base_uav
 #include "x_macros.sqf"
 
+if (isNil {GVAR(base_uav)}) exitWith {};
+
 // Composition of the UAV point
 GVAR(base_uav_type_composition) = "HeliParking1_US_EP1";
 
