@@ -13,7 +13,7 @@ switch (_role) do {
         _role = driver _vehicle;
     };
 
-    default {
+    case "gunner": {
         _role = gunner _vehicle;
 
         setGroupIconsVisible [true, true];

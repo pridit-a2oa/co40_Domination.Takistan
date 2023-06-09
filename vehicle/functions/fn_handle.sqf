@@ -44,6 +44,10 @@ if (isServer) then {
         [_vehicle] __submodulePP(base_protection);
     };
 
+    if (!isNil QMODULE(base_uav)) then {
+        [_vehicle] __submodulePP(base_uav);
+    };
+
     if (!isNil QMODULE(vehicle_abandon)) then {
         [_vehicle] __submodulePP(vehicle_abandon);
     };

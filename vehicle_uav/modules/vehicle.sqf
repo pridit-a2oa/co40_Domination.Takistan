@@ -17,13 +17,13 @@ if (isServer) then {
 
 if (hasInterface) then {
     _vehicle addAction [
-        "Exit" call FUNC(common,RedText),
+        "Disconnect" call FUNC(common,RedText),
         __function(release),
         [],
         10,
         false,
         true,
         "",
-        "[typeOf _target, d_vehicle_uav_type] call BIS_fnc_areEqual"
+        "[typeOf _target, d_vehicle_uav_type] call BIS_fnc_areEqual && {count crew _target > 0}"
     ];
 };

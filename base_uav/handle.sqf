@@ -51,23 +51,7 @@ if (isServer) then {
         ["Laptop_EP1", _zone modelToWorld [-0.5, 0.1, 0.8], direction _zone - 180]
     ];
 
-    _vehicle = [
-        position GVAR(base_uav),
-        GVAR(base_uav_type_vehicle),
-        0,
-        0,
-        west,
-        direction GVAR(base_uav)
-    ] call FUNC(server,spawnVehicle);
-
-    {
-        [_x] joinSilent grpNull;
-        
-        _x setCaptive true;
-    } forEach (_vehicle select 1);
-
-    _vehicle = _vehicle select 0;
-
+    _vehicle = createVehicle [GVAR(base_uav_type_vehicle), position GVAR(base_uav), [], 0, "CAN_COLLIDE"];
     _vehicle setDir (direction GVAR(base_uav));
     _vehicle setPosATL (GVAR(base_uav) modelToWorld ([typeOf _vehicle] call FUNC(THIS_MODULE,offset)));
     
@@ -76,6 +60,12 @@ if (isServer) then {
     };
 
     X_JIPH setVariable [QGVAR(base_uav), _vehicle, true];
+
+    _vehicle spawn {
+        sleep 15;
+
+        _this setDamage 1;
+    };
 };
 
 if (hasInterface) then {
@@ -103,7 +93,7 @@ if (hasInterface) then {
             player addAction [
                 (if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {_x select 0} else {_x}) call FUNC(common,BlueText),
                 FUNCTION(vehicle_uav,assume),
-                if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {[_x select 1]} else {[]},
+                [_x select 1],
                 10,
                 false,
                 true,
@@ -112,7 +102,7 @@ if (hasInterface) then {
             ];
         } forEach [
             ["UAV (Pilot)", "driver"],
-            "UAV (Camera Pod)"
+            ["UAV (Camera Pod)", "gunner"]
         ];
     };
 }
