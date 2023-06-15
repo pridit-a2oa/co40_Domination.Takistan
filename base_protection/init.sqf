@@ -26,6 +26,7 @@ GVAR(base_protection_projectiles_vehicle) = [
     "Bo_GBU12_LGB",
     "Bo_GBU12_LGB_F35",
     "Bo_Mk82",
+    "R_57mm_HE",
     "R_Hydra_HE"
 ];
 
