@@ -9,12 +9,11 @@ if (isServer) then {
     gameLogic setVariable [QGVAR(constructed), []];
 
     {
-        private ["_name", "_type"];
+        private ["_type"];
 
-        _name = _x select 0;
         _type = _x select 1;
 
-        if ([_name, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_areEqual) then {
+        if ([_type, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_areEqual) then {
             {
                 _x setAmmoCargo 0;
             } forEach (allMissionObjects _type);
