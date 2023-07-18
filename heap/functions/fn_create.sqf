@@ -18,7 +18,7 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "!isNull unitBackpack player"
+        "!isNull unitBackpack player && {[player] call d_fnc_common_ready}"
     ];
 
     player reveal _heap;
