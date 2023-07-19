@@ -17,6 +17,10 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 };
 
 if (isServer) then {
+    private ["_expression"];
+
+    _vehicle setVariable [QGVAR(killed), false];
+
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
 
@@ -85,6 +89,28 @@ if (isServer) then {
             };
         }];
     };
+
+    _expression = {
+        private ["_unit", "_killer"];
+
+        PARAMS_2(_unit, _killer);
+
+        if !(isServer) exitWith {};
+        if (_unit getVariable QGVAR(killed)) exitWith {};
+        if (count crew _unit > 0 && {{!isPlayer _x} count crew _unit > 0}) exitWith {};
+
+        _unit setVariable [QGVAR(killed), true];
+
+        __log format [
+            "Destroyed %1 {""killer"":""%2"",""occupants"":""%3""}",
+            [typeOf _unit] call FUNC(THIS_MODULE,name),
+            if (isPlayer _killer) then {name _killer} else {side _killer},
+            [_unit] call FUNC(THIS_MODULE,crew)
+        ]];
+    };
+
+    _vehicle addEventHandler ["killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };
 
 if (hasInterface) then {

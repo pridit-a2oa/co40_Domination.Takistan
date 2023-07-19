@@ -15,6 +15,7 @@ __cppfln(FUNC(THIS_MODULE,offsetTow),THIS_MODULE\functions\offsets\fn_tow.sqf);
 __cppfln(FUNC(THIS_MODULE,offsetWreck),THIS_MODULE\functions\offsets\fn_wreck.sqf);
 
 __cppfln(FUNC(THIS_MODULE,attach),THIS_MODULE\functions\fn_attach.sqf);
+__cppfln(FUNC(THIS_MODULE,crew),THIS_MODULE\functions\fn_crew.sqf);
 __cppfln(FUNC(THIS_MODULE,delete),THIS_MODULE\functions\fn_delete.sqf);
 __cppfln(FUNC(THIS_MODULE,detach),THIS_MODULE\functions\fn_detach.sqf);
 __cppfln(FUNC(THIS_MODULE,freeze),THIS_MODULE\functions\fn_freeze.sqf);

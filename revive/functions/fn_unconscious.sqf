@@ -51,6 +51,10 @@ _unit spawn {
     [_this, "playActionNow", "Die"] call FUNC(network,mp);
 
     [true, "systemChat", format ["%1 was incapacitated", name _this]] call FUNC(network,mp);
+
+    [gameLogic, "spawn", [[name _this], {
+        __log format ["Incapacitated %1", _this select 0]];
+    }]] call FUNC(network,mp);
     
     sleep 1;
 
