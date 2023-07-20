@@ -21,12 +21,8 @@ DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>Ou
 DIALOG(QGVAR(notice), 1001) ctrlSetText "Return to the mission area";
 
 _handler = _vehicle addEventHandler ["getout", {
-    private ["_vehicle"];
-    
-    PARAMS_1(_vehicle);
-    
-    if (!isNil QMODULE(vehicle)) then {
-        [_vehicle] __submodulePP(vehicle);
+    if !(isNil QMODULE(vehicle)) then {
+        [_this select 0] call FUNC(vehicle,reset);
     };
 }];
 
@@ -41,11 +37,9 @@ while {triggerActivated _trigger && {alive player}} do {
     
     if (_remaining < 0) exitWith {
         player setDamage 1;
-        
-        if (_vehicle != player && {alive _vehicle}) then {
-            if (!isNil QMODULE(vehicle)) then {
-                [_vehicle] __submodulePP(vehicle);
-            };
+
+        if (!isNil QMODULE(vehicle) && {!([player, vehicle player] call BIS_fnc_areEqual)}) then {
+            [_vehicle] call FUNC(vehicle,reset);
         };
     };
     

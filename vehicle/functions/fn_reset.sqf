@@ -1,7 +1,3 @@
-/**
- * Vehicle Module - Perimiter Submodule
- */
-
 #include "x_macros.sqf"
 private ["_vehicle", "_spawn"];
 
