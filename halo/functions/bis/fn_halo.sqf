@@ -238,7 +238,7 @@ if ([typeName _this, typeName []] call BIS_fnc_areEqual) then {
     };
     //-------------
 
-    _para = "ParachuteC" createVehicle position _unit;
+    _para = "Parachute_US_EP1" createVehicle position _unit;
     //_para = "BIS_Steerable_Parachute" createVehicle position _unit;
     _para setpos position _unit;
     _para setdir direction _unit;

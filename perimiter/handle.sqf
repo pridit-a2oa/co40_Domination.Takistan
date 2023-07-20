@@ -62,7 +62,7 @@ if (hasInterface) then {
     _trigger setTriggerArea [_size, _size, 0, true];
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [
-        "!(player in thisList) && {!((vehicle player) in thisList)} && {alive player} && {!(player getVariable 'd_unconscious')} && {!(typeOf (vehicle player) in [""ParachuteC"", ""ParachuteWest""])}",
+        "!(player in thisList) && {!((vehicle player) in thisList)} && {alive player} && {!(player getVariable 'd_unconscious')} && {!(typeOf (vehicle player) in [""Parachute_US_EP1"", ""ParachuteWest""])}",
         "[thisTrigger] spawn d_fnc_perimiter_outside",
         ""
     ];
