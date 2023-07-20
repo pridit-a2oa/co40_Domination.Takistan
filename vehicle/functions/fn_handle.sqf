@@ -77,7 +77,7 @@ if (isServer) then {
     };
     
     if (_vehicle isKindOf "Air") then {
-        _vehicle addEventHandler ["killed", {
+        _vehicle addEventHandler ["Killed", {
             private ["_vehicle"];
             
             PARAMS_1(_vehicle);
@@ -109,7 +109,7 @@ if (isServer) then {
         ]];
     };
 
-    _vehicle addEventHandler ["killed", _expression];
+    _vehicle addEventHandler ["Killed", _expression];
     _vehicle addMPEventHandler ["MPKilled", _expression];
 };
 

@@ -65,6 +65,6 @@ if (isServer) then {
         };
     };
 
-    _vehicle addEventHandler ["killed", _expression];
+    _vehicle addEventHandler ["Killed", _expression];
     _vehicle addMPEventHandler ["MPKilled", _expression];
 };

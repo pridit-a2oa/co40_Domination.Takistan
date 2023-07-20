@@ -18,7 +18,7 @@ if (isServer) then {
     _vehicle setVariable [QGVAR(towing), objNull, true];
     _vehicle setVariable [QGVAR(action), false, true];
     
-    _vehicle addEventHandler ["killed", {
+    _vehicle addEventHandler ["Killed", {
         private ["_vehicle"];
         
         PARAMS_1(_vehicle);

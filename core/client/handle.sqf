@@ -334,7 +334,7 @@ player addEventHandler ["respawn", {
     };
 }];
 
-player addEventHandler ["killed", {
+player addEventHandler ["Killed", {
     private ["_unit"];
     
     PARAMS_1(_unit);

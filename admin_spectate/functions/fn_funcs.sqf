@@ -344,7 +344,7 @@ KEGs_CheckNew = {
             if (!isMultiplayer && {KEGs_UseLog}) then {
                 _nn = _x getVariable "KEGs_EHKilled";
                 if (isNil "_nn") then {
-                    _fh = _x addEventHandler ["killed", {["UnitKilled",_this] call spectate_events}];
+                    _fh = _x addEventHandler ["Killed", {["UnitKilled",_this] call spectate_events}];
                     _x setVariable ["KEGs_EHKilled", _fh];
                 };
             };

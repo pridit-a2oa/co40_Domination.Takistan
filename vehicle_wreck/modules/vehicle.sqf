@@ -14,21 +14,9 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 };
 
 if (isServer) then {
-    _vehicle addEventHandler ["killed", {
-        private ["_vehicle"];
+    private ["_expression"];
 
-        PARAMS_1(_vehicle);
-
-        _vehicle spawn {
-            while {(position _this) select 2 > 10} do {
-                sleep 1;
-            };
-
-            _this setVariable [QGVAR(wrecked), position _this];
-        };
-    }];
-
-    _vehicle addMPEventHandler ["MPKilled", {
+    _expression = {
         private ["_vehicle"];
 
         PARAMS_1(_vehicle);
@@ -42,5 +30,8 @@ if (isServer) then {
 
             _this setVariable [QGVAR(wrecked), position _this];
         };
-    }];
+    };
+
+    _vehicle addEventHandler ["Killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };
