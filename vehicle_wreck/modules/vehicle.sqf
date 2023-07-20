@@ -17,15 +17,16 @@ if (isServer) then {
     private ["_expression"];
 
     _expression = {
-        private ["_vehicle"];
-
-        PARAMS_1(_vehicle);
-
         if !(isServer) exitWith {};
 
-        _vehicle spawn {
+        (_this select 0) spawn {
             while {(position _this) select 2 > 10} do {
                 sleep 1;
+            };
+
+            // TODO: Replace with a better solution
+            if (_this distance (markerPos QGVAR(map_zone)) > 9000) then {
+                [_this] call FUNC(vehicle,reset);
             };
 
             _this setVariable [QGVAR(wrecked), position _this];
