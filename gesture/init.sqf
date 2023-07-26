@@ -21,12 +21,12 @@ GVAR(gesture_types) = [
         ["c7a_bravoTOerc_idle17", 12]
     ]],
     
-    ["Punch", [
-        ["AmelPercMstpSnonWnonDnon_amaterUder1", 0]
-    ]],
-    
     ["Move Up", [
         ["AsigPercMstpSlowWrflDnon_GoGo", 0]
+    ]],
+
+    ["Punch", [
+        ["AmelPercMstpSnonWnonDnon_amaterUder1", 0]
     ]],
     
     ["Wave Arms", [
