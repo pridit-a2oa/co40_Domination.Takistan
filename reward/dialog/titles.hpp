@@ -10,7 +10,7 @@ class XD_Reward {
         class RscRewardBorderPicture: XD_RscPicture
         {
             idc = 100;
-            text = "\ca\ui\data\gunner_lock";
+            text = "ca\ui\data\gunner_lock";
             x = 0.46212;
             y = 0.0303037;
             w = 0.0772728;

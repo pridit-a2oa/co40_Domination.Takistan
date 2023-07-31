@@ -9,7 +9,7 @@ class XD_VehicleMenuDialog {
         class RscPicture_1200: XD_RscPicture
         {
             idc = 1200;
-            text = "\ca\ui\data\ui_gameoptions_background_ca";
+            text = "ca\ui\data\ui_gameoptions_background_ca";
             x = 0.311555;
             y = 0.212878;
             w = 0.395518;

@@ -44,7 +44,7 @@ class XD_VehicleWelcomeDialog {
         class RscPicture_1200: XD_RscPicture
         {
             idc = 1003;
-            text = "\ca\ui\data\igui_sidebriefing_opfor_ca"; // igui_sidebriefing_opfor_ca | igui_sidebriefing_indep_ca
+            text = "ca\ui\data\igui_sidebriefing_opfor_ca"; // igui_sidebriefing_opfor_ca | igui_sidebriefing_indep_ca
             x = 0.375001;
             y = 0.325;
             w = 0.0624999;
@@ -53,7 +53,7 @@ class XD_VehicleWelcomeDialog {
         class RscPicture_1201: XD_RscPicture
         {
             idc = 1004;
-            text = "\ca\ui\data\igui_sidebriefing_opfor_ca";
+            text = "ca\ui\data\igui_sidebriefing_opfor_ca";
             x = 0.375001;
             y = 0.45;
             w = 0.0624999;
@@ -62,7 +62,7 @@ class XD_VehicleWelcomeDialog {
         class RscPicture_1202: XD_RscPicture
         {
             idc = 1005;
-            text = "\ca\ui\data\igui_sidebriefing_opfor_ca";
+            text = "ca\ui\data\igui_sidebriefing_opfor_ca";
             x = 0.375001;
             y = 0.575;
             w = 0.0624999;

@@ -8,7 +8,7 @@ class XD_BaseRdDialog {
     class controlsBackground {
         class RscPicture_1200: XD_RscPicture
         {
-            text = "\ca\ui\data\ui_background_modlauncher_ca";
+            text = "ca\ui\data\ui_background_modlauncher_ca";
             x = 0.270204;
             y = 0.244108;
             w = 0.711109;

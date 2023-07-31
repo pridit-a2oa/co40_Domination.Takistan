@@ -7,7 +7,7 @@ class XD_PerkDialog {
     class controlsBackground {
         class PerksDialogBackground: XD_RscPicture
         {
-            text = "\ca\ui\data\ui_background_controls_ca.paa";
+            text = "ca\ui\data\ui_background_controls_ca.paa";
             x = 0.265624;
             y = -2.98023e-008;
             w = 0.596213;
