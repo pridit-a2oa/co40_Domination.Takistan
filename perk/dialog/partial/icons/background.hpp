@@ -3,7 +3,7 @@ class PerkIconBackground_General_1: XD_RscPicture
     idc = 101;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.281251;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -12,7 +12,7 @@ class PerkIconBackground_General_2: XD_RscPicture
     idc = 102;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.375001;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -21,7 +21,7 @@ class PerkIconBackground_General_3: XD_RscPicture
     idc = 103;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.478182;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -30,7 +30,7 @@ class PerkIconBackground_General_4: XD_RscPicture
     idc = 104;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.578126;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -39,7 +39,7 @@ class PerkIconBackground_General_5: XD_RscPicture
     idc = 105;
     text = "";
     x = 0.671874;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -48,7 +48,7 @@ class PerkIconBackground_General_6: XD_RscPicture
     idc = 106;
     text = "";
     x = 0.328126;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -57,7 +57,7 @@ class PerkIconBackground_General_7: XD_RscPicture
     idc = 107;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.421874;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -66,7 +66,7 @@ class PerkIconBackground_General_8: XD_RscPicture
     idc = 108;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.531251;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.0966331;
 };
@@ -75,7 +75,7 @@ class PerkIconBackground_General_9: XD_RscPicture
     idc = 109;
     text = "ca\ui\data\cmdbar_background_ca";
     x = 0.624999;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.0966331;
 };

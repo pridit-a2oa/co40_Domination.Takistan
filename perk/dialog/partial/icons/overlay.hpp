@@ -3,7 +3,7 @@ class PerkIconOverlay_General_1: XD_RscPicture
     idc = 201;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.281251;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -12,7 +12,7 @@ class PerkIconBackgroundOverlay_General_2: XD_RscPicture
     idc = 202;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.375001;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -21,7 +21,7 @@ class PerkIconOverlay_General_3: XD_RscPicture
     idc = 203;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.478182;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -30,7 +30,7 @@ class PerkIconOverlay_General_4: XD_RscPicture
     idc = 204;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.578126;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -39,7 +39,7 @@ class PerkIconOverlay_General_5: XD_RscPicture
     idc = 205;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.671874;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -48,7 +48,7 @@ class PerkIconOverlay_General_6: XD_RscPicture
     idc = 206;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.328126;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -57,7 +57,7 @@ class PerkIconOverlay_General_7: XD_RscPicture
     idc = 207;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.421874;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -66,7 +66,7 @@ class PerkIconOverlay_General_8: XD_RscPicture
     idc = 208;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.531251;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.096633;
 };
@@ -75,7 +75,7 @@ class PerkIconOverlay_General_9: XD_RscPicture
     idc = 209;
     text = "ca\ui\data\cmdbar_donotfire_ca";
     x = 0.624999;
-    y = 0.216364;
+    y = 0.225;
     w = 0.0722223;
     h = 0.096633;
 };
