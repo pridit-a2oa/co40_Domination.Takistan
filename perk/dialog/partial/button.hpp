@@ -65,7 +65,7 @@ class PerkButton_General_7: XD_LinkButtonUpgradeBase
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Reduces incoming vehicle damage by 30% (as the driver)";
+    tooltip = "Incoming vehicle damage reduced by 30% (as the driver)";
     action = "[0,7] call d_fnc_perk_clicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
