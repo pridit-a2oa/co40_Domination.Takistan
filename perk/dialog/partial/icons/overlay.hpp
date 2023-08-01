@@ -7,7 +7,7 @@ class PerkIconOverlay_General_1: XD_RscPicture
     w = 0.0722223;
     h = 0.096633;
 };
-class PerkIconBackgroundOverlay_General_2: XD_RscPicture
+class PerkIconOverlay_General_2: XD_RscPicture
 {
     idc = 202;
     text = "ca\ui\data\cmdbar_donotfire_ca";
@@ -47,7 +47,7 @@ class PerkIconOverlay_General_6: XD_RscPicture
 {
     idc = 206;
     text = "ca\ui\data\cmdbar_donotfire_ca";
-    x = 0.328126;
+    x = 0.281251;
     y = 0.225;
     w = 0.0722223;
     h = 0.096633;
@@ -56,7 +56,7 @@ class PerkIconOverlay_General_7: XD_RscPicture
 {
     idc = 207;
     text = "ca\ui\data\cmdbar_donotfire_ca";
-    x = 0.421874;
+    x = 0.375001;
     y = 0.225;
     w = 0.0722223;
     h = 0.096633;
@@ -65,7 +65,7 @@ class PerkIconOverlay_General_8: XD_RscPicture
 {
     idc = 208;
     text = "ca\ui\data\cmdbar_donotfire_ca";
-    x = 0.531251;
+    x = 0.478182;
     y = 0.225;
     w = 0.0722223;
     h = 0.096633;
@@ -74,7 +74,16 @@ class PerkIconOverlay_General_9: XD_RscPicture
 {
     idc = 209;
     text = "ca\ui\data\cmdbar_donotfire_ca";
-    x = 0.624999;
+    x = 0.578126;
+    y = 0.225;
+    w = 0.0722223;
+    h = 0.096633;
+};
+class PerkIconOverlay_General_10: XD_RscPicture
+{
+    idc = 210;
+    text = "ca\ui\data\cmdbar_donotfire_ca";
+    x = 0.671874;
     y = 0.225;
     w = 0.0722223;
     h = 0.096633;

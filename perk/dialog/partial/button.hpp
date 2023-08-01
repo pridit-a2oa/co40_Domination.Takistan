@@ -51,7 +51,7 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
 class PerkButton_General_6: XD_LinkButtonUpgradeBase
 {
     idc = 306;
-    x = 0.328126;
+    x = 0.281251;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
@@ -61,32 +61,42 @@ class PerkButton_General_6: XD_LinkButtonUpgradeBase
 class PerkButton_General_7: XD_LinkButtonUpgradeBase
 {
     idc = 307;
-    x = 0.421874;
+    x = 0.375001;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Carry 1 additional primary weapon";
+    tooltip = "Reduces incoming vehicle damage by 30% (as the driver)";
     action = "[0,7] call d_fnc_perk_clicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
 {
     idc = 308;
-    x = 0.531251;
+    x = 0.478182;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Save loadout (excl. backpack contents)";
+    tooltip = "Carry 1 additional primary weapon";
     action = "[0,8] call d_fnc_perk_clicked";
 };
 class PerkButton_General_9: XD_LinkButtonUpgradeBase
 {
     idc = 309;
-    x = 0.624999;
+    x = 0.578126;
+    y = 0.225;
+    w = 0.0419193;
+    h = 0.0562289;
+    tooltip = "Save loadout (excl. backpack contents)";
+    action = "[0,9] call d_fnc_perk_clicked";
+};
+class PerkButton_General_10: XD_LinkButtonUpgradeBase
+{
+    idc = 309;
+    x = 0.671874;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Set any overturned vehicle upright";
-    action = "[0,9] call d_fnc_perk_clicked";
+    action = "[0,10] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_1: XD_LinkButtonUpgradeBase
 {

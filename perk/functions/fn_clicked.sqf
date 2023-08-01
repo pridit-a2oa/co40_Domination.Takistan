@@ -1,6 +1,6 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
-private ["_tier", "_perk", "_id", "_points", "_unlocked"];
+private ["_tier", "_perk", "_id", "_ids", "_points", "_unlocked"];
 
 PARAMS_2(_tier, _perk);
 
@@ -8,18 +8,18 @@ disableSerialization;
 
 _id = ((_tier * 10) + _perk);
 
-_points = player getVariable QGVAR(perk_points);
 _ids = player getVariable QGVAR(perk_ids);
+_points = player getVariable QGVAR(perk_points);
 _unlocked = player getVariable QGVAR(perks_unlocked);
 
 // no perk points available to allocate
-if (_points == 0 && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
+if ([_points, 0] call BIS_fnc_areEqual && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
 
 // perk already unlocked
-if (_ids find _id != -1) exitWith {};
+if !([_ids find _id, -1] call BIS_fnc_areEqual) exitWith {};
 
 // inacessible perk (role restriction)
-if (ctrlText (DIALOG("X_PERK_DIALOG", 200 + _id)) == "\ca\ui\data\cmdbar_donotfire_ca") exitWith {};
+if ([ctrlText (DIALOG("X_PERK_DIALOG", 200 + _id)), "ca\ui\data\cmdbar_donotfire_ca"] call BIS_fnc_areEqual) exitWith {};
 
 [_tier, _perk] call FUNC(THIS_MODULE,unlock);
 

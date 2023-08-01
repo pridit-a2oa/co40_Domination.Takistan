@@ -205,5 +205,8 @@ _vehicle addEventHandler ["HandleDamage", {
     if ({isPlayer _x} count crew _unit > 0 && {isPlayer _injurer}) exitWith {0};
     if (_unit distance (getMarkerPos QGVAR(base_south)) < 500 && {{side _x in [east, civilian]} count crew _unit < 1}) exitWith {0};
 
+    if ([_projectile, "M_Igla_AA"] call BIS_fnc_areEqual) then {_damage = _damage * 2};
+    if ({isPlayer _x && {[_x, driver _unit] call BIS_fnc_areEqual && {_x getVariable QGVAR(reduced)}}} count crew _unit > 0) then {_damage = _damage * 0.70};
+
     _damage
 }];

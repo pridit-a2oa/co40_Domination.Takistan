@@ -54,20 +54,24 @@ switch (_tier) do {
                     player setVariable [QGVAR(teleport), true];
                 };
             };
-            
+
             case 7: {
+                player setVariable [QGVAR(reduced), true];
+            };
+            
+            case 8: {
                 if (!isNil QMODULE(backpack)) then {
                     player setVariable [QGVAR(backpack), true];
                 };
             };
             
-            case 8: {
+            case 9: {
                 if (!isNil QMODULE(loadout)) then {
                     player setVariable [QGVAR(loadout), true];
                 };
             };
             
-            case 9: {
+            case 10: {
                 if (!isNil QMODULE(vehicle_unflip)) then {
                     player setVariable [QGVAR(unflip), true];
                 };

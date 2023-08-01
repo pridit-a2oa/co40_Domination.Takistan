@@ -41,31 +41,39 @@ class PerkIcon_General_5: XD_RscPicture
 class PerkIcon_General_6: XD_RscPicture
 {
     text = "ca\ui\data\icon_wf_support_fasttravel_ca";
-    x = 0.328126;
+    x = 0.281251;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
 };
 class PerkIcon_General_7: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_reammo_ca";
-    x = 0.421874;
+    text = "ca\warfare2\Images\wf_iconcity_supply_ca";
+    x = 0.375001;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
 };
 class PerkIcon_General_8: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_reload_ca";
-    x = 0.531251;
+    text = "ca\ui\data\ui_action_reammo_ca";
+    x = 0.478182;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
 };
 class PerkIcon_General_9: XD_RscPicture
 {
-    text = "ca\ui\data\Cursor_hand_CA";
-    x = 0.624999;
+    text = "ca\ui\data\ui_action_reload_ca";
+    x = 0.578126;
+    y = 0.225;
+    w = 0.0419193;
+    h = 0.0562289;
+};
+class PerkIcon_General_10: XD_RscPicture
+{
+    text = "ca\ui\data\ui_action_getin_ca";
+    x = 0.671874;
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;

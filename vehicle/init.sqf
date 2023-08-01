@@ -9,6 +9,10 @@
 #define THIS_MODULE vehicle
 #include "x_macros.sqf"
 
+if (hasInterface) then {
+    player setVariable [QGVAR(reduced), false];
+};
+
 __cppfln(FUNC(THIS_MODULE,offsetCreate),THIS_MODULE\functions\offsets\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,offsetPlayer),THIS_MODULE\functions\offsets\fn_player.sqf);
 __cppfln(FUNC(THIS_MODULE,offsetTow),THIS_MODULE\functions\offsets\fn_tow.sqf);
