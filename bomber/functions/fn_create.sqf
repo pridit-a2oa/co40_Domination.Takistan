@@ -1,7 +1,7 @@
 #define THIS_MODULE bomber
 #include "x_macros.sqf"
 
-if (count (call FUNC(common,players)) < 1) exitWith {};
+if ([count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) exitWith {};
 
 gameLogic setVariable [QGVAR(bomber), true, true];
 
