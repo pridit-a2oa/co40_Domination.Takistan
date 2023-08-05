@@ -24,7 +24,7 @@ if (hasInterface) then {
                 _distance = _x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible);
                 _hidden = _x getVariable QGVAR(hidden);
                 
-                if (markerColor _marker == "ColorBlack" || {!(_x call FUNC(common,empty))}) then {
+                if ([markerColor _marker, "ColorBlack"] call BIS_fnc_areEqual || {!(_x call FUNC(common,empty))}) then {
                     _side = str (side _x);
                     
                     if (_side in _sides) then {
@@ -42,7 +42,7 @@ if (hasInterface) then {
                     0
                 };
                 
-                if (_alpha != markerAlpha _marker) then {
+                if !([_alpha, markerAlpha _marker] call BIS_fnc_areEqual) then {
                     _marker setMarkerAlphaLocal _alpha;
                 };
             };
