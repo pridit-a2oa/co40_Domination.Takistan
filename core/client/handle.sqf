@@ -338,6 +338,8 @@ player addEventHandler ["Killed", {
     private ["_unit"];
     
     PARAMS_1(_unit);
+
+    [true, "switchMove", [_unit, ""]] call FUNC(network,mp);
     
     _unit spawn {
         waitUntil {sleep 1; !([_this, player] call BIS_fnc_areEqual)};
