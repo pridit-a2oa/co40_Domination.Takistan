@@ -325,7 +325,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Revived players regain full health";
+    tooltip = "Incoming small arms fire damage reduced by 50% (on foot)";
     action = "[5,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase

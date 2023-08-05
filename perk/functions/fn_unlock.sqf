@@ -301,7 +301,7 @@ switch (_tier) do {
             
             case 3: {
                 if (!isNil QMODULE(medical)) then {
-                    player setVariable [QGVAR(revive_damage), 0];
+                    player setVariable [QGVAR(reduced_foot), true];
                 };
             };
             
