@@ -6,7 +6,13 @@ PARAMS_3(_vehicle, _type, _state);
 
 switch (_state) do {
     case true: {
-        private ["_position", "_location"];
+        private ["_announce", "_position", "_location"];
+
+        _announce = false;
+
+        if !(isNil {_this select 3}) then {
+            _announce = _this select 3;
+        };
 
         _position = position _vehicle;
         _location = [_position] call FUNC(common,nearestLocation);
@@ -57,16 +63,7 @@ switch (_state) do {
             _vehicle setVariable [QGVAR(deployed), [true, _type], true];
             
             if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {    
-                [
-                    [GVAR(crossroad), GVAR(crossroad2)],
-                    [QUOTE(THIS_MODULE), "Deployed"],
-                    [
-                        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-                        ["2", {}, toUpper _type, []],
-                        ["3", {}, text _location, []]
-                    ],
-                    true
-                ] call FUNC(conversation,radio);
+                [_this, true] call BIS_fnc_arrayPush;
 
                 player setVariable [
                     QGVAR(conversation_cooldown),
@@ -80,6 +77,19 @@ switch (_state) do {
         };
         
         if (isServer && {(_vehicle getVariable QGVAR(deployed)) select 0}) then {
+            if (_announce) then {
+                [
+                    [GVAR(crossroad), GVAR(crossroad2)],
+                    [QUOTE(THIS_MODULE), "Deployed"],
+                    [
+                        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+                        ["2", {}, toUpper _type, []],
+                        ["3", {}, text _location, []]
+                    ],
+                    true
+                ] call FUNC(conversation,radio);
+            };
+
             [true, "setVariable", [
                 _vehicle,
                 QGVAR(deploy_cooldown),
