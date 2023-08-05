@@ -18,6 +18,17 @@ if (hasInterface) then {
         __submodulePP(setting);
     };
 
+    ["Roles", [
+        "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/><br />",
+        "The 6 available roles are: Artillery Operator, Engineer, Machine Gunner, Marksman, Medic, and Pilot.<br />",
+        if !(isNil QMODULE(perk)) then {"The primary purpose of role selection is to determine which role-based <marker name=''>perks</marker> you can unlock.<br />"} else {""},
+        "A limited amount of roles provide <marker name=''>inherent functions</marker>. These are as follows:<br />",
+        "- Artillery Operators are able to use the artillery computer.",
+        "- Medics can heal self or others without requiring a medkit, and revive players to full health.<br />",
+        "With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of role.<br />",
+        "Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and non-special forces units have less gear slots."
+    ]] call FUNC(THIS_MODULE,create);
+
     if (!isNil QMODULE(base_rd)) then {
         __submodulePP(base_rd);
     };
@@ -48,16 +59,6 @@ if (hasInterface) then {
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
     };
-
-    ["Classes", [
-        "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/><br />",
-        "The primary purpose of class selection is to determine which role based <marker name=''>perks</marker> you can unlock.<br />",
-        "A limited amount of classes provide <marker name=''>inherent functions</marker>. These are as follows:<br />",
-        "- Artillery Operators are able to use the artillery computer.",
-        "- Medics can heal self or other players without requiring a medkit.<br />",
-        "With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of class.<br />",
-        "Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and non-special forces units have less gear slots."
-    ]] call FUNC(THIS_MODULE,create);
 
     if (!isNil QMODULE(admin)) then {
         __submodulePP(admin);
