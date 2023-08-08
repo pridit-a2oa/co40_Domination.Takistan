@@ -4,6 +4,7 @@ private ["_unit"];
 
 PARAMS_1(_unit);
 
+if !(alive _unit) exitWith {};
 if (_unit getVariable QGVAR(unconscious)) exitWith {};
 
 _unit setVariable [QGVAR(unconscious), true, true];
@@ -19,16 +20,16 @@ openMap [false, false];
 
 showCommandingMenu "";
 
-if (!isNil QMODULE(communication)) then {
-    if (!isNil QMODULE(construction)) then {
+if !(isNil QMODULE(communication)) then {
+    if !(isNil QMODULE(construction)) then {
         ["Construct", 0] call FUNC(communication,toggle);
     };
     
-    if (!isNil QMODULE(gesture)) then {
+    if !(isNil QMODULE(gesture)) then {
         ["Gestures", 0] call FUNC(communication,toggle);
     };
     
-    if (!isNil QMODULE(perk)) then {
+    if !(isNil QMODULE(perk)) then {
         ["Radio", 0] call FUNC(communication,toggle);
     };
 };
@@ -40,7 +41,7 @@ _unit spawn {
     
     _this setDamage 0;
     
-    if (vehicle _this != _this) then {
+    if !([_this, vehicle _this] call BIS_fnc_areEqual) then {
         _this action ["Eject", vehicle _this];
         
         sleep 1;
@@ -68,16 +69,16 @@ _unit spawn {
         
         [_this] call FUNC(THIS_MODULE,reset);
         
-        if (!isNil QMODULE(communication)) then {
-            if (!isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
+        if !(isNil QMODULE(communication)) then {
+            if !(isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
                 ["Construct", 1] call FUNC(communication,toggle);
             };
 
-            if (!isNil QMODULE(gesture) && {count BIS_MENU_Gestures > 1}) then {
+            if !(isNil QMODULE(gesture) && {count BIS_MENU_Gestures > 1}) then {
                 ["Gestures", 1] call FUNC(communication,toggle);
             };
 
-            if (!isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
+            if !(isNil QMODULE(perk) && {count BIS_MENU_Radio > 1}) then {
                 ["Radio", 1] call FUNC(communication,toggle);
             };
         };
