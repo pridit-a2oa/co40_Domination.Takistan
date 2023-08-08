@@ -35,7 +35,7 @@ GVAR(vehicle_loadout_types) = [
     ["AH1Z", [
         ["Default", [
             ["M197", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             ["SidewinderLaucher_AH1Z", 1, [0]],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
@@ -43,7 +43,7 @@ GVAR(vehicle_loadout_types) = [
 
         ["Close Air Support", [
             ["M197", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]]
@@ -52,7 +52,7 @@ GVAR(vehicle_loadout_types) = [
     ["AH64D_EP1", [
         ["Default", [
             ["M230", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]]
