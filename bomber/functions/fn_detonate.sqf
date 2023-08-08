@@ -1,17 +1,36 @@
 #define THIS_MODULE bomber
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_units"];
 
 PARAMS_1(_vehicle);
+
+_units = [];
 
 createVehicle [GVAR(bomber_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
 
 {
-    if (isPlayer _x && {[_x] call FUNC(common,ready)}) then {
-        if !(isNil QMODULE(revive)) then {
-            [_x] call FUNC(revive,unconscious);
-        } else {
-            _x setDamage 1;
+    switch (true) do {
+        case (_x isKindOf "CAManBase"): {
+            if (isPlayer _x) then {
+                [_units, _x] call BIS_fnc_arrayPush;
+            };
+        };
+
+        case (_x isKindOf "Air");
+        case (_x isKindOf "LandVehicle"): {
+            {
+                if (isPlayer _x) then {
+                    [_units, _x] call BIS_fnc_arrayPush;
+                };
+            } forEach (crew _x);
         };
     };
-} forEach (nearestObjects [_vehicle, ["CAManBase"], 12]);
+} forEach (nearestObjects [_vehicle, ["AllVehicles"], 12]);
+
+{
+    if !(isNil QMODULE(revive)) then {
+        [_x, "execVM", [[_x], FUNCTION(revive,unconscious)]] call FUNC(network,mp);
+    } else {
+        _x setDamage 1;
+    };
+} forEach _units;

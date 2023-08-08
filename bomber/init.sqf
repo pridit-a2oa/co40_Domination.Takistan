@@ -18,6 +18,9 @@ GVAR(bomber_type_vehicles) = [
 // The bomb type
 GVAR(bomber_type_bomb) = "ARTY_Sh_81_HE";
 
+// Amount of score to reward when preventing a bombing
+GVAR(bomber_amount_score) = 3;
+
 // Chance unit will detonate
 GVAR(bomber_chance_detonate) = 30;
 
