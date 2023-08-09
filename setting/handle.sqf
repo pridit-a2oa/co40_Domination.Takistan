@@ -31,6 +31,10 @@ if (hasInterface) then {
         __submodulePP(tutorial);
     };
 
+    if (!isNil QMODULE(vehicle_loadout)) then {
+        __submodulePP(vehicle_loadout);
+    };
+
     if (!isNil QMODULE(vehicle_welcome)) then {
         __submodulePP(vehicle_welcome);
     };

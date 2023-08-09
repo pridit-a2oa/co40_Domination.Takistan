@@ -33,6 +33,7 @@ _save = [];
     ["halo", "parachute"],
     "reward",
     "tutorial",
+    "vehicle_loadout",
     "vehicle_welcome"
 ];
 

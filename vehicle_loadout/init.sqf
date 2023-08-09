@@ -155,6 +155,7 @@ __cppfln(FUNC(THIS_MODULE,addMagazines),THIS_MODULE\functions\fn_addMagazines.sq
 __cppfln(FUNC(THIS_MODULE,addWeapons),THIS_MODULE\functions\fn_addWeapons.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,find),THIS_MODULE\functions\fn_find.sqf);
+__cppfln(FUNC(THIS_MODULE,parse),THIS_MODULE\functions\fn_parse.sqf);
 __cppfln(FUNC(THIS_MODULE,set),THIS_MODULE\functions\fn_set.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
