@@ -1,4 +1,3 @@
-#define THIS_MODULE event
 #include "x_macros.sqf"
 private ["_placement", "_position", "_direction", "_objects", "_group"];
 
