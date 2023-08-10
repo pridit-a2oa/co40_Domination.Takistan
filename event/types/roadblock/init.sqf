@@ -12,7 +12,7 @@
 [GVAR(event_types), "Roadblock"] call BIS_fnc_arrayPush;
 
 // Set minimum number of events of this type to exist
-GVAR(event_roadblock_amount) = 4;
+GVAR(event_roadblock_amount) = 3;
 
 // Set composition of the event
 GVAR(event_roadblock_composition) = "CheckPoint1_US_EP1";
