@@ -22,13 +22,15 @@ class Mission
 		"caair_e_ch_47f",
 		"CACharacters_BAF",
 		"cabuildings",
-		"caweapons_e"
+		"caweapons_e",
+		"CA_CommunityConfigurationProject_E_Editor_AddedAllWeaponSlotsInfantryVariants"
 	};
 	addOnsAuto[]=
 	{
 		"caweapons_e",
 		"cacharacters_e",
 		"CACharacters_BAF",
+		"CA_CommunityConfigurationProject_E_Editor_AddedAllWeaponSlotsInfantryVariants",
 		"ca_modules_functions",
 		"caair_e_ch_47f",
 		"CAAir_E_UH60M",
@@ -41,7 +43,6 @@ class Mission
 		"CAAir2_MV22",
 		"caair_e",
 		"ca_baf",
-		"warfarebuildings",
 		"camisc_e_wf",
 		"CAWheeled_E_ATV",
 		"cabuildings",
