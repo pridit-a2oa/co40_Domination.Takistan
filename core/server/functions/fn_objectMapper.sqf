@@ -90,6 +90,10 @@ if (count _replace > 0) then {
         {
             if ([_x select 0, _new select 0] call BIS_fnc_areEqual) then {
                 _x set [0, if (count _new > 1) then {_new select 1} else {""}];
+
+                if ([count _new, 3] call BIS_fnc_areEqual) then {
+                    _x set [2, (_x select 2) + (_new select 2)];
+                };
             };
         } forEach _objs;
     } forEach _replace;
@@ -126,7 +130,7 @@ _multiplyMatrixFunc = {
     _relPos = _x select 1;
     _azimuth = _x select 2;
     
-    if !(_type in GVAR(server_objects_banned)) then {
+    if !(_type in GVAR(server_objects_banned) || {[_x select 0, ""] call BIS_fnc_areEqual}) then {
         if ((count _x) > 3) then {_fuel = _x select 3};
         if ((count _x) > 4) then {_damage = _x select 4};
 
@@ -151,6 +155,10 @@ _multiplyMatrixFunc = {
         _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
+
+        if ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual) then {
+            _newObj animate ["bargate", 1];
+        };
 
         if (_newObj isKindOf "Thing") then {
             [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
