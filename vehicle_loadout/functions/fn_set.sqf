@@ -38,7 +38,7 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
     _loadout = _find select 1;
 
     {
-        private ["_index", "_type"];
+        private ["_index", "_type", "_new"];
 
         _index = (_forEachIndex + 1);
 
@@ -55,19 +55,22 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
                 _index = _loadouts find "Default";
             };
 
-            _vehicle setVariable [
-                QGVAR(loadout),
-                [
-                    _type,
-                    ([1, (GVAR(vehicle_loadout_types) select _loadout) select 1] call FUNC(common,arrayValues)) select _index
-                ],
-                true
-            ];
+            _new = ([1, (GVAR(vehicle_loadout_types) select _loadout) select 1] call FUNC(common,arrayValues)) select _index;
+
+            _vehicle setVariable [QGVAR(loadout), [_type, _new], true];
 
             if !(isServer) then {
                 [gameLogic, "execVM", [[_vehicle], FUNCTION(THIS_MODULE,clear)]] call FUNC(network,mp);
             } else {
                 [_vehicle] call FUNC(THIS_MODULE,clear);
+            };
+
+            if (hasInterface && {player distance _vehicle < 10 && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(vehicle_loadout)) select 1, 10] call BIS_fnc_areEqual}}}) then {
+                hintSilent parseText format [
+                    "<br /><t underline='1'>%1</t><br /><br />%2<br />",
+                    _type,
+                    [_new] call FUNC(THIS_MODULE,parse)
+                ];
             };
         };
     } forEach _loadouts;

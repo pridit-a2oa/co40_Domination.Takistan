@@ -14,33 +14,25 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 };
 
 if (isServer) then {
-    _vehicle addEventHandler ["killed", {
-        private ["_vehicle"];
+    private ["_expression"];
 
-        PARAMS_1(_vehicle);
-
-        _vehicle spawn {
-            while {(position _this) select 2 > 10} do {
-                sleep 1;
-            };
-
-            _this setVariable [QGVAR(wrecked), position _this];
-        };
-    }];
-
-    _vehicle addMPEventHandler ["MPKilled", {
-        private ["_vehicle"];
-
-        PARAMS_1(_vehicle);
-
+    _expression = {
         if !(isServer) exitWith {};
 
-        _vehicle spawn {
+        (_this select 0) spawn {
             while {(position _this) select 2 > 10} do {
                 sleep 1;
             };
 
+            // TODO: Replace with a better solution
+            if (_this distance (markerPos QGVAR(map_zone)) > 9000) then {
+                [_this] call FUNC(vehicle,reset);
+            };
+
             _this setVariable [QGVAR(wrecked), position _this];
         };
-    }];
+    };
+
+    _vehicle addEventHandler ["Killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };

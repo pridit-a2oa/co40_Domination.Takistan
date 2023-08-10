@@ -7,7 +7,7 @@ class XD_InventoryDialog {
     class controlsBackground {
         class PictureBackground: XD_RscPicture
         {
-            text = "\ca\ui\data\ui_revert_background_ca";
+            text = "ca\ui\data\ui_revert_background_ca";
             x = 0.296875;
             y = 0.25;
             w = 0.513889;

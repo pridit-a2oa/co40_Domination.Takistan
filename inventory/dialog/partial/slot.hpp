@@ -1,7 +1,7 @@
 class PictureInventorySlot_1: XD_RscPicture
 {
     idc = 301;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.34375;
     y = 0.36;
     w = 0.043;
@@ -11,7 +11,7 @@ class PictureInventorySlot_1: XD_RscPicture
 class PictureInventorySlot_2: XD_RscPicture
 {
     idc = 302;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.40525;
     y = 0.36;
     w = 0.043;
@@ -21,7 +21,7 @@ class PictureInventorySlot_2: XD_RscPicture
 class PictureInventorySlot_3: XD_RscPicture
 {
     idc = 303;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.46780;
     y = 0.36;
     w = 0.043;
@@ -31,7 +31,7 @@ class PictureInventorySlot_3: XD_RscPicture
 class PictureInventorySlot_4: XD_RscPicture
 {
     idc = 304;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.53025;
     y = 0.36;
     w = 0.043;
@@ -41,7 +41,7 @@ class PictureInventorySlot_4: XD_RscPicture
 class PictureInventorySlot_5: XD_RscPicture
 {
     idc = 305;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.59375;
     y = 0.36;
     w = 0.043;
@@ -51,7 +51,7 @@ class PictureInventorySlot_5: XD_RscPicture
 class PictureInventorySlot_6: XD_RscPicture
 {
     idc = 306;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.65525;
     y = 0.36;
     w = 0.043;
@@ -61,7 +61,7 @@ class PictureInventorySlot_6: XD_RscPicture
 class PictureInventorySlot_7: XD_RscPicture
 {
     idc = 307;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.34375;
     y = 0.436;
     w = 0.043;
@@ -71,7 +71,7 @@ class PictureInventorySlot_7: XD_RscPicture
 class PictureInventorySlot_8: XD_RscPicture
 {
     idc = 308;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.40525;
     y = 0.436;
     w = 0.043;
@@ -81,7 +81,7 @@ class PictureInventorySlot_8: XD_RscPicture
 class PictureInventorySlot_9: XD_RscPicture
 {
     idc = 309;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.46780;
     y = 0.436;
     w = 0.043;
@@ -91,7 +91,7 @@ class PictureInventorySlot_9: XD_RscPicture
 class PictureInventorySlot_10: XD_RscPicture
 {
     idc = 310;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.53025;
     y = 0.436;
     w = 0.043;
@@ -101,7 +101,7 @@ class PictureInventorySlot_10: XD_RscPicture
 class PictureInventorySlot_11: XD_RscPicture
 {
     idc = 311;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.59375;
     y = 0.436;
     w = 0.043;
@@ -111,7 +111,7 @@ class PictureInventorySlot_11: XD_RscPicture
 class PictureInventorySlot_12: XD_RscPicture
 {
     idc = 312;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.65525;
     y = 0.436;
     w = 0.043;
@@ -121,7 +121,7 @@ class PictureInventorySlot_12: XD_RscPicture
 class PictureInventorySlot_13: XD_RscPicture
 {
     idc = 313;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.34375;
     y = 0.51;
     w = 0.043;
@@ -131,7 +131,7 @@ class PictureInventorySlot_13: XD_RscPicture
 class PictureInventorySlot_14: XD_RscPicture
 {
     idc = 314;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.40525;
     y = 0.51;
     w = 0.043;
@@ -141,7 +141,7 @@ class PictureInventorySlot_14: XD_RscPicture
 class PictureInventorySlot_15: XD_RscPicture
 {
     idc = 315;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.46780;
     y = 0.51;
     w = 0.043;
@@ -151,7 +151,7 @@ class PictureInventorySlot_15: XD_RscPicture
 class PictureInventorySlot_16: XD_RscPicture
 {
     idc = 316;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.53025;
     y = 0.51;
     w = 0.043;
@@ -161,7 +161,7 @@ class PictureInventorySlot_16: XD_RscPicture
 class PictureInventorySlot_17: XD_RscPicture
 {
     idc = 317;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.59375;
     y = 0.51;
     w = 0.043;
@@ -171,7 +171,7 @@ class PictureInventorySlot_17: XD_RscPicture
 class PictureInventorySlot_18: XD_RscPicture
 {
     idc = 318;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.65525;
     y = 0.51;
     w = 0.043;
@@ -181,7 +181,7 @@ class PictureInventorySlot_18: XD_RscPicture
 class PictureInventorySlot_19: XD_RscPicture
 {
     idc = 319;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.34375;
     y = 0.586;
     w = 0.043;
@@ -191,7 +191,7 @@ class PictureInventorySlot_19: XD_RscPicture
 class PictureInventorySlot_20: XD_RscPicture
 {
     idc = 320;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.40525;
     y = 0.586;
     w = 0.043;
@@ -201,7 +201,7 @@ class PictureInventorySlot_20: XD_RscPicture
 class PictureInventorySlot_21: XD_RscPicture
 {
     idc = 321;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.46780;
     y = 0.586;
     w = 0.043;
@@ -211,7 +211,7 @@ class PictureInventorySlot_21: XD_RscPicture
 class PictureInventorySlot_22: XD_RscPicture
 {
     idc = 322;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.53025;
     y = 0.586;
     w = 0.043;
@@ -221,7 +221,7 @@ class PictureInventorySlot_22: XD_RscPicture
 class PictureInventorySlot_23: XD_RscPicture
 {
     idc = 323;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.59375;
     y = 0.586;
     w = 0.043;
@@ -231,7 +231,7 @@ class PictureInventorySlot_23: XD_RscPicture
 class PictureInventorySlot_24: XD_RscPicture
 {
     idc = 324;
-    text = "\ca\ui\data\cmdbar_background_ca";
+    text = "ca\ui\data\cmdbar_background_ca";
     x = 0.65525;
     y = 0.586;
     w = 0.043;

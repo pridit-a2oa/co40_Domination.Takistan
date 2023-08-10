@@ -1,5 +1,5 @@
 /**
- * Halo Module - Base Halo Submodule
+ * HALO Module - Base HALO Submodule
  */
 
 #define THIS_MODULE halo

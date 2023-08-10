@@ -1,7 +1,3 @@
-/**
- * Vehicle Module - Perimiter Submodule
- */
-
 #include "x_macros.sqf"
 private ["_vehicle", "_spawn"];
 
@@ -13,5 +9,4 @@ _vehicle setPos [_spawn select 0, _spawn select 1, 0];
 
 [_vehicle, "setVectorUp", surfaceNormal _spawn] call FUNC(network,mp);
 [_vehicle, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
-
-_vehicle setDamage 1;
+[_vehicle, "engineOn", false] call FUNC(network,mp);

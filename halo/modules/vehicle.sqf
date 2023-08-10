@@ -1,5 +1,5 @@
 /**
- * Halo Module - Vehicle Submodule
+ * HALO Module - Vehicle Submodule
  */
 
 #define THIS_MODULE halo

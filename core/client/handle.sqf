@@ -159,7 +159,11 @@ player addEventHandler ["HandleDamage", {
         _limbs = 1;
         _incurred = 0;
         _new_damage = 0;
-        _damage = _damage * 0.85;
+
+        _damage = (switch (true) do {
+            case ([_unit, vehicle _unit] call BIS_fnc_areEqual && {_unit getVariable QGVAR(reduced_foot) && {_injurer isKindOf "CAManBase"}}): {_damage * 0.4};
+            default {_damage * 0.8};
+        });
         
         _config = configFile >> "cfgVehicles" >> (typeOf _unit);
         
@@ -342,10 +346,12 @@ player addEventHandler ["respawn", {
     };
 }];
 
-player addEventHandler ["killed", {
+player addEventHandler ["Killed", {
     private ["_unit"];
     
     PARAMS_1(_unit);
+
+    [true, "switchMove", [_unit, ""]] call FUNC(network,mp);
     
     _unit spawn {
         waitUntil {sleep 1; !([_this, player] call BIS_fnc_areEqual)};

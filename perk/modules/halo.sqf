@@ -1,5 +1,5 @@
 /**
- * Perk Module - Halo Submodule
+ * Perk Module - HALO Submodule
  */
 
 #define THIS_MODULE perk

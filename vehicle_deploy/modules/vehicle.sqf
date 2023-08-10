@@ -41,8 +41,6 @@ if (isServer) then {
             };
         };
 
-        __log format ["Destroyed %1", [typeOf _unit] call FUNC(vehicle,name)]];
-
         _unit setVariable [QGVAR(deployed), [false, ""], true];
     
         [_unit, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
@@ -67,6 +65,6 @@ if (isServer) then {
         };
     };
 
-    _vehicle addEventHandler ["killed", _expression];
+    _vehicle addEventHandler ["Killed", _expression];
     _vehicle addMPEventHandler ["MPKilled", _expression];
 };

@@ -18,7 +18,7 @@ if (typeName _loaded == "ARRAY") then {
 };
 
 [_aircraft, _landing, _load, _eject] spawn {
-    private ["_aircraft", "_landing", "_load", "_eject", "_position", "_ammobox"];
+    private ["_aircraft", "_landing", "_load", "_eject", "_position", "_parachute"];
     
     PARAMS_4(_aircraft, _landing, _load, _eject);
     
@@ -66,13 +66,23 @@ if (typeName _loaded == "ARRAY") then {
 
         waitUntil {sleep 0.1; (position _load) select 2 < 3};
 
-        _position = [(position _load) select 0, (position _load) select 1, 0];
-    };
-    
-    if (!isNil QMODULE(ammobox) && {[typeOf _load, ([faction _load] call FUNC(ammobox,type)) select 1] call BIS_fnc_areEqual}) then {
-        deleteVehicle _load;
+        if (!isNil QMODULE(ammobox) && {[typeOf _load, ([faction _load] call FUNC(ammobox,type)) select 1] call BIS_fnc_areEqual}) then {
+            private ["_direction", "_ammobox"];
 
-        _ammobox = [faction _aircraft, _position, 0, false] call FUNC(ammobox,create);
+            _position = [(position _load) select 0, (position _load) select 1, 0];
+            _direction = direction _load;
+
+            deleteVehicle _load;
+
+            _ammobox = [
+                "BIS_US",
+                _position,
+                _direction,
+                false
+            ] call FUNC(ammobox,create);
+
+            [true, "say3D", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
+        };
     };
 };
 

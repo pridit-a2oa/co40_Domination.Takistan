@@ -14,4 +14,6 @@ if (hasInterface) then {
             true
         ] spawn FUNC(3d,create);
     };
+
+    createMarkerLocal ["ammoload", position GVAR(ammoload)];
 };

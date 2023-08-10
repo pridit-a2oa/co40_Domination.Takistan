@@ -17,6 +17,10 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 };
 
 if (isServer) then {
+    private ["_expression"];
+
+    _vehicle setVariable [QGVAR(killed), false];
+
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
 
@@ -81,7 +85,7 @@ if (isServer) then {
     };
     
     if (_vehicle isKindOf "Air") then {
-        _vehicle addEventHandler ["killed", {
+        _vehicle addEventHandler ["Killed", {
             private ["_vehicle"];
             
             PARAMS_1(_vehicle);
@@ -93,6 +97,28 @@ if (isServer) then {
             };
         }];
     };
+
+    _expression = {
+        private ["_unit", "_killer"];
+
+        PARAMS_2(_unit, _killer);
+
+        if !(isServer) exitWith {};
+        if (_unit getVariable QGVAR(killed)) exitWith {};
+        if (count crew _unit > 0 && {{!isPlayer _x} count crew _unit > 0}) exitWith {};
+
+        _unit setVariable [QGVAR(killed), true];
+
+        __log format [
+            "Destroyed %1 {""killer"":""%2"",""occupants"":""%3""}",
+            [typeOf _unit] call FUNC(THIS_MODULE,name),
+            if (isPlayer _killer) then {name _killer} else {side _killer},
+            [_unit] call FUNC(THIS_MODULE,crew)
+        ]];
+    };
+
+    _vehicle addEventHandler ["Killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };
 
 if (hasInterface) then {
@@ -186,6 +212,9 @@ _vehicle addEventHandler ["HandleDamage", {
 
     if ({isPlayer _x} count crew _unit > 0 && {isPlayer _injurer}) exitWith {0};
     if (_unit distance (getMarkerPos QGVAR(base_south)) < 500 && {{side _x in [east, civilian]} count crew _unit < 1}) exitWith {0};
+
+    if ([_projectile, "M_Igla_AA"] call BIS_fnc_areEqual) then {_damage = _damage * 2};
+    if ({isPlayer _x && {[_x, driver _unit] call BIS_fnc_areEqual && {_x getVariable QGVAR(reduced)}}} count crew _unit > 0) then {_damage = _damage * 0.70};
 
     _damage
 }];

@@ -10,7 +10,7 @@ GVAR(setting_type_valid) = [
     [
         "Camera",
         "camera",
-        "Set default camera mode (on connect &amp; respawn)",
+        "Set default camera mode (applies on connect &amp; respawn)",
         ["1st Person", "3rd Person"],
         ["INTERNAL", "EXTERNAL"]
     ],

@@ -1,5 +1,5 @@
 /**
- * Halo Module
+ * HALO Module
  *
  * Description: This module enables players to be able to perform a HALO jump
  * from a position of their choosing.

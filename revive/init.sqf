@@ -16,7 +16,7 @@ GVAR(revive_type_blood) = [
     QGVAR(revive_blood_2)
 ];
 
-// Amount of damage a revived player will have
+// Amount of damage a revived player will have (medics revive full health)
 GVAR(revive_amount_damage) = 0.4;
 
 // AddAction parameters that need to apply to existing clients & JIP
@@ -47,7 +47,7 @@ if (hasInterface) then {
     player setVariable [QGVAR(unconscious), false, true];
     player setVariable [QGVAR(reviving), false, true];
     
-    player setVariable [QGVAR(revive_damage), GVAR(revive_amount_damage)];
+    player setVariable [QGVAR(reduced_foot), false];
 };
 
 __cppfln(FUNC(THIS_MODULE,countdown),THIS_MODULE\functions\fn_countdown.sqf);

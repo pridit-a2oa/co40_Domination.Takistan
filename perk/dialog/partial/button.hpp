@@ -2,7 +2,7 @@ class PerkButton_General_1: XD_LinkButtonUpgradeBase
 {
     idc = 301;
     x = 0.281251;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Medkit (+1)";
@@ -12,7 +12,7 @@ class PerkButton_General_2: XD_LinkButtonUpgradeBase
 {
     idc = 302;
     x = 0.375001;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Repair kit (+1)";
@@ -22,7 +22,7 @@ class PerkButton_General_3: XD_LinkButtonUpgradeBase
 {
     idc = 303;
     x = 0.478182;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Fly attack aircraft";
@@ -32,7 +32,7 @@ class PerkButton_General_4: XD_LinkButtonUpgradeBase
 {
     idc = 304;
     x = 0.578126;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "HALO jump from any aircraft";
@@ -42,7 +42,7 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
 {
     idc = 305;
     x = 0.671874;
-    y = 0.134182;
+    y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Call airdrop";
@@ -51,8 +51,8 @@ class PerkButton_General_5: XD_LinkButtonUpgradeBase
 class PerkButton_General_6: XD_LinkButtonUpgradeBase
 {
     idc = 306;
-    x = 0.328126;
-    y = 0.216364;
+    x = 0.281251;
+    y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Fast Travel from any deployed vehicle";
@@ -61,32 +61,42 @@ class PerkButton_General_6: XD_LinkButtonUpgradeBase
 class PerkButton_General_7: XD_LinkButtonUpgradeBase
 {
     idc = 307;
-    x = 0.421874;
-    y = 0.216364;
+    x = 0.375001;
+    y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Carry 1 additional primary weapon";
+    tooltip = "Incoming vehicle damage reduced by 30% (as the driver)";
     action = "[0,7] call d_fnc_perk_clicked";
 };
 class PerkButton_General_8: XD_LinkButtonUpgradeBase
 {
     idc = 308;
-    x = 0.531251;
-    y = 0.219091;
+    x = 0.478182;
+    y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Save loadout (excl. backpack contents)";
+    tooltip = "Carry 1 additional primary weapon";
     action = "[0,8] call d_fnc_perk_clicked";
 };
 class PerkButton_General_9: XD_LinkButtonUpgradeBase
 {
     idc = 309;
-    x = 0.624999;
-    y = 0.216364;
+    x = 0.578126;
+    y = 0.225;
+    w = 0.0419193;
+    h = 0.0562289;
+    tooltip = "Save loadout (excl. backpack contents)";
+    action = "[0,9] call d_fnc_perk_clicked";
+};
+class PerkButton_General_10: XD_LinkButtonUpgradeBase
+{
+    idc = 309;
+    x = 0.671874;
+    y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
     tooltip = "Set any overturned vehicle upright";
-    action = "[0,9] call d_fnc_perk_clicked";
+    action = "[0,10] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_1: XD_LinkButtonUpgradeBase
 {
@@ -315,7 +325,7 @@ class PerkButton_Role5_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Revived players regain full health";
+    tooltip = "Incoming small arms fire damage reduced by 50% (on foot)";
     action = "[5,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role5_4: XD_LinkButtonUpgradeBase

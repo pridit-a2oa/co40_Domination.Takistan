@@ -78,7 +78,7 @@ _object addEventHandler ["HandleDamage", {0}];
 _object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 10, false, true, "", "player == vehicle player && {!(_target getVariable 'd_deconstructing')}"];
 
 if ([typeOf _object, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_areEqual) then {
-    [_object, "setAmmoCargo", 0] call FUNC(network,mp);
+    [true, "setAmmoCargo", [_object, 0]] call FUNC(network,mp);
 };
 
 [gameLogic, "spawn", [[_object], {

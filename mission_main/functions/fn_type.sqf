@@ -130,7 +130,7 @@ switch (_type) do {
 
                 [true, "execVM", [[_radio], __function(protect)]] call FUNC(network,mp);
                 
-                _radio addEventHandler ["killed", {
+                _radio addEventHandler ["Killed", {
                     private ["_unit", "_target"];
                     
                     PARAMS_1(_unit);
@@ -258,7 +258,7 @@ switch (_type) do {
             
             [true, "execVM", [_task, FUNCTION(task,create)]] call FUNC(network,mp);
             
-            _entity addEventHandler ["killed", {
+            _entity addEventHandler ["Killed", {
                 private ["_unit", "_task"];
                 
                 PARAMS_1(_unit);

@@ -4,9 +4,7 @@ if (isMultiplayer) exitWith {
     _players = [];
 
     {
-        if !(isNull _x) then {
-            _players = _players + [_x]
-        };
+        [_players, _x] call BIS_fnc_arrayPush;
     } forEach (call BIS_fnc_listPlayers);
 
     _players

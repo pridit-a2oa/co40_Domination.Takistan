@@ -42,7 +42,7 @@ if (!isDedicated) then {
 
 // process in one frame
 GVAR(init_obj) = "HeliHEmpty" createVehicleLocal [0, 0, 0];
-GVAR(init_obj) addEventHandler ["killed", {__coreVM(common);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
+GVAR(init_obj) addEventHandler ["Killed", {__coreVM(common);deleteVehicle GVAR(init_obj);GVAR(init_obj) = nil}];
 
 if (hasInterface) then {
     sleep 1;

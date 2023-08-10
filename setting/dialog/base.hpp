@@ -8,7 +8,7 @@ class XD_SettingDialog {
     class controlsBackground {
         class PictureBackground: XD_RscPicture
         {
-            text = "\ca\ui\data\ui_revert_background_ca";
+            text = "ca\ui\data\ui_revert_background_ca";
             x = 0.26925;
             y = 0.182467;
             w = 0.596502;

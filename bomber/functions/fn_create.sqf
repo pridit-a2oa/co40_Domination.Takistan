@@ -1,7 +1,7 @@
 #define THIS_MODULE bomber
 #include "x_macros.sqf"
 
-if (count (call FUNC(common,players)) < 1) exitWith {};
+if ([count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) exitWith {};
 
 gameLogic setVariable [QGVAR(bomber), true, true];
 
@@ -27,7 +27,46 @@ gameLogic setVariable [QGVAR(bomber), true, true];
     _driver disableAI "FSM";
     _driver setBehaviour "CARELESS";
     _driver doMove (markerPos QGVAR(bomber));
-    
+
+    _driver addEventHandler ["Killed", {
+        private ["_unit", "_killer"];
+
+        PARAMS_2(_unit, _killer);
+
+        if !(isPlayer _killer) exitWith {};
+
+        [_unit, _killer] spawn {
+            private ["_unit", "_killer"];
+
+            PARAMS_2(_unit, _killer);
+
+            switch (side group _unit) do {
+                case east: {
+                    if (isNil QMODULE(reward)) exitWith {};
+                    if !([_killer] call FUNC(common,ready)) exitWith {};
+                    if !(alive (vehicle _unit)) exitWith {};
+
+                    sleep 3;
+
+                    [
+                        _killer,
+                        GVAR(bomber_amount_score),
+                        "protecting the base"
+                    ] call FUNC(reward,score);
+                };
+
+                case civilian: {
+                    _killer addScore -10;
+
+                    [true, "systemChat", format [
+                        "%1 has lost score for killing a civilian",
+                        name _killer
+                    ]] call FUNC(network,mp)
+                };
+            };
+        };
+    }];
+        
     while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {      
         waitUntil {sleep 0.5; _car distance (markerPos QGVAR(bomber)) < 300};
         

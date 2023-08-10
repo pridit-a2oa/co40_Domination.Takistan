@@ -1,5 +1,5 @@
 /**
- * Base Halo Module (Handler)
+ * Base HALO Module (Handler)
  */
 
 #define THIS_MODULE base_halo

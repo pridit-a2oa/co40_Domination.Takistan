@@ -35,7 +35,7 @@ GVAR(vehicle_loadout_types) = [
     ["AH1Z", [
         ["Default", [
             ["M197", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             ["SidewinderLaucher_AH1Z", 1, [0]],
             ["FFARLauncher_14", 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
@@ -43,7 +43,7 @@ GVAR(vehicle_loadout_types) = [
 
         ["Close Air Support", [
             ["M197", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]]
@@ -52,7 +52,7 @@ GVAR(vehicle_loadout_types) = [
     ["AH64D_EP1", [
         ["Default", [
             ["M230", 1, [0]],
-            ["MaverickLauncher", 2, [0]],
+            ["HellfireLauncher_AH6", 1, [0]],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
         ]]
@@ -117,6 +117,12 @@ GVAR(vehicle_loadout_types) = [
         ]]
     ]],
 
+    ["UH60M_MEV_EP1", [
+        ["Default", [
+            [["CMFlareLauncher", "120Rnd_CMFlareMagazine"], 1]
+        ]]
+    ]],
+
     /**
     * OPFOR
     */
@@ -155,6 +161,7 @@ __cppfln(FUNC(THIS_MODULE,addMagazines),THIS_MODULE\functions\fn_addMagazines.sq
 __cppfln(FUNC(THIS_MODULE,addWeapons),THIS_MODULE\functions\fn_addWeapons.sqf);
 __cppfln(FUNC(THIS_MODULE,clear),THIS_MODULE\functions\fn_clear.sqf);
 __cppfln(FUNC(THIS_MODULE,find),THIS_MODULE\functions\fn_find.sqf);
+__cppfln(FUNC(THIS_MODULE,parse),THIS_MODULE\functions\fn_parse.sqf);
 __cppfln(FUNC(THIS_MODULE,set),THIS_MODULE\functions\fn_set.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
