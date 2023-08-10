@@ -26,7 +26,7 @@ if (hasInterface) then {
         "<br />- Artillery Operators are able to use the artillery computer.",
         "- Medics can heal self or others without requiring a medkit, and revive players to full health.",
         "<br />With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of role.",
-        "<br />Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and non-special forces units have less gear slots."
+        "<br />Due to an <marker name=''>engine limitation</marker> medics are not able to equip a backpack, and BAF units have less gear slots."
     ]] call FUNC(THIS_MODULE,create);
 
     if (!isNil QMODULE(base_rd)) then {

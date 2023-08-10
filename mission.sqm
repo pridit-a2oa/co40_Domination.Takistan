@@ -619,7 +619,7 @@ class Mission
 					special="NONE";
 					id=266;
 					side="WEST";
-					vehicle="US_Soldier_Medic_EP1";
+					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -634,7 +634,7 @@ class Mission
 					special="NONE";
 					id=273;
 					side="WEST";
-					vehicle="US_Soldier_Medic_EP1";
+					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC2";
@@ -769,12 +769,12 @@ class Mission
 					special="NONE";
 					id=278;
 					side="WEST";
-					vehicle="US_Soldier_Pilot_EP1";
+					vehicle="US_Pilot_Light_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot";
+					description="Pilot (Light)";
 				};
 				class Item3
 				{
@@ -783,12 +783,12 @@ class Mission
 					special="NONE";
 					id=277;
 					side="WEST";
-					vehicle="US_Soldier_Pilot_EP1";
+					vehicle="US_Pilot_Light_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
-					description="Pilot";
+					description="Pilot (Light)";
 				};
 				class Item4
 				{
