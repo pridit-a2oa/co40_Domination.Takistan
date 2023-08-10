@@ -1442,7 +1442,7 @@ class Mission
 			azimut=160.59599;
 			id=63;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item58
@@ -1451,7 +1451,7 @@ class Mission
 			azimut=160.59599;
 			id=64;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item59
@@ -1460,7 +1460,7 @@ class Mission
 			azimut=160.59599;
 			id=65;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item60
@@ -1469,7 +1469,7 @@ class Mission
 			azimut=161.04565;
 			id=66;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item61
@@ -1478,7 +1478,7 @@ class Mission
 			azimut=234.56076;
 			id=67;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item62
@@ -1487,7 +1487,7 @@ class Mission
 			azimut=234.56076;
 			id=68;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item63
@@ -1496,7 +1496,7 @@ class Mission
 			azimut=234.56076;
 			id=69;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item64
@@ -1505,7 +1505,7 @@ class Mission
 			azimut=234.56076;
 			id=70;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item65
@@ -1514,7 +1514,7 @@ class Mission
 			azimut=234.56076;
 			id=71;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item66
@@ -1523,7 +1523,7 @@ class Mission
 			azimut=234.56076;
 			id=72;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item67
@@ -1532,7 +1532,7 @@ class Mission
 			azimut=234.56076;
 			id=73;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item68
@@ -1541,7 +1541,7 @@ class Mission
 			azimut=181.1519;
 			id=74;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item69
@@ -1550,7 +1550,7 @@ class Mission
 			azimut=181.1519;
 			id=75;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item70
@@ -1559,7 +1559,7 @@ class Mission
 			azimut=181.1519;
 			id=76;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item71
@@ -1568,7 +1568,7 @@ class Mission
 			azimut=181.1519;
 			id=77;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item72
@@ -1577,7 +1577,7 @@ class Mission
 			azimut=181.1519;
 			id=78;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item73
@@ -1586,7 +1586,7 @@ class Mission
 			azimut=232.45547;
 			id=79;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item74
@@ -1595,7 +1595,7 @@ class Mission
 			azimut=232.45547;
 			id=80;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item75
@@ -1604,7 +1604,7 @@ class Mission
 			azimut=232.45547;
 			id=81;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item76
@@ -1613,7 +1613,7 @@ class Mission
 			azimut=232.45547;
 			id=82;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item77
@@ -1622,7 +1622,7 @@ class Mission
 			azimut=232.45547;
 			id=83;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item78
@@ -1631,7 +1631,7 @@ class Mission
 			azimut=232.45547;
 			id=84;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item79
@@ -1640,7 +1640,7 @@ class Mission
 			azimut=232.45547;
 			id=85;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item80
@@ -1649,7 +1649,7 @@ class Mission
 			azimut=232.45547;
 			id=86;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item81
@@ -1658,7 +1658,7 @@ class Mission
 			azimut=233.78175;
 			id=87;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item82
@@ -1667,7 +1667,7 @@ class Mission
 			azimut=237.46156;
 			id=88;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item83
@@ -1676,7 +1676,7 @@ class Mission
 			azimut=246.49722;
 			id=89;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item84
@@ -1685,7 +1685,7 @@ class Mission
 			azimut=272.55167;
 			id=90;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item85
@@ -1694,7 +1694,7 @@ class Mission
 			azimut=272.55167;
 			id=91;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item86
@@ -1703,7 +1703,7 @@ class Mission
 			azimut=272.55167;
 			id=92;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item87
@@ -1712,7 +1712,7 @@ class Mission
 			azimut=272.55167;
 			id=93;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item88
@@ -1721,7 +1721,7 @@ class Mission
 			azimut=272.55167;
 			id=94;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item89
@@ -1730,7 +1730,7 @@ class Mission
 			azimut=329.46204;
 			id=95;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item90
@@ -1739,7 +1739,7 @@ class Mission
 			azimut=329.46204;
 			id=96;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item91
@@ -1748,7 +1748,7 @@ class Mission
 			azimut=329.46204;
 			id=97;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item92
@@ -1757,7 +1757,7 @@ class Mission
 			azimut=329.46204;
 			id=98;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item93
@@ -1766,7 +1766,7 @@ class Mission
 			azimut=329.46204;
 			id=99;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item94
@@ -1775,7 +1775,7 @@ class Mission
 			azimut=329.46204;
 			id=100;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item95
@@ -1784,7 +1784,7 @@ class Mission
 			azimut=329.46204;
 			id=101;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item96
@@ -1793,7 +1793,7 @@ class Mission
 			azimut=329.46204;
 			id=102;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item97
@@ -1802,7 +1802,7 @@ class Mission
 			azimut=329.46204;
 			id=103;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item98
@@ -1811,7 +1811,7 @@ class Mission
 			azimut=329.46204;
 			id=104;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item99
@@ -1820,7 +1820,7 @@ class Mission
 			azimut=329.46204;
 			id=105;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item100
@@ -1829,7 +1829,7 @@ class Mission
 			azimut=329.46204;
 			id=106;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item101
@@ -1838,7 +1838,7 @@ class Mission
 			azimut=329.46204;
 			id=107;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item102
@@ -1847,7 +1847,7 @@ class Mission
 			azimut=329.46204;
 			id=108;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item103
@@ -1856,7 +1856,7 @@ class Mission
 			azimut=329.46204;
 			id=109;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item104
@@ -1865,7 +1865,7 @@ class Mission
 			azimut=329.46204;
 			id=110;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item105
@@ -1874,7 +1874,7 @@ class Mission
 			azimut=329.46204;
 			id=111;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item106
@@ -1883,7 +1883,7 @@ class Mission
 			azimut=329.46204;
 			id=112;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item107
@@ -1892,7 +1892,7 @@ class Mission
 			azimut=329.46204;
 			id=113;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item108
@@ -1901,7 +1901,7 @@ class Mission
 			azimut=329.46204;
 			id=114;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item109
@@ -1910,7 +1910,7 @@ class Mission
 			azimut=329.46204;
 			id=115;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item110
@@ -1919,7 +1919,7 @@ class Mission
 			azimut=329.46204;
 			id=116;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item111
@@ -1928,7 +1928,7 @@ class Mission
 			azimut=329.46204;
 			id=117;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item112
@@ -1937,7 +1937,7 @@ class Mission
 			azimut=329.46204;
 			id=118;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item113
@@ -1946,7 +1946,7 @@ class Mission
 			azimut=329.46204;
 			id=119;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item114
@@ -1955,7 +1955,7 @@ class Mission
 			azimut=329.46204;
 			id=120;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item115
@@ -1964,7 +1964,7 @@ class Mission
 			azimut=329.46204;
 			id=121;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item116
@@ -1973,7 +1973,7 @@ class Mission
 			azimut=329.46204;
 			id=122;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item117
@@ -1982,7 +1982,7 @@ class Mission
 			azimut=329.46204;
 			id=123;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item118
@@ -1991,7 +1991,7 @@ class Mission
 			azimut=329.46204;
 			id=124;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item119
@@ -2000,7 +2000,7 @@ class Mission
 			azimut=329.46204;
 			id=125;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item120
@@ -2009,7 +2009,7 @@ class Mission
 			azimut=329.46204;
 			id=126;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item121
@@ -2018,7 +2018,7 @@ class Mission
 			azimut=329.46204;
 			id=127;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item122
@@ -2027,7 +2027,7 @@ class Mission
 			azimut=329.46204;
 			id=128;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item123
@@ -2036,7 +2036,7 @@ class Mission
 			azimut=329.46204;
 			id=129;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item124
@@ -2045,7 +2045,7 @@ class Mission
 			azimut=329.46204;
 			id=130;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item125
@@ -2054,7 +2054,7 @@ class Mission
 			azimut=329.46204;
 			id=131;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item126
@@ -2063,7 +2063,7 @@ class Mission
 			azimut=329.46204;
 			id=132;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item127
@@ -2072,7 +2072,7 @@ class Mission
 			azimut=329.46204;
 			id=133;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item128
@@ -2081,7 +2081,7 @@ class Mission
 			azimut=329.46204;
 			id=134;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item129
@@ -2090,7 +2090,7 @@ class Mission
 			azimut=329.46204;
 			id=135;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item130
@@ -2099,7 +2099,7 @@ class Mission
 			azimut=329.46204;
 			id=136;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item131
@@ -2108,7 +2108,7 @@ class Mission
 			azimut=329.46204;
 			id=137;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item132
@@ -2117,7 +2117,7 @@ class Mission
 			azimut=329.46204;
 			id=138;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item133
@@ -2126,7 +2126,7 @@ class Mission
 			azimut=329.46204;
 			id=139;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item134
@@ -2135,7 +2135,7 @@ class Mission
 			azimut=346.85223;
 			id=140;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item135
@@ -2144,7 +2144,7 @@ class Mission
 			azimut=359.77188;
 			id=141;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item136
@@ -2153,7 +2153,7 @@ class Mission
 			azimut=359.77188;
 			id=142;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item137
@@ -2162,7 +2162,7 @@ class Mission
 			azimut=359.77188;
 			id=143;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item138
@@ -2171,7 +2171,7 @@ class Mission
 			azimut=359.77188;
 			id=144;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item139
@@ -2180,7 +2180,7 @@ class Mission
 			azimut=359.77188;
 			id=145;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item140
@@ -2189,7 +2189,7 @@ class Mission
 			azimut=359.77188;
 			id=146;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item141
@@ -2198,7 +2198,7 @@ class Mission
 			azimut=359.77188;
 			id=147;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item142
@@ -2207,7 +2207,7 @@ class Mission
 			azimut=359.77188;
 			id=148;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item143
@@ -2216,7 +2216,7 @@ class Mission
 			azimut=359.77188;
 			id=149;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item144
@@ -2225,7 +2225,7 @@ class Mission
 			azimut=359.77188;
 			id=150;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item145
@@ -2234,7 +2234,7 @@ class Mission
 			azimut=359.77188;
 			id=151;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item146
@@ -2243,7 +2243,7 @@ class Mission
 			azimut=359.77188;
 			id=152;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item147
@@ -2252,7 +2252,7 @@ class Mission
 			azimut=402.96371;
 			id=153;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item148
@@ -2261,7 +2261,7 @@ class Mission
 			azimut=419.09363;
 			id=154;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item149
@@ -2270,7 +2270,7 @@ class Mission
 			azimut=419.09363;
 			id=155;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item150
@@ -2279,7 +2279,7 @@ class Mission
 			azimut=419.09399;
 			id=156;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item151
@@ -2288,7 +2288,7 @@ class Mission
 			azimut=419.09363;
 			id=157;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item152
@@ -2297,7 +2297,7 @@ class Mission
 			azimut=419.09363;
 			id=158;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item153
@@ -2306,7 +2306,7 @@ class Mission
 			azimut=419.09363;
 			id=159;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item154
@@ -2315,7 +2315,7 @@ class Mission
 			azimut=419.09363;
 			id=160;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item155
@@ -2324,7 +2324,7 @@ class Mission
 			azimut=419.09363;
 			id=161;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item156
@@ -2333,7 +2333,7 @@ class Mission
 			azimut=431.99918;
 			id=162;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item157
@@ -2342,7 +2342,7 @@ class Mission
 			azimut=455.37149;
 			id=163;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item158
@@ -2351,7 +2351,7 @@ class Mission
 			azimut=473.28296;
 			id=164;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item159
@@ -2360,7 +2360,7 @@ class Mission
 			azimut=473.28296;
 			id=165;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item160
@@ -2369,7 +2369,7 @@ class Mission
 			azimut=473.28296;
 			id=166;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item161
@@ -2378,7 +2378,7 @@ class Mission
 			azimut=473.28296;
 			id=167;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item162
@@ -2387,7 +2387,7 @@ class Mission
 			azimut=473.28296;
 			id=168;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item163
@@ -2396,7 +2396,7 @@ class Mission
 			azimut=473.28296;
 			id=169;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item164
@@ -2405,7 +2405,7 @@ class Mission
 			azimut=511.00314;
 			id=170;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item165
@@ -2414,7 +2414,7 @@ class Mission
 			azimut=511.00314;
 			id=171;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item166
@@ -2423,7 +2423,7 @@ class Mission
 			azimut=511.00314;
 			id=172;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item167
@@ -2432,7 +2432,7 @@ class Mission
 			azimut=511.00314;
 			id=173;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item168
@@ -2441,7 +2441,7 @@ class Mission
 			azimut=511.00314;
 			id=174;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item169
@@ -2450,7 +2450,7 @@ class Mission
 			azimut=511.00314;
 			id=175;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item170
@@ -2459,7 +2459,7 @@ class Mission
 			azimut=511.00314;
 			id=176;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item171
@@ -2468,7 +2468,7 @@ class Mission
 			azimut=511.00314;
 			id=177;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item172
@@ -2477,7 +2477,7 @@ class Mission
 			azimut=511.00314;
 			id=178;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item173
@@ -2486,7 +2486,7 @@ class Mission
 			azimut=511.00314;
 			id=179;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item174
@@ -2495,7 +2495,7 @@ class Mission
 			azimut=511.00314;
 			id=180;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item175
@@ -2504,7 +2504,7 @@ class Mission
 			azimut=511.00314;
 			id=181;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item176
@@ -2513,7 +2513,7 @@ class Mission
 			azimut=511.00314;
 			id=182;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item177
@@ -2522,7 +2522,7 @@ class Mission
 			azimut=511.00314;
 			id=183;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item178
@@ -2531,7 +2531,7 @@ class Mission
 			azimut=511.00314;
 			id=184;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item179
@@ -2540,7 +2540,7 @@ class Mission
 			azimut=511.00314;
 			id=185;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item180
@@ -2549,7 +2549,7 @@ class Mission
 			azimut=511.00314;
 			id=186;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item181
@@ -2558,7 +2558,7 @@ class Mission
 			azimut=511.00314;
 			id=187;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item182
@@ -2567,7 +2567,7 @@ class Mission
 			azimut=511.00314;
 			id=188;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item183
@@ -2576,7 +2576,7 @@ class Mission
 			azimut=467.44919;
 			id=189;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item184
@@ -2585,7 +2585,7 @@ class Mission
 			azimut=467.44919;
 			id=190;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item185
@@ -2594,7 +2594,7 @@ class Mission
 			azimut=467.44919;
 			id=191;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item186
@@ -2603,7 +2603,7 @@ class Mission
 			azimut=467.44919;
 			id=192;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item187
@@ -2612,7 +2612,7 @@ class Mission
 			azimut=467.44919;
 			id=193;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item188
@@ -2621,7 +2621,7 @@ class Mission
 			azimut=467.44919;
 			id=194;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item189
@@ -2630,7 +2630,7 @@ class Mission
 			azimut=467.44919;
 			id=195;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item190
@@ -2639,7 +2639,7 @@ class Mission
 			azimut=511.24222;
 			id=196;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item191
@@ -2648,7 +2648,7 @@ class Mission
 			azimut=511.24222;
 			id=197;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item192
@@ -2657,7 +2657,7 @@ class Mission
 			azimut=511.24222;
 			id=198;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item193
@@ -2666,7 +2666,7 @@ class Mission
 			azimut=511.24222;
 			id=199;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item194
@@ -2675,7 +2675,7 @@ class Mission
 			azimut=511.24222;
 			id=200;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item195
@@ -2684,7 +2684,7 @@ class Mission
 			azimut=511.24222;
 			id=201;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item196
@@ -2693,7 +2693,7 @@ class Mission
 			azimut=511.24222;
 			id=202;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item197
@@ -2702,7 +2702,7 @@ class Mission
 			azimut=511.24222;
 			id=203;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item198
@@ -2711,7 +2711,7 @@ class Mission
 			azimut=511.24222;
 			id=204;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item199
@@ -2720,7 +2720,7 @@ class Mission
 			azimut=510.64661;
 			id=205;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item200
@@ -2729,7 +2729,7 @@ class Mission
 			azimut=510.64661;
 			id=206;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item201
@@ -2738,7 +2738,7 @@ class Mission
 			azimut=511.24222;
 			id=207;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item202
@@ -2747,7 +2747,7 @@ class Mission
 			azimut=510.64661;
 			id=208;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item203
@@ -2756,7 +2756,7 @@ class Mission
 			azimut=599.18231;
 			id=209;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item204
@@ -2765,7 +2765,7 @@ class Mission
 			azimut=599.18231;
 			id=210;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item205
@@ -2774,7 +2774,7 @@ class Mission
 			azimut=508.811;
 			id=211;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item206
@@ -2783,7 +2783,7 @@ class Mission
 			azimut=508.811;
 			id=212;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item207
@@ -2792,7 +2792,7 @@ class Mission
 			azimut=508.811;
 			id=213;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item208
@@ -2801,7 +2801,7 @@ class Mission
 			azimut=514.36279;
 			id=214;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item209
@@ -2810,7 +2810,7 @@ class Mission
 			azimut=514.36279;
 			id=215;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item210
@@ -2819,7 +2819,7 @@ class Mission
 			azimut=514.36279;
 			id=216;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item211
@@ -2828,7 +2828,7 @@ class Mission
 			azimut=515.16278;
 			id=217;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item212
@@ -3284,7 +3284,7 @@ class Mission
 			azimut=511.00314;
 			id=304;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item256
@@ -3293,7 +3293,7 @@ class Mission
 			azimut=370.93353;
 			id=305;
 			side="EMPTY";
-			vehicle="Base_WarfareBBarrier10xTall";
+			vehicle="US_WarfareBBarrier10xTall_EP1";
 			skill=1;
 		};
 		class Item257
