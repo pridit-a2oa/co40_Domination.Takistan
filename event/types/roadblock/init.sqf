@@ -11,7 +11,13 @@
 // Add to the list of possible types of events
 [GVAR(event_types), "Roadblock"] call BIS_fnc_arrayPush;
 
-// Set possible positions to generate this event at
+// Set minimum number of events of this type to exist
+GVAR(event_roadblock_amount) = 4;
+
+// Set composition of the event
+GVAR(event_roadblock_composition) = "CheckPoint1_US_EP1";
+
+// Set possible positions to generate the event at
 GVAR(event_roadblock_positions) = [
     [[3207.33,5493.7,0.094986], -29.0612],
     [[3832.9,3692.81,0.0811157], 49.5425],
@@ -44,12 +50,6 @@ GVAR(event_roadblock_positions) = [
     [[9752.76,10704.5,0.0408783], 67.2088],
     [[9843.34,6465.59,-0.099823], 171.605]
 ];
-
-// Set composition of the event
-GVAR(event_roadblock_composition) = "CheckPoint1_US_EP1";
-
-// Set minimum number of events of this type to exist
-GVAR(event_roadblock_amount) = 4;
 
 __cppfln(FUNC(THIS_MODULE,create),event\types\roadblock\functions\fn_create.sqf);
 
