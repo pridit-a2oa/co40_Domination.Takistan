@@ -9,6 +9,7 @@
 
 // Objects which cannot be destroyed
 GVAR(base_types_protected) = [
+    "Fort_RazorWire",
     "Land_BagFenceLong",
     "Land_HBarrier5",
     "Land_runway_edgelight",
