@@ -45,5 +45,6 @@ if !(isNil QMODULE(unit)) then {
 
 [
     _position,
-    (_objects + units _group)
+    _objects,
+    units _group
 ]
