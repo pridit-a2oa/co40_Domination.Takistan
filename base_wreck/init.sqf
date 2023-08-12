@@ -25,8 +25,11 @@ GVAR(base_wreck_time_rebuild) = [
     [240, "Truck"],
     [300, "Wheeled_APC"],
     [360, "Tank"],
-    [420, "Helicopter"],
-    [480, "Plane"]
+    [600, "AH1Z"],
+    [600, "AH64_base_EP1"],
+    [600, "Mi24_Base"],
+    [480, "Helicopter"],
+    [600, "Plane"]
 ];
 
 if (isServer) then {
