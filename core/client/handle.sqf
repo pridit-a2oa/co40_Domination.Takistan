@@ -64,15 +64,15 @@ if (!isNil QMODULE(vehicle)) then {
 if (isMultiplayer) then {
     ["init_actions", {
         {
-            if (_x != player) then {
-                if (!isNil QMODULE(inventory)) then {
-                    if (!isNil QMODULE(medical)) then {
-                        _x addAction GVAR(medical_player_action);
-                    };
-                    
-                    if (!isNil QMODULE(vehicle_repair)) then {
-                        _x addAction GVAR(vehicle_repair_player_action);
-                    };
+            private ["_unit"];
+
+            _unit = _x;
+
+            if !([_x, player] call BIS_fnc_areEqual) then {
+                if !(isNil QMODULE(inventory)) then {
+                    {
+                        _unit addAction _x;
+                    } forEach GVAR(inventory_type_actions);
                 };
                 
                 if (!isNil QMODULE(revive)) then {

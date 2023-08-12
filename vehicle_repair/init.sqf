@@ -19,18 +19,6 @@ GVAR(vehicle_repair_amount_damage) = 0.05;
 // Maximum fuel level to initiate repair, if damage threshold not met
 GVAR(vehicle_repair_amount_fuel) = 0.10;
 
-// AddAction parameters that need to apply to existing clients & JIP
-GVAR(vehicle_repair_player_action) = [
-    "Give Repair Kit" call FUNC(common,BrownText),
-    FUNCTION(inventory,transfer),
-    "repair",
-    8,
-    false,
-    true,
-    "",
-    "['repair', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
-];
-
 if (hasInterface) then {
     GVAR(repairing) = false;
     
