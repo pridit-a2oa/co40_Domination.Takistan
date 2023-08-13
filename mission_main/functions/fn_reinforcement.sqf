@@ -13,8 +13,6 @@ _aircraft = _vehicle select 0;
 _crew = _vehicle select 1;
 _pilot = driver _aircraft;
 
-_aircraft flyInHeight 140;
-
 if (!isNil QMODULE(vehicle_respawn)) then {
     _aircraft setVariable [QGVAR(respawnable), false, true];
 };
@@ -25,6 +23,8 @@ _pilot setSkill 1;
 
 switch (_type select 0) do {
     case "aircraft": {
+        _aircraft flyInHeight 140;
+
         if (!isNil QMODULE(vehicle_wreck)) then {
             [_aircraft] spawn FUNC(vehicle_wreck,handle);
         };
@@ -35,7 +35,9 @@ switch (_type select 0) do {
     };
 
     case "infantry": {
-        private ["_land", "_helper", "_group"];
+        private ["_group"];
+
+        _aircraft flyInHeight 100;
         
         __addDead(_aircraft);
         
@@ -52,42 +54,26 @@ switch (_type select 0) do {
 
             _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
         };
-        
-        _land = [position _target, 50, GVAR(mission_main_radius_zone) / 1.5, 3, 0, 0.7, 0] call FUNC(common,safePos);
-        _helper = "HeliHEmpty" createVehicleLocal _land;
-        
-        _pilot doMove _land;
+
+        _pilot move (position _target);
         
         while {alive _aircraft && {canMove _aircraft}} do {
-            if (unitReady _pilot) exitWith {
-                sleep 0.1;
-                
-                _aircraft land "GET OUT";
+            if (_aircraft distance (position _target) < 600) exitWith {
+                {
+                    if !([assignedVehicleRole _x find "Cargo", -1] call BIS_fnc_areEqual) then {
+                        unassignVehicle _x;
 
-                while {alive _aircraft && {canMove _aircraft}} do {
-                    if ((position _aircraft) select 2 < 5) exitWith {
-                        {
-                            if (assignedVehicleRole _x find "Cargo" != -1) then {
-                                unassignVehicle _x;
-                                moveOut _x;
-                            };
-                            
-                            sleep (0.5 + random 0.5);
-                        } forEach crew _aircraft;
-
-                        if (!isNil QMODULE(unit)) then {
-                            [_group, position _target, 600, 4] call FUNC(unit,patrol);
-                        };
-                        
-                        sleep 8;
-
-                        deleteVehicle _helper;
-                        
-                        [_aircraft] spawn FUNC(server,exitMap);
+                        _x action ["Eject", _aircraft];
                     };
                     
-                    sleep 2;
+                    sleep (1 + random 0.5);
+                } forEach crew _aircraft;
+
+                if !(isNil QMODULE(unit)) then {
+                    [_group, position _target, 600, 4] call FUNC(unit,patrol);
                 };
+
+                [_aircraft] spawn FUNC(server,exitMap);
             };
             
             sleep 2;
