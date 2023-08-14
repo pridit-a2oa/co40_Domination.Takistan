@@ -28,7 +28,7 @@ GVAR(vote_amount_players) = 3;
 GVAR(vote_time_cooldown) = 900;
 
 // Time between vote creation and conclusion
-GVAR(vote_time_delay) = 30;
+GVAR(vote_time_delay) = 300;
 
 if (hasInterface) then {
     GVAR(vote) = false;
