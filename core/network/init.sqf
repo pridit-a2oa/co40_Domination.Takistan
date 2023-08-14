@@ -45,6 +45,7 @@ __cppfln(FUNC(THIS_MODULE,setVectorDirAndUp),core\THIS_MODULE\functions\library\
 __cppfln(FUNC(THIS_MODULE,setVectorUp),core\THIS_MODULE\functions\library\fn_setVectorUp.sqf);
 __cppfln(FUNC(THIS_MODULE,setVehicleAmmo),core\THIS_MODULE\functions\library\fn_setVehicleAmmo.sqf);
 __cppfln(FUNC(THIS_MODULE,setVelocity),core\THIS_MODULE\functions\library\fn_setVelocity.sqf);
+__cppfln(FUNC(THIS_MODULE,skipTime),core\THIS_MODULE\functions\library\fn_skipTime.sqf);
 __cppfln(FUNC(THIS_MODULE,spawn),core\THIS_MODULE\functions\library\fn_spawn.sqf);
 __cppfln(FUNC(THIS_MODULE,switchAction),core\THIS_MODULE\functions\library\fn_switchAction.sqf);
 __cppfln(FUNC(THIS_MODULE,switchMove),core\THIS_MODULE\functions\library\fn_switchMove.sqf);

@@ -27,6 +27,10 @@ if (hasInterface) then {
         __submodulePP(reward);
     };
 
+    if (!isNil QMODULE(vote)) then {
+        __submodulePP(vote);
+    };
+
     if (!isNil QMODULE(tutorial)) then {
         __submodulePP(tutorial);
     };

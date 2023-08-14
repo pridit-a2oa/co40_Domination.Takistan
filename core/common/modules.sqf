@@ -97,6 +97,7 @@ GVAR(modules) = [
     // "vehicle_welcome",
     "vehicle_wreck",
     // "video",
+    "vote",
     "weather"
 ];
 

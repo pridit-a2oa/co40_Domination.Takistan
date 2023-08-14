@@ -42,6 +42,9 @@ __cppfln(FUNC(THIS_MODULE,ready),core\THIS_MODULE\functions\fn_ready.sqf);
 __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);
 
+// override BIS function
+BIS_fnc_findNestedElement = compile preprocessFile "core\common\functions\fn_findNestedElement.sqf";
+
 __corePP(helper);
 __corePP(network);
 

@@ -6,6 +6,10 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
+    if (!isNil QMODULE(vote)) then {
+        __submodulePP(vote);
+    };
+
     if (!isNil QMODULE(base_wreck)) then {
         __submodulePP(base_wreck);
     };
