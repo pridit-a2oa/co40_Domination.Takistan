@@ -25,7 +25,7 @@ if !([_vote, []] call BIS_fnc_areEqual) then {
 _count = call FUNC(THIS_MODULE,count);
 
 // Update player vote criteria to a lower possible minimum
-if (X_JIPH getVariable QGVAR(vote_players) < _count) then {
+if (X_JIPH getVariable QGVAR(vote_players) > _count) then {
     X_JIPH setVariable [QGVAR(vote_players), _count, true];
 };
 

@@ -22,7 +22,7 @@ if (hasInterface) then {
     _name = "Vote";
     _checks = [
         [
-            [_name, "started", format ["with less than %1 players", GVAR(vote_amount_players)]],
+            [_name, "started", format ["without at least %1 players", GVAR(vote_amount_players)]],
             count call FUNC(common,players),
             GVAR(vote_amount_players)
         ] call FUNC(helper,greaterThan),
@@ -83,19 +83,31 @@ if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
 
     _time = GVAR(vote_time_delay) + call FUNC(common,time);
 
-    while {call FUNC(common,time) < _time} do {    
+    while {call FUNC(common,time) < _time} do { 
+        private ["_remaining"];
+           
+        _remaining = floor (_time - call FUNC(common,time));
+
         // remaining time is greater than the maximum it could ever be
-        if ((floor (_time - call FUNC(common,time))) > GVAR(vote_time_delay)) exitWith {
+        if (_remaining > GVAR(vote_time_delay)) exitWith {
             __log format ["Time exceeded possible maximum, exiting %1", str [_time, _time - call FUNC(common,time)]]];
         };
 
-        if (!(gameLogic getVariable QGVAR(vote_reminded)) && {(_time - call FUNC(common,time)) < 60}) then {
+        if (_remaining > 30 && {call FUNC(THIS_MODULE,valid)}) exitWith {
+            sleep 30;
+
+            if !(call FUNC(THIS_MODULE,valid)) then {
+                ["cancel"] call FUNC(THIS_MODULE,complete);
+            };
+        };
+
+        if (_remaining < 65 && {!(gameLogic getVariable QGVAR(vote_reminded))}) then {
             gameLogic setVariable [QGVAR(vote_reminded), true];
 
             [true, "execVM", [["countdown", _format], FUNCTION(THIS_MODULE,hint)]] call FUNC(network,mp);
         };
         
-        sleep 1;
+        sleep 5;
     };
 
     (switch (call FUNC(THIS_MODULE,valid)) do {
