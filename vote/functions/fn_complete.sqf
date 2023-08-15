@@ -6,6 +6,8 @@ PARAMS_1(_state);
 
 _vote = X_JIPH getVariable QGVAR(vote);
 
+if ([_vote, ""] call BIS_fnc_areEqual) exitWith {};
+
 [true, "spawn", [[_state, _vote], {
     if !(hasInterface) exitWith {};
 
