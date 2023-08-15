@@ -24,6 +24,7 @@
 #define GVAR(variable) d##_##variable
 #define FUNC(module,function) d##_fnc_##module##_##function
 #define QUOTE(qtext) #qtext
+#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
 
 private ["_target", "_functionName", "_params", "_isCall", "_mode"];
 
@@ -33,9 +34,11 @@ _params         = [_this, 2, []] call FUNC(common,param);
 _isCall         = [_this, 3, true] call FUNC(common,param);
 _mode           = [_this, 4, 0] call FUNC(common,param);
 
-if (_mode == 0 && {isMultiplayer}) then {
+if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
     if !(isServer) exitWith {
         BIS_fnc_MP_packet = [_target, _functionName, _params, _isCall, 0];
+
+        __log format ["%1", BIS_fnc_MP_packet]];
         
         publicVariableServer "BIS_fnc_MP_packet";
     };
@@ -64,20 +67,22 @@ if (_mode == 0 && {isMultiplayer}) then {
     };
     
     BIS_fnc_MP_packet = [_target, _functionName, _params, _isCall, 1];
+
+    __log format ["%1", BIS_fnc_MP_packet]];
             
     //--- Send to clients
     if (_ownerID < 0) then {
         //--- Everyone
         publicVariable "BIS_fnc_MP_packet";
     } else {
-        if (_ownerID != _serverID) then {
+        if !([_ownerID, _serverID] call BIS_fnc_areEqual) then {
             //--- Client
             _ownerID publicVariableClient "BIS_fnc_MP_packet";
         };
     };
     
     //--- Server execution (for all or server only)
-    if (_ownerID < 0 || {_ownerID == _serverID}) then {
+    if (_ownerID < 0 || {[_ownerID, _serverID] call BIS_fnc_areEqual}) then {
         BIS_fnc_MP_packet call FUNC(THIS_MODULE,mp);
     };
 } else {
