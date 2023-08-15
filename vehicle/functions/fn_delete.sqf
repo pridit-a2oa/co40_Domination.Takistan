@@ -3,6 +3,8 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (isNull _vehicle) exitWith {};
+
 if ({isPlayer _x && {alive _x}} count crew _vehicle > 0) then {
     {
         moveOut _x;

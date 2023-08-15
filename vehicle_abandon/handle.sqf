@@ -4,7 +4,6 @@
 
 #define THIS_MODULE vehicle_abandon
 #include "x_macros.sqf"
-private ["_abandon", "_position", "_distance", "_time"];
 
 if (isServer) then {
     0 spawn {
@@ -12,6 +11,8 @@ if (isServer) then {
             sleep 60;
 
             {
+                private ["_abandon", "_position", "_distance", "_time"];
+                
                 _abandon = _x getVariable QGVAR(abandon);
 
                 if (!isNil "_abandon" && {_abandon}) then {
