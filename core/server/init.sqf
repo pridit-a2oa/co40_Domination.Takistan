@@ -84,7 +84,7 @@ if (isServer) then {
                     _x addScore -10;
 
                     [true, "systemChat", format [
-                        "%1 has lost score for disconnecting while dead/unconscious",
+                        "%1 has lost score for disconnecting while dead/incapacitated",
                         _name
                     ]] call FUNC(network,mp);
                 };
