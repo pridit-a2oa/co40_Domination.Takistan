@@ -7,7 +7,7 @@ PARAMS_2(_type, _log);
 while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do {
     _position = (call compile format [QUOTE(%1), format ["d_%1_%2_positions", QUOTE(THIS_MODULE), toLower _type]]) call BIS_fnc_selectRandom;
 
-    _target = (switch ([{(_x distance (_position select 0)) < GVAR(event_distance_create)} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) do {
+    _target = switch ([{(_x distance (_position select 0)) < GVAR(event_distance_create)} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) do {
         case true: {
             [_position] call (call compile format [
                 "d_fnc_%1_%2_create",
@@ -19,7 +19,7 @@ while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do
         case false: {
             false
         };
-    });
+    };
 
     sleep 5;
 };

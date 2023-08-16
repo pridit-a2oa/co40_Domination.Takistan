@@ -18,7 +18,7 @@ if (_lbCurSel == -1 || {player distance _vehicle > 10} || {!(simulationEnabled _
     closeDialog 0;
 };
 
-_refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
+_refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
     if !(isNil QMODULE(vehicle_ammobox)) then {
         case "ammobox": {
             private ["_ammobox"];
@@ -172,7 +172,7 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
             true
         };
     };
-});
+};
 
 // Refresh dialog for all clients (excl. actioning player) with it open
 [true, "spawn", [[player, _vehicle], {

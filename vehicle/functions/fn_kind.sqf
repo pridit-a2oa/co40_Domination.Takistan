@@ -3,7 +3,7 @@ private ["_vehicle", "_kind"];
 
 PARAMS_1(_vehicle);
 
-_kind = (switch (true) do {
+_kind = switch (true) do {
     case (_vehicle isKindOf "LandVehicle"): {
         "Land Vehicle"
     };
@@ -15,6 +15,6 @@ _kind = (switch (true) do {
     case (_vehicle isKindOf "Plane"): {
         "Jet"
     };
-});
+};
 
 _kind

@@ -152,10 +152,10 @@ player addEventHandler ["HandleDamage", {
         _incurred = 0;
         _new_damage = 0;
 
-        _damage = (switch (true) do {
+        _damage = switch (true) do {
             case ([_unit, vehicle _unit] call BIS_fnc_areEqual && {_unit getVariable QGVAR(reduced_foot) && {_injurer isKindOf "CAManBase"}}): {_damage * 0.4};
             default {_damage * 0.8};
-        });
+        };
         
         _config = configFile >> "cfgVehicles" >> (typeOf _unit);
         

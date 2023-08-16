@@ -3,7 +3,7 @@ private ["_vehicle", "_path", "_owner"];
 
 PARAMS_2(_vehicle, _path);
 
-_owner = (switch (_path select 0) do {
+_owner = switch (_path select 0) do {
     case -1: {
         owner _vehicle
     };
@@ -18,6 +18,6 @@ _owner = (switch (_path select 0) do {
             gunner _vehicle
         };
     };
-});
+};
 
 _owner
