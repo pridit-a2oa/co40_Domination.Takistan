@@ -16,6 +16,7 @@ if (hasInterface) then {
     player setVariable [QGVAR(conversation_cooldown), 0];
 };
 
+__cppfln(FUNC(THIS_MODULE,location),THIS_MODULE\functions\fn_location.sqf);
 __cppfln(FUNC(THIS_MODULE,radio),THIS_MODULE\functions\fn_radio.sqf);
 __cppfln(FUNC(THIS_MODULE,request),THIS_MODULE\functions\fn_request.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);

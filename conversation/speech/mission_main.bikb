@@ -27,10 +27,10 @@ class Sentences
     };
 
     class NewTarget {
-        text = "New Target: %Town";
-        speech[] = {Attack, pause, %Town, pause};
+        text = "New Target: %Location";
+        speech[] = {Attack, pause, %Location, pause};
         class Arguments {
-            class Town {type = "simple";};
+            class Location {type = "simple";};
         };
     };
     

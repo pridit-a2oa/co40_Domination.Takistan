@@ -9,11 +9,11 @@ class Sentences
     };
     
     class Request {
-        text = "Crossroad, requesting %Type at grid %Location acknowledge.";
-        speech[] = {pause, %Payload, pause, %Location};
+        text = "Crossroad, requesting %Type at grid %Grid acknowledge.";
+        speech[] = {pause, %Payload, pause, %Grid};
         class Arguments {
             class Type {type = "simple";};
-            class Location {type = "simple";};
+            class Grid {type = "simple";};
         };
     };
 };

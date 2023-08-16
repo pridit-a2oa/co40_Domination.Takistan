@@ -15,7 +15,7 @@ PARAMS_3(_unit, _position, _type);
         [
             ["Payload", {}, "", [[_type] call FUNC(THIS_MODULE,type)]],
             ["Type", {}, _type, []],
-            ["Location", {}, _position, _position call FUNC(common,numbersToWords)]
+            ["Grid", {}, _position, _position call FUNC(common,numbersToWords)]
         ],
         true
     ] call FUNC(THIS_MODULE,radio);
