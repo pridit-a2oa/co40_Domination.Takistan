@@ -8,7 +8,7 @@ class Sentences
     
     class LowFuel {
         text = "UAV is low on fuel and will now cease observation.";
-        speech[] = {};
+        speech[] = {DroneIsBingoFuelAndRTBOver};
         class Arguments {};
     };
 };
