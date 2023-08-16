@@ -38,7 +38,7 @@ class XD_PerkDialog {
         };
         class AvailablePointsText: X3_RscText
         {
-            text = "Available points:";
+            text = "Available Points:";
             x = 0.504878;
             y = 0.0420879;
             w = 0.196496;
@@ -47,10 +47,9 @@ class XD_PerkDialog {
         class AvailablePointsValue : X3_RscText {
             idc = 1;
             x = 0.680878;
-            y = 0.0415879;
+            y = 0.0420879;
             w = 0.0374055;
             h = 0.0348484;
-            text = "";
         };
         class CloseButton: XD_ButtonBase
         {
@@ -63,13 +62,23 @@ class XD_PerkDialog {
         };
         class DudButton: XD_ButtonBase
         {
-            text = "";
             action = "";
             default = true;
             x = 0;
             y = 0;
             w = 0;
             h = 0;
+        };
+        class HelpText: X3_RscText
+        {
+            style = ST_MULTI; // + ST_CENTER
+            text = "Left-click: Unlock perk\nHover: Reveal benefit\nReset by reconnecting";
+            x = 0.275;
+            y = 0.885;
+            w = 0.25;
+            h = 0.1;
+            lineSpacing = 1;
+            sizeEx = 0.028;
         };
     };
 };
