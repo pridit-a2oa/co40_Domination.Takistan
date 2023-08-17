@@ -301,7 +301,7 @@ player addEventHandler ["respawn", {
         _backpack = unitBackpack _corpse;
         
         if !(isNull _backpack) then {
-            if ({[_x select 0, "EvMap"] call BIS_fnc_areEqual} count (getWeaponCargo _backpack) > 0) then {
+            if (!isNil QMODULE(item) && {{(_x select 0) in ([1, GVAR(item_types)] call FUNC(common,arrayValues))} count (getWeaponCargo _backpack) > 0}) then {
                 clearWeaponCargo _backpack;
             };
 

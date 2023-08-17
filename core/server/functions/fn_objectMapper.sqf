@@ -164,10 +164,10 @@ _multiplyMatrixFunc = {
             [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
         };
 
-        if !(isNil QMODULE(intel)) then {            
+        if !(isNil QMODULE(item)) then {            
             {
                 [_newObjs, _x] call BIS_fnc_arrayPush;
-            } forEach ([_newObj] call FUNC(intel,create));
+            } forEach ([_newObj] call FUNC(item,create));
         };
         
         // If fuel and damage were grabbed, map them
