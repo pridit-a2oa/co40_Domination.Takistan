@@ -143,16 +143,10 @@ _multiplyMatrixFunc = {
         ];
         
         _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
-
-        // Backwards compatability causes for height to be optional
-        private ["_z"];
-        
-        if ((count _relPos) > 2) then {_z = _relPos select 2} else {_z = 0};
-
-        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), 0];
 
         // Create the object and make sure it's in the correct location
-        _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
+        _newObj = createVehicle [_type, _newPos, [], 0, "CAN_COLLIDE"];
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
 
