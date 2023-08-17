@@ -19,6 +19,8 @@ _weapon = switch (true) do {
 if !(isNil "_weapon") then {
     private ["_animation"];
 
+    disableUserInput true;
+
     player action ["dropWeapon", player, _weapon];
 
     sleep 0.1;
@@ -30,6 +32,8 @@ if !(isNil "_weapon") then {
         
         !([animationState player, _animation] call BIS_fnc_areEqual)
     };
+
+    disableUserInput false;
 };
 
 removeBackpack player;
