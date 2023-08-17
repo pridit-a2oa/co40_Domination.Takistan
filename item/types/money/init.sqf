@@ -11,6 +11,6 @@
 ] call BIS_fnc_arrayPush;
 
 // Chance the item spawns on a given object
-GVAR(item_money_chance) = 20;
+GVAR(item_money_chance) = 15;
 
 MODULE(THIS_MODULE) = true;
