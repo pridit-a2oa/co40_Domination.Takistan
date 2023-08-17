@@ -72,7 +72,7 @@ class XD_PerkDialog {
         class HelpText: X3_RscText
         {
             style = ST_MULTI; // + ST_CENTER
-            text = "Left-click: Unlock perk\nHover: Reveal benefit\nReset by reconnecting";
+            text = "Left-click: Unlock perk\nHover: Reveal benefit\nReconnect to reset";
             x = 0.275;
             y = 0.885;
             w = 0.25;
