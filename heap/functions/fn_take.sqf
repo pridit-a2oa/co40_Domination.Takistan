@@ -11,14 +11,14 @@ if !([_weapon, ""] call BIS_fnc_areEqual) then {
 
     {
         deleteVehicle _x;
-    } forEach (nearestObjects [player, ["WeaponHolder"], 0.8]);
+    } forEach (nearestObjects [player, ["WeaponHolder"], 1]);
 
     _position = position player;
 
     waitUntil {
         sleep 0.1;
 
-        player distance (nearestObject [player, "WeaponHolder"]) < 0.8 || {!([_position, position player] call BIS_fnc_areEqual)}
+        player distance (nearestObject [player, "WeaponHolder"]) < 0.8 || {player distance _position > 0.5}
     };
 };
 
