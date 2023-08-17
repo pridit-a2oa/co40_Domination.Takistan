@@ -222,7 +222,7 @@ player addEventHandler ["respawn", {
     
     PARAMS_2(_unit, _corpse);
 
-    setPlayerRespawnTime 5;
+    setPlayerRespawnTime 30;
     
     titleText ["", "BLACK FADED"];
     
