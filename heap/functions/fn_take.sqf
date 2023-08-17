@@ -1,40 +1,29 @@
+#define THIS_MODULE heap
 #include "x_macros.sqf"
-private ["_primary", "_secondary", "_weapon"];
+private ["_weapon", "_position"];
 
-_primary = primaryWeapon player;
-_secondary = secondaryWeapon player;
+if !([speed player, 0] call BIS_fnc_areEqual) exitWith {};
 
-_weapon = switch (true) do {
-    case !([_secondary, ""] call BIS_fnc_areEqual): {
-        _secondary
-    };
+_weapon = call FUNC(THIS_MODULE,valid);
 
-    case (!([_primary, ""] call BIS_fnc_areEqual) && {[getNumber (configFile >> "CfgWeapons" >> _primary >> "type"), 5] call BIS_fnc_areEqual}): {
-        _primary
-    };
-
-    default {nil};
-};
-
-if !(isNil "_weapon") then {
-    private ["_animation"];
-
-    disableUserInput true;
-
+if !([_weapon, ""] call BIS_fnc_areEqual) then {
     player action ["dropWeapon", player, _weapon];
 
-    sleep 0.1;
+    {
+        deleteVehicle _x;
+    } forEach (nearestObjects [player, ["WeaponHolder"], 0.8]);
 
-    _animation = animationState player;
+    _position = position player;
 
     waitUntil {
         sleep 0.1;
-        
-        !([animationState player, _animation] call BIS_fnc_areEqual)
-    };
 
-    disableUserInput false;
+        player distance (nearestObject [player, "WeaponHolder"]) < 0.8 || {!([_position, position player] call BIS_fnc_areEqual)}
+    };
 };
+
+if !([player] call FUNC(common,ready)) exitWith {};
+if !([call FUNC(THIS_MODULE,valid), ""] call BIS_fnc_areEqual) exitWith {};
 
 removeBackpack player;
 
