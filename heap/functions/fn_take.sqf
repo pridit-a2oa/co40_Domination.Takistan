@@ -1,16 +1,22 @@
 #include "x_macros.sqf"
-private ["_secondary", "_animation"];
+private ["_secondary"];
 
 _secondary = secondaryWeapon player;
 
 if !([_secondary, ""] call BIS_fnc_areEqual) then {
+    private ["_animation"];
+
     player action ["dropWeapon", player, _secondary];
     
     sleep 0.1;
     
     _animation = animationState player;
     
-    waitUntil {sleep 0.1; !([animationState player, _animation] call BIS_fnc_areEqual)};
+    waitUntil {
+        sleep 0.1;
+        
+        !([animationState player, _animation] call BIS_fnc_areEqual)
+    };
 };
 
 removeBackpack player;
