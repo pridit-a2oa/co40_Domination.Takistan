@@ -24,17 +24,13 @@
     enableEngineArtillery ((str player) in GVAR(artillery));
     
     [100] call FUNC(THIS_MODULE,reveal);
-    
+
     {
-        {
-            if !(_x isKindOf "Wreck") then {
-                _x addEventHandler ["HandleDamage", {0}];
-                _x enableSimulation false;
-            };
-        } forEach _x;
-    } forEach [
-        (allMissionObjects "Thing")
-    ];
+        if !(_x isKindOf "Wreck") then {
+            _x addEventHandler ["HandleDamage", {0}];
+            _x enableSimulation false;
+        };
+    } forEach (allMissionObjects "Thing");
 
     [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
 };
@@ -226,7 +222,7 @@ player addEventHandler ["respawn", {
     
     PARAMS_2(_unit, _corpse);
 
-    setPlayerRespawnTime 30;
+    setPlayerRespawnTime 5;
     
     titleText ["", "BLACK FADED"];
     

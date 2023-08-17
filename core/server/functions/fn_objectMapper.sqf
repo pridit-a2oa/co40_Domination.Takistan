@@ -150,12 +150,28 @@ _multiplyMatrixFunc = {
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
 
-        if ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual) then {
-            _newObj animate ["bargate", 1];
-        };
+        switch (true) do {
+            case (_newObj isKindOf "StaticWeapon"): {
+                _newObj addMPEventHandler ["MPKilled", {
+                    private ["_unit", "_killer"];
 
-        if (_newObj isKindOf "Thing") then {
-            [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
+                    PARAMS_2(_unit, _killer);
+
+                    if !(isServer) exitWith {};
+                    if !(isPlayer _killer) exitWith {};
+                    if ([side _unit, west] call BIS_fnc_areEqual) exitWith {};
+
+                    _killer addScore -2;
+                }];
+            };
+
+            case (_newObj isKindOf "Thing"): {
+                [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
+            };
+
+            case ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual): {
+                _newObj animate ["bargate", 1];
+            };
         };
 
         if !(isNil QMODULE(item)) then {            
