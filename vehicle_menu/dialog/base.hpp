@@ -1,4 +1,4 @@
-// $[1.03,[[0,0,1,1],0.03125,0.05],[1200,"",[0,"\ca\ui\data\ui_gameoptions_background_ca",[0.311555,0.212878,0.395518,0.650505],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1700,"",[0,"OK",[0.51247,0.657926,0.162563,0.110005],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1500,"",[0,"",[0.315024,0.276517,0.364847,0.324891],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1000,"",[0,"",[0.323231,0.22987,0.286869,0.0455628],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1100,"",[0,"",[0.315656,0.603896,0.365151,0.0705628],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1201,"",[0,"#(argb,8,8,3)color(1,1,1,1)",[0.377682,0.308441,0.252778,0.262771],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]]]
+// $[1.03,[[0,0,1,1],0.01125,0.01],[1200,"",[0,"\ca\ui\data\ui_gameoptions_background_ca",[0.311555,0.212878,0.395518,0.650505],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1700,"",[0,"OK",[0.511875,0.66,0.162563,0.110005],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1500,"",[0,"",[0.315024,0.278248,0.364848,0.32316],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1000,"",[0,"",[0.323231,0.22987,0.286869,0.0455628],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1100,"",[0,"",[0.315656,0.603896,0.365151,0.0705628],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1201,"",[0,"#(argb,8,8,3)color(1,1,1,1)",[0.377682,0.308441,0.252778,0.262771],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1701,"",[0,"Close",[0.32625,0.66,0.162563,0.110005],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]]]
 class XD_VehicleMenuDialog {
     idd = -1;
     movingEnable = 1;
@@ -6,61 +6,69 @@ class XD_VehicleMenuDialog {
     onUnLoad = "uiNamespace setVariable ['X_VEHICLE_MENU_DIALOG', nil]";
     objects[] = {};
     class controlsBackground {
-        class RscPicture_1200: XD_RscPicture
+        class VehicleMenuDialogBackground: XD_RscPicture
         {
-            idc = 1200;
-            text = "ca\ui\data\ui_gameoptions_background_ca";
             x = 0.311555;
             y = 0.212878;
             w = 0.395518;
             h = 0.650505;
+            text = "ca\ui\data\ui_gameoptions_background_ca";
         };
     };
     class controls {
-        class RscPicture_1201: XD_RscPicture
+        class VehiclePicture: XD_RscPicture
         {
             idc = 1201;
-            text = "";
+            style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
             x = 0.377682;
             y = 0.308441;
             w = 0.252778;
             h = 0.262771;
-            style = ST_MULTI + ST_TITLE_BAR + ST_KEEP_ASPECT_RATIO;
             colorText[] = {0.6,0.5,0.3,0.3};
         };
-        class RscText_1000: X3_RscText
+        class ActionListbox: RscListBox
+        {
+            idc = 1500;
+            style = CT_NO_BORDER + ST_LEFT;
+            x = 0.315024;
+            y = 0.278248;
+            w = 0.364848;
+            h = 0.32316;
+            sizeEx = 0.025;
+            rowHeight = 0.0648;
+            borderSize = 1;
+            onLBSelChanged = "((uiNamespace getVariable ""X_VEHICLE_MENU_DIALOG"") displayCtrl 1700) ctrlEnable true"
+            onLBDblClick = "[vehicle player] call d_fnc_vehicle_menu_action";
+        };
+        class TitleText: X3_RscText
         {
             idc = 1000;
+            style = ST_LEFT;
             x = 0.323231;
             y = 0.22987;
             w = 0.286869;
             h = 0.0455628;
-            style = ST_LEFT;
         };
-        class RscShortcutButton_1700: XD_ButtonBase
+        class ActionButton: XD_ButtonBase
         {
             idc = 1700;
-            text = "OK";
-            action = "[vehicle player] call d_fnc_vehicle_menu_action";
-            x = 0.51247;
-            y = 0.657926;
+            x = 0.511875;
+            y = 0.66;
             w = 0.162563;
             h = 0.110005;
+            text = "OK";
+            action = "[vehicle player] call d_fnc_vehicle_menu_action";
         };
-        class RscListbox_1500: RscListBox
+        class CloseButton: XD_ButtonBase
         {
-            idc = 1500;
-            x = 0.315024;
-            y = 0.276517;
-            w = 0.364847;
-            h = 0.324891;
-            sizeEx = 0.023;
-            rowHeight = 0.0648;
-            style = CT_NO_BORDER + ST_LEFT;
-            borderSize = 1;
-            onLBDblClick = "[vehicle player] call d_fnc_vehicle_menu_action";
+            x = 0.32625;
+            y = 0.66;
+            w = 0.162563;
+            h = 0.110005;
+            text = "Close";
+            action = "closeDialog 0"
         };
-        class RscStructuredText_1100: BBRscStructuredText
+        class AdditionalText: BBRscStructuredText
         {
             idc = 1100;
             x = 0.315656;
