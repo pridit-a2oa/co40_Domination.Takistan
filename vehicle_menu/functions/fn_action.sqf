@@ -174,7 +174,7 @@ _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else
     };
 };
 
-// Refresh dialog for all clients (excl. actioning player) with it open
+// Refresh dialog for all clients (except actioning player) with it open
 [true, "spawn", [[player, _vehicle], {
     private ["_unit", "_vehicle"];
     

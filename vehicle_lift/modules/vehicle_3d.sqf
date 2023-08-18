@@ -9,4 +9,4 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_lift_types) find _vehicle == -1) exitWith {""};
 
-"<br />Lifts vehicles (excl. wrecks)"
+"<br />Lifts vehicles (not wrecks)"
