@@ -8,8 +8,8 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Parachute",
         "parachute",
-        "Set whether chute opens automatically during a HALO jump (close to the ground)",
-        ["Yes", "No"],
+        "Set parachute deployment behaviour during a HALO jump",
+        ["Automatic", "Manual"],
         [10, 0]
     ]
 ];
