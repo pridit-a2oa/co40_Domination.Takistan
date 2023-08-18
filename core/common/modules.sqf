@@ -41,7 +41,6 @@ GVAR(modules) = [
     "heap",
     // "idle",
     "ied",
-    "intel",
     "inventory",
     ["inventory_medical", "inventory\types\medical"],
     ["inventory_refuel", "inventory\types\refuel"],

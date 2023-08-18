@@ -1,5 +1,5 @@
 /**
- * Intel Module (Handler)
+ * Item - Evidence Module (Handler)
  */
 
 #include "x_macros.sqf"
@@ -11,8 +11,8 @@ if (hasInterface) then {
     _trigger setTriggerArea [11, 9, 149.9, true];
     _trigger setTriggerActivation ["WEST", "PRESENT", true];
     _trigger setTriggerStatements [
-        "this && {player in thisList && {!isNil ""d_mdl_item"" && {[d_intel_type_item] call d_fnc_item_valid}}}",
-        "call d_fnc_intel_reward",
+        "this && {player in thisList}",
+        "[d_item_evidence_type select 1] call d_fnc_item_evidence_reward",
         ""
     ];
 };
