@@ -5,7 +5,7 @@ PARAMS_1(_position);
 
 _objects = [
     _position,
-    random 360,
+    [markerPos QGVAR(base_south), _position] call BIS_fnc_dirTo,
     GVAR(mission_mini_encampment_type)
 ] call FUNC(server,objectMapper);
 
