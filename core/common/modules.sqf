@@ -97,9 +97,7 @@ GVAR(modules) = [
     "vehicle_texture",
     // "vehicle_tow",
     "vehicle_unflip",
-    // "vehicle_welcome",
     "vehicle_wreck",
-    // "video",
     "vote",
     "weather"
 ];

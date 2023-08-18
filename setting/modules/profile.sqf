@@ -34,7 +34,6 @@ _save = [];
     "reward",
     "tutorial",
     "vehicle_loadout",
-    "vehicle_welcome",
     "vote"
 ];
 
