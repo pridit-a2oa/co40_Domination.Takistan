@@ -17,5 +17,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "alive _target && {!(player in _target)} && {(vehicle player) == player} && {simulationEnabled _target} && {_target getVariable 'd_menu'} && {{alive _x && {!isPlayer _x}} count crew _target < 1}"
+    "[_target] call d_fnc_vehicle_menu_valid"
 ];
