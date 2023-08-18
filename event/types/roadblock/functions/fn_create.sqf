@@ -25,7 +25,6 @@ _objects = [
         ["Land_HBarrier3", "Fort_Crate_wood"],
         ["Land_HBarrier_large"],
         ["Land_Toilet"],
-        ["MetalBucket"],
         ["Paleta1"],
         ["RoadBarrier_light", "Sign_Checkpoint_TK_EP1"],
         ["RoadBarrier_long", "ZavoraAnim"],

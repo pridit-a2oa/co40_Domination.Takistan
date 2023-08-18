@@ -24,6 +24,7 @@ GVAR(server_objects_banned) = [
     "Land_CamoNetB_NATO_EP1",
     "Land_CamoNetVar_EAST_EP1",
     "Land_coneLight",
+    "MetalBucket",
     "RoadCone",
     "TKVehicleBox_EP1",
     "UAZ_Unarmed_TK_EP1",
