@@ -5,6 +5,7 @@ private ["_backpack", "_action"];
 _backpack = GVAR(backpack);
 
 if (!isNil QMODULE(heap) && {!([_backpack select 0] __submodulePP(heap))}) exitWith {};
+if (!([secondaryWeapon player, ""] call BIS_fnc_areEqual) && {[getNumber (configFile >> "CfgWeapons" >> (_backpack select 0) >> "type"), 5] call BIS_fnc_areEqual}) exitWith {};
 
 _action = player getVariable QGVAR(backpack_action);
 
