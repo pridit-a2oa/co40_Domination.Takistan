@@ -35,6 +35,10 @@ if (hasInterface) then {
         __submodulePP(tutorial);
     };
 
+    if (!isNil QMODULE(vehicle_loadout)) then {
+        __submodulePP(vehicle_loadout);
+    };
+
     {
         _type = [_x select 1] call FUNC(THIS_MODULE,type);
         _default = GVAR(setting_type_default) select _forEachIndex;
