@@ -23,7 +23,7 @@ class FSM
     class Delay
     {
       name = "Delay";
-      init = "_timenow = time + (d_bomber_time_spawn / 2);" \n
+      init = "_timenow = time + (d_vehicle_bomber_time_spawn / 2);" \n
        "";
       precondition = "";
       class Links
@@ -41,7 +41,7 @@ class FSM
     class Loop
     {
       name = "Loop";
-      init = "_timeend = time + d_bomber_time_spawn;";
+      init = "_timeend = time + d_vehicle_bomber_time_spawn;";
       precondition = "";
       class Links
       {
@@ -66,7 +66,7 @@ class FSM
     class _
     {
       name = "_";
-      init = "call d_fnc_bomber_create;";
+      init = "call d_fnc_vehicle_bomber_create;";
       precondition = "";
       class Links
       {

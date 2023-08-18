@@ -6,7 +6,7 @@ disableSerialization;
 
 _vehicle = GVAR(vehicle_dialog);
 
-if (!alive _vehicle) exitWith {};
+if !(alive _vehicle) exitWith {};
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
@@ -34,6 +34,16 @@ _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else
             };
 
             !([_vehicle] call FUNC(vehicle_ammobox,load));
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_bomber)) then {
+        case "bomber": {
+            closeDialog 0;
+
+            [_vehicle] spawn FUNC(vehicle_bomber,intel);
+
+            false
         };
     };
 

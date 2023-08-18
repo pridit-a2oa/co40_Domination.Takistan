@@ -61,6 +61,10 @@ if (!isNil QMODULE(vehicle_repair)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_repair)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(vehicle_bomber)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_bomber)] call BIS_fnc_arrayPush;
+};
+
 if (!isNil QMODULE(vehicle_texture)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_texture)] call BIS_fnc_arrayPush;
 };

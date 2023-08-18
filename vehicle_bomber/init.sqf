@@ -1,37 +1,37 @@
 /**
- * Bomber Module
+ * Vehicle Bomber Module
  *
  * Description: This module spawns in a civilian AI unit that will make their
  * way to base to provide players with a mission mini [module] or explode.
  */
 
-#define THIS_MODULE bomber
+#define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
 
 // The civilian vehicle type
-GVAR(bomber_type_vehicles) = [
+GVAR(vehicle_bomber_type_vehicles) = [
     "Lada1_TK_CIV_EP1",
     "Volha_1_TK_CIV_EP1",
     "Volha_2_TK_CIV_EP1"
 ];
 
 // The bomb type
-GVAR(bomber_type_bomb) = "ARTY_Sh_81_HE";
+GVAR(vehicle_bomber_type_bomb) = "ARTY_Sh_81_HE";
 
 // Amount of score to reward when preventing a bombing
-GVAR(bomber_amount_score) = 3;
+GVAR(vehicle_bomber_amount_score) = 3;
 
 // Chance unit will detonate
-GVAR(bomber_chance_detonate) = 30;
+GVAR(vehicle_bomber_chance_detonate) = 30;
 
 // Chance unit will be playing music
-GVAR(bomber_chance_music) = 40;
+GVAR(vehicle_bomber_chance_music) = 40;
 
 // Distance from the marker to spawn in unit
-GVAR(bomber_distance_spawn) = 1300;
+GVAR(vehicle_bomber_distance_spawn) = 1300;
 
 // Time between spawning units
-GVAR(bomber_time_spawn) = 3600;
+GVAR(vehicle_bomber_time_spawn) = 3600;
 
 if (isServer) then {
     gameLogic setVariable [QGVAR(bomber), false, true];

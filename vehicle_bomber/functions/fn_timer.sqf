@@ -1,4 +1,4 @@
-#define THIS_MODULE bomber
+#define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
 private ["_vehicle"];
 

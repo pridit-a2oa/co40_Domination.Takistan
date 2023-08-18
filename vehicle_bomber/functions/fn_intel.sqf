@@ -1,8 +1,10 @@
-#define THIS_MODULE bomber
+#define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
 private ["_vehicle"];
 
 PARAMS_1(_vehicle);
+
+if !(alive _vehicle || {!(alive (driver _vehicle))}) exitWith {};
 
 if !(isServer) exitWith {
     [gameLogic, "execVM", [_this, __function(intel)]] call FUNC(network,mp);
@@ -10,14 +12,15 @@ if !(isServer) exitWith {
 
 _vehicle setVariable [QGVAR(bomber), false, true];
 
-if (GVAR(bomber_chance_detonate) > floor (random 100)) exitWith {
-    // TODO: Remove killed handler for deducting points, as its not a civilian
+if (GVAR(vehicle_bomber_chance_detonate) > floor (random 100)) exitWith {
     [_vehicle] spawn FUNC(THIS_MODULE,timer);
 };
 
 sleep 5;
 
-if (!isNil QMODULE(mission_mini) && {alive _vehicle} && {alive (driver _vehicle)}) then {
+if !(alive _vehicle || {alive (driver _vehicle)}) exitWith {};
+
+if !(isNil QMODULE(mission_mini)) then {
     [] spawn FUNC(mission_mini,create);
 };
 

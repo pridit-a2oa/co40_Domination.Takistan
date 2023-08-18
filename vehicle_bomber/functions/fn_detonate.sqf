@@ -1,4 +1,4 @@
-#define THIS_MODULE bomber
+#define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
 private ["_vehicle", "_units"];
 
@@ -6,7 +6,7 @@ PARAMS_1(_vehicle);
 
 _units = [];
 
-createVehicle [GVAR(bomber_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
+createVehicle [GVAR(vehicle_bomber_type_bomb), position _vehicle, [], 0, "CAN_COLLIDE"];
 
 {
     switch (true) do {

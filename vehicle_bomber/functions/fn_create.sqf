@@ -1,4 +1,4 @@
-#define THIS_MODULE bomber
+#define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
 
 if ([count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) exitWith {};
@@ -8,9 +8,9 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 0 spawn {
     private ["_road", "_direction", "_vehicle", "_car", "_crew", "_driver"];
     
-    _road = GVAR(bomber_type_roads) call BIS_fnc_selectRandom;
+    _road = GVAR(vehicle_bomber_type_roads) call BIS_fnc_selectRandom;
     _direction = [position _road, (markerPos QGVAR(bomber))] call BIS_fnc_dirTo;
-    _vehicle = [position _road, GVAR(bomber_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
+    _vehicle = [position _road, GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
     
     _car = _vehicle select 0;
     _crew = _vehicle select 1;
@@ -50,7 +50,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 
                     [
                         _killer,
-                        GVAR(bomber_amount_score),
+                        GVAR(vehicle_bomber_amount_score),
                         "protecting the base"
                     ] call FUNC(reward,score);
                 };
@@ -68,7 +68,11 @@ gameLogic setVariable [QGVAR(bomber), true, true];
     }];
         
     while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {      
-        waitUntil {sleep 0.5; _car distance (markerPos QGVAR(bomber)) < 300};
+        waitUntil {
+            sleep 0.5;
+            
+            _car distance (markerPos QGVAR(bomber)) < 300
+        };
         
         if (true) exitWith {
             if !(isNil QMODULE(conversation)) then {
@@ -78,22 +82,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
                 ] call FUNC(conversation,radio);
             };
             
-            [
-                nil,
-                _car,
-                "per",
-                rAddAction,
-                "Intel" call FUNC(common,BlueText),
-                __function(intel),
-                [],
-                10,
-                false,
-                true,
-                "",
-                "alive _target && {canMove _target} && {alive (driver _target)} && {_target getVariable 'd_bomber'}"
-            ] call RE;
-            
-            if (GVAR(bomber_chance_music) > floor (random 100)) then {
+            if (GVAR(vehicle_bomber_chance_music) > floor (random 100)) then {
                 [_driver, _car] spawn {
                     private ["_driver", "_car"];
                     
