@@ -19,6 +19,7 @@ onLoadMissionTime = 0;
 #include "perk\dialog\base.hpp"
 #include "setting\dialog\base.hpp"
 #include "teleport\dialog\base.hpp"
+#include "vehicle_menu\dialog\base.hpp"
 #include "vote\dialog\base.hpp"
 
 class Header
