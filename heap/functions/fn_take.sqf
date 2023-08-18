@@ -4,7 +4,7 @@ private ["_weapon", "_position"];
 
 if !([speed player, 0] call BIS_fnc_areEqual) exitWith {};
 
-_weapon = call FUNC(THIS_MODULE,valid);
+_weapon = [primaryWeapon player] call FUNC(THIS_MODULE,valid);
 
 if !([_weapon, ""] call BIS_fnc_areEqual) then {
     player action ["dropWeapon", player, _weapon];
@@ -23,7 +23,7 @@ if !([_weapon, ""] call BIS_fnc_areEqual) then {
 };
 
 if !([player] call FUNC(common,ready)) exitWith {};
-if !([call FUNC(THIS_MODULE,valid), ""] call BIS_fnc_areEqual) exitWith {};
+if !([[primaryWeapon player] call FUNC(THIS_MODULE,valid), ""] call BIS_fnc_areEqual) exitWith {};
 
 removeBackpack player;
 

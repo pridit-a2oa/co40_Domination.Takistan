@@ -1,7 +1,8 @@
 #include "x_macros.sqf"
 private ["_primary", "_secondary", "_weapon"];
 
-_primary = primaryWeapon player;
+PARAMS_1(_primary);
+
 _secondary = secondaryWeapon player;
 
 _weapon = switch (true) do {

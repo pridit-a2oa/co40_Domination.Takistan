@@ -3,6 +3,9 @@
 private ["_backpack", "_action"];
 
 _backpack = GVAR(backpack);
+
+if (!isNil QMODULE(heap) && {!([_backpack select 0] __submodulePP(heap))}) exitWith {};
+
 _action = player getVariable QGVAR(backpack_action);
 
 player removeAction _action;
