@@ -37,7 +37,7 @@ class XD_VehicleMenuDialog {
             sizeEx = 0.025;
             rowHeight = 0.0648;
             borderSize = 1;
-            onLBSelChanged = "((uiNamespace getVariable ""X_VEHICLE_MENU_DIALOG"") displayCtrl 1700) ctrlEnable true"
+            onLBSelChanged = "((uiNamespace getVariable ""X_VEHICLE_MENU_DIALOG"") displayCtrl 1700) ctrlEnable true";
             onLBDblClick = "[vehicle player] call d_fnc_vehicle_menu_action";
         };
         class TitleText: X3_RscText
@@ -66,7 +66,7 @@ class XD_VehicleMenuDialog {
             w = 0.162563;
             h = 0.110005;
             text = "Close";
-            action = "closeDialog 0"
+            action = "closeDialog 0";
         };
         class AdditionalText: BBRscStructuredText
         {
