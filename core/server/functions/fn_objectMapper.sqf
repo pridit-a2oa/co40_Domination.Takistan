@@ -141,6 +141,8 @@ _multiplyMatrixFunc = {
             [cos _azi, sin _azi],
             [-(sin _azi), cos _azi]
         ];
+
+        if (_relPos select 2 > 0.5 && {[_type, "Fort_Crate_wood"] call BIS_fnc_areEqual}) exitWith {};
         
         _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
         _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), 0];
