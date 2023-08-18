@@ -1,24 +1,24 @@
 /**
- * Event - Roadblock Module
+ * Event - Checkpoint Module
  *
  * Description: This module is responsible for handling the event
- * to create roadblocks.
+ * to create TK checkpoints.
  */
 
-#define THIS_MODULE event_roadblock
+#define THIS_MODULE event_checkpoint
 #include "x_macros.sqf"
 
 // Add to the list of possible types of events
-[GVAR(event_types), "Roadblock"] call BIS_fnc_arrayPush;
+[GVAR(event_types), "Checkpoint"] call BIS_fnc_arrayPush;
 
 // Set minimum number of events of this type to exist
-GVAR(event_roadblock_amount) = 3;
+GVAR(event_checkpoint_amount) = 3;
 
 // Set composition of the event
-GVAR(event_roadblock_composition) = "CheckPoint1_US_EP1";
+GVAR(event_checkpoint_composition) = "CheckPoint1_US_EP1";
 
 // Set possible positions to generate the event at
-GVAR(event_roadblock_positions) = [
+GVAR(event_checkpoint_positions) = [
     [[3207.33,5493.7,0.094986], -29.0612],
     [[3832.9,3692.81,0.0811157], 49.5425],
     [[4061.88,1570.37,0.0597534], -93.6687],
@@ -51,6 +51,6 @@ GVAR(event_roadblock_positions) = [
     [[9843.34,6465.59,-0.099823], 171.605]
 ];
 
-__cppfln(FUNC(THIS_MODULE,create),event\types\roadblock\functions\fn_create.sqf);
+__cppfln(FUNC(THIS_MODULE,create),event\types\checkpoint\functions\fn_create.sqf);
 
 MODULE(THIS_MODULE) = true;

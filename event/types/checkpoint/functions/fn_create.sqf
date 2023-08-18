@@ -11,7 +11,7 @@ if !([count (nearestObjects [_position, ["Land_tent_east"], 2000]), 0] call BIS_
 _objects = [
     _position,
     _direction,
-    GVAR(event_roadblock_composition),
+    GVAR(event_checkpoint_composition),
     [
         ["FoldChair"],
         ["FoldTable", "TKBasicWeapons_EP1"],
