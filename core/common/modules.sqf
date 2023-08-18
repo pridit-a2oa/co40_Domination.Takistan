@@ -35,7 +35,7 @@ GVAR(modules) = [
     "diary",
     "drag",
     "event",
-    ["event", "event\types\roadblock"],
+    ["event_roadblock", "event\types\roadblock"],
     "gesture",
     "halo",
     "heap",
