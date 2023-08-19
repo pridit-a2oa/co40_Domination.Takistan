@@ -48,17 +48,19 @@ if (!isNil QMODULE(vehicle)) then {
         };
         
         ["init_vehicles", {
+            ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame);
+
             {
                 [_x] spawn FUNC(vehicle,handle);
-            } forEach vehicles;
-
-            ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
+            } forEach call FUNC(common,vehicles);
         }, 0] call FUNC(THIS_MODULE,addPerFrame);
     };
 };
 
 if (isMultiplayer) then {
     ["init_actions", {
+        ["init_actions"] call FUNC(THIS_MODULE,removePerFrame);
+
         {
             private ["_unit"];
 
@@ -91,13 +93,13 @@ if (isMultiplayer) then {
                 };
             };
         } forEach playableUnits;
-
-        ["init_actions"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
+        ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame);
+        
         private ["_type"];
         
         _type = [faction player] call FUNC(ammobox,type);
@@ -107,8 +109,6 @@ if (!isNil QMODULE(ammobox)) then {
                 [_x] call FUNC(ammobox,handle);
             } forEach (allMissionObjects (_type select 1));
         };
-
-        ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 

@@ -36,7 +36,7 @@ if (isServer) then {
                 };
 
                 sleep 0.1;
-            } forEach vehicles;
+            } forEach call FUNC(common,vehicles);
         };
     };
 };

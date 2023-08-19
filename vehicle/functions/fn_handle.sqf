@@ -4,9 +4,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (_vehicle isKindOf "StaticWeapon") exitWith {};
-if (_vehicle isKindOf "Thing" && {!(_vehicle isKindOf "Wreck")}) exitWith {};
-
 if !(isNil {_vehicle getVariable QGVAR(handled)}) exitWith {};
 
 _vehicle setVariable [QGVAR(handled), true];
@@ -114,7 +111,11 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {_vehicle getVariable QGVAR(id)}};
+    waitUntil {
+        sleep 0.1;
+        
+        !isNil {_vehicle getVariable QGVAR(id)}
+    };
 
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);

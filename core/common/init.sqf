@@ -41,6 +41,7 @@ __cppfln(FUNC(THIS_MODULE,players),core\THIS_MODULE\functions\fn_players.sqf);
 __cppfln(FUNC(THIS_MODULE,ready),core\THIS_MODULE\functions\fn_ready.sqf);
 __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);
+__cppfln(FUNC(THIS_MODULE,vehicles),core\THIS_MODULE\functions\fn_vehicles.sqf);
 
 // override BIS function
 BIS_fnc_findNestedElement = compile preprocessFile "core\common\functions\fn_findNestedElement.sqf";
@@ -98,10 +99,10 @@ if (hasInterface) then {
 };
 
 if (isDedicated) then {
-    if (!isNil QMODULE(vehicle)) then {
+    if !(isNil QMODULE(vehicle)) then {
         {
             [_x] spawn FUNC(vehicle,handle);
-        } forEach vehicles;
+        } forEach call FUNC(THIS_MODULE,vehicles);
     };
 };
 

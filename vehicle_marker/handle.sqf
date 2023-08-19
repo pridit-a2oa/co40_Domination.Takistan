@@ -46,6 +46,6 @@ if (hasInterface) then {
                     _marker setMarkerAlphaLocal _alpha;
                 };
             };
-        } forEach vehicles;
+        } forEach call FUNC(common,vehicles);
     }, 2] call FUNC(client,addPerFrame);
 };
