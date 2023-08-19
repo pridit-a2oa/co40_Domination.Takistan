@@ -1,4 +1,4 @@
-// $[1.03,[[0,0,1,1],0.01125,0.01],[1200,"",[0,"ca\ui\data\ui_gameoptions_background_ca",[0.213226,0.127922,0.608838,0.870563],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1500,"",[0,"",[0.219696,0.269697,0.278031,0.389178],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[2100,"",[0,"",[0.244375,0.775,0.144192,0.0463203],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1203,"",[0,"ca\ui\data\ui_background_video_buttons_ca",[0.2107,0.660216,0.721212,0.183117],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1000,"",[0,"No Active Vote",[0.232324,0.164069,0.548233,0.0290043],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1703,"",[0,"Vote Yes",[0.234375,0.65,0.246465,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1702,"",[0,"Vote No",[0.515625,0.65,0.246465,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1701,"",[0,"Start Vote",[0.5625,0.745,0.197223,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[2101,"",[0,"",[0.40375,0.775,0.144192,0.0463203],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1201,"",[0,"ca\ui\data\ui_background_video_buttons_ca",[0.210859,0.210823,0.721212,0.119048],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1002,"",[0,"5 Minutes Left",[0.229798,0.226406,0.548233,0.0290043],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1501,"",[0,"",[0.5,0.269697,0.278031,0.389178],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1001,"",[0,"",[0.23625,0.785,0.3,0.0249999],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]]]
+// $[1.03,[[0,0,1,1],0.01125,0.01],[1200,"",[0,"ca\ui\data\ui_gameoptions_background_ca",[0.213226,0.127922,0.608838,0.870563],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1500,"",[0,"",[0.219696,0.269697,0.278031,0.389178],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[2100,"",[0,"",[0.244375,0.681,0.144192,0.0453203],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1203,"",[0,"ca\ui\data\ui_background_video_buttons_ca",[0.2107,0.660216,0.721212,0.183117],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1000,"",[0,"No Active Vote",[0.232324,0.164069,0.548233,0.0290043],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1703,"",[0,"Vote Yes",[0.234375,0.65,0.246465,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1702,"",[0,"Vote No",[0.515625,0.65,0.246465,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1701,"",[0,"Start Vote",[0.5625,0.65,0.197223,0.108658],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[2101,"",[0,"",[0.40375,0.681,0.144192,0.0453203],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1201,"",[0,"ca\ui\data\ui_background_video_buttons_ca",[0.210859,0.210823,0.721212,0.119048],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1002,"",[0,"5 Minutes Left",[0.229798,0.226406,0.548233,0.0290043],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1501,"",[0,"",[0.5,0.269697,0.278031,0.389178],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1001,"",[0,"",[0.23625,0.785,0.3,0.0249999],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1700,"",[0,"Close",[0.59625,0.74,0.163131,0.113468],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]]]
 class XD_VoteDialog {
     idd = -1;
     movingEnable = 1;
@@ -6,7 +6,7 @@ class XD_VoteDialog {
     onUnLoad = "uiNamespace setVariable ['X_VOTE_DIALOG', nil]";
     objects[] = {};
     class controlsBackground {
-        class VoteDialogBackground: XD_RscPicture
+        class VoteDialogPicture: XD_RscPicture
 		{
 			text = "ca\ui\data\ui_gameoptions_background_ca";
 			x = 0.213226;
@@ -14,7 +14,7 @@ class XD_VoteDialog {
 			w = 0.608838;
 			h = 0.870563;
 		};
-		class VoteDialogSplitterTopBackground: XD_RscPicture
+		class VoteDialogSplitterTopPicture: XD_RscPicture
 		{
 			text = "ca\ui\data\ui_background_video_buttons_ca";
 			x = 0.210859;
@@ -22,7 +22,7 @@ class XD_VoteDialog {
 			w = 0.721212;
 			h = 0.119048;
 		};
-		class VoteDialogSplitterBottomBackground: XD_RscPicture
+		class VoteDialogSplitterBottomPicture: XD_RscPicture
 		{
 			text = "ca\ui\data\ui_background_video_buttons_ca";
 			x = 0.2107;
@@ -32,7 +32,7 @@ class XD_VoteDialog {
 		};
     };
 	class controls {
-		class TitleText: X3_RscText
+		class VoteTitleText: X3_RscText
 		{
 			idc = 100;
 			text = "No Active Vote";
@@ -42,7 +42,7 @@ class XD_VoteDialog {
             h = 0.0290043;
 			style = ST_CENTER;
 		};
-		class RequiredText: X3_RscText
+		class VoteRequiredText: X3_RscText
 		{
 			idc = 101;
 			text = "WARNING: Voting is very experimental, and may break!";
@@ -53,7 +53,7 @@ class XD_VoteDialog {
             sizeEx = 0.028;
 			style = ST_CENTER;
 		};
-		class FeedbackText: X3_RscText
+		class VoteFeedbackText: X3_RscText
 		{
 			idc = 102;
 			x = 0.23625;
@@ -91,18 +91,18 @@ class XD_VoteDialog {
 		{
 			idc = 300;
 			x = 0.244375;
-			y = 0.775;
+			y = 0.681;
 			w = 0.144192;
-			h = 0.0463203;
+			h = 0.0453203;
 			onLBSelChanged = "[300] call d_fnc_vote_switch";
 		};
 		class VoteSubTypeComboBox: XD_UIComboBox
 		{
 			idc = 301;
 			x = 0.40375;
-			y = 0.775;
+			y = 0.681;
 			w = 0.144192;
-			h = 0.0463203;
+			h = 0.0453203;
 			onLBSelChanged = "";
 		};
 		class VoteYesButton: XD_ButtonBase
@@ -129,13 +129,24 @@ class XD_VoteDialog {
 			size = 0.03521;
 			action = "[false] call d_fnc_vote_cast";
 		};
-		class VoteStartCloseButton: XD_ButtonBase
+		class VoteStartButton: XD_ButtonBase
 		{
 			idc = 500;
 			x = 0.5625;
-			y = 0.745;
+			y = 0.65;
 			w = 0.197223;
 			h = 0.108658;
+			text = "Start Vote";
+			action = "[lbCurSel 300, lbCurSel 301] spawn d_fnc_vote_create";
+		};
+		class VoteCloseButton: XD_ButtonBase
+		{
+			x = 0.59625;
+			y = 0.74;
+			w = 0.163131;
+			h = 0.113468;
+			text = "Close";
+			action = "closeDialog 0";
 		};
 	};
 };

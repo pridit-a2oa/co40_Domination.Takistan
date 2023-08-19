@@ -50,7 +50,7 @@ if (hasInterface) then {
 
     DIALOG("X_VOTE_DIALOG", 300) ctrlShow false;
     DIALOG("X_VOTE_DIALOG", 301) ctrlShow false;
-    DIALOG("X_VOTE_DIALOG", 500) ctrlEnable false;
+    DIALOG("X_VOTE_DIALOG", 500) ctrlShow false;
     
     X_JIPH setVariable [QGVAR(vote_call), true, true];
     

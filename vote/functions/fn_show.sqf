@@ -12,13 +12,14 @@ _yes = DIALOG("X_VOTE_DIALOG", 400);
 _no = DIALOG("X_VOTE_DIALOG", 401);
 _start = DIALOG("X_VOTE_DIALOG", 500);
 
-_start ctrlEnable false;
+_start ctrlShow false;
 
 {
     _x ctrlShow false;
 } forEach [_type, _subtype];
 
 {
+    _x ctrlShow false;
     _x ctrlEnable false;
 } forEach [_yes, _no];
 
@@ -27,29 +28,25 @@ _votes = [1, X_JIPH getVariable QGVAR(votes)] call FUNC(common,arrayValues);
 
 switch ([_vote, ""] call BIS_fnc_areEqual) do {
     case true: {
+        _start ctrlShow true;
+        _start ctrlEnable false;
+
         _type ctrlShow true;
 
         {
             _type lbAdd (_x select 0);
         } forEach GVAR(vote_types);
-
-        _start ctrlSetText "Start Vote";
-        _start buttonSetAction "[lbCurSel 300, lbCurSel 301] spawn d_fnc_vote_create";
     };
 
     case false: {
         private ["_voted"];
 
-        _voted = [[X_JIPH getVariable QGVAR(votes), name player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual;
+        _voted = [[X_JIPH getVariable QGVAR(votes), getPlayerUID player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual;
 
         DIALOG("X_VOTE_DIALOG", 100) ctrlSetText format [
             "Active Vote: %1",
             X_JIPH getVariable QGVAR(vote)
         ];
-
-        _start ctrlEnable true;
-        _start ctrlSetText "Close";
-        _start buttonSetAction "closeDialog 0";
 
         DIALOG("X_VOTE_DIALOG", 102) ctrlSetText (switch (false) do {
             case GVAR(vote): {"You cannot participate in this vote"};
@@ -62,6 +59,9 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
 
             _button = _x select 0;
             _choice = _x select 1;
+
+            _button ctrlShow true;
+
 
             _count = {[_x, _choice] call BIS_fnc_areEqual} count _votes;
 
