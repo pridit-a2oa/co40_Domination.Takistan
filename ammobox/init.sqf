@@ -130,21 +130,16 @@ GVAR(ammobox_type_handguns) = [
 GVAR(ammobox_type_launchers) = [
     "Javelin",
     "Stinger",
-    "Igla",
     "M136",
     "M47Launcher_EP1",
     "MAAWS",
-    "RPG7V",
-    "RPG18",
-    "Strela",
     "SMAW"
 ];
 
 // List of grenade launchers
 GVAR(ammobox_type_launchers_grenade) = [
     "Mk13_EP1",
-    "M32_EP1",
-    "M79_EP1"
+    "M32_EP1"
 ];
 
 // List of British Armed Forces (BAF) weapons
@@ -231,17 +226,10 @@ GVAR(ammobox_type_ammo_gun) = [
 GVAR(ammobox_type_ammo_launcher) = [
     "Javelin",
     "Stinger",
-    "Igla",
     "M136",
     "Dragon_EP1",
     "MAAWS_HEAT",
     "MAAWS_HEDP",
-    "PG7V",
-    "PG7VL",
-    "PG7VR",
-    "OG7",
-    "RPG18",
-    "Strela",
     "NLAW",
     "SMAW_HEAA",
     "SMAW_HEDP"
