@@ -3266,7 +3266,7 @@ class Mission
 			special="NONE";
 			id=302;
 			side="EMPTY";
-			vehicle="MtvrReammo_DES_EP1";
+			vehicle="MTVR_DES_EP1";
 			skill=1;
 		};
 		class Item254
@@ -3276,7 +3276,7 @@ class Mission
 			special="NONE";
 			id=303;
 			side="EMPTY";
-			vehicle="MtvrReammo_DES_EP1";
+			vehicle="MTVR_DES_EP1";
 			skill=1;
 		};
 		class Item255
