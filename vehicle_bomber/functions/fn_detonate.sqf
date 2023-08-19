@@ -34,3 +34,5 @@ createVehicle [GVAR(vehicle_bomber_type_bomb), position _vehicle, [], 0, "CAN_CO
         _x setDamage 1;
     };
 } forEach _units;
+
+_vehicle setDamage 1;

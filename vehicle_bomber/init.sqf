@@ -11,6 +11,7 @@
 // The civilian vehicle type
 GVAR(vehicle_bomber_type_vehicles) = [
     "Lada1_TK_CIV_EP1",
+    "S1203_TK_CIV_EP1",
     "Volha_1_TK_CIV_EP1",
     "Volha_2_TK_CIV_EP1"
 ];
@@ -37,11 +38,11 @@ if (isServer) then {
     gameLogic setVariable [QGVAR(bomber), false, true];
 };
 
-__cppfln(FUNC(THIS_MODULE,alive),THIS_MODULE\functions\fn_alive.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,detonate),THIS_MODULE\functions\fn_detonate.sqf);
 __cppfln(FUNC(THIS_MODULE,intel),THIS_MODULE\functions\fn_intel.sqf);
 __cppfln(FUNC(THIS_MODULE,remove),THIS_MODULE\functions\fn_remove.sqf);
 __cppfln(FUNC(THIS_MODULE,timer),THIS_MODULE\functions\fn_timer.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

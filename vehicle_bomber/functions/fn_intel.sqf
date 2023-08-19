@@ -4,11 +4,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(alive _vehicle || {alive (driver _vehicle)}) exitWith {};
-
-if !(isServer) exitWith {
-    [gameLogic, "execVM", [_this, __function(intel)]] call FUNC(network,mp);
-};
+if !(_vehicle getVariable QGVAR(bomber)) exitWith {};
 
 _vehicle setVariable [QGVAR(bomber), false, true];
 
@@ -18,7 +14,13 @@ if (GVAR(vehicle_bomber_chance_detonate) > floor (random 100)) exitWith {
 
 sleep 5;
 
-if !(alive _vehicle || {alive (driver _vehicle)}) exitWith {};
+if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {
+    gameLogic setVariable [QGVAR(bomber), false, true];
+
+    sleep 2;
+
+    [_vehicle] call FUNC(THIS_MODULE,remove);
+};
 
 if !(isNil QMODULE(mission_mini)) then {
     [] spawn FUNC(mission_mini,create);

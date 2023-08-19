@@ -8,13 +8,15 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 0 spawn {
     private ["_road", "_direction", "_vehicle", "_car", "_crew", "_driver"];
     
-    _road = GVAR(vehicle_bomber_type_roads) call BIS_fnc_selectRandom;
+    _road = GVAR(vehicle_bomber_roads) call BIS_fnc_selectRandom;
     _direction = [position _road, (markerPos QGVAR(bomber))] call BIS_fnc_dirTo;
     _vehicle = [position _road, GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
     
     _car = _vehicle select 0;
     _crew = _vehicle select 1;
     _driver = driver _car;
+
+    __addDead(_driver);
     
     {
         _x setCaptive true;
@@ -43,8 +45,8 @@ gameLogic setVariable [QGVAR(bomber), true, true];
             switch (side group _unit) do {
                 case east: {
                     if (isNil QMODULE(reward)) exitWith {};
-                    if !([_killer] call FUNC(common,ready)) exitWith {};
                     if !(alive (vehicle _unit)) exitWith {};
+                    if !([_killer] call FUNC(common,ready)) exitWith {};
 
                     sleep 3;
 
@@ -67,7 +69,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
         };
     }];
         
-    while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {      
+    while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {      
         waitUntil {
             sleep 0.5;
             
@@ -83,14 +85,10 @@ gameLogic setVariable [QGVAR(bomber), true, true];
             };
             
             if (GVAR(vehicle_bomber_chance_music) > floor (random 100)) then {
-                [_driver, _car] spawn {
-                    private ["_driver", "_car"];
-                    
-                    PARAMS_2(_driver, _car);
-                    
-                    while {_this call FUNC(THIS_MODULE,alive)} do {
-                        if ({_x distance _car < 1000} count (call FUNC(common,players)) > 0) then {
-                            [true, "say3D", [_car, "RadioMusic_56s", 0]] call FUNC(network,mp);
+                _car spawn {                    
+                    while {[_this] call FUNC(THIS_MODULE,valid)} do {
+                        if ({_x distance _this < 1000} count (call FUNC(common,players)) > 0) then {
+                            [true, "say3D", [_this, "RadioMusic_56s", 0]] call FUNC(network,mp);
                         };
                         
                         sleep 60;
@@ -98,7 +96,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
                 };
             };
             
-            while {count (call FUNC(common,players)) > 0 && {[_driver, _car] call FUNC(THIS_MODULE,alive)}} do {
+            while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {
                 _distance = _car distance (markerPos QGVAR(bomber));
                 
                 if (_distance < 50 && {_car getVariable QGVAR(bomber)}) then {
@@ -122,7 +120,9 @@ gameLogic setVariable [QGVAR(bomber), true, true];
         _driver setDamage 1;
     };
     
-    _car setDamage 1;
+    if (alive _car) then {
+        _car setDamage 1;
+    };
     
     sleep 20;
     
