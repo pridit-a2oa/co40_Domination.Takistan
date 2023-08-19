@@ -22,7 +22,7 @@ _vehicle spawn {
 
 sleep 5;
 
-if (!alive (driver _vehicle)) exitWith {};
+if !(alive (driver _vehicle)) exitWith {};
 
 [true, "say3D", [(driver _vehicle), QGVAR(sound_exclaim), 20]] call FUNC(network,mp);
 

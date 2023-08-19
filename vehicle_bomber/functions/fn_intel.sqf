@@ -4,7 +4,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(alive _vehicle || {!(alive (driver _vehicle))}) exitWith {};
+if !(alive _vehicle || {alive (driver _vehicle)}) exitWith {};
 
 if !(isServer) exitWith {
     [gameLogic, "execVM", [_this, __function(intel)]] call FUNC(network,mp);
