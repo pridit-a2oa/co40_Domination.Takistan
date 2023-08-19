@@ -8,13 +8,13 @@
 #define THIS_MODULE mission_mini_encampment
 #include "x_macros.sqf"
 
-// Add to the list of possible types of mini messions
-GVAR(mission_mini_types) = GVAR(mission_mini_types) + [
-    ["encampment", "Enemy Encampment"]
-];
+// Type of mini mission
+GVAR(mission_mini_encampment) = ["encampment", "Enemy Encampment"];
 
 // The object composition to use to generate the camp
 GVAR(mission_mini_encampment_type) = "Camp1_TK_EP1";
+
+[GVAR(mission_mini_types), GVAR(mission_mini_encampment)] call BIS_fnc_arrayPush;
 
 __cppfln(FUNC(THIS_MODULE,create),mission_mini\types\encampment\functions\fn_create.sqf);
 

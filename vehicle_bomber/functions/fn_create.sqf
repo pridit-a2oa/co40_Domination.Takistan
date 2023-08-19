@@ -16,6 +16,8 @@ gameLogic setVariable [QGVAR(bomber), true, true];
     _crew = _vehicle select 1;
     _driver = driver _car;
 
+    __log format ["Spawned %1", [typeOf _car] call FUNC(vehicle,name)]];
+
     __addDead(_driver);
     
     {

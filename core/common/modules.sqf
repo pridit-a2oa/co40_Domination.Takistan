@@ -53,6 +53,7 @@ GVAR(modules) = [
     "mission_main",
     "mission_mini",
     ["mission_mini_abandoned", "mission_mini\types\abandoned"],
+    ["mission_mini_cache", "mission_mini\types\cache"],
     ["mission_mini_encampment", "mission_mini\types\encampment"],
     "name",
     "option",

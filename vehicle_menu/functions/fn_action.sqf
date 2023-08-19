@@ -41,7 +41,7 @@ _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else
         case "bomber": {
             closeDialog 0;
 
-            [gameLogic, "execVM", [[_vehicle], FUNCTION(vehicle_bomber,intel)]] call FUNC(network,mp);
+            [_vehicle] spawn FUNC(vehicle_bomber,intel);
 
             false
         };

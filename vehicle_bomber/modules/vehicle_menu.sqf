@@ -16,6 +16,12 @@ if (isNil "_bomber" || {!_bomber}) exitWith {false};
 
 if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {false};
 
-["Talk: Intel", "bomber"] call FUNC(vehicle_menu,populate);
+[
+    switch (true) do {
+        case (!isNil QMODULE(item) && {!isNil QMODULE(item_money) && {[GVAR(item_money_type) select 1] call FUNC(item,valid)}}): {"Talk: Intel [Give Money]"};
+        default {"Talk: Intel"}
+    },
+    "bomber"
+] call FUNC(vehicle_menu,populate);
 
 true
