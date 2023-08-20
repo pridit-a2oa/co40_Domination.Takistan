@@ -35,7 +35,7 @@ class XD_VehicleMenuDialog {
             w = 0.364848;
             h = 0.32316;
             sizeEx = 0.025;
-            rowHeight = 0.0648;
+            rowHeight = 0.064;
             borderSize = 1;
             onLBSelChanged = "((uiNamespace getVariable ""X_VEHICLE_MENU_DIALOG"") displayCtrl 1700) ctrlEnable true";
             onLBDblClick = "[vehicle player] call d_fnc_vehicle_menu_action";
