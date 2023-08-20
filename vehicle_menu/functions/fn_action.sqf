@@ -6,17 +6,16 @@ disableSerialization;
 
 _vehicle = GVAR(vehicle_dialog);
 
-if !(alive _vehicle) exitWith {};
+if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {closeDialog 0};
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _lbCurSel = lbCurSel _menu;
+
+if ([_lbCurSel, -1] call BIS_fnc_areEqual) exitWith {closeDialog 0};
+
 _lbData = _menu lbData _lbCurSel;
 _lbData = if ([_lbData, "["] call KRON_StrInStr) then {call compile _lbData} else {_lbData};
-
-if (_lbCurSel == -1 || {player distance _vehicle > 10} || {!(simulationEnabled _vehicle)}) exitWith {
-    closeDialog 0;
-};
 
 _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
     if !(isNil QMODULE(vehicle_ammobox)) then {
