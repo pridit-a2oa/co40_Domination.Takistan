@@ -34,7 +34,7 @@ private ["_cfgObjectComps", "_script"];
 
 _cfgObjectComps = configFile >> "CfgObjectCompositions";
 
-if ((typeName _objs) == (typeName "")) then {
+if ([typeName _objs, "STRING"] call BIS_fnc_areEqual) then {
     //Composition class was given
     _script = getText(_cfgObjectComps >> _objs >> "objectScript");
     
@@ -43,8 +43,8 @@ if ((typeName _objs) == (typeName "")) then {
     private ["_testSample"];
     
     _testSample = _objs select 0;
-    
-    if ((typeName _testSample) != (typeName [])) then {
+
+    if !([typeName _testSample, "ARRAY"] call BIS_fnc_areEqual) then {
         // Tag list was given
         private ["_queryTags"];
         
@@ -63,7 +63,7 @@ if ((typeName _objs) == (typeName "")) then {
             _candidateTags = getArray (_candidate >> "tags");
             
             // Are all tags in this candidate?
-            if (({_x in _candidateTags} count _queryTags) == (count _queryTags)) then {
+            if ([{_x in _candidateTags} count _queryTags, count _queryTags] call BIS_fnc_areEqual) then {
                 _candidates = _candidates + [getText (_candidate >> "objectScript")];
             };
         };
@@ -186,13 +186,17 @@ _multiplyMatrixFunc = {
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
 
-        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
-            if (faction _newObj == "BIS_US") exitWith {
+        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {        
+            if ([faction _newObj, "BIS_US"] call BIS_fnc_areEqual) then {
                 _newObj lock true;
                 _newObj allowCrewInImmobile true;
             
                 _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
                 _newObj addEventHandler ["HandleDamage", {0}];
+
+                if !(isNil QMODULE(vehicle_menu)) then {
+                    _newObj setVariable [QGVAR(menu), false, true];
+                };
             };
 
             [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);
