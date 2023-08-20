@@ -35,6 +35,7 @@ GVAR(modules) = [
     "drag",
     "event",
     ["event_checkpoint", "event\types\checkpoint"],
+    "gear",
     "gesture",
     "halo",
     "heap",

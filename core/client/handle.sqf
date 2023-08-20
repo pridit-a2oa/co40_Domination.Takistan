@@ -314,15 +314,34 @@ player addEventHandler ["respawn", {
     if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
     } else {
+        private ["_magazines", "_weapons"];
+
+        _magazines = if !(isNil QMODULE(gear)) then {
+            [
+                magazines _corpse,
+                "magazine"
+            ] call FUNC(gear,items)
+        } else {
+            magazines _corpse
+        };
+
         {
             _unit addMagazine _x;
-        } forEach magazines _corpse;
-        
+        } forEach _magazines;
+
+        _weapons = if !(isNil QMODULE(gear)) then {
+            [
+                weapons _corpse,
+                "weapon",
+                "restored"
+            ] call FUNC(gear,items)
+        } else {
+            weapons _corpse
+        };
+
         {
-            if !([_x, "EvMap"] call BIS_fnc_areEqual) then {
-                _unit addWeapon _x;
-            };
-        } forEach weapons _corpse;
+            _unit addWeapon _x;
+        } forEach _weapons;
         
         _unit selectWeapon (primaryWeapon _unit);
     };

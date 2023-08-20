@@ -1,19 +1,28 @@
 #define THIS_MODULE loadout
 #include "x_macros.sqf"
-private ["_weapons"];
+private ["_weapons", "_magazines"];
 
-_weapons = switch (true) do {
-    case !(isNil QMODULE(item)): {
-        [weapons player] __submodulePP(item);
-    };
+_weapons = if !(isNil QMODULE(gear)) then {
+    [
+        weapons player,
+        "weapon",
+        "saved"
+    ] call FUNC(gear,items)
+} else {
+    weapons player
+};
 
-    default {
-        weapons player
-    };
+_magazines = if !(isNil QMODULE(gear)) then {
+    [
+        magazines player,
+        "magazine"
+    ] call FUNC(gear,items)
+} else {
+    magazines player
 };
 
 GVAR(loadout) = [
     _weapons,
-    magazines player,
+    _magazines,
     typeOf (unitBackpack player)
 ];
