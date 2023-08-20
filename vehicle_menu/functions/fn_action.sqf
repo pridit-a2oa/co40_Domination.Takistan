@@ -128,6 +128,14 @@ _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else
         };
     };
 
+    if !(isNil QMODULE(setting)) then {
+        case "respawn": {
+            player setVariable [QGVAR(respawn_type), _lbData select 1];
+
+            true
+        };
+    };
+
     if !(isNil QMODULE(vehicle_ramp)) then {
         case "ramp": {
             [_vehicle] call FUNC(vehicle_ramp,toggle);

@@ -53,6 +53,12 @@ if (!isNil QMODULE(vehicle_ramp)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_ramp)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(setting)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
+        [_valid, [_vehicle] __submodulePP(setting)] call BIS_fnc_arrayPush;
+    };
+};
+
 if (!isNil QMODULE(vehicle_refuel)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_refuel)] call BIS_fnc_arrayPush;
 };
