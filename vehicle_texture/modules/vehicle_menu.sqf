@@ -4,42 +4,41 @@
 
 #define THIS_MODULE vehicle_texture
 #include "x_macros.sqf"
-private ["_vehicle", "_type", "_textures", "_name"];
+private ["_vehicle", "_type", "_textures", "_options", "_name", "_texture", "_addon"];
 
 PARAMS_1(_vehicle);
 
-disableSerialization;
+_type = [GVAR(vehicle_texture_types), typeOf _vehicle] call BIS_fnc_findNestedElement;
 
-_type = [_vehicle] call FUNC(THIS_MODULE,type);
+if ([_type, []] call BIS_fnc_areEqual) exitWith {false};
 
-if (typeName _type == "SCALAR") exitWith {false};
-
-_textures = ([_vehicle] call FUNC(THIS_MODULE,find)) select 0;
-
-{
-    if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {
-        _textures set [_forEachIndex, _x select 0];
-    };
-} forEach _textures;
+_textures = [_vehicle] call FUNC(THIS_MODULE,textures);
 
 if (count _textures < 2) exitWith {false};
 
+_options = [_textures select 1] call FUNC(THIS_MODULE,options);
+
 _name = _vehicle getVariable QGVAR(texture);
+
+_texture = ((GVAR(vehicle_texture_types) select (_textures select 0)) select 1) select (_options find (_name select 0));
+
+_addon = [_texture select 0] call FUNC(THIS_MODULE,addon);
 
 [
     format [
-        "Texture: %1 (%2/%3)",
-        _name,
-        (_textures find _name) + 1,
-        count _textures
+        "Texture: %1%2 (%3/%4)",
+        _name select 0,
+        if !(_addon) then {"*"} else {""},
+        (_options find (_name select 0)) + 1,
+        count (_textures select 1)
     ],
     "texture"
 ] call FUNC(vehicle_menu,populate);
 
-if ([_name, "*"] call KRON_StrInStr) then {
+if !(_addon) then {
     DIALOG("X_VEHICLE_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
         "<t size='0.9'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
-        "* Requires addon"
+        format ["* Requires missing addon: @%1", _name select 1]
     ];
 };
 

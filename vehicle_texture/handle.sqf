@@ -12,7 +12,7 @@ _types = GVAR(vehicle_texture_types);
     private ["_type", "_textures"];
 
     _type = (_types select _forEachIndex) select 0;
-    
+
     _textures = [
         ["Default", [_type] call FUNC(THIS_MODULE,default)]
     ];

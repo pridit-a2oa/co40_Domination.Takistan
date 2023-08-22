@@ -1,13 +1,16 @@
 #include "x_macros.sqf"
-private ["_vehicle", "_types", "_type"];
+private ["_type"];
 
-PARAMS_1(_vehicle);
+PARAMS_1(_type);
 
-_types = GVAR(vehicle_texture_types);
-_type = ([0, _types] call FUNC(common,arrayValues)) find (typeOf _vehicle);
+_type = switch (typeName _type) do {
+    case "ARRAY": {
+        [_type select 0, (_type select 1) select 0]
+    };
 
-if (_type != -1) then {
-    _type = _types select _type;
+    case "STRING": {
+        [_type]
+    };
 };
 
 _type
