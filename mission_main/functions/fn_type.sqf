@@ -27,10 +27,16 @@ switch (_type) do {
                     _camp,
                     [
                         ["BMP2_TK_EP1", "Igla_AA_pod_TK_EP1"],
+                        ["FoldChair"],
+                        ["FoldTable"],
+                        ["Fort_Crate_wood"],
+                        ["Garbage_can"],
                         ["Land_BagFenceEnd"],
                         ["Land_BagFenceLong", "Land_fort_bagfence_long"],
                         ["Land_BagFenceShort"],
-                        ["Paleta2"]
+                        ["Land_Ind_BoardsPack2"],
+                        ["Paleta2"],
+                        ["TKBasicWeapons_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
                 

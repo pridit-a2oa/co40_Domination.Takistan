@@ -9,7 +9,7 @@
 GVAR(item_evidence_type) = ["Evidence", "EvMap", "Fort_Crate_wood"];
 
 // Chance the item spawns on a parent object
-GVAR(item_evidence_chance) = 5;
+GVAR(item_evidence_chance) = 8;
 
 // Score to reward when delivered
 GVAR(item_evidence_score) = 10;

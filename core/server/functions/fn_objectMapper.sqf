@@ -123,6 +123,18 @@ _multiplyMatrixFunc = {
     _result
 };
 
+if !(isNil QMODULE(tent)) then {
+    {
+        private ["_tent"];
+
+        _tent = _x call FUNC(tent,handle);
+
+        if (count _tent > 0) then {
+            [_objs, _tent] call BIS_fnc_arrayPushStack;
+        };
+    } forEach _objs;
+};
+
 {
     private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
     
