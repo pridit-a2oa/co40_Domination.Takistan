@@ -16,11 +16,6 @@ GVAR(vehicle_texture_types) = [
             "\sti_a10\black\a10_02_co_black"
         ]],
 
-        [["Grey", ["STI_A10", isClass (configFile >> "CfgFactionClasses" >> "STI_A10")]], [
-            "\sti_a10\grey\a10_01_co",
-            "\sti_a10\grey\a10_02_co"
-        ]],
-
         [["Green", ["STI_A10", isClass (configFile >> "CfgFactionClasses" >> "STI_A10")]], [
             "\sti_a10\green\a10_01_co_green",
             "\sti_a10\green\a10_02_co_green"
