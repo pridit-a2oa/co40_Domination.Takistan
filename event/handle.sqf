@@ -10,7 +10,7 @@ if (isServer) then {
             _capacity = call compile format ["d_%1_%2_positions", QUOTE(THIS_MODULE), _x];
 
             for "_i" from 1 to (_amount min (count _capacity)) do {
-                sleep 10;
+                sleep 3;
 
                 [_x] call FUNC(THIS_MODULE,create);
             };

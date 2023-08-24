@@ -58,7 +58,11 @@ _location setVariable [QGVAR(units), _target select 2];
 
         [_position, (_objects + _units)] spawn FUNC(THIS_MODULE,cleanup);
 
-        [_type, true] spawn FUNC(THIS_MODULE,create);
+        _type spawn {
+            sleep GVAR(event_time_delay);
+
+            [_this, true] spawn FUNC(THIS_MODULE,create);
+        };
     }];
 } forEach (_target select 2);
 
