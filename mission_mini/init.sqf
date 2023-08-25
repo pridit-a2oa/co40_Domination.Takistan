@@ -14,7 +14,7 @@
 GVAR(mission_mini_types) = [];
 
 // The min & max distance from base a mini mission can generate between
-GVAR(mission_mini_distance_base) = [1100, 2100];
+GVAR(mission_mini_distance_base) = [1100, 2300];
 
 // Amount of time following completion to clean up remaining entities
 GVAR(mission_mini_time_cleanup) = 300;
@@ -25,6 +25,7 @@ if (isServer) then {
 
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
+__cppfln(FUNC(THIS_MODULE,composition),THIS_MODULE\functions\fn_composition.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 
 MODULE(THIS_MODULE) = true;

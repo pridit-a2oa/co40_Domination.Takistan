@@ -9,10 +9,6 @@ if (hasInterface) then {
     BIS_MENU_GroupCommunication = [
         ["Options", false]
     ];
-
-    if (!isNil QMODULE(admin)) then {
-        __submodulePP(admin);
-    };
     
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
@@ -33,8 +29,20 @@ if (hasInterface) then {
     if (!isNil QMODULE(squad)) then {
         __submodulePP(squad);
     };
-    
+
+    if (!isNil QMODULE(vote)) then {
+        __submodulePP(vote);
+    };
+
+    BIS_MENU_GroupCommunication = BIS_MENU_GroupCommunication + [
+        ["", [(count BIS_MENU_GroupCommunication) + 1], "", -1, [["expression", ""]], "1", "1"]
+    ];
+
     if (!isNil QMODULE(setting)) then {
         __submodulePP(setting);
+    };
+
+    if (!isNil QMODULE(admin)) then {
+        __submodulePP(admin);
     };
 };

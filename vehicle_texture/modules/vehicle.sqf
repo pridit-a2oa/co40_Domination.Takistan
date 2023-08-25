@@ -8,23 +8,24 @@ private ["_vehicle", "_type"];
 
 PARAMS_1(_vehicle);
 
-_type = [_vehicle] call FUNC(THIS_MODULE,type);
+_type = [GVAR(vehicle_texture_types), typeOf _vehicle] call BIS_fnc_findNestedElement;
 
-if ([typeName _type, "SCALAR"] call BIS_fnc_areEqual) exitWith {};
+if ([_type, []] call BIS_fnc_areEqual) exitWith {};
 
 if (isServer) then {
-    private ["_type", "_texture"];
-
-    _type = ([0, GVAR(vehicle_texture_types)] call FUNC(common,arrayValues)) find (typeOf _vehicle);
-
-    _texture = ((GVAR(vehicle_texture_types) select _type) select 1) select 0;
-    _texture = if ([typeName _texture, "ARRAY"] call BIS_fnc_areEqual) then {_texture select 0} else {_texture};
-
-    _vehicle setVariable [QGVAR(texture), _texture, true];
+    _vehicle setVariable [
+        QGVAR(texture),
+        [(((GVAR(vehicle_texture_types) select (_type select 0)) select 1) select 0) select 0],
+        true
+    ];
 };
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {_vehicle getVariable QGVAR(texture)}};
+    waitUntil {
+        sleep 0.1;
+        
+        !isNil {_vehicle getVariable QGVAR(texture)}
+    };
 
     [_vehicle] call FUNC(THIS_MODULE,switch);
 };

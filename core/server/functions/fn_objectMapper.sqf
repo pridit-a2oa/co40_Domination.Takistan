@@ -34,7 +34,7 @@ private ["_cfgObjectComps", "_script"];
 
 _cfgObjectComps = configFile >> "CfgObjectCompositions";
 
-if ((typeName _objs) == (typeName "")) then {
+if ([typeName _objs, "STRING"] call BIS_fnc_areEqual) then {
     //Composition class was given
     _script = getText(_cfgObjectComps >> _objs >> "objectScript");
     
@@ -43,8 +43,8 @@ if ((typeName _objs) == (typeName "")) then {
     private ["_testSample"];
     
     _testSample = _objs select 0;
-    
-    if ((typeName _testSample) != (typeName [])) then {
+
+    if !([typeName _testSample, "ARRAY"] call BIS_fnc_areEqual) then {
         // Tag list was given
         private ["_queryTags"];
         
@@ -63,7 +63,7 @@ if ((typeName _objs) == (typeName "")) then {
             _candidateTags = getArray (_candidate >> "tags");
             
             // Are all tags in this candidate?
-            if (({_x in _candidateTags} count _queryTags) == (count _queryTags)) then {
+            if ([{_x in _candidateTags} count _queryTags, count _queryTags] call BIS_fnc_areEqual) then {
                 _candidates = _candidates + [getText (_candidate >> "objectScript")];
             };
         };
@@ -123,6 +123,18 @@ _multiplyMatrixFunc = {
     _result
 };
 
+if !(isNil QMODULE(tent)) then {
+    {
+        private ["_tent"];
+
+        _tent = _x call FUNC(tent,handle);
+
+        if (count _tent > 0) then {
+            [_objs, _tent] call BIS_fnc_arrayPushStack;
+        };
+    } forEach _objs;
+};
+
 {
     private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
     
@@ -141,46 +153,62 @@ _multiplyMatrixFunc = {
             [cos _azi, sin _azi],
             [-(sin _azi), cos _azi]
         ];
+
+        if (_relPos select 2 > 0.5 && {[_type, "Fort_Crate_wood"] call BIS_fnc_areEqual}) exitWith {};
         
         _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
-
-        // Backwards compatability causes for height to be optional
-        private ["_z"];
-        
-        if ((count _relPos) > 2) then {_z = _relPos select 2} else {_z = 0};
-
-        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+        _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), 0];
 
         // Create the object and make sure it's in the correct location
-        _newObj = createVehicle [_type, _newPos, [], 0, "NONE"];
+        _newObj = createVehicle [_type, _newPos, [], 0, "CAN_COLLIDE"];
         _newObj setDir (_azi + _azimuth);
         _newObj setPos _newPos;
 
-        if ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual) then {
-            _newObj animate ["bargate", 1];
+        switch (true) do {
+            case (_newObj isKindOf "StaticWeapon"): {
+                _newObj addMPEventHandler ["MPKilled", {
+                    private ["_unit", "_killer"];
+
+                    PARAMS_2(_unit, _killer);
+
+                    if !(isServer) exitWith {};
+                    if !(isPlayer _killer) exitWith {};
+                    if ([side _unit, west] call BIS_fnc_areEqual) exitWith {};
+
+                    _killer addScore -2;
+                }];
+            };
+
+            case (_newObj isKindOf "Thing"): {
+                [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
+            };
+
+            case ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual): {
+                _newObj animate ["bargate", 1];
+            };
         };
 
-        if (_newObj isKindOf "Thing") then {
-            [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
-        };
-
-        if !(isNil QMODULE(intel)) then {            
+        if !(isNil QMODULE(item)) then {            
             {
                 [_newObjs, _x] call BIS_fnc_arrayPush;
-            } forEach ([_newObj] call FUNC(intel,create));
+            } forEach ([_newObj] call FUNC(item,create));
         };
         
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
 
-        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {           
-            if (faction _newObj == "BIS_US") exitWith {
+        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {        
+            if ([faction _newObj, "BIS_US"] call BIS_fnc_areEqual) then {
                 _newObj lock true;
                 _newObj allowCrewInImmobile true;
             
                 _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
                 _newObj addEventHandler ["HandleDamage", {0}];
+
+                if !(isNil QMODULE(vehicle_menu)) then {
+                    _newObj setVariable [QGVAR(menu), false, true];
+                };
             };
 
             [true, "execVM", [[_newObj], FUNCTION(vehicle,handle)], false] call FUNC(network,mp);

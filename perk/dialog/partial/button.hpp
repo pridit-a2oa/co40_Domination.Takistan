@@ -85,7 +85,7 @@ class PerkButton_General_9: XD_LinkButtonUpgradeBase
     y = 0.225;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Save loadout (excl. backpack contents)";
+    tooltip = "Save loadout (excluding backpack contents)";
     action = "[0,9] call d_fnc_perk_clicked";
 };
 class PerkButton_General_10: XD_LinkButtonUpgradeBase

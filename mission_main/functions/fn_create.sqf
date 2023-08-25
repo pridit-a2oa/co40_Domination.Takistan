@@ -50,7 +50,7 @@ if !(isNil QMODULE(conversation)) then {
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "NewTarget"],
         [
-            ["Town", {}, _name, [[_name] call FUNC(THIS_MODULE,name)]]
+            ["Location", {}, _name, [[_name] call FUNC(conversation,location)]]
         ]
     ] call FUNC(conversation,radio);
 

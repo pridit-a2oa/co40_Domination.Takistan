@@ -6,6 +6,10 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
+    if (!isNil QMODULE(vote)) then {
+        __submodulePP(vote);
+    };
+
     if (!isNil QMODULE(base_wreck)) then {
         __submodulePP(base_wreck);
     };
@@ -61,6 +65,10 @@ if (hasInterface) then {
         if !(isNil QMODULE(mission_main)) then {"<br />The flag generated from completion of main targets <marker name=''>cannot</marker> be used to HALO jump - this is a base facility."} else {""}
     ]] call FUNC(THIS_MODULE,create);
 
+    if (!isNil QMODULE(event)) then {
+        __submodulePP(event);
+    };
+    
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
     };

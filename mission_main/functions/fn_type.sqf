@@ -26,7 +26,17 @@ switch (_type) do {
                     if (count _roads > 0) then {([_roads select 0, _position] call BIS_fnc_dirTo) - 90} else {random 360},
                     _camp,
                     [
-                        ["BMP2_TK_EP1", "Igla_AA_pod_TK_EP1"]
+                        ["BMP2_TK_EP1", "Igla_AA_pod_TK_EP1"],
+                        ["FoldChair"],
+                        ["FoldTable"],
+                        ["Fort_Crate_wood"],
+                        ["Garbage_can"],
+                        ["Land_BagFenceEnd"],
+                        ["Land_BagFenceLong", "Land_fort_bagfence_long"],
+                        ["Land_BagFenceShort"],
+                        ["Land_Ind_BoardsPack2"],
+                        ["Paleta2"],
+                        ["TKBasicWeapons_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
                 
@@ -182,7 +192,10 @@ switch (_type) do {
                 _objects = [
                     _position,
                     random 360,
-                    _x select 0
+                    _x select 0,
+                    [
+                        ["TKLaunchers_EP1"]
+                    ]
                 ] call FUNC(server,objectMapper);
                 
                 _group = [

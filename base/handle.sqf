@@ -26,9 +26,7 @@ if (isServer) then {
                 markerPos _marker,
                 0,
                 [_x select 1, "us_army"],
-                [
-                    _x select 2
-                ]
+                _x select 2
             ] call FUNC(server,objectMapper);
             
             _group = [
@@ -45,7 +43,10 @@ if (isServer) then {
         [
             "base_radar",
             "radar",
-            ["76n6ClamShell_EP1", "US_WarfareBAntiAirRadar_EP1"]
+            [
+                ["76n6ClamShell_EP1", "US_WarfareBAntiAirRadar_EP1"],
+                ["Paleta1"]
+            ]
         ], [
             "base_anti_air",
             "anti-air",

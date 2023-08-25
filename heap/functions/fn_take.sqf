@@ -1,17 +1,29 @@
+#define THIS_MODULE heap
 #include "x_macros.sqf"
-private ["_secondary", "_animation"];
+private ["_weapon", "_position"];
 
-_secondary = secondaryWeapon player;
+if !([speed player, 0] call BIS_fnc_areEqual) exitWith {};
 
-if !([_secondary, ""] call BIS_fnc_areEqual) then {
-    player action ["dropWeapon", player, _secondary];
-    
-    sleep 0.1;
-    
-    _animation = animationState player;
-    
-    waitUntil {sleep 0.1; !([animationState player, _animation] call BIS_fnc_areEqual)};
+_weapon = [primaryWeapon player] call FUNC(THIS_MODULE,valid);
+
+if !([_weapon, ""] call BIS_fnc_areEqual) then {
+    player action ["dropWeapon", player, _weapon];
+
+    {
+        deleteVehicle _x;
+    } forEach (nearestObjects [player, ["WeaponHolder"], 1]);
+
+    _position = position player;
+
+    waitUntil {
+        sleep 0.1;
+
+        player distance (nearestObject [player, "WeaponHolder"]) < 0.8 || {player distance _position > 0.5}
+    };
 };
+
+if !([player] call FUNC(common,ready)) exitWith {};
+if !([[primaryWeapon player] call FUNC(THIS_MODULE,valid), ""] call BIS_fnc_areEqual) exitWith {};
 
 removeBackpack player;
 

@@ -24,17 +24,13 @@
     enableEngineArtillery ((str player) in GVAR(artillery));
     
     [100] call FUNC(THIS_MODULE,reveal);
-    
+
     {
-        {
-            if !(_x isKindOf "Wreck") then {
-                _x addEventHandler ["HandleDamage", {0}];
-                _x enableSimulation false;
-            };
-        } forEach _x;
-    } forEach [
-        (allMissionObjects "Thing")
-    ];
+        if !(_x isKindOf "Wreck") then {
+            _x addEventHandler ["HandleDamage", {0}];
+            _x enableSimulation false;
+        };
+    } forEach (allMissionObjects "Thing");
 
     [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
 };
@@ -60,27 +56,29 @@ if (!isNil QMODULE(vehicle)) then {
         };
         
         ["init_vehicles", {
+            ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame);
+
             {
                 [_x] spawn FUNC(vehicle,handle);
-            } forEach vehicles;
-
-            ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame)
+            } forEach call FUNC(common,vehicles);
         }, 0] call FUNC(THIS_MODULE,addPerFrame);
     };
 };
 
 if (isMultiplayer) then {
     ["init_actions", {
+        ["init_actions"] call FUNC(THIS_MODULE,removePerFrame);
+
         {
-            if (_x != player) then {
-                if (!isNil QMODULE(inventory)) then {
-                    if (!isNil QMODULE(medical)) then {
-                        _x addAction GVAR(medical_player_action);
-                    };
-                    
-                    if (!isNil QMODULE(vehicle_repair)) then {
-                        _x addAction GVAR(vehicle_repair_player_action);
-                    };
+            private ["_unit"];
+
+            _unit = _x;
+
+            if !([_x, player] call BIS_fnc_areEqual) then {
+                if !(isNil QMODULE(inventory)) then {
+                    {
+                        _unit addAction _x;
+                    } forEach GVAR(inventory_type_actions);
                 };
                 
                 if (!isNil QMODULE(revive)) then {
@@ -103,13 +101,13 @@ if (isMultiplayer) then {
                 };
             };
         } forEach playableUnits;
-
-        ["init_actions"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
+        ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame);
+        
         private ["_type"];
         
         _type = [faction player] call FUNC(ammobox,type);
@@ -119,8 +117,6 @@ if (!isNil QMODULE(ammobox)) then {
                 [_x] call FUNC(ammobox,handle);
             } forEach (allMissionObjects (_type select 1));
         };
-
-        ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame)
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
@@ -160,10 +156,10 @@ player addEventHandler ["HandleDamage", {
         _incurred = 0;
         _new_damage = 0;
 
-        _damage = (switch (true) do {
+        _damage = switch (true) do {
             case ([_unit, vehicle _unit] call BIS_fnc_areEqual && {_unit getVariable QGVAR(reduced_foot) && {_injurer isKindOf "CAManBase"}}): {_damage * 0.4};
             default {_damage * 0.8};
-        });
+        };
         
         _config = configFile >> "cfgVehicles" >> (typeOf _unit);
         
@@ -309,7 +305,7 @@ player addEventHandler ["respawn", {
         _backpack = unitBackpack _corpse;
         
         if !(isNull _backpack) then {
-            if ({[_x select 0, "EvMap"] call BIS_fnc_areEqual} count (getWeaponCargo _backpack) > 0) then {
+            if (!isNil QMODULE(item) && {{(_x select 0) in ([1, GVAR(item_types)] call FUNC(common,arrayValues))} count (getWeaponCargo _backpack) > 0}) then {
                 clearWeaponCargo _backpack;
             };
 
@@ -326,15 +322,34 @@ player addEventHandler ["respawn", {
     if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) then {
         call FUNC(loadout,restore);
     } else {
+        private ["_magazines", "_weapons"];
+
+        _magazines = if !(isNil QMODULE(gear)) then {
+            [
+                magazines _corpse,
+                "magazine"
+            ] call FUNC(gear,items)
+        } else {
+            magazines _corpse
+        };
+
         {
             _unit addMagazine _x;
-        } forEach magazines _corpse;
-        
+        } forEach _magazines;
+
+        _weapons = if !(isNil QMODULE(gear)) then {
+            [
+                weapons _corpse,
+                "weapon",
+                "restored"
+            ] call FUNC(gear,items)
+        } else {
+            weapons _corpse
+        };
+
         {
-            if !([_x, "EvMap"] call BIS_fnc_areEqual) then {
-                _unit addWeapon _x;
-            };
-        } forEach weapons _corpse;
+            _unit addWeapon _x;
+        } forEach _weapons;
         
         _unit selectWeapon (primaryWeapon _unit);
     };

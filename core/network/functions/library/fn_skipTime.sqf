@@ -1,0 +1,1 @@
+skipTime (((_this select 1) - dayTime + 24) % 24);

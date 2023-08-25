@@ -50,6 +50,8 @@ switch (_state) do {
                 (direction _this) - 90,
                 "SmallBase_EP1",
                 [
+                    ["FoldChair"],
+                    ["FoldTable"],
                     ["Land_CamoNetVar_NATO_EP1", "MtvrRepair_DES_EP1"],
                     ["Paleta2", "FlagCarrierUSA_EP1"]
                 ]

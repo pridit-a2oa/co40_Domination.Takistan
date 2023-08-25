@@ -29,7 +29,7 @@ _roles = [0, GVAR(perk_type_roles)] call FUNC(common,arrayValues);
             DIALOG("X_PERK_DIALOG", 500 + _column) ctrlSetText "\ca\ui\data\icon_task_ca";
             
             for "_i" from 1 to 5 do {
-                if (_points < 1 && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
+                if (_points < 1 && ({!isNil QMODULE(admin) && {!(__submodulePP(admin))} || {isNil QMODULE(admin)}})) exitWith {};
                 
                 DIALOG("X_PERK_DIALOG", 200 + (_column * 10) + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
                 

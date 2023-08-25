@@ -6,13 +6,9 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    if (!isNil QMODULE(inventory)) then {
-        __submodulePP(inventory);
-    };
-
     if (GVAR(medics) find (str(player)) == -1) then {
         player addAction [
-            "Use Medkit" call FUNC(common,BlueText),
+            "Use Medkit" call FUNC(common,KhakiText),
             __function(heal),
             [],
             9,

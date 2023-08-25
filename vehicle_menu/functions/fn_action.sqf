@@ -6,19 +6,18 @@ disableSerialization;
 
 _vehicle = GVAR(vehicle_dialog);
 
-if (!alive _vehicle) exitWith {};
+if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {closeDialog 0};
 
 _menu = DIALOG("X_VEHICLE_MENU_DIALOG", 1500);
 
 _lbCurSel = lbCurSel _menu;
+
+if ([_lbCurSel, -1] call BIS_fnc_areEqual) exitWith {closeDialog 0};
+
 _lbData = _menu lbData _lbCurSel;
 _lbData = if ([_lbData, "["] call KRON_StrInStr) then {call compile _lbData} else {_lbData};
 
-if (_lbCurSel == -1 || {player distance _vehicle > 10} || {!(simulationEnabled _vehicle)}) exitWith {
-    closeDialog 0;
-};
-
-_refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
+_refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else {_lbData}) do {
     if !(isNil QMODULE(vehicle_ammobox)) then {
         case "ammobox": {
             private ["_ammobox"];
@@ -34,6 +33,16 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
             };
 
             !([_vehicle] call FUNC(vehicle_ammobox,load));
+        };
+    };
+
+    if !(isNil QMODULE(vehicle_bomber)) then {
+        case "bomber": {
+            closeDialog 0;
+
+            [_vehicle] spawn FUNC(vehicle_bomber,intel);
+
+            false
         };
     };
 
@@ -119,6 +128,14 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
         };
     };
 
+    if !(isNil QMODULE(setting)) then {
+        case "respawn": {
+            player setVariable [QGVAR(respawn_type), _lbData select 1];
+
+            true
+        };
+    };
+
     if !(isNil QMODULE(vehicle_ramp)) then {
         case "ramp": {
             [_vehicle] call FUNC(vehicle_ramp,toggle);
@@ -172,9 +189,9 @@ _refresh = (switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} els
             true
         };
     };
-});
+};
 
-// Refresh dialog for all clients (excl. actioning player) with it open
+// Refresh dialog for all clients (except actioning player) with it open
 [true, "spawn", [[player, _vehicle], {
     private ["_unit", "_vehicle"];
     

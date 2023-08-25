@@ -24,6 +24,7 @@ GVAR(server_objects_banned) = [
     "Land_CamoNetB_NATO_EP1",
     "Land_CamoNetVar_EAST_EP1",
     "Land_coneLight",
+    "MetalBucket",
     "RoadCone",
     "TKVehicleBox_EP1",
     "UAZ_Unarmed_TK_EP1",
@@ -58,7 +59,7 @@ east setFriend [resistance, 0.1];
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
 
-if (isDedicated) then {
+if (isServer) then {
     onPlayerConnected {
         if (_name == "__SERVER__") exitWith {};
         
@@ -68,6 +69,14 @@ if (isDedicated) then {
     onPlayerDisconnected {
         __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
+        if !(isNil QMODULE(vote)) then {
+            _uid spawn {
+                sleep 1;
+
+                [_this] call FUNC(vote,delete);
+            };
+        };
+
         {
             if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
                 [true, "switchMove", [_x, ""]] call FUNC(network,mp);
@@ -76,7 +85,7 @@ if (isDedicated) then {
                     _x addScore -10;
 
                     [true, "systemChat", format [
-                        "%1 has lost score for disconnecting while dead/unconscious",
+                        "%1 has lost score for disconnecting while dead/incapacitated",
                         _name
                     ]] call FUNC(network,mp);
                 };

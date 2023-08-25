@@ -4,8 +4,10 @@ if (isMultiplayer) exitWith {
     _players = [];
 
     {
-        [_players, _x] call BIS_fnc_arrayPush;
-    } forEach (call BIS_fnc_listPlayers);
+        if (isPlayer _x && {!([_x, objNull] call BIS_fnc_areEqual)}) then {
+            [_players, _x] call BIS_fnc_arrayPush;
+        };
+    } forEach (call BIS_fnc_listPlayers + allDead);
 
     _players
 };

@@ -1,0 +1,88 @@
+class FSM
+{
+  fsmName = "Civilian";
+  class States
+  {
+    class Start
+    {
+      name = "Start";
+      init = "";
+      precondition = "";
+      class Links
+      {
+        class _
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+    class Delay
+    {
+      name = "Delay";
+      init = "_timenow = time + (d_vehicle_bomber_time_spawn / 2);" \n
+       "";
+      precondition = "";
+      class Links
+      {
+        class Delay_7
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="time > _timenow";
+          action="";
+        };
+      };
+    };
+    class Loop
+    {
+      name = "Loop";
+      init = "_timeend = time + d_vehicle_bomber_time_spawn;";
+      precondition = "";
+      class Links
+      {
+        class exists
+        {
+          priority = 3.000000;
+          to="Delay";
+          precondition = "";
+          condition="gameLogic getVariable 'd_bomber'";
+          action="";
+        };
+        class time_____timeend
+        {
+          priority = 0.000000;
+          to="_";
+          precondition = "";
+          condition="time >= _timeend";
+          action="";
+        };
+      };
+    };
+    class _
+    {
+      name = "_";
+      init = "call d_fnc_vehicle_bomber_create;";
+      precondition = "";
+      class Links
+      {
+        class _
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = "";
+          condition="";
+          action="";
+        };
+      };
+    };
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};

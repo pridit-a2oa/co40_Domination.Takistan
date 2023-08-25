@@ -12,5 +12,5 @@
     "- View Distance",
     "<br />To change your preferences for the mission use the context menu and select Options -> Settings.",
     if !(isNil QMODULE(profile)) then {"<br />Options with a green checkbox will <marker name=''>persist</marker> between server restarts and reconnections."} else {""},
-    "<br />You will be <marker name=''>unable</marker> to change settings when unconscious or freefalling."
+    "<br />You will be <marker name=''>unable</marker> to change settings when incapacitated or while freefalling."
 ]] call FUNC(diary,create);

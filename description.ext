@@ -20,6 +20,7 @@ onLoadMissionTime = 0;
 #include "setting\dialog\base.hpp"
 #include "teleport\dialog\base.hpp"
 #include "vehicle_menu\dialog\base.hpp"
+#include "vote\dialog\base.hpp"
 
 class Header
 {
@@ -51,23 +52,12 @@ class RscTitles
     #include "core\client\dialog\titles.hpp"
     #include "reward\dialog\titles.hpp"
     #include "revive\dialog\titles.hpp"
-    #include "vehicle_welcome\dialog\titles.hpp"
 };
 
 class CfgSounds {
     class d_sound_weld
     {
         sound[]     = {"\base_wreck\sounds\weld", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_exclaim
-    {
-        sound[]     = {"\bomber\sounds\exclamation", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_tick
-    {
-        sound[]     = {"\bomber\sounds\tick", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_task
@@ -98,6 +88,16 @@ class CfgSounds {
     class d_sound_box
     {
         sound[]     = {"\vehicle_ammobox\sounds\box", db, 1, 30};
+        titles[]    = {};
+    };
+    class d_sound_exclaim
+    {
+        sound[]     = {"\vehicle_bomber\sounds\exclamation", db, 1, 30};
+        titles[]    = {};
+    };
+    class d_sound_tick
+    {
+        sound[]     = {"\vehicle_bomber\sounds\tick", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_build

@@ -9,19 +9,8 @@
 
 // Vehicles designated with medical capacity
 GVAR(medical_type_vehicles) = [
-    "HMMWV_Ambulance_DES_EP1"
-];
-
-// AddAction parameters that need to apply to existing clients & JIP
-GVAR(medical_player_action) = [
-    "Give Medkit" call FUNC(common,BrownText),
-    FUNCTION(inventory,transfer),
-    "medical",
-    8,
-    false,
-    true,
-    "",
-    "['medical', _target] call d_fnc_inventory_valid && {!(_target getVariable 'd_unconscious')}"
+    "HMMWV_Ambulance_DES_EP1",
+    "M113Ambul_TK_EP1"
 ];
 
 if (hasInterface) then {

@@ -15,7 +15,7 @@ switch (_state) do {
         };
 
         _position = position _vehicle;
-        _location = [_position] call FUNC(common,nearestLocation);
+        _location = text ([_position] call FUNC(common,nearestLocation));
         
         if (hasInterface) then {
             private ["_name"];
@@ -82,9 +82,9 @@ switch (_state) do {
                     [GVAR(crossroad), GVAR(crossroad2)],
                     [QUOTE(THIS_MODULE), "Deployed"],
                     [
-                        ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-                        ["2", {}, toUpper _type, []],
-                        ["3", {}, text _location, []]
+                        ["Vehicle", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
+                        ["Type", {}, toUpper _type, []],
+                        ["Location", {}, _location, [[_location] call FUNC(conversation,location)]]
                     ],
                     true
                 ] call FUNC(conversation,radio);

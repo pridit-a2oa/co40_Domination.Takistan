@@ -10,6 +10,8 @@ createDialog "XD_VehicleMenuDialog";
 
 GVAR(vehicle_dialog) = _vehicle;
 
+DIALOG("X_VEHICLE_MENU_DIALOG", 1700) ctrlEnable false;
+
 DIALOG("X_VEHICLE_MENU_DIALOG", 1000) ctrlSetText format ["%1 Menu", (getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayName"))];
 DIALOG("X_VEHICLE_MENU_DIALOG", 1201) ctrlSetText (getText (configFile >> "cfgVehicles" >> (typeOf _vehicle) >> "picture"));
 
@@ -51,12 +53,22 @@ if (!isNil QMODULE(vehicle_ramp)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_ramp)] call BIS_fnc_arrayPush;
 };
 
+if (!isNil QMODULE(setting)) then {
+    if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
+        [_valid, [_vehicle] __submodulePP(setting)] call BIS_fnc_arrayPush;
+    };
+};
+
 if (!isNil QMODULE(vehicle_refuel)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_refuel)] call BIS_fnc_arrayPush;
 };
 
 if (!isNil QMODULE(vehicle_repair)) then {
     [_valid, [_vehicle] __submodulePP(vehicle_repair)] call BIS_fnc_arrayPush;
+};
+
+if (!isNil QMODULE(vehicle_bomber)) then {
+    [_valid, [_vehicle] __submodulePP(vehicle_bomber)] call BIS_fnc_arrayPush;
 };
 
 if (!isNil QMODULE(vehicle_texture)) then {

@@ -10,11 +10,9 @@ if (isServer) then {
             _capacity = call compile format ["d_%1_%2_positions", QUOTE(THIS_MODULE), _x];
 
             for "_i" from 1 to (_amount min (count _capacity)) do {
-                private ["_target"];
+                sleep 3;
 
-                sleep 10;
-
-                _target = [_x] call FUNC(THIS_MODULE,create);
+                [_x] call FUNC(THIS_MODULE,create);
             };
         } forEach GVAR(event_types);
     };

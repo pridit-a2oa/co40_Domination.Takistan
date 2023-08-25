@@ -34,7 +34,7 @@ _save = [];
     "reward",
     "tutorial",
     "vehicle_loadout",
-    "vehicle_welcome"
+    "vote"
 ];
 
 GVAR(profile_type_save) = GVAR(profile_type_save) + _save;

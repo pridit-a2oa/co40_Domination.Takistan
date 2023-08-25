@@ -12,6 +12,9 @@
 // Valid types
 GVAR(inventory_types) = [];
 
+// Types of actions that will persist
+GVAR(inventory_type_actions) = [];
+
 // Types of items visible within the inventory dialog
 GVAR(inventory_type_visible) = [];
 

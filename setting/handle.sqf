@@ -27,20 +27,16 @@ if (hasInterface) then {
         __submodulePP(reward);
     };
 
+    if (!isNil QMODULE(vote)) then {
+        __submodulePP(vote);
+    };
+
     if (!isNil QMODULE(tutorial)) then {
         __submodulePP(tutorial);
     };
 
     if (!isNil QMODULE(vehicle_loadout)) then {
         __submodulePP(vehicle_loadout);
-    };
-
-    if (!isNil QMODULE(vehicle_welcome)) then {
-        __submodulePP(vehicle_welcome);
-    };
-    
-    if (!isNil QMODULE(video)) then {
-        __submodulePP(video);
     };
 
     {

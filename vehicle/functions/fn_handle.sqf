@@ -4,9 +4,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (_vehicle isKindOf "StaticWeapon") exitWith {};
-if (_vehicle isKindOf "Thing" && {!(_vehicle isKindOf "Wreck")}) exitWith {};
-
 if !(isNil {_vehicle getVariable QGVAR(handled)}) exitWith {};
 
 _vehicle setVariable [QGVAR(handled), true];
@@ -43,10 +40,6 @@ if (isServer) then {
     };
     
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
-
-    if (!isNil QMODULE(base_protection)) then {
-        [_vehicle] __submodulePP(base_protection);
-    };
 
     if (!isNil QMODULE(base_uav)) then {
         [_vehicle] __submodulePP(base_uav);
@@ -122,8 +115,16 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {_vehicle getVariable QGVAR(id)}};
+    waitUntil {
+        sleep 0.1;
+        
+        !isNil {_vehicle getVariable QGVAR(id)}
+    };
 
+    if (!isNil QMODULE(base_protection)) then {
+        [_vehicle] __submodulePP(base_protection);
+    };
+    
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);
     };
@@ -158,10 +159,6 @@ if (hasInterface) then {
     
     if (!isNil QMODULE(vehicle_repair)) then {
         [_vehicle] __submodulePP(vehicle_repair);
-    };
-    
-    if (!isNil QMODULE(vehicle_welcome)) then {
-        [_vehicle] __submodulePP(vehicle_welcome);
     };
 };
 

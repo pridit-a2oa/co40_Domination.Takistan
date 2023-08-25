@@ -16,7 +16,10 @@ call FUNC(THIS_MODULE,hide);
 DIALOG("X_SETTING_DIALOG", 200) ctrlSetText (GVAR(option) select 0);
 
 DIALOG("X_SETTING_DIALOG", 500) ctrlShow true;
-DIALOG("X_SETTING_DIALOG", 500) ctrlSetStructuredText parseText format ["<t size='0.5'>&#160;</t><br/><t size='1' valign='bottom'>%1</t>", GVAR(option) select 2];
+DIALOG("X_SETTING_DIALOG", 500) ctrlSetStructuredText parseText format [
+    "<t size='0.6'>&#160;</t><br/><t size='1' valign='bottom'>%1</t>",
+    GVAR(option) select 2
+];
 
 if (!isNil QMODULE(profile)) then {
     DIALOG("X_SETTING_DIALOG", 700) ctrlSetText "Saves";

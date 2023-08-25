@@ -1,8 +1,10 @@
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
-private ["_mission", "_target", "_name"];
+private ["_type", "_mission", "_target", "_name"];
 
-_mission = GVAR(mission_mini_types) call BIS_fnc_selectRandom;
+PARAMS_1(_type);
+
+_mission = if !(isNil "_type") then {_type} else {GVAR(mission_mini_types) call BIS_fnc_selectRandom};
 
 if ([count _mission, 0] call BIS_fnc_areEqual) exitWith {};
 

@@ -10,7 +10,7 @@ _cooldown = format ["d_%1_%2_time_cooldown", QUOTE(THIS_MODULE), toLower (_name)
 
 _checks = [
     [
-        [_name, "constructed"],
+        [_name, "constructed", "as you have none left"],
         player getVariable (format [QUOTE(%1), _amount]),
         1
     ] call FUNC(helper,greaterThan),

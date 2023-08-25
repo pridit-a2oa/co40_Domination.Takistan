@@ -4,7 +4,7 @@ private ["_name", "_time", "_format"];
 PARAMS_2(_name, _time);
 
 if (time < _time) exitWith {
-    _format = (switch (true) do {
+    _format = switch (true) do {
         case (_time - time > 60): {
             "minutes"
         };
@@ -16,7 +16,7 @@ if (time < _time) exitWith {
         default {
             "second"
         };
-    });
+    };
 
     _time = if ([_format, "minute"] call KRON_StrInStr) then {(_time - time) / 60} else {_time - time};
     

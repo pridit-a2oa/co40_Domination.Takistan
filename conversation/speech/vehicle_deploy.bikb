@@ -1,11 +1,12 @@
 class Sentences 
 {
     class Deployed {
-        text = "%1 has been deployed as a %2 near %3.";
+        text = "%Vehicle has been deployed as a %Type near %Location.";
         speech[] = {};
         class Arguments {
-            class 1 {type = "simple";};
-            class 2 {type = "simple";};
+            class Vehicle {type = "simple";};
+            class Type {type = "simple";};
+            class Location {type = "simple";};
         };
     };
     

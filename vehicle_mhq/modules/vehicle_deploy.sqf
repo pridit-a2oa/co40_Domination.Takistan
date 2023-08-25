@@ -21,7 +21,7 @@ switch (_state) do {
             };
         } forEach GVAR(vehicle_mhq_types_net);
 
-        _position = _vehicle modelToWorld [0.3, 0, 0];
+        _position = _vehicle modelToWorld [0.4, 0, 0];
 
         _camo = createVehicle [_net, [_position select 0, _position select 1, 0.85], [], 0, "CAN_COLLIDE"];
         _camo setDir ((direction _vehicle) - 90);

@@ -67,9 +67,15 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
 
             if (hasInterface && {player distance _vehicle < 10 && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(vehicle_loadout)) select 1, 10] call BIS_fnc_areEqual}}}) then {
                 hintSilent parseText format [
-                    "<br /><t underline='1'>%1</t><br /><br />%2<br />",
+                    "<br /><t underline='1'>%1</t><br /><br />%2<br />%3",
                     _type,
-                    [_new] call FUNC(THIS_MODULE,parse)
+                    [_new] call FUNC(THIS_MODULE,parse),
+                    if !(isNil QMODULE(vehicle_service)) then {
+                        format [
+                            "Use <t color='#a3ae55'>%1 Service</t> to rearm<br /><br />",
+                            [_vehicle] call FUNC(vehicle,kind)
+                        ]
+                    } else {""}
                 ];
             };
         };
