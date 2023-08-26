@@ -1,8 +1,8 @@
 /**
- * Base Module (Handle)
+ * Base Defense Module (Handler)
  */
 
-#define THIS_MODULE base
+#define THIS_MODULE base_defense
 #include "x_macros.sqf"
 
 if (isServer) then {
@@ -34,6 +34,10 @@ if (isServer) then {
                 west,
                 (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Infantry" >> "US_TeamSupport")
             ] call FUNC(server,spawnGroup);
+
+            {
+                _x setCaptive true;
+            } forEach units _group;
             
             if (!isNil QMODULE(unit)) then {
                 [_group, markerPos _marker] call FUNC(unit,defend);
@@ -69,4 +73,4 @@ if (isServer) then {
     {
         _x addEventHandler ["HandleDamage", {0}];
     } forEach (allMissionObjects _x);
-} forEach GVAR(base_types_protected);
+} forEach GVAR(base_defense_types_protected);
