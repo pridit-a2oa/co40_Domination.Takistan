@@ -9,9 +9,9 @@ _groups = [];
 } forEach allGroups;
 
 {
-    private ["_name"];
-
     if (_x in _all) then {
+        private ["_name"];
+
         _name = _x;
         
         {    
@@ -20,6 +20,8 @@ _groups = [];
             };
         } forEach allGroups;
     } else {
+        private ["_group"];
+
         _group = createGroup west;
         
         [true, "setGroupId", [

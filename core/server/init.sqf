@@ -36,6 +36,8 @@ GVAR(server_objects_banned) = [
     "UralRefuel_TK_EP1"
 ];
 
+X_JIPH setVariable [QGVAR(groups), [], true];
+
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
 __cppfln(FUNC(THIS_MODULE,objectId),core\THIS_MODULE\functions\fn_objectId.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),core\THIS_MODULE\functions\fn_objectMapper.sqf);
@@ -59,53 +61,51 @@ east setFriend [resistance, 0.1];
 resistance setFriend [west, 1];
 resistance setFriend [east, 0.1];
 
-if (isServer) then {
-    onPlayerConnected {
-        if (_name == "__SERVER__") exitWith {};
-        
-        __log format ["Player %1 (%2) entered the world", _name, _uid]];
-    };
+onPlayerConnected {
+    if ([_name, "__SERVER__"] call BIS_fnc_areEqual) exitWith {};
+    
+    __log format ["Player %1 (%2) entered the world", _name, _uid]];
+};
 
-    onPlayerDisconnected {
-        __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
+onPlayerDisconnected {
+    __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
-        if !(isNil QMODULE(vote)) then {
-            _uid spawn {
-                sleep 1;
+    if !(isNil QMODULE(vote)) then {
+        _uid spawn {
+            sleep 1;
 
-                [_this] call FUNC(vote,delete);
-            };
+            [_this] call FUNC(vote,delete);
         };
-
-        {
-            if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
-                [true, "switchMove", [_x, ""]] call FUNC(network,mp);
-                
-                if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
-                    _x addScore -10;
-
-                    [true, "systemChat", format [
-                        "%1 has lost score for disconnecting while dead/incapacitated",
-                        _name
-                    ]] call FUNC(network,mp);
-                };
-
-                // _x spawn {
-                //     sleep 1;
-
-                //     [_this] joinSilent grpNull;
-
-                //     if (alive _this) then {
-                //         _this setDamage 1;
-
-                //         sleep 5;
-                //     };
-
-                //     hideBody _this;
-                // };
-            };
-        } forEach (allUnits + allDead);
     };
+
+    {
+        if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
+            [true, "switchMove", [_x, ""]] call FUNC(network,mp);
+            
+            if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
+                _x addScore -10;
+
+                [true, "systemChat", format [
+                    "%1 has lost score for disconnecting while dead/incapacitated",
+                    _name
+                ]] call FUNC(network,mp);
+            };
+
+            // _x spawn {
+            //     sleep 1;
+
+            //     [_this] joinSilent grpNull;
+
+            //     if (alive _this) then {
+            //         _this setDamage 1;
+
+            //         sleep 5;
+            //     };
+
+            //     hideBody _this;
+            // };
+        };
+    } forEach (allUnits + allDead);
 };
 
 MODULE(THIS_MODULE) = true;

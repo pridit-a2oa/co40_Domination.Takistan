@@ -13,9 +13,9 @@ if (!isNil QMODULE(communication)) then {
             BIS_MENU_Squad,
             format ["Join %1", GVAR(group_names) select _forEachIndex],
             if ([str _group, GVAR(group_names) select _forEachIndex] call KRON_StrInStr) then {"0"} else {"1"},
-            format ["[player] joinSilent ((X_JIPH getVariable 'd_groups') select %1); [100] call d_fnc_client_reveal; [(X_JIPH getVariable 'd_groups') select %1] call d_fnc_squad_populate", _forEachIndex]
+            format ["[player] joinSilent ((X_JIPH getVariable 'd_squads') select %1); [100] call d_fnc_client_reveal; [(X_JIPH getVariable 'd_squads') select %1] call d_fnc_squad_populate", _forEachIndex]
         ] call FUNC(communication,add);
-    } forEach (X_JIPH getVariable QGVAR(groups));
+    } forEach (X_JIPH getVariable QGVAR(squads));
     
     [
         BIS_MENU_Squad,

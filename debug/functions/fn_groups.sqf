@@ -37,7 +37,23 @@ while {[GVAR(debug_groups), 1] call BIS_fnc_areEqual} do {
         } forEach units _x;
     } forEach allGroups;
 
-    systemChat format ["DEBUG: %1", count allGroups];
+    hintSilent parseText format [
+        "<br /><t align='left'>&#160;<t underline='1'>Sides</t></t><t align='right'><t underline='1'>Groups</t>&#160;</t><br /><br />%1<br />%2<br />%3<br /><br />",
+        format [
+            "<t align='left'><t color='#5398b6'>&#160;WEST</t>: %1/144</t><t align='right'>Observed: %2&#160;</t>",
+            {[side _x, west] call BIS_fnc_areEqual} count allGroups,
+            count (X_JIPH getVariable QGVAR(groups))
+        ],
+        format [
+            "<t align='left'><t color='#c54a30'>&#160;EAST</t>: %1/144</t><t align='right'>Total: %2&#160;</t>",
+            {[side _x, east] call BIS_fnc_areEqual} count allGroups,
+            count allGroups
+        ],
+        format [
+            "<t align='left'><t color='#f0bfbfbf'>&#160;CIV</t>: %1/144</t>",
+            {[side _x, civilian] call BIS_fnc_areEqual} count allGroups
+        ]
+    ];
 
     sleep 5;
 };
