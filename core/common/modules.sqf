@@ -8,7 +8,6 @@
 GVAR(modules) = [
     "3d",
     "admin",
-    "admin_captive",
     "admin_spectate",
     "airdrop",
     "airtaxi",
@@ -30,7 +29,7 @@ GVAR(modules) = [
     ["construction_mash", "construction\types\mash"],
     ["construction_nest", "construction\types\nest"],
     "conversation",
-    // "debug",
+    "debug",
     "diary",
     "drag",
     "event",

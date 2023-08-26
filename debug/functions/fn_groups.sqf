@@ -1,33 +1,57 @@
+#define THIS_MODULE debug
 #include "x_macros.sqf"
 
-{
-    if ((faction _x) in ["BIS_TK", "BIS_TK_INS"]) then {
-        _x setDamage 1;
-    };
-} forEach allUnits;
-
-{
-    deleteMarker _x;
-} forEach GVAR(markers);
-
-_colors = [
-    "Red", "Green", "Blue", "Yellow", "Orange", "Pink", "Brown", "Khaki"
-];
-
-{
-    _id = _forEachIndex;
-    _color = _colors call BIS_fnc_selectRandom;
-    
+while {[GVAR(debug_groups), 1] call BIS_fnc_areEqual} do {
     {
-        _name = format ["marker%1%2", str _x, _forEachIndex];
-        
-        _marker = createMarker [_name, position _x];
-        _marker setMarkerType "DOT";
-        _marker setMarkerText (str _id);
-        _marker setMarkerColor (format ["Color%1", _color]);
-        
-        GVAR(markers) = GVAR(markers) + [_name];
-    } forEach (units _x);
-} forEach allGroups;
+        deleteMarkerLocal _x;
+    } forEach GVAR(debug_markers);
 
-count allGroups
+    GVAR(debug_markers) resize 0;
+
+    {
+        private ["_id", "_color"];
+
+        _id = _forEachIndex;
+        _color = [
+            "Red",
+            "Green",
+            "Blue",
+            "Yellow",
+            "Orange",
+            "Pink",
+            "Brown",
+            "Khaki"
+        ] call BIS_fnc_selectRandom;
+
+        {
+            private ["_name", "_marker"];
+
+            _name = format ["debug%1%2", str _x, _forEachIndex];
+            
+            _marker = createMarkerLocal [_name, position _x];
+            _marker setMarkerTypeLocal "DOT";
+            _marker setMarkerTextLocal (str _id);
+            _marker setMarkerColorLocal (format ["Color%1", _color]);
+
+            [GVAR(debug_markers), _name] call BIS_fnc_arrayPush;
+        } forEach units _x;
+    } forEach allGroups;
+
+    systemChat format ["DEBUG: %1", count allGroups];
+
+    sleep 5;
+};
+
+{
+    deleteMarkerLocal _x;
+} forEach GVAR(debug_markers);
+
+GVAR(debug_markers) resize 0;
+
+waitUntil {
+    sleep 5;
+
+    [GVAR(debug_groups), 1] call BIS_fnc_areEqual
+};
+
+0 spawn FUNC(THIS_MODULE,groups);
