@@ -62,13 +62,13 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 
                     [
                         _killer,
-                        GVAR(vehicle_bomber_amount_score),
+                        GVAR(vehicle_bomber_amount_score_award),
                         "protecting the base"
                     ] call FUNC(reward,score);
                 };
 
                 case civilian: {
-                    _killer addScore -10;
+                    _killer addScore -GVAR(vehicle_bomber_amount_score_deduct);
 
                     [true, "systemChat", format [
                         "%1 has lost score for killing a civilian",
