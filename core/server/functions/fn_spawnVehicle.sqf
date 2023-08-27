@@ -10,7 +10,7 @@ if (isNil "_direction") then {
     _direction = [_spawn, _position] call BIS_fnc_dirTo;
 };
 
-_vehicle = [_spawn, _direction, _type, east] call BIS_fnc_spawnVehicle;
+_vehicle = [_spawn, _direction, _type, _side] call BIS_fnc_spawnVehicle;
 
 _object = _vehicle select 0;
 _crew = _vehicle select 1;

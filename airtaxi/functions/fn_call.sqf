@@ -69,7 +69,13 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     
     GVAR(air_taxi_type_smoke) createVehicle _position;
     
-    _vehicle = [_position, GVAR(air_taxi_type_aircraft), GVAR(air_taxi_distance_spawn), 400, west] call FUNC(server,spawnVehicle);
+    _vehicle = [
+        _position,
+        GVAR(air_taxi_type_aircraft),
+        GVAR(air_taxi_distance_spawn),
+        400,
+        west
+    ] call FUNC(server,spawnVehicle);
 
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;

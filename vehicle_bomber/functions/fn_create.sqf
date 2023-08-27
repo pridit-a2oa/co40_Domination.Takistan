@@ -10,7 +10,15 @@ gameLogic setVariable [QGVAR(bomber), true, true];
     
     _road = GVAR(vehicle_bomber_roads) call BIS_fnc_selectRandom;
     _direction = [position _road, (markerPos QGVAR(bomber))] call BIS_fnc_dirTo;
-    _vehicle = [position _road, GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
+    
+    _vehicle = [
+        position _road,
+        GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom,
+        5,
+        0,
+        civilian,
+        _direction
+    ] call FUNC(server,spawnVehicle);
     
     _car = _vehicle select 0;
     _crew = _vehicle select 1;
