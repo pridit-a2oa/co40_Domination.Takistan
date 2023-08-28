@@ -11,8 +11,7 @@ GVAR(repairing) = true;
 if ([[true, 2, QGVAR(sound_repair)]] call FUNC(client,stall) && {alive _vehicle}) then {
     [_vehicle, "setDamage", switch (true) do {
         case (player getVariable QGVAR(repair_full));
-        case (typeOf _vehicle in ["AH1Z", "Mi24_D_TK_EP1", "MH6J_EP1"]);
-        case ((damage _vehicle) <= 0.33): {
+        case (typeOf _vehicle in ["AH1Z", "Mi24_D_TK_EP1", "MH6J_EP1"]): {
             0
         };
 
