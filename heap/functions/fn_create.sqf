@@ -17,7 +17,7 @@ _heap addAction [
     false,
     true,
     "",
-    "!isNull unitBackpack player && {[player] call d_fnc_common_ready}"
+    "!isNull unitBackpack player && {[] call d_fnc_common_ready}"
 ];
 
 player reveal _heap;

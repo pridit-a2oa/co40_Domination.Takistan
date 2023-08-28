@@ -8,62 +8,44 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 
 GVAR(repairing) = true;
 
-if !(isNil QMODULE(inventory_repair)) then {
-    player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) - 1];
-};
-
-player playMove "AinvPknlMstpSlayWrflDnon_medic";
-
-sleep 2;
-
-if (alive player) then {
-    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
-};
-
-for "_i" from 1 to 3 do {
-    if (!alive player) exitWith {};
-
-    [true, "say3D", [player, QGVAR(sound_repair), 20]] call FUNC(network,mp);
-
-    sleep 2;
-
-    if (!alive _vehicle) exitWith {};
-    
-    if (_i == 3) then {
-        switch (true) do {
-            case (player getVariable QGVAR(repair_full)): {
-                [_vehicle, "setDamage", 0] call FUNC(network,mp);
-            };
-
-            case (typeOf _vehicle in ["AH1Z", "Mi24_D_TK_EP1", "MH6J_EP1"]): {
-                [_vehicle, "setDamage", 0] call FUNC(network,mp);
-            };
-
-            case ((damage _vehicle) <= 0.33): {
-                [_vehicle, "setDamage", 0] call FUNC(network,mp);
-            };
-
-            default {
-                [_vehicle, "setDamage", (damage _vehicle) - 0.33] call FUNC(network,mp);
-            };
+if ([[true, 2, QGVAR(sound_repair)]] call FUNC(client,stall) && {alive _vehicle}) then {
+    [_vehicle, "setDamage", switch (true) do {
+        case (player getVariable QGVAR(repair_full));
+        case (typeOf _vehicle in ["AH1Z", "Mi24_D_TK_EP1", "MH6J_EP1"]);
+        case ((damage _vehicle) <= 0.33): {
+            0
         };
-        
-        [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
 
-        if (_vehicle isKindOf "Helicopter") then {
+        default {
+            ((damage _vehicle) - 0.33) max 0
+        };
+    }] call FUNC(network,mp);
+
+    switch (true) do {
+        case (_vehicle isKindOf "Helicopter"): {
             [_vehicle, "setHit", ["NEtrup", 0]] call FUNC(network,mp);
         };
-        
-        if (_vehicle isKindOf "LandVehicle") then {
-            [_vehicle, "setHit", ["wheel_1_1_steering", 0]] call FUNC(network,mp);
-            [_vehicle, "setHit", ["wheel_1_2_steering", 0]] call FUNC(network,mp);
-            [_vehicle, "setHit", ["wheel_2_1_steering", 0]] call FUNC(network,mp);
-            [_vehicle, "setHit", ["wheel_2_2_steering", 0]] call FUNC(network,mp);
+
+        case (_vehicle isKindOf "LandVehicle"): {
+            {
+                [_vehicle, "setHit", [_x, 0]] call FUNC(network,mp);
+            } forEach [
+                "wheel_1_1_steering",
+                "wheel_1_2_steering",
+                "wheel_2_1_steering",
+                "wheel_2_2_steering"
+            ];
         };
-        
-        if (fuel _vehicle < 0.25) then {
-            [_vehicle, "setFuel", 0.25] call FUNC(network,mp);
-        };
+    };
+
+    [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
+    
+    if (fuel _vehicle < 0.25) then {
+        [_vehicle, "setFuel", 0.25] call FUNC(network,mp);
+    };
+
+    if !(isNil QMODULE(inventory_repair)) then {
+        player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) - 1];
     };
 };
 

@@ -3,22 +3,12 @@ private ["_sound", "_perk"];
 
 GVAR(healing) = true;
 
-if !(isNil QMODULE(inventory_medical)) then {
-    player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) - 1, true];
-};
-
-player playMove "AinvPknlMstpSlayWrflDnon_medic";
-
-sleep 2;
-
-if (alive player) then {
-    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
-};
-
-sleep 5;
-
-if (alive player) then {
+if ([[false], ["AinvPknlMstpSnonWnonDnon_healed_2", ""]] call FUNC(client,stall)) then {
     player setDamage 0;
+
+    if !(isNil QMODULE(inventory_medical)) then {
+        player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) - 1, true];
+    };
 };
 
 GVAR(healing) = false;

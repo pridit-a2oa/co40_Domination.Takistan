@@ -116,7 +116,7 @@ if ([typeName _this, typeName objNull] call BIS_fnc_areEqual) then {
 
         [] spawn {
             _time = time - 0.1;
-            while {[player] call FUNC(common,ready) && {isNil {player getvariable "bis_fnc_halo_terminate"}}} do {
+            while {[] call FUNC(common,ready) && {isNil {player getvariable "bis_fnc_halo_terminate"}}} do {
                 //--- FPS counter
                 _fpsCoef = ((time - _time) * 60) / acctime; //Script is optimized for 60 FPS
                 _time = time;

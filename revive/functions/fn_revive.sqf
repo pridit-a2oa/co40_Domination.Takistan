@@ -7,17 +7,8 @@ PARAMS_2(_target, _caller);
 _target setVariable [QGVAR(reviving), true, true];
 
 if ([_target] call FUNC(THIS_MODULE,valid)) then {
-    player playMove "AinvPknlMstpSlayWrflDnon_medic";
-
-    sleep 2;
-
-    if (!([_target] call FUNC(THIS_MODULE,valid))) exitWith {};
-
-    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
-
-    sleep 5;
-
-    if (!([_target] call FUNC(THIS_MODULE,valid))) exitWith {};
+    if !([] call FUNC(client,stall)) exitWith {};
+    if !([_target] call FUNC(THIS_MODULE,valid)) exitWith {};
 
     _target setDamage (switch (true) do {
         case ((str player) in GVAR(medics)): {0};
