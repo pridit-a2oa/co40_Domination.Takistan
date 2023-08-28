@@ -69,6 +69,8 @@ __ccppfln(core\THIS_MODULE\handlers.sqf);
 };
 
 if (hasInterface) then {
+    3 fadeSound 1;
+
     if (!isNil QMODULE(setting)) then {
         player switchCamera ((player getVariable QGVAR(camera)) select 1);
     };

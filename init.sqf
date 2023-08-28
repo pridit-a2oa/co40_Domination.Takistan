@@ -14,6 +14,8 @@ waitUntil {sleep 0.1; !isNil "bis_fnc_init"};
 waitUntil {sleep 0.1; !isNil "BIS_MPF_InitDone"};
 
 if (hasInterface && {isMultiplayer}) then {
+    0 fadeSound 0;
+
     player enableSimulation false;
 
     0 spawn {
