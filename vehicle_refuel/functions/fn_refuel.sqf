@@ -9,6 +9,8 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 GVAR(refuelling) = true;
 
 if ([[true, 2, QGVAR(sound_refuel)]] call FUNC(client,stall) && {alive _vehicle}) then {
+    if (!isNil QMODULE(inventory_refuel) && {[player getVariable QGVAR(inventory_refuel), 0] call BIS_fnc_areEqual}) exitWith {};
+
     [_vehicle, "setFuel", 1] call FUNC(network,mp);
 
     if !(isNil QMODULE(inventory_refuel)) then {
