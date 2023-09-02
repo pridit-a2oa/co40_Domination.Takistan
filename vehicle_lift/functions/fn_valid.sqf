@@ -4,6 +4,7 @@ private ["_lifter", "_type", "_nearest"];
 
 _lifter = _this select 0;
 
+if !(isNull (_lifter getVariable QGVAR(attached))) exitWith {false};
 if (hasInterface && {!([player, driver _lifter] call BIS_fnc_areEqual)}) exitWith {false};
 
 if (speed _lifter > GVAR(vehicle_lift_speed)) exitWith {false};
