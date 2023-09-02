@@ -17,9 +17,16 @@ if (isServer) then {
     private ["_expression"];
 
     _expression = {
-        if !(isServer) exitWith {};
+        private ["_vehicle"];
 
-        (_this select 0) spawn {
+        PARAMS_1(_vehicle);
+
+        if !(isServer) exitWith {};
+        if (_vehicle getVariable QGVAR(wrecked)) exitWith {};
+
+        _vehicle setVariable [QGVAR(wrecked), true];
+
+        _vehicle spawn {
             while {(position _this) select 2 > 10} do {
                 sleep 1;
             };
@@ -28,8 +35,6 @@ if (isServer) then {
             if (_this distance (markerPos QGVAR(map_zone)) > 9000) then {
                 [_this] call FUNC(vehicle,reset);
             };
-
-            _this setVariable [QGVAR(wrecked), position _this];
         };
     };
 

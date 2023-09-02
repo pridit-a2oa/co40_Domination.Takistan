@@ -1,14 +1,13 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
-private ["_wreck", "_time", "_lifter", "_wrecked", "_spawn", "_type", "_position", "_vehicle"];
+private ["_wreck", "_time", "_lifter", "_spawn", "_type", "_position", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
 
 [_wreck, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
 [_wreck, "setVectorUp", surfaceNormal (position GVAR(base_wreck))] call FUNC(network,mp);
 
-_lifter = _wreck getVariable QGVAR(lifter);
-_wrecked = _wreck getVariable QGVAR(wrecked);
+_lifter = _wreck getVariable QGVAR(lifted);
 _spawn = _wreck getVariable QGVAR(position);
 
 if !(isNil QMODULE(conversation)) then {
@@ -85,38 +84,44 @@ if (!isNil QMODULE(3d)) then {
     }]] call FUNC(network,mp);
 };
 
-_time = _time + call FUNC(common,time);
 
-sleep 1;
+if (!isNil QMODULE(reward) && {!isNil "_lifter"}) then {
+    _lifter spawn {
+        sleep 2;
 
-while {call FUNC(common,time) < _time} do {
-    // remaining time to rebuild is greater than the maximum it could ever be
-    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {
-        __log format ["Time exceeded possible maximum, exiting %1", str [_time, _time - call FUNC(common,time)]]];
+        {
+            if ([getPlayerUID _x, _this select 1] call BIS_fnc_areEqual) exitWith {
+                [
+                    _x,
+                    GVAR(base_wreck_amount_score_rebuild),
+                    "collecting a wreck"
+                ] call FUNC(reward,score);
+            };
+        } forEach (call FUNC(common,players));
     };
-    
-    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
-        _vehicle spawn {
-            sleep (random 10);
-            
-            [true, "say3D", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
-        };
-    };
-    
-    sleep 15;
 };
+
+["Wreck", _vehicle, _time, call FUNC(THIS_MODULE,max)] call FUNC(vehicle,stall);
 
 [_vehicle] call FUNC(THIS_MODULE,rebuilt);
 
 sleep 2;
 
-if (!isNil QMODULE(reward) && {!isNil "_lifter" && {_wrecked distance (markerPos QGVAR(base_south)) > GVAR(base_wreck_distance_score)}}) then {
+if (!isNil QMODULE(reward) && {!isNil "_lifter"}) then {
+    private ["_distance", "_player"];
+
+    _distance = ([1, _lifter select 2] call FUNC(common,arrayValues)) call BIS_fnc_greatestNum;
+
+    _player = [_lifter select 2, _distance] call BIS_fnc_findNestedElement;
+
+    if (_distance < GVAR(base_wreck_distance_score)) exitWith {};
+
     {
-        if ([getPlayerUID _x, _lifter] call BIS_fnc_areEqual) exitWith {
+        if ([getPlayerUID _x, ((_lifter select 2) select (_player select 0)) select 0] call BIS_fnc_areEqual) exitWith {
             [
                 _x,
-                GVAR(base_wreck_amount_score),
-                "rebuilding a wreck"
+                GVAR(base_wreck_amount_score_travel),
+                "retrieving a rebuilt wreck"
             ] call FUNC(reward,score);
         };
     } forEach (call FUNC(common,players));

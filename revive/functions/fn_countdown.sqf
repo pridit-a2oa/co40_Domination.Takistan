@@ -72,6 +72,4 @@ while {player getVariable QGVAR(unconscious) && {alive player}} do {
     sleep 0.1;
 };
 
-3000 cutRsc ["Default", "PLAIN"];
-
-
+3000 cutText ["", "PLAIN"];

@@ -25,14 +25,8 @@ if (!isNil QMODULE(vehicle_marker)) then {
     }]] call FUNC(network,mp);
 };
 
-if (!isNil QMODULE(vehicle_lift)) then {
-    private ["_attached"];
-
-    _attached = _vehicle getVariable QGVAR(attached);
-
-    if (!isNil "_attached" && {!isNull _attached}) then {
-        [_vehicle, "", "", _attached] call FUNC(vehicle_lift,release);
-    };
+if !(isNil QMODULE(vehicle_lift)) then {
+    [_vehicle] call FUNC(vehicle_lift,detach);
 };
 
 {

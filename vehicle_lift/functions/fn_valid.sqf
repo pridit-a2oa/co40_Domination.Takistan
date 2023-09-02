@@ -1,51 +1,26 @@
 #define THIS_MODULE vehicle_lift
 #include "x_macros.sqf"
-private ["_vehicle", "_types", "_alive", "_attached", "_nearest", "_attach", "_attachee", "_action"];
+private ["_lifter", "_type", "_nearest"];
 
-PARAMS_3(_vehicle, _types, _alive);
+_lifter = _this select 0;
 
-_vehicle setVariable [QGVAR(attached), objNull, true];
+if (hasInterface && {!([player, driver _lifter] call BIS_fnc_areEqual)}) exitWith {false};
 
-while {player == driver _vehicle} do {
-    _attach = _vehicle getVariable QGVAR(attach);
-    _attached = _vehicle getVariable QGVAR(attached);
-    
-    if (!isNil "_attach") then {
-        _attachee = _attach select 0;
-        _action = _attach select 1;
-    };
-    
-    if ((position _vehicle) select 2 < 15) then {
-        _nearest = nearestObjects [position _vehicle, _types, 15];
-        _nearest = if (_nearest select 0 != (vehicle player)) then {_nearest select 0} else {_nearest select 1};
-        
-        if (!isNil "_attach") exitWith {
-            // should the nearest vehicle no longer match the one that was
-            // the nearest when the action was added, remove the action
-            if (isNil "_nearest" || {_nearest != _attachee}) exitWith {
-                _vehicle removeAction _action;
-                _vehicle setVariable [QGVAR(attach), nil];
-            };
-        };
-        
-        if (!isNil "_nearest") then {
-            if (locked _nearest) exitWith {};
-            if (_nearest isKindOf "StaticWeapon") exitWith {};
-            if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {};
-            
-            if (isNull _attached && {str (alive _nearest) == str (_alive)} && {{alive _x && {!isPlayer _x}} count crew _nearest < 1}) then {
-                _vehicle setVariable [QGVAR(attach), [
-                    _nearest,
-                    (_vehicle addAction [(format ["Lift %1", [typeOf (_nearest)] call FUNC(vehicle,name)]) call FUNC(common,YellowText), __function(lift), _nearest, 10, false, true, "", "player == driver _target"])
-                ]];
-            };
-        };
-    } else {
-        if (!isNil "_attach") then {
-            _vehicle removeAction _action;
-            _vehicle setVariable [QGVAR(attach), nil];
-        };
-    };
-    
-    sleep 1;
-};
+if (speed _lifter > GVAR(vehicle_lift_speed)) exitWith {false};
+if ((position _lifter) select 2 > GVAR(vehicle_lift_distance)) exitWith {false};
+
+_type = call FUNC(THIS_MODULE,type);
+
+_nearest = (nearestObjects [position _lifter, _type select 0, GVAR(vehicle_lift_distance)]) - [_lifter];
+
+if ([_nearest, []] call BIS_fnc_areEqual) exitWith {false};
+
+_nearest = _nearest select 0;
+
+if (locked _nearest) exitWith {false};
+if (_nearest isKindOf "StaticWeapon") exitWith {false};
+if ({alive _x && {!isPlayer _x}} count crew _nearest > 0) exitWith {false};
+if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {false};
+if !([alive _nearest, _type select 1] call BIS_fnc_areEqual) exitWith {false};
+
+_nearest

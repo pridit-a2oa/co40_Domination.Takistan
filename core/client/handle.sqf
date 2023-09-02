@@ -7,6 +7,8 @@
 
 0 spawn {
     sleep 0.01;
+
+    uiNamespace setVariable [QGVAR(notice), displayNull];
     
     player disableConversation true;
     
