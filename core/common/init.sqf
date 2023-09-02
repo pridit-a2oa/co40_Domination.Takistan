@@ -91,7 +91,7 @@ if (hasInterface) then {
 
             if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
                 "Missing Content" hintC [
-                    "This server is enhanced by content from the base game, Arma 2, which has not been detected as part of your install.",
+                    "This mission is enhanced by content from the base game, Arma 2, which has not been detected as part of your install.",
                     "While this is not a requirement to play, you will experience missing content in the form of some weapons & vehicles.",
                     "If this message has displayed in error, and you can see base Arma 2 vehicles such as the MV-22, please report on Discord."
                 ];
