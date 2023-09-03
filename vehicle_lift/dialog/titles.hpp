@@ -102,5 +102,5 @@ class XD_VehicleLiftDialog {
 			w = 0.116875;
 			h = 0.15;
 		};
-	}
+	};
 };
