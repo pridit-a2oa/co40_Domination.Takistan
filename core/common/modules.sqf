@@ -31,7 +31,7 @@ GVAR(modules) = [
     "conversation",
     "debug",
     "diary",
-    "drag",
+    "drag", // TODO: Refactor (just slight cleanup, re-check #34)
     "event",
     ["event_checkpoint", "event\types\checkpoint"],
     ["event_tower", "event\types\tower"],
@@ -52,7 +52,7 @@ GVAR(modules) = [
     "marker",
     "medical",
     "mission_main",
-    "mission_mini",
+    "mission_mini", // TODO: Refactor (support simultaneous cleanup, derive from event)
     ["mission_mini_abandoned", "mission_mini\types\abandoned"],
     ["mission_mini_cache", "mission_mini\types\cache"],
     ["mission_mini_encampment", "mission_mini\types\encampment"],
@@ -80,7 +80,7 @@ GVAR(modules) = [
     "vehicle_ammobox",
     "vehicle_bomber",
     "vehicle_bonus",
-    "vehicle_cargo",
+    "vehicle_cargo", // TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
     "vehicle_create",
     "vehicle_deploy",
     "vehicle_fob",
@@ -97,7 +97,7 @@ GVAR(modules) = [
     "vehicle_service",
     "vehicle_teleport",
     "vehicle_texture",
-    // "vehicle_tow",
+    // "vehicle_tow", // TODO: Refactor (legacy RE use, buggy actions)
     "vehicle_unflip",
     "vehicle_wreck",
     "vote",

@@ -89,6 +89,7 @@ if (hasInterface) then {
             
             titleText ["", "BLACK IN", 4];
 
+            // TODO: Possible alternative RscDisplayMain -> controlsBackground -> CA_ARMA2?
             if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
                 "Missing Content" hintC [
                     "This mission is enhanced by content from the base game, Arma 2, which has not been detected as part of your install.",
