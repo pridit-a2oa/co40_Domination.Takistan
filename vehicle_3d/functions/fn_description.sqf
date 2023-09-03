@@ -6,6 +6,10 @@ PARAMS_1(_name);
 
 _description = "";
 
+if (!isNil QMODULE(vehicle_ramp) && {!isNil QMODULE(halo)}) then {
+    _description = _description + ([_name] __submodulePP(vehicle_ramp));
+};
+
 if (!isNil QMODULE(vehicle_ammobox)) then {
     _description = _description + ([_name] __submodulePP(vehicle_ammobox));
 };
