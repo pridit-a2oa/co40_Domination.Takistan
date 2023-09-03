@@ -34,7 +34,7 @@ systemChat format ["%1", str _vehicles];
 
     _x setPos [_position select 0, _position select 1, 0];
 
-    [_x, "setVectorUp", surfaceNormal _position] call FUNC(network,mp);
+    [true, "setVectorUp", [_x, surfaceNormal _position]] call FUNC(network,mp);
     [_x, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
 
     if (alive _x) then {

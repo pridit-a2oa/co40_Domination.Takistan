@@ -22,7 +22,7 @@ _offset = [typeOf _tow] call FUNC(vehicle,offsetTow);
 _axis = (_offset select 0) + [0];
 _wheel = (_offset select 1) + [0];
 
-[_tow, "setVectorUp", surfaceNormal (position _tow)] call FUNC(network,mp);
+[true, "setVectorUp", [_tow, surfaceNormal (position _tow)]] call FUNC(network,mp);
 
 _tow setDir (getDir _vehicle);
 

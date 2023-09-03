@@ -5,7 +5,7 @@ private ["_wreck", "_time", "_lifter", "_spawn", "_type", "_position", "_vehicle
 PARAMS_2(_wreck, _time);
 
 [_wreck, "setVelocity", [0, 0, 0]] call FUNC(network,mp);
-[_wreck, "setVectorUp", surfaceNormal (position GVAR(base_wreck))] call FUNC(network,mp);
+[true, "setVectorUp", [_wreck, surfaceNormal (position GVAR(base_wreck))]] call FUNC(network,mp);
 
 _lifter = _wreck getVariable QGVAR(lifted);
 _spawn = _wreck getVariable QGVAR(position);
