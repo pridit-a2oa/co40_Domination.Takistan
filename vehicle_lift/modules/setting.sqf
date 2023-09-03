@@ -1,5 +1,5 @@
 /**
- * Vehicle Lift - Setting Submodule
+ * Vehicle Lift Module - Setting Submodule
  */
 
 #include "x_macros.sqf"
