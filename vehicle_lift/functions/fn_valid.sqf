@@ -4,6 +4,7 @@ private ["_lifter", "_type", "_nearest"];
 
 _lifter = _this select 0;
 
+if !(isEngineOn _lifter) exitWith {};
 if !(isNull (_lifter getVariable QGVAR(attached))) exitWith {};
 if (hasInterface && {!([player, driver _lifter] call BIS_fnc_areEqual)}) exitWith {};
 
