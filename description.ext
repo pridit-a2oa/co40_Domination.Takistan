@@ -52,6 +52,7 @@ class RscTitles
     #include "core\client\dialog\titles.hpp"
     #include "reward\dialog\titles.hpp"
     #include "revive\dialog\titles.hpp"
+    #include "vehicle_lift\dialog\titles.hpp"
 };
 
 class CfgSounds {

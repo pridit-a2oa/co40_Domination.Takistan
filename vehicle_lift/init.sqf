@@ -17,8 +17,9 @@ GVAR(vehicle_lift_types) = [
             "Mi17_TK_EP1"
         ],
         [
-            "LandVehicle",
-            "Plane"
+            "Car",
+            "Plane",
+            "Tank"
         ],
         true
     ],
@@ -29,7 +30,8 @@ GVAR(vehicle_lift_types) = [
         ],
         [
             "Air",
-            "LandVehicle"
+            "Car",
+            "Tank"
         ],
         false
     ]
@@ -41,13 +43,15 @@ GVAR(vehicle_lift_cooldown) = 5;
 // Maximum distance from a liftable vehicle to lift
 GVAR(vehicle_lift_distance) = 15;
 
-// Maximum speed to be able to lift
-GVAR(vehicle_lift_speed) = 10;
-
 // Maximum height from the ground to release
 GVAR(vehicle_lift_height) = 17;
 
+// Maximum speed to be able to lift
+GVAR(vehicle_lift_speed) = 10;
+
 if (hasInterface) then {
+    uiNamespace setVariable ["X_VEHICLE_LIFT_DIALOG", displayNull];
+
     player setVariable [QGVAR(vehicle_lift_cooldown), time + GVAR(vehicle_lift_cooldown)];
 };
 

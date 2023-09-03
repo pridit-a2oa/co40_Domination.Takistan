@@ -23,7 +23,7 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "!([typeName ([_target] call d_fnc_vehicle_lift_valid), ""BOOL""] call BIS_fnc_areEqual)"
+        "!visibleMap && {[typeName ([_target] call d_fnc_vehicle_lift_valid), ""OBJECT""] call BIS_fnc_areEqual}"
     ];
 
     _vehicle addAction [
@@ -36,8 +36,4 @@ if (hasInterface) then {
         "",
         "[player, driver _target] call BIS_fnc_areEqual && {!isNull (_target getVariable ""d_attached"") && {speed _target <= d_vehicle_lift_speed && {(position _target) select 2 < d_vehicle_lift_height && {[uiNamespace getVariable ""d_notice"", displayNull] call BIS_fnc_areEqual}}}}"
     ];
-
-    _vehicle addEventHandler ["getout", {
-        67321 cutRsc ["Default", "PLAIN"];
-    }];
 };
