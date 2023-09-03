@@ -25,8 +25,6 @@ if !(isNil QMODULE(vehicle_lift)) then {
     };
 };
 
-systemChat format ["%1", str _vehicles];
-
 {
     private ["_position"];
 
