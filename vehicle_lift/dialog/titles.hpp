@@ -11,7 +11,7 @@ class XD_VehicleLiftDialog {
         class RscVehicleLiftBackground: XD_RscPicture
         {
             style = 128;
-            colorBackground[] = {0, 0.3, 0, 0.2};
+            colorBackground[] = {0, 0.3, 0, 0.12};
             sizeEx = 0.015;
             x = 0.3;
 			y = 0.4;
