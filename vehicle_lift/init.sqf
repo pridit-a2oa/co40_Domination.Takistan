@@ -41,13 +41,13 @@ GVAR(vehicle_lift_types) = [
 GVAR(vehicle_lift_cooldown) = 5;
 
 // Maximum distance from a liftable vehicle to lift
-GVAR(vehicle_lift_distance) = 15;
+GVAR(vehicle_lift_distance) = 18;
 
 // Maximum height from the ground to release
 GVAR(vehicle_lift_height) = 17;
 
 // Maximum speed to be able to lift
-GVAR(vehicle_lift_speed) = 10;
+GVAR(vehicle_lift_speed) = 15;
 
 if (hasInterface) then {
     uiNamespace setVariable ["X_VEHICLE_LIFT_DIALOG", displayNull];
