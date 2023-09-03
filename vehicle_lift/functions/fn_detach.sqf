@@ -93,10 +93,10 @@ if (isServer) then {
         };
     };
 
-    [_attached, "setVectorDirAndUp", [vectorDir _lifter, vectorUp _lifter]] call FUNC(network,mp);
-    [_attached, "lock", false] call FUNC(network,mp);
-
+    [true, "setVectorUp", [_attached, surfaceNormal (position _attached)]] call FUNC(network,mp);
     [true, "enableSimulation", [_attached, true]] call FUNC(network,mp);
+
+    [_attached, "lock", false] call FUNC(network,mp);
 
     if (!alive _attached && {_attached isKindOf "Air"}) then {
         [_attached] call FUNC(vehicle,freeze);
