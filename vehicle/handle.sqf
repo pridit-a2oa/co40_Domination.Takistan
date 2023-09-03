@@ -1,5 +1,5 @@
 /**
- * Vehicle Lift (Handler)
+ * Vehicle Module (Handler)
  */
 
 if (hasInterface) then {
