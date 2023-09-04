@@ -112,7 +112,7 @@ _refresh = switch (if (typeName _lbData == "ARRAY") then {_lbData select 0} else
         case "pack": {
             private ["_packed"];
 
-            if !(isEngineOn _vehicle) then {        
+            if !(isEngineOn _vehicle) then {
                 _packed = _vehicle getVariable QGVAR(packed);
                 
                 if (!isNil "_packed" && {_packed}) exitWith {

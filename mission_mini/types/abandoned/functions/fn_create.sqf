@@ -9,7 +9,7 @@ if ((markerPos QGVAR(base_south)) distance _road < (GVAR(mission_mini_distance_b
 if ((markerPos QGVAR(base_south)) distance _road > (GVAR(mission_mini_distance_base) select 1)) exitWith {false};
 
 _connectedRoads = roadsConnectedTo _road;
-_connectedRoad = if ([count _connectedRoads, 0] call BIS_fnc_areEqual) then { _road} else {_connectedRoads select 0};
+_connectedRoad = if ([count _connectedRoads, 0] call BIS_fnc_areEqual) then {_road} else {_connectedRoads select 0};
 
 _type = GVAR(mission_mini_abandoned_types_vehicle) call BIS_fnc_selectRandom;
 

@@ -79,7 +79,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
         };
     }];
         
-    while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {      
+    while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {
         waitUntil {
             sleep 0.5;
             
@@ -95,7 +95,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
             };
             
             if (GVAR(vehicle_bomber_chance_music) > floor (random 100)) then {
-                _car spawn {                    
+                _car spawn {
                     while {[_this] call FUNC(THIS_MODULE,valid)} do {
                         if ({_x distance _this < 1000} count (call FUNC(common,players)) > 0) then {
                             [true, "say3D", [_this, "RadioMusic_56s", 0]] call FUNC(network,mp);

@@ -4,7 +4,7 @@ class XD_Notice {
     duration = 1e+011;
     onLoad = "uiNamespace setVariable ['d_notice', _this select 0];";
     onUnload = "uiNamespace setVariable ['d_notice', displayNull];";
-    class controls {        
+    class controls {
         class RscStructuredText_1101: BBRscStructuredText
         {
             idc = 1000;

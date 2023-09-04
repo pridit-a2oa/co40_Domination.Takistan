@@ -1,5 +1,5 @@
 class Sentences 
-{    
+{
     class Captured {
         text = "We have captured all camps in %1 and weakened the enemy foothold.";
         speech[] = {};

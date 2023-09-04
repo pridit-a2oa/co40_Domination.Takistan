@@ -21,6 +21,6 @@ for "_i" from 1 to 8 do {
     };
 };
 
-if (_respawned) then {    
+if (_respawned) then {
     call FUNC(perk,reset);
 };

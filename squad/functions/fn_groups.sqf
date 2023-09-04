@@ -14,7 +14,7 @@ _groups = [];
 
         _name = _x;
         
-        {    
+        {
             if ([_name, str _x] call BIS_fnc_areEqual) exitWith {
                 [_groups, _x] call BIS_fnc_arrayPush;
             };

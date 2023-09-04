@@ -77,7 +77,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     
     [_aircraft, _position] spawn FUNC(THIS_MODULE,patrol);
     
-    while {alive _aircraft && {canMove _aircraft}} do {        
+    while {alive _aircraft && {canMove _aircraft}} do {
         if (call FUNC(common,time) > _aircraft getVariable QGVAR(uav_airborne)) exitWith {
             if !(isNil QMODULE(conversation)) then {
                 [

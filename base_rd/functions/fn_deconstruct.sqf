@@ -61,13 +61,13 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 
 [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
-while {call FUNC(common,time) < _time} do {   
+while {call FUNC(common,time) < _time} do {
     // remaining time is greater than the maximum it could ever be
     if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {
         __log format ["Time exceeded possible maximum, exiting %1", str [_time, _time - call FUNC(common,time)]]];
     };
 
-    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {      
+    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         _vehicle spawn {
             sleep (random 10);
             

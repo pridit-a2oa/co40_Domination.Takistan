@@ -47,7 +47,7 @@ class CfgIdentities
 };
 
 class RscTitles
-{ 
+{
     #include "3d\dialog\titles.hpp"
     #include "core\client\dialog\titles.hpp"
     #include "reward\dialog\titles.hpp"

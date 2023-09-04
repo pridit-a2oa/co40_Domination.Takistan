@@ -9,7 +9,7 @@ if (isServer) then {
     __fsm(watcher);
 };
 
-if (hasInterface) then {    
+if (hasInterface) then {
     waitUntil {
         sleep 0.1;
 
