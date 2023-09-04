@@ -83,11 +83,11 @@ if (hasInterface) then {
                 waitUntil {sleep 1; !GVAR(tutorial)};
             };
         
-            player enableSimulation true;
-        
             sleep 1;
             
             titleText ["", "BLACK IN", 4];
+
+            sleep 2;
 
             // TODO: Possible alternative RscDisplayMain -> controlsBackground -> CA_ARMA2?
             if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
@@ -97,6 +97,8 @@ if (hasInterface) then {
                     "If this message has displayed in error, and you can see base Arma 2 vehicles such as the MV-22, please report on Discord."
                 ];
             };
+
+            player enableSimulation true;
         };
     };
 };
