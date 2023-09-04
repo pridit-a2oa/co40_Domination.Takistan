@@ -1,8 +1,8 @@
 /**
  * Name Module
  *
- * Description: Displays player names on the map dependant on their current
- * position.
+ * Description: This module adds persistent player markers that change
+ * depending on state.
  */
 
 #define THIS_MODULE name

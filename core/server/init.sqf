@@ -70,6 +70,10 @@ onPlayerConnected {
 onPlayerDisconnected {
     __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
+    if !(isNil QMODULE(name)) then {
+        [true, "deleteMarkerLocal", format ["player_%1", _name]] call FUNC(network,mp);
+    };
+
     if !(isNil QMODULE(vote)) then {
         _uid spawn {
             sleep 1;

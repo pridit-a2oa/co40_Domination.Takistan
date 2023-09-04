@@ -1,10 +1,8 @@
 #include "x_macros.sqf"
-private ["_unit", "_marker"];
+private ["_marker"];
 
-PARAMS_1(_unit);
+PARAMS_1(_marker);
 
-_marker = str _unit;
-
-if ([str (markerPos _marker), "[0,0,0]"] call BIS_fnc_areEqual) exitWith {};
+if ([markerPos _marker, [0,0,0]] call BIS_fnc_areEqual) exitWith {};
 
 _marker
