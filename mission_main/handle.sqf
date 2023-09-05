@@ -18,7 +18,7 @@ if (isServer) then {
     
     {
         _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
-        
+
         if (_base && {!((_x getVariable "name") in GVAR(mission_main_type_exceptions))}) then {
             GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
         };
