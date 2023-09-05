@@ -4,23 +4,23 @@ private ["_lifter", "_type", "_nearest"];
 
 _lifter = _this select 0;
 
-if !(isEngineOn _lifter) exitWith {};
-if !(isNull (_lifter getVariable QGVAR(attached))) exitWith {};
-if (hasInterface && {!([player, driver _lifter] call BIS_fnc_areEqual)}) exitWith {};
+if !(isEngineOn _lifter) exitWith {false};
+if !(isNull (_lifter getVariable QGVAR(attached))) exitWith {false};
+if (hasInterface && {!([player, driver _lifter] call BIS_fnc_areEqual)}) exitWith {false};
 
 _type = call FUNC(THIS_MODULE,type);
 
 _nearest = (nearestObjects [position _lifter, _type select 0, GVAR(vehicle_lift_distance) * 3]) - [_lifter];
 
-if ([_nearest, []] call BIS_fnc_areEqual) exitWith {};
+if ([_nearest, []] call BIS_fnc_areEqual) exitWith {false};
 
 _nearest = _nearest select 0;
 
-if (locked _nearest) exitWith {};
-if (_nearest isKindOf "ATV_Base_EP1") exitWith {};
-if ({alive _x && {!isPlayer _x}} count crew _nearest > 0) exitWith {};
-if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {};
-if !([alive _nearest, _type select 1] call BIS_fnc_areEqual) exitWith {};
+if (locked _nearest) exitWith {false};
+if (_nearest isKindOf "ATV_Base_EP1") exitWith {false};
+if ({alive _x && {!isPlayer _x}} count crew _nearest > 0) exitWith {false};
+if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {false};
+if !([alive _nearest, _type select 1] call BIS_fnc_areEqual) exitWith {false};
 
 if (hasInterface && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(lift)) select 1, 10] call BIS_fnc_areEqual}}) then {
     private ["_angle"];
@@ -48,9 +48,9 @@ if (hasInterface && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(lift
     DIALOG("X_VEHICLE_LIFT_DIALOG", 304) ctrlSetTextColor [1, 1, 1, 0.25];
 };
 
-if (speed _lifter > GVAR(vehicle_lift_speed)) exitWith {};
-if (_lifter distance _nearest > GVAR(vehicle_lift_distance)) exitWith {};
-if ((position _lifter) select 2 > GVAR(vehicle_lift_distance)) exitWith {};
+if (speed _lifter > GVAR(vehicle_lift_speed)) exitWith {false};
+if (_lifter distance _nearest > GVAR(vehicle_lift_distance)) exitWith {false};
+if ((position _lifter) select 2 > GVAR(vehicle_lift_distance)) exitWith {false};
 
 if (hasInterface && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(lift)) select 1, 10] call BIS_fnc_areEqual}}) then {
     DIALOG("X_VEHICLE_LIFT_DIALOG", 304) ctrlSetTextColor [1, 1, 1, 1];
