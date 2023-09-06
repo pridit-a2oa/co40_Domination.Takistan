@@ -7,7 +7,7 @@ PARAMS_1(_lifter);
 _caller = [_this, 1, ""] call FUNC(common,param);
 _announce = [_this, 5, false] call FUNC(common,param);
 
-_vehicle = call compile (_this select 3);
+_vehicle = call FUNC(THIS_MODULE,valid);
 
 if !([typeName _vehicle, "OBJECT"] call BIS_fnc_areEqual) exitWith {};
 

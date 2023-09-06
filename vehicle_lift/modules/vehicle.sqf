@@ -18,7 +18,7 @@ if (hasInterface) then {
     _vehicle addAction [
         "Lift" call FUNC(common,YellowText),
         __function(attach),
-        "call d_fnc_vehicle_lift_valid",
+        nil,
         10,
         false,
         true,
