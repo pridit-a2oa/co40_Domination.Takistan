@@ -71,6 +71,8 @@ if (isServer) then {
     if (!alive _attached && {!isNull (driver _lifter)}) then {
         _lifted = _attached getVariable QGVAR(lifted);
 
+        if (isNil "_lifted") exitWith {};
+
         _driver = getPlayerUID (driver _lifter);
 
         _lifted set [1, _driver];
