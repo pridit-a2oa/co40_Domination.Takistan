@@ -3,9 +3,7 @@ private ["_item"];
 
 PARAMS_1(_item);
 
-if !([_item] call FUNC(item,valid)) exitWith {};
-
-player removeWeapon _item;
+if !([_item] call FUNC(item,consume)) exitWith {};
 
 if !(isNil QMODULE(reward)) then {
     [

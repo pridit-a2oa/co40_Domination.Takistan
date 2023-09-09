@@ -12,7 +12,7 @@ if (hasInterface) then {
     _trigger setTriggerActivation ["WEST", "PRESENT", true];
     _trigger setTriggerStatements [
         "this && {player in thisList}",
-        "[d_item_evidence_type select 1] call d_fnc_item_evidence_reward",
+        "[d_item_evidence_type] call d_fnc_item_evidence_reward",
         ""
     ];
 };
