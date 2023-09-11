@@ -1,15 +1,17 @@
 #define THIS_MODULE halo
 #include "x_macros.sqf"
-private ["_altitude"];
+private ["_unit"];
 
-if (count _this > 1) then {
-    _altitude = ((getPos (_this select 1)) select 2) - 5;
-} else {
-    _altitude = _this select 0;
+_unit = [_this, 1, player] call FUNC(common,param);
+
+if !([_unit, vehicle _unit] call BIS_fnc_areEqual) then {
+    moveOut _unit;
 };
 
-if ((vehicle player) != player) then {
-    moveOut player;
-};
-
-[player, _altitude] spawn BIS_fnc_halo;
+[
+    _unit,
+    switch (count _this > 1) do {
+        case true: {((getPos (_this select 1)) select 2) - 5};
+        case false: {_this select 0};
+    }
+] spawn BIS_fnc_halo;

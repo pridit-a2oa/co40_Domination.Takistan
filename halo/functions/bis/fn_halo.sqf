@@ -157,7 +157,7 @@ if ([typeName _this, typeName objNull] call BIS_fnc_areEqual) then {
                     _anim = "HaloFreeFall_" + _vAnim + _hAnim;
                 };
 
-                player playMoveNow _anim;
+                [true, "playMoveNow", [player, _anim]] call FUNC(network,mp);
 
                 //--- Sound
                 if ((time - bis_fnc_halo_soundLoop) > 4.5) then {
