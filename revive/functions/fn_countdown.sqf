@@ -18,8 +18,6 @@ if !(isNil QMODULE(conversation)) then {
         while {player getVariable QGVAR(unconscious) && {alive player}} do {
             private ["_time", "_unit"];
 
-            sleep 1;
-
             _time = [player] call FUNC(3d,time);
 
             if ([floor (_time % 50), 30] call BIS_fnc_areEqual) then {
@@ -38,6 +36,8 @@ if !(isNil QMODULE(conversation)) then {
                     false
                 ];
             };
+
+            sleep 1;
         };
     };
 };
