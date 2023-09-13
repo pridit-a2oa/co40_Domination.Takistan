@@ -9,17 +9,19 @@ _groups = [];
 } forEach allGroups;
 
 {
-    private ["_name"];
-
     if (_x in _all) then {
+        private ["_name"];
+
         _name = _x;
         
-        {    
+        {
             if ([_name, str _x] call BIS_fnc_areEqual) exitWith {
                 [_groups, _x] call BIS_fnc_arrayPush;
             };
         } forEach allGroups;
     } else {
+        private ["_group"];
+
         _group = createGroup west;
         
         [true, "setGroupId", [

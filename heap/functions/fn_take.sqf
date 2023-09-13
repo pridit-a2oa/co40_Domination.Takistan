@@ -22,7 +22,7 @@ if !([_weapon, ""] call BIS_fnc_areEqual) then {
     };
 };
 
-if !([player] call FUNC(common,ready)) exitWith {};
+if !([] call FUNC(common,ready)) exitWith {};
 if !([[primaryWeapon player] call FUNC(THIS_MODULE,valid), ""] call BIS_fnc_areEqual) exitWith {};
 
 removeBackpack player;

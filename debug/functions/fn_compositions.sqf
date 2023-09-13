@@ -37,10 +37,3 @@ _newComp = [(getMarkerPos _markerName), (markerDir _markerName), _cfgiName] call
 };
 
 hintSilent "..done!";
-
-// Teleport with ALT + LMB
-onMapSingleClick "
-if ((local player) and _alt) then
-{
-(vehicle player) setPos _pos;
-}";

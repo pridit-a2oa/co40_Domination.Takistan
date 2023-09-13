@@ -9,4 +9,4 @@ PARAMS_1(_vehicle);
 
 if (GVAR(vehicle_ammobox_types) find _vehicle == -1) exitWith {""};
 
-"<br />Loads an ammobox"
+"<br />Loads ammobox"

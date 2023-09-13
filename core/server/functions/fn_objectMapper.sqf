@@ -81,7 +81,7 @@ if !(isNil "_script") then {
 // Make sure there are definitions in the final object array
 if ([count _objs, 0] call BIS_fnc_areEqual) exitWith {[]};
 
-if (count _replace > 0) then {    
+if (count _replace > 0) then {
     {
         private ["_new"];
 
@@ -188,7 +188,7 @@ if !(isNil QMODULE(tent)) then {
             };
         };
 
-        if !(isNil QMODULE(item)) then {            
+        if !(isNil QMODULE(item)) then {
             {
                 [_newObjs, _x] call BIS_fnc_arrayPush;
             } forEach ([_newObj] call FUNC(item,create));
@@ -198,7 +198,7 @@ if !(isNil QMODULE(tent)) then {
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
 
-        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {        
+        if (_newObj isKindOf "LandVehicle" && {!(_newObj isKindOf "StaticWeapon")}) then {
             if ([faction _newObj, "BIS_US"] call BIS_fnc_areEqual) then {
                 _newObj lock true;
                 _newObj allowCrewInImmobile true;

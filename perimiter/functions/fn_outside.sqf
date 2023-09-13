@@ -26,21 +26,17 @@ _handler = _vehicle addEventHandler ["getout", {
     };
 }];
 
-if (!isNil QMODULE(vehicle_lift)) then {
-    [_vehicle] __submodulePP(vehicle_lift);
-};
-
 while {triggerActivated _trigger && {alive player}} do {
     _remaining = [player] call FUNC(3d,time);
     
     DIALOG(QGVAR(notice), 1002) ctrlSetText format ["%1", [_remaining] call FUNC(common,displayTime)];
     
     if (_remaining < 0) exitWith {
-        player setDamage 1;
-
         if (!isNil QMODULE(vehicle) && {!([player, vehicle player] call BIS_fnc_areEqual)}) then {
             [_vehicle] call FUNC(vehicle,reset);
         };
+
+        player setDamage 1;
     };
     
     sleep 0.01;
@@ -48,4 +44,4 @@ while {triggerActivated _trigger && {alive player}} do {
 
 _vehicle removeEventHandler ["getout", _handler];
 
-3000 cutRsc ["Default", "PLAIN"];
+3000 cutText ["", "PLAIN"];

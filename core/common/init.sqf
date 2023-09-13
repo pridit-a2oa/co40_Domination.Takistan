@@ -69,6 +69,8 @@ __ccppfln(core\THIS_MODULE\handlers.sqf);
 };
 
 if (hasInterface) then {
+    3 fadeSound 1;
+
     if (!isNil QMODULE(setting)) then {
         player switchCamera ((player getVariable QGVAR(camera)) select 1);
     };
@@ -81,19 +83,22 @@ if (hasInterface) then {
                 waitUntil {sleep 1; !GVAR(tutorial)};
             };
         
-            player enableSimulation true;
-        
             sleep 1;
             
             titleText ["", "BLACK IN", 4];
 
+            sleep 2;
+
+            // TODO: Possible alternative RscDisplayMain -> controlsBackground -> CA_ARMA2?
             if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
                 "Missing Content" hintC [
-                    "This server is enhanced by content from the base game, Arma 2, which has not been detected as part of your install.",
+                    "This mission is enhanced by content from the base game, Arma 2, which has not been detected as part of your install.",
                     "While this is not a requirement to play, you will experience missing content in the form of some weapons & vehicles.",
                     "If this message has displayed in error, and you can see base Arma 2 vehicles such as the MV-22, please report on Discord."
                 ];
             };
+
+            player enableSimulation true;
         };
     };
 };

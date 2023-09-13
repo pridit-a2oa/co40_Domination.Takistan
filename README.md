@@ -6,7 +6,7 @@
     <a href="https://github.com/pridit/co40_Domination.Takistan/releases">
         <img alt="GitHub release" src="https://img.shields.io/github/release/Pridit/co40_Domination.Takistan.svg" />
     </a>
-    <a href="https://discord.me/pridit">
+    <a href="https://dsc.gg/pridit">
         <img alt="Discord" src="https://img.shields.io/discord/538096202282172447?color=%237289da&label=discord&logo=discord&logoColor=%23fff">
     </a>
 </p>

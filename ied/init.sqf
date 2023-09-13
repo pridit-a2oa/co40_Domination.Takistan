@@ -17,10 +17,16 @@ GVAR(ied_type_objects) = [
 // The explosion type
 GVAR(ied_type_explosion) = "Bo_GBU12_LGB";
 
+// Maximum amount of IEDs to create within a radius
+GVAR(ied_amount_limit) = 6;
+
 // Amount of score to reward for disarming
 GVAR(ied_amount_score) = 2;
 
-// The maximum unit speed before triggering
+// Minimum distance from eachother
+GVAR(ied_distance_identical) = 200;
+
+// Maximum unit speed before triggering
 GVAR(ied_trigger_speed) = 5;
 
 // Minimum and maximum distance thresholds before triggering

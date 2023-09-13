@@ -2,10 +2,12 @@
 
 while {true} do {
     {
-        if (side _x in [east, civilian] && {{alive _x} count units _x < 1}) then {
+        if ([count units _x, 0] call BIS_fnc_areEqual) then {
+            X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) - [_x], true];
+
             deleteGroup _x;
         };
-    } forEach allGroups;
-    
+    } forEach (X_JIPH getVariable QGVAR(groups));
+
     sleep 10;
 };

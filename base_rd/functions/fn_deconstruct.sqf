@@ -49,8 +49,6 @@ if (!isNil QMODULE(3d)) then {
     }]] call FUNC(network,mp);
 };
 
-_time = _time + call FUNC(common,time);
-
 if (!isNil QMODULE(vehicle_menu)) then {
     _vehicle setVariable [QGVAR(menu), false, true];
 };
@@ -61,22 +59,7 @@ if (!isNil QMODULE(vehicle_respawn)) then {
 
 [true, "execVM", [[_vehicle], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
-while {call FUNC(common,time) < _time} do {   
-    // remaining time is greater than the maximum it could ever be
-    if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {
-        __log format ["Time exceeded possible maximum, exiting %1", str [_time, _time - call FUNC(common,time)]]];
-    };
-
-    if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {      
-        _vehicle spawn {
-            sleep (random 10);
-            
-            [true, "say3D", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
-        };
-    };
-    
-    sleep 15;
-};
+["Deconstruct", _vehicle, _time, call FUNC(THIS_MODULE,max)] call FUNC(vehicle,stall);
 
 _progress = [typeOf _vehicle, "progress"] call FUNC(THIS_MODULE,item);
 

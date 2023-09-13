@@ -1,1 +1,1 @@
-(_this select 0) setVectorUp (_this select 1);
+((_this select 1) select 0) setVectorUp ((_this select 1) select 1);

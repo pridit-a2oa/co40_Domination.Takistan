@@ -22,7 +22,7 @@ if (hasInterface) then {
                 
                 _time = _time + 1;
                 
-                switch (_time) do {                    
+                switch (_time) do {
                     case (round (GVAR(idle_time_static) / 1.2)): {
                         systemChat format [
                             "You have been idle for %1m and will be kicked in %2m.",

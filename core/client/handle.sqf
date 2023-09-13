@@ -7,11 +7,25 @@
 
 0 spawn {
     sleep 0.01;
-    
+
+    uiNamespace setVariable [QGVAR(notice), displayNull];
+
+    removeAllItems player;
+    removeAllWeapons player;
+
+    {
+        player addWeapon _x;
+    } forEach [
+        format ["Binocular%1", if ((str player) in GVAR(marksman)) then {"_Vector"} else {""}],
+        "ItemCompass",
+        "ItemGPS",
+        "ItemMap",
+        "ItemRadio",
+        "ItemWatch",
+        "NVGoggles"
+    ];
+
     player disableConversation true;
-    
-    player addWeapon "Binocular";
-    player addWeapon "NVGoggles";
     
     if (sunOrMoon == 0) then {
         if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};

@@ -8,29 +8,13 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 
 GVAR(refuelling) = true;
 
-if !(isNil QMODULE(inventory_refuel)) then {
-    player setVariable [QGVAR(inventory_refuel), (player getVariable QGVAR(inventory_refuel)) - 1, true];
-};
+if ([[true, 2, QGVAR(sound_refuel)]] call FUNC(client,stall) && {alive _vehicle}) then {
+    if (!isNil QMODULE(inventory_refuel) && {[player getVariable QGVAR(inventory_refuel), 0] call BIS_fnc_areEqual}) exitWith {};
 
-player playMove "AinvPknlMstpSlayWrflDnon_medic";
+    [_vehicle, "setFuel", 1] call FUNC(network,mp);
 
-sleep 2;
-
-if (alive player) then {
-    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
-};
-
-for "_i" from 1 to 2 do {
-    if (!alive player) exitWith {};
-
-    [true, "say3D", [player, QGVAR(sound_refuel), 20]] call FUNC(network,mp);
-
-    sleep 3;
-
-    if (!alive _vehicle || {!alive player}) exitWith {};
-    
-    if (_i == 2) then {
-        [_vehicle, "setFuel", 1] call FUNC(network,mp);
+    if !(isNil QMODULE(inventory_refuel)) then {
+        player setVariable [QGVAR(inventory_refuel), (player getVariable QGVAR(inventory_refuel)) - 1, true];
     };
 };
 

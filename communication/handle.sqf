@@ -45,4 +45,8 @@ if (hasInterface) then {
     if (!isNil QMODULE(admin)) then {
         __submodulePP(admin);
     };
+
+    if (!isNil QMODULE(debug)) then {
+        __submodulePP(debug);
+    };
 };

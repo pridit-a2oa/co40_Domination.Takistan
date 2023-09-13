@@ -17,7 +17,7 @@ if (hasInterface) then {
             
             _marker = [_x] call FUNC(THIS_MODULE,valid);
             
-            if !(isNil "_marker") then {            
+            if !(isNil "_marker") then {
                 _marker setMarkerPosLocal (getPosASL _x);
                 
                 _alive = alive _x;

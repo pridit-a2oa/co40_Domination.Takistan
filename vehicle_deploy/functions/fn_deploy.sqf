@@ -62,7 +62,7 @@ switch (_state) do {
             
             _vehicle setVariable [QGVAR(deployed), [true, _type], true];
             
-            if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {    
+            if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {
                 [_this, true] call BIS_fnc_arrayPush;
 
                 player setVariable [

@@ -1,17 +1,11 @@
 /**
  * Vehicle Wreck Module
  *
- * Description: This module handles the creation of wrecks and facilitation
- * of physically lifting them.
+ * Description: This module facilitates the creation of new wrecks.
  */
 
 #define THIS_MODULE vehicle_wreck
 #include "x_macros.sqf"
-
-// Vehicles capable of lifting wrecks
-GVAR(vehicle_wreck_type_lifts) = [
-    "UH60M_MEV_EP1"
-];
 
 // Chance that enemy aircraft can produce a wreck
 GVAR(vehicle_wreck_chance_air) = 20;

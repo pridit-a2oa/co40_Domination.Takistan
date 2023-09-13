@@ -10,25 +10,28 @@ if (hasInterface) then {
         {
             private ["_marker"];
 
-            _marker = [_x] call FUNC(THIS_MODULE,valid);
-            
-            if (isNil "_marker" && {isPlayer _x}) then {
-                _marker = [_x] call FUNC(THIS_MODULE,create);
-            };
+            _marker = [format ["player_%1", name _x]] call FUNC(THIS_MODULE,valid);
 
-            if !(isNil "_marker") then {
-                _marker setMarkerTextLocal (name _x);
-                _marker setMarkerPosLocal (getPosASL _x);
+            switch (isNil "_marker") do {
+                case true: {
+                    if !(isPlayer _x) exitWith {};
 
-                if !(alive _x) exitWith {
-                    _marker setMarkerColorLocal "ColorBlack";
-                    _marker setMarkerAlphaLocal 0.6;
+                    [_x] call FUNC(THIS_MODULE,create);
                 };
 
-                if (!isNil QMODULE(revive) && {[_x] __submodulePP(revive)}) exitWith {};
+                case false: {
+                    _marker setMarkerPosLocal (getPosASL _x);
 
-                _marker setMarkerColorLocal "ColorGreen";
-                _marker setMarkerAlphaLocal 1;
+                    if !(alive _x) exitWith {
+                        _marker setMarkerColorLocal "ColorBlack";
+                        _marker setMarkerAlphaLocal 0.6;
+                    };
+
+                    if (!isNil QMODULE(revive) && {[_x] __submodulePP(revive)}) exitWith {};
+
+                    _marker setMarkerColorLocal "ColorGreen";
+                    _marker setMarkerAlphaLocal 1;
+                };
             };
         } forEach (call FUNC(common,players));
     }, 1] call FUNC(client,addPerFrame);

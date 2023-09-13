@@ -1,10 +1,14 @@
 #define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_group"];
 
 PARAMS_1(_vehicle);
 
-[driver _vehicle] joinSilent (createGroup east);
+_group = createGroup east;
+
+[driver _vehicle] joinSilent _group;
+
+X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
 
 sleep 1;
 

@@ -83,7 +83,7 @@ if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
 
     _time = GVAR(vote_time_delay) + call FUNC(common,time);
 
-    while {call FUNC(common,time) < _time} do { 
+    while {call FUNC(common,time) < _time} do {
         private ["_remaining"];
            
         _remaining = floor (_time - call FUNC(common,time));

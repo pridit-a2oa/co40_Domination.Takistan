@@ -3,10 +3,16 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle"];
+private ["_vehicle", "_string"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_lift_types) find _vehicle == -1) exitWith {""};
+_string = "";
 
-"<br />Lifts vehicles (not wrecks)"
+{
+    if (_vehicle in (_x select 1)) exitWith {
+        _string = format ["<br />Lifts %1", toLower (_x select 0)]
+    };
+} forEach GVAR(vehicle_lift_types);
+
+_string

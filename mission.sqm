@@ -72,7 +72,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7820.6118,327.55856,2448.627};
+					position[]={0,0,0};
 					special="NONE";
 					id=17;
 					side="LOGIC";
@@ -829,7 +829,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={7910.0698,302.86459,2454.7026};
+					position[]={0,0,0};
 					id=291;
 					side="LOGIC";
 					vehicle="FunctionsManager";
@@ -1238,7 +1238,7 @@ class Mission
 		};
 		class Item37
 		{
-			position[]={15228.88,422.71991,648.35718};
+			position[]={0,0,0};
 			id=38;
 			side="EMPTY";
 			vehicle="HeliHEmpty";

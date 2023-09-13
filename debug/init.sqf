@@ -7,8 +7,11 @@
 #define THIS_MODULE debug
 #include "x_macros.sqf"
 
+if (isMultiplayer && {!isServer && {!(serverCommandAvailable "#logout")}}) exitWith {};
+
 if (hasInterface) then {
-    GVAR(markers) = [];
+    GVAR(debug_groups) = 0;
+    GVAR(debug_markers) = [];
 };
 
 __cppfln(FUNC(THIS_MODULE,compositions),THIS_MODULE\functions\fn_compositions.sqf);

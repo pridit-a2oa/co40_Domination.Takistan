@@ -90,8 +90,6 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
         }]] call FUNC(network,mp);
     };
 
-    _time = _time + call FUNC(common,time);
-
     _vehicle setVariable [QGVAR(built), true, true];
 
     if (!isNil QMODULE(vehicle_menu)) then {
@@ -110,22 +108,7 @@ if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_r
 
     __addDead(_vehicle);
 
-    while {call FUNC(common,time) < _time} do {    
-        // remaining time is greater than the maximum it could ever be
-        if ((_time - call FUNC(common,time)) > call FUNC(THIS_MODULE,max)) exitWith {
-            __log format ["Time exceeded possible maximum, exiting %1", str [_time, _time - call FUNC(common,time)]]];
-        };
-
-        if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
-            _vehicle spawn {
-                sleep (random 10);
-                
-                [true, "say3D", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
-            };
-        };
-        
-        sleep 15;
-    };
+    ["Construct", _vehicle, _time, call FUNC(THIS_MODULE,max)] call FUNC(vehicle,stall);
 
     _vehicle lock false;
     _vehicle allowDamage true;

@@ -16,5 +16,6 @@ __cppfln(FUNC(THIS_MODULE,addPerFrame),core\THIS_MODULE\functions\fn_addPerFrame
 __cppfln(FUNC(THIS_MODULE,perFrame),core\THIS_MODULE\functions\fn_perFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,removePerFrame),core\THIS_MODULE\functions\fn_removePerFrame.sqf);
 __cppfln(FUNC(THIS_MODULE,reveal),core\THIS_MODULE\functions\fn_reveal.sqf);
+__cppfln(FUNC(THIS_MODULE,stall),core\THIS_MODULE\functions\fn_stall.sqf);
 
 MODULE(THIS_MODULE) = true;

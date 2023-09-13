@@ -51,27 +51,18 @@ _checks = [
 
 if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
 
-player playMove "AinvPknlMstpSlayWrflDnon_medic";
-
-sleep 2;
-
-if (alive player) then {
-    [true, "switchMove", [player, "AinvPknlMstpSlayWrflDnon_medic"]] call FUNC(network,mp);
-};
-
 _position = player modelToWorld [0, 7, 0];
 
 _object = createVehicle [_type, [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
 _object setDir ((getDir player) - (call compile (format [QUOTE(%1), format ["d_%1_%2_amount_rotation", QUOTE(THIS_MODULE), toLower (_name)]])));
 
-sleep 5;
-
-if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {
+if !([] call FUNC(client,stall)) exitWith {
     deleteVehicle _object;
 };
 
 _object setPos [_position select 0, _position select 1, 0];
 _object setVectorUp surfaceNormal _position;
+
 _object setVariable [QGVAR(deconstructing), false];
 
 _object addEventHandler ["HandleDamage", {0}];

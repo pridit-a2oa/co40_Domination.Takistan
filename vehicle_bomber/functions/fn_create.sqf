@@ -10,7 +10,15 @@ gameLogic setVariable [QGVAR(bomber), true, true];
     
     _road = GVAR(vehicle_bomber_roads) call BIS_fnc_selectRandom;
     _direction = [position _road, (markerPos QGVAR(bomber))] call BIS_fnc_dirTo;
-    _vehicle = [position _road, GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom, 5, 0, civilian, _direction] call FUNC(server,spawnVehicle);
+    
+    _vehicle = [
+        position _road,
+        GVAR(vehicle_bomber_type_vehicles) call BIS_fnc_selectRandom,
+        5,
+        0,
+        civilian,
+        _direction
+    ] call FUNC(server,spawnVehicle);
     
     _car = _vehicle select 0;
     _crew = _vehicle select 1;
@@ -54,13 +62,13 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 
                     [
                         _killer,
-                        GVAR(vehicle_bomber_amount_score),
+                        GVAR(vehicle_bomber_amount_score_award),
                         "protecting the base"
                     ] call FUNC(reward,score);
                 };
 
                 case civilian: {
-                    _killer addScore -10;
+                    _killer addScore -GVAR(vehicle_bomber_amount_score_deduct);
 
                     [true, "systemChat", format [
                         "%1 has lost score for killing a civilian",
@@ -71,7 +79,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
         };
     }];
         
-    while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {      
+    while {count (call FUNC(common,players)) > 0 && {[_car] call FUNC(THIS_MODULE,valid)}} do {
         waitUntil {
             sleep 0.5;
             
@@ -87,7 +95,7 @@ gameLogic setVariable [QGVAR(bomber), true, true];
             };
             
             if (GVAR(vehicle_bomber_chance_music) > floor (random 100)) then {
-                _car spawn {                    
+                _car spawn {
                     while {[_this] call FUNC(THIS_MODULE,valid)} do {
                         if ({_x distance _this < 1000} count (call FUNC(common,players)) > 0) then {
                             [true, "say3D", [_this, "RadioMusic_56s", 0]] call FUNC(network,mp);

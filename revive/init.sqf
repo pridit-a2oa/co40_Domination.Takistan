@@ -52,6 +52,7 @@ if (hasInterface) then {
 
 __cppfln(FUNC(THIS_MODULE,countdown),THIS_MODULE\functions\fn_countdown.sqf);
 __cppfln(FUNC(THIS_MODULE,debug),THIS_MODULE\functions\fn_debug.sqf);
+__cppfln(FUNC(THIS_MODULE,nearest),THIS_MODULE\functions\fn_nearest.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,revive),THIS_MODULE\functions\fn_revive.sqf);
 __cppfln(FUNC(THIS_MODULE,unconscious),THIS_MODULE\functions\fn_unconscious.sqf);

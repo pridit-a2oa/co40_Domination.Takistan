@@ -9,11 +9,11 @@ if (isServer) then {
     __fsm(watcher);
 };
 
-if (hasInterface) then {    
+if (hasInterface) then {
     waitUntil {
         sleep 0.1;
 
-        [count (X_JIPH getVariable QGVAR(groups)), count GVAR(group_names)] call BIS_fnc_areEqual && {[{[grpNull, _x] call BIS_fnc_areEqual} count (X_JIPH getVariable QGVAR(groups)), 0] call BIS_fnc_areEqual}
+        [count (X_JIPH getVariable QGVAR(squads)), count GVAR(group_names)] call BIS_fnc_areEqual && {[{[grpNull, _x] call BIS_fnc_areEqual} count (X_JIPH getVariable QGVAR(squads)), 0] call BIS_fnc_areEqual}
     };
     
     [call FUNC(THIS_MODULE,assign)] call FUNC(THIS_MODULE,populate);

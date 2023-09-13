@@ -132,7 +132,8 @@ switch (_type) do {
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio), "FlagCarrierTakistanKingdom_EP1"], 150];
             
             if (count _near < 1) then {
-                _radio = ([_position, random 360, GVAR(mission_main_type_radio), east] call BIS_fnc_spawnVehicle) select 0;
+                _radio = createVehicle [GVAR(mission_main_type_radio), _position, [], 0, "CAN_COLLIDE"];
+                _radio setDir (random 360);
                 _radio setPos _position;
                 
                 _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
@@ -226,7 +227,9 @@ switch (_type) do {
         
         switch (_type select 0) do {
             case "object": {
-                _entity = ([_position, random 360, _type select 1, east] call BIS_fnc_spawnVehicle) select 0;
+                _entity = createVehicle [_type select 1, _position, [], 0, "CAN_COLLIDE"];
+                _entity setDir (random 360);
+                _entity setPos _position;
 
                 [true, "execVM", [[_entity], __function(protect)]] call FUNC(network,mp);
 
@@ -234,14 +237,20 @@ switch (_type) do {
             };
             
             case "unit": {
+                private ["_group"];
+
                 _fort = createVehicle ["CampEast_EP1", [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
                 _fort setDir (random 360);
                 _fort setPos [_position select 0, _position select 1, 0];
                 _fort setVectorUp (surfaceNormal _position);
 
-                _entity = (createGroup east) createUnit [_type select 1, _position, [], 0, "FORM"];
+                _group = createGroup east;
+
+                _entity = _group createUnit [_type select 1, _position, [], 0, "FORM"];
                 _entity setPos [_position select 0, _position select 1, 0];
                 _entity setVectorUp (surfaceNormal _position);
+
+                X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_fort]];
                 _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + [_entity]];

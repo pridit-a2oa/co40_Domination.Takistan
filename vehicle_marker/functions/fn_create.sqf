@@ -23,7 +23,7 @@ if (alive _vehicle) then {
 
         _wreckable = _vehicle getVariable QGVAR(wreckable);
 
-        if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {        
+        if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {
             [_vehicle] __submoduleVM(vehicle_wreck);
         };
 
@@ -32,7 +32,7 @@ if (alive _vehicle) then {
         };
     }];
 } else {
-    if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {        
+    if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {
         [_vehicle] __submoduleVM(vehicle_wreck);
     };
 };
