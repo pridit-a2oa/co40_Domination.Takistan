@@ -24,7 +24,7 @@ GVAR(vehicle_respawn_type_vehicles) = [
 // Maximum distance from base the vehicle can originate from to respawn
 GVAR(vehicle_respawn_distance_base) = 400;
 
-// Minimum distance from closest player before respawning
+// Minimum distance from nearest player before respawning
 GVAR(vehicle_respawn_distance_player) = 50;
 
 // Minimum time before a destroyed vehicle can respawn

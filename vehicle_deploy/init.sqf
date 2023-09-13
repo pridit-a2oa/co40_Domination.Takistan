@@ -10,7 +10,7 @@
 // Minimum distance from base to be eligible to deploy
 GVAR(vehicle_deploy_distance_base) = 500;
 
-// Minimum distance from the closest building to be eligible to deploy
+// Minimum distance from the nearest building to be eligible to deploy
 GVAR(vehicle_deploy_distance_building) = 60;
 
 // Minimum time (seconds) between deployments
