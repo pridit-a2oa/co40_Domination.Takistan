@@ -1,19 +1,25 @@
 #include "x_macros.sqf"
-private ["_position", "_capital", "_city", "_village", "_distances", "_distance", "_nearest"];
+private ["_position", "_locations", "_distances"];
 
 PARAMS_1(_position);
 
-_capital = nearestLocation [_position, "NameCityCapital"];
-_city = nearestLocation [_position, "NameCity"];
-_village = nearestLocation [_position, "NameVillage"];
+_locations = [];
 
-_distances = [
-    [_capital, _position distance _capital],
-    [_city, _position distance _city],
-    [_village, _position distance _village]
+{
+    private ["_location"];
+
+    _location = nearestLocation [_position, _x];
+
+    [
+        _locations,
+        [_location, _position distance _location]
+    ] call BIS_fnc_arrayPush;
+} forEach [
+    "NameCity",
+    "NameCityCapital",
+    "NameVillage"
 ];
 
-_distance = ([1, _distances] call FUNC(common,arrayValues)) call BIS_fnc_lowestNum;
-_nearest = ([1, _distances] call FUNC(common,arrayValues)) find _distance;
+_distances = [1, _locations] call FUNC(common,arrayValues);
 
-([0, _distances] call FUNC(common,arrayValues)) select _nearest
+([0, _locations] call FUNC(common,arrayValues)) select (_distances find (_distances call BIS_fnc_lowestNum))
