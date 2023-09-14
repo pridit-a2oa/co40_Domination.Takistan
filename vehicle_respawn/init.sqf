@@ -11,7 +11,6 @@
 GVAR(vehicle_respawn_type_vehicles) = [
     [180, "ATV_US_EP1"],
     [600, "UH60M_MEV_EP1"],
-    [900, "BAF_Offroad_D"],
     [900, "HMMWV_DES_EP1"],
     [900, "MH6J_EP1"],
     [1800, "HMMWV_Ambulance_DES_EP1"],
@@ -22,14 +21,12 @@ GVAR(vehicle_respawn_type_vehicles) = [
 ];
 
 // Maximum distance from base the vehicle can originate from to respawn
-GVAR(vehicle_respawn_distance_base) = 400;
+GVAR(vehicle_respawn_distance_base) = 450;
 
 // Minimum distance from nearest player before respawning
 GVAR(vehicle_respawn_distance_player) = 50;
 
 // Minimum time before a destroyed vehicle can respawn
 GVAR(vehicle_respawn_time_expiration) = 60;
-
-__cppfln(FUNC(THIS_MODULE,threshold),THIS_MODULE\functions\fn_threshold.sqf);
 
 MODULE(THIS_MODULE) = true;
