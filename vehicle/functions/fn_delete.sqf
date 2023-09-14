@@ -30,6 +30,8 @@ if !(isNil QMODULE(vehicle_lift)) then {
 };
 
 {
+    _x setDamage 1;
+    
     deleteVehicle _x;
 } forEach crew _vehicle;
 
