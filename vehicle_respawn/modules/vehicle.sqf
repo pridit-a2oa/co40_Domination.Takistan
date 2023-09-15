@@ -57,7 +57,7 @@ while {!isNull _vehicle} do {
 
     _moved = _vehicle distance _position > 10;
 
-    _abandoned = !isNil "_threshold" && {_empty && {_moved && {_far && {!_dead && {call FUNC(common,time) > _threshold}}}}};
+    _abandoned = [typeName _threshold, "SCALAR"] call BIS_fnc_areEqual && {_empty && {_moved && {_far && {!_dead && {call FUNC(common,time) > _threshold}}}}};
     _destroyed = _empty && {_dead && {call FUNC(common,time) > _expiration}};
 
     if (_abandoned || {_destroyed}) exitWith {
