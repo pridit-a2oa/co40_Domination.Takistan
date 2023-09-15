@@ -17,10 +17,23 @@ _types = [];
     _key = _x select 1;
 
     if ([_vehicle] call (call compile format ["d_fnc_%1_%2_valid", QUOTE(THIS_MODULE), _key])) then {
-        _types = _types + [[
-            format ["%1: Take", _name],
-            format ["%1_%2", QUOTE(THIS_MODULE), _key]
-        ] call FUNC(vehicle_menu,populate)];
+        [
+            _types,
+            [
+                format ["%1: Take", _name],
+                format ["%1_%2", QUOTE(THIS_MODULE), _key]
+            ] call FUNC(vehicle_menu,populate)
+        ] call BIS_fnc_arrayPush;
+    };
+
+    if (!isNil (format [QMODULE(vehicle_%1), _key]) && {[_vehicle] call (call compile format ["d_fnc_vehicle_%1_valid", _key])}) then {
+        [
+            _types,
+            [
+                format ["%1: Use", _name],
+                _key
+            ] call FUNC(vehicle_menu,populate)
+        ] call BIS_fnc_arrayPush;
     };
 } forEach GVAR(inventory_types);
 

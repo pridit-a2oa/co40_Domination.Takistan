@@ -7,12 +7,6 @@
 #define THIS_MODULE medical
 #include "x_macros.sqf"
 
-// Vehicles designated with medical capacity
-GVAR(medical_type_vehicles) = [
-    "HMMWV_Ambulance_DES_EP1",
-    "M113Ambul_TK_EP1"
-];
-
 if (hasInterface) then {
     GVAR(healing) = false;
 };

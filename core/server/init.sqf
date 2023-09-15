@@ -32,8 +32,7 @@ GVAR(server_objects_banned) = [
     "USBasicWeapons_EP1",
     "USLaunchers_EP1",
     "USVehicleBox_EP1",
-    "UralReammo_TK_EP1",
-    "UralRefuel_TK_EP1"
+    "UralReammo_TK_EP1"
 ];
 
 X_JIPH setVariable [QGVAR(groups), [], true];

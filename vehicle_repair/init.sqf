@@ -7,12 +7,6 @@
 #define THIS_MODULE vehicle_repair
 #include "x_macros.sqf"
 
-// Vehicles designated with repair capacity
-GVAR(vehicle_repair_types) = [
-    "MtvrRepair_DES_EP1",
-    "UralRepair_TK_EP1"
-];
-
 // Minimum damage to initiate repair
 GVAR(vehicle_repair_amount_damage) = 0.05;
 

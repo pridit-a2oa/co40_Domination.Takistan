@@ -8,12 +8,6 @@
 #define THIS_MODULE vehicle_refuel
 #include "x_macros.sqf"
 
-// Vehicles designated with refuel capacity
-GVAR(vehicle_refuel_types) = [
-    "MtvrRefuel_DES_EP1",
-    "UralRefuel_TK_EP1"
-];
-
 if (hasInterface) then {
     GVAR(refuelling) = false;
 };

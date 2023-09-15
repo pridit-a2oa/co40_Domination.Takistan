@@ -1,5 +1,8 @@
 /**
  * Vehicle Service Module
+ *
+ * Description: This module facilitates autonomous full servicing of occupied
+ * vehicles at relevant designated areas.
  */
 
 #define THIS_MODULE vehicle_service
@@ -10,13 +13,6 @@ GVAR(vehicle_service_type_names) = [
     ["land",        "Land Vehicle",     "LandVehicle"],
     ["chopper",     "Chopper",          "Helicopter"],
     ["jet",         "Jet",              "Plane"]
-];
-
-// Vehicles with inherent servicing capability
-GVAR(vehicle_service_type_vehicles) = [
-    "MtvrRefuel_DES_EP1",
-    "MtvrReammo_DES_EP1",
-    "MtvrRepair_DES_EP1"
 ];
 
 // Maximum current speed of vehicle to be eligible to be serviced

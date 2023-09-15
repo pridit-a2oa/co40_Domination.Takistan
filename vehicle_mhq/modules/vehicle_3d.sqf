@@ -7,6 +7,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_mhq_types) find _vehicle == -1) exitWith {""};
+if !(_vehicle in GVAR(vehicle_mhq_types)) exitWith {""};
 
 "<br />Mobile respawn"
