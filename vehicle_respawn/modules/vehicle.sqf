@@ -36,8 +36,10 @@ while {!isNull _vehicle} do {
 
         if ([_threshold, []] call BIS_fnc_areEqual) exitWith {};
 
+        _threshold = (GVAR(vehicle_respawn_type_vehicles) select (_threshold select 0)) select 0;
+
         if !(isNil "_threshold") then {
-            _vehicle setVariable [QGVAR(threshold), call FUNC(common,time) + ((GVAR(vehicle_respawn_type_vehicles) select (_threshold select 0)) select 0)];
+            _vehicle setVariable [QGVAR(threshold), call FUNC(common,time) + _threshold];
         };
     };
 
