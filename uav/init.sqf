@@ -21,13 +21,13 @@ GVAR(uav_amount_speed) = 180;
 GVAR(uav_distance_base) = 1000;
 
 // Maximum distance the player can call within
-GVAR(uav_distance_player) = 800;
+GVAR(uav_distance_player) = 1200;
 
 // The distance between each waypoint while patrolling
 GVAR(uav_distance_waypoint) = 1500;
 
 // Maximum distance from target to scan for enemies within
-GVAR(uav_distance_scan) = 300;
+GVAR(uav_distance_scan) = 200;
 
 // Initial spawn distance after calling
 GVAR(uav_distance_spawn) = 3000;
@@ -39,11 +39,12 @@ GVAR(uav_time_airborne) = 200;
 GVAR(uav_time_ping) = 15;
 
 // Amount of time (seconds) between requests
-GVAR(uav_time_cooldown) = 600;
+GVAR(uav_time_cooldown) = 900;
 
 if (hasInterface) then {
     player setVariable [QGVAR(uav), false];
-    
+    player setVariable [QGVAR(uav_radius), GVAR(uav_distance_scan)];
+
     if (isNil {player getVariable QGVAR(uav_cooldown)}) then {
         player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
     };

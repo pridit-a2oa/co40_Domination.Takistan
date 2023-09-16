@@ -332,7 +332,7 @@ switch (_tier) do {
                             BIS_MENU_Radio,
                             "UAV",
                             "CursorOnGround * PlayerOwnRadio",
-                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'uav\functions\fn_call.sqf'",
+                            "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_uav_radius'] execVM 'uav\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_support_ca"
                         ] call FUNC(communication,add);
                     };
@@ -356,14 +356,14 @@ switch (_tier) do {
             };
             
             case 3: {
-                if (!isNil QMODULE(vehicle_cargo)) then {
-                    player setVariable [QGVAR(vehicle_cargo), 1];
+                if (!isNil QMODULE(uav)) then {
+                    GVAR(uav_time_cooldown) = GVAR(uav_time_cooldown) - 300;
                 };
             };
             
             case 4: {
-                if (!isNil QMODULE(vehicle_cargo)) then {
-                    player setVariable [QGVAR(vehicle_cargo), (player getVariable QGVAR(vehicle_cargo)) + 1];
+                if (!isNil QMODULE(uav)) then {
+                    player setVariable [QGVAR(uav_radius), GVAR(uav_distance_scan) + 200];
                 };
             };
             

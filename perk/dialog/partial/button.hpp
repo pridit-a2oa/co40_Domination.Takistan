@@ -375,7 +375,7 @@ class PerkButton_Role6_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load land vehicle into the C-130J (+1)";
+    tooltip = "UAV cooldown reduced by 5 minutes (applies after next use)";
     action = "[6,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
@@ -385,7 +385,7 @@ class PerkButton_Role6_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Load land vehicle into the C-130J (+1)";
+    tooltip = "UAV broadcast radius increased by 200m";
     action = "[6,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role6_5: XD_LinkButtonUpgradeBase

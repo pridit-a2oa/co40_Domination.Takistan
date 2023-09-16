@@ -1,8 +1,8 @@
 #define THIS_MODULE uav
 #include "x_macros.sqf"
-private ["_aircraft", "_position", "_angle", "_angle_threshold", "_patrol", "_waypoint"];
+private ["_aircraft", "_position", "_radius", "_angle", "_angle_threshold", "_patrol", "_waypoint"];
 
-PARAMS_2(_aircraft, _position);
+PARAMS_3(_aircraft, _position, _radius);
 
 _angle = 60;
 _angle_threshold = _angle * 3;
@@ -32,10 +32,10 @@ while {alive _aircraft && {canMove _aircraft} && {call FUNC(common,time) < _airc
             
             _aircraft setVariable [QGVAR(uav_range), true];
 
-            [true, "spawn", [[_position], {
-                private ["_position"];
+            [true, "spawn", [[_position, _radius], {
+                private ["_position", "_radius"];
 
-                PARAMS_1(_position);
+                PARAMS_2(_position, _radius);
 
                 if (isNil QMODULE(marker)) exitWith {};
 
@@ -48,7 +48,7 @@ while {alive _aircraft && {canMove _aircraft} && {call FUNC(common,time) < _airc
                     0.6,
                     "ELLIPSE",
                     "FDiagonal",
-                    [GVAR(uav_distance_scan), GVAR(uav_distance_scan)]
+                    [_radius, _radius]
                 ] call FUNC(marker,create);
             }]] call FUNC(network,mp);
         };

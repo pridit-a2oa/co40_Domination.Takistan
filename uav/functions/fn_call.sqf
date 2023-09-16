@@ -1,8 +1,8 @@
 #define THIS_MODULE uav
 #include "x_macros.sqf"
-private ["_unit", "_position", "_name", "_checks"];
+private ["_unit", "_position", "_radius", "_name", "_checks"];
 
-PARAMS_2(_unit, _position);
+PARAMS_3(_unit, _position, _radius);
 
 if (hasInterface) then {
     _name = "UAV";
@@ -75,7 +75,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         _x setCaptive true;
     } forEach _crew;
     
-    [_aircraft, _position] spawn FUNC(THIS_MODULE,patrol);
+    [_aircraft, _position, _radius] spawn FUNC(THIS_MODULE,patrol);
     
     while {alive _aircraft && {canMove _aircraft}} do {
         if (call FUNC(common,time) > _aircraft getVariable QGVAR(uav_airborne)) exitWith {
@@ -94,7 +94,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         };
         
         if (_aircraft getVariable QGVAR(uav_range)) then {
-            [_position, GVAR(uav_distance_scan)] spawn FUNC(THIS_MODULE,ping);
+            [_position, _radius] spawn FUNC(THIS_MODULE,ping);
             
             sleep GVAR(uav_time_ping);
         };

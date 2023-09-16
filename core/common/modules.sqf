@@ -80,7 +80,7 @@ GVAR(modules) = [
     "vehicle_ammobox",
     "vehicle_bomber",
     "vehicle_bonus",
-    "vehicle_cargo", // TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
+    // "vehicle_cargo", // TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
     "vehicle_create",
     "vehicle_deploy",
     "vehicle_fob",

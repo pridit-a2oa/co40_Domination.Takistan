@@ -336,35 +336,19 @@ class PerkIcon_Role6_2: XD_RscPicture
 };
 class PerkIcon_Role6_3: XD_RscPicture
 {
-    text = "ca\ui\data\iconplane_ca";
+    text = "ca\ui\data\cursor_editor_2d_loading_ca";
     x = 0.671874;
     y = 0.575;
-    w = 0.0279193;
-    h = 0.0387289;
-};
-class PerkIcon_Role6_3_1: XD_RscPicture
-{
-    text = "ca\ui\data\stats_soft_ca";
-    x = 0.690874;
-    y = 0.605;
-    w = 0.0199193;
-    h = 0.0262289;
+    w = 0.0419193;
+    h = 0.0562289;
 };
 class PerkIcon_Role6_4: XD_RscPicture
 {
-    text = "ca\ui\data\iconplane_ca";
+    text = "ca\ui\data\cursor_mapmoving_raw";
     x = 0.671874;
     y = 0.675;
-    w = 0.0279193;
-    h = 0.0387289;
-};
-class PerkIcon_Role6_4_1: XD_RscPicture
-{
-    text = "ca\ui\data\stats_soft_ca";
-    x = 0.690874;
-    y = 0.704;
-    w = 0.0199193;
-    h = 0.0272289;
+    w = 0.0419193;
+    h = 0.0562289;
 };
 class PerkIcon_Role6_5: XD_RscPicture
 {
