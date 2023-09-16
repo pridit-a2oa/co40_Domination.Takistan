@@ -14,4 +14,8 @@ if (hasInterface) then {
             _x addEventHandler ["HandleDamage", {0}];
         } forEach (allMissionObjects _x);
     } forEach _nets;
+
+    if !(isNil QMODULE(vehicle_deploy)) then {
+        [GVAR(vehicle_deploy_types), GVAR(vehicle_mhq_types)] call BIS_fnc_arrayPushStack;
+    };
 };

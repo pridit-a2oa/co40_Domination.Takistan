@@ -18,12 +18,8 @@ if (!isNil QMODULE(vehicle_ammobox)) then {
     _description = _description + ([_type] __submodulePP(vehicle_ammobox));
 };
 
-if (!isNil QMODULE(vehicle_fob)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_fob));
-};
-
-if (!isNil QMODULE(vehicle_mhq)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_mhq));
+if (!isNil QMODULE(vehicle_deploy)) then {
+    _description = _description + ([_type] __submodulePP(vehicle_deploy));
 };
 
 if (!isNil QMODULE(inventory)) then {

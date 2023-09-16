@@ -19,6 +19,10 @@ GVAR(vehicle_deploy_cooldown_deploy) = 30;
 // The degrees threshold of pitch/bank to be eligible to deploy
 GVAR(vehicle_deploy_threshold_terrain) = 12;
 
+if (hasInterface) then {
+    GVAR(vehicle_deploy_types) = [];
+};
+
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,deploy),THIS_MODULE\functions\fn_deploy.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
