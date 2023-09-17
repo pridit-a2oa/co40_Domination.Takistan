@@ -30,18 +30,18 @@ while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do
     sleep 0.5;
 };
 
-_name = format ["mission_mini_%1", str _target];
+_name = format ["mission_mini_%1", str (_target select 0)];
 
-GVAR(intel_trigger) setTriggerArea [200, 200, 0, false];
-GVAR(intel_trigger) setTriggerActivation ["WEST", "PRESENT", false];
+(_target select 1) setTriggerArea [200, 200, 0, false];
+(_target select 1) setTriggerActivation ["WEST", "PRESENT", false];
 
 if (!isNil QMODULE(marker)) then {
-    [true, "spawn", [[_target, _name], {
+    [true, "spawn", [[_target select 0, _name], {
         private ["_target", "_name"];
 
         PARAMS_2(_target, _name);
 
-        if (!isNil QMODULE(marker)) then {
+        if !(isNil QMODULE(marker)) then {
             [
                 _name,
                 _target,
@@ -56,7 +56,7 @@ if (!isNil QMODULE(marker)) then {
         };
     }]] call FUNC(network,mp);
     
-    GVAR(intel_trigger) setVariable ["marker", _name];
+    (_target select 1) setVariable ["marker", _name];
 };
 
 if !(isNil QMODULE(conversation)) then {

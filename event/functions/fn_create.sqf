@@ -25,7 +25,6 @@ while {isNil "_target" || {[typeName _target, "BOOL"] call BIS_fnc_areEqual}} do
 };
 
 _location = "HeliHEmpty" createVehicleLocal (_position select 0);
-
 _location setVariable [QGVAR(type), _type];
 _location setVariable [QGVAR(position), _target select 0];
 _location setVariable [QGVAR(objects), _target select 1];
@@ -56,7 +55,12 @@ _location setVariable [QGVAR(units), _target select 2];
 
         deleteVehicle _target;
 
-        [_position, (_objects + _units)] spawn FUNC(THIS_MODULE,cleanup);
+        [
+            _position,
+            GVAR(event_distance_cleanup),
+            GVAR(event_time_cleanup),
+            (_objects + _units)
+        ] spawn FUNC(server,cleanup);
 
         _type spawn {
             sleep GVAR(event_time_delay);

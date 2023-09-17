@@ -37,6 +37,7 @@ GVAR(server_objects_banned) = [
 
 X_JIPH setVariable [QGVAR(groups), [], true];
 
+__cppfln(FUNC(THIS_MODULE,cleanup),core\THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
 __cppfln(FUNC(THIS_MODULE,nearRoads),core\THIS_MODULE\functions\fn_nearRoads.sqf);
 __cppfln(FUNC(THIS_MODULE,objectId),core\THIS_MODULE\functions\fn_objectId.sqf);

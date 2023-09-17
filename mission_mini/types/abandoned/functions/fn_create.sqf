@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_position", "_road", "_connectedRoads", "_connectedRoad", "_type", "_vehicle", "_pitchBank"];
+private ["_position", "_road", "_connectedRoads", "_connectedRoad", "_type", "_vehicle", "_pitchBank", "_trigger"];
 
 PARAMS_1(_position);
 
@@ -49,8 +49,21 @@ if (GVAR(mission_mini_abandoned_chance_flip) > floor (random 100)) then {
     [_vehicle, _pitchBank select 0, (_pitchBank select 1) + 65] call BIS_fnc_setPitchBank;
 };
 
+_trigger = createTrigger ["EmptyDetector", position _road];
+_trigger setVariable ["entities", []];
+_trigger setVariable ["vehicle", _vehicle];
+_trigger setTriggerStatements [
+    "!alive (thisTrigger getVariable ""vehicle"") || {(position (thisTrigger getVariable ""vehicle"")) distance ((thisTrigger getVariable ""vehicle"") getVariable 'd_position') > 5}",
+    "[thisTrigger] call d_fnc_mission_mini_complete",
+    ""
+];
+
 if (!isNil QMODULE(ied) && {GVAR(mission_mini_abandoned_chance_ied) > floor (random 100)}) then {
-    [_road] call FUNC(ied,create);
+    private ["_ied"];
+
+    _ied = [_road] call FUNC(ied,create);
+
+    _trigger setVariable ["entities", [_ied]];
 };
 
 if (!isNil QMODULE(vehicle)) then {
@@ -59,14 +72,4 @@ if (!isNil QMODULE(vehicle)) then {
 
 __addDead(_vehicle);
 
-if (!isNil QMODULE(marker)) then {
-    GVAR(intel_trigger) = createTrigger ["EmptyDetector", position _road];
-    GVAR(intel_trigger) setVariable ["vehicle", _vehicle];
-    GVAR(intel_trigger) setTriggerStatements [
-        "!alive (thisTrigger getVariable ""vehicle"") || {(position (thisTrigger getVariable ""vehicle"")) distance ((thisTrigger getVariable ""vehicle"") getVariable 'd_position') > 5}",
-        "[thisTrigger] call d_fnc_mission_mini_complete",
-        ""
-    ];
-};
-
-_road
+[_road, _trigger]

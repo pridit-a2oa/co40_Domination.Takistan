@@ -8,11 +8,8 @@
 #define THIS_MODULE event
 #include "x_macros.sqf"
 
-// Valid types
-GVAR(event_types) = [];
-
 // Minimum distance all players must be before cleaning a cleared event
-GVAR(event_distance_cleanup) = 500;
+GVAR(event_distance_cleanup) = 200;
 
 // Minimum distance from any other player before creating event
 GVAR(event_distance_create) = 1500;
@@ -22,6 +19,10 @@ GVAR(event_time_cleanup) = 600;
 
 // Time following completion to delay next event generation
 GVAR(event_time_delay) = 1800;
+
+if (isServer) then {
+    GVAR(event_types) = [];
+};
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);

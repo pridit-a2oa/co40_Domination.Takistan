@@ -1,26 +1,23 @@
 /**
  * Mission Mini Module
  *
- * Description: This module is responsible for the handling of a mini mission,
- * which should always be in relatively close proximity to the base. No support
- * for simultaneous due to possible conflicts with other modules
- * (intel unit spawning fsm) and basic clean-up script.
+ * Description: Manages handling of a small scope, untracked mission.
  */
 
 #define THIS_MODULE mission_mini
 #include "x_macros.sqf"
 
-// Possible types of mini missions. Populated by missions themselves
-GVAR(mission_mini_types) = [];
-
-// The min & max distance from base a mini mission can generate between
+// Distance range from base a mini mission can generate between
 GVAR(mission_mini_distance_base) = [1100, 2300];
 
+// Minimum distance other players must be before cleaning
+GVAR(mission_mini_distance_cleanup) = 200;
+
 // Amount of time following completion to clean up remaining entities
-GVAR(mission_mini_time_cleanup) = 300;
+GVAR(mission_mini_time_cleanup) = 600;
 
 if (isServer) then {
-    GVAR(mission_mini_cleanup) = [];
+    GVAR(mission_mini_types) = [];
 };
 
 __cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);

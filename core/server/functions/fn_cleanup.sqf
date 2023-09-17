@@ -1,20 +1,22 @@
 #include "x_macros.sqf"
-private ["_position", "_entities"];
+private ["_position", "_distance", "_time", "_entities"];
 
-PARAMS_2(_position, _entities);
+PARAMS_4(_position, _distance, _time, _entities);
 
-sleep GVAR(event_time_cleanup);
+if ([_entities, []] call BIS_fnc_areEqual) exitWith {};
+
+sleep _time;
 
 waitUntil {
     sleep 20;
     
-    [{(_x distance _position) < GVAR(event_distance_cleanup)} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual
+    [{(_x distance _position) < _distance} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual
 };
 
 {
     switch (true) do {
         case (_x isKindOf "CAManBase");
-        case (_x isKindOf "LandVehicle" && {(position _x) distance _position < 50});
+        case (_x isKindOf "LandVehicle" && {(position _x) distance _position < _distance});
         case (_x isKindOf "ReammoBox");
         case (_x isKindOf "StaticWeapon"): {
             {
