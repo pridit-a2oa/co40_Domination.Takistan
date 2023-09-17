@@ -21,7 +21,7 @@ if (time < _time) exitWith {
     _time = if ([_format, "minute"] call KRON_StrInStr) then {(_time - time) / 60} else {_time - time};
     
     format [
-        "%1 cannot be %2 for another %3 %4",
+        "%1 cannot be %2 for %3 %4",
         _name select 0,
         _name select 1,
         ceil (_time), _format
