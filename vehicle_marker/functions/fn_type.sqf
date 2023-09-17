@@ -4,7 +4,13 @@ private ["_vehicle", "_type"];
 PARAMS_1(_vehicle);
 
 _type = switch (true) do {
-    case (_vehicle isKindOf "APC" || {_vehicle isKindOf "Tracked_APC"} || {_vehicle isKindOf "Wheeled_APC"}): {"_mech_inf"};
+    case (true in [
+        _vehicle isKindOf "APC",
+        _vehicle isKindOf "BAF_Jackal2_BASE_D",
+        _vehicle isKindOf "HMMWV_M1151_M2_DES_EP1",
+        _vehicle isKindOf "Tracked_APC",
+        _vehicle isKindOf "Wheeled_APC"
+    ]): {"_mech_inf"};
     case (_vehicle isKindOf "Tank"): {"_armor"};
     case (_vehicle isKindOf "Helicopter"): {"_air"};
     case (_vehicle isKindOf "UAV"): {"_recon"};

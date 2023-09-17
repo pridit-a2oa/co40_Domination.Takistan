@@ -10,7 +10,9 @@
 // Valid vehicle types for markers
 GVAR(vehicle_marker_types) = [
     "Air",
+    "BAF_Jackal2_BASE_D",
     "HMMWV_Ambulance",
+    "HMMWV_M1151_M2_DES_EP1",
     "Tank",
     "Truck",
     "Wheeled_APC"

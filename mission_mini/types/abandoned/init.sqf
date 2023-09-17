@@ -13,8 +13,8 @@ GVAR(mission_mini_abandoned) = ["abandoned", "Abandoned Light Vehicle"];
 
 // Possible types of vehicles to be picked to recover
 GVAR(mission_mini_abandoned_types_vehicle) = [
+    "BAF_Jackal2_GMG_D",
     "BAF_Jackal2_L2A1_D",
-    "BAF_Jackal2_L2A1_w",
     "HMMWV_M1151_M2_DES_EP1"
 ];
 
