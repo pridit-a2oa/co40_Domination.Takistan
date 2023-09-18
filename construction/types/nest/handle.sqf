@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 // Time between constructing
-GVAR(construction_nest_time_cooldown) = 1200;
+GVAR(construction_nest_time_cooldown) = 900;
 
 if (hasInterface) then {
     player setVariable [QGVAR(construction_nest), 0];
