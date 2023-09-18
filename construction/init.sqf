@@ -25,6 +25,7 @@ GVAR(construction_time_lifetime) = 1800;
 __cppfln(FUNC(THIS_MODULE,consume),THIS_MODULE\functions\fn_consume.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
 __cppfln(FUNC(THIS_MODULE,deconstruct),THIS_MODULE\functions\fn_deconstruct.sqf);
+__cppfln(FUNC(THIS_MODULE,protect),THIS_MODULE\functions\fn_protect.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 
 MODULE(THIS_MODULE) = true;

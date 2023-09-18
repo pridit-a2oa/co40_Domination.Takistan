@@ -205,7 +205,7 @@ class PerkButton_Role3_1: XD_LinkButtonUpgradeBase
     y = 0.375;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest (+1)";
+    tooltip = "MG Nest (+1)";
     action = "[3,1] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_2: XD_LinkButtonUpgradeBase
@@ -215,7 +215,7 @@ class PerkButton_Role3_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest (+1)";
+    tooltip = " MG Nest cooldown reduced by 5 minutes (applies after next use)";
     action = "[3,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
@@ -225,7 +225,7 @@ class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest cooldown reduced by 5 minutes (applies after next use)";
+    tooltip = "MG Nest ammo capacity doubled";
     action = "[3,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
@@ -235,7 +235,7 @@ class PerkButton_Role3_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "MG nest (+1)";
+    tooltip = "MG Nest (+1)";
     action = "[3,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_5: XD_LinkButtonUpgradeBase
@@ -265,7 +265,7 @@ class PerkButton_Role4_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Fortification (+1)";
+    tooltip = "Fortification cooldown reduced by 5 minutes (applies after next use)";
     action = "[4,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
@@ -275,7 +275,7 @@ class PerkButton_Role4_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Fortification cooldown reduced by 5 minutes (applies after next use)";
+    tooltip = "Additional fortification types (bunker, rampart)";
     action = "[4,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role4_4: XD_LinkButtonUpgradeBase

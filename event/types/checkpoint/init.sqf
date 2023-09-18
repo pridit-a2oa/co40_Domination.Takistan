@@ -8,6 +8,8 @@
 #define THIS_MODULE event_checkpoint
 #include "x_macros.sqf"
 
+if !(isServer) exitWith {};
+
 // Add to the list of possible types of events
 [GVAR(event_types), "Checkpoint"] call BIS_fnc_arrayPush;
 

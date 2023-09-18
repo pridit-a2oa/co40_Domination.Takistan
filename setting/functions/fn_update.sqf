@@ -1,10 +1,10 @@
 #include "x_macros.sqf"
-private ["_type", "_values", "_option", "_types"];
+private ["_type", "_option", "_types"];
 
-PARAMS_2(_type, _values);
+PARAMS_1(_type);
 
 _option = {
-    if (_x select 1 == _type) exitWith {
+    if ([_x select 1, _type] call BIS_fnc_areEqual) exitWith {
         [_x, _forEachIndex]
     };
 } forEach GVAR(setting_type_valid);
@@ -14,4 +14,10 @@ _types = player getVariable format ["d_%1", _type + "s"];
 (_option select 0) set [3, [0, _types] call FUNC(common,arrayValues)];
 (_option select 0) set [4, [1, _types] call FUNC(common,arrayValues)];
 
-player setVariable [format ["d_%1", _type], [(count _types) - 1, (_types select (count _types - 1)) select 1]];
+player setVariable [
+    format ["d_%1", _type],
+    [
+        (count _types) - 1,
+        (_types select (count _types - 1)) select 1
+    ]
+];

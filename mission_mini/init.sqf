@@ -20,7 +20,6 @@ if (isServer) then {
     GVAR(mission_mini_types) = [];
 };
 
-__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);
 __cppfln(FUNC(THIS_MODULE,composition),THIS_MODULE\functions\fn_composition.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);

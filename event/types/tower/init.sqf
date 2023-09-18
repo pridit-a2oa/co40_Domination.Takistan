@@ -8,6 +8,8 @@
 #define THIS_MODULE event_tower
 #include "x_macros.sqf"
 
+if !(isServer) exitWith {};
+
 // Add to the list of possible types of events
 [GVAR(event_types), "Tower"] call BIS_fnc_arrayPush;
 

@@ -8,6 +8,8 @@
 #define THIS_MODULE mission_mini_encampment
 #include "x_macros.sqf"
 
+if !(isServer) exitWith {};
+
 // Type of mini mission
 GVAR(mission_mini_encampment) = ["encampment", "Enemy Encampment"];
 

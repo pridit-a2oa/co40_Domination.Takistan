@@ -25,6 +25,5 @@ if (isServer) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
-__cppfln(FUNC(THIS_MODULE,cleanup),THIS_MODULE\functions\fn_cleanup.sqf);
 
 MODULE(THIS_MODULE) = true;

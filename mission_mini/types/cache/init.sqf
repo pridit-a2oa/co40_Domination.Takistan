@@ -8,6 +8,8 @@
 #define THIS_MODULE mission_mini_cache
 #include "x_macros.sqf"
 
+if !(isServer) exitWith {};
+
 // Type of mini mission
 GVAR(mission_mini_cache) = ["cache", "Weapons Cache"];
 

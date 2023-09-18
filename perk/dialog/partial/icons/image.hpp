@@ -96,7 +96,7 @@ class PerkIcon_Role1_2: XD_RscPicture
 };
 class PerkIcon_Role1_3: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_mapmoving_raw";
+    text = "ca\missions\armory\data\mouse_movement_ca";
     x = 0.281251;
     y = 0.575;
     w = 0.0419193;
@@ -176,7 +176,7 @@ class PerkIcon_Role3_1: XD_RscPicture
 };
 class PerkIcon_Role3_2: XD_RscPicture
 {
-    text = "ca\ui\data\iconmg_ca";
+    text = "ca\ui\data\cursor_editor_2d_loading_ca";
     x = 0.437501;
     y = 0.475;
     w = 0.0419193;
@@ -184,7 +184,15 @@ class PerkIcon_Role3_2: XD_RscPicture
 };
 class PerkIcon_Role3_3: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_editor_2d_loading_ca";
+    text = "ca\ui\data\icon_mission_rearm_ca";
+    x = 0.437501;
+    y = 0.5785;
+    w = 0.0419193;
+    h = 0.0562289;
+};
+class PerkIcon_Role3_3_1: XD_RscPicture
+{
+    text = "ca\ui\data\markers\o_unknown";
     x = 0.437501;
     y = 0.575;
     w = 0.0419193;
@@ -216,7 +224,7 @@ class PerkIcon_Role3_5_1: XD_RscPicture
 };
 class PerkIcon_Role4_1: XD_RscPicture
 {
-    text = "ca\ui\data\stats_total_ca";
+    text = "ca\misc3\data\icons\icon_dragonteeth_ca";
     x = 0.515624;
     y = 0.375;
     w = 0.0419193;
@@ -224,7 +232,7 @@ class PerkIcon_Role4_1: XD_RscPicture
 };
 class PerkIcon_Role4_2: XD_RscPicture
 {
-    text = "ca\ui\data\stats_total_ca";
+    text = "ca\ui\data\cursor_editor_2d_loading_ca";
     x = 0.515624;
     y = 0.475;
     w = 0.0419193;
@@ -232,7 +240,7 @@ class PerkIcon_Role4_2: XD_RscPicture
 };
 class PerkIcon_Role4_3: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_editor_2d_loading_ca";
+    text = "ca\misc3\data\icons\icon_fortbagfenceround_ca";
     x = 0.515624;
     y = 0.575;
     w = 0.0419193;
@@ -240,7 +248,7 @@ class PerkIcon_Role4_3: XD_RscPicture
 };
 class PerkIcon_Role4_4: XD_RscPicture
 {
-    text = "ca\ui\data\stats_total_ca";
+    text = "ca\misc3\data\icons\icon_dragonteeth_ca";
     x = 0.515624;
     y = 0.675;
     w = 0.0419193;
@@ -344,7 +352,7 @@ class PerkIcon_Role6_3: XD_RscPicture
 };
 class PerkIcon_Role6_4: XD_RscPicture
 {
-    text = "ca\ui\data\cursor_mapmoving_raw";
+    text = "ca\missions\armory\data\mouse_movement_ca";
     x = 0.671874;
     y = 0.675;
     w = 0.0419193;

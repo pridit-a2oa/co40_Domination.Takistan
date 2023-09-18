@@ -15,12 +15,8 @@ if (hasInterface) then {
         __submodulePP(airdrop);
     };
 
-    if (!isNil QMODULE(halo)) then {
-        __submodulePP(halo);
-    };
-
-    if (!isNil QMODULE(respawn)) then {
-        __submodulePP(respawn);
+    if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+        __submodulePP(construction\types\fortification);
     };
 
     if (!isNil QMODULE(vehicle_lift)) then {
@@ -33,6 +29,14 @@ if (hasInterface) then {
 
     if (!isNil QMODULE(vote)) then {
         __submodulePP(vote);
+    };
+
+    if (!isNil QMODULE(halo)) then {
+        __submodulePP(halo);
+    };
+
+    if (!isNil QMODULE(respawn)) then {
+        __submodulePP(respawn);
     };
 
     if (!isNil QMODULE(tutorial)) then {

@@ -40,6 +40,10 @@
     [100] call FUNC(THIS_MODULE,reveal);
 
     {
+        _x setAmmoCargo 0;
+    } forEach (allMissionObjects "US_WarfareBVehicleServicePoint_Base_EP1");
+
+    {
         if !(_x isKindOf "Wreck") then {
             _x addEventHandler ["HandleDamage", {0}];
             _x enableSimulation false;

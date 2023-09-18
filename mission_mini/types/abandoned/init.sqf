@@ -8,6 +8,8 @@
 #define THIS_MODULE mission_mini_abandoned
 #include "x_macros.sqf"
 
+if !(isServer) exitWith {};
+
 // Type of mini mission
 GVAR(mission_mini_abandoned) = ["abandoned", "Abandoned Light Vehicle"];
 

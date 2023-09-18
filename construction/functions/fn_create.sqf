@@ -4,9 +4,10 @@ private ["_name", "_type", "_amount", "_cooldown", "_checks", "_position", "_obj
 
 PARAMS_1(_name);
 
-_type = call FUNC(THIS_MODULE,type);
-_amount = format ["d_%1_%2", QUOTE(THIS_MODULE), toLower (_name)];
-_cooldown = format ["d_%1_%2_time_cooldown", QUOTE(THIS_MODULE), toLower (_name)];
+_type = [player getVariable (format ["d_%1_type", toLower _name])] call FUNC(THIS_MODULE,type);
+
+_amount = format ["d_construction_%1", toLower _name];
+_cooldown = format ["d_construction_%1_time_cooldown", toLower _name];
 
 _checks = [
     [
@@ -30,7 +31,7 @@ _checks = [
     [
         [_name, "constructed"],
         position player,
-        _type,
+        _type select 0,
         [GVAR(construction_distance_identical), "in excess of", "from another"]
     ] call FUNC(helper,nearObject),
     
@@ -51,25 +52,44 @@ _checks = [
 
 if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
 
-_position = player modelToWorld [0, 7, 0];
+_position = player modelToWorld [0, 5, 0];
+_position set [2, 0.1];
 
-_object = createVehicle [_type, [_position select 0, _position select 1, -30], [], 0, "CAN_COLLIDE"];
-_object setDir ((getDir player) - (call compile (format [QUOTE(%1), format ["d_%1_%2_amount_rotation", QUOTE(THIS_MODULE), toLower (_name)]])));
+_object = createVehicle [_type select 0, [_position select 0, _position select 1, -100], [], 0, "CAN_COLLIDE"];
+_object setDir ((getDir player) - (_type select 1));
 
 if !([] call FUNC(client,stall)) exitWith {
     deleteVehicle _object;
 };
 
-_object setPos [_position select 0, _position select 1, 0];
-_object setVectorUp surfaceNormal _position;
+[true, "execVM", [[_object], __function(protect)]] call FUNC(network,mp);
 
 _object setVariable [QGVAR(deconstructing), false];
 
-_object addEventHandler ["HandleDamage", {0}];
-_object addAction ["Deconstruct" call FUNC(common,RedText), __function(deconstruct), [_amount, _cooldown], 10, false, true, "", "player == vehicle player && {!(_target getVariable 'd_deconstructing')}"];
+_object setPosATL _position;
+_object setVectorUp surfaceNormal _position;
 
-if ([typeOf _object, "US_WarfareBVehicleServicePoint_Base_EP1"] call BIS_fnc_areEqual) then {
-    [true, "setAmmoCargo", [_object, 0]] call FUNC(network,mp);
+_object addAction [
+    "Deconstruct" call FUNC(common,RedText),
+    __function(deconstruct),
+    [_amount, _cooldown],
+    10,
+    false,
+    true,
+    "",
+    "[player, vehicle player] call BIS_fnc_areEqual && {!(_target getVariable 'd_deconstructing')}"
+];
+
+switch (typeOf _object) do {
+    case "US_WarfareBVehicleServicePoint_Base_EP1": {
+        [true, "setAmmoCargo", [_object, 0]] call FUNC(network,mp);
+    };
+
+    if !(isNil QMODULE(construction_nest)) then {
+        case "WarfareBMGNest_M240_US_EP1": {
+            [true, "setVehicleAmmo", [_object, player getVariable QGVAR(nest_ammo)]] call FUNC(network,mp);
+        };
+    };
 };
 
 [gameLogic, "spawn", [[_object], {

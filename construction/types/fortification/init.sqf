@@ -5,16 +5,28 @@
 #define THIS_MODULE construction_fortification
 #include "x_macros.sqf"
 
-// Type of construction, object, and (optional) representative icon texture
-GVAR(construction_types) = GVAR(construction_types) + [
-    [
-        "Fortification",
-        "Land_fort_rampart_EP1",
-        "ca\ui\data\stats_total_ca"
-    ]
-];
+// Set object of construction
+GVAR(construction_fortification_object) = "Fort_EnvelopeBig_EP1";
 
-// Rotation of the model in relation to the player to apply when constructed
-GVAR(construction_fortification_amount_rotation) = 0;
+if (hasInterface) then {
+    player setVariable [QGVAR(fortification_types), [["Trench", GVAR(construction_fortification_object)]]];
+
+    if (isNil {player getVariable QGVAR(fortification_type)}) then {
+        player setVariable [QGVAR(fortification_type), [0, GVAR(construction_fortification_object)]];
+    };
+};
+
+[
+    GVAR(construction_types),
+    [
+         "Fortification",
+        [
+            ["Fort_EnvelopeBig_EP1", 0],
+            ["Land_fortified_nest_small_EP1", 180],
+            ["Land_fort_rampart_EP1", 0]
+        ],
+        "ca\misc3\data\icons\icon_dragonteeth_ca"
+    ]
+] call BIS_fnc_arrayPush;
 
 MODULE(THIS_MODULE) = true;

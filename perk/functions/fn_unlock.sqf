@@ -190,14 +190,13 @@ switch (_tier) do {
             
             case 2: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
-                    player setVariable [QGVAR(construction_nest), (player getVariable QGVAR(construction_nest)) + 1];
-                    player setVariable [QGVAR(construction_nest_max), (player getVariable QGVAR(construction_nest_max)) + 1];
+                    GVAR(construction_nest_time_cooldown) = GVAR(construction_nest_time_cooldown) - 300;
                 };
             };
             
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
-                    GVAR(construction_nest_time_cooldown) = GVAR(construction_nest_time_cooldown) - 300;
+                    player setVariable [QGVAR(nest_ammo), 1];
                 };
             };
             
@@ -212,7 +211,9 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
                     
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]]];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
+                        ["Perk: M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]
+                    ]];
                     
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
@@ -242,14 +243,20 @@ switch (_tier) do {
             
             case 2: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
-                    player setVariable [QGVAR(construction_fortification), (player getVariable QGVAR(construction_fortification)) + 1];
-                    player setVariable [QGVAR(construction_fortification_max), (player getVariable QGVAR(construction_fortification_max)) + 1];
+                    GVAR(construction_fortification_time_cooldown) = GVAR(construction_fortification_time_cooldown) - 300;
                 };
             };
             
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
-                    GVAR(construction_fortification_time_cooldown) = GVAR(construction_fortification_time_cooldown) - 300;
+                    player setVariable [QGVAR(fortification_types), [
+                        ["Perk: Bunker", "Land_fortified_nest_small_EP1"],
+                        ["Perk: Rampart", "Land_fort_rampart_EP1"]
+                    ] + (player getVariable QGVAR(fortification_types))];
+
+                    if (!isNil QMODULE(setting)) then {
+                        ["fortification_type"] call FUNC(setting,update);
+                    };
                 };
             };
             
@@ -264,7 +271,9 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["M2A2", "M2A2_EP1"]]];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
+                        ["Perk: M2A2", "M2A2_EP1"]
+                    ]];
                     
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
@@ -371,7 +380,9 @@ switch (_tier) do {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [["AH6J", "AH6J_EP1"]]];
+                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
+                        ["Perk: AH6J", "AH6J_EP1"]
+                    ]];
                     
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);

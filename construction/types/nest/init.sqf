@@ -5,16 +5,21 @@
 #define THIS_MODULE construction_nest
 #include "x_macros.sqf"
 
-// Type of construction, object, and (optional) representative icon texture
-GVAR(construction_types) = GVAR(construction_types) + [
+// Set object of construction
+GVAR(construction_nest_object) = "WarfareBMGNest_M240_US_EP1";
+
+if (hasInterface) then {
+    player setVariable [QGVAR(nest_ammo), 0.5];
+    player setVariable [QGVAR(nest_type), GVAR(construction_nest_object)];
+};
+
+[
+    GVAR(construction_types),
     [
         "Nest",
-        "WarfareBMGNest_M240_US_EP1",
+        [[GVAR(construction_nest_object), 0]],
         "ca\ui\data\iconmg_ca"
     ]
-];
-
-// Rotation of the model in relation to the player to apply when constructed
-GVAR(construction_nest_amount_rotation) = 0;
+] call BIS_fnc_arrayPush;
 
 MODULE(THIS_MODULE) = true;
