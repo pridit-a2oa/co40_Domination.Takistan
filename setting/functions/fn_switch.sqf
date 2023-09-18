@@ -46,10 +46,6 @@ if (!isNil {GVAR(option) select 4}) exitWith {
         };
     } forEach (GVAR(option) select 3);
 
-    if ([GVAR(option), 5, false] call FUNC(common,param)) then {
-        lbSort (DIALOG("X_SETTING_DIALOG", 300));
-    };
-
     DIALOG("X_SETTING_DIALOG", 300) lbSetCurSel ((player getVariable (format ["d_%1", GVAR(option) select 1])) select 0);
 };
 
