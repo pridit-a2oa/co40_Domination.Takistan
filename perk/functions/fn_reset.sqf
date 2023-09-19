@@ -1,6 +1,5 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
-private ["_modules"];
 
 {
     __module(_x);

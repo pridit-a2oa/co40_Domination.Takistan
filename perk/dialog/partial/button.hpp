@@ -215,7 +215,7 @@ class PerkButton_Role3_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = " MG Nest cooldown reduced by 5 minutes (applies after next use)";
+    tooltip = "MG Nest cooldown reduced by 5 minutes (applies after next use)";
     action = "[3,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_3: XD_LinkButtonUpgradeBase
