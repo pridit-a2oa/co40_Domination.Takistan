@@ -10,9 +10,6 @@
 
     uiNamespace setVariable [QGVAR(notice), displayNull];
 
-    removeAllItems player;
-    removeAllWeapons player;
-
     {
         player addWeapon _x;
     } forEach [
