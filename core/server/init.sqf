@@ -85,7 +85,7 @@ onPlayerDisconnected {
 
     {
         if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
-            [true, "switchMove", [_x, ""]] call FUNC(network,mp);
+            [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
             
             if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
                 _x addScore -10;
