@@ -1,10 +1,10 @@
 class PerksBarBackground: XD_RscPicture
 {
-    text = "ca\ui\data\ui_background_mp_lobby_top_ca";
     x = 0.265624;
     y = 0.294949;
     w = 0.596200;
     h = 0.547813;
+    text = "ca\ui\data\ui_background_mp_lobby_top_ca";
 };
 class PerksBarIcon_1: XD_RscPicture
 {
@@ -13,6 +13,8 @@ class PerksBarIcon_1: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };
 class PerksBarIcon_2: XD_RscPicture
 {
@@ -21,6 +23,8 @@ class PerksBarIcon_2: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };
 class PerksBarIcon_3: XD_RscPicture
 {
@@ -29,6 +33,8 @@ class PerksBarIcon_3: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };
 class PerksBarIcon_4: XD_RscPicture
 {
@@ -37,6 +43,8 @@ class PerksBarIcon_4: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };
 class PerksBarIcon_5: XD_RscPicture
 {
@@ -45,6 +53,8 @@ class PerksBarIcon_5: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };
 class PerksBarIcon_6: XD_RscPicture
 {
@@ -53,4 +63,6 @@ class PerksBarIcon_6: XD_RscPicture
     y = 0.284182;
     w = 0.0419193;
     h = 0.0562289;
+    colorText[] = {1,1,1,0.14};
+    text = "ca\ui\data\icon_task_ca";
 };

@@ -25,8 +25,8 @@ _roles = [0, GVAR(perk_type_roles)] call FUNC(common,arrayValues);
         
         {
             _column = _x;
-            
-            DIALOG("X_PERK_DIALOG", 500 + _column) ctrlSetText "\ca\ui\data\icon_task_ca";
+
+            DIALOG("X_PERK_DIALOG", 500 + _column) ctrlSetTextColor [1, 1, 1, 0.85];
             
             for "_i" from 1 to 5 do {
                 if (_points < 1 && ({!isNil QMODULE(admin) && {!(__submodulePP(admin))} || {isNil QMODULE(admin)}})) exitWith {};
