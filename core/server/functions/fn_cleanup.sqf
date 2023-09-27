@@ -17,8 +17,7 @@ waitUntil {
     switch (true) do {
         case (_x isKindOf "CAManBase");
         case (_x isKindOf "LandVehicle" && {(position _x) distance _position < _distance});
-        case (_x isKindOf "ReammoBox");
-        case (_x isKindOf "StaticWeapon"): {
+        case (_x isKindOf "ReammoBox"): {
             {
                 if !(isPlayer _x) then {
                     _x setDamage 1;

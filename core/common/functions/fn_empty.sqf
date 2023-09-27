@@ -1,1 +1,1 @@
-({alive _x} count (crew _this)) == 0;
+[{alive _x} count crew _this, 0] call BIS_fnc_areEqual

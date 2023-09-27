@@ -141,156 +141,176 @@ if (!isNil QMODULE(ammobox)) then {
     };
 }, 5] call FUNC(THIS_MODULE,addPerFrame);
 
-player addEventHandler ["respawn", {
-    private ["_unit", "_corpse", "_respawn"];
-    
-    PARAMS_2(_unit, _corpse);
-
-    setPlayerRespawnTime 30;
-    
-    titleText ["", "BLACK FADED"];
-    
-    _unit spawn {
-        _this allowDamage false;
+{
+    player addEventHandler _x;
+} forEach [
+    ["Killed", {
+        private ["_unit"];
         
-        sleep GVAR(client_time_invulnerable);
+        PARAMS_1(_unit);
+
+        [true, "switchMove", [_unit, ""]] call FUNC(network,mp);
         
-        _this allowDamage true;
-    };
-    
-    if (!isNil QMODULE(respawn)) then {
-        [_unit, position _corpse] call FUNC(respawn,spawn);
-    };
-    
-    if (!isNil QMODULE(setting)) then {
-        _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
-    };
-
-    if (!isNil QMODULE(revive)) then {
-        [_unit] call FUNC(revive,reset);
-    };
-    
-    {
-        private ["_module", "_path"];
-
-        _module = _x;
-        _path = _module;
-
-        if ([typeName _module, "ARRAY"] call BIS_fnc_areEqual) then {
-            _module = _x select 0;
-            _path = _x select 1;
+        _unit spawn {
+            waitUntil {sleep 1; !([_this, player] call BIS_fnc_areEqual)};
+            
+            hideBody _this;
         };
+    }],
 
-        if !(isNil (format [QMODULE(%1), _module])) then {
-            __handlerPP(_path);
-        };
-    } forEach [
-        "backpack",
-        "base_rd",
-        "communication",
-        ["construction_farp", "construction\types\farp"],
-        ["construction_fortification", "construction\types\fortification"],
-        ["construction_mash", "construction\types\mash"],
-        ["construction_nest", "construction\types\nest"],
-        "damage",
-        "drag",
-        ["inventory_medical", "inventory\types\medical"],
-        ["inventory_refuel", "inventory\types\refuel"],
-        ["inventory_repair", "inventory\types\repair"],
-        "medical",
-        "perk",
-        "option",
-        "revive"
-    ];
-    
-    if (!isNil QMODULE(perk)) then {
-        [true] call FUNC(perk,calculate);
-    };
-    
-    if (!isNil QMODULE(backpack) && {_unit getVariable QGVAR(backpack)} && {count GVAR(backpack) > 0}) then {
-        call FUNC(backpack,action);
-    };
-    
-    removeAllWeapons _unit;
-    removeBackpack _unit;
-    
-    [_unit, _corpse] spawn {
-        private ["_unit", "_corpse", "_backpack"];
+    ["Respawn", {
+        private ["_unit", "_corpse", "_respawn"];
         
         PARAMS_2(_unit, _corpse);
+
+        setPlayerRespawnTime 30;
         
-        _backpack = unitBackpack _corpse;
+        titleText ["", "BLACK FADED"];
         
-        if !(isNull _backpack) then {
-            if (!isNil QMODULE(item) && {{(_x select 0) in ([1, GVAR(item_types)] call FUNC(common,arrayValues))} count (getWeaponCargo _backpack) > 0}) then {
-                clearWeaponCargo _backpack;
+        _unit spawn {
+            _this allowDamage false;
+            
+            sleep GVAR(client_time_invulnerable);
+            
+            _this allowDamage true;
+        };
+        
+        if (!isNil QMODULE(respawn)) then {
+            [_unit, position _corpse] call FUNC(respawn,spawn);
+        };
+        
+        if (!isNil QMODULE(setting)) then {
+            _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
+        };
+
+        if (!isNil QMODULE(revive)) then {
+            [_unit] call FUNC(revive,reset);
+        };
+        
+        {
+            private ["_module", "_path"];
+
+            _module = _x;
+            _path = _module;
+
+            if ([typeName _module, "ARRAY"] call BIS_fnc_areEqual) then {
+                _module = _x select 0;
+                _path = _x select 1;
             };
 
-            _unit action ["AddBag", _corpse, typeOf _backpack];
+            if !(isNil (format [QMODULE(%1), _module])) then {
+                __handlerPP(_path);
+            };
+        } forEach [
+            "backpack",
+            "base_rd",
+            "communication",
+            ["construction_farp", "construction\types\farp"],
+            ["construction_fortification", "construction\types\fortification"],
+            ["construction_mash", "construction\types\mash"],
+            ["construction_nest", "construction\types\nest"],
+            "damage",
+            "drag",
+            ["inventory_medical", "inventory\types\medical"],
+            ["inventory_refuel", "inventory\types\refuel"],
+            ["inventory_repair", "inventory\types\repair"],
+            "medical",
+            "perk",
+            "option",
+            "revive"
+        ];
+        
+        if (!isNil QMODULE(perk)) then {
+            [true] call FUNC(perk,calculate);
+        };
+        
+        if (!isNil QMODULE(backpack) && {_unit getVariable QGVAR(backpack)} && {count GVAR(backpack) > 0}) then {
+            call FUNC(backpack,action);
+        };
+        
+        removeAllWeapons _unit;
+        removeBackpack _unit;
+        
+        [_unit, _corpse] spawn {
+            private ["_unit", "_corpse", "_backpack"];
             
-            sleep 2;
+            PARAMS_2(_unit, _corpse);
             
-            _unit switchMove "";
+            _backpack = unitBackpack _corpse;
+            
+            if !(isNull _backpack) then {
+                if (!isNil QMODULE(item) && {{(_x select 0) in ([1, GVAR(item_types)] call FUNC(common,arrayValues))} count (getWeaponCargo _backpack) > 0}) then {
+                    clearWeaponCargo _backpack;
+                };
+
+                _unit action ["AddBag", _corpse, typeOf _backpack];
+                
+                sleep 2;
+                
+                _unit switchMove "";
+            };
+            
+            titleText ["", "BLACK IN", 2];
         };
         
-        titleText ["", "BLACK IN", 2];
-    };
-    
-    if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) then {
-        call FUNC(loadout,restore);
-    } else {
-        private ["_magazines", "_weapons"];
-
-        _magazines = if !(isNil QMODULE(gear)) then {
-            [
-                magazines _corpse,
-                "magazine"
-            ] call FUNC(gear,items)
+        if (!isNil QMODULE(loadout) && {_unit getVariable QGVAR(loadout)} && {count GVAR(loadout) > 0}) then {
+            call FUNC(loadout,restore);
         } else {
-            magazines _corpse
+            private ["_magazines", "_weapons"];
+
+            _magazines = if !(isNil QMODULE(gear)) then {
+                [
+                    magazines _corpse,
+                    "magazine"
+                ] call FUNC(gear,items)
+            } else {
+                magazines _corpse
+            };
+
+            {
+                _unit addMagazine _x;
+            } forEach _magazines;
+
+            _weapons = if !(isNil QMODULE(gear)) then {
+                [
+                    weapons _corpse,
+                    "weapon",
+                    "restored"
+                ] call FUNC(gear,items)
+            } else {
+                weapons _corpse
+            };
+
+            {
+                _unit addWeapon _x;
+            } forEach _weapons;
+            
+            _unit selectWeapon (primaryWeapon _unit);
         };
+        
+        if (sunOrMoon == 0 && {(weapons _unit) find "NVGoggles" != -1}) then {
+            if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
 
-        {
-            _unit addMagazine _x;
-        } forEach _magazines;
-
-        _weapons = if !(isNil QMODULE(gear)) then {
-            [
-                weapons _corpse,
-                "weapon",
-                "restored"
-            ] call FUNC(gear,items)
-        } else {
-            weapons _corpse
+            _unit action ["NVGoggles", _unit];
         };
+    }],
 
-        {
-            _unit addWeapon _x;
-        } forEach _weapons;
-        
-        _unit selectWeapon (primaryWeapon _unit);
-    };
-    
-    if (sunOrMoon == 0 && {(weapons _unit) find "NVGoggles" != -1}) then {
-        if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
+    ["WeaponAssembled", {
+        private ["_unit", "_weapon"];
 
-        _unit action ["NVGoggles", _unit];
-    };
-}];
+        PARAMS_2(_unit, _weapon);
 
-player addEventHandler ["Killed", {
-    private ["_unit"];
-    
-    PARAMS_1(_unit);
+        [true, "execVM", [[_weapon], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
 
-    [true, "switchMove", [_unit, ""]] call FUNC(network,mp);
-    
-    _unit spawn {
-        waitUntil {sleep 1; !([_this, player] call BIS_fnc_areEqual)};
-        
-        hideBody _this;
-    };
-}];
+        [gameLogic, "spawn", [[_weapon], {
+            private ["_weapon"];
+
+            PARAMS_1(_weapon);
+
+            __addDead(_weapon);
+        }]] call FUNC(network,mp);
+    }]
+];
 
 deleteVehicle GVAR(client_init_trig);
 
