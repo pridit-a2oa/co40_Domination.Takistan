@@ -141,97 +141,6 @@ if (!isNil QMODULE(ammobox)) then {
     };
 }, 5] call FUNC(THIS_MODULE,addPerFrame);
 
-player addEventHandler ["HandleDamage", {
-    private ["_unit", "_part", "_damage", "_injurer", "_projectile"];
-
-    PARAMS_5(_unit, _part, _damage, _injurer, _projectile);
-
-    if !(alive _unit) exitWith {0};
-    if (_unit getVariable QGVAR(unconscious)) exitWith {0};
-
-    // don't damage units by vehicle proxy, unless vehicle sustained significant damage (avoid exploding vehicle not injuring occupants but occupants may die before the vehicle does)
-    if ([_part, ""] call BIS_fnc_areEqual && {!([vehicle _unit, _unit] call BIS_fnc_areEqual)} && {damage (vehicle _unit) < 0.7}) exitWith {0};
-
-    // don't damage if injurer is self, unless satcheled or impacting the ground via freefall
-    if ([_unit, _injurer] call BIS_fnc_areEqual && {!([_projectile, "PipeBomb"] call BIS_fnc_areEqual)} && {!([animationState _injurer, "halofreefall"] call KRON_StrInStr)}) exitWith {0};
-
-    // don't damage friendly units, unless self-inflicted or occupying the same vehicle
-    if (!([_unit, _injurer] call BIS_fnc_areEqual) && {!([vehicle _unit, vehicle _injurer] call BIS_fnc_areEqual)} && {[side (group _injurer), side (group _unit)] call BIS_fnc_areEqual}) exitWith {0};
-
-    if (!isNil QMODULE(revive)) then {
-        _limbs = 1;
-        _incurred = 0;
-        _new_damage = 0;
-
-        _damage = switch (true) do {
-            case ([_unit, vehicle _unit] call BIS_fnc_areEqual && {_unit getVariable QGVAR(reduced_foot) && {_injurer isKindOf "CAManBase"}}): {_damage * 0.4};
-            default {_damage * 0.8};
-        };
-        
-        _config = configFile >> "cfgVehicles" >> (typeOf _unit);
-        
-        switch (_part) do {
-            case "head_hit": {
-                _armor = getNumber (_config >> "hitpoints" >> "HitHead" >> "armor");
-                _incurred = (_damage * (0.6 + (1 - _armor))) min 0.89;
-                _new_damage = ((_unit getVariable QGVAR(head_hit)) + _incurred) min 0.89;
-                
-                _unit setVariable [QGVAR(head_hit), _new_damage];
-            };
-            
-            case "body": {
-                _armor = getNumber (_config >> "hitpoints" >> "HitBody" >> "armor");
-                _pass_through = getNumber (_config >> "hitpoints" >> "HitBody" >> "passThrough");
-                
-                _incurred = if (_pass_through < 1 && _armor == 1) then {
-                    (_damage * 0.5) min 0.89
-                } else {
-                    (_damage * (0.6 + (1 - _armor))) min 0.89
-                };
-                
-                _new_damage = ((_unit getVariable QGVAR(body)) + _incurred) min 0.89;
-
-                _unit setVariable [QGVAR(body), _new_damage];
-            };
-            
-            case "hands": {
-                _limbs = 2;
-                _incurred = _damage min 15;
-                _new_damage = ((_unit getVariable QGVAR(hands)) + _incurred) min 15;
-                
-                _unit setVariable [QGVAR(hands), _new_damage];
-            };
-            
-            case "legs": {
-                _limbs = 2;
-                _incurred = _damage min 15;
-                _new_damage = ((_unit getVariable QGVAR(legs)) + _incurred) min 15;
-
-                _unit setVariable [QGVAR(legs), _new_damage];
-            };
-            
-            case "": {
-                _incurred = _damage min 0.89;
-                _new_damage = ((_unit getVariable QGVAR(overall)) + _incurred) min 0.89;
-
-                _unit setVariable [QGVAR(overall), _new_damage];
-            };
-        };
-        
-        39671 cutRsc [GVAR(revive_type_blood) call BIS_fnc_selectRandom, "PLAIN"];
-        
-        _damage = _new_damage;
-        
-        if (_limbs != 0) then {
-            if ((_limbs == 1 && {_damage >= 0.89}) || {(_limbs == 2 && {_damage >= 15})} || ((vehicle player) != player && {!alive (vehicle player)})) then {
-                [_unit] call FUNC(revive,unconscious);
-            };
-        };
-    };
-    
-    _damage
-}];
-
 player addEventHandler ["respawn", {
     private ["_unit", "_corpse", "_respawn"];
     
@@ -283,6 +192,7 @@ player addEventHandler ["respawn", {
         ["construction_fortification", "construction\types\fortification"],
         ["construction_mash", "construction\types\mash"],
         ["construction_nest", "construction\types\nest"],
+        "damage",
         "drag",
         ["inventory_medical", "inventory\types\medical"],
         ["inventory_refuel", "inventory\types\refuel"],

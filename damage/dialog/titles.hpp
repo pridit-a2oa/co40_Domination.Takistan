@@ -1,10 +1,10 @@
-class d_revive_blood_1 {
+class d_damage_blood_1 {
     idd = -1;
     movingEnable = 0;
     duration = 2;
     fadein = 0.1;
     fadeout = 8;
-    name = "d_revive_blood_1";
+    name = "d_damage_blood_1";
     class controls {
         class ScreenBlood_BG {
             idc=-1;
@@ -18,18 +18,18 @@ class d_revive_blood_1 {
             y = "SafeZoneY";
             w = "SafeZoneWAbs + 0.05";
             h = "SafeZoneH + 0.05";
-            text = "revive\textures\blood_1.paa";
+            text = "damage\textures\blood_1.paa";
         };
     };
 };
 
-class d_revive_blood_2 {
+class d_damage_blood_2 {
     idd = -1;
     movingEnable = 0;
     duration = 2;
     fadein = 0.1;
     fadeout = 8;
-    name = "d_revive_blood_2";
+    name = "d_damage_blood_2";
     class controls {
         class ScreenBlood_BG {
             idc=-1;
@@ -43,7 +43,7 @@ class d_revive_blood_2 {
             y = "SafeZoneY";
             w = "SafeZoneWAbs + 0.05";
             h = "SafeZoneH + 0.05";
-            text = "revive\textures\blood_2.paa";
+            text = "damage\textures\blood_2.paa";
         };
     };
 };

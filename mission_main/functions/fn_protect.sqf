@@ -4,9 +4,19 @@ private ["_object"];
 PARAMS_1(_object);
 
 _object addEventHandler ["HandleDamage", {
-    if ((_this select 4) in GVAR(mission_main_type_projectiles)) exitWith {0};
-    if (true in [(_this select 3) isKindOf "Car", (_this select 3) isKindOf "Tank"] && {(_this select 3) distance (_this select 0) > 150}) exitWith {0};
-    if ((_this select 3) isKindOf "Air" && {!([_this select 4, "Bo_"] call KRON_StrInStr)} && {(_this select 3) distance (_this select 0) > 300}) exitWith {0};
+    private ["_unit", "_selection", "_damage", "_injurer", "_projectile"];
 
-    _this select 2
+    PARAMS_5(_unit, _selection, _damage, _injurer, _projectile);
+
+    switch (true) do {
+        case (_projectile in GVAR(mission_main_type_projectiles));
+        case (_injurer distance _unit > 150 && {true in [_injurer isKindOf "Car", _injurer isKindOf "Tank"]});
+        case (_injurer distance _unit > 300 && {_injurer isKindOf "Air" && {!([_projectile, "Bo_"] call KRON_StrInStr)}}): {
+            0
+        };
+
+        default {
+            _damage
+        };
+    };
 }];

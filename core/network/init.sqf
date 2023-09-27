@@ -20,6 +20,7 @@ __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engine
 __cppfln(FUNC(THIS_MODULE,execVM),core\THIS_MODULE\functions\library\fn_execVM.sqf);
 __cppfln(FUNC(THIS_MODULE,hideBody),core\THIS_MODULE\functions\library\fn_hideBody.sqf);
 __cppfln(FUNC(THIS_MODULE,hideObject),core\THIS_MODULE\functions\library\fn_hideObject.sqf);
+__cppfln(FUNC(THIS_MODULE,hintSilent),core\THIS_MODULE\functions\library\fn_hintSilent.sqf);
 __cppfln(FUNC(THIS_MODULE,kbTell),core\THIS_MODULE\functions\library\fn_kbTell.sqf);
 __cppfln(FUNC(THIS_MODULE,lock),core\THIS_MODULE\functions\library\fn_lock.sqf);
 __cppfln(FUNC(THIS_MODULE,moveInCargo),core\THIS_MODULE\functions\library\fn_moveInCargo.sqf);

@@ -29,6 +29,7 @@ GVAR(modules) = [
     ["construction_mash", "construction\types\mash"],
     ["construction_nest", "construction\types\nest"],
     "conversation",
+    "damage",
     "debug",
     "diary",
     "drag", // TODO: Refactor (just slight cleanup, re-check #34)

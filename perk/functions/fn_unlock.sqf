@@ -56,7 +56,9 @@ switch (_tier) do {
             };
 
             case 7: {
-                player setVariable [QGVAR(reduced), true];
+                if !(isNil QMODULE(damage)) then {
+                    player setVariable [QGVAR(damage_vehicle), 0.7, true];
+                };
             };
             
             case 8: {
@@ -309,8 +311,8 @@ switch (_tier) do {
             };
             
             case 3: {
-                if (!isNil QMODULE(medical)) then {
-                    player setVariable [QGVAR(reduced_foot), true];
+                if !(isNil QMODULE(damage)) then {
+                    player setVariable [QGVAR(damage_man), 0.4];
                 };
             };
             
