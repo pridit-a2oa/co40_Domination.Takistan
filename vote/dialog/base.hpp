@@ -45,7 +45,6 @@ class XD_VoteDialog {
 		class VoteRequiredText: X3_RscText
 		{
 			idc = 101;
-			text = "WARNING: Voting is very experimental, and may break!";
             x = 0.229798;
             y = 0.226406;
             w = 0.548233;
