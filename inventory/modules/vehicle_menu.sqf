@@ -20,7 +20,11 @@ _types = [];
         [
             _types,
             [
-                format ["%1: Take", _name],
+                format [
+                    "%1: Take (%2)",
+                    _name,
+                    (player getVariable (format ["d_inventory_%1_max", _key])) - (player getVariable (format ["d_inventory_%1", _key]))
+                ],
                 format ["%1_%2", QUOTE(THIS_MODULE), _key]
             ] call FUNC(vehicle_menu,populate)
         ] call BIS_fnc_arrayPush;
