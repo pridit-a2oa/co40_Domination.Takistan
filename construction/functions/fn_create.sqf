@@ -77,8 +77,12 @@ _object addAction [
     false,
     true,
     "",
-    "[player, vehicle player] call BIS_fnc_areEqual && {!(_target getVariable 'd_deconstructing')}"
+    "alive _target && {[player, vehicle player] call BIS_fnc_areEqual && {!(_target getVariable 'd_deconstructing')}}"
 ];
+
+if (_object isKindOf "StaticWeapon") then {
+    [true, "execVM", [[_object], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+};
 
 switch (typeOf _object) do {
     case "US_WarfareBVehicleServicePoint_Base_EP1": {

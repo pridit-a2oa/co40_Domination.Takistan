@@ -7,11 +7,13 @@ _cooldown = (_this select 3) select 1;
 
 _object setVariable [QGVAR(deconstructing), true];
 
-if !([] call FUNC(client,stall)) exitWith {
+if (!([] call FUNC(client,stall)) && {alive _object}) exitWith {
     _object setVariable [QGVAR(deconstructing), false];
 };
 
-deleteVehicle _object;
+if !(alive _object) exitWith {};
+
+[true, "execVM", [[_object], FUNCTION(vehicle,delete)]] call FUNC(network,mp);
 
 player setVariable [format [QUOTE(%1), _amount], (player getVariable (format [QUOTE(%1), _amount])) + 1];
 player setVariable [format [QUOTE(%1), _cooldown], time + 60];
