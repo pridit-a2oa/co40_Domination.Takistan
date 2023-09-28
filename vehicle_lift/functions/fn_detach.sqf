@@ -58,15 +58,17 @@ if (isServer) then {
         };
     };
 
-    detach _attached;
-
     _position = position _lifter;
 
     if (_position select 2 < 6) then {
         _position = _lifter modelToWorld ([[10, 0, 0], [-10, 0, 0]] call BIS_fnc_selectRandom);
     };
 
-    _attached setPos [_position select 0, _position select 1, 0];
+    detach _attached;
+
+    _attached setPosATL [_position select 0, _position select 1, 0];
+
+    [true, "setVectorUp", [_attached, surfaceNormal (position _attached)]] call FUNC(network,mp);
 
     if (!alive _attached && {!isNull (driver _lifter)}) then {
         _lifted = _attached getVariable QGVAR(lifted);
@@ -95,7 +97,6 @@ if (isServer) then {
         };
     };
 
-    [true, "setVectorUp", [_attached, surfaceNormal (position _attached)]] call FUNC(network,mp);
     [true, "enableSimulation", [_attached, true]] call FUNC(network,mp);
 
     [_attached, "lock", false] call FUNC(network,mp);
