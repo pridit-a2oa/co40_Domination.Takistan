@@ -1,26 +1,31 @@
 #define THIS_MODULE vehicle_bomber
 #include "x_macros.sqf"
-private ["_vehicle", "_type"];
+private ["_vehicle", "_alternate", "_type"];
 
-PARAMS_2(_vehicle, _type);
+PARAMS_2(_vehicle, _alternate);
 
-if (isNil "_type" && {!(_vehicle getVariable QGVAR(bomber))}) exitWith {};
+if (isNil "_alternate" && {!(_vehicle getVariable QGVAR(bomber))}) exitWith {};
 
 if (hasInterface) then {
     _vehicle setVariable [QGVAR(bomber), false, true];
 
-    if (isNil "_type") then {
-        _type = switch (true) do {
-            case (!isNil QMODULE(item) && {!isNil QMODULE(item_money) && {__submodulePP(item)}}): {__submodulePP(mission_mini)};
-            default {[]}
+    if (isNil "_alternate") then {
+        _alternate = switch (true) do {
+            case (!isNil QMODULE(item) && {!isNil QMODULE(item_money) && {__submodulePP(item)}}): {true};
+            default {false}
         };
 
-        _this set [1, _type];
+        _this set [1, _alternate];
     };
 };
 
 if !(isServer) exitWith {
     [gameLogic, "execVM", [_this, __function(intel)]] call FUNC(network,mp);
+};
+
+_type = switch (_alternate) do {
+    case true: {__submodulePP(mission_mini)};
+    case false: {[]};
 };
 
 if ([_type, []] call BIS_fnc_areEqual && {GVAR(vehicle_bomber_chance_detonate) > floor (random 100)}) exitWith {
