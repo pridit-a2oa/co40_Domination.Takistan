@@ -9,24 +9,28 @@ if ({_x getVariable QGVAR(ied) && {_x distance _ied <= 50}} count (call FUNC(com
 _detonate = [];
 
 {
-    private ["_unit", "_distance", "_speed", "_height", "_return"];
-    
-    _unit = if (_x != vehicle _x) then {vehicle _x} else {_x};
-    
-    _distance = _unit distance _ied <= (GVAR(ied_trigger_distances) select 0);
-    _speed = speed _unit > GVAR(ied_trigger_speed);
-    _height = (position _unit) select 2;
-    
-    _return = switch (true) do {
-        case (_height > 1): {false};
-        case (_distance): {true};
-        case (_speed): {true};
-        default {false};
+    switch (true) do {
+        case ((position _x) select 2 > 1);
+        case !({isPlayer _x} count crew _x > 0): {};
+
+        default {
+            [
+                _detonate,
+                switch (true) do {
+                    case (abs (speed _x) > GVAR(ied_trigger_speed));
+                    case (_x distance _ied <= (GVAR(ied_trigger_distances) select 0)): {
+                        true
+                    };
+
+                    default {
+                        false
+                    };
+                }
+            ] call BIS_fnc_arrayPush;
+        };
     };
-    
-    _detonate = _detonate + [_return];
 } forEach _units;
 
-if ({str (_x) == "true"} count _detonate > 0) exitWith {true};
+if ({[_x, true] call BIS_fnc_areEqual} count _detonate > 0) exitWith {true};
 
 false
