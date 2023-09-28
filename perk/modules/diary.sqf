@@ -12,7 +12,7 @@
         GVAR(perk_amount_score),
         GVAR(perk_amount_score) * 8
     ],
-    "<br />You can only unlock the bottom perks for your current role. This is indicated by a <marker name=''>white arrow</marker> above the column.",
+    "<br />You can only unlock the bottom perks for your current role. This is indicated by a <marker name=''>highlighted arrow</marker> above the column.",
     "<br />Role based perks <marker name=''>must be unlocked in sequence</marker>, starting with the first one at the top and then continuing down.",
     "<br />Unlocked perks <marker name=''>do not persist</marker> between switching roles. On reconnect you receive points to re-allocate dependant on score.",
     "<br />Score, and by extension any unlocked perks and unused points, are <marker name=''>reset</marker> every server restart."
