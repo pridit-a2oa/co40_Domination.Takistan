@@ -68,19 +68,38 @@ if (isServer) then {
         
         [_vehicle] __submodulePP(vehicle_wreck);
     };
-    
-    if (_vehicle isKindOf "Air") then {
-        _vehicle addEventHandler ["Killed", {
-            private ["_vehicle"];
-            
-            PARAMS_1(_vehicle);
 
-            _vehicle spawn {
-                sleep 1;
+    switch (true) do {
+        case (_vehicle isKindOf "Air"): {
+            _vehicle addEventHandler ["Killed", {
+                private ["_vehicle"];
+                
+                PARAMS_1(_vehicle);
 
-                [_this] call FUNC(THIS_MODULE,freeze);
-            };
-        }];
+                _vehicle spawn {
+                    sleep 1;
+
+                    [_this] call FUNC(THIS_MODULE,freeze);
+                };
+            }];
+        };
+
+        case (_vehicle isKindOf "StaticWeapon"): {
+            _vehicle addEventHandler ["Fired", {
+                private ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine"];
+
+                PARAMS_6(_unit, _weapon, _muzzle, _mode, _ammo, _magazine);
+
+                if ({isPlayer _x} count crew _unit > 0) exitWith {}; 
+
+                // TODO: Would be better to get the amount as part of a config entry but didn't see this anywhere, only
+                // single weapon or ammo references, so no idea where the magazine amount that statics spawn with comes
+                // from. If ever discovered, replace with.
+                if !([{[_x, _magazine] call BIS_fnc_areEqual} count ([_unit] call BIS_fnc_invString), 1] call BIS_fnc_areEqual) exitWith {};
+
+                _unit setVehicleAmmo 1;
+            }];
+        };
     };
 
     _expression = {
