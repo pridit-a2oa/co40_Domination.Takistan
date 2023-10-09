@@ -15,6 +15,8 @@ switch (_local) do {
     case false: {
         _ammobox = createVehicle [_type select 1, _position, [], 0, "CAN_COLLIDE"];
 
+        [true, "say3D", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
+
         [true, "setAmmoCargo", [_ammobox, 0]] call FUNC(network,mp);
 
         if (_type select 2) then {

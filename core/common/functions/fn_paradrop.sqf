@@ -67,21 +67,19 @@ if (typeName _loaded == "ARRAY") then {
         waitUntil {sleep 0.1; (position _load) select 2 < 3};
 
         if (!isNil QMODULE(ammobox) && {[typeOf _load, ([faction _load] call FUNC(ammobox,type)) select 1] call BIS_fnc_areEqual}) then {
-            private ["_direction", "_ammobox"];
+            private ["_direction"];
 
             _position = [(position _load) select 0, (position _load) select 1, 0];
             _direction = direction _load;
 
             deleteVehicle _load;
 
-            _ammobox = [
+            [
                 "BIS_US",
                 _position,
                 _direction,
                 false
             ] call FUNC(ammobox,create);
-
-            [true, "say3D", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
         };
     };
 };

@@ -1,24 +1,25 @@
 #define THIS_MODULE vehicle_ammobox
 #include "x_macros.sqf"
-private ["_vehicle", "_position"];
+private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_ammobox_types)) exitWith {};
 
-_position = _vehicle modelToWorld [6, 0, 0];
+if !(isNil QMODULE(ammobox)) then {
+    private ["_position"];
 
-if (!isNil QMODULE(ammobox)) then {
-    private ["_ammobox"];
+    _position = _vehicle modelToWorld [6, 0, 0];
 
-    _ammobox = [
-        faction _vehicle,
-        [_position select 0, _position select 1, 0],
-        direction _vehicle,
-        false
-    ] call FUNC(ammobox,create);
-    
-    [true, "say3D", [_ammobox, QGVAR(sound_box), 20]] call FUNC(network,mp);
+    [gameLogic, "execVM", [
+        [
+            faction _vehicle,
+            [_position select 0, _position select 1, 0],
+            direction _vehicle,
+            false
+        ],
+        FUNCTION(ammobox,create)
+    ]] call FUNC(network,mp);
 };
 
 _vehicle setVariable [QGVAR(ammobox), false, true];
