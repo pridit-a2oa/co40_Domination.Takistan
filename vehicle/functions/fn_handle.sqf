@@ -71,6 +71,23 @@ if (isServer) then {
 
     switch (true) do {
         case (_vehicle isKindOf "Air"): {
+            _vehicle addEventHandler ["Fired", {
+                private ["_unit"];
+
+                PARAMS_1(_unit);
+
+                switch (true) do {
+                    case !(canMove _unit);
+                    case (someAmmo _unit);
+                    case !(alive (driver _unit));
+                    case !([side (driver _unit), east] call BIS_fnc_areEqual): {};
+
+                    default {
+                        [_unit] spawn FUNC(server,exitMap);
+                    };
+                };
+            }];
+
             _vehicle addEventHandler ["Killed", {
                 private ["_vehicle"];
                 
