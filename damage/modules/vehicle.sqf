@@ -24,15 +24,15 @@ _vehicle addEventHandler ["HandleDamage", {
             _damage = 0;
         };
  
-        case ([_projectile, "M_Igla_AA"] call BIS_fnc_areEqual): {
-            _damage = [
-                _unit,
-                _damage,
-                _selection,
-                2,
-                true
-            ] call FUNC(THIS_MODULE,modifier);
-        };
+        // case ([_projectile, "M_Igla_AA"] call BIS_fnc_areEqual): {
+        //     _damage = [
+        //         _unit,
+        //         _damage,
+        //         _selection,
+        //         2,
+        //         true
+        //     ] call FUNC(THIS_MODULE,modifier);
+        // };
 
         case (_projectile in ["M_Hellfire_AT", "M_Maverick_AT"] && {_unit isKindOf "LandVehicle"}): {
             private ["_distance", "_falloff", "_modifier"];
