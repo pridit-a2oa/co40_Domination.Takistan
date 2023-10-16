@@ -29,7 +29,7 @@ _vehicle addEventHandler ["HandleDamage", {
                 _unit,
                 _damage,
                 _selection,
-                1.8,
+                2,
                 true
             ] call FUNC(THIS_MODULE,modifier);
         };
