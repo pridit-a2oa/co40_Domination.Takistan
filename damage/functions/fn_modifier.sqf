@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_unit", "_damage", "_selection", "_modifier", "_hit"];
+private ["_unit", "_damage", "_selection", "_modifier", "_hit", "_structure"];
 
 PARAMS_4(_unit, _damage, _selection, _modifier);
 
@@ -7,8 +7,6 @@ _network = [_this, 4, false] call FUNC(common,param);
 
 _hit = switch (_selection) do {
     case "": {
-        private ["_structure"];
-
         _structure = _unit getVariable QGVAR(structure);
 
         if ([_structure, 0] call BIS_fnc_areEqual && {_damage > _structure}) exitWith {
