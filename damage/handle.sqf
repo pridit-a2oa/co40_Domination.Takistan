@@ -117,7 +117,7 @@ if (hasInterface) then {
                 };
             };
         };
-        
+
         _damage
     }];
 };

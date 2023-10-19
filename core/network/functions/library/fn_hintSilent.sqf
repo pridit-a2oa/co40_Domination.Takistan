@@ -1,1 +1,1 @@
-hintSilent (_this select 1);
+hintSilent parseText (_this select 1);

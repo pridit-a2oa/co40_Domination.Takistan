@@ -46,7 +46,7 @@ _vehicle addEventHandler ["HandleDamage", {
 
             {
                 if (isPlayer _x) then {
-                    [_x, "hintSilent", parseText format [
+                    [_x, "hintSilent", format [
                         "Guided missile applied <t underline='1'>%1</t> of its potential damage, as you are >%2km away",
                         str _modifier + "%",
                         _falloff - 1
