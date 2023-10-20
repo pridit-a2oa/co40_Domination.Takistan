@@ -16,13 +16,13 @@ if !(isNil QMODULE(vehicle_lift)) then {
 
     _attached = _vehicle getVariable QGVAR(attached);
 
-    if !(isNull _attached) then {
-        _attached setVariable [QGVAR(spawn), _vehicle getVariable QGVAR(spawn), true];
+    if (isNil "_attached" || {isNull _attached}) exitWith {};
 
-        [_vehicle] call FUNC(vehicle_lift,detach);
+    _attached setVariable [QGVAR(spawn), _vehicle getVariable QGVAR(spawn), true];
 
-        [_vehicles, _attached] call BIS_fnc_arrayPush;
-    };
+    [_vehicle] call FUNC(vehicle_lift,detach);
+
+    [_vehicles, _attached] call BIS_fnc_arrayPush;
 };
 
 {
