@@ -124,18 +124,23 @@ if (isServer) then {
 
         PARAMS_2(_unit, _killer);
 
-        if !(isServer) exitWith {};
-        if (_unit getVariable QGVAR(killed)) exitWith {};
-        if (count crew _unit > 0 && {{!isPlayer _x} count crew _unit > 0}) exitWith {};
+        switch (true) do {
+            case !(isServer);
+            case (_unit isKindOf "StaticWeapon");
+            case (_unit getVariable QGVAR(killed));
+            case (count crew _unit > 0 && {{!isPlayer _x} count crew _unit > 0}): {};
 
-        _unit setVariable [QGVAR(killed), true];
+            default {
+                _unit setVariable [QGVAR(killed), true];
 
-        __log format [
-            "Destroyed %1 {""killer"":""%2"",""occupants"":""%3""}",
-            [typeOf _unit] call FUNC(THIS_MODULE,name),
-            if (isPlayer _killer) then {name _killer} else {side _killer},
-            [_unit] call FUNC(THIS_MODULE,crew)
-        ]];
+                __log format [
+                    "Destroyed %1 {""killer"":""%2"",""occupants"":""%3""}",
+                    [typeOf _unit] call FUNC(THIS_MODULE,name),
+                    if (isPlayer _killer) then {name _killer} else {side _killer},
+                    [_unit] call FUNC(THIS_MODULE,crew)
+                ]];
+            };
+        };        
     };
 
     _vehicle addEventHandler ["Killed", _expression];
