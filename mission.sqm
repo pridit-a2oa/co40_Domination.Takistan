@@ -225,7 +225,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="ARTY1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Artillery Operator (US Special Forces)";
 				};
 				class Item1
@@ -239,7 +239,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ARTY2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Artillery Operator (US Special Forces)";
 				};
 			};
@@ -262,7 +262,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="ENGINEER1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (BAF)";
 				};
 				class Item1
@@ -276,7 +276,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (BAF)";
 				};
 				class Item2
@@ -290,7 +290,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER3";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
 				class Item3
@@ -304,7 +304,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER4";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
 				class Item4
@@ -318,7 +318,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER5";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
 				class Item5
@@ -332,7 +332,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER6";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
 				class Item6
@@ -346,7 +346,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER7";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US Special Forces)";
 				};
 				class Item7
@@ -360,7 +360,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="ENGINEER8";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US Special Forces)";
 				};
 			};
@@ -383,7 +383,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="MGUNNER1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (BAF)";
 				};
 				class Item1
@@ -397,7 +397,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (BAF)";
 				};
 				class Item2
@@ -411,7 +411,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER3";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
 				class Item3
@@ -425,7 +425,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER4";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
 				class Item4
@@ -439,7 +439,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER5";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
 				class Item5
@@ -453,7 +453,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER6";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
 				class Item6
@@ -467,7 +467,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER7";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US Special Forces)";
 				};
 				class Item7
@@ -481,7 +481,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MGUNNER8";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US Special Forces)";
 				};
 			};
@@ -504,7 +504,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="MARKSMAN1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (BAF)";
 				};
 				class Item1
@@ -518,7 +518,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (BAF)";
 				};
 				class Item2
@@ -532,7 +532,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN3";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US)";
 				};
 				class Item3
@@ -546,7 +546,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN4";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US)";
 				};
 				class Item4
@@ -560,7 +560,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN5";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Ghillie)";
 				};
 				class Item5
@@ -574,7 +574,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN6";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Ghillie)";
 				};
 				class Item6
@@ -588,7 +588,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN7";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Special Forces)";
 				};
 				class Item7
@@ -602,7 +602,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MARKSMAN8";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Special Forces)";
 				};
 			};
@@ -625,7 +625,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="MEDIC1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (BAF)";
 				};
 				class Item1
@@ -639,7 +639,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (BAF)";
 				};
 				class Item2
@@ -653,7 +653,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC3";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
 				class Item3
@@ -667,7 +667,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC4";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
 				class Item4
@@ -681,7 +681,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC5";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
 				class Item5
@@ -695,7 +695,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC6";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
 				class Item6
@@ -709,7 +709,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC7";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US Special Forces)";
 				};
 				class Item7
@@ -723,7 +723,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="MEDIC8";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US Special Forces)";
 				};
 			};
@@ -746,7 +746,7 @@ class Mission
 					leader=1;
 					skill=1;
 					text="PILOT1";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (BAF)";
 				};
 				class Item1
@@ -760,7 +760,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT2";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (BAF)";
 				};
 				class Item2
@@ -774,7 +774,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT3";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US)";
 				};
 				class Item3
@@ -788,7 +788,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT4";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US)";
 				};
 				class Item4
@@ -802,7 +802,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT5";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US Light)";
 				};
 				class Item5
@@ -816,7 +816,7 @@ class Mission
 					player="PLAY CDG";
 					skill=1;
 					text="PILOT6";
-					init="removeAllWeapons this;removeBackpack this;this disableAI ""MOVE"";";
+					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US Light)";
 				};
 			};
