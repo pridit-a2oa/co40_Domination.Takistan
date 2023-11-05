@@ -18,7 +18,7 @@ class XD_HaloDialog {
     class controls {
         class RscHaloMapControl: XD_RscMapControl
         {
-            idc = 1000;
+            idc = 10000;
             x = 0.0211491;
             y = 0.231735;
             w = 0.955858;

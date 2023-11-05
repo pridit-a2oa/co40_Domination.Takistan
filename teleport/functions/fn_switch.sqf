@@ -13,7 +13,7 @@ if (isNil "_target") exitWith {
     _button ctrlSetText "No Selection";
 };
 
-_map = DIALOG("X_TELEPORT_DIALOG", 1000);
+_map = DIALOG("X_TELEPORT_DIALOG", 10000);
 
 ctrlMapAnimClear _map;
 

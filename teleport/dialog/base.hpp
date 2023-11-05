@@ -18,7 +18,7 @@ class XD_TeleportDialog {
     class controls {
         class RscTeleportMapControl: XD_RscMapControl
         {
-            idc = 1000;
+            idc = 10000;
             x = 0.0211491;
             y = 0.231735;
             w = 0.710858;
