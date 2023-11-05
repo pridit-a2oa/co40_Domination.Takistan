@@ -11,7 +11,7 @@ if (alive _vehicle) exitWith {};
 if !(_vehicle getVariable QGVAR(wreckable)) exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
-_marker setMarkerPosLocal (position _vehicle);
+_marker setMarkerPosLocal (getPosASL _vehicle);
 _marker setMarkerTextLocal (format ["%1 Wreck", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
 _marker setMarkerTypeLocal "DOT";
 

@@ -8,6 +8,7 @@ if (!alive _vehicle && {!(_vehicle getVariable QGVAR(wreckable))}) exitWith {};
 if (alive _vehicle && {!((typeOf _vehicle) in GVAR(vehicle_mhq_types))} && {((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"] && {!(_vehicle isKindOf "Air")})} && {!(_vehicle getVariable QGVAR(built))}) exitWith {};
 
 _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
+_marker setMarkerPosLocal (getPosASL _vehicle);
 
 if (alive _vehicle) then {
     _marker setMarkerTextLocal (format [" %1", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
