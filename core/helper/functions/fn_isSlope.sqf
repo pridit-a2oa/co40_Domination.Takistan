@@ -10,7 +10,7 @@ _bank = round (abs (_degrees select 1));
 
 if (_pitch > _threshold || {_bank > _threshold}) exitWith {
     format [
-        "%1 cannot be %2 on a significant incline, move to more level terrain",
+        "%1 cannot be %2 on a significant incline, move to flat terrain",
         _name select 0,
         _name select 1
     ];
