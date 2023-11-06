@@ -26,8 +26,8 @@ GVAR(uav_distance_player) = 1200;
 // The distance between each waypoint while patrolling
 GVAR(uav_distance_waypoint) = 1500;
 
-// Maximum distance from target to scan for enemies within
-GVAR(uav_distance_scan) = 200;
+// Distance from target to scan for enemies within
+GVAR(uav_distance_scan) = 250;
 
 // Initial spawn distance after calling
 GVAR(uav_distance_spawn) = 3000;
