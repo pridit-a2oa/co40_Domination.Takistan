@@ -11,7 +11,7 @@
     </a>
 </p>
 
-**co40_Domination.Takistan** is an almost complete modular rewrite of the original Domination mission, which was created by **Xeno**, for [Arma 2: Operation Arrowhead](https://en.wikipedia.org/wiki/Arma_2:_Operation_Arrowhead). This has been rebuilt from the ground up, with many new features and tweaks added in the process to provide a more enriching and immersive experience.
+**co40_Domination.Takistan** is an almost complete modular rewrite of the original Domination mission (which was created by **Xeno**) for [Arma 2: Operation Arrowhead](https://en.wikipedia.org/wiki/Arma_2:_Operation_Arrowhead). This has been rebuilt from the ground up, with many new features and tweaks added in the process to provide a more enriching and immersive experience.
 
 ## Features
 - Modular codebase with easy iteration and extensibility a core focal point.
