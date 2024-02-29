@@ -17,6 +17,6 @@ if !(isNil QMODULE(reward)) then {
     [
         player,
         GVAR(ied_amount_score),
-        "disarming an IED"
+        "defusing an IED"
     ] call FUNC(reward,score);
 };
