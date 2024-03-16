@@ -3,10 +3,10 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/pridit/co40_Domination.Takistan/releases">
-        <img alt="GitHub release" src="https://img.shields.io/github/release/Pridit/co40_Domination.Takistan.svg" />
+    <a target="_blank" href="https://crowdin.com/project/pridit">
+        <img alt="Crowdin" src="https://badges.crowdin.net/pridit/localized.svg">
     </a>
-    <a href="https://dsc.gg/pridit">
+    <a target="_blank" href="https://dsc.gg/pridit">
         <img alt="Discord" src="https://img.shields.io/discord/538096202282172447?color=%237289da&label=discord&logo=discord&logoColor=%23fff">
     </a>
 </p>

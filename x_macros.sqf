@@ -28,6 +28,7 @@
 #define __handlerPP(module) call compile preprocessFileLineNumbers format ["%1\handle.sqf", module]
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __profile(option) format ["pdt|%1|%2", QUOTE(THIS_MODULE), option]
+#define __localize(string) [string, QUOTE(THIS_MODULE)] call compile preprocessFileLineNumbers "language\functions\fn_localize.sqf"
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
 #define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
 

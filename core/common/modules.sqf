@@ -47,6 +47,7 @@ GVAR(modules) = [
     ["inventory_refuel", "inventory\types\refuel"],
     ["inventory_repair", "inventory\types\repair"],
     "item",
+    "language",
     ["item_evidence", "item\types\evidence"],
     ["item_money", "item\types\money"],
     "loadout",

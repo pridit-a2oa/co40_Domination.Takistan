@@ -26,11 +26,20 @@ _save = [];
     };
 
     if !(isNil (format [QMODULE(%1), _module])) then {
-        [_save, [format [__profile("%1"), _option], ["SCALAR", [0, 1]]]] call BIS_fnc_arrayPush;
+        [_save, [
+            format [__profile("%1"), _option],
+            // TODO: Find better solution
+            if ([_module, "language"] call BIS_fnc_areEqual) then {
+                ["STRING", ["CZ", "EN", "FR", "DE", "IT", "PL", "RU", "ES"]]
+            } else {
+                ["SCALAR", [0, 1]]
+            }
+        ]] call BIS_fnc_arrayPush;
     };
 } forEach [
     "3d",
     ["halo", "parachute"],
+    "language",
     "reward",
     "tutorial",
     ["vehicle_lift", "lift"],
