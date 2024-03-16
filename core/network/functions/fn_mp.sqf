@@ -38,9 +38,9 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
     if !(isServer) exitWith {
         BIS_fnc_MP_packet = [_target, _functionName, _params, _isCall, 0];
 
-        if (isDedicated && {!hasInterface}) then {
-            __log format ["%1", BIS_fnc_MP_packet]];
-        };
+        // if (isDedicated && {!hasInterface}) then {
+        //     __log format ["%1", BIS_fnc_MP_packet]];
+        // };
         
         publicVariableServer "BIS_fnc_MP_packet";
     };
@@ -70,9 +70,9 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
     
     BIS_fnc_MP_packet = [_target, _functionName, _params, _isCall, 1];
 
-    if (isDedicated && {!hasInterface}) then {
-        __log format ["%1", BIS_fnc_MP_packet]];
-    };
+    // if (isDedicated && {!hasInterface}) then {
+    //     __log format ["%1", BIS_fnc_MP_packet]];
+    // };
             
     //--- Send to clients
     if (_ownerID < 0) then {

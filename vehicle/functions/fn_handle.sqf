@@ -107,6 +107,8 @@ if (isServer) then {
 
                 PARAMS_6(_unit, _weapon, _muzzle, _mode, _ammo, _magazine);
 
+                systemChat format ["VEH: %1 | %2", typeOf _unit, {[_x, _magazine] call BIS_fnc_areEqual} count ([_unit] call BIS_fnc_invString)];
+
                 if ({isPlayer _x} count crew _unit > 0) exitWith {}; 
 
                 // TODO: Would be better to get the amount as part of a config entry but didn't see this anywhere, only

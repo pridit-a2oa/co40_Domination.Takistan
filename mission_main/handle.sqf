@@ -19,7 +19,7 @@ if (isServer) then {
     {
         _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
 
-        if (_base && {!((_x getVariable "name") in GVAR(mission_main_type_exceptions))}) then {
+        if (_base && {[_x getVariable "name", "Landay"] call BIS_fnc_areEqual}) exitWith {
             GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
         };
     } forEach _locations;
@@ -28,7 +28,7 @@ if (isServer) then {
     
     0 spawn {
         for "_i" from 1 to GVAR(mission_main_amount_targets) do {
-            sleep GVAR(mission_main_time_delay);
+            // sleep GVAR(mission_main_time_delay);
             
             [GVAR(mission_main_targets) call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);
         };

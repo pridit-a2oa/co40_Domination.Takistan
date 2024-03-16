@@ -3937,7 +3937,7 @@ class Mission
 		{
 			position[]={8148.3872,296.12735,2040.7798};
 			name="d_base_bonus_2";
-			text="[""AV8B2"",""F35B""]";
+			text="[""F35B""]";
 			type="Empty";
 			angle=150.07401;
 		};

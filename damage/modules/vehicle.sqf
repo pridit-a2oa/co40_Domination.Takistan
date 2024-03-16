@@ -61,6 +61,16 @@ _vehicle addEventHandler ["HandleDamage", {
                 _modifier / 100,
                 true
             ] call FUNC(THIS_MODULE,modifier);
+
+            // if ([damage _unit, 0] call BIS_fnc_areEqual) then {
+            //     _unit spawn {
+            //         while {alive _this} do {
+            //             systemChat format ["%1", damage _this];
+
+            //             sleep 0.1;
+            //         };
+            //     };
+            // };
         };
     };
 

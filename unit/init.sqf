@@ -25,27 +25,27 @@ GVAR(unit_type_infantry) = [
 
 // Light vehicle types
 GVAR(unit_type_vehicles_light) = [
-    "LandRover_MG_TK_EP1",
-    "LandRover_MG_TK_INS_EP1",
-    "LandRover_SPG9_TK_EP1",
-    "LandRover_SPG9_TK_INS_EP1",
-    "UAZ_AGS30_TK_EP1",
-    "UAZ_MG_TK_EP1"
+    "T72_TK_EP1",
+    "T72_TK_EP1",
+    "T72_TK_EP1",
+    "T72_TK_EP1",
+    "T72_TK_EP1",
+    "T72_TK_EP1"
 ];
 
 // APC vehicle types along with uniqueness
 GVAR(unit_type_vehicles_apc) = [
-    ["BMP2_HQ_TK_EP1",      true],
-    ["BMP2_TK_EP1",         false],
-    ["BRDM2_ATGM_TK_EP1",   false],
-    ["BRDM2_TK_EP1",        false],
-    ["BTR60_TK_EP1",        false],
-    ["M113_TK_EP1",         false]
+    ["T72_TK_EP1",      false],
+    ["T72_TK_EP1",         false],
+    ["T72_TK_EP1",   false],
+    ["T72_TK_EP1",        false],
+    ["T72_TK_EP1",        false],
+    ["T72_TK_EP1",         false]
 ];
 
 // Tank vehicle types
 GVAR(unit_type_vehicles_tank) = [
-    "T55_TK_EP1",
+    "T72_TK_EP1",
     "T72_TK_EP1"
 ];
 
