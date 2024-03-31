@@ -214,7 +214,7 @@ switch (_tier) do {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
                     
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["Perk: M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]
+                        ["(Perk) M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]
                     ]];
                     
                     if (!isNil QMODULE(setting)) then {
@@ -252,8 +252,8 @@ switch (_tier) do {
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     player setVariable [QGVAR(fortification_types), [
-                        ["Perk: Bunker", "Land_fortified_nest_small_EP1"],
-                        ["Perk: Rampart", "Land_fort_rampart_EP1"]
+                        ["(Perk) Bunker", "Land_fortified_nest_small_EP1"],
+                        ["(Perk) Rampart", "Land_fort_rampart_EP1"]
                     ] + (player getVariable QGVAR(fortification_types))];
 
                     if (!isNil QMODULE(setting)) then {
@@ -274,7 +274,7 @@ switch (_tier) do {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["Perk: M2A2", "M2A2_EP1"]
+                        ["(Perk) M2A2", "M2A2_EP1"]
                     ]];
                     
                     if (!isNil QMODULE(setting)) then {
@@ -383,7 +383,7 @@ switch (_tier) do {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
                     
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["Perk: AH6J", "AH6J_EP1"]
+                        ["(Perk) AH6J", "AH6J_EP1"]
                     ]];
                     
                     if (!isNil QMODULE(setting)) then {
