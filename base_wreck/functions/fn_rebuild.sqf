@@ -121,7 +121,7 @@ if (!isNil QMODULE(reward) && {!isNil "_lifter"}) then {
             [
                 _x,
                 GVAR(base_wreck_amount_score_travel),
-                "retrieving a rebuilt wreck"
+                "having retrieved a rebuilt wreck"
             ] call FUNC(reward,score);
         };
     } forEach (call FUNC(common,players));
