@@ -6,6 +6,10 @@ disableSerialization;
 
 createDialog "XD_SettingDialog";
 
+if (isMultiplayer) then {
+    DIALOG("X_SETTING_DIALOG", 900) ctrlSetText format ["UID: %1", getPlayerUID player];
+};
+
 {
     DIALOG("X_SETTING_DIALOG", 100) lbAdd (_x select 0);
     DIALOG("X_SETTING_DIALOG", 100) lbSetData [_forEachIndex, _x select 1];

@@ -30,6 +30,7 @@ GVAR(modules) = [
     ["construction_nest", "construction\types\nest"],
     "conversation",
     "damage",
+    "database", // Requires: @Arma2NET
     "debug",
     "diary",
     "drag", // TODO: Refactor (just slight cleanup, re-check #34)

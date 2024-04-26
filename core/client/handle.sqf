@@ -48,6 +48,12 @@
     } forEach (allMissionObjects "Thing");
 
     [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
+
+    if !(isNil QMODULE(database)) then {
+        if ([[name player] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {
+            hintSilent parseText "<br /><t size='1.2' color='#c54a30'>WARNING</t><br /><br />Your name is considered unsafe due to containing non-standard characters<br /><br />Access to database reliant <t underline='1'>features</t> will be <t color='#c54a30'>unavailable</t><br /><br />";
+        };
+    };
 };
 
 onEachFrame {call d_fnc_client_perFrame};

@@ -96,6 +96,39 @@ onPlayerDisconnected {
                 ]] call FUNC(network,mp);
             };
 
+            if (isNil QMODULE(database)) exitWith {};
+
+            [_uid, _name, score _x] spawn {
+                private ["_uid", "_name", "_score", "_character", "_stored", "_storedScore"];
+
+                PARAMS_3(_uid, _name, _score);
+
+                if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
+
+                _character = [format [
+                    "SELECT COUNT(*) FROM characters WHERE uid = '%1' AND name = '%2' LIMIT 1",
+                    _uid,
+                    _name
+                ]] call FUNC(database,query);
+
+                if ([_character, [["0"]]] call BIS_fnc_areEqual) exitWith {};
+
+                _stored = [GVAR(database_score), _name] call BIS_fnc_findNestedElement;
+                _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
+
+                [format [
+                    "UPDATE characters SET score = score + %1 WHERE uid = '%2' AND name = '%3'",
+                    (_score - _storedScore),
+                    _uid,
+                    _name
+                ]] call FUNC(database,query);
+
+                GVAR(database_score) = [
+                    GVAR(database_score),
+                    _stored select 0
+                ] call FUNC(common,deleteAt);
+            };
+
             // _x spawn {
             //     sleep 1;
 

@@ -30,6 +30,7 @@ _save = [];
     };
 } forEach [
     "3d",
+    ["database", "leaderboard"],
     ["halo", "parachute"],
     "reward",
     "tutorial",
