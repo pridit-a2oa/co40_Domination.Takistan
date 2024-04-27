@@ -71,18 +71,6 @@ onPlayerConnected {
 onPlayerDisconnected {
     __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
-    if !(isNil QMODULE(name)) then {
-        [true, "deleteMarkerLocal", format ["player_%1", _name]] call FUNC(network,mp);
-    };
-
-    if !(isNil QMODULE(vote)) then {
-        _uid spawn {
-            sleep 1;
-
-            [_this] call FUNC(vote,delete);
-        };
-    };
-
     {
         if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
             [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
@@ -144,6 +132,18 @@ onPlayerDisconnected {
             // };
         };
     } forEach (allUnits + allDead);
+
+    if !(isNil QMODULE(name)) then {
+        [true, "deleteMarkerLocal", format ["player_%1", _name]] call FUNC(network,mp);
+    };
+
+    if !(isNil QMODULE(vote)) then {
+        _uid spawn {
+            sleep 1;
+
+            [_this] call FUNC(vote,delete);
+        };
+    };
 };
 
 MODULE(THIS_MODULE) = true;
