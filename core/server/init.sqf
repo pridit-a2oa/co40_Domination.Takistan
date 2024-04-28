@@ -72,9 +72,11 @@ onPlayerDisconnected {
     __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
     {
-        if ([getPlayerUID _x, _uid] call BIS_fnc_areEqual) exitWith {
+        __log format ["UNIT: %1 | UID: %2", _x, getPlayerUID _x]];
+
+        if (!isNull _x && {[getPlayerUID _x, _uid] call BIS_fnc_areEqual}) exitWith {
             [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
-            
+
             if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
                 _x addScore -10;
 
@@ -82,39 +84,6 @@ onPlayerDisconnected {
                     "%1 has lost score for disconnecting while dead/incapacitated",
                     _name
                 ]] call FUNC(network,mp);
-            };
-
-            if (isNil QMODULE(database)) exitWith {};
-
-            [_uid, _name, score _x] spawn {
-                private ["_uid", "_name", "_score", "_character", "_stored", "_storedScore"];
-
-                PARAMS_3(_uid, _name, _score);
-
-                if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
-
-                _character = [format [
-                    "SELECT COUNT(*) FROM characters WHERE uid = '%1' AND name = '%2' LIMIT 1",
-                    _uid,
-                    _name
-                ]] call FUNC(database,query);
-
-                if ([_character, [["0"]]] call BIS_fnc_areEqual) exitWith {};
-
-                _stored = [GVAR(database_score), _name] call BIS_fnc_findNestedElement;
-                _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
-
-                [format [
-                    "UPDATE characters SET score = score + %1 WHERE uid = '%2' AND name = '%3'",
-                    (_score - _storedScore),
-                    _uid,
-                    _name
-                ]] call FUNC(database,query);
-
-                GVAR(database_score) = [
-                    GVAR(database_score),
-                    _stored select 0
-                ] call FUNC(common,deleteAt);
             };
 
             // _x spawn {
@@ -131,7 +100,41 @@ onPlayerDisconnected {
             //     hideBody _this;
             // };
         };
-    } forEach (allUnits + allDead);
+    } forEach (call BIS_fnc_listPlayers + allDead);
+
+    if !(isNil QMODULE(database)) then {
+        [_uid, _name] spawn {
+            private ["_uid", "_name", "_score", "_stored", "_storedScore"];
+
+            PARAMS_2(_uid, _name);
+
+            if !(_uid in GVAR(database_uid)) exitWith {};
+
+            GVAR(database_uid) = GVAR(database_uid) - [_uid];
+
+            _score = missionNamespace getVariable (format ["d_%1", _uid]);
+
+            missionNamespace setVariable [
+                format ["d_%1", _uid],
+                nil
+            ];
+
+            _stored = [GVAR(database_score), _name] call BIS_fnc_findNestedElement;
+            _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
+
+            [format [
+                "UPDATE characters SET score = score + %1 WHERE uid = '%2' AND name = '%3'",
+                (_score - _storedScore),
+                _uid,
+                _name
+            ]] call FUNC(database,query);
+
+            GVAR(database_score) = [
+                GVAR(database_score),
+                _stored select 0
+            ] call FUNC(common,deleteAt);
+        };
+    };
 
     if !(isNil QMODULE(name)) then {
         [true, "deleteMarkerLocal", format ["player_%1", _name]] call FUNC(network,mp);
