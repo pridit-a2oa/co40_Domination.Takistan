@@ -9,7 +9,7 @@ if (isServer && {isMultiplayer}) then {
         while {true} do {
             private ["_players"];
 
-            _players = call BIS_fnc_listPlayers;
+            _players = call FUNC(common,players);
 
             if !([_players, []] call BIS_fnc_areEqual) then {
                 {
