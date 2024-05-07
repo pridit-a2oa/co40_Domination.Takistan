@@ -19,10 +19,6 @@ if (hasInterface) then {
         __submodulePP(construction\types\fortification);
     };
 
-    if (!isNil QMODULE(database)) then {
-        __submodulePP(database);
-    };
-
     if (!isNil QMODULE(vehicle_lift)) then {
         __submodulePP(vehicle_lift);
     };
