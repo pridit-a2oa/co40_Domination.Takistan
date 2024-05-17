@@ -27,28 +27,43 @@ if (isServer && {isMultiplayer}) then {
 
 if (hasInterface) then {
     [gameLogic, "spawn", [[getPlayerUID player, name player, score player], {
-        private ["_uid", "_name", "_score", "_character"];
+        private ["_uid", "_name", "_score", "_id", "_character", "_user", "_role"];
 
         PARAMS_3(_uid, _name, _score);
 
         if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
+        _id = "";
+
         _character = [format [
-            "SELECT COUNT(*) FROM characters WHERE uid = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id FROM characters WHERE uid = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
 
-        if ([_character, [["0"]]] call BIS_fnc_areEqual) then {
+        if ([_character, []] call BIS_fnc_areEqual) then {
             [format [
                 "INSERT INTO characters (uid, name) VALUES ('%1', '%2')",
                 _uid,
                 _name
             ]] call FUNC(database,query);
+        } else {
+            _user = (_character select 0) select 1;
+
+            if ([_user, ""] call BIS_fnc_areEqual) exitWith {};
+            
+            _role = [format [
+                "SELECT COUNT(*) FROM model_has_roles WHERE model_id = '%1' AND role_id IN (2,3) AND model_type = 'App\\Models\\User' LIMIT 1",
+                _user
+            ]] call FUNC(database,query);
+
+            if ([_role, [["1"]]] call BIS_fnc_areEqual) then {
+                _id = (_character select 0) select 0;
+            };
         };
 
-        if !(_uid in GVAR(database_uid)) then {
-            [GVAR(database_uid), _uid] call BIS_fnc_arrayPush;
+        if ([[GVAR(database_uid), _uid] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual) then {
+            [GVAR(database_uid), [_uid, _id]] call BIS_fnc_arrayPush;
         };
 
         [GVAR(database_score), [_name, _score]] call BIS_fnc_arrayPush;

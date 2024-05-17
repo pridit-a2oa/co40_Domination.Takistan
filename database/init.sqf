@@ -16,6 +16,7 @@ if (isServer) then {
     GVAR(database_uid) = [];
     GVAR(database_score) = [];
 
+    __cppfln(FUNC(THIS_MODULE,statistic),THIS_MODULE\functions\fn_statistic.sqf);
     __cppfln(FUNC(THIS_MODULE,query),THIS_MODULE\functions\fn_query.sqf);
 };
 

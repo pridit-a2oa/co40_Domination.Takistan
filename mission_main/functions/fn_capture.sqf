@@ -38,11 +38,17 @@ if !(isNil "_trigger") then {
 };
 
 {
-    if (!isNil QMODULE(reward) && {isPlayer _x && {[_x] call FUNC(common,ready)}}) then {
-        [
-            _x,
-            GVAR(mission_main_amount_camps_score),
-            "capturing a camp"
-        ] call FUNC(reward,score);
+    if (isPlayer _x && {[_x] call FUNC(common,ready)}) then {
+        if !(isNil QMODULE(reward)) then {
+            [
+                _x,
+                GVAR(mission_main_amount_camps_score),
+                "capturing a camp"
+            ] call FUNC(reward,score);
+        };
+
+        if !(isNil QMODULE(database)) then {
+            [getPlayerUID _x, 2] spawn FUNC(database,statistic);
+        };
     };
 } forEach _units;

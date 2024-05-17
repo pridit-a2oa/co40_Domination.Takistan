@@ -96,6 +96,10 @@ if (!isNil QMODULE(reward) && {!isNil "_lifter"}) then {
                     GVAR(base_wreck_amount_score_rebuild),
                     "collecting a wreck"
                 ] call FUNC(reward,score);
+
+                if !(isNil QMODULE(database)) then {
+                    [getPlayerUID _x, 10] spawn FUNC(database,statistic);
+                };
             };
         } forEach (call FUNC(common,players));
     };

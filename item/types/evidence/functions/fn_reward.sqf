@@ -12,3 +12,7 @@ if !(isNil QMODULE(reward)) then {
         "retrieving intel"
     ] call FUNC(reward,score);
 };
+
+if !(isNil QMODULE(database)) then {
+    [gameLogic, "execVM", [[getPlayerUID player, 6], FUNCTION(database,statistic)]] call FUNC(network,mp);
+};

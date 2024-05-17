@@ -20,3 +20,7 @@ if !(isNil QMODULE(reward)) then {
         "defusing an IED"
     ] call FUNC(reward,score);
 };
+
+if !(isNil QMODULE(database)) then {
+    [gameLogic, "execVM", [[getPlayerUID player, 4], FUNCTION(database,statistic)]] call FUNC(network,mp);
+};

@@ -15,3 +15,7 @@ if !([_unit, vehicle _unit] call BIS_fnc_areEqual) then {
         case false: {_this select 0};
     }
 ] spawn BIS_fnc_halo;
+
+if !(isNil QMODULE(database)) then {
+    [gameLogic, "execVM", [[getPlayerUID _unit, 3], FUNCTION(database,statistic)]] call FUNC(network,mp);
+};

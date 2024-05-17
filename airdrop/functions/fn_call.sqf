@@ -70,6 +70,10 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     if !(isNil QMODULE(conversation)) then {
         [_unit, _position, "airdrop"] call FUNC(conversation,request);
     };
+
+    if (!isNil QMODULE(database) && {!isNil "_caller"}) then {
+        [_caller, 1] spawn FUNC(database,statistic);
+    };
     
     GVAR(airdrop_type_smoke) createVehicle _position;
     

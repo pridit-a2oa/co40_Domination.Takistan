@@ -97,12 +97,18 @@ if (!isNil QMODULE(conversation) && {_progress select 1 == (_progress select 0) 
 
 if !([_player, objNull] call BIS_fnc_areEqual) then {
     {
-        if (!isNil QMODULE(reward) && {[getPlayerUID _x, _player] call BIS_fnc_areEqual}) exitWith {
-            [
-                _x,
-                GVAR(base_rd_amount_score),
-                "deconstructing a vehicle"
-            ] call FUNC(reward,score);
+        if ([getPlayerUID _x, _player] call BIS_fnc_areEqual) exitWith {
+            if !(isNil QMODULE(reward)) then {
+                [
+                    _x,
+                    GVAR(base_rd_amount_score),
+                    "deconstructing a vehicle"
+                ] call FUNC(reward,score);
+            };
+
+            if !(isNil QMODULE(database)) then {
+                [getPlayerUID _x, 9] spawn FUNC(database,statistic);
+            };
         };
     } forEach (call FUNC(common,players));
 };

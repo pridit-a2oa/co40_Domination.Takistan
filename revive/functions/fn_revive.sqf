@@ -22,6 +22,10 @@ if ([_target] call FUNC(THIS_MODULE,valid)) then {
     ]] call FUNC(network,mp);
 
     _target setVariable [QGVAR(unconscious), false, true];
+
+    if !(isNil QMODULE(database)) then {
+        [gameLogic, "execVM", [[getPlayerUID _caller, 8], FUNCTION(database,statistic)]] call FUNC(network,mp);
+    };
 };
 
 _target setVariable [QGVAR(reviving), false, true];

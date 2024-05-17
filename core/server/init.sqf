@@ -104,13 +104,18 @@ onPlayerDisconnected {
 
     if !(isNil QMODULE(database)) then {
         [_uid, _name] spawn {
-            private ["_uid", "_name", "_score", "_stored", "_storedScore"];
+            private ["_uid", "_name", "_identifiers", "_score", "_stored", "_storedScore"];
 
             PARAMS_2(_uid, _name);
 
-            if !(_uid in GVAR(database_uid)) exitWith {};
+            _identifiers = [GVAR(database_uid), _uid] call BIS_fnc_findNestedElement;
 
-            GVAR(database_uid) = GVAR(database_uid) - [_uid];
+            if ([_identifiers, []] call BIS_fnc_areEqual) exitWith {};
+
+            GVAR(database_uid) = [
+                GVAR(database_uid),
+                _identifiers select 0
+            ] call FUNC(common,deleteAt);
 
             _score = missionNamespace getVariable (format ["d_%1", _uid]);
 

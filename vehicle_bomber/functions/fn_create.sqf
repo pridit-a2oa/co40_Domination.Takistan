@@ -54,17 +54,22 @@ gameLogic setVariable [QGVAR(bomber), true, true];
 
             switch (side group _unit) do {
                 case east: {
-                    if (isNil QMODULE(reward)) exitWith {};
                     if !(alive (vehicle _unit)) exitWith {};
                     if !([_killer] call FUNC(common,ready)) exitWith {};
 
                     sleep 3;
 
-                    [
-                        _killer,
-                        GVAR(vehicle_bomber_amount_score_award),
-                        "protecting the base"
-                    ] call FUNC(reward,score);
+                    if !(isNil QMODULE(reward)) then {
+                        [
+                            _killer,
+                            GVAR(vehicle_bomber_amount_score_award),
+                            "protecting the base"
+                        ] call FUNC(reward,score);
+                    };
+
+                    if !(isNil QMODULE(database)) then {
+                        [getPlayerUID _killer, 7] spawn FUNC(database,statistic);
+                    };
                 };
 
                 case civilian: {
