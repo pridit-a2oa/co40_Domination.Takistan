@@ -128,7 +128,7 @@ onPlayerDisconnected {
             _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
 
             [format [
-                "UPDATE characters SET score = score + %1 WHERE uid = '%2' AND name = '%3'",
+                "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE uid = '%2' AND name = '%3'",
                 (_score - _storedScore),
                 _uid,
                 _name
