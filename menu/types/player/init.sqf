@@ -5,16 +5,18 @@
 #define THIS_MODULE menu_player
 #include "x_macros.sqf"
 
-GVAR(menu_player_action) = [
-    "",
-    FUNCTION(menu,show),
-    [],
-    -3,
-    false,
-    true,
-    "",
-    "!([[_target] call d_fnc_menu_type, []] call BIS_fnc_areEqual) && {[_target] call d_fnc_menu_player_valid}"
-];
+if (hasInterface) then {
+    GVAR(menu_player_action) = [
+        "",
+        FUNCTION(menu,show),
+        [],
+        -3,
+        false,
+        true,
+        "",
+        "!([[_target] call d_fnc_menu_type, []] call BIS_fnc_areEqual) && {[_target] call d_fnc_menu_player_valid}"
+    ];
+};
 
 __cppfln(FUNC(THIS_MODULE,action),menu\types\player\functions\fn_action.sqf);
 __cppfln(FUNC(THIS_MODULE,show),menu\types\player\functions\fn_show.sqf);

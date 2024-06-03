@@ -10,6 +10,8 @@ if (hasInterface) then {
 
         PARAMS_1(_unit);
 
+        if (isDedicated) exitWith {};
+
         _action = GVAR(menu_player_action);
         _action set [
             0,
