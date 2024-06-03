@@ -56,7 +56,9 @@ _unit spawn {
     [gameLogic, "spawn", [[_this], {
         __log format ["Incapacitated %1", name (_this select 0)]];
 
-        [getPlayerUID (_this select 0), 5] call FUNC(database,statistic);
+        if !(isNil QMODULE(database)) then {
+            [getPlayerUID (_this select 0), 5] call FUNC(database,statistic);
+        };
     }]] call FUNC(network,mp);
     
     sleep 1;
