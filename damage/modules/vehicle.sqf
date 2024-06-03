@@ -8,6 +8,8 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
+if (_vehicle isKindOf "StaticWeapon") exitWith {};
+
 if (isServer) then {
     _vehicle setVariable [QGVAR(structure), 0, true];
 };
