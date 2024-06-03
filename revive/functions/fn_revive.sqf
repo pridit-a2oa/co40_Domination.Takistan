@@ -1,8 +1,8 @@
 #define THIS_MODULE revive
 #include "x_macros.sqf"
-private ["_target", "_caller"];
+private ["_target"];
 
-PARAMS_2(_target, _caller);
+PARAMS_1(_target);
 
 _target setVariable [QGVAR(reviving), true, true];
 
@@ -18,13 +18,13 @@ if ([_target] call FUNC(THIS_MODULE,valid)) then {
     [true, "systemChat", format [
         "%1 has been revived by %2",
         name _target,
-        name _caller
+        name player
     ]] call FUNC(network,mp);
 
     _target setVariable [QGVAR(unconscious), false, true];
 
     if !(isNil QMODULE(database)) then {
-        [gameLogic, "execVM", [[getPlayerUID _caller, 8], FUNCTION(database,statistic)]] call FUNC(network,mp);
+        [gameLogic, "execVM", [[getPlayerUID player, 8], FUNCTION(database,statistic)]] call FUNC(network,mp);
     };
 };
 
