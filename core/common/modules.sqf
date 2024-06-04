@@ -56,6 +56,7 @@ GVAR(modules) = [
     "menu",
     ["menu_player", "menu\types\player"],
     ["menu_vehicle", "menu\types\vehicle"],
+    "mission_main",
     "mission_mini",
     ["mission_mini_abandoned", "mission_mini\types\abandoned"],
     ["mission_mini_cache", "mission_mini\types\cache"],
