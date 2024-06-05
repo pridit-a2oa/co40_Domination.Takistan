@@ -35,7 +35,7 @@ class PerkButton_General_4: XD_LinkButtonUpgradeBase
     y = 0.125;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "HALO jump out of any aircraft";
+    tooltip = "HALO jump out of any aircraft (as a passenger)";
     action = "[0,4] call d_fnc_perk_clicked";
 };
 class PerkButton_General_5: XD_LinkButtonUpgradeBase

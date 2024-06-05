@@ -58,7 +58,8 @@ if (hasInterface) then {
         "<br />Approaching the <marker name='teleport_[8622.05,2454.22,-315.322]'>[Flag]</marker> at base will reveal all available options for immediate travel.",
         if !(isNil QMODULE(vehicle_deploy)) then {"<br />Vehicles that are actively <marker name=''>deployed</marker> are the only mobile units eligible to be fast traveled to."} else {""},
         if !(isNil QMODULE(mission_main)) then {"<br />Once a main target has been <marker name=''>seized</marker> a fast travel flag will be available to use within the area."} else {""},
-        if !(isNil QMODULE(mission_main)) then {"<br />The flag generated from completion of main targets <marker name=''>cannot</marker> be used to HALO jump - this is a base facility."} else {""}
+        if !(isNil QMODULE(mission_main)) then {"<br />The flag generated from completion of main targets <marker name=''>cannot</marker> be used to HALO jump - this is a base facility."} else {""},
+        if !(isNil QMODULE(halo)) then {format ["<br />As a passenger of an aircraft with a lowered ramp you can perform a HALO jump at will, as long as <marker name=''>above</marker> %1m.", GVAR(halo_distance_minimum)]} else {""}
     ]] call FUNC(THIS_MODULE,create);
 
     if (!isNil QMODULE(event)) then {

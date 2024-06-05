@@ -19,5 +19,6 @@ BIS_fnc_halo = compile preprocessFile "halo\functions\bis\fn_halo.sqf"; // overr
 
 __cppfln(FUNC(THIS_MODULE,jump),THIS_MODULE\functions\fn_jump.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
