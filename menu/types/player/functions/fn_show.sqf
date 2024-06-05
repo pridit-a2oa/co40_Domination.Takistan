@@ -16,9 +16,8 @@ if !(isNil QMODULE(revive)) then {
     [_valid, [GVAR(menu_entity)] __submodulePP(revive)] call BIS_fnc_arrayPush;
 };
 
-// WIP
-// if !(isNil QMODULE(squad)) then {
-//     [_valid, [GVAR(menu_entity)] __submodulePP(squad)] call BIS_fnc_arrayPush;
-// };
+if !(isNil QMODULE(squad)) then {
+    [_valid, [GVAR(menu_entity)] __submodulePP(squad)] call BIS_fnc_arrayPush;
+};
 
 _valid

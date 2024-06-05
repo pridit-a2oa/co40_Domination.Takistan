@@ -43,3 +43,13 @@ if !(isNil QMODULE(revive)) then {
         false
     };
 };
+
+if !(isNil QMODULE(squad)) then {
+    case "squad": {
+        closeDialog 0;
+
+        [_entity] call FUNC(squad,join);
+
+        false
+    };
+};
