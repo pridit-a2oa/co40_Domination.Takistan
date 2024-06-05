@@ -8,6 +8,7 @@ private ["_unit"];
 
 PARAMS_1(_unit);
 
+if (_unit getVariable QGVAR(reviving)) exitWith {false};
 if !([_unit] call FUNC(THIS_MODULE,valid)) exitWith {false};
 
 ["Aid: Revive", "revive"] call FUNC(menu,populate);

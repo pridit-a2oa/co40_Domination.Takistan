@@ -9,5 +9,6 @@ if (player distance _unit > 4) exitWith {false};
 if !([] call FUNC(common,ready)) exitWith {false};
 if ([player, _unit] call BIS_fnc_areEqual) exitWith {false};
 if (!isNil QMODULE(drag) && {_unit getVariable QGVAR(dragging)}) exitWith {false};
+if (!isNil QMODULE(revive) && {_unit getVariable QGVAR(reviving)}) exitWith {false};
 
 true
