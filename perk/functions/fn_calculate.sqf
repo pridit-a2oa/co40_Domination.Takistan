@@ -13,7 +13,7 @@ _unlocked = player getVariable QGVAR(perks_unlocked);
 
 for "_i" from 1 to 8 do {
     if (_score >= (_i * GVAR(perk_amount_score)) && {(count _unlocked + _available) < ((_i * GVAR(perk_amount_points)) min 15)}) then {
-        if (!_respawned && {player distance GVAR(flag) > 100}) then {
+        if (!_respawned && {player distance GVAR(spawn) > 5}) then {
             [_points - (_available + count _unlocked)] call FUNC(THIS_MODULE,awarded);
         };
         
