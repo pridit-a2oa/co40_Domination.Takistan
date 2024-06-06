@@ -9,9 +9,6 @@ GVAR(perframe_store) = "HeliHEmpty" createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
 GVAR(perframe_previous) = -999;
 
-// Invulnerability window upon respawning
-GVAR(client_time_invulnerable) = 10;
-
 player setVariable [QGVAR(spawn), position player];
 
 __cppfln(FUNC(THIS_MODULE,addPerFrame),core\THIS_MODULE\functions\fn_addPerFrame.sqf);

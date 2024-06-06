@@ -160,7 +160,7 @@ if (!isNil QMODULE(ammobox)) then {
         _unit spawn {
             _this allowDamage false;
             
-            sleep GVAR(client_time_invulnerable);
+            sleep 10;
             
             _this allowDamage true;
         };
