@@ -127,12 +127,14 @@ onPlayerDisconnected {
             _stored = [GVAR(database_score), _name] call BIS_fnc_findNestedElement;
             _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
 
-            [format [
-                "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE uid = '%2' AND name = '%3'",
-                (_score - _storedScore),
-                _uid,
-                _name
-            ]] call FUNC(database,query);
+            if !(isNil "_score") then {
+                [format [
+                    "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE uid = '%2' AND name = '%3'",
+                    (_score - _storedScore),
+                    _uid,
+                    _name
+                ]] call FUNC(database,query);
+            };
 
             GVAR(database_score) = [
                 GVAR(database_score),
