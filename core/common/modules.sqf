@@ -6,6 +6,7 @@
 #include "x_macros.sqf"
 
 GVAR(modules) = [
+    "database", // Requires: @Arma2NET
     "3d",
     "admin",
     "admin_spectate",
@@ -30,7 +31,6 @@ GVAR(modules) = [
     ["construction_nest", "construction\types\nest"],
     "conversation",
     "damage",
-    "database", // Requires: @Arma2NET
     "debug",
     "diary",
     "drag", // TODO: Refactor (just slight cleanup, re-check #34)

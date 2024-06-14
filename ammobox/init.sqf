@@ -120,7 +120,6 @@ GVAR(ammobox_type_handguns) = [
     "Makarov",
     "MakarovSD",
     "revolver_EP1",
-    "revolver_gold_EP1",
     "Sa61_EP1",
     "UZI_EP1",
     "UZI_SD_EP1"
