@@ -104,7 +104,7 @@ onPlayerDisconnected {
 
     if !(isNil QMODULE(database)) then {
         [_uid, _name] spawn {
-            private ["_uid", "_name", "_identifiers", "_score", "_stored", "_storedScore"];
+            private ["_uid", "_name", "_identifiers", "_score", "_stored", "_storedScore", "_addScore"];
 
             PARAMS_2(_uid, _name);
 
@@ -128,9 +128,13 @@ onPlayerDisconnected {
             _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
 
             if !(isNil "_score") then {
+                _addScore = _score - _storedScore;
+
+                if (_addScore < 1) exitWith {};
+
                 [format [
                     "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE uid = '%2' AND name = '%3'",
-                    (_score - _storedScore),
+                    _addScore,
                     _uid,
                     _name
                 ]] call FUNC(database,query);
