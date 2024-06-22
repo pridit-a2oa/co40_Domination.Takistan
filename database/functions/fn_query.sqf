@@ -16,7 +16,9 @@ while {[count (toArray _result), 0] call BIS_fnc_areEqual} do {
     ];
 
     if !([count (toArray _result), 0] call BIS_fnc_areEqual) exitWith {
-        __log format ["%1", _result]];
+        if !([_result, "[[]]"] call BIS_fnc_areEqual) then {
+            __log format ["%1", _result]];
+        };
 
         _result = (call compile _result) select 0;
     };
