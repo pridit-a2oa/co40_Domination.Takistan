@@ -13,8 +13,7 @@ switch (true) do {
     };
 
     case (_entity isKindOf "Air");
-    case (_entity isKindOf "Car");
-    case (_entity isKindOf "StaticWeapon"): {
+    case (_entity isKindOf "LandVehicle"): {
         [
             "vehicle",
             getText (configFile >> "CfgVehicles" >> (typeOf _entity) >> "displayName"),
