@@ -37,14 +37,14 @@ if (hasInterface) then {
         _role = "";
 
         _character = [format [
-            "SELECT id, user_id FROM characters WHERE uid = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id FROM characters WHERE guid = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
 
         if ([_character, []] call BIS_fnc_areEqual) then {
             [format [
-                "INSERT INTO characters (uid, name) VALUES ('%1', '%2')",
+                "INSERT INTO characters (guid, name) VALUES ('%1', '%2')",
                 _uid,
                 _name
             ]] call FUNC(database,query);

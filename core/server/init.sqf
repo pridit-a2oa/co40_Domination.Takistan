@@ -133,7 +133,7 @@ onPlayerDisconnected {
                 if (_addScore < 1) exitWith {};
 
                 [format [
-                    "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE uid = '%2' AND name = '%3'",
+                    "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE guid = '%2' AND name = '%3'",
                     _addScore,
                     _uid,
                     _name
