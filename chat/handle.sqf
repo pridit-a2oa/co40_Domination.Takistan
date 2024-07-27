@@ -41,7 +41,7 @@ if (hasInterface) then {
                 ];
             } forEach ["KeyDown", "KeyUp", "Char"];
 
-            DIALOG("X_CHAT_DIALOG", 100) ctrlSetText "You are globally muted";
+            DIALOG("X_CHAT_DIALOG", 100) ctrlSetText "You are banned from text chat";
             DIALOG("X_CHAT_DIALOG", 1000) ctrlSetText "ca\ui\data\cmdbar_unarmed_ca";
 
             waitUntil {
