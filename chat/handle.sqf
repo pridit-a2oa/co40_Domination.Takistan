@@ -6,17 +6,23 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    if !(isNil QMODULE(database)) then {
-        __submodulePP(database);
-    };
+    X_JIPH setVariable [
+        QGVAR(mutes),
+        if !(isNil QMODULE(database)) then {
+            [format ["SELECT guid FROM mutes"]] call FUNC(database,query)
+        } else {
+            []
+        },
+        true
+    ];
 };
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(mutes)}};
-
-    if ([[X_JIPH getVariable QGVAR(mutes), getPlayerUID player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual) exitWith {};
-
     0 spawn {
+        waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(mutes)}};
+
+        if ([[X_JIPH getVariable QGVAR(mutes), getPlayerUID player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual) exitWith {};
+
         while {true} do {
             private ["_ctrl"];
 
