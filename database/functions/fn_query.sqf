@@ -4,6 +4,14 @@ private ["_query", "_result"];
 
 PARAMS_1(_query);
 
+waitUntil {
+    sleep 0.1 + random 0.1; 
+
+    !isNil {GVAR(database)} && {GVAR(database)}
+};
+
+GVAR(database) = false;
+
 __log format ["%1", _query]];
 
 _result = "";
@@ -25,5 +33,7 @@ while {[count (toArray _result), 0] call BIS_fnc_areEqual} do {
 
     sleep 1;
 };
+
+GVAR(database) = true;
 
 _result

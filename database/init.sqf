@@ -13,6 +13,7 @@ if (isServer) then {
     // Name of the database to be used
     GVAR(database_name) = "arma";
 
+    GVAR(database) = true;
     GVAR(database_uid) = [];
     GVAR(database_score) = [];
 
