@@ -12,8 +12,8 @@ _ids = player getVariable QGVAR(perk_ids);
 _points = player getVariable QGVAR(perk_points);
 _unlocked = player getVariable QGVAR(perks_unlocked);
 
-// no perk points available to allocate
-if ([_points, 0] call BIS_fnc_areEqual && {!isNil QMODULE(admin) && {!(__submodulePP(admin))}}) exitWith {};
+// no perk points available to allocate and not overridable
+if ([_points, 0] call BIS_fnc_areEqual && {!(call FUNC(THIS_MODULE,override))}) exitWith {};
 
 // perk already unlocked
 if !([_ids find _id, -1] call BIS_fnc_areEqual) exitWith {};

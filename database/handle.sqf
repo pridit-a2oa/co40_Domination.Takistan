@@ -5,6 +5,27 @@
 #include "x_macros.sqf"
 
 if (isServer && {isMultiplayer}) then {
+    X_JIPH setVariable [
+        QGVAR(holiday),
+        (call compile ("Arma2Net.Unmanaged" callExtension "DateTime ['utcnow', 'dd/MM']")) in [
+            '20/12',
+            '21/12',
+            '22/12',
+            '23/12',
+            '24/12',
+            '25/12',
+            '26/12',
+            '27/12',
+            '28/12',
+            '29/12',
+            '30/12',
+            '31/12',
+            '01/01',
+            '02/01'
+        ],
+        true
+    ];
+
     0 spawn {
         while {true} do {
             private ["_players"];
