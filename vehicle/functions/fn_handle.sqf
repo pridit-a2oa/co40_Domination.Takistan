@@ -46,13 +46,13 @@ if (isServer) then {
     };
 
     if (!isNil QMODULE(vehicle_loadout)) then {
-        [_vehicle] __submodulePP(vehicle_loadout);
+        [_vehicle] __submoduleVM(vehicle_loadout);
     };
-    
+
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submodulePP(vehicle_mhq);
     };
-
+    
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
     };

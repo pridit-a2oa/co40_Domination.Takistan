@@ -10,10 +10,12 @@ _paths = [2, (_vehicle getVariable QGVAR(loadout)) select 1] call FUNC(common,ar
 {
     private ["_weapon", "_path"];
 
-    _weapon = if (typeName _x == "ARRAY") then {_x select 0} else {_x};
+    _weapon = if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {_x select 0} else {_x};
     _path = if (count _paths < (_forEachIndex + 1)) then {[-1]} else {_paths select _forEachIndex};
 
-    if ((weapons _vehicle) find _weapon == -1) then {
+    if ([(weapons _vehicle) find _weapon, -1] call BIS_fnc_areEqual) then {
+        sleep 0.1 + random 0.1;
+        
         [
             [_vehicle, _path] call FUNC(vehicle,owner),
             "addWeaponTurret",

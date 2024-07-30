@@ -13,7 +13,7 @@ _weapons = (_vehicle getVariable QGVAR(loadout)) select 1;
 {
     private ["_magazine"];
 
-    if (typeName (_x select 0) == "ARRAY") then {
+    if ([typeName (_x select 0), "ARRAY"] call BIS_fnc_areEqual) then {
         _magazine = (_x select 0) select 1;
     } else {
         _magazine = getArray (configFile >> "CfgWeapons" >> _x select 0 >> "magazines");
@@ -22,12 +22,14 @@ _weapons = (_vehicle getVariable QGVAR(loadout)) select 1;
     for "_i" from 1 to (_x select 1) do {
         private ["_type", "_path"];
 
-        _type = if (typeName (_x select 0) == "ARRAY") then {_magazine} else {_magazine select 0};
+        _type = if ([typeName (_x select 0), "ARRAY"] call BIS_fnc_areEqual) then {_magazine} else {_magazine select 0};
         _path = if (isNil {(_x select 2)}) then {[-1]} else {_x select 2};
-        
+
         if (!isNil QMODULE(vehicle_service) && {_service}) then {
             [_vehicle, _type, _path] call FUNC(vehicle_service,rearm);
         } else {
+            sleep 0.1 + random 0.1;
+            
             [
                 [_vehicle, _path] call FUNC(vehicle,owner),
                 "addMagazineTurret",

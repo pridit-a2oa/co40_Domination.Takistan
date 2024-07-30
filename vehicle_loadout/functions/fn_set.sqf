@@ -23,13 +23,13 @@ if (hasInterface) then {
     ];
 
     {
-        if (typeName _x == "STRING") exitWith {
+        if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
         };
     } forEach _checks;
 };
 
-if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _checks)}) then {
+if (isServer || {(hasInterface && {[{[str _x, "true"] call BIS_fnc_areEqual} count _checks, count _checks] call BIS_fnc_areEqual})}) then {
     private ["_find", "_loadouts", "_loadout"];
 
     _find = [_vehicle] call FUNC(THIS_MODULE,find);
@@ -42,10 +42,10 @@ if (isServer || {(hasInterface && {str (_x) == "true"} count _checks == count _c
 
         _index = (_forEachIndex + 1);
 
-        if (isNil {_vehicle getVariable QGVAR(loadout)} || {_x == (_vehicle getVariable QGVAR(loadout)) select 0}) exitWith {
+        if (isNil {_vehicle getVariable QGVAR(loadout)} || {[_x, (_vehicle getVariable QGVAR(loadout)) select 0] call BIS_fnc_areEqual}) exitWith {
             _type = _loadouts select _index;
 
-            if (count _loadouts == _index) then {
+            if ([count _loadouts, _index] call BIS_fnc_areEqual) then {
                 _type = _loadouts select 0;
                 _index = 0;
             };

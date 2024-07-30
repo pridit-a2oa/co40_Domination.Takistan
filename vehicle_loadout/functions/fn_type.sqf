@@ -6,7 +6,7 @@ PARAMS_1(_vehicle);
 _types = GVAR(vehicle_loadout_types);
 _type = ([0, _types] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 
-if (_type != -1) then {
+if !([_type, -1] call BIS_fnc_areEqual) then {
     _type = _types select _type;
 };
 
