@@ -2,6 +2,7 @@
  * Database Module (Handler)
  */
 
+#define THIS_MODULE database
 #include "x_macros.sqf"
 
 if (isServer && {isMultiplayer}) then {
@@ -47,10 +48,10 @@ if (isServer && {isMultiplayer}) then {
 };
 
 if (hasInterface) then {
-    [gameLogic, "spawn", [[getPlayerUID player, name player, score player], {
-        private ["_uid", "_name", "_score", "_id", "_role", "_character", "_user"];
+    [gameLogic, "spawn", [[player, getPlayerUID player, name player, score player], {
+        private ["_unit", "_uid", "_name", "_score", "_id", "_role", "_character"];
 
-        PARAMS_3(_uid, _name, _score);
+        PARAMS_4(_unit, _uid, _name, _score);
 
         if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
@@ -58,7 +59,7 @@ if (hasInterface) then {
         _role = "";
 
         _character = [format [
-            "SELECT id, user_id FROM characters WHERE guid = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id, EXISTS(SELECT guid FROM mutes WHERE guid = '%1') is_muted FROM characters WHERE guid = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
@@ -70,7 +71,14 @@ if (hasInterface) then {
                 _name
             ]] call FUNC(database,query);
         } else {
+            private ["_user", "_muted"];
+
             _user = (_character select 0) select 1;
+            _muted = (_character select 0) select 2;
+
+            if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
+                [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
+            };
 
             if ([_user, ""] call BIS_fnc_areEqual) exitWith {};
 
