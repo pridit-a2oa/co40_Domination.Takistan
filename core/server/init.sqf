@@ -72,7 +72,7 @@ onPlayerDisconnected {
     __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
 
     {
-        __log format ["UNIT: %1 | UID: %2", _x, getPlayerUID _x]];
+        __log format ["UNIT: %1 | NAME: %2 | UID: %3", _x, name _x, getPlayerUID _x]];
 
         if (!isNull _x && {[getPlayerUID _x, _uid] call BIS_fnc_areEqual}) exitWith {
             [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
