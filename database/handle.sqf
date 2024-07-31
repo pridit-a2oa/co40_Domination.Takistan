@@ -49,14 +49,17 @@ if (isServer && {isMultiplayer}) then {
 
 if (hasInterface) then {
     [gameLogic, "spawn", [[player, getPlayerUID player, name player, score player], {
-        private ["_unit", "_uid", "_name", "_score", "_id", "_role", "_character"];
+        private ["_unit", "_uid", "_name", "_score", "_character", "_id", "_user", "_muted", "_role"];
 
         PARAMS_4(_unit, _uid, _name, _score);
 
         if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
-        _id = "";
-        _role = "";
+        [format [
+            "INSERT INTO characters (guid, name) VALUES ('%1', '%2') ON DUPLICATE KEY UPDATE id=id",
+            _uid,
+            _name
+        ]] call FUNC(database,query);
 
         _character = [format [
             "SELECT id, user_id, EXISTS(SELECT guid FROM mutes WHERE guid = '%1') is_muted FROM characters WHERE guid = '%1' AND name = '%2' LIMIT 1",
@@ -64,30 +67,21 @@ if (hasInterface) then {
             _name
         ]] call FUNC(database,query);
 
-        if ([_character, []] call BIS_fnc_areEqual) then {
-            [format [
-                "INSERT INTO characters (guid, name) VALUES ('%1', '%2')",
-                _uid,
-                _name
-            ]] call FUNC(database,query);
+        _id = (_character select 0) select 0;
+        _user = (_character select 0) select 1;
+        _muted = (_character select 0) select 2;
+
+        if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
+            [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
+        };
+
+        _role = if ([_user, ""] call BIS_fnc_areEqual) then {
+            ""
         } else {
-            private ["_user", "_muted"];
-
-            _user = (_character select 0) select 1;
-            _muted = (_character select 0) select 2;
-
-            if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
-                [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
-            };
-
-            if ([_user, ""] call BIS_fnc_areEqual) exitWith {};
-
-            _id = (_character select 0) select 0;
-            
-            _role = [format [
+            [format [
                 "SELECT COUNT(*) FROM model_has_roles WHERE model_id = '%1' AND role_id IN (2,3) AND model_type = 'App\\Models\\User' LIMIT 1",
                 _user
-            ]] call FUNC(database,query);
+            ]] call FUNC(database,query)
         };
 
         if ([[GVAR(database_uid), _uid] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual) then {
