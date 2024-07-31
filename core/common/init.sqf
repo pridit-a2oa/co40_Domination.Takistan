@@ -77,12 +77,32 @@ if (hasInterface) then {
 
     if (isMultiplayer) then {
         player spawn {
+            if (!isNil QMODULE(database) && {[[name player] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual}) exitWith {
+                [gameLogic, "spawn", [[name player, getPlayerUID player], {
+                    __log format ["Player %1 (%2) ejecting for invalid name", _this select 0, _this select 1]];
+                }]] call FUNC(network,mp);
+
+                for "_i" from -10 to -1 do {
+                    titleText [
+                        format [
+                            "YOUR NAME CONTAINS INVALID CHARACTERS\n\nRETURNING TO LOBBY\n\n%1",
+                            abs _i
+                        ],
+                        "BLACK FADED"
+                    ];
+
+                    sleep 1;
+                };
+
+                endMission "LOSER";
+            };
+
             if (!isNil QMODULE(setting) && {(player getVariable QGVAR(tutorial)) select 1 == 10}) then {
                 call FUNC(tutorial,handle);
 
                 waitUntil {sleep 1; !GVAR(tutorial)};
             };
-        
+
             sleep 1;
             
             titleText ["", "BLACK IN", 4];
