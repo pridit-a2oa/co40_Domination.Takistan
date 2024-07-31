@@ -16,10 +16,18 @@ if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
     titleText ["", "BLACK", 1];
     
     sleep 1;
-    
-    titleText ["You are being transported", "BLACK FADED"];
-    
-    sleep 5;
+
+    for "_i" from -10 to -1 do {
+        titleText [
+            format [
+                "YOU ARE BEING TRANSPORTED\n\n%1",
+                abs _i
+            ],
+            "BLACK FADED"
+        ];
+
+        sleep 1;
+    };
     
     _position = _target modelToWorld ([typeOf _target] call FUNC(vehicle,offsetPlayer));
     
