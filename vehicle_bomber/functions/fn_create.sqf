@@ -76,8 +76,9 @@ gameLogic setVariable [QGVAR(bomber), true, true];
                     _killer addScore -GVAR(vehicle_bomber_amount_score_deduct);
 
                     [true, "systemChat", format [
-                        "%1 has lost score for killing a civilian",
-                        name _killer
+                        "%1 has lost score (%2) for killing a civilian",
+                        name _killer,
+                        GVAR(vehicle_bomber_amount_score_deduct)
                     ]] call FUNC(network,mp)
                 };
             };

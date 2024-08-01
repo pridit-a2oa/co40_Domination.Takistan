@@ -23,7 +23,7 @@ GVAR(vehicle_bomber_type_bomb) = "ARTY_Sh_81_HE";
 GVAR(vehicle_bomber_amount_score_award) = 3;
 
 // Amount of score to deduct when killing the civilian
-GVAR(vehicle_bomber_amount_score_deduct) = 9;
+GVAR(vehicle_bomber_amount_score_deduct) = 15;
 
 // Chance unit will detonate
 GVAR(vehicle_bomber_chance_detonate) = 30;
