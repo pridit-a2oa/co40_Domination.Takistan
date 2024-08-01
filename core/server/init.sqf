@@ -75,14 +75,19 @@ onPlayerDisconnected {
         __log format ["UNIT: %1 | NAME: %2 | UID: %3", _x, name _x, getPlayerUID _x]];
 
         if (!isNull _x && {[getPlayerUID _x, _uid] call BIS_fnc_areEqual}) exitWith {
+            private ["_dead"];
+
             [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
 
-            if (!alive _x || {_x getVariable QGVAR(unconscious)}) then {
+            _dead = !alive _x;
+
+            if (_dead || {_x getVariable QGVAR(unconscious)}) then {
                 _x addScore -10;
 
                 [true, "systemChat", format [
-                    "%1 has lost score for disconnecting while dead/incapacitated",
-                    _name
+                    "%1 has lost score (10) for disconnecting while %2",
+                    _name,
+                    if (_dead) then {"dead"} else {"incapacitated"}
                 ]] call FUNC(network,mp);
             };
 
