@@ -2,7 +2,7 @@
  * Vehicle Texture Module
  *
  * Description: This module enables players to switch textures of vehicles.
- * 
+ *
  */
 
 #define THIS_MODULE vehicle_texture

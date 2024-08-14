@@ -12,18 +12,18 @@ while {true} do {
 
     _attached = _attacher getVariable QGVAR(attached);
     _position = _attachee getVariable QGVAR(position);
-    
+
     _marker = str (_position select 0);
 
     if (isNil "_attached" || {isNull _attached}) exitWith {
         _attachee setVariable [QGVAR(hidden), false, true];
     };
-    
+
     if (!isNil "_position" && {!isNull _attached}) then {
         if (markerAlpha _marker == 1) then {
             _attachee setVariable [QGVAR(hidden), true, true];
         };
     };
-    
+
     sleep 5;
 };

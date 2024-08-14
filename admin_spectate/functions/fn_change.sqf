@@ -14,7 +14,7 @@ switch (_selectedIndex) do {
     case 5: { // separator
         _newIndex = KEGs_camSelLast;
     };
-    case 6: { // Special for toggling missile camera 
+    case 6: { // Special for toggling missile camera
         KEGs_UseMissileCam = abs (KEGs_UseMissileCam - 1);
         _newIndex = KEGs_camSelLast;
     };

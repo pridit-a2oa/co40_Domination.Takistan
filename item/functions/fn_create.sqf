@@ -40,7 +40,7 @@ _objects = [];
 
             waitUntil {
                 sleep 2 + (random 0.5);
-                
+
                 {[_x select 0, _item select 1] call BIS_fnc_areEqual} count (getWeaponCargo _container) < 1 || !alive _parent
             };
 

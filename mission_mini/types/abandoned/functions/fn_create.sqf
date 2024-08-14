@@ -25,17 +25,17 @@ switch (round (random 3)) do {
         _vehicle setHit ["wheel_1_1_steering", 1];
         _vehicle setHit ["wheel_1_2_steering", 1];
     };
-    
+
     case 1: {
         _vehicle setHit ["wheel_1_1_steering", 1];
         _vehicle setHit ["wheel_2_1_steering", 1];
     };
-    
+
     case 2: {
         _vehicle setHit ["wheel_2_1_steering", 1];
         _vehicle setHit ["wheel_2_2_steering", 1];
     };
-    
+
     case 3: {
         _vehicle setHit ["wheel_1_2_steering", 1];
         _vehicle setHit ["wheel_2_1_steering", 1];
@@ -45,7 +45,7 @@ switch (round (random 3)) do {
 
 if (GVAR(mission_mini_abandoned_chance_flip) > floor (random 100)) then {
     _pitchBank = _vehicle call BIS_fnc_getPitchBank;
-                
+
     [_vehicle, _pitchBank select 0, (_pitchBank select 1) + 65] call BIS_fnc_setPitchBank;
 };
 

@@ -10,7 +10,7 @@ _vehicles = nearestObjects [position GVAR(base_rd), ["AllVehicles"], 10];
 
 if (count _vehicles != 1) exitWith {false};
 
-_vehicle = _vehicles select 0; 
+_vehicle = _vehicles select 0;
 
 if (GVAR(base_rd_type_vehicles) find (typeOf _vehicle) == -1) exitWith {false};
 

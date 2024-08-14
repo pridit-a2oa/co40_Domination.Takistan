@@ -53,7 +53,7 @@ KRON_StrRight = {
     };
  _out
 };
-    
+
 KRON_StrMid = {
     private["_in","_pos","_len","_arr","_i","_out"];
     _in=_this select 0;

@@ -7,7 +7,7 @@
 
 if (hasInterface) then {
     waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(tasks)}};
-    
+
     {
         private ["_task"];
 
@@ -20,10 +20,10 @@ if (hasInterface) then {
         if ([typeName (_x select 1), "ARRAY"] call BIS_fnc_areEqual) then {
             _task setSimpleTaskDestination (_x select 1);
         };
-        
+
         _task setSimpleTaskDescription (_x select 2);
         _task setTaskState (_x select 3);
-        
+
         sleep 0.1;
     } forEach (X_JIPH getVariable QGVAR(tasks));
 };

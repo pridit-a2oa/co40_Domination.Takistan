@@ -1,11 +1,11 @@
-class Sentences 
+class Sentences
 {
     class InjuredCallMedic {
         text = "Medic! I'm wounded!";
         speech[] = {MedicE, pause, WoundedE};
         class Arguments {};
     };
-    
+
     class InjuredHelpMe {
         text = "I'm injured! Somebody help me!";
         speech[] = {Injured, pause, SomebodyHelpMeE};

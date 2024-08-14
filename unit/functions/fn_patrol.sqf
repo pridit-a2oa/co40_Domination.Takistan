@@ -17,7 +17,7 @@ for "_i" from 1 to _waypoints do {
 
     if (_i == 1) then {
         _vehicle = vehicle (leader _group);
-        
+
         [_group, _i] setWaypointBehaviour "SAFE";
         [_group, _i] setWaypointCombatMode "RED";
         [_group, _i] setWaypointFormation "COLUMN";

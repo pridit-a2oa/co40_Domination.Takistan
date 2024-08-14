@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Depart {
         text = "Be advised, air taxi is on location and will depart in %Time.";

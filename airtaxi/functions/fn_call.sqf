@@ -16,33 +16,33 @@ if (hasInterface) then {
             _name,
             X_JIPH getVariable QGVAR(air_taxi_progress)
         ] call FUNC(helper,inProgress),
-    
+
         [
             _name,
             _position,
             EAST,
             GVAR(air_taxi_distance_enemy)
         ] call FUNC(helper,nearSide),
-    
+
         [
             [_name, "called"],
             _position,
             player,
             [GVAR(air_taxi_distance_player), "within", "of your location"]
         ] call FUNC(helper,distanceFrom),
-        
+
         [
             [_name, "called"],
             _position,
             markerPos QGVAR(base_south),
             [GVAR(air_taxi_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
-        
+
         [
             [_name, "called"]
         ] call FUNC(helper,inVehicle)
     ];
-    
+
     {
         if (typeName _x == "STRING") exitWith {
             hint _x;
@@ -50,10 +50,10 @@ if (hasInterface) then {
     } forEach _checks;
 
     if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-    
+
     X_JIPH setVariable [QGVAR(air_taxi_call), true, true];
     player setVariable [QGVAR(air_taxi_cooldown), time + GVAR(air_taxi_time_cooldown)];
-    
+
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
@@ -62,13 +62,13 @@ if (hasInterface) then {
 if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
     X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
-    
+
     if !(isNil QMODULE(conversation)) then {
         [_unit, _position, "air taxi"] call FUNC(conversation,request);
     };
-    
+
     GVAR(air_taxi_type_smoke) createVehicle _position;
-    
+
     _vehicle = [
         _position,
         GVAR(air_taxi_type_aircraft),
@@ -80,37 +80,37 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
     _pilot = driver _aircraft;
-    
+
     {
         _x addEventHandler ["HandleDamage", {0}];
     } forEach _crew;
-    
+
     _aircraft flyInHeight 80;
     _aircraft lockDriver true;
-    
+
     _pilot setSkill 1;
     _pilot doMove _position;
-    
+
     (group _pilot) setBehaviour "CARELESS";
-    
+
     _helper = "HeliHEmpty" createVehicleLocal _position;
-    
+
     while {alive _aircraft && {canMove _aircraft}} do {
         if (unitReady _pilot) exitWith {
             sleep 0.1;
-            
+
             _aircraft land "LAND";
-            
+
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (speed _aircraft < 1 && {(position _aircraft) select 2 > 1}) then {
                     _aircraft land "LAND";
-                    
+
                     sleep 5;
                 };
-                
+
                 if (speed _aircraft > -1 && {speed _aircraft < 0.01} && {(position _aircraft) select 2 < 2}) exitWith {
                     deleteVehicle _helper;
-                    
+
                     if !(isNil QMODULE(conversation)) then {
                         [
                             [GVAR(crossroad), GVAR(crossroad2)],
@@ -120,15 +120,15 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                             ]
                         ] call FUNC(conversation,radio);
                     };
-                    
+
                     sleep GVAR(air_taxi_time_wait);
-                    
+
                     _pilot doMove (markerPos QGVAR(airtaxi));
-                    
+
                     while {alive _aircraft && {canMove _aircraft}} do {
                         if (unitReady _pilot) exitWith {
                             sleep 0.1;
-                            
+
                             _aircraft land "LAND";
 
                             while {alive _aircraft && {canMove _aircraft}} do {
@@ -140,34 +140,34 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                                     } forEach crew _aircraft;
 
                                     _aircraft lock true;
-                                    
+
                                     [_aircraft] spawn FUNC(server,exitMap);
                                 };
-                                
+
                                 sleep 2;
                             };
                         };
-                        
+
                         sleep 2;
                     };
                 };
-                
+
                 sleep 2;
             };
         };
-        
+
         sleep 2;
     };
 
     if (!canMove _aircraft) then {
         [true, "vehicleChat", [_aircraft, "We've been hit! Critical damage! Eject now!"]] call FUNC(network,mp);
-        
+
         sleep 15;
-        
+
         {
             deleteVehicle _x;
         } forEach _crew;
-        
+
         if (alive _aircraft) then {
             _aircraft setDamage 1;
         };
@@ -176,6 +176,6 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     if (!isNil "_helper") then {
         deleteVehicle _helper;
     };
-    
+
     X_JIPH setVariable [QGVAR(air_taxi_progress), false, true];
 };

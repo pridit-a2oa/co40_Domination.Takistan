@@ -24,7 +24,7 @@ sleep 1;
 
 if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loadout)}}) then {
     private ["_handle"];
-    
+
     _handle = [_vehicle] __submoduleVM(vehicle_loadout);
 
     waitUntil {sleep 0.5; scriptDone _handle};
@@ -44,7 +44,7 @@ if (!isNil QMODULE(vehicle_loadout) && {!isNil {_vehicle getVariable QGVAR(loado
     for "_i" from 0 to (_turrets - 1) do {
         _config = (configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "turrets") select _i;
         _magazines = getArray (_config >> "magazines");
-        
+
         {
             [_vehicle, _x] call FUNC(THIS_MODULE,rearm);
         } forEach _magazines;

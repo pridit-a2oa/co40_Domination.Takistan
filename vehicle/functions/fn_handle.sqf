@@ -28,17 +28,17 @@ if (isServer) then {
     if (isNil {_vehicle getVariable QGVAR(built)}) then {
         _vehicle setVariable [QGVAR(built), false, true];
     };
-    
+
     if (isNil {_vehicle getVariable QGVAR(spawn)}) then {
         _vehicle setVariable [QGVAR(spawn), position _vehicle, true];
     };
-    
+
     if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
         if (isNil {_vehicle getVariable QGVAR(menu)}) then {
             _vehicle setVariable [QGVAR(menu), true, true];
         };
     };
-    
+
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
     if (!isNil QMODULE(vehicle_abandon)) then {
@@ -52,20 +52,20 @@ if (isServer) then {
     if (!isNil QMODULE(vehicle_mhq)) then {
         [_vehicle] __submodulePP(vehicle_mhq);
     };
-    
+
     if (!isNil QMODULE(vehicle_respawn)) then {
         [_vehicle] __submoduleVM(vehicle_respawn);
     };
-    
+
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submodulePP(vehicle_service);
     };
-    
+
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
             _vehicle setVariable [QGVAR(wreckable), false, true];
         };
-        
+
         [_vehicle] __submodulePP(vehicle_wreck);
     };
 
@@ -90,7 +90,7 @@ if (isServer) then {
 
             _vehicle addEventHandler ["Killed", {
                 private ["_vehicle"];
-                
+
                 PARAMS_1(_vehicle);
 
                 _vehicle spawn {
@@ -107,7 +107,7 @@ if (isServer) then {
 
                 PARAMS_6(_unit, _weapon, _muzzle, _mode, _ammo, _magazine);
 
-                if ({isPlayer _x} count crew _unit > 0) exitWith {}; 
+                if ({isPlayer _x} count crew _unit > 0) exitWith {};
 
                 // TODO: Would be better to get the amount as part of a config entry but didn't see this anywhere, only
                 // single weapon or ammo references, so no idea where the magazine amount that statics spawn with comes
@@ -140,7 +140,7 @@ if (isServer) then {
                     [_unit] call FUNC(THIS_MODULE,crew)
                 ]];
             };
-        };        
+        };
     };
 
     _vehicle addEventHandler ["Killed", _expression];
@@ -150,14 +150,14 @@ if (isServer) then {
 if (hasInterface) then {
     waitUntil {
         sleep 0.1;
-        
+
         !isNil {_vehicle getVariable QGVAR(id)}
     };
 
     if (!isNil QMODULE(base_protection)) then {
         [_vehicle] __submodulePP(base_protection);
     };
-    
+
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);
     };
@@ -165,11 +165,11 @@ if (hasInterface) then {
     if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
         [_vehicle] __submodulePP(menu);
     };
-    
+
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submodulePP(perk);
     };
-    
+
     if (!isNil QMODULE(option)) then {
         [_vehicle] __submodulePP(option);
     };
@@ -177,15 +177,15 @@ if (hasInterface) then {
     if (!isNil QMODULE(vehicle_3d)) then {
         [_vehicle] __submodulePP(vehicle_3d);
     };
-    
+
     if (!isNil QMODULE(vehicle_marker)) then {
         [_vehicle] __submodulePP(vehicle_marker);
     };
-    
+
     if (!isNil QMODULE(vehicle_protection)) then {
         [_vehicle] __submodulePP(vehicle_protection);
     };
-    
+
     if (!isNil QMODULE(vehicle_repair)) then {
         [_vehicle] __submodulePP(vehicle_repair);
     };

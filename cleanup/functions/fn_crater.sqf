@@ -4,11 +4,12 @@
  */
 
 #include "x_macros.sqf"
-private ["_craters"];
 
 while {true} do {
+    private ["_craters"];
+
     _craters = nearestObjects [markerPos QGVAR(map_zone), ["CraterLong"], 9500];
-    
+
     sleep 0.1;
 
     if (count _craters > 0) then {
@@ -16,6 +17,6 @@ while {true} do {
             deleteVehicle (_craters select _i);
         };
     };
-    
+
     sleep 30;
 };

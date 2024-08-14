@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Rebuilding {
         text = "Rebuilding %1, this will take approx. %2 minutes.";
@@ -8,7 +8,7 @@ class Sentences
             class 2 {type = "simple";};
         };
     };
-    
+
     class Rebuilt {
         text = "%1 has been rebuilt.%2";
         speech[] = {};

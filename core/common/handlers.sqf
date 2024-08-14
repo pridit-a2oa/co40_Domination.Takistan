@@ -17,7 +17,7 @@ _handlers = [];
     };
 
     _path = format ["%1\handle.sqf", _file];
-    
+
     if (count (toArray loadFile _path) > 100) then {
         _handlers = _handlers + [_x];
     };

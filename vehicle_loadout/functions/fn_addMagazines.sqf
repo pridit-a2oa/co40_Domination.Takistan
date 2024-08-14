@@ -29,7 +29,7 @@ _weapons = (_vehicle getVariable QGVAR(loadout)) select 1;
             [_vehicle, _type, _path] call FUNC(vehicle_service,rearm);
         } else {
             sleep 0.1 + random 0.1;
-            
+
             [
                 [_vehicle, _path] call FUNC(vehicle,owner),
                 "addMagazineTurret",

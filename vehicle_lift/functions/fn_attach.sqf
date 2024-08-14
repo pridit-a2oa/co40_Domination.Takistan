@@ -64,7 +64,7 @@ if (isServer) then {
     switch (true) do {
         case !(alive _vehicle): {
             _lifted = _vehicle getVariable QGVAR(lifted);
-            
+
             if (isNil "_lifted") then {
                 _vehicle setVariable [QGVAR(lifted), [position _vehicle, objNull, []]];
             } else {
@@ -79,7 +79,7 @@ if (isServer) then {
 
             waitUntil {
                 sleep 0.1;
-                
+
                 [count crew _vehicle, 0] call BIS_fnc_areEqual
             };
 

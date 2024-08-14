@@ -40,7 +40,7 @@ if ([[true, 2, QGVAR(sound_repair)]] call FUNC(client,stall) && {alive _vehicle}
     };
 
     [_vehicle, "setHit", ["motor", 0]] call FUNC(network,mp);
-    
+
     if (fuel _vehicle < 0.25) then {
         [_vehicle, "setFuel", 0.25] call FUNC(network,mp);
     };

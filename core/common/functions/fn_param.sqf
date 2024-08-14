@@ -1,5 +1,5 @@
 /*
-    Author: 
+    Author:
         Karel Moricky, optimised by Killzone_Kid
 
     Description:

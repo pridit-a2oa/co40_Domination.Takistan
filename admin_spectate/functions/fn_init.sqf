@@ -299,7 +299,7 @@ if (count _allUnits > 0) then {
             _x setVariable ["KEGs_SPECT", true];
             _x setVariable ["KEGs_mapmove", false];
         };
-        
+
         if (!isMultiplayer && {KEGs_UseLog}) then {
             _nn = _x getVariable "KEGs_EHKilled";
             if (isNil "_nn") then {
@@ -307,29 +307,29 @@ if (count _allUnits > 0) then {
                 _x setVariable ["KEGs_EHKilled", _fh];
             };
         };
-        
+
         _m = createMarkerLocal [format[_markstr, count KEGs_markers], [0, 0, 0]];
         _m setMarkerTypeLocal "Dot";
         _m setMarkerSizeLocal [0.4, 0.4];
         _nn = if (alive _x) then {name _x} else {_unknownstr};
         KEGs_markers set [count KEGs_markers, [_m, _x, _nn]];
-        
+
         _OriginalSide = _x call KEGS_CheckOriginalSide;
         KEGs_sidecache set [count KEGs_sidecache, _OriginalSide];
-        
+
         _m setMarkerColorLocal (_OriginalSide call KEGs_GetMCol);
         _m setMarkerPosLocal (getPosASL (vehicle _x));
-        
+
         _s = "#particlesource" createVehicleLocal getPosASL _x;
         KEGs_Tagsources set [count KEGs_Tagsources, [_x, _s]];
-        
+
         if (KEGs_Tags == 1) then {
             ["ToggleTags",[false, _cameras select KEGs_cameraIdx]] call spectate_events;
             ["ToggleTags",[true, _cameras select KEGs_cameraIdx]] call spectate_events;
         };
         KEGs_namecache set [count KEGs_namecache, _nn];
     } forEach _allUnits;
-    
+
     KEGs_deathCam = _allUnits;
     KEGs_NeedUpdateLB = true;
 };
@@ -359,7 +359,7 @@ while {dialog} do {
         };
         if (_tgtSelLast != lbCurSel _cLBTargets) then {
             KEGs_DroppedCamera = false;
-            
+
             for "_idx" from 0 to (lbSize _cLBTargets) - 1 do {
                 if (_idx == (lbSize _cLBTargets)) exitWith {};
                 if (lbValue [_cLBTargets, _idx] == _lasttgtIdx) exitWith {
@@ -369,26 +369,26 @@ while {dialog} do {
                     lbSetColor [_cLBTargets, _idx, _clbcols select _coldidx];
                 };
             };
-            
+
             _tgtSelLast = lbCurSel _cLBTargets;
             KEGs_tgtIdx = lbValue [_cLBTargets, _tgtSelLast];
             _lasttgtIdx = KEGs_tgtIdx;
             lbSetColor [_cLBTargets, _tgtSelLast, [1, 0.5, 0, 1]];
         };
     };
-    
+
     if (time - KEGs_lastCheckNewUnits > 4 && {!KEGs_MissileCamActive} && {!KEGs_NeedUpdateLB} && {!KEGs_newCheckUn}) then {
         KEGs_newCheckUn = true;
         [_markstr,_unknownstr,_cameras] spawn KEGs_CheckNew;
     };
-    
+
     if (count KEGs_deathCam < 1) exitWith {};
     if (!KEGs_Spect_Init) then {if (count KEGs_deathCam > 0) then {KEGs_Spect_Init = true}};
-    
+
     if ((KEGs_NeedUpdateLB || {(time - KEGs_lastAutoUpdateLB > 20)}) && {!KEGs_MissileCamActive} && {!KEGs_markersrun} && {!KEGs_newCheckUn} && {!KEGs_updating_lb}) then {
         [_cLBTargets, KEGs_sidecache, KEGs_namecache, _deadstr, _clbcols] spawn KEGs_UpdateLB;
     };
-    
+
     if (!KEGs_updating_lb) then {
         if !(KEGs_target in KEGs_units && {lbSize _cLBTargets > 0}) then {
             KEGs_tgtIdx = lbValue [_cLBTargets, 0];
@@ -423,7 +423,7 @@ while {dialog} do {
         (vehicle KEGs_target) cameraEffect ["terminate","BACK"];
         (vehicle KEGs_target) camCommit 0.01;
     };
-    
+
     lbSetCurSel [_cLBCameras, KEGs_cameraIdx];
 
     if (lbValue [_cLBTargets, lbCurSel _cLBTargets] != KEGs_tgtIdx && {!KEGs_updating_lb}) then {
@@ -434,14 +434,14 @@ while {dialog} do {
             };
         };
     };
-    
+
     if (KEGs_OldNVGMethod) then {
         camUseNVG (KEGs_UseNVG == 1);
         setAperture (if (KEGs_UseNVG == 1) then {4} else {-1});
     } else {
         setAperture (if (KEGs_UseNVG == 1) then {0.07} else {-1});
     };
-    
+
     if (ctrlVisible _cMapFull) then {
         KEGs_cam_fullmap cameraEffect ["internal", "BACK"];
     };
@@ -450,7 +450,7 @@ while {dialog} do {
         _lastUpdateTags = time;
         ["ToggleTags", [true, _cameras select KEGs_cameraIdx]] call spectate_events;
     };
-    
+
     if (!KEGs_NoMarkersUpdates && {!KEGs_NeedUpdateLB} && {time > _nextmarkertime}) then {
         _rate = (round ((count KEGs_markers) / 99)) max 1;
         _nextmarkertime = time + _rate;
@@ -476,7 +476,7 @@ while {dialog} do {
             };
         };
     };
-    
+
     if (KEGs_tgtIdx != _lastTgt) then {
         _map = _disp displayCtrl _cMapFull;
         ctrlMapAnimClear _map;
@@ -484,16 +484,16 @@ while {dialog} do {
         _map ctrlMapAnimAdd [0.2, 1.0, getPosASL (KEGs_deathCam select _lastTgt)];
         ctrlMapAnimCommit _map;
     };
-    
+
     _dir = direction vehicle KEGs_target;
     _bb = boundingBox vehicle KEGs_target;
     _foo = ((_bb select 1) select 2) - ((_bb select 0) select 2);
     _l = ((_bb select 1) select 1) - ((_bb select 0) select 1);
     _w = ((_bb select 1) select 0) - ((_bb select 0) select 0);
-    
+
     _hstr = 0.15;
     _h = (_foo * _hstr) + (_h * (1 - _hstr));
-    
+
     _role = "";
     if (KEGs_DroppedCamera && {isNull _nearest}) then {
         _name = ""; _role = "";
@@ -513,7 +513,7 @@ while {dialog} do {
         ctrlSetText [_cName, format ["%1 %2", _name, _role]];
         _oldnname = _name; _oldnrole = _role;
     };
-    
+
     if (KEGs_cameraIdx != _oldcamselidx) then {
         ctrlSetText [_cCamera, format["Camera: %1", _cameraNames select KEGs_cameraIdx]];
         _oldcamselidx = KEGs_cameraIdx;
@@ -528,19 +528,19 @@ while {dialog} do {
             _hasdropped = false;
         };
     };
-    
+
     if (_olduseMCam != KEGs_UseMissileCam) then {
         if (KEGs_UseMissileCam == 1) then {lbSetColor [_cLBCameras, _cLbMissileCam, [1, 0.5, 0, 1]]}
         else {lbSetColor [_cLBCameras, _cLbMissileCam, [1, 1, 1, 0.33]]};
         _olduseMCam = KEGs_UseMissileCam;
     };
-    
+
     if (_oldUseNVG != KEGs_UseNVG) then {
         if (KEGs_UseNVG == 1) then {lbSetColor [_cLBCameras, _cLbToggleNVG, [1, 0.5, 0, 1]]}
         else {lbSetColor [_cLBCameras, _cLbToggleNVG, [1, 1, 1, 0.33]]};
         _oldUseNVG = KEGs_UseNVG;
     };
-    
+
     if (_oldTags != KEGs_Tags) then {
         if (KEGs_Tags == 1) then {lbSetColor [_cLBCameras, _cLbToggleTags, [1, 0.5, 0, 1]]}
         else {lbSetColor [_cLBCameras, _cLbToggleTags, [1, 1, 1, 0.33]]};
@@ -558,12 +558,12 @@ while {dialog} do {
         else {lbSetColor [_cLBCameras, _cLbToggleDeadFilter, [1, 1, 1, 0.33]]};
         _oldDeadFilter = KEGs_DeadFilter;
     };
-    
+
     if (KEGs_DroppedCamera) then {
         if (KEGs_cameraIdx != 0) then {
             KEGs_DroppedCamera = false;
         };
-        
+
         if (KEGs_CamForward) then {
             _spd = (_sdistance max 1) * 20;
             _spdbase = _spd * _tbase;
@@ -698,10 +698,10 @@ deleteVehicle _dummy;
 _doexitx = false;
 if (!isNil "KEGs_exit_spectator") then {
     _camera = if (vehicle player != player) then {vehicle player} else {player};
-    
+
     _camera switchCamera "EXTERNAL";
     _camera cameraEffect["terminate", "FRONT"];
-    
+
     closeDialog 0;
     _doexitx = true;
     KEGs_showbuttonattime = nil;

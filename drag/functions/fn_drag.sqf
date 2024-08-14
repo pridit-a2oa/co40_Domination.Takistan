@@ -28,7 +28,7 @@ _action = player addAction [
 
 waitUntil {
     sleep 0.1;
-    
+
     {!alive _x} count [player, _target] > 0 || {player getVariable QGVAR(unconscious)} || {!(_target getVariable QGVAR(dragging))}
 };
 

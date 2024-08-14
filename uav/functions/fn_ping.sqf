@@ -22,7 +22,7 @@ if (count _enemies < 1) exitWith {};
     _marker = createMarker [format ["uav%1", _forEachIndex], getPos _x];
     _marker setMarkerShape "ICON";
     _marker setMarkerType "DOT";
-    
+
     _markers = _markers + [_marker];
 } forEach _enemies;
 

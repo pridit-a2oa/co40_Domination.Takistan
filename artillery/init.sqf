@@ -35,7 +35,7 @@ if (hasInterface) then {
     player setVariable [QGVAR(artillery), false];
     player setVariable [QGVAR(artillery_range), GVAR(artillery_distance_range)];
     player setVariable [QGVAR(artillery_salvoes), 0];
-    
+
     if (isNil {player getVariable QGVAR(artillery_cooldown)}) then {
         player setVariable [QGVAR(artillery_cooldown), time + GVAR(artillery_time_cooldown)];
     };

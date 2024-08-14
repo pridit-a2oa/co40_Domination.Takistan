@@ -55,7 +55,7 @@ if (!isNil QMODULE(marker)) then {
             ] call FUNC(marker,create);
         };
     }]] call FUNC(network,mp);
-    
+
     (_target select 1) setVariable ["marker", _name];
 };
 

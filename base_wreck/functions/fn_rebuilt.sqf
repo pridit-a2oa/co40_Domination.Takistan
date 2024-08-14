@@ -9,7 +9,7 @@ _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
 {
     if (!triggerActivated _x) then {
         _hangar = _hangars select _forEachIndex;
-        
+
         _vehicle setDir ((getDir _hangar) - 180);
         _vehicle setPosATL (getPosATL _hangar);
     };

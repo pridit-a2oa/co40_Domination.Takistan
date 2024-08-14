@@ -13,7 +13,7 @@ X_JIPH setVariable [QGVAR(votes), [], true];
 
 [true, "spawn", [[], {
     if !(hasInterface) exitWith {};
-    
+
     GVAR(vote) = false;
 
     [false] call FUNC(THIS_MODULE,refresh);

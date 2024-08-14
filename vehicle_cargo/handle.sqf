@@ -8,7 +8,7 @@ private ["_trigger"];
 
 if (hasInterface) then {
     GVAR(loading) = false;
-    
+
     _trigger = createTrigger ["EmptyDetector", [0, 0, 0]];
     _trigger setTriggerArea [0, 0, 0, true];
     _trigger setTriggerActivation ["NONE", "PRESENT", true];

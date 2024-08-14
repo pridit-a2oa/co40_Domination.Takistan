@@ -17,29 +17,29 @@ if (typeOf _vehicle != GVAR(vehicle_tow_type)) exitWith {};
 if (isServer) then {
     _vehicle setVariable [QGVAR(towing), objNull, true];
     _vehicle setVariable [QGVAR(action), false, true];
-    
+
     _vehicle addEventHandler ["Killed", {
         private ["_vehicle"];
-        
+
         PARAMS_1(_vehicle);
-        
+
         [_vehicle] spawn {
             private ["_vehicle"];
-            
+
             PARAMS_1(_vehicle);
-            
+
             _towing = _vehicle getVariable QGVAR(towing);
-            
+
             if (isNull _towing) exitWith {};
-            
+
             [_vehicle, "", "", _towing] call FUNC(THIS_MODULE,detach);
         };
     }];
 };
-    
+
 if (hasInterface) then {
     waitUntil {sleep 2; !isNil {_vehicle getVariable QGVAR(towing)}};
-    
+
     while {alive _vehicle} do {
         _towing = _vehicle getVariable QGVAR(towing);
         _action = _vehicle getVariable QGVAR(action);
@@ -60,10 +60,10 @@ if (hasInterface) then {
                 "",
                 "vehicleDetach"
             ] call RE;
-            
+
             _vehicle setVariable [QGVAR(action), true, true];
         };
-        
+
         sleep 5;
     };
 };

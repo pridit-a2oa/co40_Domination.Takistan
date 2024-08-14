@@ -50,17 +50,17 @@ while {alive _object} do {
 
         if (_alpha <= 1 && {!visibleMap}) then {
             _pos2D = worldToScreen (position _object);
-            
+
             _newText = _text;
-            
+
             if (!isNil "_countdown" && {_countdown}) then {
                 _timeLeft = [_object] call FUNC(THIS_MODULE,time);
-                
+
                 if (_timeLeft > 0) then {
                     _newText = _text + format ["<br /><t color='#f0bfbfbf' size='0.6'>%1</t>", [_timeLeft] call FUNC(common,displayTime)];
                 };
             };
-            
+
             if (count _pos2D > 0) then {
                 _dialog ctrlSetPosition [(_pos2D select 0) - _width / 2, (_pos2D select 1) - _height / 3, _width, _height];
                 _dialog ctrlSetStructuredText parseText _newText;
@@ -79,10 +79,10 @@ while {alive _object} do {
     } else {
         _dialog ctrlSetFade 1;
         _dialog ctrlCommit 0.1;
-        
+
         sleep 1;
     };
-    
+
     sleep 0.01;
 };
 

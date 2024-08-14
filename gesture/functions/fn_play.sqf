@@ -7,7 +7,7 @@ _checks = [
     [
         ["Gesture", "performed"]
     ] call FUNC(helper,inVehicle),
-    
+
     [
         ["Gesture", "performed"]
     ] call FUNC(helper,inAir)
@@ -35,14 +35,14 @@ if (!isNil QMODULE(communication)) then {
 
 if (_duration > 0) then {
     sleep _duration;
-    
+
     if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {};
-    
+
     [true, "switchMove", [player, ""]] call FUNC(network,mp);
 };
 
 if (!isNil QMODULE(communication)) then {
     if (!alive player || {player getVariable QGVAR(unconscious)}) exitWith {};
-    
+
     ["Gestures", 1] call FUNC(communication,toggle);
 };

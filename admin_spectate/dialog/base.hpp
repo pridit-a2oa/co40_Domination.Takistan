@@ -246,7 +246,7 @@ class rscSpectate {
             class ActiveMarker {
                 color[] = {0.3, 0.1, 0.9, 1};
                 size = 50;
-            };	
+            };
         };
         class mapFullBG : BackgroundTop {
             idc = IDC_MAPFULLBG;

@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Construct {
         text = "Constructing %1, this will take approx. %2 minutes.";

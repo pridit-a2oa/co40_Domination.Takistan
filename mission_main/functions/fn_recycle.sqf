@@ -35,7 +35,7 @@ if !(isNil QMODULE(marker)) then {
     [
         format ["mission_main_%1", _target getVariable "name"]
     ] call FUNC(marker,delete);
-    
+
     if !(isNil QMODULE(teleport)) then {
         [
             format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))]

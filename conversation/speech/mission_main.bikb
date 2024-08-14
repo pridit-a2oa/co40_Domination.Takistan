@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Captured {
         text = "We have captured all camps in %1 and weakened the enemy foothold.";
@@ -7,7 +7,7 @@ class Sentences
             class 1 {type = "simple";};
         };
     };
-    
+
     class Destroyed {
         text = "Enemy %1 in %2 has been destroyed.%3";
         speech[] = {};
@@ -17,7 +17,7 @@ class Sentences
             class 3 {type = "simple";};
         };
     };
-    
+
     class Detected {
         text = "We have been detected at %1, enemy reinforcements inbound.";
         speech[] = {StayAlert};
@@ -33,7 +33,7 @@ class Sentences
             class Location {type = "simple";};
         };
     };
-    
+
     class Seized {
         text = "We have seized %1.";
         speech[] = {};

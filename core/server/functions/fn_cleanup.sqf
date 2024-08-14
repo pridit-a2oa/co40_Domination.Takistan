@@ -9,7 +9,7 @@ sleep _time;
 
 waitUntil {
     sleep 20;
-    
+
     [{(_x distance _position) < _distance} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual
 };
 
@@ -21,7 +21,7 @@ waitUntil {
             {
                 if !(isPlayer _x) then {
                     _x setDamage 1;
-                    
+
                     deleteVehicle _x;
                 };
             } forEach crew _x;

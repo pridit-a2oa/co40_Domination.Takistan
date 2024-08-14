@@ -4,7 +4,7 @@ if (hasInterface) then {
     if (isMultiplayer) then {
         titleText ["", "BLACK FADED"];
     };
-    
+
     QGVAR(base_south) setMarkerAlphaLocal 0.3;
     QGVAR(base_north) setMarkerAlphaLocal 0;
     QGVAR(map_zone) setMarkerAlphaLocal 0;
@@ -24,7 +24,7 @@ if (hasInterface && {isMultiplayer}) then {
 
     0 spawn {
         disableSerialization;
-        
+
         while {!(simulationEnabled player)} do {
             waitUntil {sleep 0.01; !isNull (findDisplay 49)};
 
@@ -38,7 +38,7 @@ if (hasInterface && {isMultiplayer}) then {
 
 if (!isDedicated) then {
     X_INIT = false;
-    
+
     GVAR(client_init_trig) = createTrigger ["EmptyDetector", [0, 0, 0]];
     GVAR(client_init_trig) setTriggerArea [0, 0, 0, false];
     GVAR(client_init_trig) setTriggerActivation ["NONE", "PRESENT", false];

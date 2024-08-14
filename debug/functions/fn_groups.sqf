@@ -27,7 +27,7 @@ while {[GVAR(debug_groups), 1] call BIS_fnc_areEqual} do {
             private ["_name", "_marker"];
 
             _name = format ["debug%1%2", str _x, _forEachIndex];
-            
+
             _marker = createMarkerLocal [_name, position _x];
             _marker setMarkerTypeLocal "DOT";
             _marker setMarkerTextLocal (str _id);

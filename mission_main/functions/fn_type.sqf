@@ -11,13 +11,13 @@ switch (_type) do {
         _camps = 0;
 
         _compositions = GVAR(mission_main_type_camps);
-        
+
         while {_camps != GVAR(mission_main_amount_camps)} do {
             _composition = [0, _compositions] call FUNC(common,arrayValues);
             _position = [position _target, 20, GVAR(mission_main_radius_zone) / 2, 8, 0, 0.5, 0] call FUNC(common,safePos);
             _roads = _position nearRoads 70;
             _near = nearestObjects [_position, ["FlagCarrierTakistanKingdom_EP1"], 150];
-            
+
             if (count _near < 1) then {
                 _camp = _composition call BIS_fnc_selectRandom;
 
@@ -39,13 +39,13 @@ switch (_type) do {
                         ["TKBasicWeapons_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
-                
+
                 _group = [
                     _position,
                     east,
                     (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")
                 ] call FUNC(server,spawnGroup);
-                
+
                 if (!isNil QMODULE(unit)) then {
                     [_group, _position] call FUNC(unit,defend);
                 };
@@ -53,27 +53,27 @@ switch (_type) do {
                 if (([1, _compositions] call FUNC(common,arrayValues)) select (_composition find _camp)) then {
                     _compositions = [_compositions, _composition find _camp] call FUNC(common,deleteAt);
                 };
-                
+
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects + (units _group)];
                 _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
-                
+
                 _camps = _camps + 1;
             };
-            
+
             sleep 0.5;
         };
-        
+
         {
             _x addEventHandler ["HandleDamage", {0}];
-            
+
             _x setFlagTexture "\ca\ca_e\data\flag_tka_co.paa";
-            
+
             _x setVariable [QGVAR(time), 0, true];
             _x setVariable [QGVAR(capturing), false];
-            
+
             _x setVariable [QGVAR(id), [_x] call FUNC(server,objectId), true];
             _x setVariable [QGVAR(target), _target];
-            
+
             _trigger = createTrigger ["EmptyDetector", position _x];
             _trigger setVariable [QGVAR(flag), _x];
             _trigger setTriggerArea [GVAR(mission_main_distance_camp) - 1, GVAR(mission_main_distance_camp) - 1, 0, false];
@@ -84,14 +84,14 @@ switch (_type) do {
                 "[thisTrigger getVariable ""d_flag"", thisTrigger, thisList] spawn d_fnc_mission_main_capture",
                 ""
             ];
-            
+
             if (!isNil QMODULE(3d)) then {
                 [true, "execVM", [
                     [_x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true],
                     FUNCTION(3d,create)
                 ]] call FUNC(network,mp);
             };
-            
+
             [true, "spawn", [[_x], {
                 private ["_flag"];
 
@@ -111,53 +111,53 @@ switch (_type) do {
                     ] call FUNC(marker,create);
                 };
             }]] call FUNC(network,mp);
-            
+
             _target setVariable [QGVAR(camps), (_target getVariable QGVAR(camps)) + [_x], true];
-            
+
             sleep 0.5;
         } forEach (nearestObjects [position _target, ["FlagCarrierTakistanKingdom_EP1"], GVAR(mission_main_radius_zone)]);
-        
+
         {
             _x addEventHandler ["HandleDamage", {0}];
-            
+
             [true, "enableSimulation", [_x, false]] call FUNC(network,mp);
         } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
     };
-    
+
     case "radio": {
         private ["_position", "_near", "_radio"];
 
         while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.8, 3, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio), "FlagCarrierTakistanKingdom_EP1"], 150];
-            
+
             if (count _near < 1) then {
                 _radio = createVehicle [GVAR(mission_main_type_radio), _position, [], 0, "CAN_COLLIDE"];
                 _radio setDir (random 360);
                 _radio setPos _position;
-                
+
                 _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
                 _radio setVariable [QGVAR(target), _target];
 
                 [true, "execVM", [[_radio], __function(protect)]] call FUNC(network,mp);
-                
+
                 _radio addEventHandler ["Killed", {
                     private ["_unit", "_target"];
-                    
+
                     PARAMS_1(_unit);
-                    
+
                     _target = _unit getVariable QGVAR(target);
-                    
+
                     if (!isNil QMODULE(marker)) then {
                         [format ["radio_%1", _unit getVariable QGVAR(id)]] call FUNC(marker,delete);
                     };
                 }];
-                
+
                 [true, "spawn", [[_radio, _position], {
                     private ["_radio", "_position"];
-                    
+
                     PARAMS_2(_radio, _position);
-                    
+
                     if (!isNil QMODULE(marker)) then {
                         [
                             format ["radio_%1", _radio getVariable QGVAR(id)],
@@ -172,15 +172,15 @@ switch (_type) do {
                         ] call FUNC(marker,create);
                     };
                 }]] call FUNC(network,mp);
-                
+
                 _target setVariable [QGVAR(radios), (_target getVariable QGVAR(radios)) + [_radio], true];
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_radio]];
             };
-            
+
             sleep 0.5;
         };
     };
-    
+
     case "composition": {
         private ["_position", "_objects", "_group"];
 
@@ -189,7 +189,7 @@ switch (_type) do {
                 if (_x select 2 < floor (random 100)) exitWith {};
 
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 5, 0, 0.7, 0] call FUNC(common,safePos);
-                
+
                 _objects = [
                     _position,
                     random 360,
@@ -198,33 +198,33 @@ switch (_type) do {
                         ["TKLaunchers_EP1"]
                     ]
                 ] call FUNC(server,objectMapper);
-                
+
                 _group = [
                     _position,
                     east,
                     (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_InfantrySection")
                 ] call FUNC(server,spawnGroup);
-                
+
                 if (!isNil QMODULE(unit)) then {
                     [_group, _position] call FUNC(unit,defend);
                 };
-                
+
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + _objects + (units _group)];
                 _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + (units _group)];
             };
         } forEach GVAR(mission_main_type_compositions);
     };
-    
+
     case "optional": {
         private ["_objective", "_goal", "_type", "_position", "_entity", "_fort"];
 
         _objective = GVAR(mission_main_type_optional) call BIS_fnc_selectRandom;
-        
+
         _goal = _objective select 0;
         _type = _objective select 1;
-        
+
         _position = [position _target, 10, GVAR(mission_main_radius_zone) / 2, 5, 0, 0.5, 0] call FUNC(common,safePos);
-        
+
         switch (_type select 0) do {
             case "object": {
                 _entity = createVehicle [_type select 1, _position, [], 0, "CAN_COLLIDE"];
@@ -235,7 +235,7 @@ switch (_type) do {
 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
             };
-            
+
             case "unit": {
                 private ["_group"];
 
@@ -256,12 +256,12 @@ switch (_type) do {
                 _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + [_entity]];
             };
         };
-        
+
         if (!isNil QMODULE(task)) then {
             private ["_action", "_task"];
 
             _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
-            
+
             _task = [
                 _goal + str ((position _entity) select 0),
                 "",
@@ -273,35 +273,35 @@ switch (_type) do {
                 "Created",
                 _target getVariable "name"
             ];
-            
+
             _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
-            
+
             _entity setVariable [QGVAR(task), _task, true];
-            
+
             [true, "execVM", [_task, FUNCTION(task,create)]] call FUNC(network,mp);
-            
+
             _entity addEventHandler ["Killed", {
                 private ["_unit", "_task"];
-                
+
                 PARAMS_1(_unit);
-                
+
                 _task = _unit getVariable QGVAR(task);
-                
+
                 if (_task select 3 == "Created") then {
                     [_task, "Succeeded"] call FUNC(task,state);
                 };
             }];
-            
+
             _entity addMPEventHandler ["MPKilled", {
                 private ["_unit", "_task"];
-                
+
                 PARAMS_1(_unit);
-                
+
                 _task = [(_unit getVariable QGVAR(task)) select 0] call FUNC(task,get);
-                
+
                 if ((_unit getVariable QGVAR(task)) select 3 == "Created" && {taskState _task in ["Created", "Assigned"]}) then {
                     _task setTaskState "Succeeded";
-                    
+
                     [_task, "succeeded"] call FUNC(task,hint);
                 };
             }];

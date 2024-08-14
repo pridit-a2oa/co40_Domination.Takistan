@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Acknowledge {
         text = "Roger, %Type en route - stand by.";
@@ -7,7 +7,7 @@ class Sentences
             class Type {type = "simple";};
         };
     };
-    
+
     class Request {
         text = "Crossroad, requesting %Type at grid %Grid acknowledge.";
         speech[] = {pause, %Payload, pause, %Grid};

@@ -17,7 +17,7 @@ player setVariable [QGVAR(backpack_action), nil];
 
 if (primaryWeapon player != "") then {
     player selectWeapon (primaryWeapon player);
-    
+
     call FUNC(THIS_MODULE,store);
 };
 

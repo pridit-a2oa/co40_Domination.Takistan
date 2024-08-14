@@ -7,7 +7,7 @@
 
     Parameter(s):
     _this select 0: position of the template - Array [X, Y, Z]
-    _this select 1: azimuth of the template in degrees - Number 
+    _this select 1: azimuth of the template in degrees - Number
     _this select 2: objects for the template - Array / composition class - String / tag list - Array
     _this select 3: (optional) randomizer value (how much chance each object has of being created. 0.0 is 100% chance) - Number
 
@@ -37,37 +37,37 @@ _cfgObjectComps = configFile >> "CfgObjectCompositions";
 if ([typeName _objs, "STRING"] call BIS_fnc_areEqual) then {
     //Composition class was given
     _script = getText(_cfgObjectComps >> _objs >> "objectScript");
-    
+
     _objs = [];
 } else {
     private ["_testSample"];
-    
+
     _testSample = _objs select 0;
 
     if !([typeName _testSample, "ARRAY"] call BIS_fnc_areEqual) then {
         // Tag list was given
         private ["_queryTags"];
-        
+
         _queryTags = +_objs;
         _objs = [];
-        
+
         // Make a list of candidates which match all given tags
         private ["_candidates"];
-        
+
         _candidates = [];
-        
+
         for "_i" from 0 to ((count _cfgObjectComps) - 1) do {
             private ["_candidate", "_candidateTags"];
-            
+
             _candidate = _cfgObjectComps select _i;
             _candidateTags = getArray (_candidate >> "tags");
-            
+
             // Are all tags in this candidate?
             if ([{_x in _candidateTags} count _queryTags, count _queryTags] call BIS_fnc_areEqual) then {
                 _candidates = _candidates + [getText (_candidate >> "objectScript")];
             };
         };
-        
+
         // Select a random candidate
         _script = _candidates select (floor (random (count _candidates)));
     };
@@ -86,7 +86,7 @@ if (count _replace > 0) then {
         private ["_new"];
 
         _new = _x;
-        
+
         {
             if ([_x select 0, _new select 0] call BIS_fnc_areEqual) then {
                 _x set [0, if (count _new > 1) then {_new select 1} else {""}];
@@ -111,7 +111,7 @@ private ["_multiplyMatrixFunc"];
 
 _multiplyMatrixFunc = {
     private ["_array1", "_array2", "_result"];
-    
+
     _array1 = _this select 0;
     _array2 = _this select 1;
 
@@ -137,25 +137,25 @@ if !(isNil QMODULE(tent)) then {
 
 {
     private ["_type", "_relPos", "_azimuth", "_fuel", "_damage", "_newObj"];
-    
+
     _type = _x select 0;
     _relPos = _x select 1;
     _azimuth = _x select 2;
-    
+
     if !(_type in GVAR(server_objects_banned) || {[_x select 0, ""] call BIS_fnc_areEqual}) then {
         if ((count _x) > 3) then {_fuel = _x select 3};
         if ((count _x) > 4) then {_damage = _x select 4};
 
         // Rotate the relative position using a rotation matrix
         private ["_rotMatrix", "_newRelPos", "_newPos"];
-        
+
         _rotMatrix = [
             [cos _azi, sin _azi],
             [-(sin _azi), cos _azi]
         ];
 
         if (_relPos select 2 > 0.5 && {[_type, "Fort_Crate_wood"] call BIS_fnc_areEqual}) exitWith {};
-        
+
         _newRelPos = [_rotMatrix, _relPos] call _multiplyMatrixFunc;
         _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), 0];
 
@@ -193,7 +193,7 @@ if !(isNil QMODULE(tent)) then {
                 [_newObjs, _x] call BIS_fnc_arrayPush;
             } forEach ([_newObj] call FUNC(item,create));
         };
-        
+
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};

@@ -7,12 +7,12 @@
 
 if (isServer) then {
     private ["_trigger"];
-    
+
     {
         private ["_amount"];
 
         _amount = if (count _x > 3) then {_x select 3} else {1};
-        
+
         for "_i" from 1 to _amount do {
             private ["_marker", "_group"];
 
@@ -21,14 +21,14 @@ if (isServer) then {
                 _x select 0,
                 if (_amount > 1) then {format ["_%1", _i]} else {""}
             ];
-            
+
             [
                 markerPos _marker,
                 0,
                 [_x select 1, "us_army"],
                 _x select 2
             ] call FUNC(server,objectMapper);
-            
+
             _group = [
                 markerPos _marker,
                 west,
@@ -38,7 +38,7 @@ if (isServer) then {
             {
                 _x setCaptive true;
             } forEach units _group;
-            
+
             if (!isNil QMODULE(unit)) then {
                 [_group, markerPos _marker] call FUNC(unit,defend);
             };
@@ -58,7 +58,7 @@ if (isServer) then {
             2
         ]
     ];
-    
+
     _trigger = createTrigger ["EmptyDetector", markerPos QGVAR(base_south)];
     _trigger setTriggerArea [430, 200, -30.4639, true];
     _trigger setTriggerActivation ["EAST", "PRESENT", true];

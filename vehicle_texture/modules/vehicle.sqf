@@ -23,7 +23,7 @@ if (isServer) then {
 if (hasInterface) then {
     waitUntil {
         sleep 0.1;
-        
+
         !isNil {_vehicle getVariable QGVAR(texture)}
     };
 

@@ -50,7 +50,7 @@ if (hasInterface) then {
                 switch (_selection) do {
                     case "head_hit": {
                         private ["_armor"];
-                        
+
                         _armor = getNumber (_config >> "hitpoints" >> "HitHead" >> "armor");
 
                         _damage = ([

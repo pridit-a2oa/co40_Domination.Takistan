@@ -46,15 +46,15 @@ _vehicle setVariable [QGVAR(position), _spawn, true];
 
 if ((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"]) then {
     _vehicle setVariable [QGVAR(built), true, true];
-    
+
     if (!isNil QMODULE(vehicle_respawn)) then {
         _vehicle setVariable [QGVAR(respawnable), false, true];
     };
-    
+
     if (!isNil QMODULE(vehicle_wreck)) then {
         _vehicle setVariable [QGVAR(wreckable), false, true];
     };
-    
+
     __addDead(_vehicle);
 } else {
     if (!isNil QMODULE(vehicle_wreck)) then {
@@ -77,9 +77,9 @@ __log format ["Rebuilding %1", [typeOf _vehicle] call FUNC(vehicle,name)]];
 if (!isNil QMODULE(3d)) then {
     [true, "spawn", [[_time], {
         private ["_time"];
-        
+
         PARAMS_1(_time);
-        
+
         [GVAR(base_wreck), _time] call FUNC(3d,time);
     }]] call FUNC(network,mp);
 };

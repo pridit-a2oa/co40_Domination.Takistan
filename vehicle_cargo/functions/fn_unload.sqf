@@ -12,10 +12,10 @@ _id = ([_aircraft] call FUNC(THIS_MODULE,types)) find (_load select 0);
 
 if (_id != -1) then {
     [nil, _aircraft, "per", rRemoveAction, format ["vehicleLoad%1", _id]] call RE;
-    
+
     _loaded set [_id, [nil]];
     _actions set [_id, false];
-    
+
     _aircraft setVariable [QGVAR(loaded), _loaded, true];
     _aircraft setVariable [QGVAR(actions), _actions, true];
 };

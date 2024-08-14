@@ -34,11 +34,11 @@ GVAR(airdrop_time_cooldown) = 600;
 if (hasInterface) then {
     player setVariable [QGVAR(airdrop), false];
     player setVariable [QGVAR(airdrop_types), GVAR(airdrop_type_payloads)];
-    
+
     if (isNil {player getVariable QGVAR(airdrop_type)}) then {
         player setVariable [QGVAR(airdrop_type), [0, (GVAR(airdrop_type_payloads) select 0) select 1]];
     };
-    
+
     if (isNil {player getVariable QGVAR(airdrop_cooldown)}) then {
         player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
     };

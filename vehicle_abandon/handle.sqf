@@ -12,7 +12,7 @@ if (isServer) then {
 
             {
                 private ["_abandon", "_position", "_distance", "_time"];
-                
+
                 _abandon = _x getVariable QGVAR(abandon);
 
                 if (!isNil "_abandon" && {_abandon}) then {

@@ -15,7 +15,7 @@
             ARRAY - array of previous data types
     1: STRING - function name
     2: ANY - function params
-    
+
     Returns:
     BOOL - true if function was executed successfully
 */
@@ -24,7 +24,7 @@
 #define GVAR(variable) d##_##variable
 #define FUNC(module,function) d##_fnc_##module##_##function
 #define QUOTE(qtext) #qtext
-#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
+#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)),
 
 private ["_target", "_functionName", "_params", "_isCall", "_mode"];
 
@@ -41,15 +41,15 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
         if (isDedicated && {!hasInterface}) then {
             __log format ["%1", BIS_fnc_MP_packet]];
         };
-        
+
         publicVariableServer "BIS_fnc_MP_packet";
     };
-    
+
     //--- Single execution
     private ["_ownerID", "_serverID"];
-    
+
     _serverID = owner (missionNamespace getVariable ["bis_functions_mainscope", objNull]); //--- Server ID is not always 0
-    
+
     //--- Server process
     switch (typeName _target) do {
         case "OBJECT": {
@@ -67,13 +67,13 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
             _ownerID = -1;
         };
     };
-    
+
     BIS_fnc_MP_packet = [_target, _functionName, _params, _isCall, 1];
 
     if (isDedicated && {!hasInterface}) then {
         __log format ["%1", BIS_fnc_MP_packet]];
     };
-            
+
     //--- Send to clients
     if (_ownerID < 0) then {
         //--- Everyone
@@ -84,7 +84,7 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
             _ownerID publicVariableClient "BIS_fnc_MP_packet";
         };
     };
-    
+
     //--- Server execution (for all or server only)
     if (_ownerID < 0 || {[_ownerID, _serverID] call BIS_fnc_areEqual}) then {
         BIS_fnc_MP_packet call FUNC(THIS_MODULE,mp);
@@ -92,14 +92,14 @@ if ([_mode, 0] call BIS_fnc_areEqual && {isMultiplayer}) then {
 } else {
     //--- Client
     private ["_function"];
-    
+
     _function = call compile format ["d_fnc_network_%1", _functionName];
-    
+
     if (_isCall) then {
         [_target, _params] call _function;
     } else {
         [_target, _params] spawn _function;
     };
-    
+
     true
 };

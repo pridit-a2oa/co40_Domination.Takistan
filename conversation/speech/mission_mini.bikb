@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Target {
         text = "We have received intel of a nearby %1, location marked.";

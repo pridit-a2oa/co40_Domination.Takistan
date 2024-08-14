@@ -128,7 +128,7 @@ class KEGsRscMapControl {
     ptsPerSquareForEdge = "10.0f";
     ptsPerSquareRoad = 2;
     ptsPerSquareObj = 10;
-    
+
     class Bunker {
         icon = "\ca\ui\data\map_bunker_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -137,7 +137,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Bush {
         icon = "\ca\ui\data\map_bush_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -146,7 +146,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class BusStop {
         icon = "\ca\ui\data\map_busstop_ca.paa";
         color[] = {0, 0, 1, 1};
@@ -155,7 +155,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Cross {
         icon = "\ca\ui\data\map_cross_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -164,7 +164,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Fortress {
         icon = "\ca\ui\data\map_bunker_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -173,7 +173,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Fuelstation {
         icon = "\ca\ui\data\map_fuelstation_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -182,7 +182,7 @@ class KEGsRscMapControl {
         coefMin = 0.75;
         coefMax = 4;
     };
-    
+
     class Fountain {
         icon = "\ca\ui\data\map_fountain_ca.paa";
         color[] = {0, 0.35, 0.7, 1};
@@ -191,7 +191,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Hospital {
         icon = "\ca\ui\data\map_hospital_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
@@ -200,7 +200,7 @@ class KEGsRscMapControl {
         coefMin = 0.5;
         coefMax = 4;
     };
-    
+
     class Chapel {
         icon = "\ca\ui\data\map_chapel_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -209,7 +209,7 @@ class KEGsRscMapControl {
         coefMin = 0.9;
         coefMax = 4;
     };
-    
+
     class Church {
         icon = "\ca\ui\data\map_church_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -218,7 +218,7 @@ class KEGsRscMapControl {
         coefMin = 0.9;
         coefMax = 4;
     };
-    
+
     class Lighthouse {
         icon = "\ca\ui\data\map_lighthouse_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
@@ -227,7 +227,7 @@ class KEGsRscMapControl {
         coefMin = 0.9;
         coefMax = 4;
     };
-    
+
     class Quay {
         icon = "\ca\ui\data\map_quay_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -236,7 +236,7 @@ class KEGsRscMapControl {
         coefMin = 0.5;
         coefMax = 4;
     };
-    
+
     class Rock {
         icon = "\ca\ui\data\map_rock_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -245,7 +245,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Ruin {
         icon = "\ca\ui\data\map_ruin_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
@@ -254,7 +254,7 @@ class KEGsRscMapControl {
         coefMin = 1;
         coefMax = 4;
     };
-    
+
     class SmallTree {
         icon = "\ca\ui\data\map_smalltree_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -263,7 +263,7 @@ class KEGsRscMapControl {
         coefMin = 0.25;
         coefMax = 4;
     };
-    
+
     class Stack {
         icon = "\ca\ui\data\map_stack_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
@@ -272,16 +272,16 @@ class KEGsRscMapControl {
         coefMin = 0.9;
         coefMax = 4;
     };
-    
+
     class Tree {
         icon = "\ca\ui\data\map_tree_ca.paa";
         color[] = {0.55, 0.64, 0.43, 1};
         size = 16;
         importance = 0.9 * 16 * 0.05;
         coefMin = 0.25;
-        coefMax = 4;	
+        coefMax = 4;
     };
-    
+
     class Tourism {
         icon = "\ca\ui\data\map_tourism_ca.paa";
         color[] = {0.78, 0, 0.05, 1};
@@ -290,7 +290,7 @@ class KEGsRscMapControl {
         coefMin = 0.7;
         coefMax = 4;
     };
-    
+
     class Transmitter {
         icon = "\ca\ui\data\map_transmitter_ca.paa";
         size = 20;
@@ -299,7 +299,7 @@ class KEGsRscMapControl {
         coefMin = 0.9;
         coefMax = 4;
     };
-    
+
     class ViewTower {
         icon = "\ca\ui\data\map_viewtower_ca.paa";
         size = 16;
@@ -308,7 +308,7 @@ class KEGsRscMapControl {
         coefMin = 0.5;
         coefMax = 4;
     };
-    
+
     class Watertower {
         icon = "\ca\ui\data\map_watertower_ca.paa";
         color[] = {0, 0.35, 0.7, 1};
@@ -323,17 +323,17 @@ class KEGsRscMapControl {
         color[] = {0, 0.35, 0.7, 1};
         importance = 2.5 * 16 * 0.05;
         coefMin = 0.5;
-        coefMax = 4;		
+        coefMax = 4;
     };
-    
+
     class WaypointCompleted {
         icon = "\ca\ui\data\map_waypoint_completed_ca.paa";
         size = 16;
         color[] = {0, 0.35, 0.7, 1};
         importance = 2.5 * 16 * 0.05;
         coefMin = 0.5;
-        coefMax = 4;		
-    };	
+        coefMax = 4;
+    };
 };
 
 class KEGsRscControlsGroup {
@@ -346,14 +346,14 @@ class KEGsRscControlsGroup {
         width = 0.021;
         autoScrollSpeed = -1;
         autoScrollDelay = 5;
-        autoScrollRewind = false;	
+        autoScrollRewind = false;
     };
     class HScrollbar {
         color[] = {1, 1, 1, 1};
         height = 0.028;
         autoScrollSpeed = -1;
         autoScrollDelay = 5;
-        autoScrollRewind = false;	
+        autoScrollRewind = false;
     };
     class Controls {};
 };

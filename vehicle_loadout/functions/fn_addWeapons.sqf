@@ -15,7 +15,7 @@ _paths = [2, (_vehicle getVariable QGVAR(loadout)) select 1] call FUNC(common,ar
 
     if ([(weapons _vehicle) find _weapon, -1] call BIS_fnc_areEqual) then {
         sleep 0.1 + random 0.1;
-        
+
         [
             [_vehicle, _path] call FUNC(vehicle,owner),
             "addWeaponTurret",

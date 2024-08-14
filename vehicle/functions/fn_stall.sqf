@@ -17,15 +17,15 @@ while {call FUNC(common,time) < _time} do {
             str [_time, _time - call FUNC(common,time)]
         ]];
     };
-    
+
     if ({_x distance _vehicle < 30} count (call FUNC(common,players)) > 0) then {
         _vehicle spawn {
             sleep (random 10);
-            
+
             [true, "say3D", [_this, QGVAR(sound_weld), 20]] call FUNC(network,mp);
         };
     };
-    
+
     sleep 15;
 };
 

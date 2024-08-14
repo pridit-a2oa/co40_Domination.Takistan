@@ -179,7 +179,7 @@ if ([typeName _this, typeName objNull] call BIS_fnc_areEqual) then {
             if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(parachute)) select 1, 0] call BIS_fnc_areEqual}) then {
                 player removeAction bis_fnc_halo_action;
             };
-            
+
             (finddisplay 46) displayremoveeventhandler ["keydown",bis_fnc_halo_keydown_eh];
             ppeffectdestroy bis_fnc_halo_ppRadialBlur;
             deletevehicle bis_fnc_halo_clouds;

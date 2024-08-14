@@ -16,7 +16,7 @@ _name = [typeOf _vehicle] call FUNC(vehicle,name);
 
 if !(isNil QMODULE(3d)) then {
     private ["_color"];
-    
+
     _color = switch (faction _vehicle) do {
         case "BIS_TK": {"Red"};
         case "BIS_TK_INS": {"Red"};

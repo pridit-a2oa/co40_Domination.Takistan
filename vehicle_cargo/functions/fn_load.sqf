@@ -17,7 +17,7 @@ sleep 1;
 {
     if (isPlayer _x) then {
         moveOut _x;
-        
+
         [_x, "moveInCargo", _aircraft] call FUNC(network,mp);
     };
 } forEach crew _load;
@@ -33,7 +33,7 @@ sleep 3;
             _forEachIndex,
             [typeOf _load, _load getVariable QGVAR(position), _load getVariable QGVAR(direction)]
         ];
-        
+
         _aircraft setVariable [QGVAR(loaded), _loaded, true];
     };
 } forEach _loaded;

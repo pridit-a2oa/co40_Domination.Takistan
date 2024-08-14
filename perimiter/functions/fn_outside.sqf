@@ -28,9 +28,9 @@ _handler = _vehicle addEventHandler ["getout", {
 
 while {triggerActivated _trigger && {alive player}} do {
     _remaining = [player] call FUNC(3d,time);
-    
+
     DIALOG(QGVAR(notice), 1002) ctrlSetText format ["%1", [_remaining] call FUNC(common,displayTime)];
-    
+
     if (_remaining < 0) exitWith {
         if (!isNil QMODULE(vehicle) && {!([player, vehicle player] call BIS_fnc_areEqual)}) then {
             [_vehicle] call FUNC(vehicle,reset);
@@ -38,7 +38,7 @@ while {triggerActivated _trigger && {alive player}} do {
 
         player setDamage 1;
     };
-    
+
     sleep 0.01;
 };
 

@@ -25,7 +25,7 @@ _vehicle addEventHandler ["HandleDamage", {
         case (_unit distance (getMarkerPos QGVAR(base_south)) < 500 && {{side _x in [east, civilian]} count crew _unit < 1}): {
             _damage = 0;
         };
- 
+
         // case ([_projectile, "M_Igla_AA"] call BIS_fnc_areEqual): {
         //     _damage = [
         //         _unit,

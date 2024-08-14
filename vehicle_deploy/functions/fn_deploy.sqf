@@ -16,7 +16,7 @@ switch (_state) do {
 
         _position = position _vehicle;
         _location = text ([_position] call FUNC(common,nearestLocation));
-        
+
         if (hasInterface) then {
             private ["_name"];
 
@@ -33,19 +33,19 @@ switch (_state) do {
                     markerPos QGVAR(base_south),
                     [GVAR(vehicle_deploy_distance_base), "in excess of", "from base"]
                 ] call FUNC(helper,distanceFrom),
-                
+
                 [
                     [_name, "deployed"],
                     _position,
                     GVAR(vehicle_deploy_distance_building)
                 ] call FUNC(helper,nearBuilding),
-                
+
                 [
                     [_name, "deployed"],
                     _vehicle,
                     GVAR(vehicle_deploy_threshold_terrain)
                 ] call FUNC(helper,isSlope),
-                
+
                 [
                     [_name, "deployed"],
                     _vehicle
@@ -59,9 +59,9 @@ switch (_state) do {
             } forEach _checks;
 
             if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-            
+
             _vehicle setVariable [QGVAR(deployed), [true, _type], true];
-            
+
             if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {
                 [_this, true] call BIS_fnc_arrayPush;
 
@@ -70,12 +70,12 @@ switch (_state) do {
                     call FUNC(common,time) + GVAR(conversation_time_cooldown)
                 ];
             };
-            
+
             if !(isServer) then {
                 [gameLogic, "execVM", [_this, __function(deploy)]] call FUNC(network,mp);
             };
         };
-        
+
         if (isServer && {(_vehicle getVariable QGVAR(deployed)) select 0}) then {
             if (_announce) then {
                 [
@@ -98,7 +98,7 @@ switch (_state) do {
 
             [_vehicle, "lock", true] call FUNC(network,mp);
             [_vehicle, "engineOn", false] call FUNC(network,mp);
-            
+
             if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
                 [_vehicle, true] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
             };
@@ -108,7 +108,7 @@ switch (_state) do {
             };
         };
     };
-    
+
     case false: {
         if (hasInterface) then {
             _checks = [
@@ -125,27 +125,27 @@ switch (_state) do {
             } forEach _checks;
 
             if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-            
+
             _vehicle setVariable [QGVAR(deployed), [false, ""], true];
-            
+
             if !(isServer) then {
                 [gameLogic, "execVM", [_this, __function(deploy)]] call FUNC(network,mp);
             };
         };
-        
+
         if (isServer && {!((_vehicle getVariable QGVAR(deployed)) select 0)}) then {
             [true, "setVariable", [
                 _vehicle,
                 QGVAR(deploy_cooldown),
                 time + GVAR(vehicle_deploy_cooldown_deploy)
             ]] call FUNC(network,mp);
-            
+
             [_vehicle, "lock", false] call FUNC(network,mp);
 
             if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
                 [_vehicle, false] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
             };
-            
+
             if (!isNil QMODULE(vehicle_marker)) then {
                 [true, "execVM", [[_vehicle, false], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
             };

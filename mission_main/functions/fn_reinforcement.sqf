@@ -33,7 +33,7 @@ switch (_type select 0) do {
         if (!isNil QMODULE(vehicle_wreck)) then {
             [_aircraft] spawn FUNC(vehicle_wreck,handle);
         };
-        
+
         if (!isNil QMODULE(unit)) then {
             [group _pilot, position _target, 600, 4] call FUNC(unit,patrol);
         };
@@ -43,16 +43,16 @@ switch (_type select 0) do {
         private ["_group"];
 
         _aircraft flyInHeight 100;
-        
+
         __addDead(_aircraft);
-        
+
         if (!isNil QMODULE(unit)) then {
              _group = [
                 [0, 0, 0],
                 east,
                 (configFile >> "CfgGroups" >> "East" >> "BIS_TK" >> "Infantry" >> "TK_SpecialPurposeSquad")
             ] call FUNC(server,spawnGroup);
-            
+
             {
                 _x moveInCargo _aircraft;
             } forEach (units _group);
@@ -61,7 +61,7 @@ switch (_type select 0) do {
         };
 
         _pilot move (position _target);
-        
+
         while {alive _aircraft && {canMove _aircraft}} do {
             if (_aircraft distance (position _target) < 600) exitWith {
                 {
@@ -70,7 +70,7 @@ switch (_type select 0) do {
 
                         _x action ["Eject", _aircraft];
                     };
-                    
+
                     sleep (1 + random 0.5);
                 } forEach crew _aircraft;
 
@@ -80,7 +80,7 @@ switch (_type select 0) do {
 
                 [_aircraft] spawn FUNC(server,exitMap);
             };
-            
+
             sleep 2;
         };
     };

@@ -8,19 +8,19 @@ private ["_path"];
 
 if (isServer) then {
     private ["_crossroad", "_crossroad2"];
-    
+
     _crossroad = createGroup west;
-    
+
     GVAR(crossroad) = _crossroad createUnit ["Logic", [0,0,0], [], 0, "NONE"];
     [GVAR(crossroad)] joinSilent _crossroad;
     GVAR(crossroad) enableSimulation false;
-    
+
     _crossroad2 = createGroup west;
-    
+
     GVAR(crossroad2) = _crossroad2 createUnit ["Logic", [0,0,1], [], 0, "NONE"];
     [GVAR(crossroad2)] joinSilent _crossroad2;
     GVAR(crossroad2) enableSimulation false;
-    
+
     X_JIPH setVariable [QGVAR(crossroad), GVAR(crossroad), true];
     X_JIPH setVariable [QGVAR(crossroad2), GVAR(crossroad2), true];
 };
@@ -29,10 +29,10 @@ _path = format ["%1\speech\crossroad.bikb", QUOTE(THIS_MODULE)];
 
 if (hasInterface) then {
     waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(crossroad2)}};
-    
+
     GVAR(crossroad) = X_JIPH getVariable QGVAR(crossroad);
     GVAR(crossroad2) = X_JIPH getVariable QGVAR(crossroad2);
-    
+
     player kbAddTopic ["HQ", _path];
 };
 
@@ -48,7 +48,7 @@ GVAR(crossroad2) setGroupId ["Crossroad1"];
 
 {
     private ["_path"];
-    
+
     if !(isNil (format [QMODULE(%1), _x])) then {
         _path = format ["%1\speech\%2.bikb", QUOTE(THIS_MODULE), _x];
 

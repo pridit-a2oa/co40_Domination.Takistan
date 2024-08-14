@@ -15,11 +15,11 @@ sleep 1;
 _vehicle spawn {
     while {alive (driver _this)} do {
         [true, "say3D", [_this, QGVAR(sound_tick), 20]] call FUNC(network,mp);
-        
+
         if (damage _this > 0.5 || {!canMove _this} || {!([_this] call FUNC(common,canMove))}) exitWith {
             [_this] spawn FUNC(THIS_MODULE,detonate);
         };
-        
+
         sleep 0.5;
     };
 };

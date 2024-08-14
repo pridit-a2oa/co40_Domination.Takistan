@@ -18,7 +18,7 @@ player removeMagazines (_weapon select 3);
 // when it should be empty
 if ([getNumber (configFile >> "CfgWeapons" >> (currentWeapon player) >> "Type"), 2] call BIS_fnc_areEqual) then {
     _sidearm = currentWeapon player;
-    
+
     player removeWeapon _sidearm;
 };
 
@@ -34,7 +34,7 @@ if !(isNil "_sidearm") then {
 
 if !([primaryWeapon player, ""] call BIS_fnc_areEqual) then {
     _weapon = weaponState player;
-    
+
     player removeWeapon (_weapon select 0);
     player removeMagazines (_weapon select 3);
 };

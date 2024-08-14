@@ -39,7 +39,7 @@ while {((getPos _object select 2) > 1)} do {
 
     _posASL = getPosASL _object;
     _ang = ((_target select 0) - (_posASL select 0)) atan2 ((_target select 1) - (_posASL select 1));
-    
+
     if (([_target select 0, _target select 1, 0] distance [_posASL select 0, _posASL select 1, 0]) > 10) then {
         if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
     } else {
@@ -47,12 +47,12 @@ while {((getPos _object select 2) > 1)} do {
     };
 
     _dif = (_ang - _dir);
-    
+
     if (_dif < 0) then {_dif = 360 + _dif};
     if (_dif > 180) then {_dif = _dif - 360};
-    
+
     _difabs = abs(_dif);
-    
+
     _turn = if (_difabs > 0.01) then {_dif / _difabs} else {0};
     _dir = _dir + (_turn * ((_deg_sec * _deltatime) min _difabs));
 
@@ -63,7 +63,7 @@ while {((getPos _object select 2) > 1)} do {
             _vh = _vh - (_acc * _deltatime);
         };
     };
-    
+
     _hspd = if (_difabs > 45) then {_max_spd / 3} else {_max_spd};
 
     _parachute setDir _dir;

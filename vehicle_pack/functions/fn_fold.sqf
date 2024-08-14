@@ -11,7 +11,7 @@ switch (typeOf _vehicle) do {
         _vehicle animate ["mainrotor_unfolded", _phase];
         _vehicle animate ["rotorshaft_unfolded", _phase];
     };
-    
+
     case "MV22": {
         _vehicle animate ["engine_prop_1_1_turn", _phase];
         _vehicle animate ["engine_prop_1_2_turn", _phase];
@@ -27,7 +27,7 @@ switch (typeOf _vehicle) do {
         _vehicle animate ["pack_engine_2", _phase];
         _vehicle animate ["turn_wing", _phase];
     };
-    
+
     case "UH1Y": {
         _vehicle animate ["mainrotor_folded", 1 - _phase];
         _vehicle animate ["mainrotor_unfolded", _phase];

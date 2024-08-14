@@ -22,9 +22,9 @@ if !(isNil QMODULE(vehicle_deploy)) then {
 
         if ([_x getVariable QGVAR(id), _data] call BIS_fnc_areEqual) exitWith {
             _target = _x;
-            
+
             _deployed = (_x getVariable QGVAR(deployed)) select 0;
-            
+
             if (isNil "_deployed" || {!_deployed}) then {
                 _button ctrlSetText "Not Deployed";
                 _button ctrlEnable false;

@@ -12,7 +12,7 @@ if (hasInterface) then {
     if (isNil {GVAR(loadout)}) then {
         GVAR(loadout) = [];
     };
-    
+
     player setVariable [QGVAR(loadout), false];
 };
 

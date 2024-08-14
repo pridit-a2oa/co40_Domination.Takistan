@@ -7,7 +7,7 @@ _format = "";
 
 {
     private ["_weapon", "_magazine"];
-    
+
     switch (typeName (_x select 0)) do {
         case "ARRAY": {
             _weapon = (_x select 0) select 0;

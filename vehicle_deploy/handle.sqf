@@ -9,7 +9,7 @@ if (hasInterface) then {
     {
         {
             _enableSimulation = _x getVariable QGVAR(enable_simulation);
-            
+
             if (!isNil "_enableSimulation") then {
                 _x enableSimulation _enableSimulation;
             };

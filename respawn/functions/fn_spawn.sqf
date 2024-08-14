@@ -34,7 +34,7 @@ _objects = nearestObjects [
 
 if !(isNil "_object") then {
     _model = _object modelToWorld ([typeOf _object] call FUNC(vehicle,offsetPlayer));
-    
+
     _unit setDir (getDir _object);
     _unit setPos [_model select 0, _model select 1, 0];
 };

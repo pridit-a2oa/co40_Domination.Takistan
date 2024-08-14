@@ -48,7 +48,7 @@ switch (_type) do {
         };
         deleteVehicle _dummy;
     };
-    
+
     case "KeyDown": {
         _key = _param select 1;
         // WSAD keys: camera movement in dropped mode;
@@ -68,7 +68,7 @@ switch (_type) do {
             };
         };
     };
-    
+
     // Key up - process keypress;
     case "KeyUp": {
         _key = _param select 1;
@@ -109,7 +109,7 @@ switch (_type) do {
                 };
                 KEGs_CamBack = false;
             };
-            
+
             case 20: {
                 // T = Toggle tags;
                 KEGs_Tags = abs (KEGs_Tags - 1);
@@ -117,13 +117,13 @@ switch (_type) do {
                     ["ToggleTags", [false, objNull]] call spectate_events;
                 };
             };
-            
+
             case 33: {
                 // F = Toggle filter;
                 KEGs_AIfilter = abs (KEGs_AIfilter - 1);
                 KEGs_NeedUpdateLB = true;
             };
-            
+
             case 34: {
                 // G = Toggle Group/Formation Leader filter;
                 KEGs_gfleader = !KEGs_gfleader;
@@ -137,7 +137,7 @@ switch (_type) do {
                     KEGs_NeedUpdateLB = true;
                 };
             };
-            
+
             case 57: {
                 // Space - drop camera or toggle 1stperson/gunner;
                 if (KEGs_cameras select KEGs_cameraIdx == KEGs_cam_1stperson) then {
@@ -147,14 +147,14 @@ switch (_type) do {
                     if (KEGs_DroppedCamera) then {KEGs_cameraIdx = 0};
                 };
             };
-            
+
             // Direct camera change with number keys;
             case 2: {KEGs_cameraIdx = 0};
             case 3: {KEGs_cameraIdx = 1};
             case 4: {KEGs_cameraIdx = 2};
             case 5: {KEGs_cameraIdx = 3};
             case 6: {KEGs_cameraIdx = 4};
-            
+
             // Toggle NVG or map text type;
             case 49: {
                 if (ctrlVisible KCMAPFULL) then {
@@ -164,27 +164,27 @@ switch (_type) do {
                     KEGs_UseNVG = abs (KEGs_UseNVG - 1);
                 };
             };
-            
+
             case 50: {["ToggleMap", 0] call spectate_events};
             case 15: {["ToggleUI", 0] call spectate_events};
             case 59: {["ToggleHelp", 0] call spectate_events};
-            
+
             // Numpad + / -;
             case 78: {if (KEGs_MarkerSize < 1.7) then { KEGs_MarkerSize = KEGs_MarkerSize * 1.15 }};
             case 74: {if (KEGs_MarkerSize > 0.7) then { KEGs_MarkerSize = KEGs_MarkerSize * (1/1.15)}};
-            
+
             // exit spectating with X key, must be enabled
             case 45: {if (KEGs_can_exit_spectator) then {KEGs_exit_spectator = true}};
         }
     };
-    
+
     // Mouse events;
     case "MouseMoving": {
         _x = (_param select 1);
         _y = (_param select 2);
         KEGs_MouseCoord = [_x, _y];
     };
-        
+
     case "MouseButtonDown": {
         _x = _param select 2;
         _y = _param select 3;
@@ -200,7 +200,7 @@ switch (_type) do {
         _button = _param select 1;
         KEGs_MouseButtons set [_button, false];
     };
-    
+
     case "MouseZChanged": {
         KEGs_MouseScroll = KEGs_MouseScroll + (_param select 1);
     };
@@ -212,7 +212,7 @@ switch (_type) do {
             case (KEGs_MinimapZoom < 0.05): {KEGs_MinimapZoom = 0.05};
         };
     };
-        
+
     case "ToggleCameraMenu": {
         // Hide/unhide camera menu;
         if (ctrlVisible KCLBCAMERAS) then {
@@ -223,7 +223,7 @@ switch (_type) do {
             ctrlShow [KCCAMERAsBG, true];
         };
     };
-    
+
     case "ToggleTargetMenu": {
         // Hide/unhide targets menu;
         if (ctrlVisible KCLBTARGETS) then {
@@ -234,7 +234,7 @@ switch (_type) do {
             ctrlShow [KCTARGETsBG, true];
         };
     };
-    
+
     case "ToggleUI": {
         // Hide/unhide UI;
         if (ctrlVisible KCNAME) then {
@@ -248,7 +248,7 @@ switch (_type) do {
             ctrlShow [KCCAMERAsBG, false];
         };
     };
-        
+
     case "ToggleHelp": {
         // Hide/unhide Help text;
         if (ctrlVisible KCHELP) then {ctrlShow [KCHELP, false]} else {ctrlShow [KCHELP, true]};
@@ -262,7 +262,7 @@ switch (_type) do {
             ctrlShow [KCMAPFULL, false];
             ctrlShow [KCMAPFULLBG, false];
         };
-        
+
         if (ctrlVisible KCMAP) then {
             ctrlShow [KCMAP, false];
             ctrlShow [KCMAPFULL, true];
@@ -298,11 +298,11 @@ switch (_type) do {
             };
         };
     };
-    
+
     case "ToggleMapBird": {
         if (!dialog) then {_dd = createDialog "rscSpectateBirdMap"} else {closeDialog 0};
     };
-    
+
     // Toggle particlesource tags;
     case "ToggleTags": {
         if (KEGs_addonavailable) then {
@@ -336,13 +336,13 @@ switch (_type) do {
             };
         };
     };
-    
+
     /*// Add string to event log;
     case "EventLogAdd": {
         _txt = _param select 0;
         diag_log _txt;
     };*/
-    
+
     // Killed eventhandler, add to log, only available in SP
     case "UnitKilled": {
         _killed = _param select 0;
@@ -351,7 +351,7 @@ switch (_type) do {
         player groupChat _txt;
         diag_log _txt;
     };
-    
+
     // Fired eventhandler, display as marker in map;
     // Also missile camera is handled here;
     case "UnitFired": {
@@ -368,7 +368,7 @@ switch (_type) do {
                 case east: {"KEGspect_bar_green"};
                 default {"KEGspect_bar_yellow"};
             };
-            
+
             _bars = [];
             for "_i" from 0 to 300 step 5 do {
                 _pos = _o modelToWorld [0, _i + 2.5, 0];
@@ -387,7 +387,7 @@ switch (_type) do {
             _m2 setMarkerColorLocal "ColorYellow";
             _m2 setMarkerSizeLocal [0.45, 0.45];
             _m2 setMarkerTypeLocal "Select";
-            
+
             // Marker for round itself, for bullet display line, everything else a named marker
             if (_type in ["shotMissile", "shotRocket", "shotShell", "shotTimeBomb", "shotPipeBomb", "shotMine", "shotSmoke"]) then {
                 _opos = getPosASL _o;

@@ -6,7 +6,7 @@
 
 if (hasInterface) then {
     waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(markers)}};
-    
+
     {
         _marker = createMarkerLocal [(_x select 0), (_x select 1)];
         _marker setMarkerTypeLocal (_x select 2);

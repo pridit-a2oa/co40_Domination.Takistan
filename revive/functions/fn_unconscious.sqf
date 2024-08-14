@@ -24,11 +24,11 @@ if !(isNil QMODULE(communication)) then {
     if !(isNil QMODULE(construction)) then {
         ["Construct", 0] call FUNC(communication,toggle);
     };
-    
+
     if !(isNil QMODULE(gesture)) then {
         ["Gestures", 0] call FUNC(communication,toggle);
     };
-    
+
     if !(isNil QMODULE(perk)) then {
         ["Radio", 0] call FUNC(communication,toggle);
     };
@@ -38,17 +38,17 @@ _unit spawn {
     sleep 0.5;
 
     if !(alive _this) exitWith {};
-    
+
     _this setDamage 0;
-    
+
     if !([_this, vehicle _this] call BIS_fnc_areEqual) then {
         _this action ["Eject", vehicle _this];
-        
+
         sleep 1;
     };
 
     if !(alive _this) exitWith {};
-    
+
     [_this, "playActionNow", "Die"] call FUNC(network,mp);
 
     [true, "systemChat", format ["%1 was incapacitated", name _this]] call FUNC(network,mp);
@@ -60,19 +60,19 @@ _unit spawn {
             [getPlayerUID (_this select 0), 5] call FUNC(database,statistic);
         };
     }]] call FUNC(network,mp);
-    
+
     sleep 1;
 
     if !(alive _this) exitWith {};
-    
+
     call FUNC(THIS_MODULE,countdown);
-    
+
     if (alive _this && {!(_this getVariable QGVAR(unconscious))}) then {
         [true, "switchMove", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
         [true, "playMoveNow", [_this, "AmovPpneMstpSnonWnonDnon_healed"]] call FUNC(network,mp);
-        
+
         [_this] call FUNC(THIS_MODULE,reset);
-        
+
         if !(isNil QMODULE(communication)) then {
             if !(isNil QMODULE(construction) && {count BIS_MENU_Construct > 1}) then {
                 ["Construct", 1] call FUNC(communication,toggle);

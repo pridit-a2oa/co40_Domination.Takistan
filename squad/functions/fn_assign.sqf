@@ -5,7 +5,7 @@ _squads = X_JIPH getVariable QGVAR(squads);
 
 {
     _x setGroupId [GVAR(group_names) select _forEachIndex];
-    
+
     if (count units _x > 0) then {
         (units _x) joinSilent _x;
     };

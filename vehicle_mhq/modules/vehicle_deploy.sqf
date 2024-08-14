@@ -12,7 +12,7 @@ switch (_state) do {
         private ["_net", "_position", "_camo"];
 
         [_vehicle] call FUNC(vehicle,attach);
-        
+
         _net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
 
         {
@@ -32,7 +32,7 @@ switch (_state) do {
 
         _vehicle setVariable [QGVAR(camo), _camo, true];
     };
-    
+
     case false: {
         private ["_camo"];
 

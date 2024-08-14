@@ -65,7 +65,7 @@ if (hasInterface) then {
     if (!isNil QMODULE(event)) then {
         __submodulePP(event);
     };
-    
+
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
     };

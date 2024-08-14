@@ -33,7 +33,7 @@ if (!isNil QMODULE(profile)) then {
 
 if (!isNil {GVAR(option) select 4}) exitWith {
     DIALOG("X_SETTING_DIALOG", 300) ctrlShow true;
-    
+
     {
         DIALOG("X_SETTING_DIALOG", 300) lbAdd _x;
 

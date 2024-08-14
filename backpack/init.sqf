@@ -20,7 +20,7 @@ GVAR(backpack_animations) = [
 
 if (hasInterface) then {
     player setVariable [QGVAR(backpack), false];
-    
+
     if (isNil {GVAR(backpack)}) then {
         GVAR(backpack) = [];
     };

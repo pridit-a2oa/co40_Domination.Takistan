@@ -7,10 +7,10 @@ PARAMS_4(_unit, _position, _caller, _drop);
 if (hasInterface) then {
     if (isNil "_drop") then {
         _drop = (player getVariable QGVAR(airdrop_type)) select 1;
-        
+
         _this set [3, _drop];
     };
-    
+
     _name = "Airdrop";
     _checks = [
         [
@@ -22,7 +22,7 @@ if (hasInterface) then {
             [_name, "called"],
             player getVariable QGVAR(airdrop_cooldown)
         ] call FUNC(helper,timeExceeded),
-    
+
         [
             _name,
             X_JIPH getVariable QGVAR(airdrop_progress)
@@ -41,12 +41,12 @@ if (hasInterface) then {
             markerPos QGVAR(base_south),
             [GVAR(airdrop_distance_base), "in excess of", "from base"]
         ] call FUNC(helper,distanceFrom),
-        
+
         [
             [_name, "called"]
         ] call FUNC(helper,inVehicle)
     ];
-    
+
     {
         if (typeName _x == "STRING") exitWith {
             hint _x;
@@ -54,10 +54,10 @@ if (hasInterface) then {
     } forEach _checks;
 
     if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
-    
+
     X_JIPH setVariable [QGVAR(airdrop_call), true, true];
     player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
-    
+
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
     };
@@ -66,7 +66,7 @@ if (hasInterface) then {
 if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     X_JIPH setVariable [QGVAR(airdrop_call), false, true];
     X_JIPH setVariable [QGVAR(airdrop_progress), true, true];
-    
+
     if !(isNil QMODULE(conversation)) then {
         [_unit, _position, "airdrop"] call FUNC(conversation,request);
     };
@@ -74,9 +74,9 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     if (!isNil QMODULE(database) && {!isNil "_caller"}) then {
         [_caller, 1] spawn FUNC(database,statistic);
     };
-    
+
     GVAR(airdrop_type_smoke) createVehicle _position;
-    
+
     _vehicle = [
         _position,
         GVAR(airdrop_type_aircraft),
@@ -88,9 +88,9 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
     _aircraft = _vehicle select 0;
     _crew = _vehicle select 1;
     _pilot = driver _aircraft;
-    
+
     _aircraft flyInHeight 200;
-    
+
     {
         _x setCaptive true;
     } forEach _crew;
@@ -112,25 +112,25 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
                 if (!isNil QMODULE(vehicle_abandon)) then {
                     _load setVariable [QGVAR(abandon), true];
                 };
-                
+
                 if (!isNil QMODULE(vehicle_respawn)) then {
                     _load setVariable [QGVAR(respawnable), false, true];
                 };
             };
 
             __addDead(_load);
-            
+
             while {alive _aircraft && {canMove _aircraft}} do {
                 if (unitReady _pilot) exitWith {
                     [_aircraft] spawn FUNC(server,exitMap);
                 };
-                
+
                 sleep 2;
             };
         };
-        
+
         sleep 1;
     };
-    
+
     X_JIPH setVariable [QGVAR(airdrop_progress), false, true];
 };

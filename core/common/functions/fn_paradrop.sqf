@@ -19,11 +19,11 @@ if (typeName _loaded == "ARRAY") then {
 
 [_aircraft, _landing, _load, _eject] spawn {
     private ["_aircraft", "_landing", "_load", "_eject", "_position", "_parachute"];
-    
+
     PARAMS_4(_aircraft, _landing, _load, _eject);
-    
+
     _load attachTo [_aircraft, [_load] call FUNC(common,attachPoint)];
-    
+
     if (alive _aircraft) then {
         sleep 1;
 
@@ -35,27 +35,27 @@ if (typeName _loaded == "ARRAY") then {
         _aircraft animate ["ramp_top", 0];
         _aircraft animate ["ramp_bottom", 0];
     };
-    
+
     _position = _aircraft modelToWorld (_eject select 0);
-    
+
     if (direction _aircraft != _eject select 1) then {
         detach _load;
     };
-    
+
     _load setDir (_eject select 1);
     _load setPos _position;
     _load setVectorUp (vectorUp _aircraft);
-    
+
     if (direction _aircraft == _eject select 1) then {
         detach _load;
     };
-    
+
     if (!isNil QMODULE(vehicle) && {!(_load isKindOf "ReammoBox")}) then {
         [true, "execVM", [[_load], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
     };
 
     [true, "reveal", _load] call FUNC(network,mp);
-    
+
     if ((position _aircraft) select 2 > 100) then {
         _parachute = createVehicle ["ParachuteMediumWest_EP1", _position, [], 0, "NONE"];
         _parachute setPos _position;

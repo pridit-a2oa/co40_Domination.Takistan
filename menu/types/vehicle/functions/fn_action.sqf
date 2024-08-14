@@ -45,13 +45,13 @@ if !(isNil QMODULE(vehicle_deploy)) then {
         private ["_deployed"];
 
         _deployed = (_entity getVariable QGVAR(deployed)) select 0;
-        
+
         if (!isNil "_deployed" && {_deployed}) exitWith {
             [_entity, _lbData select 1, false] call FUNC(vehicle_deploy,deploy);
         };
-        
+
         [_entity, _lbData select 1, true] call FUNC(vehicle_deploy,deploy);
-        
+
         true
     };
 };
@@ -96,13 +96,13 @@ if !(isNil QMODULE(vehicle_pack)) then {
 
         if !(isEngineOn _entity) then {
             _packed = _entity getVariable QGVAR(packed);
-            
+
             if (!isNil "_packed" && {_packed}) exitWith {
                 [_entity, 0] call FUNC(vehicle_pack,fold);
 
                 true
             };
-            
+
             [_entity, 1] call FUNC(vehicle_pack,fold);
 
             true
@@ -121,7 +121,7 @@ if !(isNil QMODULE(vehicle_ramp)) then {
 if !(isNil QMODULE(vehicle_refuel)) then {
     case "refuel": {
         closeDialog 0;
-        
+
         [_entity] spawn FUNC(vehicle_refuel,refuel);
 
         false
@@ -131,7 +131,7 @@ if !(isNil QMODULE(vehicle_refuel)) then {
 if !(isNil QMODULE(vehicle_repair)) then {
     case "repair": {
         closeDialog 0;
-        
+
         [_entity] spawn FUNC(vehicle_repair,repair);
 
         false

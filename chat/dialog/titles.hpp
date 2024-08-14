@@ -10,8 +10,8 @@ class XD_ChatDialog {
         class RscPicture_1200: XD_RscPicture
         {
 			idc = 1000;
-			x = "SafeZoneX + 0.268"; 
-			y = "(SafeZoneH + SafeZoneY) - 0.034"; 
+			x = "SafeZoneX + 0.268";
+			y = "(SafeZoneH + SafeZoneY) - 0.034";
 			w = 0.025;
             h = 0.034;
 			sizeEx = 0.034;
@@ -22,10 +22,10 @@ class XD_ChatDialog {
 		class RscChatTextNotice: XC_RscText
 		{
 			idc = 100;
-			x = "SafeZoneX + 0.29"; 
-			y = "(SafeZoneH + SafeZoneY) - 0.034"; 
-			w = "SafeZoneW - 0.26 - 0.015"; 
-			h = 0.034; 
+			x = "SafeZoneX + 0.29";
+			y = "(SafeZoneH + SafeZoneY) - 0.034";
+			w = "SafeZoneW - 0.26 - 0.015";
+			h = 0.034;
 			sizeEx = 0.034;
 			font = "Zeppelin32";
 			colorText[] = {0.773, 0.29, 0.188, 1};

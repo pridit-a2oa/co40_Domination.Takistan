@@ -6,9 +6,9 @@
 
 if (hasInterface) then {
     private ["_nets"];
-    
+
     _nets = [1, GVAR(vehicle_mhq_types_net)] call FUNC(common,arrayValues);
-    
+
     {
         {
             _x addEventHandler ["HandleDamage", {0}];

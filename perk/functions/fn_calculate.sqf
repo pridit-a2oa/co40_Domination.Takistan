@@ -17,7 +17,7 @@ if !(call FUNC(THIS_MODULE,override)) then {
             if (!_respawned && {player distance GVAR(spawn) > 5}) then {
                 [_points - (_available + count _unlocked)] call FUNC(THIS_MODULE,awarded);
             };
-            
+
             player setVariable [QGVAR(perk_points), _points - count _unlocked];
         };
     };

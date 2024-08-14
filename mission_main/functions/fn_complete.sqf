@@ -14,14 +14,14 @@ if (!isNil QMODULE(marker)) then {
     private ["_name"];
 
     _name = format ["mission_main_%1", _target getVariable "name"];
-    
+
     [_name] call FUNC(marker,delete);
-    
+
     [true, "spawn", [[_name, _target], {
         private ["_name", "_target"];
-        
+
         PARAMS_2(_name, _target);
-        
+
         [
             _name,
             position _target,
@@ -40,15 +40,15 @@ if (!isNil QMODULE(task)) then {
     private ["_task"];
 
     _task = (_target getVariable QGVAR(tasks)) select 0;
-    
+
     [_task, "Succeeded"] call FUNC(task,state);
-    
+
     {
         if (_x select 3 == "Created") then {
             [_x, "Failed"] call FUNC(task,state);
         };
     } forEach (_target getVariable QGVAR(tasks));
-    
+
     [true, "spawn", [[_target], {
         private ["_target", "_task"];
 
@@ -88,14 +88,14 @@ if !(isNil QMODULE(teleport)) then {
     _flag = [_position] call FUNC(teleport,create);
 
     [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
-    
+
     _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_flag]];
-    
+
     [true, "spawn", [[_target, _flag], {
         private ["_target", "_flag"];
-        
+
         PARAMS_2(_target, _flag);
-        
+
         [
             format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))],
             position _flag,
@@ -108,7 +108,7 @@ if !(isNil QMODULE(teleport)) then {
             [0.6, 0.6]
         ] call FUNC(marker,create);
     }]] call FUNC(network,mp);
-    
+
     [true, "execVM", [[_flag], __submoduleRE(teleport)]] call FUNC(network,mp);
 };
 

@@ -5,7 +5,7 @@ private ["_query", "_result"];
 PARAMS_1(_query);
 
 waitUntil {
-    sleep 0.1 + random 0.1; 
+    sleep 0.1 + random 0.1;
 
     !isNil {GVAR(database)} && {GVAR(database)}
 };

@@ -12,7 +12,7 @@
 #define CT_STATIC_SKEW		10
 #define CT_ACTIVETEXT		11
 #define CT_TREE				12
-#define CT_STRUCTURED_TEXT	13 
+#define CT_STRUCTURED_TEXT	13
 #define CT_NO_BORDER        16
 #define CT_3DSTATIC			20
 #define CT_3DACTIVETEXT		21
@@ -284,7 +284,7 @@ class XD_RscMapControl {
     fontLevel = "Zeppelin32";
     sizeExLevel = 0.034;
     maxSatelliteAlpha = 0;
-    alphaFadeStartScale = 1.0; 
+    alphaFadeStartScale = 1.0;
     alphaFadeEndScale = 1.1;
     showCountourInterval=2;
     scaleDefault = 0.1;
@@ -1023,7 +1023,7 @@ class X3_RscStructText {
         color = "#000000";
         align = "left";
         valign = "middle";
-        
+
         shadow = true;
         shadowColor = "#ff0000";
         size = "1";

@@ -15,7 +15,7 @@ GVAR(vehicle_repair_amount_fuel) = 0.10;
 
 if (hasInterface) then {
     GVAR(repairing) = false;
-    
+
     player setVariable [QGVAR(repair_full), false];
 };
 

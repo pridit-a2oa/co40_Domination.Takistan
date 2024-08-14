@@ -18,7 +18,7 @@ _format = format [
 
 if (hasInterface) then {
     private ["_name"];
-    
+
     _name = "Vote";
     _checks = [
         [
@@ -37,7 +37,7 @@ if (hasInterface) then {
             X_JIPH getVariable QGVAR(vote_progress)
         ] call FUNC(helper,inProgress)
     ];
-    
+
     {
         if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
@@ -51,9 +51,9 @@ if (hasInterface) then {
     DIALOG("X_VOTE_DIALOG", 300) ctrlShow false;
     DIALOG("X_VOTE_DIALOG", 301) ctrlShow false;
     DIALOG("X_VOTE_DIALOG", 500) ctrlShow false;
-    
+
     X_JIPH setVariable [QGVAR(vote_call), true, true];
-    
+
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(create)]] call FUNC(network,mp);
     };
@@ -71,7 +71,7 @@ if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
 
     [true, "spawn", [[_format], {
         if !(hasInterface) exitWith {};
-        
+
         GVAR(vote) = true;
 
         ["new", _this select 0] call FUNC(THIS_MODULE,hint);
@@ -85,7 +85,7 @@ if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
 
     while {call FUNC(common,time) < _time} do {
         private ["_remaining"];
-           
+
         _remaining = floor (_time - call FUNC(common,time));
 
         // remaining time is greater than the maximum it could ever be
@@ -106,7 +106,7 @@ if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
 
             [true, "execVM", [["countdown", _format], FUNCTION(THIS_MODULE,hint)]] call FUNC(network,mp);
         };
-        
+
         sleep 5;
     };
 

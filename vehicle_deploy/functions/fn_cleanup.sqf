@@ -7,11 +7,11 @@ PARAMS_1(_vehicle);
     if (_x isKindOf "CAManBase") then {
         _x setDamage 1;
     };
-    
+
     if (_x isKindOf "LandVehicle") then {
         {
             _x setDamage 1;
-            
+
             deleteVehicle _x;
         } forEach crew _x;
     };

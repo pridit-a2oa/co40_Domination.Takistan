@@ -89,7 +89,7 @@ if (hasInterface) then {
 
     waitUntil {
         sleep 0.1;
-        
+
         [count (X_JIPH getVariable QGVAR(wreck_hangars)), GVAR(base_wreck_amount_hangar)] call BIS_fnc_areEqual
     };
 

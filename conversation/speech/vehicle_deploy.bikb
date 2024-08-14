@@ -1,4 +1,4 @@
-class Sentences 
+class Sentences
 {
     class Deployed {
         text = "%Vehicle has been deployed as a %Type near %Location.";
@@ -9,7 +9,7 @@ class Sentences
             class Location {type = "simple";};
         };
     };
-    
+
     class Destroyed {
         text = "Be advised, a deployed %1 has been destroyed.";
         speech[] = {BeAdvised};

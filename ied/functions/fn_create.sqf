@@ -5,7 +5,7 @@ private ["_road", "_ied", "_distance", "_trigger"];
 PARAMS_1(_road);
 
 _ied = (GVAR(ied_type_objects) call BIS_fnc_selectRandom) createVehicle (_road modelToWorld [([3.7, -3.7] call BIS_fnc_selectRandom), 0, 0]);
-    
+
 _ied setVariable [QGVAR(exploded), false, true];
 _ied setVariable [QGVAR(disarm), false, true];
 
@@ -27,11 +27,11 @@ _trigger setTriggerStatements [
 
 [_ied, _trigger] spawn {
     private ["_ied", "_trigger"];
-    
+
     PARAMS_2(_ied, _trigger);
-    
+
     waitUntil {sleep 0.1; !alive _ied};
-    
+
     deleteVehicle _trigger;
 };
 

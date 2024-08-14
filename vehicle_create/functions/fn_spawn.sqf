@@ -9,7 +9,7 @@ _occupied = (_vehicle modelToWorld _offset) nearEntities [["Air", "LandVehicle"]
 
 if (count _occupied > 0) then {
     _deployer = _occupied find _vehicle;
-    
+
     if (_deployer != -1) then {
         _occupied = [_occupied, _deployer] call FUNC(common,deleteAt);
     };

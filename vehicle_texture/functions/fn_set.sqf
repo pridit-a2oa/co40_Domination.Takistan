@@ -31,7 +31,7 @@ if (hasInterface) then {
 
 if (isServer || {(hasInterface && {[{[str _x, "true"] call BIS_fnc_areEqual} count _checks, count _checks] call BIS_fnc_areEqual})}) then {
     private ["_textures"];
-    
+
     _textures = ([_vehicle] call FUNC(THIS_MODULE,textures)) select 1;
 
     {
@@ -42,7 +42,7 @@ if (isServer || {(hasInterface && {[{[str _x, "true"] call BIS_fnc_areEqual} cou
 
         if ([_colour, (_vehicle getVariable QGVAR(texture)) select 0] call BIS_fnc_areEqual) exitWith {
             _type = [_textures select _index] call FUNC(THIS_MODULE,type);
-            
+
             if ([count _textures, _index] call BIS_fnc_areEqual) then {
                 _type = [_textures select 0];
                 _index = 0;

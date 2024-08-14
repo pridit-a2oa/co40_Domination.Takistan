@@ -18,9 +18,9 @@ if (!isNil QMODULE(conversation) && {({alive _x} count (_target getVariable QGVA
 
 if (!isNil QMODULE(marker)) then {
     private ["_name"];
-    
+
     _name = format ["camp_%1", _flag getVariable QGVAR(id)];
-    
+
     [_name] call FUNC(marker,delete);
 };
 

@@ -31,7 +31,7 @@ if (!isNil QMODULE(unit)) then {
             position _target,
             GVAR(mission_main_radius_zone)
         ] call FUNC(unit,create);
-        
+
         {
             [
                 _x,
@@ -83,9 +83,9 @@ if (!isNil QMODULE(task)) then {
 
 [true, "spawn", [[_target, _name], {
     private ["_target", "_name"];
-    
+
     PARAMS_2(_target, _name);
-    
+
     if (!isNil QMODULE(marker)) then {
         [
             format ["mission_main_%1", _target getVariable "name"],
@@ -99,18 +99,18 @@ if (!isNil QMODULE(task)) then {
             [GVAR(mission_main_radius_zone), GVAR(mission_main_radius_zone)]
         ] call FUNC(marker,create);
     };
-    
+
     if (!isNil QMODULE(task)) then {
         _task = (_target getVariable QGVAR(tasks)) select 0;
         _task call FUNC(task,create);
-        
+
         [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
     };
 }]] call FUNC(network,mp);
 
 for "_i" from 1 to GVAR(mission_main_amount_optional) do {
     sleep 2;
-    
+
     [_target, "optional"] spawn FUNC(THIS_MODULE,type);
 };
 

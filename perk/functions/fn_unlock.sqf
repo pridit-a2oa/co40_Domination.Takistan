@@ -13,30 +13,30 @@ switch (_tier) do {
                     player setVariable [QGVAR(inventory_medical_max), (player getVariable QGVAR(inventory_medical_max)) + 1, true];
                 };
             };
-            
+
             case 2: {
                 if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
                     player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
                     player setVariable [QGVAR(inventory_repair_max), (player getVariable QGVAR(inventory_repair_max)) + 1, true];
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(vehicle_bonus)) then {
                     player setVariable [QGVAR(pilot), true];
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(halo)) then {
                     player setVariable [QGVAR(halo), true];
                 };
             };
-            
+
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     player setVariable [QGVAR(airdrop), true];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
@@ -48,7 +48,7 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 6: {
                 if (!isNil QMODULE(vehicle_teleport)) then {
                     player setVariable [QGVAR(teleport), true];
@@ -60,19 +60,19 @@ switch (_tier) do {
                     player setVariable [QGVAR(damage_vehicle), 0.75, true];
                 };
             };
-            
+
             case 8: {
                 if (!isNil QMODULE(backpack)) then {
                     player setVariable [QGVAR(backpack), true];
                 };
             };
-            
+
             case 9: {
                 if (!isNil QMODULE(loadout)) then {
                     player setVariable [QGVAR(loadout), true];
                 };
             };
-            
+
             case 10: {
                 if (!isNil QMODULE(vehicle_unflip)) then {
                     player setVariable [QGVAR(unflip), true];
@@ -80,14 +80,14 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 1: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(artillery)) then {
                     player setVariable [QGVAR(artillery), true];
                     player setVariable [QGVAR(artillery_salvoes), 1];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
@@ -99,25 +99,25 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if (!isNil QMODULE(artillery)) then {
                     player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(artillery)) then {
                     player setVariable [QGVAR(artillery_range), GVAR(artillery_distance_range) + 1000];
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(artillery)) then {
                     GVAR(artillery_time_cooldown) = GVAR(artillery_time_cooldown) - 300;
                 };
             };
-            
+
             case 5: {
                 if (!isNil QMODULE(artillery)) then {
                     player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
@@ -125,14 +125,14 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 2: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_farp)}) then {
                     player setVariable [QGVAR(construction_farp), 1];
                     player setVariable [QGVAR(construction_farp_max), 1];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Construct,
@@ -143,26 +143,26 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
                     player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
                     player setVariable [QGVAR(inventory_repair_max), (player getVariable QGVAR(inventory_repair_max)) + 1, true];
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(ied)) then {
                     player setVariable [QGVAR(ied), true, true];
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(vehicle_repair)) then {
                     player setVariable [QGVAR(repair_full), true];
                 };
             };
-            
+
             case 5: {
                 if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
                     player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
@@ -171,14 +171,14 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 3: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
                     player setVariable [QGVAR(construction_nest), 1];
                     player setVariable [QGVAR(construction_nest_max), 1];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Construct,
@@ -189,34 +189,34 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
                     GVAR(construction_nest_time_cooldown) = GVAR(construction_nest_time_cooldown) - 300;
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
                     player setVariable [QGVAR(nest_ammo), 1];
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
                     player setVariable [QGVAR(construction_nest), (player getVariable QGVAR(construction_nest)) + 1];
                     player setVariable [QGVAR(construction_nest_max), (player getVariable QGVAR(construction_nest_max)) + 1];
                 };
             };
-            
+
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
-                    
+
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
                         ["(Perk) M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]
                     ]];
-                    
+
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
                     };
@@ -224,14 +224,14 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 4: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     player setVariable [QGVAR(construction_fortification), 1];
                     player setVariable [QGVAR(construction_fortification_max), 1];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Construct,
@@ -242,13 +242,13 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     GVAR(construction_fortification_time_cooldown) = GVAR(construction_fortification_time_cooldown) - 300;
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     player setVariable [QGVAR(fortification_types), [
@@ -261,22 +261,22 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
                     player setVariable [QGVAR(construction_fortification), (player getVariable QGVAR(construction_fortification)) + 1];
                     player setVariable [QGVAR(construction_fortification_max), (player getVariable QGVAR(construction_fortification_max)) + 1];
                 };
             };
-            
+
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
-                    
+
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
                         ["(Perk) M2A2", "M2A2_EP1"]
                     ]];
-                    
+
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
                     };
@@ -284,14 +284,14 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 5: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_mash)}) then {
                     player setVariable [QGVAR(construction_mash), 1];
                     player setVariable [QGVAR(construction_mash_max), 1];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Construct,
@@ -302,27 +302,27 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
                     player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) + 1, true];
                     player setVariable [QGVAR(inventory_medical_max), (player getVariable QGVAR(inventory_medical_max)) + 1, true];
                 };
             };
-            
+
             case 3: {
                 if !(isNil QMODULE(damage)) then {
                     player setVariable [QGVAR(damage_man), 0.4];
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_mash)}) then {
                     player setVariable [QGVAR(construction_mash), (player getVariable QGVAR(construction_mash)) + 1];
                     player setVariable [QGVAR(construction_mash_max), (player getVariable QGVAR(construction_mash_max)) + 1];
                 };
             };
-            
+
             case 5: {
                 if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
                     player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) + 1, true];
@@ -331,13 +331,13 @@ switch (_tier) do {
             };
         };
     };
-    
+
     case 6: {
         switch (_perk) do {
             case 1: {
                 if (!isNil QMODULE(uav)) then {
                     player setVariable [QGVAR(uav), true];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
@@ -349,11 +349,11 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 2: {
                 if (!isNil QMODULE(airtaxi)) then {
                     player setVariable [QGVAR(air_taxi), true];
-                    
+
                     if (!isNil QMODULE(communication)) then {
                         [
                             BIS_MENU_Radio,
@@ -365,27 +365,27 @@ switch (_tier) do {
                     };
                 };
             };
-            
+
             case 3: {
                 if (!isNil QMODULE(uav)) then {
                     GVAR(uav_time_cooldown) = GVAR(uav_time_cooldown) - 300;
                 };
             };
-            
+
             case 4: {
                 if (!isNil QMODULE(uav)) then {
                     player setVariable [QGVAR(uav_radius), GVAR(uav_distance_scan) + 200];
                 };
             };
-            
+
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
                     GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
-                    
+
                     player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
                         ["(Perk) AH6J", "AH6J_EP1"]
                     ]];
-                    
+
                     if (!isNil QMODULE(setting)) then {
                         ["airdrop_type"] call FUNC(setting,update);
                     };

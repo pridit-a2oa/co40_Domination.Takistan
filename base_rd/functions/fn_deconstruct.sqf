@@ -42,9 +42,9 @@ _time = ([typeOf _vehicle, "time"] call FUNC(THIS_MODULE,item)) select 1;
 if (!isNil QMODULE(3d)) then {
     [true, "spawn", [[_time], {
         private ["_time"];
-        
+
         PARAMS_1(_time);
-        
+
         [GVAR(base_rd), _time] call FUNC(3d,time);
     }]] call FUNC(network,mp);
 };

@@ -9,7 +9,7 @@ private ["_object", "_name"];
 {
     _object = call compile format ["d_service_%1", _x select 0];
     _name = format ["%1 Service", _x select 1];
-    
+
     if (isServer) then {
         private ["_area", "_trigger"];
 
@@ -25,10 +25,10 @@ private ["_object", "_name"];
             "0 = [thisTrigger getVariable ""object""] spawn d_fnc_vehicle_service_restore",
             ""
         ];
-        
+
         _object setVariable [QGVAR(time), 0, true];
     };
-    
+
     if (hasInterface) then {
         private ["_marker"];
 
@@ -37,7 +37,7 @@ private ["_object", "_name"];
         _marker setMarkerColorLocal "ColorYellow";
         _marker setMarkerShapeLocal "ICON";
         _marker setMarkerTypeLocal "DOT";
-        
+
         if (!isNil QMODULE(3d)) then {
             [
                 _object,

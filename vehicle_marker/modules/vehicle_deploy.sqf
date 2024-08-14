@@ -15,7 +15,7 @@ switch (_state) do {
         _marker setMarkerColorLocal "ColorYellow";
         _marker setMarkerTextLocal (_text + " (Deployed)");
     };
-    
+
     case false: {
         _marker setMarkerColorLocal "ColorBlack";
         _marker setMarkerTextLocal (format [" %1", [typeOf (_vehicle)] call FUNC(vehicle,name)]);

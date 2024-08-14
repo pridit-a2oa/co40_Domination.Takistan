@@ -104,7 +104,7 @@ if (hasInterface) then {
             };
 
             sleep 1;
-            
+
             titleText ["", "BLACK IN", 4];
 
             sleep 2;

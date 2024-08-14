@@ -13,9 +13,9 @@ _current = speed _vehicle;
 if (_current > _limit) then {
     _velocity = velocity _vehicle;
     _direction = direction _vehicle;
-    
+
     _speed = _current - _limit;
-    
+
     _vehicle setVelocity [
         (_velocity select 0) / _current * _limit,
         (_velocity select 1) / _current * _limit,

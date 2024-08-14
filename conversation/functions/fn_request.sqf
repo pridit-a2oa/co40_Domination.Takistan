@@ -6,9 +6,9 @@ PARAMS_3(_unit, _position, _type);
 
 [_unit, mapGridPosition _position, _type] spawn {
     private ["_unit", "_position", "_type"];
-    
+
     PARAMS_3(_unit, _position, _type);
-    
+
     [
         [_unit, GVAR(crossroad)],
         ["HQ", "Request"],
@@ -19,7 +19,7 @@ PARAMS_3(_unit, _position, _type);
         ],
         true
     ] call FUNC(THIS_MODULE,radio);
-    
+
     waitUntil {sleep 0.1; _unit kbWasSaid [GVAR(crossroad), "HQ", "Request", 1]};
 
     sleep 1;

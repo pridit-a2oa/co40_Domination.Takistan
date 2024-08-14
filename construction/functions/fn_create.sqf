@@ -15,26 +15,26 @@ _checks = [
         player getVariable (format [QUOTE(%1), _amount]),
         1
     ] call FUNC(helper,greaterThan),
-    
+
     [
         [_name, "constructed"],
         player getVariable (format [QUOTE(%1), _cooldown])
     ] call FUNC(helper,timeExceeded),
-    
+
     [
         [_name, "constructed"],
         position player,
         markerPos QGVAR(base_south),
         [GVAR(construction_distance_base), "in excess of", "from base"]
     ] call FUNC(helper,distanceFrom),
-    
+
     [
         [_name, "constructed"],
         position player,
         _type select 0,
         [GVAR(construction_distance_identical), "in excess of", "from another"]
     ] call FUNC(helper,nearObject),
-    
+
     [
         [_name, "constructed"]
     ] call FUNC(helper,inAir),

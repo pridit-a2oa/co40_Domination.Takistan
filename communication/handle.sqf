@@ -9,23 +9,23 @@ if (hasInterface) then {
     BIS_MENU_GroupCommunication = [
         ["Options", false]
     ];
-    
+
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
     };
-    
+
     if (!isNil QMODULE(gesture)) then {
         __submodulePP(gesture);
     };
-    
+
     if (!isNil QMODULE(inventory)) then {
         __submodulePP(inventory);
     };
-    
+
     if (!isNil QMODULE(perk)) then {
         __submodulePP(perk);
     };
-    
+
     if (!isNil QMODULE(squad)) then {
         __submodulePP(squad);
     };

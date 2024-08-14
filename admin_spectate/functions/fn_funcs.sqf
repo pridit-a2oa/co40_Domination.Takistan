@@ -102,7 +102,7 @@ KEGs_updatemarkers = {
         KEGs_cam_fullmap camSetRelPos [0, -1, 150];
         KEGs_cam_fullmap camCommit 0;
     };
-    
+
     _markedVehicles = [];
     for "_i" from 0 to (count _markers - 1) do {
         if (KEGs_exitspect) exitWith {};
@@ -124,7 +124,7 @@ KEGs_updatemarkers = {
                     };
                 };
             };
-            
+
             _OriginalSide = _u call KEGs_CheckOriginalSide;
             if (!(_OriginalSide in KEGs_ShownSides)) then {
                 if (markerAlpha _m != 0) then {_m setMarkerAlphaLocal 0};
@@ -149,7 +149,7 @@ KEGs_updatemarkers = {
                     } else {
                         if (markerText _m != "") then {_m setMarkerTextLocal ""};
                     };
-                    
+
                     _icon = (vehicle _u) getVariable "KEGs_icon";
                     if (isNil "_icon") then {
                         _icon = switch (getText(configFile >> "CfgVehicles" >> typeOf (vehicle _u) >> "simulation")) do {
@@ -176,9 +176,9 @@ KEGs_updatemarkers = {
                     if (_siz select 0 != 0.4 || {_siz select 1 != 0.4}) then {_m setMarkerSizeLocal [0.4, 0.4]};
                 };
             };
-            
+
             if (!alive _u) then {_m setMarkerColorLocal "ColorBlack"};
-            
+
             if (vehicle _u in _markedVehicles) then {
                 if (markerAlpha _m != 0) then {_m setMarkerAlphaLocal 0};
             } else {
@@ -257,7 +257,7 @@ KEGs_UpdateLB = {
     {
         _oside = _sidecache select _idx;
         if (_oside in KEGs_ShownSides) then {
-            _rr = _x call KEGs_CheckU; 
+            _rr = _x call KEGs_CheckU;
             if (_rr select 0) then {
                 _uns set [count _uns, _x];
                 _name = _namecache select _idx;

@@ -43,7 +43,7 @@ switch (_state) do {
             "taskFailed"
         ];
     };
-    
+
     case "new": {
         private ["_params"];
 
@@ -73,7 +73,7 @@ switch (_state) do {
             taskHint _params;
         };
     };
-    
+
     case "pass": {
         taskHint [
             format ["Vote Success:\n%1", _type],

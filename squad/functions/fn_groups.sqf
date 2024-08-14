@@ -13,7 +13,7 @@ _groups = [];
         private ["_name"];
 
         _name = _x;
-        
+
         {
             if ([_name, str _x] call BIS_fnc_areEqual) exitWith {
                 [_groups, _x] call BIS_fnc_arrayPush;
@@ -23,12 +23,12 @@ _groups = [];
         private ["_group"];
 
         _group = createGroup west;
-        
+
         [true, "setGroupId", [
             _group,
             GVAR(group_names) select _forEachIndex
         ]] call FUNC(network,mp);
-        
+
         _groups set [_forEachIndex, _group];
     };
 } forEach (_this select 0);

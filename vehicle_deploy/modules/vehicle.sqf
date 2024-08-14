@@ -25,7 +25,7 @@ if (isServer) then {
 
     _expression = {
         private ["_unit", "_deployed"];
-            
+
         PARAMS_1(_unit);
 
         if !(isServer) exitWith {};
@@ -42,7 +42,7 @@ if (isServer) then {
         };
 
         _unit setVariable [QGVAR(deployed), [false, ""], true];
-    
+
         [_unit, _deployed select 1, false] call FUNC(THIS_MODULE,deploy);
 
         {
