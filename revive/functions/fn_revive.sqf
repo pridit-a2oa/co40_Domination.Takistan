@@ -11,7 +11,7 @@ if ([_target] call FUNC(THIS_MODULE,valid)) then {
     if !([_target] call FUNC(THIS_MODULE,valid)) exitWith {};
 
     _target setDamage (switch (true) do {
-        case ((str player) in GVAR(medics)): {0};
+        case (str player in GVAR(medics)): {0};
         default {GVAR(revive_amount_damage)};
     });
 

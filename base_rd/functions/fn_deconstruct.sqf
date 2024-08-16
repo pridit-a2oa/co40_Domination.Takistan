@@ -83,7 +83,7 @@ GVAR(base_rd) setVariable [QGVAR(progress), GVAR(base_rd) getVariable QGVAR(prog
     DIALOG("X_BASE_RD_DIALOG", 100) lbSetCurSel _selected;
 }]] call FUNC(network,mp);
 
-if (!isNil QMODULE(conversation) && {_progress select 1 == (_progress select 0) + 1}) then {
+if (!isNil QMODULE(conversation) && {[_progress select 1, (_progress select 0) + 1] call BIS_fnc_areEqual}) then {
     [
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "Researched"],

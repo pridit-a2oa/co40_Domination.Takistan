@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_ramp_types) find (typeOf _vehicle) == -1) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_ramp_types)) exitWith {};
 
 if (isServer) then {
     _vehicle setVariable [QGVAR(ramp), true, true];
@@ -23,6 +23,6 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "player == driver _target"
+        "[player, driver _target] call BIS_fnc_areEqual"
     ];
 };

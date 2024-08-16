@@ -16,7 +16,7 @@ switch (_state) do {
         _net = ((GVAR(vehicle_mhq_types_net)) select 0) select 1;
 
         {
-            if (_x select 0 == faction _vehicle) exitWith {
+            if ([_x select 0, faction _vehicle] call BIS_fnc_areEqual) exitWith {
                 _net = _x select 1;
             };
         } forEach GVAR(vehicle_mhq_types_net);

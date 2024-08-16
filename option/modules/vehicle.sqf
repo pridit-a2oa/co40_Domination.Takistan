@@ -8,4 +8,13 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-_vehicle addAction ["Options" call FUNC(common,GreyText), __function(show), [], -9, false, true, "", "player in _target"];
+_vehicle addAction [
+    "Options" call FUNC(common,GreyText),
+    __function(show),
+    [],
+    -9,
+    false,
+    true,
+    "",
+    "player in _target"
+];

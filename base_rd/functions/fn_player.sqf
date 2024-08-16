@@ -2,7 +2,6 @@
 private ["_player", "_vehicles"];
 
 _player = objNull;
-
 _vehicles = nearestObjects [GVAR(base_rd), ["AllVehicles"], 25];
 
 if (count _vehicles > 0) then {
@@ -11,7 +10,7 @@ if (count _vehicles > 0) then {
             _player = getPlayerUID _x;
         };
 
-        if ((vehicle _x) == _x && {{isPlayer _x} count crew _x > 0}) exitWith {
+        if ([vehicle _x, _x] call BIS_fnc_areEqual && {{isPlayer _x} count crew _x > 0}) exitWith {
             _player = getPlayerUID (driver _x);
         };
     } forEach _vehicles;

@@ -44,7 +44,7 @@ if (hasInterface) then {
         };
     } forEach _checks;
 
-    if ({[str _x, "true"] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {
+    if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {
         closeDialog 0;
     };
 

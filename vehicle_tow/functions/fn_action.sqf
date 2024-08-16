@@ -12,5 +12,5 @@ _vehicle addAction [
     false,
     true,
     "",
-    "player == driver _target && {(typeOf _target) == d_vehicle_tow_type} && {!(d_tow getVariable 'd_towed')}"
+    "[player, driver _target] call BIS_fnc_areEqual && {[(typeOf _target), d_vehicle_tow_type] call BIS_fnc_areEqual && {!(d_tow getVariable 'd_towed')}}"
 ];

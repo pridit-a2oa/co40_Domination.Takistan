@@ -8,7 +8,7 @@ private ["_vehicle", "_bomber"];
 
 PARAMS_1(_vehicle);
 
-if ([GVAR(vehicle_bomber_type_vehicles) find (typeOf _vehicle), -1] call BIS_fnc_areEqual) exitWith {false};
+if !(typeOf _vehicle in GVAR(vehicle_bomber_type_vehicles)) exitWith {false};
 
 _bomber = _vehicle getVariable QGVAR(bomber);
 

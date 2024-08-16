@@ -27,14 +27,23 @@ if (isServer) then {
         _marker = format [QGVAR(wreck_hangar_%1), _i];
         _position = markerPos _marker;
 
-        if ([str _position, "[0,0,0]"] call BIS_fnc_areEqual) exitWith {};
+        if ([_position, [0,0,0]] call BIS_fnc_areEqual) exitWith {};
 
-        _hangar = createVehicle [GVAR(base_wreck_type_hangar), _position, [], 0, "CAN_COLLIDE"];
+        _hangar = createVehicle [
+            GVAR(base_wreck_type_hangar),
+            _position,
+            [],
+            0,
+            "CAN_COLLIDE"
+        ];
+
         _hangar setDir (markerDir _marker);
         _hangar setPos _position;
 
         {
             "ClutterCutter_EP1" createVehicle _x;
+
+            sleep 0.05;
         } forEach [
             _hangar modelToWorld [0, -36, 0],
             _hangar modelToWorld [0, 20, 0],
@@ -47,7 +56,11 @@ if (isServer) then {
             _hangar modelToWorld [-14, 0, 0]
         ];
 
-        X_JIPH setVariable [QGVAR(wreck_hangars), (X_JIPH getVariable QGVAR(wreck_hangars)) + [_hangar], true];
+        X_JIPH setVariable [
+            QGVAR(wreck_hangars),
+            (X_JIPH getVariable QGVAR(wreck_hangars)) + [_hangar],
+            true
+        ];
 
         _trigger = createTrigger ["EmptyDetector", markerPos _marker];
         _trigger setTriggerArea [12, 20, -30, true];
@@ -90,12 +103,15 @@ if (hasInterface) then {
     waitUntil {
         sleep 0.1;
 
-        [count (X_JIPH getVariable QGVAR(wreck_hangars)), GVAR(base_wreck_amount_hangar)] call BIS_fnc_areEqual
+        [
+            count (X_JIPH getVariable QGVAR(wreck_hangars)),
+            GVAR(base_wreck_amount_hangar)
+        ] call BIS_fnc_areEqual
     };
 
     {
         {
-            if ([str _x, "b_amygdalusn1s_ep1"] call KRON_StrInStr || [str _x, "b_pistacial1s_ep1"] call KRON_StrInStr) then {
+            if ([str _x, "b_amygdalusn1s_ep1"] call KRON_StrInStr || {[str _x, "b_pistacial1s_ep1"] call KRON_StrInStr}) then {
                 _x setDamage 1;
             };
         } forEach (nearestObjects [_x, [], 50]);

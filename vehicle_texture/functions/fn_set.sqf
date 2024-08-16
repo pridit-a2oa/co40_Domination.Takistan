@@ -29,7 +29,7 @@ if (hasInterface) then {
     } forEach _checks;
 };
 
-if (isServer || {(hasInterface && {[{[str _x, "true"] call BIS_fnc_areEqual} count _checks, count _checks] call BIS_fnc_areEqual})}) then {
+if (isServer || {(hasInterface && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _checks] call BIS_fnc_areEqual})}) then {
     private ["_textures"];
 
     _textures = ([_vehicle] call FUNC(THIS_MODULE,textures)) select 1;

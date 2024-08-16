@@ -97,7 +97,7 @@ if (hasInterface) then {
                 endMission "LOSER";
             };
 
-            if (!isNil QMODULE(setting) && {(player getVariable QGVAR(tutorial)) select 1 == 10}) then {
+            if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(tutorial)) select 1, 10] call BIS_fnc_areEqual}) then {
                 call FUNC(tutorial,handle);
 
                 waitUntil {sleep 1; !GVAR(tutorial)};

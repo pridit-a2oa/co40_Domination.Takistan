@@ -5,7 +5,7 @@ PARAMS_4(_name, _position, _type, _distance);
 
 _object = getPos ((nearestObjects [_position, [_type], _distance select 0]) select 0);
 
-_condition = if (_distance select 1 == "within") then {
+_condition = if ([_distance select 1, "within"] call BIS_fnc_areEqual) then {
     (isNil "_object")
 } else {
     (!isNil "_object")

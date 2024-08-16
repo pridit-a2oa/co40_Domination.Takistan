@@ -15,7 +15,7 @@ if !(_valid) exitWith {
         _flag setVariable [QGVAR(capturing), false];
     };
 
-    if (_flag getVariable QGVAR(time) != 0) then {
+    if !([_flag getVariable QGVAR(time), 0] call BIS_fnc_areEqual) then {
         _flag setVariable [QGVAR(time), 0, true];
     };
 };

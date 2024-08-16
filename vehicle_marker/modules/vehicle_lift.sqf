@@ -20,7 +20,7 @@ while {true} do {
     };
 
     if (!isNil "_position" && {!isNull _attached}) then {
-        if (markerAlpha _marker == 1) then {
+        if ([markerAlpha _marker, 1] call BIS_fnc_areEqual) then {
             _attachee setVariable [QGVAR(hidden), true, true];
         };
     };

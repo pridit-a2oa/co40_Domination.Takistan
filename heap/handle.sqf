@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    if !([GVAR(medics) find (str player), -1] call BIS_fnc_areEqual) exitWith {};
+    if (str player in GVAR(medics)) exitWith {};
 
     [
         markerPos QGVAR(heap),

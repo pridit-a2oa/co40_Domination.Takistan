@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    if (GVAR(medics) find (str(player)) == -1) then {
+    if !(str player in GVAR(medics)) then {
         player addAction [
             "Use Medkit" call FUNC(common,KhakiText),
             __function(heal),

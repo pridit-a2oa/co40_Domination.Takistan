@@ -28,10 +28,10 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), false, true];
 };
 
-if (GVAR(wreck_hangars_occupied) == (count _hangars - 1)) then {
-    _full = " Free up a hangar to continue rebuilding wrecks.";
+_full = if ([GVAR(wreck_hangars_occupied), (count _hangars) - 1] call BIS_fnc_areEqual) then {
+    " Free up a hangar to continue rebuilding wrecks."
 } else {
-    _full = "";
+    ""
 };
 
 if !(isNil QMODULE(conversation)) then {

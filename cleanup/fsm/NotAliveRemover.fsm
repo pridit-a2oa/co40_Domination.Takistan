@@ -103,7 +103,7 @@ class FSM
           priority = 1.000000;
           to="Clear_array";
           precondition = "";
-          condition="_counter == count _allunits";
+          condition="[_counter, count _allunits] call BIS_fnc_areEqual";
           action="";
         };
         class true

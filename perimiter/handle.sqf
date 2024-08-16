@@ -19,7 +19,7 @@ if (hasInterface) then {
         _zone = createMarkerLocal [
             format ["PerimiterAxisY%1", _i],
             [
-                if (_i % 2 == 0) then {
+                if ([_i % 2, 0] call BIS_fnc_areEqual) then {
                     _y + _size + _adjust
                 } else {
                     _y - _size + _adjust
@@ -38,7 +38,7 @@ if (hasInterface) then {
             format ["PerimiterAxisX%1", _i],
             [
                 _y + _adjust,
-                if (_i % 2 == 0) then {
+                if ([_i % 2, 0] call BIS_fnc_areEqual) then {
                     _x + _size - _adjust
                 } else {
                     _x - _size - _adjust
@@ -62,7 +62,7 @@ if (hasInterface) then {
     _trigger setTriggerArea [9000, 9000, 0, true];
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [
-        "!(player in thisList) && {!((vehicle player) in thisList)} && {alive player} && {!(player getVariable 'd_unconscious')} && {!(typeOf (vehicle player) in [""Parachute_US_EP1"", ""ParachuteWest""])}",
+        "!(player in thisList) && {!((vehicle player) in thisList) && {alive player && {!(player getVariable 'd_unconscious') && {!(typeOf (vehicle player) in [""Parachute_US_EP1"", ""ParachuteWest""])}}}}",
         "[thisTrigger] spawn d_fnc_perimiter_outside",
         ""
     ];

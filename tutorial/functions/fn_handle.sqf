@@ -2,7 +2,7 @@
 #include "x_macros.sqf"
 private ["_sequences"];
 
-if (isNil QMODULE(setting) || {(player getVariable QGVAR(tutorial)) select 1 == 0}) exitWith {
+if (isNil QMODULE(setting) || {[(player getVariable QGVAR(tutorial)) select 1, 0] call BIS_fnc_areEqual}) exitWith {
     GVAR(tutorial) = false;
 };
 

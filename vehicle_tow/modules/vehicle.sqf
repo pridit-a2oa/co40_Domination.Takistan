@@ -12,7 +12,7 @@ if (isServer && {{_vehicle isKindOf _x} count GVAR(vehicle_tow_type_towable) > 0
     _vehicle setVariable [QGVAR(towed), false, true];
 };
 
-if (typeOf _vehicle != GVAR(vehicle_tow_type)) exitWith {};
+if !([typeOf _vehicle, GVAR(vehicle_tow_type)] call BIS_fnc_areEqual) exitWith {};
 
 if (isServer) then {
     _vehicle setVariable [QGVAR(towing), objNull, true];

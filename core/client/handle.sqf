@@ -13,7 +13,7 @@
     {
         player addWeapon _x;
     } forEach [
-        format ["Binocular%1", if ((str player) in GVAR(marksman)) then {"_Vector"} else {""}],
+        format ["Binocular%1", if (str player in GVAR(marksman)) then {"_Vector"} else {""}],
         "ItemCompass",
         "ItemGPS",
         "ItemMap",
@@ -24,15 +24,15 @@
 
     player disableConversation true;
 
-    if (sunOrMoon == 0) then {
-        if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
+    if ([sunOrMoon, 0] call BIS_fnc_areEqual) then {
+        if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(nightvision)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
 
         player action ["NVGoggles", player];
     };
 
     enableRadio true;
     enableSentences false;
-    enableEngineArtillery ((str player) in GVAR(artillery));
+    enableEngineArtillery (str player in GVAR(artillery));
 
     [100] call FUNC(THIS_MODULE,reveal);
 
@@ -272,8 +272,8 @@ if (!isNil QMODULE(ammobox)) then {
             _unit selectWeapon (primaryWeapon _unit);
         };
 
-        if (sunOrMoon == 0 && {(weapons _unit) find "NVGoggles" != -1}) then {
-            if (!isNil QMODULE(setting) && {(player getVariable QGVAR(nightvision)) select 1 == 0}) exitWith {};
+        if ([sunOrMoon, 0] call BIS_fnc_areEqual && {"NVGoggles" in (weapons _unit)}) then {
+            if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(nightvision)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
 
             _unit action ["NVGoggles", _unit];
         };

@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_mhq_types) find (typeOf _vehicle) == -1) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_mhq_types)) exitWith {};
 
 if (!isNil QMODULE(ammobox)) then {
     _vehicle setVariable [QGVAR(ammobox), true, true];

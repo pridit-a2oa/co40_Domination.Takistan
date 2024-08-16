@@ -3,12 +3,12 @@ private ["_vehicle", "_ammoload", "_nearest", "_ammobox"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_ammobox_types) find (typeOf _vehicle) == -1) exitWith {false};
+if !(typeOf _vehicle in GVAR(vehicle_ammobox_types)) exitWith {false};
 
 _ammoload = getPos GVAR(ammoload);
 _nearest = nearestObjects [_vehicle, [([faction _vehicle] call FUNC(ammobox,type)) select 1], 10];
 
-if (count _nearest == 0 && {_vehicle distance _ammoload > 10}) exitWith {false};
+if ([count _nearest, 0] call BIS_fnc_areEqual && {_vehicle distance _ammoload > 10}) exitWith {false};
 
 _ammobox = _nearest select 0;
 

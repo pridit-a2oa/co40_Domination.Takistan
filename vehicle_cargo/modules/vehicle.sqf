@@ -8,7 +8,7 @@ private ["_vehicle", "_loaded", "_actions", "_load", "_action"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_cargo_type_aircraft) != typeOf _vehicle) exitWith {};
+if !([GVAR(vehicle_cargo_type_aircraft), typeOf _vehicle] call BIS_fnc_areEqual) exitWith {};
 
 if (isServer) then {
     _loaded = [];
@@ -84,7 +84,7 @@ if (hasInterface) then {
                         false,
                         true,
                         "",
-                        "player == driver _target && {_target animationPhase ""ramp_top"" == 1}",
+                        "[player, driver _target] call BIS_fnc_areEqual && {[_target animationPhase ""ramp_top"", 1] call BIS_fnc_areEqual}",
                         format ["vehicleLoad%1", _forEachIndex]
                     ] call RE;
 

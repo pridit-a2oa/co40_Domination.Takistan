@@ -18,6 +18,6 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "_this != _target && {serverCommandAvailable '#logout'}"
+        "!([_this, _target] call BIS_fnc_areEqual) && {serverCommandAvailable '#logout'}"
     ]]] call FUNC(network,mp);
 };

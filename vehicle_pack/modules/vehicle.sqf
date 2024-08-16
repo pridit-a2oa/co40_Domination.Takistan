@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_pack_types)) exitWith {};
 
 if (isServer && {!isEngineOn _vehicle}) then {
     [_vehicle, 1] call FUNC(THIS_MODULE,fold);

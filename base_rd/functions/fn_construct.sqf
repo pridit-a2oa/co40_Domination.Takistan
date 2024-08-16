@@ -27,12 +27,12 @@ if (hasInterface) then {
     ];
 
     {
-        if (typeName _x == "STRING") exitWith {
+        if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
         };
     } forEach _checks;
 
-    if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+    if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
     player setVariable [
         QGVAR(base_rd_cooldown),
@@ -46,7 +46,7 @@ if (hasInterface) then {
     };
 };
 
-if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing))} && {GVAR(base_rd) getVariable QGVAR(build)}) then {
+if (isServer && {!(GVAR(base_rd) getVariable QGVAR(processing)) && {GVAR(base_rd) getVariable QGVAR(build)}}) then {
     private ["_vehicle", "_time"];
 
     GVAR(base_rd) setVariable [QGVAR(processing), true, true];

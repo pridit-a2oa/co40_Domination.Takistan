@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_bonus_types) find (typeOf _vehicle) == -1) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_bonus_types)) exitWith {};
 
 if (hasInterface) then {
     if (!isNil QMODULE(perk)) then {

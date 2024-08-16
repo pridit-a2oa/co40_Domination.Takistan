@@ -8,7 +8,7 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (typeName ([_vehicle] call FUNC(THIS_MODULE,type)) == "SCALAR") exitWith {};
+if ([typeName ([_vehicle] call FUNC(THIS_MODULE,type)), "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 
 if (isServer) then {
     private ["_expression"];

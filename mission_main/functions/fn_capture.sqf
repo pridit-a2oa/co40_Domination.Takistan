@@ -6,7 +6,7 @@ PARAMS_3(_flag, _trigger, _units);
 
 _target = _flag getVariable QGVAR(target);
 
-if (!isNil QMODULE(conversation) && {({alive _x} count (_target getVariable QGVAR(camps))) - 1 == 0}) then {
+if (!isNil QMODULE(conversation) && {[({alive _x} count (_target getVariable QGVAR(camps))) - 1, 0] call BIS_fnc_areEqual}) then {
     [
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "Captured"],

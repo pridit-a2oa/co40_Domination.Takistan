@@ -7,7 +7,7 @@ private ["_vehicle", "_packed"];
 
 PARAMS_1(_vehicle);
 
-if (GVAR(vehicle_pack_types) find (typeOf _vehicle) == -1) exitWith {false};
+if !(typeOf _vehicle in GVAR(vehicle_pack_types)) exitWith {false};
 
 _packed = _vehicle getVariable QGVAR(packed);
 

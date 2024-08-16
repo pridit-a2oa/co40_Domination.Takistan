@@ -16,7 +16,7 @@ _unlocked = player getVariable QGVAR(perks_unlocked);
 if ([_points, 0] call BIS_fnc_areEqual && {!(call FUNC(THIS_MODULE,override))}) exitWith {};
 
 // perk already unlocked
-if !([_ids find _id, -1] call BIS_fnc_areEqual) exitWith {};
+if (_id in _ids) exitWith {};
 
 // inacessible perk (role restriction)
 if ([ctrlText (DIALOG("X_PERK_DIALOG", 200 + _id)), "ca\ui\data\cmdbar_donotfire_ca"] call BIS_fnc_areEqual) exitWith {};

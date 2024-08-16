@@ -30,12 +30,12 @@ if (hasInterface) then {
     ];
 
     {
-        if (typeName _x == "STRING") exitWith {
+        if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
         };
     } forEach _checks;
 
-    if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+    if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
     X_JIPH setVariable [QGVAR(uav_call), true, true];
     player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];

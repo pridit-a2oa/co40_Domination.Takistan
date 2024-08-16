@@ -53,12 +53,12 @@ switch (_state) do {
             ];
 
             {
-                if (typeName _x == "STRING") exitWith {
+                if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
                     hint _x;
                 };
             } forEach _checks;
 
-            if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+            if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
             _vehicle setVariable [QGVAR(deployed), [true, _type], true];
 
@@ -119,12 +119,12 @@ switch (_state) do {
             ];
 
             {
-                if (typeName _x == "STRING") exitWith {
+                if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
                     hint _x;
                 };
             } forEach _checks;
 
-            if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+            if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
             _vehicle setVariable [QGVAR(deployed), [false, ""], true];
 

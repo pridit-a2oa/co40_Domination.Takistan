@@ -15,7 +15,7 @@ GVAR(backpack) = [];
 
 player setVariable [QGVAR(backpack_action), nil];
 
-if (primaryWeapon player != "") then {
+if !([primaryWeapon player, ""] call BIS_fnc_areEqual) then {
     player selectWeapon (primaryWeapon player);
 
     call FUNC(THIS_MODULE,store);

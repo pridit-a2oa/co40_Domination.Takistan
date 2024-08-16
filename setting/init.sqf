@@ -17,7 +17,7 @@ GVAR(setting_type_valid) = [
     [
         "Custom Sounds",
         "sounds",
-        "Set whether custom sounds will play (MT seized, score rewards)",
+        "Set whether custom (immersion breaking) sounds will play (e.g. MT seized, score rewards)",
         ["Yes", "No"],
         [10, 0]
     ],

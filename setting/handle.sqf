@@ -59,7 +59,7 @@ if (hasInterface) then {
             _default = if (!isNil "_load") then {_load} else {_default};
         };
 
-        if (typeName _type == "ARRAY") then {
+        if ([typeName _type, "ARRAY"] call BIS_fnc_areEqual) then {
             (call compile format [
                 "%1 %2",
                 _type select 0,

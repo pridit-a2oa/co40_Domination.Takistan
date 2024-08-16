@@ -3,7 +3,7 @@ private ["_name", "_type"];
 
 PARAMS_2(_name, _type);
 
-if ({alive _x && {_x getVariable QGVAR(caller) == getPlayerUID player}} count (entities (_type select 1)) > 0) exitWith {
+if ({alive _x && {[_x getVariable QGVAR(caller), getPlayerUID player] call BIS_fnc_areEqual}} count (entities (_type select 1)) > 0) exitWith {
     format [
         "%1 cannot be %2 as you already have one %3 active in the field",
         _name select 0,

@@ -23,12 +23,13 @@ DIALOG("X_SETTING_DIALOG", 500) ctrlSetStructuredText parseText format [
 
 if (!isNil QMODULE(profile)) then {
     DIALOG("X_SETTING_DIALOG", 700) ctrlSetText "Saves";
-
-    if ([__profile(GVAR(option) select 1)] call FUNC(profile,valid)) then {
-        DIALOG("X_SETTING_DIALOG", 800) ctrlSetText "\ca\ui\data\ui_task_done_ca";
-    } else {
-        DIALOG("X_SETTING_DIALOG", 800) ctrlSetText "\ca\ui\data\ui_task_failed_ca";
-    };
+    DIALOG("X_SETTING_DIALOG", 800) ctrlSetText (
+        if ([__profile(GVAR(option) select 1)] call FUNC(profile,valid)) then {
+            "\ca\ui\data\ui_task_done_ca"
+        } else {
+            "\ca\ui\data\ui_task_failed_ca"
+        }
+    );
 };
 
 if (!isNil {GVAR(option) select 4}) exitWith {
@@ -39,7 +40,7 @@ if (!isNil {GVAR(option) select 4}) exitWith {
 
         _value = (GVAR(option) select 4) select _forEachIndex;
 
-        if (typeName _value == "STRING") then {
+        if ([typeName _value, "STRING"] call BIS_fnc_areEqual) then {
             DIALOG("X_SETTING_DIALOG", 300) lbSetData [_forEachIndex, _value];
         } else {
             DIALOG("X_SETTING_DIALOG", 300) lbSetValue [_forEachIndex, _value];

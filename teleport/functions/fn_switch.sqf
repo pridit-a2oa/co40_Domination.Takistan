@@ -23,7 +23,11 @@ _zoom = (_animations select 0) select 1;
 
 _map ctrlMapAnimAdd [
     _time,
-    if (ctrlMapScale _map != (_animations select 1) select 1) then {_zoom} else {ctrlMapScale _map},
+    if !([ctrlMapScale _map, (_animations select 1) select 1] call BIS_fnc_areEqual) then {
+        _zoom
+    } else {
+        ctrlMapScale _map
+    },
     position _target
 ];
 

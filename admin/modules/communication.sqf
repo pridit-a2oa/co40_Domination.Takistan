@@ -5,7 +5,7 @@
 #define THIS_MODULE admin
 #include "x_macros.sqf"
 
-if ([GVAR(admin_type_players) find (getPlayerUID player), -1] call BIS_fnc_areEqual) exitWith {};
+if !(getPlayerUID player in GVAR(admin_type_players)) exitWith {};
 
 BIS_MENU_Admin = [
     ["Admin", false]

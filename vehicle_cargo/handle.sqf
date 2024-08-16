@@ -14,7 +14,7 @@ if (hasInterface) then {
     _trigger setTriggerActivation ["NONE", "PRESENT", true];
     _trigger setTriggerStatements [
         "call d_fnc_vehicle_cargo_valid",
-        "d_action_load = player addAction [format ['Load %1', [typeOf (d_load select 1)] call d_fnc_vehicle_name] call d_fnc_common_YellowText, 'vehicle_cargo\functions\fn_load.sqf', [], 9, false, true, '', 'player == _target && {player == vehicle player} && {!d_loading}']",
+        "d_action_load = player addAction [format ['Load %1', [typeOf (d_load select 1)] call d_fnc_vehicle_name] call d_fnc_common_YellowText, 'vehicle_cargo\functions\fn_load.sqf', [], 9, false, true, '', '[player, _target] call BIS_fnc_areEqual && {[player, vehicle player] call BIS_fnc_areEqual && {!d_loading}}']",
         "player removeAction d_action_load; d_loading = false"
     ];
 };

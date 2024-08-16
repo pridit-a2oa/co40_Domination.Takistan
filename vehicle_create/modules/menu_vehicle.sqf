@@ -11,7 +11,7 @@ _types = GVAR(vehicle_create_types);
 
 _type = ([0, _types] call FUNC(common,arrayValues)) find (typeOf _vehicle);
 
-if (_type == -1) exitWith {false};
+if ([_type, -1] call BIS_fnc_areEqual) exitWith {false};
 
 _vehicles = ([1, _types] call FUNC(common,arrayValues)) select _type;
 

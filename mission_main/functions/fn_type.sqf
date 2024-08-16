@@ -12,7 +12,7 @@ switch (_type) do {
 
         _compositions = GVAR(mission_main_type_camps);
 
-        while {_camps != GVAR(mission_main_amount_camps)} do {
+        while {!([_camps, GVAR(mission_main_amount_camps)] call BIS_fnc_areEqual)} do {
             _composition = [0, _compositions] call FUNC(common,arrayValues);
             _position = [position _target, 20, GVAR(mission_main_radius_zone) / 2, 8, 0, 0.5, 0] call FUNC(common,safePos);
             _roads = _position nearRoads 70;
@@ -127,7 +127,7 @@ switch (_type) do {
     case "radio": {
         private ["_position", "_near", "_radio"];
 
-        while {count (_target getVariable QGVAR(radios)) != GVAR(mission_main_amount_radios)} do {
+        while {!([count (_target getVariable QGVAR(radios)), GVAR(mission_main_amount_radios)] call BIS_fnc_areEqual)} do {
             _position = [position _target, 50, GVAR(mission_main_radius_zone) / 1.8, 3, 0, 0.5, 0] call FUNC(common,safePos);
             _near = nearestObjects [_position, [GVAR(mission_main_type_radio), "FlagCarrierTakistanKingdom_EP1"], 150];
 
@@ -260,7 +260,7 @@ switch (_type) do {
         if (!isNil QMODULE(task)) then {
             private ["_action", "_task"];
 
-            _action = if (_type select 0 == "unit") then {"Kill"} else {"Destroy"};
+            _action = if ([_type select 0, "unit"] call BIS_fnc_areEqual) then {"Kill"} else {"Destroy"};
 
             _task = [
                 _goal + str ((position _entity) select 0),
@@ -287,7 +287,7 @@ switch (_type) do {
 
                 _task = _unit getVariable QGVAR(task);
 
-                if (_task select 3 == "Created") then {
+                if ([_task select 3, "Created"] call BIS_fnc_areEqual) then {
                     [_task, "Succeeded"] call FUNC(task,state);
                 };
             }];
@@ -299,7 +299,7 @@ switch (_type) do {
 
                 _task = [(_unit getVariable QGVAR(task)) select 0] call FUNC(task,get);
 
-                if ((_unit getVariable QGVAR(task)) select 3 == "Created" && {taskState _task in ["Created", "Assigned"]}) then {
+                if ([(_unit getVariable QGVAR(task)) select 3, "Created"] call BIS_fnc_areEqual && {taskState _task in ["Created", "Assigned"]}) then {
                     _task setTaskState "Succeeded";
 
                     [_task, "succeeded"] call FUNC(task,hint);

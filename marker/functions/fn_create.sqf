@@ -14,7 +14,7 @@ if !([_brush, ""] call BIS_fnc_areEqual) then {
     _marker setMarkerBrushLocal _brush;
 };
 
-if (count _size == 2) then {
+if ([count _size, 2] call BIS_fnc_areEqual) then {
     _marker setMarkerSizeLocal _size;
 };
 

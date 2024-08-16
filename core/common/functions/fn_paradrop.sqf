@@ -2,17 +2,17 @@
 
 PARAMS_4(_aircraft, _landing, _loaded, _eject);
 
-if (typeName _loaded == "ARRAY") then {
+if ([typeName _loaded, "ARRAY"] call BIS_fnc_areEqual) then {
     _loaded = _loaded select 0;
 };
 
-if (typeName _eject == "STRING") then {
+if ([typeName _eject, "STRING"] call BIS_fnc_areEqual) then {
     _eject = [[0, -15, -5], direction _aircraft];
 };
 
 _load = createVehicle [_loaded, [0, 0, 0], [], 0, "NONE"];
 
-if (typeName _loaded == "ARRAY") then {
+if ([typeName _loaded, "ARRAY"] call BIS_fnc_areEqual) then {
     _load setVariable [QGVAR(position), (_this select 2) select 1, true];
     _load setVariable [QGVAR(direction), (_this select 2) select 2, true];
 };
@@ -38,7 +38,7 @@ if (typeName _loaded == "ARRAY") then {
 
     _position = _aircraft modelToWorld (_eject select 0);
 
-    if (direction _aircraft != _eject select 1) then {
+    if !([direction _aircraft, _eject select 1] call BIS_fnc_areEqual) then {
         detach _load;
     };
 
@@ -46,7 +46,7 @@ if (typeName _loaded == "ARRAY") then {
     _load setPos _position;
     _load setVectorUp (vectorUp _aircraft);
 
-    if (direction _aircraft == _eject select 1) then {
+    if ([direction _aircraft, _eject select 1] call BIS_fnc_areEqual) then {
         detach _load;
     };
 

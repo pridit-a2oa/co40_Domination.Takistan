@@ -8,7 +8,26 @@ private ["_ammobox"];
 
 PARAMS_1(_ammobox);
 
-if (!isNil QMODULE(loadout)) then {
-    _ammobox addAction ["Save loadout" call FUNC(common,YellowText), FUNCTION(loadout,save), [], 10, false, true, "", "player getVariable 'd_loadout' && {primaryWeapon player != ''}"];
-    _ammobox addAction ["Clear loadout" call FUNC(common,YellowText), FUNCTION(loadout,clear), [], 10, false, true, "", "player getVariable 'd_loadout' && {count d_loadout > 0}"];
+if !(isNil QMODULE(loadout)) then {
+    _ammobox addAction [
+        "Save loadout" call FUNC(common,YellowText),
+        FUNCTION(loadout,save),
+        [],
+        10,
+        false,
+        true,
+        "",
+        "player getVariable 'd_loadout' && {!([primaryWeapon player, ''] call BIS_fnc_areEqual)}"
+    ];
+
+    _ammobox addAction [
+        "Clear loadout" call FUNC(common,YellowText),
+        FUNCTION(loadout,clear),
+        [],
+        10,
+        false,
+        true,
+        "",
+        "player getVariable 'd_loadout' && {count d_loadout > 0}"
+    ];
 };

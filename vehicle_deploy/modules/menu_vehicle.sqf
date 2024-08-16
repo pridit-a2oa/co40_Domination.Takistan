@@ -10,7 +10,7 @@ PARAMS_1(_vehicle);
 
 _type = [_vehicle] call FUNC(THIS_MODULE,type);
 
-if (typeName _type == "SCALAR") exitWith {false};
+if ([typeName _type, "SCALAR"] call BIS_fnc_areEqual) exitWith {false};
 
 _deployed = (_vehicle getVariable QGVAR(deployed)) select 0;
 

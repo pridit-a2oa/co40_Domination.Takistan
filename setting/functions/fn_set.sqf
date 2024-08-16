@@ -9,7 +9,7 @@ disableSerialization;
 if (!isNil {GVAR(option) select 4}) then {
     _data = DIALOG("X_SETTING_DIALOG", _idc) lbData (_setting select 1);
 
-    if (_data == "") then {
+    if ([_data, ""] call BIS_fnc_areEqual) then {
         _data = (DIALOG("X_SETTING_DIALOG", _idc) lbValue (_setting select 1)) / 10;
     };
 } else {
@@ -18,14 +18,14 @@ if (!isNil {GVAR(option) select 4}) then {
 
 _type = [GVAR(option) select 1] call FUNC(THIS_MODULE,type);
 
-if (typeName _type == "ARRAY") then {
+if ([typeName _type, "ARRAY"] call BIS_fnc_areEqual) then {
     (call compile format ["%1 %2", _type select 0, _data]);
 };
 
 if (!isNil QMODULE(profile)) then {
     [
         __profile(GVAR(option) select 1),
-        if (typeName _data == "SCALAR") then {_data * 10} else {_data}
+        if ([typeName _data, "SCALAR"] call BIS_fnc_areEqual) then {_data * 10} else {_data}
     ] call FUNC(profile,set);
 };
 
@@ -33,7 +33,7 @@ player setVariable [
     format ["d_%1", GVAR(option) select 1],
     [
         _setting select 1,
-        if (typeName _data == "SCALAR") then {_data * 10} else {_data}
+        if ([typeName _data, "SCALAR"] call BIS_fnc_areEqual) then {_data * 10} else {_data}
     ]
 ];
 

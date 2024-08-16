@@ -1,7 +1,7 @@
 #include "x_macros.sqf"
 private ["_vehicle", "_towing", "_tow", "_towed", "_position_front", "_position_behind", "_direction", "_direction_front", "_direction_behind"];
 
-_vehicle = (typeOf (vehicle player)) == GVAR(vehicle_tow_type);
+_vehicle = [typeOf (vehicle player), GVAR(vehicle_tow_type)] call BIS_fnc_areEqual;
 
 if !(_vehicle) exitWith {false};
 
@@ -22,7 +22,7 @@ _speed = (speed (vehicle player) > 10 || {speed (vehicle player) < -10});
 
 if (_speed) exitWith {false};
 
-_position_front = (vehicle player) distance (_tow modelToWorld [0, if (typeOf _tow == "C130J_US_EP1") then {17} else {7}, 0]) > 8;
+_position_front = (vehicle player) distance (_tow modelToWorld [0, if ([typeOf _tow, "C130J_US_EP1"] call BIS_fnc_areEqual) then {17} else {7}, 0]) > 8;
 _position_behind = (vehicle player) distance (_tow modelToWorld [0, -7, 0]) > 8;
 
 if (_position_front && {_position_behind}) exitWith {false};

@@ -11,7 +11,7 @@ sleep 4;
 showCinemaBorder true;
 
 {
-    if (_forEachIndex == 0) then {
+    if ([_forEachIndex, 0] call BIS_fnc_areEqual) then {
         _camera = "camera" camCreate (_x select 0);
         _camera cameraEffect ["internal", "back"];
     };
@@ -21,7 +21,7 @@ showCinemaBorder true;
     _camera camSetFOV 0.500;
     _camera camCommit 0;
 
-    if (_forEachIndex == 0) then {
+    if ([_forEachIndex, 0] call BIS_fnc_areEqual) then {
         titleText ["", "BLACK IN", 4];
 
         sleep 1;
@@ -29,7 +29,7 @@ showCinemaBorder true;
 
     [format ["<t color='#f0bfbfbf' size='.5'>%1</t>", _x select 2], -1, 1.25, 13, 2, 0, 789] spawn BIS_fnc_dynamicText;
 
-    if ((_forEachIndex + 1) == count _sequences) exitWith {
+    if ([_forEachIndex + 1, count _sequences] call BIS_fnc_areEqual) exitWith {
         sleep 13;
 
         titleText ["", "BLACK", 1];

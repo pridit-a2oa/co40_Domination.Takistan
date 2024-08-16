@@ -41,6 +41,6 @@ if (hasInterface) then {
         false,
         true,
         "",
-        "player == _target && {d_base_rd distance (position player) < 18}"
+        "[player, _target] call BIS_fnc_areEqual && {d_base_rd distance (position player) < 18}"
     ];
 };

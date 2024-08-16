@@ -3,7 +3,7 @@ private ["_name", "_position", "_side", "_distance"];
 
 PARAMS_4(_name, _position, _side, _distance);
 
-_type = if (_side == WEST) then {"friendly"} else {"enemy"};
+_type = if ([_side, west] call BIS_fnc_areEqual) then {"friendly"} else {"enemy"};
 
 if (_side countSide (_position nearEntities [["Man", "Air", "Car", "Tank"], _distance]) > 0) exitWith {
     format [

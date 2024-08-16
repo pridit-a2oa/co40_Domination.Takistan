@@ -15,7 +15,7 @@ for "_i" from 1 to _waypoints do {
     _wy = (_position select 1) + (_distance * (cos _wdir));
     _wp = _group addWaypoint [[_wx,_wy] , 10, _i];
 
-    if (_i == 1) then {
+    if ([_i, 1] call BIS_fnc_areEqual) then {
         _vehicle = vehicle (leader _group);
 
         [_group, _i] setWaypointBehaviour "SAFE";

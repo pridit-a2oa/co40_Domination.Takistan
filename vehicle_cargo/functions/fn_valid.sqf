@@ -6,13 +6,13 @@ _aircraft = (player nearEntities [[GVAR(vehicle_cargo_type_aircraft)], 20]) sele
 
 if (isNil "_aircraft") exitWith {false};
 
-_filled = {typeName _x == "STRING"} count ([_aircraft] call FUNC(THIS_MODULE,types));
+_filled = {[typeName _x, "STRING"] call BIS_fnc_areEqual} count ([_aircraft] call FUNC(THIS_MODULE,types));
 
 if (_filled >= player getVariable QGVAR(vehicle_cargo)) exitWith {false};
 
 _animation = _aircraft animationPhase "ramp_bottom";
 
-if (_animation != 1) exitWith {false};
+if !([_animation, 1] call BIS_fnc_areEqual) exitWith {false};
 
 _load = (_aircraft nearEntities [["Car", "Tank", "Truck"], 20]) select 0;
 

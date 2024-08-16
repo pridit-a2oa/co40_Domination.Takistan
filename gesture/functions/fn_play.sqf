@@ -14,12 +14,12 @@ _checks = [
 ];
 
 {
-    if (typeName _x == "STRING") exitWith {
+    if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
         hint _x;
     };
 } forEach _checks;
 
-if ({str (_x) == "true"} count _checks < count _checks) exitWith {};
+if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
 _type = ([0, GVAR(gesture_types)] call FUNC(common,arrayValues)) find _gesture;
 _type = ((GVAR(gesture_types) select _type) select 1) call BIS_fnc_selectRandom;

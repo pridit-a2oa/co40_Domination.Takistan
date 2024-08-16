@@ -3,7 +3,7 @@ private ["_type", "_amount", "_color"];
 
 PARAMS_3(_type, _amount, _color);
 
-if (!isNil QMODULE(setting) && {player getVariable QGVAR(reward) select 1 == 0}) exitWith {false};
+if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(reward)) select 1, 0] call BIS_fnc_areEqual}) exitWith {false};
 
 disableSerialization;
 

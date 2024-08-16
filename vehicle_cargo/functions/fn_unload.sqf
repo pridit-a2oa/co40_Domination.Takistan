@@ -10,7 +10,7 @@ _actions = _aircraft getVariable QGVAR(actions);
 
 _id = ([_aircraft] call FUNC(THIS_MODULE,types)) find (_load select 0);
 
-if (_id != -1) then {
+if !([_id, -1] call BIS_fnc_areEqual) then {
     [nil, _aircraft, "per", rRemoveAction, format ["vehicleLoad%1", _id]] call RE;
 
     _loaded set [_id, [nil]];

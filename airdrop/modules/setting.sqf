@@ -8,7 +8,7 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Airdrop",
         "airdrop_type",
-        "Set airdrop payload (cooldown time is unaffected)",
+        "Set airdrop payload (cooldown time is unaffected by changes)",
         [0, player getVariable QGVAR(airdrop_types)] call FUNC(common,arrayValues),
         [1, player getVariable QGVAR(airdrop_types)] call FUNC(common,arrayValues)
     ]

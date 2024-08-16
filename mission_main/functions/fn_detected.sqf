@@ -6,7 +6,7 @@ PARAMS_2(_target, _trigger);
 
 _target setVariable [QGVAR(detected), true];
 
-if ({alive _x} count (_target getVariable QGVAR(radios)) == 0) exitWith {
+if ([{alive _x} count (_target getVariable QGVAR(radios)), 0] call BIS_fnc_areEqual) exitWith {
     deleteVehicle _trigger;
 };
 

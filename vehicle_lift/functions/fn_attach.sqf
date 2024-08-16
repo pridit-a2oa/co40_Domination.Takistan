@@ -37,8 +37,8 @@ if (hasInterface) then {
 
     if (!isNil QMODULE(conversation) && {call FUNC(common,time) > player getVariable QGVAR(conversation_cooldown)}) then {
         switch (true) do {
-            case (!isNil QMODULE(vehicle_mhq) && {alive _vehicle} && {(typeOf _vehicle) in GVAR(vehicle_mhq_types)});
-            case (!isNil QMODULE(vehicle_wreck) && {!alive _vehicle} && {_vehicle getVariable QGVAR(wreckable)} && {(position _lifter) distance (markerPos QGVAR(base_south)) > 500}): {
+            case (!isNil QMODULE(vehicle_mhq) && {alive _vehicle && {(typeOf _vehicle) in GVAR(vehicle_mhq_types)}});
+            case (!isNil QMODULE(vehicle_wreck) && {!alive _vehicle && {_vehicle getVariable QGVAR(wreckable) && {(position _lifter) distance (markerPos QGVAR(base_south)) > 500}}}): {
                 _this set [5, true];
 
                 player setVariable [

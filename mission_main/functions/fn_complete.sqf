@@ -44,7 +44,7 @@ if (!isNil QMODULE(task)) then {
     [_task, "Succeeded"] call FUNC(task,state);
 
     {
-        if (_x select 3 == "Created") then {
+        if ([_x select 3, "Created"] call BIS_fnc_areEqual) then {
             [_x, "Failed"] call FUNC(task,state);
         };
     } forEach (_target getVariable QGVAR(tasks));
@@ -62,7 +62,7 @@ if (!isNil QMODULE(task)) then {
         [_task, "succeeded"] call FUNC(task,hint);
 
         {
-            if (_x select 3 == "Failed") then {
+            if ([_x select 3, "Failed"] call BIS_fnc_areEqual) then {
                 _task = [_x select 0] call FUNC(task,get);
                 _task setTaskState "Failed";
             };
@@ -115,7 +115,7 @@ if !(isNil QMODULE(teleport)) then {
 [true, "spawn", [[], {
     playSound "fanfare";
 
-    if (isNil QMODULE(setting) || {(player getVariable QGVAR(sounds) select 1 == 0)}) exitWith {};
+    if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(sounds)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
 
     sleep 3;
 
@@ -161,20 +161,20 @@ _target spawn {
         };
     } forEach (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
 
-    if (count _targets == 0) then {
+    if ([count _targets, 0] call BIS_fnc_areEqual) then {
         __log "Exhausted conditionable locations, cycling with completed excluded"];
 
         _targets = (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
     };
 
-    if (count _targets == 0) then {
+    if ([count _targets, 0] call BIS_fnc_areEqual) then {
         __log "Exhausted all conditionable locations, cycling without conditions"];
 
         _targets = GVAR(mission_main_targets);
     };
 
-    if (count _targets == 0) exitWith {
-        __log "Exhausted all locations, can't cycle"];
+    if ([count _targets, 0] call BIS_fnc_areEqual) exitWith {
+        __log "(FATAL) Exhausted all locations, can't cycle"];
     };
 
     [_targets call BIS_fnc_selectRandom] spawn FUNC(THIS_MODULE,create);

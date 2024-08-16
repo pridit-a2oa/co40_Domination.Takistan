@@ -3,7 +3,7 @@ private ["_name"];
 
 PARAMS_1(_name);
 
-if (vehicle player != player) exitWith {
+if !([vehicle player, player] call BIS_fnc_areEqual) exitWith {
     format [
         "%1 cannot be %2 from within a vehicle",
         _name select 0,

@@ -11,7 +11,7 @@ _units = _position nearEntities [["Man", "Car", "Tank"], _radius];
 if (isNil "_units") exitWith {};
 
 {
-    if (side _x == east) then {
+    if ([side _x, east] call BIS_fnc_areEqual) then {
         _enemies = _enemies + [_x];
     };
 } forEach _units;

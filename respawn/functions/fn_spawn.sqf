@@ -8,13 +8,17 @@ _type = (_unit getVariable QGVAR(respawn_type)) select 1;
 
 _unit setDir 239;
 
-if (_type == "base") exitWith {};
+if ([_type, "base"] call BIS_fnc_areEqual) exitWith {};
 
-_types = call compile format ["d_%1_type%2", _type, if (_type != "mash") then {"s"} else {""}];
+_types = call compile format [
+    "d_%1_type%2",
+    _type,
+    if !([_type, "mash"] call BIS_fnc_areEqual) then {"s"} else {""}
+];
 
 _objects = nearestObjects [
     _position,
-    if (typeName _types == "ARRAY") then {_types} else {[_types]},
+    if ([typeName _types, "ARRAY"] call BIS_fnc_areEqual) then {_types} else {[_types]},
     call compile format ["d_%1_distance_respawn", _type]
 ];
 
