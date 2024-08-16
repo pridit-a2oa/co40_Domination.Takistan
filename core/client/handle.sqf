@@ -62,6 +62,14 @@ if (!isNil QMODULE(vehicle)) then {
             };
         };
 
+        if !(isNil QMODULE(base_uav)) then {
+            waitUntil {
+                sleep 0.1;
+
+                !([X_JIPH getVariable QGVAR(base_uav), objNull] call BIS_fnc_areEqual)
+            };
+        };
+
         ["init_vehicles", {
             ["init_vehicles"] call FUNC(THIS_MODULE,removePerFrame);
 

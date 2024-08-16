@@ -18,6 +18,10 @@ _group = _vehicle select 2;
 
 X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
 
+if ([_height, 0] call BIS_fnc_areEqual) then {
+    _object setVelocity [0, 0, 0];
+};
+
 {
     __addDead(_x);
 } forEach _crew;

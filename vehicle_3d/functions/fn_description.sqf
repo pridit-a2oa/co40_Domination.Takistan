@@ -26,4 +26,8 @@ if (!isNil QMODULE(inventory)) then {
     _description = _description + ([_type] __submodulePP(inventory));
 };
 
+if (!isNil QMODULE(vehicle_uav)) then {
+    _description = _description + ([_name] __submodulePP(vehicle_uav));
+};
+
 _description

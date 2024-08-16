@@ -21,6 +21,7 @@ GVAR(modules) = [
     "base_halo",
     "base_protection",
     "base_rd",
+    "base_uav",
     "base_wreck",
     "chat",
     "cleanup",
@@ -103,6 +104,7 @@ GVAR(modules) = [
     "vehicle_teleport",
     "vehicle_texture",
     // "vehicle_tow", // TODO: Refactor (legacy RE use, buggy actions)
+    // "vehicle_uav", // TODO: Incomplete (remote controlling, backpack)
     "vehicle_unflip",
     "vehicle_wreck",
     "vote",
