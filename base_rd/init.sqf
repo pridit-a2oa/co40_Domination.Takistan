@@ -25,7 +25,6 @@ GVAR(base_rd_type_vehicles) = [
     "T55_TK_EP1",
     "T72_TK_EP1",
     "UH1H_TK_EP1",
-    "Ural_ZU23_TK_EP1",
     "ZSU_TK_EP1"
 ];
 
