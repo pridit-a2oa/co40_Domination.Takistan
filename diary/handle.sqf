@@ -18,17 +18,13 @@ if (hasInterface) then {
         __submodulePP(vehicle_uav);
     };
 
-    if (!isNil QMODULE(squad)) then {
-        __submodulePP(squad);
-    };
-
     if (!isNil QMODULE(setting)) then {
         __submodulePP(setting);
     };
 
     ["Roles", [
         "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/>",
-        "<br />The 6 available roles are: Artillery Operator, Engineer, Machine Gunner, Marksman, Medic, and Pilot.",
+        "<br />The 6 roles are: Artillery Operator, Engineer, Machine Gunner, Marksman, Medic, and Pilot.",
         if !(isNil QMODULE(perk)) then {"<br />The primary purpose of role selection is to determine which role-based <marker name=''>perks</marker> you can unlock."} else {""},
         "<br />A limited amount of roles provide <marker name=''>inherent functions</marker>. These are as follows:",
         "<br />- Artillery Operators are able to use the artillery computer.",
