@@ -76,6 +76,8 @@ if (hasInterface) then {
     };
 
     if (isMultiplayer) then {
+        disableUserInput false;
+
         player spawn {
             if (!isNil QMODULE(database) && {[[name player] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual}) exitWith {
                 [gameLogic, "spawn", [[name player, getPlayerUID player], {
