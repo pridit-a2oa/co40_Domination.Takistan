@@ -10,11 +10,15 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    waitUntil {
-        sleep 0.1;
+    0 spawn {
+        waitUntil {
+            sleep 0.1;
 
-        [count (X_JIPH getVariable QGVAR(squads)), count GVAR(group_names)] call BIS_fnc_areEqual && {[{[grpNull, _x] call BIS_fnc_areEqual} count (X_JIPH getVariable QGVAR(squads)), 0] call BIS_fnc_areEqual}
+            // TODO: Add server debug on long running executions
+
+            [count (X_JIPH getVariable QGVAR(squads)), count GVAR(group_names)] call BIS_fnc_areEqual && {[{[grpNull, _x] call BIS_fnc_areEqual} count (X_JIPH getVariable QGVAR(squads)), 0] call BIS_fnc_areEqual}
+        };
+
+        [call FUNC(THIS_MODULE,assign)] call FUNC(THIS_MODULE,populate);
     };
-
-    [call FUNC(THIS_MODULE,assign)] call FUNC(THIS_MODULE,populate);
 };
