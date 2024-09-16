@@ -2,6 +2,7 @@
  * Core Module - Common (client & server)
  */
 
+#define THIS_MODULE common
 #include "x_macros.sqf"
 private ["_handlers", "_count"];
 
@@ -51,3 +52,14 @@ _count = count _handlers;
         __handlerPP(_path);
     };
 } forEach _handlers;
+
+if (hasInterface) then {
+    [gameLogic, "spawn", [[name player, getPlayerUID player, _count], {
+        __log format [
+            "Player %1 (%2) executed handlers (%3)",
+            _this select 0,
+            _this select 1,
+            _this select 2
+        ]];
+    }]] call FUNC(network,mp);
+};
