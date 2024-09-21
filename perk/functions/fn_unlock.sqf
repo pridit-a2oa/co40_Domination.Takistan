@@ -152,14 +152,14 @@ switch (_tier) do {
             };
 
             case 3: {
-                if (!isNil QMODULE(ied)) then {
-                    player setVariable [QGVAR(ied), true, true];
+                if (!isNil QMODULE(vehicle_repair)) then {
+                    player setVariable [QGVAR(repair_full), true];
                 };
             };
 
             case 4: {
-                if (!isNil QMODULE(vehicle_repair)) then {
-                    player setVariable [QGVAR(repair_full), true];
+                if (!isNil QMODULE(ied)) then {
+                    player setVariable [QGVAR(ied), true, true];
                 };
             };
 

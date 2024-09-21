@@ -175,7 +175,7 @@ class PerkButton_Role2_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "IED trigger jammed within 50m";
+    tooltip = "Repair kits fix 100% of damage";
     action = "[2,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
@@ -185,7 +185,7 @@ class PerkButton_Role2_4: XD_LinkButtonUpgradeBase
     y = 0.675;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Repair kits fix 100% of damage";
+    tooltip = "IED trigger jammed within 50m";
     action = "[2,4] call d_fnc_perk_clicked";
 };
 class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
