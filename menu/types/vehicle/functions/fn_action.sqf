@@ -171,3 +171,13 @@ if !(isNil QMODULE(vehicle_unflip)) then {
         true
     };
 };
+
+if !(isNil QMODULE(vehicle_teleport)) then {
+    case "upgrade": {
+        closeDialog 0;
+
+        [_entity] spawn FUNC(vehicle_upgrade,upgrade);
+
+        false
+    };
+};

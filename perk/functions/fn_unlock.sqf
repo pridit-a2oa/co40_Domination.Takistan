@@ -164,9 +164,16 @@ switch (_tier) do {
             };
 
             case 5: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
-                    player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
-                    player setVariable [QGVAR(inventory_repair_max), (player getVariable QGVAR(inventory_repair_max)) + 1, true];
+                if (!isNil QMODULE(vehicle_upgrade)) then {
+                    player setVariable [QGVAR(vehicle_upgrade_types), [
+                        ["(Perk) MC", "M1129_MC_EP1"],
+                        ["(Perk) MGS", "M1128_MGS_EP1"],
+                        ["(Perk) TOW", "M1135_ATGMV_EP1"]
+                    ] + (player getVariable QGVAR(vehicle_upgrade_types))];
+
+                    if (!isNil QMODULE(setting)) then {
+                        ["vehicle_upgrade_type"] call FUNC(setting,update);
+                    };
                 };
             };
         };

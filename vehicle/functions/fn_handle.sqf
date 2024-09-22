@@ -69,6 +69,10 @@ if (isServer) then {
         [_vehicle] __submodulePP(vehicle_uav);
     };
 
+    if (!isNil QMODULE(vehicle_upgrade)) then {
+        [_vehicle] __submodulePP(vehicle_upgrade);
+    };
+
     if (!isNil QMODULE(vehicle_wreck)) then {
         if (isNil {_vehicle getVariable QGVAR(wreckable)}) then {
             _vehicle setVariable [QGVAR(wreckable), false, true];

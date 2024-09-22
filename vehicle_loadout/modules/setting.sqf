@@ -6,7 +6,7 @@
 
 GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
-        "Vehicle Loadout",
+        "Vehicle: Loadout",
         "vehicle_loadout",
         "Set whether you see an output of the new armament &amp; capacity on loadout switch",
         ["Show", "Hide"],

@@ -106,6 +106,7 @@ GVAR(modules) = [
     // "vehicle_tow", // TODO: Refactor (legacy RE use, buggy actions)
     // "vehicle_uav", // TODO: Incomplete (remote controlling, backpack)
     "vehicle_unflip",
+    "vehicle_upgrade",
     "vehicle_wreck",
     "vote",
     "weather"

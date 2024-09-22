@@ -48,7 +48,7 @@ class PerkIcon_General_6: XD_RscPicture
 };
 class PerkIcon_General_7: XD_RscPicture
 {
-    text = "ca\warfare2\Images\wf_iconcity_supply_ca";
+    text = "ca\warfare2\Images\wf_iconcity_defence_ca";
     x = 0.375001;
     y = 0.225;
     w = 0.0419193;
@@ -160,7 +160,15 @@ class PerkIcon_Role2_4: XD_RscPicture
 };
 class PerkIcon_Role2_5: XD_RscPicture
 {
-    text = "ca\ui\data\ui_action_repair_ca";
+    text = "ca\warfare2\Images\factoryicondepot";
+    x = 0.359375;
+    y = 0.775;
+    w = 0.0419193;
+    h = 0.0562289;
+};
+class PerkIcon_Role2_5_1: XD_RscPicture
+{
+    text = "ca\ui\data\markers\n_unknown";
     x = 0.359375;
     y = 0.775;
     w = 0.0419193;

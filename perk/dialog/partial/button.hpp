@@ -195,7 +195,7 @@ class PerkButton_Role2_5: XD_LinkButtonUpgradeBase
     y = 0.775;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Repair kit (+1)";
+    tooltip = "Stryker MEV upgrade conversion types (weaponized)";
     action = "[2,5] call d_fnc_perk_clicked";
 };
 class PerkButton_Role3_1: XD_LinkButtonUpgradeBase

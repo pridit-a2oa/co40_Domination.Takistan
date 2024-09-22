@@ -58,4 +58,10 @@ if !(isNil QMODULE(vehicle_unflip)) then {
     [_valid, [GVAR(menu_entity)] __submodulePP(vehicle_unflip)] call BIS_fnc_arrayPush;
 };
 
+if !(isNil QMODULE(vehicle_upgrade)) then {
+    if !((GVAR(menu_entity) getVariable QGVAR(deployed)) select 0) then {
+        [_valid, [GVAR(menu_entity)] __submodulePP(vehicle_upgrade)] call BIS_fnc_arrayPush;
+    };
+};
+
 _valid

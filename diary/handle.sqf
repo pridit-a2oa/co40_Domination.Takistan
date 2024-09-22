@@ -14,6 +14,10 @@ if (hasInterface) then {
         __submodulePP(base_wreck);
     };
 
+    if (!isNil QMODULE(vehicle_upgrade)) then {
+        __submodulePP(vehicle_upgrade);
+    };
+
     if (!isNil QMODULE(vehicle_uav)) then {
         __submodulePP(vehicle_uav);
     };
