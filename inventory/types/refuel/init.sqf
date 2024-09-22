@@ -9,7 +9,10 @@
 GVAR(inventory_refuel_type) = [
     "Fuel Can",
     "refuel",
-    ["MtvrRefuel_DES_EP1", "UralRefuel_TK_EP1"]
+    [
+        "MtvrRefuel_DES_EP1",
+        "UralRefuel_TK_EP1"
+    ]
 ];
 
 // Visibility in the dialog

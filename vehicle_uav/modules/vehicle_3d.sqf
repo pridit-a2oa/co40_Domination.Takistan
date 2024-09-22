@@ -9,4 +9,4 @@ PARAMS_1(_vehicle);
 
 if !([GVAR(vehicle_uav_type), _vehicle] call BIS_fnc_areEqual) exitWith {""};
 
-"<br />Remote-controlled"
+"<br />Remote-Controlled"

@@ -9,7 +9,10 @@
 GVAR(inventory_repair_type) = [
     "Repair Kit",
     "repair",
-    ["MtvrRepair_DES_EP1", "UralRepair_TK_EP1"]
+    [
+        "MtvrRepair_DES_EP1",
+        "UralRepair_TK_EP1"
+    ]
 ];
 
 // Visibility in the dialog

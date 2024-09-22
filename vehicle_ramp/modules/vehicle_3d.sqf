@@ -9,4 +9,4 @@ PARAMS_1(_vehicle);
 
 if !(_vehicle in GVAR(vehicle_ramp_types)) exitWith {""};
 
-"<br />HALO jump"
+"<br />HALO Jump"

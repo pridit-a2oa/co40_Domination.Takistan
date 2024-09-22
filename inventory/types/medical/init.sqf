@@ -9,7 +9,11 @@
 GVAR(inventory_medical_type) = [
     "Medkit",
     "medical",
-    ["HMMWV_Ambulance_DES_EP1", "M113Ambul_TK_EP1"]
+    [
+        "HMMWV_Ambulance_DES_EP1",
+        "M1133_MEV_EP1",
+        "M113Ambul_TK_EP1"
+    ]
 ];
 
 // Visibility in the dialog
