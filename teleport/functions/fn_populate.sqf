@@ -50,6 +50,10 @@ if !(isNil QMODULE(vehicle_deploy)) then {
             _name = [typeOf _x] call FUNC(vehicle,name);
 
             if !(isNil QMODULE(vehicle_marker)) then {
+                while {[markerText _id, ""] call BIS_fnc_areEqual} do {
+                    sleep 0.2;
+                };
+
                 _name = markerText _id;
             };
 

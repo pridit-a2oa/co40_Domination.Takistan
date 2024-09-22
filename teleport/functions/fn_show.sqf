@@ -8,4 +8,4 @@ createDialog "XD_TeleportDialog";
 
 GVAR(teleport) = _parent;
 
-call FUNC(THIS_MODULE,populate);
+0 spawn FUNC(THIS_MODULE,populate);
