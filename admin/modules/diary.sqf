@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Admin", [
-    "<img image='ca\missions_e\bootcamp\TE11_Team_command.Zargabad\overview_ca' width='200'/>",
+    "<img image='ca\missions_e\campaign\missions\CE8_scenePressConf.Zargabad\overview_ce8_ca' width='200'/>",
     "<br />If there is a mission breaking issue, severe bug, cheater, or active griefer please <marker name=''>report</marker> these to an admin.",
     "<br />You can do this by typing <marker name=''>@admin</marker> as part of your message in Global or Side channel, which will cause a Discord ping.",
     "<br />Include the reasoning/context as part of your message, and <marker name=''>not</marker> just the ping word, otherwise it will be ignored.",

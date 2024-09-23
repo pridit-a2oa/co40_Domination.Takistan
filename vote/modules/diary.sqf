@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Votes", [
-    "<img image='ca\missions_e\campaign\missions\CE8_scenePressConf.Zargabad\overview_ce8_ca' width='200'/>",
+    "<img image='ca\missions_e\bootcamp\TE11_Team_command.Zargabad\overview_ca' width='200'/>",
     "<br />Voting is a way to affect aspects of the mission, such as the time of day.",
     "<br />Use the context menu and select Options -> Voting to create and participate in votes.",
     format ["<br />Votes have a running time of <marker name=''>%1</marker> minutes, but will end sooner if pass/fail criteria is met.", GVAR(vote_time_delay) / 60],
