@@ -11,6 +11,7 @@
 GVAR(vehicle_upgrade_types) = [
     "M1128_MGS_EP1",
     "M1129_MC_EP1",
+    "M1130_CV_EP1",
     "M1133_MEV_EP1",
     "M1135_ATGMV_EP1"
 ];
@@ -22,7 +23,10 @@ GVAR(vehicle_upgrade_distance_base) = 450;
 GVAR(vehicle_upgrade_time_cooldown) = 60;
 
 if (hasInterface) then {
-    player setVariable [QGVAR(vehicle_upgrade_types), [["MEV", "M1133_MEV_EP1"]]];
+    player setVariable [QGVAR(vehicle_upgrade_types), [
+        ["CV", "M1130_CV_EP1"],
+        ["MEV", "M1133_MEV_EP1"]
+    ]];
 
     if (isNil {player getVariable QGVAR(vehicle_upgrade_type)}) then {
         player setVariable [QGVAR(vehicle_upgrade_type), [0, "M1133_MEV_EP1"]];

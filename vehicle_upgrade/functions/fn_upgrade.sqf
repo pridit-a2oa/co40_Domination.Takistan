@@ -71,7 +71,8 @@ if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _check
         direction _vehicle,
         vectorUp _vehicle,
         _vehicle getVariable QGVAR(position),
-        _vehicle getVariable QGVAR(direction)
+        _vehicle getVariable QGVAR(direction),
+        _vehicle getVariable QGVAR(type)
     ];
 
     [_vehicle] call FUNC(vehicle,delete);
@@ -86,6 +87,7 @@ if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _check
 
     _new setVariable [QGVAR(position), _parent select 3, true];
     _new setVariable [QGVAR(direction), _parent select 4, true];
+    _new setVariable [QGVAR(type), _parent select 5, true];
 
     [true, "execVM", [[_new], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
     [true, "reveal", _new] call FUNC(network,mp);

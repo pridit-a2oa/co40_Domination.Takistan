@@ -9,7 +9,8 @@
 GVAR(vehicle_create_types) = [
     ["BMP2_HQ_TK_EP1",  ["TT650_TK_EP1"]],
     ["C130J_US_EP1",    ["HMMWV_DES_EP1", "MH6J_EP1"]],
-    ["M1133_MEV_EP1",   ["ATV_US_EP1"]]
+    ["M1130_CV_EP1",    ["M1030_US_DES_EP1"]],
+    ["M1133_MEV_EP1",   ["M1030_US_DES_EP1"]]
 ];
 
 // Minimum distance all players must be before deletion can occur

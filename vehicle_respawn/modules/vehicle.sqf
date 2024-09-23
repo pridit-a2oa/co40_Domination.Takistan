@@ -65,11 +65,11 @@ while {!isNull _vehicle} do {
 
         _type = typeOf _vehicle;
 
-        [_vehicle] call FUNC(vehicle,delete);
-
         if !(isNil QMODULE(vehicle_upgrade)) then {
-            _type = [_type] __submodulePP(vehicle_upgrade);
+            _type = [_vehicle] __submodulePP(vehicle_upgrade);
         };
+
+        [_vehicle] call FUNC(vehicle,delete);
 
         _spawn = createVehicle [_type, _position, [], 0, "NONE"];
         _spawn setDir _direction;

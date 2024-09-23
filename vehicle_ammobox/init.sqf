@@ -10,7 +10,7 @@
 // Vehicle(s) as ammobox loaders
 GVAR(vehicle_ammobox_types) = [
     "BMP2_HQ_TK_EP1",
-    "M1133_MEV_EP1",
+    "M1130_CV_EP1",
     "UH1H_TK_EP1",
     "UH60M_EP1"
 ];

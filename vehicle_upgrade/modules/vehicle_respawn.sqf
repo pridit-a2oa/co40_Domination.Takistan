@@ -3,10 +3,10 @@
  */
 
 #include "x_macros.sqf"
-private ["_type"];
+private ["_vehicle"];
 
-PARAMS_1(_type);
+PARAMS_1(_vehicle);
 
-if !(_type in GVAR(vehicle_upgrade_types)) exitWith {_type};
+if !(typeOf _vehicle in GVAR(vehicle_upgrade_types)) exitWith {_type};
 
-"M1133_MEV_EP1"
+_vehicle getVariable QGVAR(type)

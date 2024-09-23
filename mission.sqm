@@ -879,7 +879,7 @@ class Mission
 			azimut=110.706;
 			id=3;
 			side="EMPTY";
-			vehicle="M1133_MEV_EP1";
+			vehicle="M1130_CV_EP1";
 			lock="UNLOCKED";
 			skill=1;
 		};

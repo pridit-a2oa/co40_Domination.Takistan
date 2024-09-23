@@ -30,4 +30,8 @@ if (!isNil QMODULE(vehicle_uav)) then {
     _description = _description + ([_name] __submodulePP(vehicle_uav));
 };
 
+if (!isNil QMODULE(vehicle_create)) then {
+    _description = _description + ([_type] __submodulePP(vehicle_create));
+};
+
 _description

@@ -13,6 +13,7 @@ GVAR(vehicle_mhq_types) = [
     "BMP2_HQ_TK_EP1",
     "M1128_MGS_EP1",
     "M1129_MC_EP1",
+    "M1130_CV_EP1",
     "M1133_MEV_EP1",
     "M1135_ATGMV_EP1"
 ];
