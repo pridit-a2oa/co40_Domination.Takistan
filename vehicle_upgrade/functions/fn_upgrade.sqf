@@ -66,6 +66,8 @@ if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _check
 
     if !(alive _vehicle) exitWith {};
 
+    __log format ["%1 -> %2", [typeOf _vehicle] call FUNC(vehicle,name), [_type] call FUNC(vehicle,name)]];
+
     _parent = [
         position _vehicle,
         direction _vehicle,
