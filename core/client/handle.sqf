@@ -209,7 +209,8 @@ if (!isNil QMODULE(ammobox)) then {
             ["menu_player", "menu\types\player"],
             "perk",
             "option",
-            "revive"
+            "revive",
+            "vehicle_upgrade"
         ];
 
         if (!isNil QMODULE(perk)) then {

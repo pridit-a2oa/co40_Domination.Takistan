@@ -72,7 +72,6 @@ GVAR(modules) = [
     "respawn",
     "revive",
     "reward",
-    "setting",
     "shield",
     "squad",
     "task",
@@ -109,7 +108,8 @@ GVAR(modules) = [
     "vehicle_upgrade",
     "vehicle_wreck",
     "vote",
-    "weather"
+    "weather",
+    "setting" // Note: End is due to reliance on variables other handlers must set
 ];
 
 {

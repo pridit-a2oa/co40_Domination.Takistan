@@ -9,8 +9,6 @@
 GVAR(construction_fortification_object) = "Fort_EnvelopeBig_EP1";
 
 if (hasInterface) then {
-    player setVariable [QGVAR(fortification_types), [["Trench", GVAR(construction_fortification_object)]]];
-
     if (isNil {player getVariable QGVAR(fortification_type)}) then {
         player setVariable [QGVAR(fortification_type), [0, GVAR(construction_fortification_object)]];
     };

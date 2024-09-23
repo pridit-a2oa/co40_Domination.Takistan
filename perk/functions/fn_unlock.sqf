@@ -165,14 +165,14 @@ switch (_tier) do {
 
             case 5: {
                 if (!isNil QMODULE(vehicle_upgrade)) then {
-                    player setVariable [QGVAR(vehicle_upgrade_types), [
+                    player setVariable [QGVAR(vehicle_upgrade_types), (player getVariable QGVAR(vehicle_upgrade_types)) + [
                         ["(Perk) MC", "M1129_MC_EP1"],
                         ["(Perk) MGS", "M1128_MGS_EP1"],
                         ["(Perk) TOW", "M1135_ATGMV_EP1"]
-                    ] + (player getVariable QGVAR(vehicle_upgrade_types))];
+                    ]];
 
                     if (!isNil QMODULE(setting)) then {
-                        ["vehicle_upgrade_type"] call FUNC(setting,update);
+                        ["vehicle_upgrade_type", false] call FUNC(setting,update);
                     };
                 };
             };
@@ -225,7 +225,7 @@ switch (_tier) do {
                     ]];
 
                     if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type"] call FUNC(setting,update);
+                        ["airdrop_type", true] call FUNC(setting,update);
                     };
                 };
             };
@@ -258,13 +258,13 @@ switch (_tier) do {
 
             case 3: {
                 if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
-                    player setVariable [QGVAR(fortification_types), [
+                    player setVariable [QGVAR(fortification_types), (player getVariable QGVAR(fortification_types)) + [
                         ["(Perk) Bunker", "Land_fortified_nest_small_EP1"],
                         ["(Perk) Rampart", "Land_fort_rampart_EP1"]
-                    ] + (player getVariable QGVAR(fortification_types))];
+                    ]];
 
                     if (!isNil QMODULE(setting)) then {
-                        ["fortification_type"] call FUNC(setting,update);
+                        ["fortification_type", false] call FUNC(setting,update);
                     };
                 };
             };
@@ -285,7 +285,7 @@ switch (_tier) do {
                     ]];
 
                     if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type"] call FUNC(setting,update);
+                        ["airdrop_type", true] call FUNC(setting,update);
                     };
                 };
             };
@@ -394,7 +394,7 @@ switch (_tier) do {
                     ]];
 
                     if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type"] call FUNC(setting,update);
+                        ["airdrop_type", true] call FUNC(setting,update);
                     };
                 };
             };
