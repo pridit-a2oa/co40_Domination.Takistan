@@ -7,7 +7,7 @@ PARAMS_1(_type);
 if (hasInterface) then {
     private ["_name", "_checks"];
 
-    _name = "R&D point";
+    _name = "R&D";
     _checks = [
         [
             [_name, "used to construct"],
@@ -21,7 +21,7 @@ if (hasInterface) then {
         ] call FUNC(helper,inProgress),
 
         [
-            _name,
+            [_name, "used to construct"],
             position GVAR(base_rd)
         ] call FUNC(helper,nearAny)
     ];

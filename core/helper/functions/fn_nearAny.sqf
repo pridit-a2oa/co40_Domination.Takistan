@@ -7,8 +7,9 @@ _any = nearestObjects [_position, ["AllVehicles", "CAManBase"], 10];
 
 if (count _any > 0) exitWith {
     format [
-        "%1 cannot be used while occupied",
-        _name
+        "%1 cannot be %2 in occupied space",
+        _name select 0,
+        _name select 1
     ];
 };
 
