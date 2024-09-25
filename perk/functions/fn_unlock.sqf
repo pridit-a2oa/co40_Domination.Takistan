@@ -1,8 +1,8 @@
 #define THIS_MODULE perk
 #include "x_macros.sqf"
-private ["_tier", "_perk"];
+private ["_tier", "_perk", "_original"];
 
-PARAMS_2(_tier, _perk);
+PARAMS_3(_tier, _perk, _original);
 
 switch (_tier) do {
     case 0: {
@@ -218,15 +218,7 @@ switch (_tier) do {
 
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 1200;
-
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["(Perk) M1A2 TUSK", "M1A2_US_TUSK_MG_EP1"]
-                    ]];
-
-                    if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type", true] call FUNC(setting,update);
-                    };
+                    ["M1A2_US_TUSK_MG_EP1", _original] call FUNC(airdrop,add);
                 };
             };
         };
@@ -278,15 +270,7 @@ switch (_tier) do {
 
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
-
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["(Perk) M2A2", "M2A2_EP1"]
-                    ]];
-
-                    if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type", true] call FUNC(setting,update);
-                    };
+                    ["M2A2_EP1", _original] call FUNC(airdrop,add);
                 };
             };
         };
@@ -387,15 +371,7 @@ switch (_tier) do {
 
             case 5: {
                 if (!isNil QMODULE(airdrop)) then {
-                    GVAR(airdrop_time_cooldown) = GVAR(airdrop_time_cooldown) + 600;
-
-                    player setVariable [QGVAR(airdrop_types), (player getVariable QGVAR(airdrop_types)) + [
-                        ["(Perk) AH6J", "AH6J_EP1"]
-                    ]];
-
-                    if (!isNil QMODULE(setting)) then {
-                        ["airdrop_type", true] call FUNC(setting,update);
-                    };
+                    ["AH6J_EP1", _original] call FUNC(airdrop,add);
                 };
             };
         };

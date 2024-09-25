@@ -21,7 +21,7 @@ if (_id in _ids) exitWith {};
 // inacessible perk (role restriction)
 if ([ctrlText (DIALOG("X_PERK_DIALOG", 200 + _id)), "ca\ui\data\cmdbar_donotfire_ca"] call BIS_fnc_areEqual) exitWith {};
 
-[_tier, _perk] call FUNC(THIS_MODULE,unlock);
+[_tier, _perk, true] call FUNC(THIS_MODULE,unlock);
 
 if (_points > 0) then {
     player setVariable [QGVAR(perk_points), _points - 1];

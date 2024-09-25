@@ -49,6 +49,8 @@ if (isServer) then {
     X_JIPH setVariable [QGVAR(airdrop_progress), false, true];
 };
 
+__cppfln(FUNC(THIS_MODULE,add),THIS_MODULE\functions\fn_add.sqf);
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);
+__cppfln(FUNC(THIS_MODULE,cooldown),THIS_MODULE\functions\fn_cooldown.sqf);
 
 MODULE(THIS_MODULE) = true;

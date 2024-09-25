@@ -25,5 +25,5 @@ BIS_MENU_Construct resize 1;
 BIS_MENU_Radio resize 1;
 
 {
-    [_x select 0, _x select 1] call FUNC(THIS_MODULE,unlock);
+    [_x select 0, _x select 1, false] call FUNC(THIS_MODULE,unlock);
 } forEach (player getVariable QGVAR(perks_unlocked));

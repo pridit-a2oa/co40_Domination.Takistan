@@ -71,7 +71,7 @@ if (hasInterface) then {
     if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
     X_JIPH setVariable [QGVAR(airdrop_call), true, true];
-    player setVariable [QGVAR(airdrop_cooldown), time + GVAR(airdrop_time_cooldown)];
+    player setVariable [QGVAR(airdrop_cooldown), time + ([_drop] call FUNC(THIS_MODULE,cooldown))];
 
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(call)]] call FUNC(network,mp);
