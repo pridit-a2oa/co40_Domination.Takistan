@@ -16,7 +16,12 @@ _checks = [
     [
         [format ["%1 upgrade", _name], "performed"],
         _vehicle
-    ] call FUNC(helper,isOccupied)
+    ] call FUNC(helper,isOccupied),
+
+    [
+        [format ["%1 upgrade", _name], "performed"],
+        _vehicle
+    ] call FUNC(helper,isDamaged)
 ];
 
 if (hasInterface) then {
@@ -71,7 +76,8 @@ if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _check
     _parent = [
         position _vehicle,
         direction _vehicle,
-        vectorUp _vehicle,
+        fuel _vehicle,
+        damage _vehicle,
         _vehicle getVariable QGVAR(position),
         _vehicle getVariable QGVAR(direction),
         _vehicle getVariable QGVAR(type)
@@ -87,9 +93,12 @@ if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _check
     _new setVelocity [0, 0, 0];
     _new setVectorUp surfaceNormal (_parent select 0);
 
-    _new setVariable [QGVAR(position), _parent select 3, true];
-    _new setVariable [QGVAR(direction), _parent select 4, true];
-    _new setVariable [QGVAR(type), _parent select 5, true];
+    _new setFuel (_parent select 2);
+    _new setDamage (_parent select 3);
+
+    _new setVariable [QGVAR(position), _parent select 4, true];
+    _new setVariable [QGVAR(direction), _parent select 5, true];
+    _new setVariable [QGVAR(type), _parent select 6, true];
 
     [true, "execVM", [[_new], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
     [true, "reveal", _new] call FUNC(network,mp);

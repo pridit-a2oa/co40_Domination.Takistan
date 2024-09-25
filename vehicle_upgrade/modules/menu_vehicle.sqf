@@ -16,7 +16,7 @@ if ([typeOf _vehicle, _type] call BIS_fnc_areEqual) exitWith {false};
 
 [
     format [
-        "Upgrade: %1",
+        "Upgrade: Convert (%1)",
         [_type] call FUNC(vehicle,name)
     ],
     "upgrade"
