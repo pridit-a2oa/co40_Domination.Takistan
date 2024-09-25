@@ -44,7 +44,12 @@ if (hasInterface) then {
 
         [
             [_name, "called"]
-        ] call FUNC(helper,inVehicle)
+        ] call FUNC(helper,inVehicle),
+
+        [
+            [_name, "called"],
+            _position
+        ] call FUNC(helper,isObstructed)
     ];
 
     if !(isNil QMODULE(conversation)) then {
