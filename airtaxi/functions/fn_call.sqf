@@ -129,7 +129,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
                             [GVAR(crossroad), GVAR(crossroad2)],
                             [QUOTE(THIS_MODULE), "Depart"],
                             [
-                                ["Time", {}, format ["%1 second(s)", GVAR(air_taxi_time_wait)], []]
+                                ["Time", {}, format ["%1s", GVAR(air_taxi_time_wait)], []]
                             ]
                         ] call FUNC(conversation,radio);
                     };
