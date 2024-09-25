@@ -9,6 +9,7 @@ GVAR(perframe_store) = "HeliHEmpty" createVehicleLocal [0,0,0];
 GVAR(perframe_array) = [];
 GVAR(perframe_previous) = -999;
 
+player setVariable [QGVAR(idle), true];
 player setVariable [QGVAR(spawn), position player];
 
 __cppfln(FUNC(THIS_MODULE,addPerFrame),core\THIS_MODULE\functions\fn_addPerFrame.sqf);
