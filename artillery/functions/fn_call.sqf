@@ -43,6 +43,16 @@ if (hasInterface) then {
         ] call FUNC(helper,nearSide)
     ];
 
+    if !(isNil QMODULE(conversation)) then {
+        [
+            _checks,
+            [
+                "Crossroad communication",
+                X_JIPH getVariable QGVAR(conversation)
+            ] call FUNC(helper,inProgress)
+        ] call BIS_fnc_arrayPush;
+    };
+
     {
         if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
@@ -61,19 +71,18 @@ if (hasInterface) then {
 
 if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
     X_JIPH setVariable [QGVAR(artillery_call), false, true];
-    X_JIPH setVariable [QGVAR(artillery_progress), true, true];
 
-    if !(isNil QMODULE(conversation)) then {
-        [
-            _unit,
-            _position,
-            format [
-                "artillery strike, %1 salvo%2",
-                _salvoes,
-                if (_salvoes > 1) then {"es"} else {""}
-            ]
-        ] call FUNC(conversation,request);
-    };
+    if (!isNil QMODULE(conversation) && {[
+        _unit,
+        _position,
+        format [
+            "artillery strike, %1 salvo%2",
+            _salvoes,
+            if (_salvoes > 1) then {"es"} else {""}
+        ]
+    ] call FUNC(conversation,request)}) exitWith {};
+
+    X_JIPH setVariable [QGVAR(artillery_progress), true, true];
 
     _smoke = GVAR(artillery_type_smoke) createVehicle _position;
 

@@ -43,6 +43,16 @@ if (hasInterface) then {
         ] call FUNC(helper,inVehicle)
     ];
 
+    if !(isNil QMODULE(conversation)) then {
+        [
+            _checks,
+            [
+                "Crossroad communication",
+                X_JIPH getVariable QGVAR(conversation)
+            ] call FUNC(helper,inProgress)
+        ] call BIS_fnc_arrayPush;
+    };
+
     {
         if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
@@ -61,11 +71,14 @@ if (hasInterface) then {
 
 if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
     X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
-    X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
 
-    if !(isNil QMODULE(conversation)) then {
-        [_unit, _position, "air taxi"] call FUNC(conversation,request);
-    };
+    if (!isNil QMODULE(conversation) && {[
+        _unit,
+        _position,
+        "air taxi"
+    ] call FUNC(conversation,request)}) exitWith {};
+
+    X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
 
     GVAR(air_taxi_type_smoke) createVehicle _position;
 

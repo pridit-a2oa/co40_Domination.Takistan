@@ -29,6 +29,16 @@ if (hasInterface) then {
         ] call FUNC(helper,inVehicle)
     ];
 
+    if !(isNil QMODULE(conversation)) then {
+        [
+            _checks,
+            [
+                "Crossroad communication",
+                X_JIPH getVariable QGVAR(conversation)
+            ] call FUNC(helper,inProgress)
+        ] call BIS_fnc_arrayPush;
+    };
+
     {
         if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
             hint _x;
@@ -47,11 +57,14 @@ if (hasInterface) then {
 
 if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
     X_JIPH setVariable [QGVAR(uav_call), false, true];
-    X_JIPH setVariable [QGVAR(uav_progress), true, true];
 
-    if !(isNil QMODULE(conversation)) then {
-        [_unit, _position, "UAV"] call FUNC(conversation,request);
-    };
+    if (!isNil QMODULE(conversation) && {[
+        _unit,
+        _position,
+        "UAV"
+    ] call FUNC(conversation,request)}) exitWith {};
+
+    X_JIPH setVariable [QGVAR(uav_progress), true, true];
 
     _vehicle = [
         _position,
