@@ -72,7 +72,7 @@ if (isServer || {(hasInterface && {[{[_x, true] call BIS_fnc_areEqual} count _ch
                     [_new] call FUNC(THIS_MODULE,parse),
                     if !(isNil QMODULE(vehicle_service)) then {
                         format [
-                            "Use <t color='#a3ae55'>%1 Service</t> to rearm<br /><br />",
+                            "Rearm at <t color='#a3ae55'>%1 Service</t><br /><br />",
                             [_vehicle] call FUNC(vehicle,kind)
                         ]
                     } else {""}
