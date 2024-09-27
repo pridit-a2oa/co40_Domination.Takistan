@@ -3,6 +3,8 @@ private ["_ammobox", "_local"];
 
 PARAMS_2(_ammobox, _local);
 
+if (isNil "_ammobox" || {isNull _ammobox}) exitWith {};
+
 if (_local) then {
     clearMagazineCargo _ammobox;
     clearWeaponCargo _ammobox;
