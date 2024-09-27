@@ -42,7 +42,7 @@ GVAR(vehicle_loadout_types) = [
         ]],
 
         ["Close Air Support", [
-            ["M197", 1, [0]],
+            ["M197", 2, [0]],
             ["HellfireLauncher_AH6", 1, [0]],
             [["FFARLauncher", "28Rnd_FFAR"], 1],
             [["CMFlareLauncher", "60Rnd_CMFlareMagazine"], 1]
@@ -114,6 +114,12 @@ GVAR(vehicle_loadout_types) = [
     ["MQ9PredatorB_US_EP1", [
         ["Default", [
             ["Laserdesignator_mounted", 1, [0]]
+        ]]
+    ]],
+
+    ["UH60M_EP1", [
+        ["Default", [
+            [["CMFlareLauncher", "120Rnd_CMFlareMagazine"], 1]
         ]]
     ]],
 
