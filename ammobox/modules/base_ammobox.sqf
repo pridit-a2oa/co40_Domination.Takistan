@@ -33,6 +33,8 @@ if !(isNil QMODULE(database)) then {
         if ([(GVAR(database_uid) select (_id select 0)) select 1, ""] call BIS_fnc_areEqual) exitWith {};
 
         [_unit, "spawn", [[], {
+            if (isNil {GVAR(base_ammobox)}) exitWith {};
+
             [GVAR(ammobox_type_rifles_assault), "AKS_GOLD"] call BIS_fnc_arrayPush;
             [GVAR(ammobox_type_handguns), "revolver_gold_EP1"] call BIS_fnc_arrayPush;
 
