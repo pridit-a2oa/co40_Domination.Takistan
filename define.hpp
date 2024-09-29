@@ -1046,18 +1046,18 @@ class XC_SliderH {
 };
 class RscFrame
 {
-	type = CT_STATIC;
-	idc = -1;
-	deletable = 0;
-	style = ST_FRAME;
-	shadow = 2;
-	colorBackground[] = {0,0,0,0};
-	colorText[] = {1,1,1,1};
-	font = "Zeppelin32";
-	sizeEx = 0.02;
-	text = "";
-	x = 0;
-	y = 0;
-	w = 0.3;
-	h = 0.3;
+    type = CT_STATIC;
+    idc = -1;
+    deletable = 0;
+    style = ST_FRAME;
+    shadow = 2;
+    colorBackground[] = {0,0,0,0};
+    colorText[] = {1,1,1,1};
+    font = "Zeppelin32";
+    sizeEx = 0.02;
+    text = "";
+    x = 0;
+    y = 0;
+    w = 0.3;
+    h = 0.3;
 };

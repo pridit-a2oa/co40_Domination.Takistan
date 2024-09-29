@@ -7,145 +7,145 @@ class XD_VoteDialog {
     objects[] = {};
     class controlsBackground {
         class VoteDialogPicture: XD_RscPicture
-		{
-			text = "ca\ui\data\ui_gameoptions_background_ca";
-			x = 0.213226;
-			y = 0.127922;
-			w = 0.608838;
-			h = 0.870563;
-		};
-		class VoteDialogSplitterTopPicture: XD_RscPicture
-		{
-			text = "ca\ui\data\ui_background_video_buttons_ca";
-			x = 0.210859;
-			y = 0.210823;
-			w = 0.721212;
-			h = 0.119048;
-		};
-		class VoteDialogSplitterBottomPicture: XD_RscPicture
-		{
-			text = "ca\ui\data\ui_background_video_buttons_ca";
-			x = 0.2107;
-			y = 0.660216;
-			w = 0.721212;
-			h = 0.183117;
-		};
+        {
+            text = "ca\ui\data\ui_gameoptions_background_ca";
+            x = 0.213226;
+            y = 0.127922;
+            w = 0.608838;
+            h = 0.870563;
+        };
+        class VoteDialogSplitterTopPicture: XD_RscPicture
+        {
+            text = "ca\ui\data\ui_background_video_buttons_ca";
+            x = 0.210859;
+            y = 0.210823;
+            w = 0.721212;
+            h = 0.119048;
+        };
+        class VoteDialogSplitterBottomPicture: XD_RscPicture
+        {
+            text = "ca\ui\data\ui_background_video_buttons_ca";
+            x = 0.2107;
+            y = 0.660216;
+            w = 0.721212;
+            h = 0.183117;
+        };
     };
-	class controls {
-		class VoteTitleText: X3_RscText
-		{
-			idc = 100;
-			text = "No Active Vote";
+    class controls {
+        class VoteTitleText: X3_RscText
+        {
+            idc = 100;
+            text = "No Active Vote";
             x = 0.232324;
             y = 0.164069;
             w = 0.548233;
             h = 0.0290043;
-			style = ST_CENTER;
-		};
-		class VoteRequiredText: X3_RscText
-		{
-			idc = 101;
+            style = ST_CENTER;
+        };
+        class VoteRequiredText: X3_RscText
+        {
+            idc = 101;
             x = 0.229798;
             y = 0.226406;
             w = 0.548233;
             h = 0.0290043;
             sizeEx = 0.028;
-			style = ST_CENTER;
-		};
-		class VoteFeedbackText: X3_RscText
-		{
-			idc = 102;
-			x = 0.23625;
-			y = 0.785;
-			w = 0.3;
-			h = 0.0249999;
-			sizeEx = 0.028;
-			style = ST_LEFT;
-		};
-		class VoteYesListbox: RscListbox
-		{
-			idc = 200;
-			x = 0.219696;
-			y = 0.269697;
-			w = 0.278031;
-			h = 0.389178;
-			sizeEx = 0.023;
+            style = ST_CENTER;
+        };
+        class VoteFeedbackText: X3_RscText
+        {
+            idc = 102;
+            x = 0.23625;
+            y = 0.785;
+            w = 0.3;
+            h = 0.0249999;
+            sizeEx = 0.028;
+            style = ST_LEFT;
+        };
+        class VoteYesListbox: RscListbox
+        {
+            idc = 200;
+            x = 0.219696;
+            y = 0.269697;
+            w = 0.278031;
+            h = 0.389178;
+            sizeEx = 0.023;
             rowHeight = 0.06;
             style = CT_NO_BORDER + ST_LEFT;
             borderSize = 1;
-		};
-		class VoteNoListbox: RscListbox
-		{
-			idc = 201;
-			x = 0.5;
-			y = 0.269697;
-			w = 0.278031;
-			h = 0.389178;
-			sizeEx = 0.023;
+        };
+        class VoteNoListbox: RscListbox
+        {
+            idc = 201;
+            x = 0.5;
+            y = 0.269697;
+            w = 0.278031;
+            h = 0.389178;
+            sizeEx = 0.023;
             rowHeight = 0.06;
             style = CT_NO_BORDER + ST_LEFT;
             borderSize = 1;
-		};
-		class VoteTypeComboBox: XD_UIComboBox
-		{
-			idc = 300;
-			x = 0.244375;
-			y = 0.681;
-			w = 0.144192;
-			h = 0.0453203;
-			onLBSelChanged = "[300] call d_fnc_vote_switch";
-		};
-		class VoteSubTypeComboBox: XD_UIComboBox
-		{
-			idc = 301;
-			x = 0.40375;
-			y = 0.681;
-			w = 0.144192;
-			h = 0.0453203;
-			onLBSelChanged = "";
-		};
-		class VoteYesButton: XD_ButtonBase
-		{
-			idc = 400;
-			text = "Vote Yes";
-			x = 0.234375;
-			y = 0.65;
-			w = 0.246465;
-			h = 0.108658;
+        };
+        class VoteTypeComboBox: XD_UIComboBox
+        {
+            idc = 300;
+            x = 0.244375;
+            y = 0.681;
+            w = 0.144192;
+            h = 0.0453203;
+            onLBSelChanged = "[300] call d_fnc_vote_switch";
+        };
+        class VoteSubTypeComboBox: XD_UIComboBox
+        {
+            idc = 301;
+            x = 0.40375;
+            y = 0.681;
+            w = 0.144192;
+            h = 0.0453203;
+            onLBSelChanged = "";
+        };
+        class VoteYesButton: XD_ButtonBase
+        {
+            idc = 400;
+            text = "Vote Yes";
+            x = 0.234375;
+            y = 0.65;
+            w = 0.246465;
+            h = 0.108658;
             color[] = {0.114,0.408,0.059,0.9};
-			size = 0.03521;
-			action = "[true] call d_fnc_vote_cast";
-		};
-		class VoteNoButton: XD_ButtonBase
-		{
-			idc = 401;
-			text = "Vote No";
-			x = 0.515625;
-			y = 0.65;
-			w = 0.246465;
-			h = 0.108658;
+            size = 0.03521;
+            action = "[true] call d_fnc_vote_cast";
+        };
+        class VoteNoButton: XD_ButtonBase
+        {
+            idc = 401;
+            text = "Vote No";
+            x = 0.515625;
+            y = 0.65;
+            w = 0.246465;
+            h = 0.108658;
             color[] = {0.592,0.063,0.059,0.9};
-			size = 0.03521;
-			action = "[false] call d_fnc_vote_cast";
-		};
-		class VoteStartButton: XD_ButtonBase
-		{
-			idc = 500;
-			x = 0.5625;
-			y = 0.65;
-			w = 0.197223;
-			h = 0.108658;
-			text = "Start Vote";
-			action = "[lbCurSel 300, lbCurSel 301] spawn d_fnc_vote_create";
-		};
-		class VoteCloseButton: XD_ButtonBase
-		{
-			x = 0.59625;
-			y = 0.74;
-			w = 0.163131;
-			h = 0.113468;
-			text = "Close";
-			action = "closeDialog 0";
-		};
-	};
+            size = 0.03521;
+            action = "[false] call d_fnc_vote_cast";
+        };
+        class VoteStartButton: XD_ButtonBase
+        {
+            idc = 500;
+            x = 0.5625;
+            y = 0.65;
+            w = 0.197223;
+            h = 0.108658;
+            text = "Start Vote";
+            action = "[lbCurSel 300, lbCurSel 301] spawn d_fnc_vote_create";
+        };
+        class VoteCloseButton: XD_ButtonBase
+        {
+            x = 0.59625;
+            y = 0.74;
+            w = 0.163131;
+            h = 0.113468;
+            text = "Close";
+            action = "closeDialog 0";
+        };
+    };
 };
