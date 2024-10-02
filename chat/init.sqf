@@ -8,6 +8,7 @@
 #define THIS_MODULE chat
 #include "x_macros.sqf"
 
+// Incompatible with SP environment
 if !(isMultiplayer) exitWith {};
 
 if (hasInterface) then {

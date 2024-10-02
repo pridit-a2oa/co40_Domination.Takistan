@@ -8,6 +8,9 @@
 #define THIS_MODULE damage
 #include "x_macros.sqf"
 
+// Incompatible with SP environment
+if !(isMultiplayer) exitWith {};
+
 if (hasInterface) then {
     player setVariable [QGVAR(damage_man), 0.8];
     player setVariable [QGVAR(damage_vehicle), 1, true];

@@ -7,6 +7,7 @@
 #define THIS_MODULE database
 #include "x_macros.sqf"
 
+// Incompatible with SP environment
 if !(isMultiplayer) exitWith {};
 
 if (isServer) then {

@@ -7,6 +7,7 @@
 #define THIS_MODULE revive
 #include "x_macros.sqf"
 
+// Incompatible with SP environment
 if !(isMultiplayer) exitWith {};
 
 // Amount of damage a revived player will have (medics revive full health)
