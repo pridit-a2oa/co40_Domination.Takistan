@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    private ["_locations", "_base"];
+    private ["_locations"];
 
     _locations = [
         ["NameCityCapital", "NameCity", "NameVillage"],
@@ -17,6 +17,8 @@ if (isServer) then {
     ] call BIS_fnc_locations;
 
     {
+        private ["_base"];
+
         _base = _x distance (markerPos QGVAR(base_south)) > GVAR(mission_main_distance_base);
 
         if (_base && {!((_x getVariable "name") in GVAR(mission_main_type_exceptions))}) then {
@@ -40,7 +42,7 @@ if (hasInterface) then {
 
     _target = X_JIPH getVariable QGVAR(target);
 
-    if (!isNil "_target") then {
+    if !(isNil "_target") then {
         {
             _x addEventHandler ["HandleDamage", {0}];
             _x enableSimulation false;

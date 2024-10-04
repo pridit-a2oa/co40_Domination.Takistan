@@ -6,7 +6,7 @@ PARAMS_4(_type, _amount, _position, _radius);
 
 _apc = GVAR(unit_type_vehicles_apc);
 
-_roads = _position nearRoads _radius;
+_roads = [_position, _radius] call FUNC(server,nearRoads);
 
 _units = [];
 
