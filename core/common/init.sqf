@@ -84,17 +84,11 @@ if (hasInterface) then {
                     __log format ["Player %1 (%2) ejected for invalid name", _this select 0, _this select 1]];
                 }]] call FUNC(network,mp);
 
-                for "_i" from -10 to -1 do {
-                    titleText [
-                        format [
-                            "YOUR NAME CONTAINS INVALID CHARACTERS\n\nRETURNING TO LOBBY\n\n%1",
-                            abs _i
-                        ],
-                        "BLACK FADED"
-                    ];
-
-                    sleep 1;
-                };
+                [
+                    format ["PLAYER NAME (%1) CONTAINS UNSAFE CHARACTERS\n\nRETURNING TO LOBBY", name player],
+                    15,
+                    false
+                ] call FUNC(client,transition);
 
                 endMission "LOSER";
             };

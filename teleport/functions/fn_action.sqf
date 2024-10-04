@@ -11,31 +11,12 @@ if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
 
     PARAMS_1(_target);
 
-    player enableSimulation false;
-
-    titleText ["", "BLACK", 1];
-
-    sleep 1;
-
-    for "_i" from -10 to -1 do {
-        titleText [
-            format [
-                "YOU ARE BEING TRANSPORTED\n\n%1",
-                abs _i
-            ],
-            "BLACK FADED"
-        ];
-
-        sleep 1;
-    };
+    ["YOU ARE BEING TRANSPORTED"] call FUNC(client,transition);
 
     _position = _target modelToWorld ([typeOf _target] call FUNC(vehicle,offsetPlayer));
 
     player setDir (getDir _target);
     player setPos [_position select 0, _position select 1, 0];
-    player enableSimulation true;
-
-    titleText ["", "BLACK IN", 2];
 
     [50] call FUNC(client,reveal);
 };
