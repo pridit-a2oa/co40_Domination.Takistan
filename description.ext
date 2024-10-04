@@ -63,14 +63,19 @@ class CfgSounds {
         sound[]     = {"\base_wreck\sounds\weld", db, 1, 30};
         titles[]    = {};
     };
+    class d_sound_shuffle
+    {
+        sound[]     = {"\core\client\sounds\shuffle", db, 1, 30};
+        titles[]    = {};
+    };
     class d_sound_task
     {
         sound[]     = {"\core\client\sounds\task", 1, 1.0};
         titles[]    = {};
     };
-    class d_sound_shuffle
+    class d_sound_wrench
     {
-        sound[]     = {"\core\client\sounds\shuffle", db, 1, 30};
+        sound[]     = {"\core\client\sounds\wrench", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_disarm
@@ -111,11 +116,6 @@ class CfgSounds {
     class d_sound_refuel
     {
         sound[]     = {"\vehicle_refuel\sounds\refuel", db, 1, 30};
-        titles[]    = {};
-    };
-    class d_sound_repair
-    {
-        sound[]     = {"\vehicle_repair\sounds\repair", db, 1, 30};
         titles[]    = {};
     };
     class d_sound_unflip

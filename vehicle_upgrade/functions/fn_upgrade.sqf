@@ -55,7 +55,7 @@ if (hasInterface) then {
 
     _vehicle setVariable [QGVAR(upgrade), true, true];
 
-    if !([[true, 2, QGVAR(sound_repair)]] call FUNC(client,stall) && {alive _vehicle}) exitWith {
+    if !([[true, 2, QGVAR(sound_wrench)]] call FUNC(client,stall) && {alive _vehicle}) exitWith {
        _vehicle setVariable [QGVAR(upgrade), false, true];
     };
 

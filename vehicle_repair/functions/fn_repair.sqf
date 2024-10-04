@@ -8,7 +8,7 @@ if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 
 GVAR(repairing) = true;
 
-if ([[true, 2, QGVAR(sound_repair)]] call FUNC(client,stall) && {alive _vehicle}) then {
+if ([[true, 2, QGVAR(sound_wrench)]] call FUNC(client,stall) && {alive _vehicle}) then {
     if (!isNil QMODULE(inventory_repair) && {[player getVariable QGVAR(inventory_repair), 0] call BIS_fnc_areEqual}) exitWith {};
 
     [_vehicle, "setDamage", switch (true) do {
