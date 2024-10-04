@@ -22,7 +22,7 @@ _objects = [
         ["Land_fort_bagfence_long", "Land_CncBlock"],
         ["Land_Fort_Watchtower_EP1", "Land_tent_east", 90],
         ["Land_fortified_nest_small", "KORD_high_TK_EP1", 180],
-        ["Land_HBarrier3", "Fort_Crate_wood"],
+        ["Land_HBarrier3"],
         ["Land_HBarrier_large"],
         ["Land_Toilet"],
         ["Paleta1"],

@@ -13,7 +13,7 @@ _objects = [
     _direction,
     GVAR(event_tower_composition),
     [
-        ["KORD_TK_EP1", "Fort_Crate_wood"],
+        ["KORD_TK_EP1", "Paleta1", 50],
         ["SearchLight_TK_EP1", "KORD_high_TK_EP1"],
         ["TKBasicAmmunitionBox_EP1"],
         ["TKLaunchers_EP1"],
