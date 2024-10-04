@@ -40,7 +40,7 @@ if (hasInterface) then {
                     };
                 };
 
-                _alpha = if (!_hidden && {!_alive || {_alive && {_distance}}}) then {
+                _alpha = if (!_hidden && {!_alive || {_alive && {_distance || {{alive _x && {isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}}} count crew _x > 0}}}}) then {
                     if (alive _x && {!canMove _x}) then {0.45} else {1};
                 } else {
                     0
