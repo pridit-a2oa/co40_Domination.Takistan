@@ -12,6 +12,7 @@ onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
 #include "define.hpp"
+#include "core\dialog\map_with_list.hpp"
 #include "admin_spectate\dialog\base.hpp"
 #include "base_rd\dialog\base.hpp"
 #include "halo\dialog\base.hpp"
