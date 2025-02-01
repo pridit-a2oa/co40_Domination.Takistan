@@ -109,7 +109,7 @@ GVAR(modules) = [
     "vehicle_wreck",
     "vote",
     "weather",
-    "setting" // Note: End is due to reliance on variables other handlers must set
+    "setting" // Note: Must be last due to reliance on variables other handlers set
 ];
 
 {

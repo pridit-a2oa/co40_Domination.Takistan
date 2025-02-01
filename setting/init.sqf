@@ -31,7 +31,7 @@ GVAR(setting_type_valid) = [
     [
         "Grass",
         "grass",
-        "Set grass density",
+        "Set grass density (low performance impact)",
         ["None", "Medium", "High"],
         [500, 250, 125]
     ],
@@ -45,7 +45,7 @@ GVAR(setting_type_valid) = [
     [
         "View Distance",
         "view_distance",
-        "Set distance for terrain and object visibility (significant performance impact)",
+        "Set rendering distance (high performance impact)",
         [5000, 100000]
     ]
 ];

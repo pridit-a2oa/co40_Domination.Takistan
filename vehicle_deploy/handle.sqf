@@ -8,9 +8,11 @@
 if (hasInterface) then {
     {
         {
+            private ["_enableSimulation"];
+
             _enableSimulation = _x getVariable QGVAR(enable_simulation);
 
-            if (!isNil "_enableSimulation") then {
+            if !(isNil "_enableSimulation") then {
                 _x enableSimulation _enableSimulation;
             };
         } forEach (entities _x);

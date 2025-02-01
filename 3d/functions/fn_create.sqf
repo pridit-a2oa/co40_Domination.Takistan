@@ -37,7 +37,6 @@ while {alive _object} do {
 
         if !(_object isKindOf "Static") then {
             switch (true) do {
-                case (locked _object);
                 case (count crew _object > 0);
                 case !(simulationEnabled _object);
                 case ((position _object) select 2 > 1);

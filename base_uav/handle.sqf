@@ -21,13 +21,13 @@ if (isServer) then {
             ["Land_CamoNetVar_NATO_EP1"],
             ["Land_HBarrier_large"],
             ["MetalBucket", "US_WarfareBUAVterminal_EP1"],
-            ["Misc_cargo_cont_net1", "Sr_border"],
+            ["Misc_cargo_cont_net1", "ClutterCutter_small_EP1"],
             ["Misc_cargo_cont_net2"],
             ["Misc_cargo_cont_net3"]
         ]
     ] call FUNC(server,objectMapper);
 
-    _zone = (nearestObjects [GVAR(base_uav), ["Sr_border"], 25]) select 0;
+    _zone = (nearestObjects [GVAR(base_uav), ["ClutterCutter_small_EP1"], 25]) select 0;
 
     X_JIPH setVariable [QGVAR(base_uav_zone), _zone, true];
 

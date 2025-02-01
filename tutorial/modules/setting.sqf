@@ -8,8 +8,8 @@ GVAR(setting_type_valid) = GVAR(setting_type_valid) + [
     [
         "Tutorial",
         "tutorial",
-        "Set whether the tutorial will automatically play next time you load into the mission",
-        ["Yes", "No"],
+        "Set whether the introduction slideshow will play next time you load into the mission",
+        ["Replay", "Skip"],
         [10, 0]
     ]
 ];

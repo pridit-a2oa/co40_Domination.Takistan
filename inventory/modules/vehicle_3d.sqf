@@ -11,7 +11,7 @@ _string = "";
 
 {
     if (_vehicle in (_x select 2)) exitWith {
-        _string = format ["<br />%1 Replenish", _x select 0]
+        _string = format ["<br />%1 Replenisher", _x select 0]
     };
 } forEach GVAR(inventory_types);
 
