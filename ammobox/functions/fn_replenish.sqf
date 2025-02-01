@@ -25,6 +25,7 @@ if (_local) then {
     GVAR(ammobox_type_rifles_assault),
     GVAR(ammobox_type_machine_guns),
     GVAR(ammobox_type_rifles_sniper),
+    GVAR(ammobox_type_shotguns),
     GVAR(ammobox_type_handguns),
     GVAR(ammobox_type_launchers),
     GVAR(ammobox_type_launchers_grenade),

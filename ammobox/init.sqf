@@ -54,7 +54,6 @@ GVAR(ammobox_type_rifles_assault) = [
     "G36K_camo",
     "G36K",
     "LeeEnfield",
-    "M14_EP1",
     "M16A2",
     "M16A2GL",
     "M16A4_ACG_GL",
@@ -73,8 +72,6 @@ GVAR(ammobox_type_rifles_assault) = [
     "Sa58V_RCO_EP1",
     "SCAR_H_CQC_CCO_SD",
     "SCAR_H_CQC_CCO",
-    "SCAR_H_LNG_Sniper_SD",
-    "SCAR_H_LNG_Sniper",
     "SCAR_H_STD_EGLM_Spect",
     "SCAR_H_STD_TWS_SD",
     "SCAR_L_CQC_CCO_SD",
@@ -87,15 +84,22 @@ GVAR(ammobox_type_rifles_assault) = [
     "SCAR_L_STD_Mk4CQT"
 ];
 
-// List of sniper rifles
+// List of marksman & sniper rifles
 GVAR(ammobox_type_rifles_sniper) = [
     "DMR",
+    "huntingrifle",
     "KSVK",
     "m107_TWS_EP1",
     "m107",
     "M110_NVG_EP1",
     "M110_TWS_EP1",
+    "M14_EP1",
     "M24_des_EP1",
+    "M24",
+    "M40A3",
+    "M4SPR",
+    "SCAR_H_LNG_Sniper_SD",
+    "SCAR_H_LNG_Sniper",
     "SVD_des_EP1",
     "SVD_NSPU_EP1",
     "SVD",
@@ -115,6 +119,12 @@ GVAR(ammobox_type_machine_guns) = [
     "Mk_48_DES_EP1",
     "PK",
     "RPK_74"
+];
+
+// List of shotguns
+GVAR(ammobox_type_shotguns) = [
+    "M1014",
+    "Saiga12K"
 ];
 
 // List of handguns
@@ -218,13 +228,18 @@ GVAR(ammobox_type_ammo_gun) = [
     "5Rnd_127x99_AS50",
     "5Rnd_762x51_M24",
     "5Rnd_86x70_L115A1",
+    "5x_22_LR_17_HMR",
     "64Rnd_9x19_Bizon",
     "64Rnd_9x19_SD_Bizon",
     "6Rnd_45ACP",
     "75Rnd_545x39_RPK",
     "7Rnd_45ACP_1911",
     "8Rnd_9x18_Makarov",
-    "8Rnd_9x18_MakarovSD"
+    "8Rnd_9x18_MakarovSD",
+    "8Rnd_B_Beneli_74Slug",
+    "8Rnd_B_Beneli_Pellets",
+    "8Rnd_B_Saiga12_74Slug",
+    "8Rnd_B_Saiga12_Pellets"
 ];
 
 // List of launcher ammunition
