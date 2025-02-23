@@ -13,6 +13,6 @@ PARAMS_1(_heap);
         true,
         false,
         "",
-        "[] call d_fnc_common_ready"
+        ""
     ];
 } forEach GVAR(heap_type_backpacks);

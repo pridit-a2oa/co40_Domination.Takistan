@@ -2,6 +2,7 @@
 #include "x_macros.sqf"
 private ["_weapon", "_position"];
 
+if !([] call FUNC(common,ready)) exitWith {};
 if !([speed player, 0] call BIS_fnc_areEqual) exitWith {};
 
 _weapon = [primaryWeapon player] call FUNC(THIS_MODULE,valid);
