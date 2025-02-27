@@ -18,6 +18,7 @@ GVAR(3d_distance_fade) = 1.8;
 GVAR(3d_distance_visible) = 12;
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
+__cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
 __cppfln(FUNC(THIS_MODULE,time),THIS_MODULE\functions\fn_time.sqf);
 
 MODULE(THIS_MODULE) = true;

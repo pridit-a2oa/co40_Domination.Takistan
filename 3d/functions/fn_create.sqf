@@ -48,7 +48,7 @@ while {alive _object} do {
         };
 
         if (_alpha <= 1 && {!visibleMap}) then {
-            _pos2D = worldToScreen (position _object);
+            _pos2D = worldToScreen (_object modelToWorld ([typeOf _object] call FUNC(THIS_MODULE,offset)));
 
             _newText = _text;
 
