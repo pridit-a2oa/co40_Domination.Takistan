@@ -61,7 +61,7 @@ while {!isNull _vehicle} do {
     _destroyed = _empty && {_dead && {call FUNC(common,time) > _expiration}};
 
     if (_abandoned || {_destroyed}) exitWith {
-        private ["_type", "_spawn"];
+        private ["_type"];
 
         _type = typeOf _vehicle;
 
@@ -69,16 +69,10 @@ while {!isNull _vehicle} do {
             _type = [_vehicle] __submodulePP(vehicle_upgrade);
         };
 
-        [_vehicle] call FUNC(vehicle,delete);
-
-        _spawn = createVehicle [_type, _position, [], 0, "NONE"];
-        _spawn setDir _direction;
-        _spawn setPos _position;
-
-        _spawn setVariable [QGVAR(position), _position, true];
-        _spawn setVariable [QGVAR(direction), _direction, true];
-
-        [true, "execVM", [[_spawn], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
+        [true, "execVM", [
+            [[_vehicle, _position, _direction, _type] call FUNC(vehicle,respawn)],
+            FUNCTION(vehicle,handle)
+        ]] call FUNC(network,mp);
     };
 
     sleep 20;

@@ -67,39 +67,24 @@ if (hasInterface) then {
 };
 
 if (isServer && {[{[_x, true] call BIS_fnc_areEqual} count _checks, count _checks] call BIS_fnc_areEqual}) then {
-    private ["_parent", "_new"];
+    private ["_fuel", "_damage", "_new"];
 
     if !(alive _vehicle) exitWith {};
 
     __log format ["%1 -> %2", [typeOf _vehicle] call FUNC(vehicle,name), [_type] call FUNC(vehicle,name)]];
 
-    _parent = [
-        position _vehicle,
+    _fuel = fuel _vehicle;
+    _damage = damage _vehicle;
+
+    _new = [
+        _vehicle,
+        [(position _vehicle) select 0, (position _vehicle) select 1, 0],
         direction _vehicle,
-        fuel _vehicle,
-        damage _vehicle,
-        _vehicle getVariable QGVAR(position),
-        _vehicle getVariable QGVAR(direction),
-        _vehicle getVariable QGVAR(type)
-    ];
+        _type
+    ] call FUNC(vehicle,respawn);
 
-    [_vehicle] call FUNC(vehicle,delete);
-
-    sleep 0.5;
-
-    _new = createVehicle [_type, [(_parent select 0) select 0, (_parent select 0) select 1, 0], [], 0, "NONE"];
-    _new setDir (_parent select 1);
-    _new setPos [(_parent select 0) select 0, (_parent select 0) select 1, 0];
-    _new setVelocity [0, 0, 0];
-    _new setVectorUp surfaceNormal (_parent select 0);
-
-    _new setFuel (_parent select 2);
-    _new setDamage (_parent select 3);
-
-    _new setVariable [QGVAR(position), _parent select 4, true];
-    _new setVariable [QGVAR(direction), _parent select 5, true];
-    _new setVariable [QGVAR(type), _parent select 6, true];
+    _new setFuel _fuel;
+    _new setDamage _damage;
 
     [true, "execVM", [[_new], FUNCTION(vehicle,handle)]] call FUNC(network,mp);
-    [true, "reveal", _new] call FUNC(network,mp);
 };

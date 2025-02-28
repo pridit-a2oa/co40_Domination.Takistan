@@ -1,6 +1,6 @@
 #define THIS_MODULE base_rd
 #include "x_macros.sqf"
-private ["_trigger", "_vehicle", "_player", "_type", "_time", "_progress"];
+private ["_trigger", "_vehicle", "_player", "_time", "_progress"];
 
 PARAMS_1(_trigger);
 
@@ -12,19 +12,11 @@ if (isNil "_vehicle") exitWith {};
 
 _player = call FUNC(THIS_MODULE,player);
 
-_type = typeOf _vehicle;
-
-[_vehicle] call FUNC(vehicle,delete);
-
-sleep 0.5;
-
-_position = [(position GVAR(base_rd)) select 0, (position GVAR(base_rd)) select 1, 0];
-
-_vehicle = createVehicle [_type, _position, [], 0, "NONE"];
-_vehicle setDir (getDir GVAR(base_rd));
-_vehicle setPos _position;
-_vehicle setVelocity [0, 0, 0];
-_vehicle setVectorUp surfaceNormal (position GVAR(base_rd));
+_vehicle = [
+    _vehicle,
+    [(position GVAR(base_rd)) select 0, (position GVAR(base_rd)) select 1, 0],
+    direction GVAR(base_rd)
+] call FUNC(vehicle,respawn);
 
 _vehicle lock true;
 _vehicle allowDamage false;

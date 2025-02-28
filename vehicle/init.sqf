@@ -24,6 +24,7 @@ __cppfln(FUNC(THIS_MODULE,kind),THIS_MODULE\functions\fn_kind.sqf);
 __cppfln(FUNC(THIS_MODULE,name),THIS_MODULE\functions\fn_name.sqf);
 __cppfln(FUNC(THIS_MODULE,owner),THIS_MODULE\functions\fn_owner.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
+__cppfln(FUNC(THIS_MODULE,respawn),THIS_MODULE\functions\fn_respawn.sqf);
 __cppfln(FUNC(THIS_MODULE,speed),THIS_MODULE\functions\fn_speed.sqf);
 __cppfln(FUNC(THIS_MODULE,stall),THIS_MODULE\functions\fn_stall.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
