@@ -18,8 +18,9 @@ _variables = [];
 } forEach [
     "position",
     "direction",
+    "type",
     "respawnable",
-    "type"
+    "wreckable"
 ];
 
 [_vehicle] call FUNC(THIS_MODULE,delete);

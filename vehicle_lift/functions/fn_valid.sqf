@@ -16,8 +16,8 @@ if ([_nearest, []] call BIS_fnc_areEqual) exitWith {false};
 
 _nearest = _nearest select 0;
 
-if (locked _nearest) exitWith {false};
 if (_nearest isKindOf "ATV_Base_EP1") exitWith {false};
+if (alive _nearest && {locked _nearest}) exitWith {false};
 if ({alive _x && {!isPlayer _x}} count crew _nearest > 0) exitWith {false};
 if (alive _nearest && {(vectorUp _nearest) select 2 < 0.6}) exitWith {false};
 if !([alive _nearest, _type select 1] call BIS_fnc_areEqual) exitWith {false};

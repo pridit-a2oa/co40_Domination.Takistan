@@ -10,7 +10,7 @@
 
 // UID of players that have access to administrative functions
 GVAR(admin_type_players) = [
-    // "ERROR",
+    "ERROR",
     "_SP_PLAYER_",
     "76561197992228102"
 ];

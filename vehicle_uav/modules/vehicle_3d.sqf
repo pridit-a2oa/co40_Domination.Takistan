@@ -7,6 +7,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !([GVAR(vehicle_uav_type), _vehicle] call BIS_fnc_areEqual) exitWith {""};
+if !(_vehicle in GVAR(vehicle_uav_types)) exitWith {""};
 
 "<br />Remote-Controlled"

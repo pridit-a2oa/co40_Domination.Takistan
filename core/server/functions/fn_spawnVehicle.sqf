@@ -16,6 +16,18 @@ _object = _vehicle select 0;
 _crew = _vehicle select 1;
 _group = _vehicle select 2;
 
+if (_object isKindOf "UAV") then {
+    {
+        if ([gunner _object, _x] call BIS_fnc_areEqual) then {
+            moveOut _x;
+
+            _x setDamage 1;
+
+            deleteVehicle _x;
+        };
+    } forEach _crew;
+};
+
 X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
 
 if ([_height, 0] call BIS_fnc_areEqual) then {

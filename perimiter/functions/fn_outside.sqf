@@ -33,10 +33,16 @@ while {triggerActivated _trigger && {alive player}} do {
 
     if (_remaining < 0) exitWith {
         if (!isNil QMODULE(vehicle) && {!([player, vehicle player] call BIS_fnc_areEqual)}) then {
-            [_vehicle] call FUNC(vehicle,reset);
-        };
+            if (!isNil QMODULE(vehicle_uav) && {typeOf (vehicle player) in GVAR(vehicle_uav_types)}) exitWith {
+                [vehicle player, false] call FUNC(vehicle_uav,control);
 
-        player setDamage 1;
+                [_vehicle] call FUNC(vehicle,reset);
+            };
+
+            [_vehicle] call FUNC(vehicle,reset);
+
+            player setDamage 1;
+        };
     };
 
     sleep 0.01;

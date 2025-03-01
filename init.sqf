@@ -32,8 +32,8 @@ if (hasInterface && {isMultiplayer}) then {
 
             if (simulationEnabled player) exitWith {};
 
-            _ctrl = (findDisplay 49) displayCtrl 1010;
-            _ctrl ctrlEnable false;
+            // Disable 'Respawn' menu option
+            ((findDisplay 49) displayCtrl 1010) ctrlEnable false;
         };
     };
 };

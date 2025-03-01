@@ -6,46 +6,46 @@ PARAMS_3(_unit, _position, _radius);
 
 if (hasInterface) then {
     _name = "UAV";
-    _checks = [
-        [
-            [_name, "called"],
-            player getVariable QGVAR(uav_cooldown)
-        ] call FUNC(helper,timeExceeded),
+    // _checks = [
+    //     [
+    //         [_name, "called"],
+    //         player getVariable QGVAR(uav_cooldown)
+    //     ] call FUNC(helper,timeExceeded),
 
-        [
-            _name,
-            X_JIPH getVariable QGVAR(uav_progress)
-        ] call FUNC(helper,inProgress),
+    //     [
+    //         _name,
+    //         X_JIPH getVariable QGVAR(uav_progress)
+    //     ] call FUNC(helper,inProgress),
 
-        [
-            [_name, "called"],
-            _position,
-            player,
-            [GVAR(uav_distance_player), "within", "of your location"]
-        ] call FUNC(helper,distanceFrom),
+    //     [
+    //         [_name, "called"],
+    //         _position,
+    //         player,
+    //         [GVAR(uav_distance_player), "within", "of your location"]
+    //     ] call FUNC(helper,distanceFrom),
 
-        [
-            [_name, "called"]
-        ] call FUNC(helper,inVehicle)
-    ];
+    //     [
+    //         [_name, "called"]
+    //     ] call FUNC(helper,inVehicle)
+    // ];
 
-    if !(isNil QMODULE(conversation)) then {
-        [
-            _checks,
-            [
-                "Crossroad communication",
-                X_JIPH getVariable QGVAR(conversation)
-            ] call FUNC(helper,inProgress)
-        ] call BIS_fnc_arrayPush;
-    };
+    // if !(isNil QMODULE(conversation)) then {
+    //     [
+    //         _checks,
+    //         [
+    //             "Crossroad communication",
+    //             X_JIPH getVariable QGVAR(conversation)
+    //         ] call FUNC(helper,inProgress)
+    //     ] call BIS_fnc_arrayPush;
+    // };
 
-    {
-        if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
-            hint _x;
-        };
-    } forEach _checks;
+    // {
+    //     if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
+    //         hint _x;
+    //     };
+    // } forEach _checks;
 
-    if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
+    // if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
     X_JIPH setVariable [QGVAR(uav_call), true, true];
     player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];

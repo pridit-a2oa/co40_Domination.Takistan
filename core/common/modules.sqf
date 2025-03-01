@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 GVAR(modules) = [
-    "database", // Requires: @Arma2NET
+    // "database", // Requires: @Arma2NET
     "3d",
     "admin",
     "admin_spectate",
@@ -36,9 +36,9 @@ GVAR(modules) = [
     "debug",
     "diary",
     "drag", // TODO: Refactor (just slight cleanup, re-check #34)
-    "event",
-    ["event_checkpoint", "event\types\checkpoint"],
-    ["event_tower", "event\types\tower"],
+    // "event",
+    // ["event_checkpoint", "event\types\checkpoint"],
+    // ["event_tower", "event\types\tower"],
     "gear",
     "gesture",
     "halo",
@@ -58,7 +58,7 @@ GVAR(modules) = [
     "menu",
     ["menu_player", "menu\types\player"],
     ["menu_vehicle", "menu\types\vehicle"],
-    "mission_main",
+    // "mission_main",
     "mission_mini",
     ["mission_mini_abandoned", "mission_mini\types\abandoned"],
     ["mission_mini_cache", "mission_mini\types\cache"],
@@ -84,7 +84,7 @@ GVAR(modules) = [
     "vehicle_3d",
     "vehicle_abandon",
     "vehicle_ammobox",
-    "vehicle_bomber",
+    // "vehicle_bomber",
     "vehicle_bonus",
     // "vehicle_cargo", // TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
     "vehicle_create",
@@ -103,7 +103,7 @@ GVAR(modules) = [
     "vehicle_teleport",
     "vehicle_texture",
     // "vehicle_tow", // TODO: Refactor (legacy RE use, buggy actions)
-    // "vehicle_uav", // TODO: Incomplete (remote controlling, backpack)
+    "vehicle_uav",
     "vehicle_unflip",
     "vehicle_upgrade",
     "vehicle_wreck",

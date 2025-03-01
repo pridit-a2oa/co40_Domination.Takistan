@@ -41,10 +41,6 @@ if (isServer) then {
 
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
-    if (!isNil QMODULE(base_uav)) then {
-        [_vehicle] __submodulePP(base_uav);
-    };
-
     if (!isNil QMODULE(vehicle_abandon)) then {
         [_vehicle] __submodulePP(vehicle_abandon);
     };
@@ -63,10 +59,6 @@ if (isServer) then {
 
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submodulePP(vehicle_service);
-    };
-
-    if (!isNil QMODULE(vehicle_uav)) then {
-        [_vehicle] __submodulePP(vehicle_uav);
     };
 
     if (!isNil QMODULE(vehicle_upgrade)) then {
@@ -135,6 +127,14 @@ if (isServer) then {
         private ["_unit", "_killer"];
 
         PARAMS_2(_unit, _killer);
+
+        if (!isNil QMODULE(vehicle_uav) && {typeOf _unit in GVAR(vehicle_uav_types)}) then {
+            {
+                if (isPlayer _x) then {
+                    [_x, "execVM", [[_unit, false], FUNCTION(vehicle_uav,control)]] call FUNC(network,mp);
+                };
+            } forEach crew _unit;
+        };
 
         switch (true) do {
             case !(isServer);
@@ -237,6 +237,10 @@ if (!isNil QMODULE(vehicle_texture)) then {
 
 if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
+};
+
+if (!isNil QMODULE(vehicle_uav)) then {
+    [_vehicle] __submodulePP(vehicle_uav);
 };
 
 if (_vehicle isKindOf "Air") then {
