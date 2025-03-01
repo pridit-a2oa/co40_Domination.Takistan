@@ -27,15 +27,13 @@ if (hasInterface && {isMultiplayer}) then {
     player enableSimulation false;
 
     0 spawn {
-        disableSerialization;
-
         while {!(simulationEnabled player)} do {
             waitUntil {sleep 0.01; !isNull (findDisplay 49)};
 
             if (simulationEnabled player) exitWith {};
 
-            _ctrl = (findDisplay 49) displayCtrl 1010;
-            _ctrl ctrlEnable false;
+            // Disable 'Respawn' menu option
+            ((findDisplay 49) displayCtrl 1010) ctrlEnable false;
         };
     };
 };

@@ -56,6 +56,7 @@ if (isServer) then {
 
 if (hasInterface) then {
     __corePP(client);
+    __corePP(interface);
 };
 
 __ccppfln(core\THIS_MODULE\modules.sqf);

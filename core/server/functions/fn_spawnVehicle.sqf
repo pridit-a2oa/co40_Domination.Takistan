@@ -4,7 +4,7 @@ private ["_position", "_type", "_distance", "_height", "_side", "_direction", "_
 PARAMS_6(_position, _type, _distance, _height, _side, _direction);
 
 _spawn = [_position, _distance, random 360] call BIS_fnc_relPos;
-_spawn = [_spawn select 0, _spawn select 1, _height];
+_spawn set [2, _height];
 
 if (isNil "_direction") then {
     _direction = [_spawn, _position] call BIS_fnc_dirTo;
@@ -15,6 +15,20 @@ _vehicle = [_spawn, _direction, _type, _side] call BIS_fnc_spawnVehicle;
 _object = _vehicle select 0;
 _crew = _vehicle select 1;
 _group = _vehicle select 2;
+
+if !(isNil QMODULE(vehicle_uav)) then {
+    if (_object isKindOf "UAV") then {
+        {
+            if ([gunner _object, _x] call BIS_fnc_areEqual) then {
+                moveOut _x;
+
+                _x setDamage 1;
+
+                deleteVehicle _x;
+            };
+        } forEach _crew;
+    };
+};
 
 X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
 

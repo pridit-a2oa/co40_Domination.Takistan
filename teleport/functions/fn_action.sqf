@@ -1,10 +1,8 @@
 #define THIS_MODULE teleport
 #include "x_macros.sqf"
 
-disableSerialization;
-
 if !(call FUNC(THIS_MODULE,valid)) exitWith {};
-if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 2000))) exitWith {};
+if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 300))) exitWith {};
 
 [call FUNC(THIS_MODULE,target)] spawn {
     private ["_target", "_position"];

@@ -6,9 +6,9 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    private ["_zone", "_vehicle"];
+    private ["_objects", "_zone", "_vehicle"];
 
-    [
+    _objects = [
         position GVAR(base_uav),
         direction GVAR(base_uav),
         GVAR(base_uav_type_composition),
@@ -26,6 +26,20 @@ if (isServer) then {
             ["Misc_cargo_cont_net3"]
         ]
     ] call FUNC(server,objectMapper);
+
+    {
+        if !(isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) exitWith {};
+
+        if ([typeOf _x, "ClutterCutter_small_EP1"] call BIS_fnc_areEqual) exitWith {
+            private ["_border"];
+
+            _border = createVehicle ["Sr_border", position _x, [], 0, "CAN_COLLIDE"];
+            _border setDir (direction _x);
+            _border setPos (position _x);
+
+            _border addEventHandler ["HandleDamage", {0}];
+        };
+    } forEach _objects;
 
     _zone = (nearestObjects [GVAR(base_uav), ["ClutterCutter_small_EP1"], 25]) select 0;
 
@@ -54,47 +68,35 @@ if (isServer) then {
     _vehicle setPosATL (GVAR(base_uav) modelToWorld ([typeOf _vehicle] call FUNC(THIS_MODULE,offset)));
 
     if !(isNil QMODULE(vehicle_respawn)) then {
-        _vehicle setVariable [QGVAR(respawnable), true, true];
+        _vehicle setVariable [QGVAR(respawnable), false, true];
     };
 
-    X_JIPH setVariable [QGVAR(base_uav), _vehicle, true];
+    if !(isNil QMODULE(vehicle_wreck)) then {
+        _vehicle setVariable [QGVAR(wreckable), true, true];
+    };
+
+    X_JIPH setVariable [QGVAR(base_uav), true, true];
 };
 
-// if (hasInterface) then {
-//     private ["_zone"];
+if (hasInterface) then {
+    private ["_zone"];
 
-//     waitUntil {
-//         sleep 0.1;
+    createMarkerLocal ["base_uav", position GVAR(base_uav)];
 
-//         !isNil {X_JIPH getVariable QGVAR(base_uav_zone)}
-//     };
+    waitUntil {
+        sleep 0.1;
 
-//     _zone = X_JIPH getVariable QGVAR(base_uav_zone);
+        !isNil {X_JIPH getVariable QGVAR(base_uav_zone)}
+    };
 
-//     GVAR(base_uav_trigger) = createTrigger ["EmptyDetector", position _zone];
-//     GVAR(base_uav_trigger) setTriggerArea [1.6, 2.5, direction _zone, true];
-//     GVAR(base_uav_trigger) setTriggerActivation ["WEST", "PRESENT", true];
-//     GVAR(base_uav_trigger) setTriggerStatements [
-//         "this && {player in thisList}",
-//         "",
-//         ""
-//     ];
+    _zone = X_JIPH getVariable QGVAR(base_uav_zone);
 
-//     if !(isNil QMODULE(vehicle_uav)) then {
-//         {
-//             player addAction [
-//                 (if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {_x select 0} else {_x}) call FUNC(common,BlueText),
-//                 FUNCTION(vehicle_uav,assume),
-//                 [_x select 1],
-//                 10,
-//                 false,
-//                 true,
-//                 "",
-//                 "[_target] call d_fnc_base_uav_valid"
-//             ];
-//         } forEach [
-//             ["UAV (Camera Pod)", "gunner"],
-//             ["UAV (Pilot)", "driver"]
-//         ];
-//     };
-// }
+    GVAR(base_uav_trigger) = createTrigger ["EmptyDetector", position _zone];
+    GVAR(base_uav_trigger) setTriggerArea [1.6, 2.5, direction _zone, true];
+    GVAR(base_uav_trigger) setTriggerActivation ["WEST", "PRESENT", true];
+    GVAR(base_uav_trigger) setTriggerStatements [
+        "this && {player in thisList}",
+        "",
+        ""
+    ];
+};

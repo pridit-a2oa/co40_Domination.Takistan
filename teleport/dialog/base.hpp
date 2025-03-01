@@ -15,18 +15,18 @@ class XD_TeleportDialog {
         class RscTeleportMapControl: RscMapWithListMapControl
         {
             idc = 10000;
-            onMouseButtonDown = "if !([lbCurSel 1500, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
-            onMouseZChanged = "if !([lbCurSel 1500, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
+            onMouseButtonDown = "if !([lbCurSel 200, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
+            onMouseZChanged = "if !([lbCurSel 200, -1] call BIS_fnc_areEqual) then {call d_fnc_teleport_populate}";
         };
         class RscTeleportListbox: RscMapWithListListbox
         {
-            idc = 1500;
-            onLBSelChanged = "[_this select 1] call d_fnc_teleport_switch";
+            idc = 200;
+            onLBSelChanged = "['teleport', _this select 1] call d_fnc_interface_switch";
             onLBDblClick = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonAction: RscMapWithListButtonAction
         {
-            idc = 2000;
+            idc = 300;
             action = "call d_fnc_teleport_action";
         };
         class RscTeleportButtonClose: RscMapWithListButtonClose {};

@@ -14,7 +14,7 @@ for "_i" from count waypoints _group - 1 to 0 step -1 do {
 };
 
 _waypoint = _group addWaypoint [[markerPos QGVAR(map_zone), 9500, getDir _vehicle] call BIS_fnc_relPos, 0];
-_waypoint setWaypointStatements ["true", "[vehicle this] call d_fnc_vehicle_delete"];
+_waypoint setWaypointStatements ["true", "[vehicle this] spawn d_fnc_vehicle_delete"];
 _waypoint setWaypointBehaviour "CARELESS";
 _waypoint setWaypointSpeed "FULL";
 _waypoint setWaypointType "MOVE";

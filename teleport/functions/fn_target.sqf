@@ -3,12 +3,12 @@ private ["_selected", "_button", "_data", "_target"];
 
 disableSerialization;
 
-_selected = lbCurSel 1500;
+_selected = lbCurSel 200;
 
 if ([_selected, -1] call BIS_fnc_areEqual) exitWith {nil};
 
-_button = DIALOG("X_TELEPORT_DIALOG", 2000);
-_data = DIALOG("X_TELEPORT_DIALOG", 1500) lbData _selected;
+_data = DIALOG("X_TELEPORT_DIALOG", 200) lbData _selected;
+_button = DIALOG("X_TELEPORT_DIALOG", 300);
 
 _button ctrlEnable true;
 

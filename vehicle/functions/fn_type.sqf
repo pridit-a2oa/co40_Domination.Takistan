@@ -13,6 +13,10 @@ switch (_type) do {
     case "Truck": {
         _icon = "\ca\ui\data\icontruck_ca.paa";
     };
+
+    case "UAV": {
+        _icon = getText (configFile >> "CfgVehicles" >> _vehicle >> "icon");
+    };
 };
 
 if (isNil "_icon") then {

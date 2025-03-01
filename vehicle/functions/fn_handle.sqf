@@ -39,10 +39,6 @@ if (isServer) then {
 
     _vehicle setVariable [QGVAR(id), [_vehicle] call FUNC(server,objectId), true];
 
-    if (!isNil QMODULE(base_uav)) then {
-        [_vehicle] __submodulePP(base_uav);
-    };
-
     if (!isNil QMODULE(vehicle_abandon)) then {
         [_vehicle] __submodulePP(vehicle_abandon);
     };
@@ -61,10 +57,6 @@ if (isServer) then {
 
     if (!isNil QMODULE(vehicle_service)) then {
         [_vehicle] __submodulePP(vehicle_service);
-    };
-
-    if (!isNil QMODULE(vehicle_uav)) then {
-        [_vehicle] __submodulePP(vehicle_uav);
     };
 
     if (!isNil QMODULE(vehicle_upgrade)) then {
@@ -210,6 +202,10 @@ if (!isNil QMODULE(vehicle_texture)) then {
 
 if (!isNil QMODULE(vehicle_tow)) then {
     [_vehicle] __submoduleVM(vehicle_tow);
+};
+
+if (!isNil QMODULE(vehicle_uav)) then {
+    [_vehicle] __submodulePP(vehicle_uav);
 };
 
 if (_vehicle isKindOf "Air") then {

@@ -16,6 +16,8 @@ if (hasInterface) then {
         switch (true) do {
             case !(alive _unit);
             case (_unit getVariable QGVAR(unconscious));
+            // don't damage faked remote units
+            case (!isNil QMODULE(vehicle_uav) && {typeOf (vehicle _unit) in GVAR(vehicle_uav_types)});
             // don't damage units by vehicle proxy, unless vehicle sustained significant damage (avoid exploding vehicle not injuring occupants but occupants may die before the vehicle does)
             case ([_selection, ""] call BIS_fnc_areEqual && {!([vehicle _unit, _unit] call BIS_fnc_areEqual)} && {damage (vehicle _unit) < 0.7});
             // don't damage if injurer is self, unless satcheled or impacting the ground via freefall

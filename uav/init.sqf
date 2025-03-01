@@ -14,9 +14,6 @@ GVAR(uav_type_aircraft) = "MQ9PredatorB_US_EP1";
 // The elevation the aircraft will maintain
 GVAR(uav_amount_height) = 800;
 
-// The typical speed restriction of the aircraft
-GVAR(uav_amount_speed) = 180;
-
 // Minimum distance from base the target has to be
 GVAR(uav_distance_base) = 1000;
 

@@ -8,22 +8,39 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !([GVAR(vehicle_uav_type), typeOf _vehicle] call BIS_fnc_areEqual) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_uav_types)) exitWith {};
 
 if (isServer) then {
+    private ["_expression"];
+
     _vehicle lock true;
     _vehicle allowCrewInImmobile true;
+
+    _expression = {
+        private ["_unit"];
+
+        PARAMS_1(_unit);
+
+        {
+            if (isPlayer _x) then {
+                [_x, "execVM", [[_unit, false], FUNCTION(THIS_MODULE,control)]] call FUNC(network,mp);
+            };
+        } forEach crew _unit;
+    };
+
+    _vehicle addEventHandler ["Killed", _expression];
+    _vehicle addMPEventHandler ["MPKilled", _expression];
 };
 
 if (hasInterface) then {
     _vehicle addAction [
         "Disconnect" call FUNC(common,RedText),
-        __function(release),
+        __function(disconnect),
         [],
         10,
         false,
         true,
         "",
-        "[typeOf _target, d_vehicle_uav_type] call BIS_fnc_areEqual && {count crew _target > 0}"
+        "player in _target"
     ];
 };
