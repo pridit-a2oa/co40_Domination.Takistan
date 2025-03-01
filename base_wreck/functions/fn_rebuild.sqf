@@ -1,6 +1,6 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
-private ["_wreck", "_time", "_lifter", "_spawn", "_vehicle"];
+private ["_wreck", "_time", "_lifter", "_vehicle"];
 
 PARAMS_2(_wreck, _time);
 
@@ -8,7 +8,6 @@ PARAMS_2(_wreck, _time);
 [true, "setVectorUp", [_wreck, surfaceNormal (position GVAR(base_wreck))]] call FUNC(network,mp);
 
 _lifter = _wreck getVariable QGVAR(lifted);
-_spawn = _wreck getVariable QGVAR(position);
 
 if !(isNil QMODULE(conversation)) then {
     [
@@ -33,8 +32,6 @@ _vehicle allowDamage false;
 sleep 2;
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);
-
-_vehicle setVariable [QGVAR(position), _spawn, true];
 
 if ((faction _vehicle) in ["BIS_TK", "BIS_TK_INS"]) then {
     _vehicle setVariable [QGVAR(built), true, true];

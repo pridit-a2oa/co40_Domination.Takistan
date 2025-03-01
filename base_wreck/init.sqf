@@ -26,6 +26,7 @@ GVAR(base_wreck_distance_score) = 2500;
 // Curated rebuild times based on vehicle type
 GVAR(base_wreck_time_rebuild) = [
     [240, "Truck"],
+    [240, "UAV"],
     [300, "Wheeled_APC"],
     [360, "Tank"],
     [600, "AH1Z"],
@@ -49,6 +50,7 @@ if (isServer) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,max),THIS_MODULE\functions\fn_max.sqf);
+__cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
 __cppfln(FUNC(THIS_MODULE,rebuild),THIS_MODULE\functions\fn_rebuild.sqf);
 __cppfln(FUNC(THIS_MODULE,rebuilt),THIS_MODULE\functions\fn_rebuilt.sqf);
 __cppfln(FUNC(THIS_MODULE,service),THIS_MODULE\functions\fn_service.sqf);

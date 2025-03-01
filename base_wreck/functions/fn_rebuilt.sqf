@@ -1,23 +1,34 @@
 #define THIS_MODULE base_wreck
 #include "x_macros.sqf"
-private ["_vehicle", "_hangars", "_hangar", "_full"];
+private ["_vehicle", "_hangars"];
 
 PARAMS_1(_vehicle);
 
 _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
 
-{
-    if (!triggerActivated _x) then {
-        _hangar = _hangars select _forEachIndex;
+if (isNil QMODULE(vehicle_uav) || {!isNil QMODULE(vehicle_uav) && {!(typeOf _vehicle in GVAR(vehicle_uav_types))}}) then {
+    {
+        if !(triggerActivated _x) exitWith {
+            private ["_hangar"];
 
-        _vehicle setDir ((getDir _hangar) - 180);
-        _vehicle setPosATL (getPosATL _hangar);
+            _hangar = _hangars select _forEachIndex;
+
+            _vehicle setDir ((getDir _hangar) - 180);
+            _vehicle setPosATL (getPosATL _hangar);
+        };
+    } forEach GVAR(wreck_hangar_triggers);
+} else {
+    if !(isNil QMODULE(base_uav)) then {
+        [_vehicle] __submodulePP(base_uav);
     };
-} forEach GVAR(wreck_hangar_triggers);
+};
 
 [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
 
-_vehicle lock false;
+if (isNil QMODULE(vehicle_uav) || {!isNil QMODULE(vehicle_uav) && {!(typeOf _vehicle in GVAR(vehicle_uav_types))}}) then {
+    _vehicle lock false;
+};
+
 _vehicle allowDamage true;
 
 if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
@@ -28,19 +39,17 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), false, true];
 };
 
-_full = if ([GVAR(wreck_hangars_occupied), (count _hangars) - 1] call BIS_fnc_areEqual) then {
-    " Free up a hangar to continue rebuilding wrecks."
-} else {
-    ""
-};
-
 if !(isNil QMODULE(conversation)) then {
     [
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "Rebuilt"],
         [
             ["1", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
-            ["2", {}, _full, []]
+            ["2", {}, if (GVAR(wreck_hangars_occupied) >= (count _hangars) - 1) then {
+                " Clear a hangar to continue rebuilding wrecks."
+            } else {
+                ""
+            }, []]
         ]
     ] call FUNC(conversation,radio);
 };

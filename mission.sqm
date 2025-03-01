@@ -3878,7 +3878,7 @@ class Mission
 		class Item11
 		{
 			position[]={7891.7705,296.12076,1624.6691};
-			name="d_wreck_hangar_1";
+			name="d_wreck_hangar_3";
 			type="Empty";
 			colorName="ColorBrown";
 			angle=150;
@@ -3894,7 +3894,7 @@ class Mission
 		class Item13
 		{
 			position[]={7999.1392,296.12076,1687.078};
-			name="d_wreck_hangar_3";
+			name="d_wreck_hangar_1";
 			type="Empty";
 			colorName="ColorBrown";
 			angle=150;
