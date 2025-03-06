@@ -14,8 +14,6 @@ if (isNil {_vehicle getVariable QGVAR(position)}) then {
 };
 
 if (isServer) then {
-    private ["_expression"];
-
     _vehicle setVariable [QGVAR(killed), false];
 
     clearMagazineCargoGlobal _vehicle;
@@ -131,32 +129,7 @@ if (isServer) then {
         };
     };
 
-    _expression = {
-        private ["_unit", "_killer"];
-
-        PARAMS_2(_unit, _killer);
-
-        switch (true) do {
-            case !(isServer);
-            case (_unit isKindOf "StaticWeapon");
-            case (_unit getVariable QGVAR(killed));
-            case (count crew _unit > 0 && {{!isPlayer _x} count crew _unit > 0}): {};
-
-            default {
-                _unit setVariable [QGVAR(killed), true];
-
-                __log format [
-                    "Destroyed %1 {""killer"":""%2"",""occupants"":""%3""}",
-                    [typeOf _unit] call FUNC(THIS_MODULE,name),
-                    if (isPlayer _killer) then {name _killer} else {side _killer},
-                    [_unit] call FUNC(THIS_MODULE,crew)
-                ]];
-            };
-        };
-    };
-
-    _vehicle addEventHandler ["Killed", _expression];
-    _vehicle addMPEventHandler ["MPKilled", _expression];
+    [_vehicle] call FUNC(common,log);
 };
 
 if (hasInterface) then {

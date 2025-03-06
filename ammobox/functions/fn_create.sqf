@@ -34,4 +34,6 @@ if (_type select 2) then {
 _ammobox setDir _direction;
 _ammobox setPos _position;
 
+[_ammobox] call FUNC(common,log);
+
 _ammobox
