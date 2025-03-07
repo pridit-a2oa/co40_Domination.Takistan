@@ -11,6 +11,8 @@ GVAR(backpack) = [
     count _magazines
 ];
 
+player action ["WeaponInHand", player];
+
 player removeWeapon (_weapon select 0);
 player removeMagazines (_weapon select 3);
 
