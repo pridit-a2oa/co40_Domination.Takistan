@@ -62,6 +62,13 @@ _progress = [typeOf _vehicle, "progress"] call FUNC(THIS_MODULE,item);
 
 GVAR(base_rd) setVariable [QGVAR(progress), GVAR(base_rd) getVariable QGVAR(progress), true];
 
+if !(isNil QMODULE(database)) then {
+    [format [
+        "UPDATE game SET data = '%1' WHERE `key` = 'base_rd'",
+        [1, GVAR(base_rd) getVariable QGVAR(progress)] call FUNC(common,arrayValues)
+    ]] call FUNC(database,query);
+};
+
 [true, "spawn", [[], {
     private ["_selected"];
 

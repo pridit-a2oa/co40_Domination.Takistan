@@ -16,6 +16,33 @@ if (isServer) then {
 
     GVAR(base_rd) setVariable [QGVAR(progress), _progress, true];
 
+    if !(isNil QMODULE(database)) then {
+        [_progress] spawn {
+            private ["_progress", "_upsert", "_game"];
+
+            PARAMS_1(_progress);
+
+            _upsert = [
+                "UpsertGameRd",
+                format [
+                    "[p_data=%1]",
+                    [1, _progress] call FUNC(common,arrayValues)
+                ]
+            ] call FUNC(database,query);
+
+            if !([_upsert, []] call BIS_fnc_areEqual) exitWith {};
+
+            _game = (["SELECT data, GREATEST(ABS(DATEDIFF(FROM_UNIXTIME(expiration), NOW())), 1) FROM game WHERE `key` = 'base_rd' LIMIT 1"] call FUNC(database,query)) select 0;
+
+            {
+                _progress set [_forEachIndex, [(_progress select _forEachIndex) select 0, _x]];
+            } forEach (call compile (_game select 0));
+
+            GVAR(base_rd) setVariable [QGVAR(progress), _progress, true];
+            GVAR(base_rd) setVariable [QGVAR(expiration), parseNumber (_game select 1), true];
+        };
+    };
+
     [
         position GVAR(base_rd),
         direction GVAR(base_rd) + 30,

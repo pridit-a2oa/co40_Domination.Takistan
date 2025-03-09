@@ -10,5 +10,5 @@
     "<br />To research vehicles you will need to find them out in the field and place them on the R&amp;D pad, alive.",
     "<br />Researching will initiate a <marker name=''>deconstruct</marker> process during which vehicles <marker name=''>cannot</marker> be constructed.",
     "<br />The R&amp;D pad has a marker and is located towards the <marker name='base_rd'>[South]</marker> of the main base.",
-    format ["<br />By deconstructing vehicles you earn <marker name=''>%1</marker> score.", GVAR(base_rd_amount_score)]
+    if !(isNil QMODULE(database)) then {"<br />R&amp;D progress persists through server restarts, but will reset every few days."} else {""}
 ]] call FUNC(diary,create);

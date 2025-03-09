@@ -30,10 +30,10 @@ GVAR(base_rd_type_vehicles) = [
 
 // Amount of deconstructed vehicles (based on type) before being able to construct
 GVAR(base_rd_amount_required) = [
-    [3, "Air"],
-    [3, "Tank"],
-    [3, "Wheeled_APC"],
-    [2, "Truck"]
+    [5, "Air"],
+    [5, "Tank"],
+    [4, "Wheeled_APC"],
+    [3, "Truck"]
 ];
 
 // Amount of score to reward a player once a vehicle has been deconstructed
@@ -56,7 +56,7 @@ GVAR(base_rd_time_construct) = [
 GVAR(base_rd_time_cooldown) = 180;
 
 // The divisor against the construction time to deconstruct vehicles
-GVAR(base_rd_time_divisor) = 6;
+GVAR(base_rd_time_divisor) = 5.4;
 
 if (hasInterface) then {
     player setVariable [QGVAR(base_rd_cooldown), time + GVAR(base_rd_time_cooldown)];
