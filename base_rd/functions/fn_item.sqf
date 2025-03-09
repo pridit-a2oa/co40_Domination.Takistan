@@ -16,7 +16,7 @@ switch (_type) do {
                 _current = ((GVAR(base_rd) getVariable QGVAR(progress)) select (_vehicles find _vehicle)) select 1;
                 _required = (GVAR(base_rd_amount_required) select _forEachIndex) select 0;
 
-                _array = [_current, _required];
+                _array = [_current min _required, _required];
             };
         } forEach ([1, GVAR(base_rd_amount_required)] call FUNC(common,arrayValues));
     };

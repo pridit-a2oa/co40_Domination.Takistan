@@ -1053,8 +1053,8 @@ class RscFrame
     shadow = 2;
     colorBackground[] = {0,0,0,0};
     colorText[] = {1,1,1,1};
-    font = "Zeppelin32";
-    sizeEx = 0.02;
+    font = "Bitstream";
+    sizeEx = 0.021;
     text = "";
     x = 0;
     y = 0;

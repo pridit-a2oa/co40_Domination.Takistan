@@ -10,7 +10,7 @@ if (!isNil "_clear" && {_clear}) then {
     lbClear 100;
 };
 
-_button = DIALOG("X_RD_DIALOG", 500);
+_button = DIALOG("X_RD_DIALOG", 1000);
 _button ctrlEnable false;
 
 _list = DIALOG("X_RD_DIALOG", 100);
