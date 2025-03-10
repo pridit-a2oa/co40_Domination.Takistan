@@ -21,7 +21,7 @@ GVAR(ied_type_explosion) = "Bo_GBU12_LGB";
 GVAR(ied_amount_limit) = 6;
 
 // Amount of score to reward for disarming
-GVAR(ied_amount_score) = 2;
+GVAR(ied_amount_score) = 3;
 
 // Minimum distance from eachother
 GVAR(ied_distance_identical) = 200;

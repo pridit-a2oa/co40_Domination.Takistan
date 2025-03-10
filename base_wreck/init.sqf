@@ -15,10 +15,10 @@ GVAR(base_wreck_type_hangar) = "Land_Mil_hangar_EP1";
 GVAR(base_wreck_amount_hangar) = 3;
 
 // Amount of score to reward when initating a rebuild
-GVAR(base_wreck_amount_score_rebuild) = 2;
+GVAR(base_wreck_amount_score_rebuild) = 3;
 
 // Amount of score to reward after travelling with a wreck that is then rebuilt
-GVAR(base_wreck_amount_score_travel) = 4;
+GVAR(base_wreck_amount_score_travel) = 5;
 
 // Minimum distance a wreck can originate from the base to be eligible for a score reward
 GVAR(base_wreck_distance_score) = 2500;

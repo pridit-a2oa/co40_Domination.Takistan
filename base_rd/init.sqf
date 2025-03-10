@@ -37,7 +37,7 @@ GVAR(base_rd_amount_required) = [
 ];
 
 // Amount of score to reward a player once a vehicle has been deconstructed
-GVAR(base_rd_amount_score) = 3;
+GVAR(base_rd_amount_score) = 4;
 
 // Amount of time it takes to construct vehicles
 GVAR(base_rd_time_construct) = [
