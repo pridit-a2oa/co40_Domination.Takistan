@@ -16,6 +16,10 @@ if (hasInterface) then {
         if !(_magazine in GVAR(base_protection_projectiles_player)) exitWith {};
 
         switch (true) do {
+            case ((position _unit) select 2 > 1): {
+                deleteVehicle _projectile;
+            };
+
             case !([{!(true in [_x isKindOf "CAManBase", _x isKindOf "ATV_Base_EP1", _x isKindOf "TT650_Base"]) && {side _x in [west, civilian]}} count nearestObjects [_unit, ["AllVehicles", "USVehicleBox_EP1"], 20], 0] call BIS_fnc_areEqual);
             case ((position _unit) distance (markerPos QGVAR(base_south)) <= GVAR(base_protection_distance)): {
                 deleteVehicle _projectile;
