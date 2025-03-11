@@ -30,8 +30,12 @@ GVAR(base_rd_type_vehicles) = [
 
 // Amount of deconstructed vehicles (based on type) before being able to construct
 GVAR(base_rd_amount_required) = [
+    [4, "UH1H_base"],
+    [4, "Mi17_base_TK_EP1"],
     [5, "Air"],
-    [5, "Tank"],
+    [5, "T55_Base"],
+    [5, "T72_Base"],
+    [4, "Tank"],
     [4, "Wheeled_APC"],
     [3, "Truck"]
 ];
