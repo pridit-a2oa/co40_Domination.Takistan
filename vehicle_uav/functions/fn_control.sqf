@@ -67,7 +67,6 @@ switch (_state) do {
         {
             if (isPlayer _x && {!([player, _x] call BIS_fnc_areEqual)}) then {
                 [_x, "systemChat", format ["[UAV] %1 connected", name player]] call FUNC(network,mp);
-                [_x, "playSound", QGVAR(sound_connected)] call FUNC(network,mp);
             };
         } forEach crew _vehicle;
     };
@@ -113,7 +112,6 @@ switch (_state) do {
         {
             if (isPlayer _x && {!([player, _x] call BIS_fnc_areEqual)}) then {
                 [_x, "systemChat", format ["[UAV] %1 disconnected", name player]] call FUNC(network,mp);
-                [_x, "playSound", QGVAR(sound_disconnected)] call FUNC(network,mp);
             };
         } forEach crew _vehicle;
 
