@@ -9,7 +9,7 @@ createDialog "XD_PerkDialog";
 if (!isNil QMODULE(database) && {X_JIPH getVariable QGVAR(holiday)}) then {
     DIALOG("X_PERK_DIALOG", 20) ctrlSetText "Happy Holidays!\nMax points & restrictions lifted until Jan 3rd";
 } else {
-    DIALOG("X_PERK_DIALOG", 10) ctrlSetText "Left-click: Unlock perk\nHover: Reveal benefit\nReconnect to reset";
+    DIALOG("X_PERK_DIALOG", 10) ctrlSetText "Left-click: Unlock perk\nHover: Show info\nReconnect to reset";
 };
 
 _points = player getVariable QGVAR(perk_points);

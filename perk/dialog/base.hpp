@@ -15,14 +15,6 @@ class XD_PerkDialog {
         };
     };
     class controls {
-        class DialogBackground: XC_RscText
-        {
-            x = 0.26751;
-            y = 0.101011;
-            w = 0.461276;
-            h = 0.768351;
-            colorBackground[] = {200,200,200,0.4};
-        };
         #include "partial\icons\background.hpp"
         #include "partial\button.hpp"
         #include "partial\bar.hpp"

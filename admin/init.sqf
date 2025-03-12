@@ -11,8 +11,9 @@
 // UID of players that have access to administrative functions
 GVAR(admin_type_players) = [
     // "ERROR",
-    "_SP_PLAYER_",
     "76561197992228102"
 ];
+
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
