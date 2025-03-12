@@ -13,6 +13,14 @@ class XD_PerkDialog {
             w = 0.596213;
             h = 1.00236;
         };
+        class PerksDialogBackgroundColor: XC_RscText
+        {
+            x = 0.26751;
+            y = 0.101011;
+            w = 0.461276;
+            h = 0.768351;
+            colorBackground[] = {0.247,0.2,0.137,0.5};
+        };
     };
     class controls {
         #include "partial\icons\background.hpp"
