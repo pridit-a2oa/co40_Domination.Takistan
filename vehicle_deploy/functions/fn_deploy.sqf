@@ -106,6 +106,10 @@ switch (_state) do {
             if (!isNil QMODULE(vehicle_marker)) then {
                 [true, "execVM", [[_vehicle, true], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
             };
+
+            if !(isNil QMODULE(teleport)) then {
+                [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+            };
         };
     };
 
@@ -149,10 +153,10 @@ switch (_state) do {
             if (!isNil QMODULE(vehicle_marker)) then {
                 [true, "execVM", [[_vehicle, false], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
             };
+
+            if !(isNil QMODULE(teleport)) then {
+                [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+            };
         };
     };
-};
-
-if !(isNil QMODULE(teleport)) then {
-    [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
 };
