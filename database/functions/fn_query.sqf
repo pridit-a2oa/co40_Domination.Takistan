@@ -22,7 +22,7 @@ while {[count (toArray _result), 0] call BIS_fnc_areEqual} do {
     _result = "Arma2Net.Unmanaged" callExtension format [
         "Arma2NETMySQL%1 ['%2', '%3'%4]",
         if !(isNil "_parameters") then {"Async"} else {"CommandAsync"},
-        GVAR(database_name),
+        "arma",
         _query,
         if !(isNil "_parameters") then {format [", '%1'", _parameters]} else {""}
     ];

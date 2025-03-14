@@ -7,7 +7,7 @@ disableSerialization;
 createDialog "XD_PerkDialog";
 
 switch (true) do {
-    case (!isNil QMODULE(database) && {X_JIPH getVariable QGVAR(holiday)}): {
+    case (!isNil QMODULE(database) && {!isNil {X_JIPH getVariable QGVAR(holiday)}}): {
         DIALOG("X_PERK_DIALOG", 20) ctrlSetText "Happy Holidays!\nMax points & restrictions lifted until Jan 3rd";
     };
 
