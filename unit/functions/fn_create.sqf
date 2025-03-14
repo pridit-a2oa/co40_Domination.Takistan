@@ -58,7 +58,7 @@ for "_i" from 1 to _amount do {
             };
 
             if (!isNil QMODULE(vehicle_wreck)) then {
-                [_vehicle select 0] spawn FUNC(vehicle_wreck,handle);
+                [_vehicle select 0] call FUNC(vehicle_wreck,handle);
             };
 
             _vehicle select 2
@@ -75,7 +75,7 @@ for "_i" from 1 to _amount do {
             ] call FUNC(server,spawnVehicle);
 
             if (!isNil QMODULE(vehicle_wreck)) then {
-                [_vehicle select 0] spawn FUNC(vehicle_wreck,handle);
+                [_vehicle select 0] call FUNC(vehicle_wreck,handle);
             };
 
             _vehicle select 2

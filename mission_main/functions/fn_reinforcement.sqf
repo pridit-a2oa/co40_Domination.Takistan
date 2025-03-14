@@ -18,6 +18,14 @@ _aircraft = _vehicle select 0;
 _crew = _vehicle select 1;
 _pilot = driver _aircraft;
 
+_aircraft setVariable [QGVAR(target), _target];
+
+if (!isNil QMODULE(vehicle_wreck)) then {
+    [_aircraft] call FUNC(vehicle_wreck,handle);
+} else {
+    __addDead(_aircraft);
+};
+
 if (!isNil QMODULE(vehicle_respawn)) then {
     _aircraft setVariable [QGVAR(respawnable), false, true];
 };
@@ -30,10 +38,6 @@ switch (_type select 0) do {
     case "aircraft": {
         _aircraft flyInHeight 140;
 
-        if (!isNil QMODULE(vehicle_wreck)) then {
-            [_aircraft] spawn FUNC(vehicle_wreck,handle);
-        };
-
         if (!isNil QMODULE(unit)) then {
             [group _pilot, position _target, 600, 4] call FUNC(unit,patrol);
         };
@@ -43,8 +47,6 @@ switch (_type select 0) do {
         private ["_group"];
 
         _aircraft flyInHeight 100;
-
-        __addDead(_aircraft);
 
         if (!isNil QMODULE(unit)) then {
              _group = [

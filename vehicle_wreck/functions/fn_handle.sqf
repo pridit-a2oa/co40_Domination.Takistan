@@ -10,47 +10,55 @@ _chance = if (_vehicle isKindOf "LandVehicle") then {
     GVAR(vehicle_wreck_chance_air)
 };
 
-if (_chance > floor (random 100)) then {
-    _vehicle setVariable [QGVAR(wreckable), true, true];
+if (_chance > floor (random 100)) exitWith {
+    _vehicle setVariable [
+        QGVAR(handler),
+        _vehicle addMPEventHandler ["MPKilled", {
+            private ["_vehicle", "_target"];
 
-    _handler = _vehicle addMPEventHandler ["MPKilled", {
-        private ["_vehicle"];
+            PARAMS_1(_vehicle);
 
-        PARAMS_1(_vehicle);
+            _target = _vehicle getVariable QGVAR(target);
 
-        if !(_vehicle getVariable QGVAR(wreckable)) exitWith {
-            if (isServer) then {
+            if (!isNil QMODULE(mission_main) && {isServer && {!isNil "_target" && {typeOf _vehicle in (_target getVariable QGVAR(wrecks))}}}) exitWith {
                 __addDead(_vehicle);
             };
-        };
 
-        _vehicle spawn {
-            sleep GVAR(vehicle_wreck_time_announce);
+            if (isServer) then {
+                _vehicle setVariable [QGVAR(wreckable), true, true];
 
-            if (!isNil QMODULE(vehicle_marker)) then {
-                [_this] call FUNC(vehicle_marker,create);
+                if (!isNil QMODULE(mission_main) && {!isNil "_target" && {!(typeOf _vehicle in (_target getVariable QGVAR(wrecks)))}}) then {
+                    _target setVariable [QGVAR(wrecks), (_target getVariable QGVAR(wrecks)) + [typeOf _vehicle]];
+                };
             };
-        };
-    }];
 
-    _vehicle setVariable [QGVAR(handler), _handler];
+            if (hasInterface) then {
+                _vehicle spawn {
+                    sleep GVAR(vehicle_wreck_time_announce);
+
+                    if !(isNil QMODULE(vehicle_marker)) then {
+                        [_this] call FUNC(vehicle_marker,create);
+                    };
+                };
+            };
+        }
+    ]];
 
     _vehicle addEventHandler ["getin", {
-        private ["_vehicle"];
+        private ["_vehicle", "_handler"];
 
         PARAMS_1(_vehicle);
 
         _handler = _vehicle getVariable QGVAR(handler);
 
-        if (!isNil "_handler") then {
-            _vehicle removeMPEventHandler ["MPKilled", _vehicle getVariable QGVAR(handler)];
-
+        if !(isNil "_handler") then {
             _vehicle setVariable [QGVAR(handler), nil];
-            _vehicle setVariable [QGVAR(wreckable), false, true];
+
+            _vehicle removeMPEventHandler ["MPKilled", _handler];
 
             __addDead(_vehicle);
         };
     }];
-} else {
-    __addDead(_vehicle);
 };
+
+__addDead(_vehicle);

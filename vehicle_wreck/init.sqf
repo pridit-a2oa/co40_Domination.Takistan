@@ -10,7 +10,7 @@
 // Chance that enemy aircraft can produce a wreck
 GVAR(vehicle_wreck_chance_air) = 20;
 
-// Chance that enemy armor can produce a wreck
+// Chance that enemy land vehicles can produce a wreck
 GVAR(vehicle_wreck_chance_land) = 10;
 
 // Amount of time since destruction to announce wreck availability
