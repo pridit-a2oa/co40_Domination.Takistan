@@ -162,13 +162,13 @@ _target spawn {
     } forEach (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
 
     if ([count _targets, 0] call BIS_fnc_areEqual) then {
-        __log "Exhausted conditionable locations, cycling with completed excluded"];
+        __log "(WARNING) Exhausted conditionable locations, cycling with completed excluded"];
 
         _targets = (GVAR(mission_main_targets) - GVAR(mission_main_targets_completed));
     };
 
     if ([count _targets, 0] call BIS_fnc_areEqual) then {
-        __log "Exhausted all conditionable locations, cycling without conditions"];
+        __log "(WARNING) Exhausted all conditionable locations, cycling without conditions"];
 
         _targets = GVAR(mission_main_targets);
     };
