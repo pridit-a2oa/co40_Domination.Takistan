@@ -5,7 +5,7 @@ PARAMS_1(_vehicle);
 
 if (isNull _vehicle) exitWith {};
 
-if ({isPlayer _x} count crew _vehicle > 0) then {
+if !([{isPlayer _x} count crew _vehicle, 0] call BIS_fnc_areEqual) then {
     {
         if (!isNil QMODULE(vehicle_uav) && {typeOf _vehicle in GVAR(vehicle_uav_types)}) then {
             [_x, "execVM", [[_vehicle, false], FUNCTION(vehicle_uav,control)]] call FUNC(network,mp);
@@ -15,6 +15,10 @@ if ({isPlayer _x} count crew _vehicle > 0) then {
     } forEach crew _vehicle;
 
     waitUntil {sleep 0.1; [{isPlayer _x} count crew _vehicle, 0] call BIS_fnc_areEqual};
+} else {
+    if (!isNil QMODULE(vehicle_uav) && {typeOf _vehicle in GVAR(vehicle_uav_types)}) then {
+        [true, "execVM", [[], FUNCTION(vehicle_uav,populate)]] call FUNC(network,mp);
+    };
 };
 
 [true, "enableSimulation", [_vehicle, false]] call FUNC(network,mp);

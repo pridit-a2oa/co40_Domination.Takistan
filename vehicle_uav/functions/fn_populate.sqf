@@ -4,6 +4,9 @@ private ["_listbox", "_button"];
 
 disableSerialization;
 
+if !(call FUNC(THIS_MODULE,valid)) exitWith {};
+if !([typeName (uiNamespace getVariable "X_VEHICLE_UAV_DIALOG"), "DISPLAY"] call BIS_fnc_areEqual) exitWith {};
+
 call FUNC(interface,clear);
 
 _listbox = DIALOG("X_VEHICLE_UAV_DIALOG", 200);

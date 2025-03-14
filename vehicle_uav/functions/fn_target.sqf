@@ -18,6 +18,10 @@ _button ctrlEnable false;
         _target = _x;
 
         switch (true) do {
+            case !(simulationEnabled _x): {
+                _button ctrlSetText "Unresponsive";
+            };
+
             case ([driver _x, objNull] call BIS_fnc_areEqual);
             case ([gunner _x, objNull] call BIS_fnc_areEqual): {
                 _button ctrlSetText "Connect";

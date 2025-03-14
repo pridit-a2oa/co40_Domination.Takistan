@@ -152,3 +152,5 @@ player setCaptive _state;
 hcShowBar _state;
 
 [_state] call FUNC(THIS_MODULE,effect);
+
+[true, "execVM", [[], FUNCTION(THIS_MODULE,populate)]] call FUNC(network,mp);

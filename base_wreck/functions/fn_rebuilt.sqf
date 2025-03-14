@@ -39,6 +39,10 @@ if (!isNil QMODULE(vehicle_tow)) then {
     _vehicle setVariable [QGVAR(towed), false, true];
 };
 
+if (!isNil QMODULE(vehicle_uav) && {typeOf _vehicle in GVAR(vehicle_uav_types)}) then {
+    [true, "execVM", [[], FUNCTION(vehicle_uav,populate)]] call FUNC(network,mp);
+};
+
 if !(isNil QMODULE(conversation)) then {
     [
         [GVAR(crossroad), GVAR(crossroad2)],

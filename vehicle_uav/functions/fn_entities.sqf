@@ -5,9 +5,7 @@ _entities = [];
 
 {
     {
-        if (simulationEnabled _x) then {
-            _entities = _entities + [_x];
-        };
+        _entities = _entities + [_x];
     } forEach (entities _x);
 } forEach GVAR(vehicle_uav_types);
 
