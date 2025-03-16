@@ -10,8 +10,8 @@ if (hasInterface) then {
     QGVAR(map_zone) setMarkerAlphaLocal 0;
 };
 
-waitUntil {sleep 0.1; !isNil "bis_fnc_init"};
-waitUntil {sleep 0.1; !isNil "BIS_MPF_InitDone"};
+waitUntil {sleep 0.01; !isNil "bis_fnc_init"};
+waitUntil {sleep 0.01; !isNil "BIS_MPF_InitDone"};
 
 if (hasInterface && {isMultiplayer}) then {
     0 fadeSound 0;
@@ -20,10 +20,6 @@ if (hasInterface && {isMultiplayer}) then {
         disableUserInput true;
     };
 
-    removeAllItems player;
-    removeAllWeapons player;
-
-    player switchMove "";
     player enableSimulation false;
 
     0 spawn {

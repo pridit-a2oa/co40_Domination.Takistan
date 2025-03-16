@@ -75,6 +75,8 @@ onPlayerDisconnected {
         if (!isNull _x && {[getPlayerUID _x, _uid] call BIS_fnc_areEqual}) exitWith {
             private ["_dead"];
 
+            _x enableSimulation true;
+
             [gameLogic, "switchMove", [_x, ""]] call FUNC(network,mp);
 
             _dead = !alive _x;

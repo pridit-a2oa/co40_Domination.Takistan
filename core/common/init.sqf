@@ -81,21 +81,23 @@ if (hasInterface) then {
         disableUserInput false;
 
         player spawn {
-            if (!isNil QMODULE(database) && {[[name player] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual}) exitWith {
-                [gameLogic, "spawn", [[name player, getPlayerUID player], {
+            if (!isNil QMODULE(database) && {[[name _this] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual}) exitWith {
+                [gameLogic, "spawn", [[name _this, getPlayerUID _this], {
                     __log format ["Player %1 (%2) ejected for invalid name", _this select 0, _this select 1]];
                 }]] call FUNC(network,mp);
 
                 [
-                    format ["PLAYER NAME (%1) CONTAINS UNSAFE CHARACTERS\n\nRETURNING TO LOBBY", name player],
+                    format ["PLAYER NAME (%1) CONTAINS UNSAFE CHARACTERS\n\nRETURNING TO LOBBY", name _this],
                     15,
                     false
                 ] call FUNC(client,transition);
 
+                _this enableSimulation true;
+
                 endMission "LOSER";
             };
 
-            if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(tutorial)) select 1, 10] call BIS_fnc_areEqual}) then {
+            if (!isNil QMODULE(setting) && {[(_this getVariable QGVAR(tutorial)) select 1, 10] call BIS_fnc_areEqual}) then {
                 call FUNC(tutorial,handle);
 
                 waitUntil {sleep 1; !GVAR(tutorial)};
@@ -116,7 +118,7 @@ if (hasInterface) then {
                 ];
             };
 
-            player enableSimulation true;
+            _this enableSimulation true;
         };
     };
 };
