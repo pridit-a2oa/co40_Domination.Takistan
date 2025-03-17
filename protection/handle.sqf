@@ -20,7 +20,7 @@ if (hasInterface) then {
                 deleteVehicle _projectile;
             };
 
-            case !([{!(true in [_x isKindOf "CAManBase", _x isKindOf "ATV_Base_EP1", _x isKindOf "TT650_Base"]) && {side _x in [west, civilian]}} count nearestObjects [_unit, ["AllVehicles", "USVehicleBox_EP1"], 20], 0] call BIS_fnc_areEqual);
+            case !([{!(true in [_x isKindOf "CAManBase", _x isKindOf "Motorcycle"]) && {side _x in [west, civilian] && {!(faction _x in ["BIS_TK", "BIS_TK_INS"])}}} count nearestObjects [_unit, ["AllVehicles", "USVehicleBox_EP1"], 20], 0] call BIS_fnc_areEqual);
             case ((position _unit) distance (markerPos QGVAR(base_south)) <= GVAR(protection_distance)): {
                 deleteVehicle _projectile;
 
