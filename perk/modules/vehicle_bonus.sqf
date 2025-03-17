@@ -16,7 +16,7 @@ while {true} do {
     if (!_fly && {[player, driver _vehicle] call BIS_fnc_areEqual}) then {
         player action ["Eject", _vehicle];
 
-        hint "You do not have the required perk to pilot attack aircraft";
+        hint parseText "<br /><t size='1.1'><t color='#c54a30' underline='1' align='center'>MISSING&#160;PERK</t><br /><br />You must unlock the <t color='#a3ae55'>Fly attack aircraft</t> perk to pilot this vehicle</t><br /><br />";
 
         if (player getVariable QGVAR(perk_points) > 0) then {
             call FUNC(THIS_MODULE,show);

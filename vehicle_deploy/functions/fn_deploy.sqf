@@ -54,7 +54,7 @@ switch (_state) do {
 
             {
                 if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
-                    hint _x;
+                    [_x] call FUNC(client,hint);
                 };
             } forEach _checks;
 
@@ -124,7 +124,7 @@ switch (_state) do {
 
             {
                 if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
-                    hint _x;
+                    [_x] call FUNC(client,hint);
                 };
             } forEach _checks;
 

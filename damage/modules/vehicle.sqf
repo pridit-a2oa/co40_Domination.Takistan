@@ -49,7 +49,7 @@ _vehicle addEventHandler ["HandleDamage", {
             {
                 if (isPlayer _x) then {
                     [_x, "hintSilent", format [
-                        "Guided missile applied <t underline='1'>%1</t> of its potential damage, as you are >%2km away",
+                        "<br /><t size='1.1'><t underline='1'>NOTICE</t><br /><br />Guided missile applied <t color='#a3ae55'>%1</t> of its potential damage, as you are >%2km away</t><br /><br />",
                         str _modifier + "%",
                         _falloff - 1
                     ]] call FUNC(network,mp);

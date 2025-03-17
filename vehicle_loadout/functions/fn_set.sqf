@@ -24,7 +24,7 @@ if (hasInterface) then {
 
     {
         if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
-            hint _x;
+            [_x] call FUNC(client,hint);
         };
     } forEach _checks;
 };
@@ -67,8 +67,8 @@ if (isServer || {(hasInterface && {[{[_x, true] call BIS_fnc_areEqual} count _ch
 
             if (hasInterface && {player distance _vehicle < 10 && {!isNil QMODULE(setting) && {[(player getVariable QGVAR(vehicle_loadout)) select 1, 10] call BIS_fnc_areEqual}}}) then {
                 hintSilent parseText format [
-                    "<br /><t underline='1'>%1</t><br /><br />%2<br />%3",
-                    _type,
+                    "<br /><t size='1.1'><t underline='1'>%1</t><br /><br />%2<br />%3</t>",
+                    [_type, " ", "&#160;"] call KRON_Replace,
                     [_new] call FUNC(THIS_MODULE,parse),
                     if !(isNil QMODULE(vehicle_service)) then {
                         format [

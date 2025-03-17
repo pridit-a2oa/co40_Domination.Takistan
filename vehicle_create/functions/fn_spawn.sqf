@@ -17,7 +17,7 @@ if (count _occupied > 0) then {
 
 if (count _occupied > 0) exitWith {
     if (hasInterface) then {
-        hint "Creation point is already occupied by a vehicle";
+        ["Spawn point is already occupied by a vehicle"] call FUNC(client,hint);
     };
 
     false
