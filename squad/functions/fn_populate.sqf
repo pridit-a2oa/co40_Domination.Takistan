@@ -17,6 +17,10 @@ if (!isNil QMODULE(communication)) then {
         ] call FUNC(communication,add);
     } forEach (X_JIPH getVariable QGVAR(squads));
 
+    BIS_MENU_Squad = BIS_MENU_Squad + [
+        ["", [(count BIS_MENU_Squad) + 1], "", -1, [["expression", ""]], "1", "1"]
+    ];
+
     [
         BIS_MENU_Squad,
         "Leave",
