@@ -146,6 +146,10 @@ if !(isNil QMODULE(tent)) then {
         if ((count _x) > 3) then {_fuel = _x select 3};
         if ((count _x) > 4) then {_damage = _x select 4};
 
+        if ([_type, "Land_Fire"] call BIS_fnc_areEqual && {[sunOrMoon, 0] call BIS_fnc_areEqual}) then {
+            _type = "Land_Fire_burning";
+        };
+
         // Rotate the relative position using a rotation matrix
         private ["_rotMatrix", "_newRelPos", "_newPos"];
 
