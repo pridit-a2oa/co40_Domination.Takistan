@@ -131,10 +131,6 @@ if (hasInterface) then {
         !isNil {_vehicle getVariable QGVAR(id)}
     };
 
-    if (!isNil QMODULE(base_protection)) then {
-        [_vehicle] __submodulePP(base_protection);
-    };
-
     if (!isNil QMODULE(halo)) then {
         [_vehicle] __submodulePP(halo);
     };
@@ -145,6 +141,10 @@ if (hasInterface) then {
 
     if (!isNil QMODULE(perk)) then {
         [_vehicle] __submodulePP(perk);
+    };
+
+    if (!isNil QMODULE(protection)) then {
+        [_vehicle] __submodulePP(protection);
     };
 
     if (!isNil QMODULE(option)) then {
