@@ -6,20 +6,22 @@ PARAMS_1(_vehicle);
 
 _hangars = X_JIPH getVariable QGVAR(wreck_hangars);
 
-if (isNil QMODULE(base_uav) || {!isNil QMODULE(base_uav) && {!([typeOf _vehicle, GVAR(base_uav_type_vehicle)] call BIS_fnc_areEqual)}}) then {
-    {
-        if !(triggerActivated _x) exitWith {
-            private ["_hangar"];
+if !([typeOf _vehicle, "Mi17_TK_EP1"] call BIS_fnc_areEqual) then {
+    if (isNil QMODULE(base_uav) || {!isNil QMODULE(base_uav) && {!([typeOf _vehicle, GVAR(base_uav_type_vehicle)] call BIS_fnc_areEqual)}}) then {
+        {
+            if !(triggerActivated _x) exitWith {
+                private ["_hangar"];
 
-            _hangar = _hangars select _forEachIndex;
+                _hangar = _hangars select _forEachIndex;
 
-            _vehicle setDir ((getDir _hangar) - 180);
-            _vehicle setPosATL (getPosATL _hangar);
+                _vehicle setDir ((getDir _hangar) - 180);
+                _vehicle setPosATL (getPosATL _hangar);
+            };
+        } forEach GVAR(wreck_hangar_triggers);
+    } else {
+        if !(isNil QMODULE(base_uav)) then {
+            [_vehicle] __submodulePP(base_uav);
         };
-    } forEach GVAR(wreck_hangar_triggers);
-} else {
-    if !(isNil QMODULE(base_uav)) then {
-        [_vehicle] __submodulePP(base_uav);
     };
 };
 
@@ -30,6 +32,7 @@ if (isNil QMODULE(vehicle_uav) || {!isNil QMODULE(vehicle_uav) && {!(typeOf _veh
 };
 
 _vehicle allowDamage true;
+_vehicle setVectorUp surfaceNormal (position _vehicle);
 
 if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
     _vehicle setVariable [QGVAR(menu), true, true];
