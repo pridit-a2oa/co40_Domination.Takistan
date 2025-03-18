@@ -24,7 +24,7 @@ _button ctrlEnable false;
         if (player distance _x > 50) then {
             private ["_index"];
 
-            _index = _listbox lbAdd format [" %1", if (_airfield) then {
+            _index = _listbox lbAdd format ["%1", if (_airfield) then {
                 "Airfield";
             } else {
                 text _location;
@@ -52,7 +52,10 @@ if !(isNil QMODULE(vehicle_deploy)) then {
                     sleep 0.2;
                 };
 
-                _name = markerText _id;
+                _name = toArray (markerText _id);
+                _name set [0, objNull];
+
+                _name = toString (_name - [objNull]);
             };
 
             _index = _listbox lbAdd _name;
