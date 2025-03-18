@@ -7,7 +7,7 @@ PARAMS_1(_type);
 if (hasInterface) then {
     private ["_name", "_checks"];
 
-    _name = "R&D";
+    _name = "R&amp;D";
     _checks = [
         [
             [_name, "used to construct"],
