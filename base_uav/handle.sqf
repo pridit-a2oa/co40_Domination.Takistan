@@ -67,13 +67,13 @@ if (isServer) then {
     _vehicle setDir (direction GVAR(base_uav));
     _vehicle setPosATL (GVAR(base_uav) modelToWorld ([typeOf _vehicle] call FUNC(THIS_MODULE,offset)));
 
-    if !(isNil QMODULE(vehicle_respawn)) then {
-        _vehicle setVariable [QGVAR(respawnable), false, true];
-    };
+    // if !(isNil QMODULE(vehicle_respawn)) then {
+    //     _vehicle setVariable [QGVAR(respawnable), false, true];
+    // };
 
-    if !(isNil QMODULE(vehicle_wreck)) then {
-        _vehicle setVariable [QGVAR(wreckable), true, true];
-    };
+    // if !(isNil QMODULE(vehicle_wreck)) then {
+    //     _vehicle setVariable [QGVAR(wreckable), true, true];
+    // };
 
     X_JIPH setVariable [QGVAR(base_uav), true, true];
 };
