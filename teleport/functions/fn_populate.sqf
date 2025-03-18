@@ -14,14 +14,17 @@ _button = DIALOG("X_TELEPORT_DIALOG", 300);
 _button ctrlEnable false;
 
 {
-    private ["_location", "_position", "_index"];
-
     if !(isNil {_x getVariable QGVAR(teleport)}) then {
+        private ["_location", "_position", "_airfield"];
+
         _location = [position _x] call FUNC(common,nearestLocation);
-        _position = locationPosition _location;
+        _position = locationPosition _location;;
+        _airfield = [str _position, "[8622.05,2454.22,-315.322]"] call BIS_fnc_areEqual;
 
         if (player distance _x > 50) then {
-            _index = _listbox lbAdd format [" %1", if ([_position, [8622.05,2454.22,-315.322]] call BIS_fnc_areEqual) then {
+            private ["_index"];
+
+            _index = _listbox lbAdd format [" %1", if (_airfield) then {
                 "Airfield";
             } else {
                 text _location;
@@ -29,7 +32,7 @@ _button ctrlEnable false;
 
             _listbox lbSetPicture [_index, "\ca\warfare2\images\wf_city_flag.paa"];
             _listbox lbSetData [_index, str _position];
-            _listbox lbSetValue [_index, if ([str _position, "[8622.05,2454.22,-315.322]"] call BIS_fnc_areEqual) then {0} else {player distance _x}];
+            _listbox lbSetValue [_index, if (_airfield) then {0} else {player distance _x}];
         };
     };
 } forEach (allMissionObjects GVAR(teleport_type_object));
