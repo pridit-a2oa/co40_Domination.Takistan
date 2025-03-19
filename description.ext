@@ -743,7 +743,7 @@ class Params {
     {
         title = "Vote";
         values[] = {1, 0};
-        texts[] = {"Enabled", "-"};
+        texts[] = {"Enabled (Multiplayer)", "-"};
         default = 1;
     };
     class weather

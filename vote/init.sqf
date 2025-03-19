@@ -8,6 +8,9 @@
 #define THIS_MODULE vote
 #include "x_macros.sqf"
 
+// Incompatible with SP environment
+if !(isMultiplayer) exitWith {};
+
 // Types of votes
 GVAR(vote_types) = [
     ["Skip Time", [
