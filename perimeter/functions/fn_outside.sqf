@@ -17,7 +17,7 @@ _remaining = [player, 20] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
 
-DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>Out of bounds</t>";
+DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>Out&#160;of&#160;bounds</t>";
 DIALOG(QGVAR(notice), 1001) ctrlSetText "Return to the mission area";
 
 _handler = _vehicle addEventHandler ["getout", {

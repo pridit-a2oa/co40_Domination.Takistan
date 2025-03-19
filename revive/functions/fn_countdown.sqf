@@ -8,7 +8,7 @@ _time = [player, GVAR(revive_time_respawn)] call FUNC(3d,time);
 
 3000 cutRsc ["XD_Notice", "PLAIN"];
 
-DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>You are incapacitated</t>";
+DIALOG(QGVAR(notice), 1000) ctrlSetStructuredText parseText "<t underline='1'>You&#160;are&#160;incapacitated</t>";
 DIALOG(QGVAR(notice), 1001) ctrlSetText "Wait to be revived before the timer runs out\n\nOR\n\nRespawn from the escape menu";
 
 if !(isNil QMODULE(conversation)) then {
