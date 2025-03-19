@@ -5,17 +5,17 @@ PARAMS_1(_vehicle);
 
 _type = getText (configFile >> "CfgVehicles" >> _vehicle >> "TextSingular");
 
-switch (_type) do {
-    case "Airplane": {
-        _type = "Plane";
-    };
+if ([_type, "Airplane"] call BIS_fnc_areEqual) then {
+    _type = "Plane";
+};
 
+_icon = switch (_type) do {
     case "Truck": {
-        _icon = "\ca\ui\data\icontruck_ca.paa";
+        "\ca\ui\data\icontruck_ca.paa";
     };
 
-    case "UAV": {
-        _icon = getText (configFile >> "CfgVehicles" >> _vehicle >> "icon");
+    default {
+        getText (configFile >> "CfgVehicles" >> _vehicle >> "icon");
     };
 };
 
