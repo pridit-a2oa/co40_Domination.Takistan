@@ -1,3 +1,7 @@
+/**
+ * Event Module (Handler)
+ */
+
 #define THIS_MODULE event
 #include "x_macros.sqf"
 

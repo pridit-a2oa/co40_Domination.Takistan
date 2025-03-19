@@ -1,4 +1,4 @@
-#define THIS_MODULE perimiter
+#define THIS_MODULE perimeter
 #include "x_macros.sqf"
 private ["_trigger", "_vehicle", "_position", "_remaining", "_handler", "_vehicle"];
 

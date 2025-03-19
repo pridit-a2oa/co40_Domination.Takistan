@@ -1,5 +1,5 @@
 /**
- * Base R&D Module
+ * Base R&D Module (Handler)
  */
 
 #define THIS_MODULE base_rd

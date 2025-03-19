@@ -1,14 +1,14 @@
 /**
- * Perimiter Module (Handler)
+ * Perimeter Module (Handler)
  */
 
 #include "x_macros.sqf"
 private ["_size", "_width", "_adjust", "_x", "_y", "_zones", "_zone", "_trigger"];
 
 if (hasInterface) then {
-    _size = GVAR(perimiter_distance_center);
-    _width = GVAR(perimiter_amount_width);
-    _adjust = GVAR(perimiter_amount_adjust);
+    _size = GVAR(perimeter_distance_center);
+    _width = GVAR(perimeter_amount_width);
+    _adjust = GVAR(perimeter_amount_adjust);
 
     _x = (markerPos QGVAR(map_zone)) select 0;
     _y = (markerPos QGVAR(map_zone)) select 1;
@@ -17,7 +17,7 @@ if (hasInterface) then {
 
     for "_i" from 1 to 2 do {
         _zone = createMarkerLocal [
-            format ["PerimiterAxisY%1", _i],
+            format ["PerimeterAxisY%1", _i],
             [
                 if ([_i % 2, 0] call BIS_fnc_areEqual) then {
                     _y + _size + _adjust
@@ -35,7 +35,7 @@ if (hasInterface) then {
 
     for "_i" from 1 to 2 do {
         _zone = createMarkerLocal [
-            format ["PerimiterAxisX%1", _i],
+            format ["PerimeterAxisX%1", _i],
             [
                 _y + _adjust,
                 if ([_i % 2, 0] call BIS_fnc_areEqual) then {
@@ -63,7 +63,7 @@ if (hasInterface) then {
     _trigger setTriggerActivation ["ANY", "PRESENT", true];
     _trigger setTriggerStatements [
         "!(player in thisList) && {!((vehicle player) in thisList) && {alive player && {!(player getVariable 'd_unconscious') && {!(typeOf (vehicle player) in [""Parachute_US_EP1"", ""ParachuteWest""])}}}}",
-        "[thisTrigger] spawn d_fnc_perimiter_outside",
+        "[thisTrigger] spawn d_fnc_perimeter_outside",
         ""
     ];
 };

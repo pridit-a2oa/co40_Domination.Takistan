@@ -1,5 +1,5 @@
 /**
- * Vehicle Marker Module (Handle)
+ * Vehicle Marker Module (Handler)
  */
 
 #define THIS_MODULE vehicle_marker
