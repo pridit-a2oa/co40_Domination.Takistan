@@ -16,9 +16,9 @@ _seagull = _this select 2;
 
 if (isNil "KEGs_FuncsInited") then {
     KEGs_FuncsInited = true;
-    call compile preprocessFileLineNumbers "admin_spectate\functions\fn_funcs.sqf";
-    spectate_events = compile preprocessFileLineNumbers "admin_spectate\functions\fn_events.sqf";
-    KEGs_menucamslbchange = compile preprocessFileLineNumbers "admin_spectate\functions\fn_change.sqf";
+    call compile preprocessFileLineNumbers "spectate\functions\fn_funcs.sqf";
+    spectate_events = compile preprocessFileLineNumbers "spectate\functions\fn_events.sqf";
+    KEGs_menucamslbchange = compile preprocessFileLineNumbers "spectate\functions\fn_change.sqf";
 };
 
 private ["_factor", "_oldUseNVG", "_olduseMCam", "_oldTags", "_oldAIfilter", "_oldDeadFilter", "_flybydst", "_lastTgt", "_oldtarget", "_hasdropped", "_oldnname", "_oldnrole", "_oldcamselidx", "_oldCameraIdx", "_deadstr", "_unknownstr", "_name", "_pilotstr", "_driverstr", "_gunnerstr", "_commanderstr", "_clbcols", "_markstr", "_disp", "_kdowneh", "_kupeh", "_cCamera", "_cTarget", "_cName", "_cLBCameras", "_cLBTargets", "_cMap", "_cMapFull", "_cRButton1", "_cRButton2", "_cRButton3", "_cRButton4", "_nearest", "_rbuttonsvisible", "_pos", "_cameras", "_cameraNames", "_dummy", "_cLbSeparator", "_cLbMissileCam", "_cLbToggleNVG", "_cLbToggleTags", "_cLbToggleAiFilter", "_cLbToggleDeadFilter", "_tgtSelLast", "_nNoDialog", "_nextmarkertime", "_nextmaptime", "_lastUpdateTags", "_lasttgtIdx", "_cxpos", "_cypos", "_czpos", "_cspeedx", "_cspeedy", "_tbase", "_h", "_allUnits", "_allVehicles", "_nn", "_fh", "_gg", "_m", "_OriginalSide", "_s", "_strlifet", "_fangle", "_fangleY", "_sdistance", "_strlt", "_llbsize", "_idx", "_ot", "_oside", "_coldidx", "_rate", "_map", "_mm", "_dir", "_bb", "_foo", "_l", "_w", "_hstr", "_role", "_vectar", "_spd", "_spdbase", "_bstr", "_tbasebstr", "_objs", "_dist", "_d", "_vpmtw", "_gjp", "_lsdist", "_z", "_co", "_comSpeed", "_tt", "_doexitx", "_bpos", "_bird", "_ret"];
@@ -733,7 +733,7 @@ if (KEGs_no_butterfly_mode) exitWith {
     titleText ["", "BLACK IN", 0.2];
     closeDialog 0;
     KEGs_SPECTATINGON = nil;
-    0 spawn {sleep 0.01; [_player, _killer, "noWait"] execVM "admin_spectate\functions\fn_init.sqf"};
+    0 spawn {sleep 0.01; [_player, _killer, "noWait"] execVM "spectate\functions\fn_init.sqf"};
 };
 
 _bpos = [(((vehicle KEGs_target) modelToWorld [0, 0, 0]) select 0) - 5 + random 10, (((vehicle KEGs_target) modelToWorld [0, 0, 0]) select 1) - 5 + random 10, 1];
@@ -765,4 +765,4 @@ player switchCamera "INTERNAL";
 player cameraEffect["terminate", "FRONT"];
 deletevehicle _bird;
 KEGs_SPECTATINGON = nil;
-[_player, _killer, "noWait"] execVM "admin_spectate\functions\fn_init.sqf";
+[_player, _killer, "noWait"] execVM "spectate\functions\fn_init.sqf";

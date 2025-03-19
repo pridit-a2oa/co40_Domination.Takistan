@@ -11,8 +11,8 @@ BIS_MENU_Admin = [
     ["Admin", false]
 ];
 
-if !(isNil QMODULE(admin_spectate)) then {
-    __submodulePP(admin_spectate);
+if !(isNil QMODULE(spectate)) then {
+    __submodulePP(spectate);
 };
 
 BIS_MENU_GroupCommunication = BIS_MENU_GroupCommunication + [

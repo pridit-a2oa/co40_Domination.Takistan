@@ -9,7 +9,6 @@ GVAR(modules) = [
     "database", // Requires: @Arma2NET
     "3d",
     "admin",
-    "admin_spectate",
     "airdrop",
     "airtaxi",
     "ammobox",
@@ -73,6 +72,7 @@ GVAR(modules) = [
     "revive",
     "reward",
     "shield",
+    "spectate",
     "squad",
     "task",
     "teleport",
