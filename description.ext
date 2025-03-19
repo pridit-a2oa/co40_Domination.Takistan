@@ -11,25 +11,748 @@ onLoadMission = "Domination Rebuilt - West";
 onLoadIntroTime = 0;
 onLoadMissionTime = 0;
 
-#include "define.hpp"
-#include "core\interface\dialog\map_with_list.hpp"
-#include "base_rd\dialog\base.hpp"
-#include "halo\dialog\base.hpp"
-#include "inventory\dialog\base.hpp"
-#include "menu\dialog\base.hpp"
-#include "perk\dialog\base.hpp"
-#include "setting\dialog\base.hpp"
-#include "spectate\dialog\base.hpp"
-#include "teleport\dialog\base.hpp"
-#include "vehicle_uav\dialog\base.hpp"
-#include "vote\dialog\base.hpp"
-
 class Header
 {
     gameType                = COOP;
     minPlayers              = 1;
     maxPlayers              = 40;
     playerCountMultipleOf   = 1;
+};
+
+class Params {
+	class 3d
+	{
+		title = "3D (Text)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class admin
+	{
+		title = "Admin";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Whitelisted)", "-"};
+		default = 1;
+	};
+    class airdrop
+	{
+		title = "Airdrop";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class airtaxi
+	{
+		title = "Air Taxi";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class ammobox
+	{
+		title = "Ammobox";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class artillery
+	{
+		title = "Artillery";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class backpack
+	{
+		title = "Backpack (Virtual)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_ammobox
+	{
+		title = "Base Ammobox";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_bonus
+	{
+		title = "Base Bonus (Attack Aircraft)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_defense
+	{
+		title = "Base Defense";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_halo
+	{
+		title = "Base HALO";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_rd
+	{
+		title = "Base R&D";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_uav
+	{
+		title = "Base UAV";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class base_wreck
+	{
+		title = "Base Wreck";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class chat
+	{
+		title = "Chat";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Multiplayer)", "-"};
+		default = 1;
+	};
+	class cleanup
+	{
+		title = "Cleanup";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class communication
+	{
+		title = "Communication";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class construction
+	{
+		title = "Construction";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class construction_farp
+	{
+		title = "|- FARP";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"construction", "farp"};
+	};
+    class construction_fortification
+	{
+		title = "|- Fortification";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"construction", "fortification"};
+	};
+    class construction_mash
+	{
+		title = "|- MASH";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"construction", "mash"};
+	};
+    class construction_nest
+	{
+		title = "|- Nest";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"construction", "nest"};
+	};
+	class conversation
+	{
+		title = "Conversation";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class damage
+	{
+		title = "Damage";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Multiplayer)", "-"};
+		default = 1;
+	};
+	class debug
+	{
+		title = "Debug";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Admin)", "-"};
+		default = 1;
+	};
+    class diary
+	{
+		title = "Diary (Notes)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	// TODO: Refactor (just slight cleanup, re-check #34)
+    class drag
+	{
+		title = "Drag";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class event
+	{
+		title = "Event";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class event_checkpoint
+	{
+		title = "|- Checkpoint (Roadblock)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"event", "checkpoint"};
+	};
+    class event_tower
+	{
+		title = "|- Tower (Anti-Air)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"event", "tower"};
+	};
+    class gear
+	{
+		title = "Gear";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class gesture
+	{
+		title = "Gesture";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class halo
+	{
+		title = "HALO";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class heap
+	{
+		title = "Heap (Backpack)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class idle
+	{
+		title = "Idle";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 0;
+	};
+    class ied
+	{
+		title = "IED";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class inventory
+	{
+		title = "Inventory";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class inventory_medical
+	{
+		title = "|- Medical (Medkit)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"inventory", "medical"};
+	};
+    class inventory_refuel
+	{
+		title = "|- Refuel (Fuel Can)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"inventory", "refuel"};
+	};
+    class inventory_repair
+	{
+		title = "|- Repair (Repair Kit)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"inventory", "repair"};
+	};
+    class item
+	{
+		title = "Item";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class item_evidence
+	{
+		title = "|- Evidence";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"item", "evidence"};
+	};
+    class item_money
+	{
+		title = "|- Money";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"item", "money"};
+	};
+    class loadout
+	{
+		title = "Loadout";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class marker
+	{
+		title = "Marker";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class medical
+	{
+		title = "Medical";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class menu
+	{
+		title = "Menu";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class menu_player
+	{
+		title = "|- Player";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"menu", "player"};
+	};
+    class menu_vehicle
+	{
+		title = "|- Vehicle";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"menu", "vehicle"};
+	};
+    class mission_main
+	{
+		title = "Mission Main";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class mission_mini
+	{
+		title = "Mission Mini";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+    class mission_mini_abandoned
+	{
+		title = "|- Abandoned (Vehicle)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"mission_mini", "abandoned"};
+	};
+    class mission_mini_cache
+	{
+		title = "|- Cache (Weapons)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"mission_mini", "cache"};
+	};
+    class mission_mini_encampment
+	{
+		title = "|- Encampment (OPFOR)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+        type[] = {"mission_mini", "encampment"};
+	};
+	class name
+	{
+		title = "Name";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class option
+	{
+		title = "Options";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class perimeter
+	{
+		title = "Perimeter";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class perk
+	{
+		title = "Perks";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class profile
+	{
+		title = "Profile (profileNamespace)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class protection
+	{
+		title = "Protection (Asset Safety)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class rd
+	{
+		title = "R&D";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class respawn
+	{
+		title = "Respawn";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class revive
+	{
+		title = "Revive";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Multiplayer)", "-"};
+		default = 1;
+	};
+	class reward
+	{
+		title = "Reward";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class shield
+	{
+		title = "Shield (Base)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class spectate
+	{
+		title = "Spectate";
+		values[] = {1, 0};
+		texts[] = {"Enabled (Whitelisted)", "-"};
+		default = 1;
+	};
+	class squad
+	{
+		title = "Squad";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class task
+	{
+		title = "Task";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class teleport
+	{
+		title = "Teleport (Fast Travel)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class tent
+	{
+		title = "Tent";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class tutorial
+	{
+		title = "Tutorial";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class uav
+	{
+		title = "UAV";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class unit
+	{
+		title = "Unit";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle
+	{
+		title = "Vehicle";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_3d
+	{
+		title = "|- 3D (Text)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_abandon
+	{
+		title = "|- Abandon";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_ammobox
+	{
+		title = "|- Ammobox";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_bomber
+	{
+		title = "|- Bomber (AI)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_bonus
+	{
+		title = "|- Bonus";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	// TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
+	class vehicle_cargo
+	{
+		title = "|- Cargo";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 0;
+	};
+	class vehicle_create
+	{
+		title = "|- Create";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_deploy
+	{
+		title = "|- Deploy";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_fob
+	{
+		title = "|- FOB (Forward Operating Base)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_lift
+	{
+		title = "|- Lift";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_loadout
+	{
+		title = "|- Loadout";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_marker
+	{
+		title = "|- Marker";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_pack
+	{
+		title = "|- Pack";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_mhq
+	{
+		title = "|- MHQ (Mobile Headquarters)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_ramp
+	{
+		title = "|- Ramp";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_refuel
+	{
+		title = "|- Refuel";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_repair
+	{
+		title = "|- Repair";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_respawn
+	{
+		title = "|- Respawn";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_service
+	{
+		title = "|- Service";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_teleport
+	{
+		title = "|- Teleport (Fast Travel)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_texture
+	{
+		title = "|- Texture";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	// TODO: Refactor (legacy RE use, mp sync issues, buggy actions)
+	class vehicle_tow
+	{
+		title = "|- Tow";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 0;
+	};
+	class vehicle_uav
+	{
+		title = "|- UAV";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 0;
+	};
+	class vehicle_unflip
+	{
+		title = "|- Unflip";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_upgrade
+	{
+		title = "|- Upgrade (Stryker)";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vehicle_wreck
+	{
+		title = "|- Wreck";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class vote
+	{
+		title = "Vote";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
+	class weather
+	{
+		title = "Weather";
+		values[] = {1, 0};
+		texts[] = {"Enabled", "-"};
+		default = 1;
+	};
 };
 
 class CfgIdentities
@@ -46,16 +769,6 @@ class CfgIdentities
     {
         name = "Meyers, HQ";
     };
-};
-
-class RscTitles
-{
-    #include "3d\dialog\titles.hpp"
-    #include "chat\dialog\titles.hpp"
-    #include "core\client\dialog\titles.hpp"
-    #include "damage\dialog\titles.hpp"
-    #include "reward\dialog\titles.hpp"
-    #include "vehicle_lift\dialog\titles.hpp"
 };
 
 class CfgSounds {
@@ -124,4 +837,27 @@ class CfgSounds {
         sound[]     = {"\vehicle_unflip\sounds\unflip", db, 1, 30};
         titles[]    = {};
     };
+};
+
+#include "define.hpp"
+#include "core\interface\dialog\map_with_list.hpp"
+#include "base_rd\dialog\base.hpp"
+#include "halo\dialog\base.hpp"
+#include "inventory\dialog\base.hpp"
+#include "menu\dialog\base.hpp"
+#include "perk\dialog\base.hpp"
+#include "setting\dialog\base.hpp"
+#include "spectate\dialog\base.hpp"
+#include "teleport\dialog\base.hpp"
+#include "vehicle_uav\dialog\base.hpp"
+#include "vote\dialog\base.hpp"
+
+class RscTitles
+{
+    #include "3d\dialog\titles.hpp"
+    #include "chat\dialog\titles.hpp"
+    #include "core\client\dialog\titles.hpp"
+    #include "damage\dialog\titles.hpp"
+    #include "reward\dialog\titles.hpp"
+    #include "vehicle_lift\dialog\titles.hpp"
 };

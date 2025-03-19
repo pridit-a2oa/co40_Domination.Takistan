@@ -15,7 +15,7 @@ GVAR(vehicle_cargo_type_aircraft) = "C130J_US_EP1";
 GVAR(vehicle_cargo_amount_max) = 2;
 
 if (hasInterface) then {
-    player setVariable [QGVAR(vehicle_cargo), 0];
+    player setVariable [QGVAR(vehicle_cargo), 2];
 };
 
 __cppfln(FUNC(THIS_MODULE,load),THIS_MODULE\functions\fn_load.sqf);

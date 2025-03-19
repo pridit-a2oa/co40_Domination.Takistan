@@ -29,9 +29,9 @@
 #define __function(file) format ["%1\functions\fn_%2.sqf", QUOTE(THIS_MODULE), #file]
 #define __profile(option) format ["pdt|%1|%2", QUOTE(THIS_MODULE), option]
 #define __fsm(file) execFSM format ["%1\fsm\%2.fsm", QUOTE(THIS_MODULE), #file]
-#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)), 
+#define __log diag_log text format ["%1: %2", toUpper(QUOTE(THIS_MODULE)),
 
 #define __ccppfln(file) call compile preprocessFileLineNumbers #file
 #define __cppfln(function,file) function = compile preprocessFileLineNumbers #file
 
-#define __addDead(xunitx) GVAR(allunits_add) set [count GVAR(allunits_add), xunitx]
+#define __addDead(xunitx) if !(isNil QMODULE(cleanup)) then {GVAR(allunits_add) set [count GVAR(allunits_add), xunitx]}
