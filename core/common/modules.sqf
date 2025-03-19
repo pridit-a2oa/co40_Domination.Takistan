@@ -13,7 +13,15 @@ GVAR(modules) = [
 _config = missionConfigFile >> "Params";
 
 for "_i" from 0 to (count (_config) - 1) do {
-    if ([paramsArray select _i, 1] call BIS_fnc_areEqual) then {
+    private ["_param"];
+
+    _param = if (isNil {paramsArray}) then {
+        getNumber ((_config select _i) >> "default")
+    } else {
+        paramsArray select _i
+    };
+
+    if ([_param, 1] call BIS_fnc_areEqual) then {
         GVAR(modules) = GVAR(modules) + [configName ((_config) select _i)];
     };
 };
