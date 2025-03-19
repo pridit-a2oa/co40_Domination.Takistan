@@ -27,12 +27,10 @@ if !([typeOf _vehicle, "Mi17_TK_EP1"] call BIS_fnc_areEqual) then {
 
 [true, "enableSimulation", [_vehicle, true]] call FUNC(network,mp);
 
-if (isNil QMODULE(vehicle_uav) || {!isNil QMODULE(vehicle_uav) && {!(typeOf _vehicle in GVAR(vehicle_uav_types))}}) then {
-    _vehicle lock false;
-};
-
 _vehicle allowDamage true;
 _vehicle setVectorUp surfaceNormal (position _vehicle);
+
+_vehicle lock false;
 
 if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
     _vehicle setVariable [QGVAR(menu), true, true];

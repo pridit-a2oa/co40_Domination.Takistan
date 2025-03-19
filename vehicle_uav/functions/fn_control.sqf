@@ -66,19 +66,22 @@ switch (_state) do {
 
         {
             if (isPlayer _x && {!([player, _x] call BIS_fnc_areEqual)}) then {
-                [_x, "systemChat", format ["[UAV] %1 connected", name player]] call FUNC(network,mp);
+                [_x, "hintSilent", format [
+                    "<br /><t size='1.1'><t underline='1' color='#809966'>CONNECTED&#160;TERMINAL</t><br /><br /><t color='#a3ae55'>%1</t> joined the vehicle</t><br /><br />",
+                    name player
+                ]] call FUNC(network,mp);
             };
         } forEach crew _vehicle;
     };
 
     case false: {
-        if ([vehicle player, player] call BIS_fnc_areEqual) exitWith {};
-
-        if ([driver _vehicle, player] call BIS_fnc_areEqual) then {
-            [_vehicle, "engineOn", false] call FUNC(network,mp);
+        if !([vehicle player, player] call BIS_fnc_areEqual) then {
+            moveOut player;
         };
 
-        moveOut player;
+        if ([count crew _vehicle, 0] call BIS_fnc_areEqual) then {
+            [_vehicle, "engineOn", false] call FUNC(network,mp);
+        };
 
         // Hacky fix to seat locality by returning to server when AI controlled,
         // otherwise gunner gets stuck
@@ -111,7 +114,10 @@ switch (_state) do {
 
         {
             if (isPlayer _x && {!([player, _x] call BIS_fnc_areEqual)}) then {
-                [_x, "systemChat", format ["[UAV] %1 disconnected", name player]] call FUNC(network,mp);
+                [_x, "hintSilent", format [
+                    "<br /><t size='1.1'><t underline='1' color='#c54a30'>DISCONNECTED&#160;TERMINAL</t><br /><br /><t color='#a3ae55'>%1</t> left the vehicle</t><br /><br />",
+                    name player
+                ]] call FUNC(network,mp);
             };
         } forEach crew _vehicle;
 
@@ -123,6 +129,8 @@ switch (_state) do {
 
         player setDir (GVAR(vehicle_uav_player) select 0);
         player setPos (GVAR(vehicle_uav_player) select 1);
+
+        GVAR(vehicle_uav_player) = [];
 
         // [
         //     "UPLINK LOST",

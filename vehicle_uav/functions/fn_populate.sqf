@@ -26,7 +26,10 @@ _button ctrlEnable false;
                 sleep 0.2;
             };
 
-            _name = markerText _id;
+            _name = toArray (markerText _id);
+            _name set [0, objNull];
+
+            _name = toString (_name - [objNull]);
         };
 
         _index = _listbox lbAdd format [
