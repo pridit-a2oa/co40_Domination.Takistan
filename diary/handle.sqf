@@ -28,12 +28,11 @@ if (hasInterface) then {
 
     ["Roles", [
         "<img image='ca\missions_e\data\images\mpte05_ca' width='200'/>",
-        "<br />The 6 roles are: Artillery Operator, Engineer, Machine Gunner, Marksman, Medic, and Pilot.",
-        if !(isNil QMODULE(perk)) then {"<br />The primary purpose of role selection is to determine which role-based <marker name=''>perks</marker> you can unlock."} else {""},
+        "<br />The 6 playable roles are: Artillery Operator, Engineer, Machine Gunner, Marksman, Medic, and Pilot.",
         "<br />A limited amount of roles provide <marker name=''>inherent functions</marker>. These are as follows:",
         "<br />- Artillery Operators are able to use the artillery computer.",
-        "- Medics can heal self or others without requiring a medkit, and revive players to full health.",
-        "<br />With exception of the above, restrictions are <marker name=''>not</marker> imposed (scripting wise) on the basis of role.",
+        format ["- Medics can always self-heal or heal others%1.", if !(isNil QMODULE(revive)) then {", and revive players to full health"} else {""}],
+        "<br />With exception of the above, gameplay restrictions are <marker name=''>not</marker> imposed on the basis of role.",
         "<br />Due to a <marker name=''>game limitation</marker> medics are not able to equip a backpack, and BAF units have less gear slots."
     ]] call FUNC(THIS_MODULE,create);
 
