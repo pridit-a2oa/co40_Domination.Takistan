@@ -50,6 +50,10 @@ _count = count _handlers;
         };
 
         __handlerPP(_path);
+
+        if ([_forEachIndex + 1, count _handlers] call BIS_fnc_areEqual) then {
+            titleText ["READY", "BLACK FADED", 1.6];
+        };
     };
 } forEach _handlers;
 
