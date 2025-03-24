@@ -3870,7 +3870,7 @@ class Mission
 		};
 		class Item10
 		{
-			position[]={8226.6572,296.04001,1957.4619};
+			position[]={8224.5576,296.04001,1956.6227};
 			name="d_base_radar";
 			type="Empty";
 			colorName="ColorBlack";

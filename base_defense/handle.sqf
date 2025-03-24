@@ -49,6 +49,7 @@ if (isServer) then {
             "radar",
             [
                 ["76n6ClamShell_EP1", "US_WarfareBAntiAirRadar_EP1"],
+                ["Fort_Crate_wood"],
                 ["Fort_EnvelopeSmall_EP1"],
                 ["MK19_TriPod_US_EP1"],
                 ["MTVR_DES_EP1", "HMMWV_M1151_M2_DES_EP1"],
