@@ -8,7 +8,7 @@
 if (hasInterface) then {
     player addAction [
         "UAV Terminal" call FUNC(common,BlueText),
-        FUNCTION(THIS_MODULE,show),
+        __function(show),
         [],
         10,
         false,
