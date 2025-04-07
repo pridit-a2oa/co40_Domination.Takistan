@@ -18,6 +18,8 @@ if (hasInterface) then {
         switch (true) do {
             case ((position _unit) select 2 > 1): {
                 deleteVehicle _projectile;
+
+                _unit addMagazine _magazine;
             };
 
             case !([{!(true in [_x isKindOf "CAManBase", _x isKindOf "Motorcycle"]) && {side _x in [west, civilian] && {!(faction _x in ["BIS_TK", "BIS_TK_INS"])}}} count nearestObjects [_unit, ["AllVehicles", "USVehicleBox_EP1"], 20], 0] call BIS_fnc_areEqual);
