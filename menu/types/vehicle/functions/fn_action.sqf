@@ -94,9 +94,9 @@ if !(isNil QMODULE(vehicle_pack)) then {
     case "pack": {
         private ["_packed"];
 
-        if !(isEngineOn _entity) then {
-            _packed = _entity getVariable QGVAR(packed);
+        _packed = _entity getVariable QGVAR(packed);
 
+        if (!isEngineOn _entity && {[speed _entity, 0] call BIS_fnc_areEqual && {[{isPlayer _x} count crew _entity, 0] call BIS_fnc_areEqual}}) then {
             if (!isNil "_packed" && {_packed}) exitWith {
                 [_entity, 0] call FUNC(vehicle_pack,fold);
 
@@ -106,6 +106,10 @@ if !(isNil QMODULE(vehicle_pack)) then {
             [_entity, 1] call FUNC(vehicle_pack,fold);
 
             true
+        } else {
+            if !(_packed) then {
+                ["This vehicle cannot be folded while active"] call FUNC(client,hint);
+            };
         };
     };
 };

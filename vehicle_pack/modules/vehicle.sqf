@@ -15,12 +15,12 @@ if (isServer && {!isEngineOn _vehicle}) then {
 };
 
 if (hasInterface) then {
-    _vehicle addEventHandler ["Engine", {
-        private ["_vehicle", "_state"];
+    _vehicle addEventHandler ["getin", {
+        private ["_vehicle"];
 
-        PARAMS_2(_vehicle, _state);
+        PARAMS_1(_vehicle);
 
-        if (_vehicle getVariable QGVAR(packed) && {_state}) then {
+        if (_vehicle getVariable QGVAR(packed)) then {
             [_vehicle, 0] call FUNC(THIS_MODULE,fold);
         };
     }];
