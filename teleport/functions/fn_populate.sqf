@@ -24,11 +24,10 @@ _button ctrlEnable false;
         if (player distance _x > 50) then {
             private ["_index"];
 
-            _index = _listbox lbAdd format ["%1", if (_airfield) then {
-                "Airfield";
-            } else {
-                text _location;
-            }];
+            _index = _listbox lbAdd format [
+                "%1",
+                if (_airfield) then {"Airfield"} else {text _location}
+            ];
 
             _listbox lbSetPicture [_index, "\ca\warfare2\images\wf_city_flag.paa"];
             _listbox lbSetData [_index, str _position];

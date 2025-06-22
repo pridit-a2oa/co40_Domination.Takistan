@@ -42,13 +42,24 @@ if (hasInterface) then {
         if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
         [format [
-            "INSERT INTO characters (guid, name) VALUES ('%1', '%2') ON DUPLICATE KEY UPDATE id=id",
+            "INSERT INTO characters (`id64`, guid, name) VALUES ('%1', MD5(CONCAT('BE',
+                CHAR(
+                    CAST('%1' AS UNSIGNED) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 8) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 16) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 24) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 32) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 40) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 48) & 255,
+                    (CAST('%1' AS UNSIGNED) >> 56) & 255
+                )
+            )), '%2') ON DUPLICATE KEY UPDATE id = id",
             _uid,
             _name
         ]] call FUNC(database,query);
 
         _character = [format [
-            "SELECT id, user_id, EXISTS(SELECT guid FROM mutes WHERE guid = '%1') is_muted FROM characters WHERE guid = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
