@@ -53,7 +53,7 @@ if (hasInterface) then {
                     (CAST('%1' AS UNSIGNED) >> 48) & 255,
                     (CAST('%1' AS UNSIGNED) >> 56) & 255
                 )
-            )), '%2') ON DUPLICATE KEY UPDATE id = id",
+            )), '%2') ON DUPLICATE KEY UPDATE last_seen_at = NOW()",
             _uid,
             _name
         ]] call FUNC(database,query);

@@ -135,7 +135,13 @@ onPlayerDisconnected {
             if !(isNil "_score") then {
                 _addScore = _score - _storedScore;
 
-                if (_addScore < 1) exitWith {};
+                if (_addScore < 1) exitWith {
+                    [format [
+                        "UPDATE characters SET last_seen_at = NOW() WHERE `id64` = '%1' AND name = '%2'",
+                        _uid,
+                        _name
+                    ]] call FUNC(database,query);
+                };
 
                 [format [
                     "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE `id64` = '%2' AND name = '%3'",
