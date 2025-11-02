@@ -5,20 +5,13 @@ PARAMS_4(_name, _position, _type, _distance);
 
 _object = getPos ((nearestObjects [_position, [_type], _distance select 0]) select 0);
 
-_condition = if ([_distance select 1, "within"] call BIS_fnc_areEqual) then {
-    (isNil "_object")
-} else {
-    (!isNil "_object")
-};
-
-if (_condition) exitWith {
+if !(isNil "_object") exitWith {
     format [
-        "%1 can only be %2 %4 %3m %5",
+        "%1 can only be %2 %3m %4",
         _name select 0,
         _name select 1,
         _distance select 0,
-        _distance select 1,
-        _distance select 2
+        _distance select 1
     ];
 };
 

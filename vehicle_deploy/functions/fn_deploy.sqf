@@ -31,7 +31,7 @@ switch (_state) do {
                     [_name, "deployed"],
                     _position,
                     markerPos QGVAR(base_south),
-                    [GVAR(vehicle_deploy_distance_base), "in excess of", "from base"]
+                    [GVAR(vehicle_deploy_distance_base), "away from base"]
                 ] call FUNC(helper,distanceFrom),
 
                 [

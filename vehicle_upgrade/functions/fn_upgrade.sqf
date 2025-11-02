@@ -10,7 +10,7 @@ _checks = [
         [format ["%1 upgrade", _name], "performed"],
         markerPos QGVAR(base_south),
         position _vehicle,
-        [GVAR(vehicle_upgrade_distance_base), "within", "of base"]
+        [GVAR(vehicle_upgrade_distance_base), "of base", "within"]
     ] call FUNC(helper,distanceFrom),
 
     [

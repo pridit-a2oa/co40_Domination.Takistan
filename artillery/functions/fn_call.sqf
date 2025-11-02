@@ -21,14 +21,14 @@ if (hasInterface) then {
             [_name, "called"],
             _position,
             player,
-            [player getVariable QGVAR(artillery_range), "within", "of your location"]
+            [player getVariable QGVAR(artillery_range), "of your position", "within"]
         ] call FUNC(helper,distanceFrom),
 
         [
             [_name, "called"],
             _position,
             markerPos QGVAR(base_south),
-            [GVAR(artillery_distance_base), "in excess of", "from base"]
+            [GVAR(artillery_distance_base), "away from base"]
         ] call FUNC(helper,distanceFrom),
 
         [

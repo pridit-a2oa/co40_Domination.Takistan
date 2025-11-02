@@ -32,14 +32,14 @@ if (hasInterface) then {
             [_name, "called"],
             _position,
             player,
-            [GVAR(airdrop_distance_player), "within", "of your location"]
+            [GVAR(airdrop_distance_player), "of your position", "within"]
         ] call FUNC(helper,distanceFrom),
 
         [
             [_name, "called"],
             _position,
             markerPos QGVAR(base_south),
-            [GVAR(airdrop_distance_base), "in excess of", "from base"]
+            [GVAR(airdrop_distance_base), "away from base"]
         ] call FUNC(helper,distanceFrom),
 
         [

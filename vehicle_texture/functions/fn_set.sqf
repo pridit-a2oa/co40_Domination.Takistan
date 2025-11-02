@@ -18,7 +18,7 @@ if (hasInterface) then {
             [format ["%1 texture", _name], "changed"],
             markerPos QGVAR(base_south),
             position _vehicle,
-            [GVAR(vehicle_texture_distance_base), "within", "of base"]
+            [GVAR(vehicle_texture_distance_base), "of base", "within"]
         ] call FUNC(helper,distanceFrom)
     ];
 

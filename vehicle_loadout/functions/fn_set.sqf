@@ -18,7 +18,7 @@ if (hasInterface) then {
             [format ["%1 loadout", _name], "changed"],
             markerPos QGVAR(base_south),
             position _vehicle,
-            [GVAR(vehicle_loadout_distance_base), "within", "of base"]
+            [GVAR(vehicle_loadout_distance_base), "of base", "within"]
         ] call FUNC(helper,distanceFrom)
     ];
 

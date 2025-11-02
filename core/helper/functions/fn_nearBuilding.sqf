@@ -7,7 +7,7 @@ _building = round (_position distance (nearestBuilding _position));
 
 if (_building <= _distance) exitWith {
     format [
-        "%1 can only be %2 in excess of %3m from the nearest building, it must be at least a further %4m away",
+        "%1 can only be %2 %3m away from the nearest building, it must be a further %4m away",
         _name select 0,
         _name select 1,
         _distance,

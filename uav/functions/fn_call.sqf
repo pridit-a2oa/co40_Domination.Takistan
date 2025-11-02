@@ -21,7 +21,7 @@ if (hasInterface) then {
             [_name, "called"],
             _position,
             player,
-            [GVAR(uav_distance_player), "within", "of your location"]
+            [GVAR(uav_distance_player), "of your position", "within"]
         ] call FUNC(helper,distanceFrom),
 
         [
