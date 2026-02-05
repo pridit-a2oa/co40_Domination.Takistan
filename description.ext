@@ -27,6 +27,13 @@ class Params {
         texts[] = {"Enabled", "-"};
         default = 1;
     };
+    class accolade
+    {
+        title = "Accolade";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+    };
     class admin
     {
         title = "Admin";

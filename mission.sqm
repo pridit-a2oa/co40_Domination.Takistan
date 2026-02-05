@@ -3790,7 +3790,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=21;
+		items=22;
 		class Item0
 		{
 			position[]={8287.3184,296.04001,2121.9736};
@@ -3958,6 +3958,12 @@ class Mission
 			name="d_intel";
 			type="Empty";
 			colorName="ColorKhaki";
+		};
+		class Item21
+		{
+			position[]={8282.624,307.12479,2094.0422};
+			name="d_accolade";
+			type="Empty";
 		};
 	};
 };
