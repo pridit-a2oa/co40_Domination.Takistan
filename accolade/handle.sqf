@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    private ["_building"];
+    private ["_building", "_office", "_group"];
 
     _building = (nearestObjects [markerPos QGVAR(accolade), [], 10]) select 0;
 
@@ -17,6 +17,10 @@ if (isServer) then {
         _object setDir ((getDir _building) - (_x select 2));
         _object setPosATL (_x select 1);
         _object addEventHandler ["HandleDamage", {0}];
+
+        if ([_x select 0, "Land_A_Office01_EP1"] call BIS_fnc_areEqual) then {
+            _office = _object;
+        };
     } forEach [
         [
             "Land_A_Office01_EP1",
@@ -35,6 +39,30 @@ if (isServer) then {
     deleteVehicle _building;
 
     X_JIPH setVariable [QGVAR(accolade), true, true];
+
+    sleep 1;
+
+    _group = createGroup west;
+
+    {
+        private ["_unit", "_location", "_position", "_entity"];
+
+        _unit = call compile format ["d_%1_%2_unit", QUOTE(THIS_MODULE), _x];
+        _location = call compile format ["d_%1_%2_location", QUOTE(THIS_MODULE), _x];
+
+        _position = _office modelToWorld (_location select 0);
+
+        _entity = _group createUnit [_unit, _position, [], 0, "FORM"];
+        _entity setDir (_location select 1);
+        _entity setPos _position;
+        _entity setVectorUp (surfaceNormal _position);
+        _entity addEventHandler ["HandleDamage", {0}];
+        _entity disableAI "MOVE";
+        _entity setUnitPos "UP";
+        _entity playMoveNow "AidlPpneMstpSnonWnonDnon_SleepB_death";
+    } forEach GVAR(accolade_types);
+
+    _group allowFleeing 0;
 };
 
 if (hasInterface) then {
