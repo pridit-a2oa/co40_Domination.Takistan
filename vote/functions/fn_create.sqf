@@ -6,7 +6,7 @@ PARAMS_2(_type, _subtype);
 
 disableSerialization;
 
-_types = GVAR(vote_types) select _type;
+_types = (call FUNC(THIS_MODULE,types)) select _type;
 
 _type = _types select 0;
 

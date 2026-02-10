@@ -130,6 +130,8 @@ _trigger setTriggerStatements [
 
 X_JIPH setVariable [QGVAR(target), _target, true];
 
+gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) + [_target]];
+
 __log format ["Seeded %1", _name]];
 
 waitUntil {sleep 5; [_target] call FUNC(THIS_MODULE,clear)};
