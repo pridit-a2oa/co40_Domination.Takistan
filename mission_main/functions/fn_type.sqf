@@ -85,6 +85,8 @@ switch (_type) do {
                 ""
             ];
 
+            _target setVariable [QGVAR(triggers), (_target getVariable QGVAR(triggers)) + [_trigger]];
+
             if (!isNil QMODULE(3d)) then {
                 [true, "execVM", [
                     [_x, "Capture" call FUNC(common,RedText), [1, GVAR(3d_distance_visible)], false, true],

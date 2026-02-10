@@ -8,24 +8,11 @@
 #define THIS_MODULE vote
 #include "x_macros.sqf"
 
-// Incompatible with SP environment
-if !(isMultiplayer) exitWith {};
-
-// Types of votes
-GVAR(vote_types) = [
-    ["Skip Time", [
-        ["Morning", "[true, ""skipTime"", 8] call d_fnc_network_mp"],
-        ["Afternoon", "[true, ""skipTime"", 12] call d_fnc_network_mp"],
-        ["Evening", "[true, ""skipTime"", 18] call d_fnc_network_mp"],
-        ["Night", "[true, ""skipTime"", 22] call d_fnc_network_mp"]
-    ]]
-];
-
-// Factor of players (rounded up) required above the min (min needs 100%) to pass a vote
-GVAR(vote_amount_factor) = .51;
+// Factor of players (rounded up) required above the min (<=3 needs 100%) to pass a vote
+GVAR(vote_amount_factor) = .67;
 
 // Minimum amount of players required to start a vote
-GVAR(vote_amount_players) = 3;
+GVAR(vote_amount_players) = 1;
 
 // Time of cooldown (applies to players)
 GVAR(vote_time_cooldown) = 900;
@@ -63,6 +50,7 @@ __cppfln(FUNC(THIS_MODULE,refresh),THIS_MODULE\functions\fn_refresh.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
 __cppfln(FUNC(THIS_MODULE,show),THIS_MODULE\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,switch),THIS_MODULE\functions\fn_switch.sqf);
+__cppfln(FUNC(THIS_MODULE,types),THIS_MODULE\functions\fn_types.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;

@@ -121,6 +121,8 @@ GVAR(mission_main_threshold_infantry) = 5;
 if (isServer) then {
     GVAR(mission_main_targets) = [];
     GVAR(mission_main_targets_completed) = [];
+
+    gameLogic setVariable [QGVAR(targets), []];
 };
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);
@@ -134,6 +136,7 @@ __cppfln(FUNC(THIS_MODULE,protect),THIS_MODULE\functions\fn_protect.sqf);
 __cppfln(FUNC(THIS_MODULE,reinforcement),THIS_MODULE\functions\fn_reinforcement.sqf);
 __cppfln(FUNC(THIS_MODULE,recycle),THIS_MODULE\functions\fn_recycle.sqf);
 __cppfln(FUNC(THIS_MODULE,reset),THIS_MODULE\functions\fn_reset.sqf);
+__cppfln(FUNC(THIS_MODULE,skip),THIS_MODULE\functions\fn_skip.sqf);
 __cppfln(FUNC(THIS_MODULE,type),THIS_MODULE\functions\fn_type.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 

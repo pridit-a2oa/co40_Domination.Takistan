@@ -18,3 +18,7 @@ _units = _target getVariable QGVAR(units);
         _x setDamage 1;
     };
 } forEach _units;
+
+{
+    deleteVehicle _x;
+} forEach (_target getVariable QGVAR(triggers));

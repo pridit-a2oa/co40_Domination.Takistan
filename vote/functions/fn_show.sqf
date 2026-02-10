@@ -35,7 +35,7 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
 
         {
             _type lbAdd (_x select 0);
-        } forEach GVAR(vote_types);
+        } forEach call FUNC(THIS_MODULE,types);
     };
 
     case false: {

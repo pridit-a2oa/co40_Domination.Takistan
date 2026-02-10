@@ -4,6 +4,8 @@ private ["_target"];
 
 PARAMS_1(_target);
 
+gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) - [_target]];
+
 if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
     GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
 };
@@ -17,17 +19,17 @@ if (!isNil QMODULE(marker)) then {
 
     [_name] call FUNC(marker,delete);
 
-    [true, "spawn", [[_name, _target], {
-        private ["_name", "_target"];
+    [true, "spawn", [[_name, _target, _target getVariable QGVAR(skip)], {
+        private ["_name", "_target", "_skip"];
 
-        PARAMS_2(_name, _target);
+        PARAMS_3(_name, _target, _skip);
 
         [
             _name,
             position _target,
             "",
             "",
-            "ColorGreen",
+            format ["Color%1", if (_skip) then {"Black"} else {"Green"}],
             0.6,
             "ELLIPSE",
             "Solid",
@@ -41,7 +43,10 @@ if (!isNil QMODULE(task)) then {
 
     _task = (_target getVariable QGVAR(tasks)) select 0;
 
-    [_task, "Succeeded"] call FUNC(task,state);
+    [
+        _task,
+        if (_target getVariable QGVAR(skip)) then {"Canceled"} else {"Succeeded"}
+    ] call FUNC(task,state);
 
     {
         if ([_x select 3, "Created"] call BIS_fnc_areEqual) then {
@@ -49,17 +54,20 @@ if (!isNil QMODULE(task)) then {
         };
     } forEach (_target getVariable QGVAR(tasks));
 
-    [true, "spawn", [[_target], {
-        private ["_target", "_task"];
+    [true, "spawn", [[_target, _target getVariable QGVAR(skip)], {
+        private ["_target", "_skip", "_task"];
 
-        PARAMS_1(_target);
+        PARAMS_2(_target, _skip);
 
         if (!hasInterface) exitWith {};
 
         _task = [((_target getVariable QGVAR(tasks)) select 0) select 0] call FUNC(task,get);
-        _task setTaskState "Succeeded";
+        _task setTaskState (if (_skip) then {"Canceled"} else {"Succeeded"});
 
-        [_task, "succeeded"] call FUNC(task,hint);
+        [
+            _task,
+            if (_skip) then {"cancelled"} else {"succeeded"}
+        ] call FUNC(task,hint);
 
         {
             if ([_x select 3, "Failed"] call BIS_fnc_areEqual) then {
@@ -70,60 +78,64 @@ if (!isNil QMODULE(task)) then {
     }]] call FUNC(network,mp);
 };
 
-if !(isNil QMODULE(conversation)) then {
-    [
-        [GVAR(crossroad), GVAR(crossroad2)],
-        [QUOTE(THIS_MODULE), "Seized"],
+if !(_target getVariable QGVAR(skip)) then {
+    if !(isNil QMODULE(conversation)) then {
         [
-            ["1", {}, _target getVariable "name", []]
-        ]
-    ] call FUNC(conversation,radio);
-};
+            [GVAR(crossroad), GVAR(crossroad2)],
+            [QUOTE(THIS_MODULE), "Seized"],
+            [
+                ["1", {}, _target getVariable "name", []]
+            ]
+        ] call FUNC(conversation,radio);
+    };
 
-if !(isNil QMODULE(teleport)) then {
-    private ["_position", "_flag"];
+    if !(isNil QMODULE(teleport)) then {
+        private ["_position", "_flag"];
 
-    _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
+        _position = [position _target, 20, GVAR(mission_main_radius_zone) / 3, 2, 0, 0.5, 0] call FUNC(common,safePos);
 
-    _flag = [_position] call FUNC(teleport,create);
+        _flag = [_position] call FUNC(teleport,create);
 
-    [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
+        [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
 
-    _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_flag]];
+        _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_flag]];
 
-    [true, "spawn", [[_target, _flag], {
-        private ["_target", "_flag"];
+        [true, "spawn", [[_target, _flag], {
+            private ["_target", "_flag"];
 
-        PARAMS_2(_target, _flag);
+            PARAMS_2(_target, _flag);
 
-        [
-            format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))],
-            position _flag,
-            "Town",
-            " Fast Travel",
-            "ColorYellow",
-            0.8,
-            "ICON",
-            "",
-            [0.6, 0.6]
-        ] call FUNC(marker,create);
+            [
+                format ["teleport_%1", locationPosition ([position _target] call FUNC(common,nearestLocation))],
+                position _flag,
+                "Town",
+                " Fast Travel",
+                "ColorYellow",
+                0.8,
+                "ICON",
+                "",
+                [0.6, 0.6]
+            ] call FUNC(marker,create);
+        }]] call FUNC(network,mp);
+
+        [true, "execVM", [[_flag], __submoduleRE(teleport)]] call FUNC(network,mp);
+    };
+
+    [true, "spawn", [[], {
+        playSound "fanfare";
+
+        if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(sounds)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
+
+        sleep 3;
+
+        playSound QGVAR(sound_complete);
     }]] call FUNC(network,mp);
-
-    [true, "execVM", [[_flag], __submoduleRE(teleport)]] call FUNC(network,mp);
 };
-
-[true, "spawn", [[], {
-    playSound "fanfare";
-
-    if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(sounds)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
-
-    sleep 3;
-
-    playSound QGVAR(sound_complete);
-}]] call FUNC(network,mp);
 
 _target spawn {
-    sleep GVAR(mission_main_time_clear);
+    if !(_this getVariable QGVAR(skip)) then {
+        sleep GVAR(mission_main_time_clear);
+    };
 
     if (!isNil QMODULE(ied)) then {
         {
@@ -142,12 +154,14 @@ _target spawn {
 
     sleep GVAR(mission_main_time_delay) / 2;
 
-    [
-        [GVAR(crossroad), GVAR(crossroad2)],
-        [QUOTE(THIS_MODULE), "StandBy"]
-    ] call FUNC(conversation,radio);
+    if !(_target getVariable QGVAR(skip)) then {
+        [
+            [GVAR(crossroad), GVAR(crossroad2)],
+            [QUOTE(THIS_MODULE), "StandBy"]
+        ] call FUNC(conversation,radio);
 
-    sleep GVAR(mission_main_time_delay) / 2;
+        sleep GVAR(mission_main_time_delay) / 2;
+    };
 
     _targets = [];
 

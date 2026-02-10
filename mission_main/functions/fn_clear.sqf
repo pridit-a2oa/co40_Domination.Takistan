@@ -3,6 +3,8 @@ private ["_target", "_man", "_armor"];
 
 PARAMS_1(_target);
 
+if (_target getVariable QGVAR(skip)) exitWith {true};
+
 _man = _target nearEntities [["Man", "StaticWeapon"], GVAR(mission_main_radius_zone)];
 _armor = _target nearEntities [["Tank", "Wheeled_APC"], GVAR(mission_main_radius_zone)];
 
