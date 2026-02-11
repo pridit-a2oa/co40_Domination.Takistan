@@ -59,7 +59,7 @@ if (!isNil QMODULE(task)) then {
 
         PARAMS_2(_target, _skip);
 
-        if (!hasInterface) exitWith {};
+        if !(hasInterface) exitWith {};
 
         _task = [((_target getVariable QGVAR(tasks)) select 0) select 0] call FUNC(task,get);
         _task setTaskState (if (_skip) then {"Canceled"} else {"Succeeded"});
@@ -75,6 +75,10 @@ if (!isNil QMODULE(task)) then {
                 _task setTaskState "Failed";
             };
         } forEach (X_JIPH getVariable QGVAR(tasks));
+
+        if !(isNil QMODULE(vote)) then {
+            [false] call FUNC(vote,refresh);
+        };
     }]] call FUNC(network,mp);
 };
 

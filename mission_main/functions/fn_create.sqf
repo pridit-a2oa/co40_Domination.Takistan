@@ -88,7 +88,7 @@ if (!isNil QMODULE(task)) then {
 
     if (!isNil QMODULE(marker)) then {
         [
-            format ["mission_main_%1", _target getVariable "name"],
+            format ["mission_main_%1", _name],
             position _target,
             "",
             "",
@@ -104,7 +104,11 @@ if (!isNil QMODULE(task)) then {
         _task = (_target getVariable QGVAR(tasks)) select 0;
         _task call FUNC(task,create);
 
-        [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
+        [[_name] call FUNC(task,get), "created"] call FUNC(task,hint);
+
+        if !(isNil QMODULE(vote)) then {
+            [false] call FUNC(vote,refresh);
+        };
     };
 }]] call FUNC(network,mp);
 

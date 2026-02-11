@@ -22,3 +22,20 @@ _units = _target getVariable QGVAR(units);
 {
     deleteVehicle _x;
 } forEach (_target getVariable QGVAR(triggers));
+
+if !(isNil QMODULE(marker)) then {
+    {
+        private ["_name"];
+
+        _name = _x select 0;
+
+        {
+            [
+                format ["%1_%2", _name, _x getVariable QGVAR(id)]
+            ] call FUNC(marker,delete);
+        } forEach (_x select 1);
+    } forEach [
+        ["camp", _target getVariable QGVAR(camps)],
+        ["radio", _target getVariable QGVAR(radios)]
+    ];
+};
