@@ -140,6 +140,12 @@ waitUntil {sleep 5; [_target] call FUNC(THIS_MODULE,clear)};
 
 deleteVehicle _trigger;
 
+X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) - [_target], true];
+
+if !(isNil QMODULE(vote)) then {
+    [true] call FUNC(vote,refresh);
+};
+
 sleep GVAR(mission_main_time_complete);
 
 [_target] call FUNC(THIS_MODULE,complete);

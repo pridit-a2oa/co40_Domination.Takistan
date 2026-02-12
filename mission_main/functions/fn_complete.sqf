@@ -4,12 +4,6 @@ private ["_target"];
 
 PARAMS_1(_target);
 
-X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) - [_target], true];
-
-if !(isNil QMODULE(vote)) then {
-    [true] call FUNC(vote,refresh);
-};
-
 if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
     GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
 };
