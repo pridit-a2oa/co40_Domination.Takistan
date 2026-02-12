@@ -50,7 +50,7 @@ if !(isNil QMODULE(conversation)) then {
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "NewTarget"],
         [
-            ["Location", {}, _name, [[_name] call FUNC(conversation,location)]]
+            ["Location", {}, _name, [[_name] call FUNC(common,location)]]
         ]
     ] call FUNC(conversation,radio);
 
@@ -105,10 +105,6 @@ if (!isNil QMODULE(task)) then {
         _task call FUNC(task,create);
 
         [[_name] call FUNC(task,get), "created"] call FUNC(task,hint);
-
-        if !(isNil QMODULE(vote)) then {
-            [false] call FUNC(vote,refresh);
-        };
     };
 }]] call FUNC(network,mp);
 
@@ -132,9 +128,11 @@ _trigger setTriggerStatements [
     ""
 ];
 
-X_JIP setVariable [QGVAR(target), _target, true];
+X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) + [_target], true];
 
-gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) + [_target]];
+if !(isNil QMODULE(vote)) then {
+    [true] call FUNC(vote,refresh);
+};
 
 __log format ["Seeded %1", _name]];
 

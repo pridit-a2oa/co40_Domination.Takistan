@@ -4,7 +4,11 @@ private ["_target"];
 
 PARAMS_1(_target);
 
-gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) - [_target]];
+X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) - [_target], true];
+
+if !(isNil QMODULE(vote)) then {
+    [true] call FUNC(vote,refresh);
+};
 
 if ([count GVAR(mission_main_targets_completed), GVAR(mission_main_targets_maximum)] call BIS_fnc_areEqual) then {
     GVAR(mission_main_targets_completed) = [GVAR(mission_main_targets_completed), 0] call FUNC(common,deleteAt);
@@ -75,10 +79,6 @@ if (!isNil QMODULE(task)) then {
                 _task setTaskState "Failed";
             };
         } forEach (X_JIP getVariable QGVAR(tasks));
-
-        if !(isNil QMODULE(vote)) then {
-            [false] call FUNC(vote,refresh);
-        };
     }]] call FUNC(network,mp);
 };
 

@@ -6,25 +6,27 @@
 #include "x_macros.sqf"
 private ["_options"];
 
-if (isNil QMODULE(task) || {[X_JIP getVariable QGVAR(tasks), []] call BIS_fnc_areEqual}) exitWith {[]};
+if ([X_JIP getVariable QGVAR(targets), []] call BIS_fnc_areEqual) exitWith {[]};
 
 _options = [];
 
 {
-    if ([_x select 3, "Created"] call BIS_fnc_areEqual && {[count _x, 4] call BIS_fnc_areEqual}) then {
+    private ["_name"];
+
+    _name = _x getVariable QGVAR(name);
+
+    [
+        _options,
         [
-            _options,
-            [
-                _x select 0,
-                format [
-                    "[gameLogic, ""execVM"", [[""%1""], ""%2\functions\fn_skip.sqf""]] call d_fnc_network_mp",
-                    _x select 0,
-                    QUOTE(THIS_MODULE)
-                ]
+            _name,
+            format [
+                "[gameLogic, ""execVM"", [[""%1""], ""%2\functions\fn_skip.sqf""]] call d_fnc_network_mp",
+                _name,
+                QUOTE(THIS_MODULE)
             ]
-        ] call BIS_fnc_arrayPush;
-    };
-} forEach (X_JIP getVariable QGVAR(tasks));
+        ]
+    ] call BIS_fnc_arrayPush;
+} forEach (X_JIP getVariable QGVAR(targets));
 
 if ([_options, []] call BIS_fnc_areEqual) exitWith {[]};
 

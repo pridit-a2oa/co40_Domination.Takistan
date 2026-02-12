@@ -62,7 +62,6 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
 
             _button ctrlShow true;
 
-
             _count = {[_x, _choice] call BIS_fnc_areEqual} count _votes;
 
             if ([_choice, true] call BIS_fnc_areEqual) then {

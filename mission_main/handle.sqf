@@ -24,6 +24,8 @@ if (isServer) then {
         if (_base && {!((_x getVariable "name") in GVAR(mission_main_type_exceptions))}) then {
             GVAR(mission_main_targets) = GVAR(mission_main_targets) + [_x];
         };
+
+        _x setVariable [QGVAR(name), _x getVariable "name", true];
     } forEach _locations;
 
     GVAR(mission_main_targets_maximum) = round (count GVAR(mission_main_targets) / GVAR(mission_main_location_divisor));
@@ -38,15 +40,11 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    private ["_target"];
-
-    _target = X_JIP getVariable QGVAR(target);
-
-    if !(isNil "_target") then {
+    {
         {
             _x addEventHandler ["HandleDamage", {0}];
             _x enableSimulation false;
-        } forEach (nearestObjects [position _target, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
+        } forEach (nearestObjects [position _x, ["Land_tent_east"], GVAR(mission_main_radius_zone)]);
 
         {
             [
@@ -56,8 +54,8 @@ if (hasInterface) then {
                 false,
                 true
             ] spawn FUNC(3d,create);
-        } forEach (_target getVariable QGVAR(camps));
-    };
+        } forEach (_x getVariable QGVAR(camps));
+    } forEach (X_JIP getVariable QGVAR(targets));
 
     0 spawn {
         {
