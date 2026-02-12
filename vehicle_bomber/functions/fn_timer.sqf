@@ -8,7 +8,7 @@ _group = createGroup east;
 
 [driver _vehicle] joinSilent _group;
 
-X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
+X_JIP setVariable [QGVAR(groups), (X_JIP getVariable QGVAR(groups)) + [_group], true];
 
 sleep 1;
 

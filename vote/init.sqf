@@ -31,12 +31,12 @@ if (isServer) then {
     gameLogic setVariable [QGVAR(vote_reminded), false];
     gameLogic setVariable [QGVAR(vote_time), 0];
 
-    X_JIPH setVariable [QGVAR(vote), "", true];
-    X_JIPH setVariable [QGVAR(vote_call), false, true];
-    X_JIPH setVariable [QGVAR(vote_players), -1, true];
-    X_JIPH setVariable [QGVAR(vote_progress), false, true];
+    X_JIP setVariable [QGVAR(vote), "", true];
+    X_JIP setVariable [QGVAR(vote_call), false, true];
+    X_JIP setVariable [QGVAR(vote_players), -1, true];
+    X_JIP setVariable [QGVAR(vote_progress), false, true];
 
-    X_JIPH setVariable [QGVAR(votes), [], true];
+    X_JIP setVariable [QGVAR(votes), [], true];
 };
 
 __cppfln(FUNC(THIS_MODULE,add),THIS_MODULE\functions\fn_add.sqf);

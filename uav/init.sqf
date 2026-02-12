@@ -48,8 +48,8 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(uav_call), false, true];
-    X_JIPH setVariable [QGVAR(uav_progress), false, true];
+    X_JIP setVariable [QGVAR(uav_call), false, true];
+    X_JIP setVariable [QGVAR(uav_progress), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);

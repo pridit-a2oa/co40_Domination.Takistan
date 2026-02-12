@@ -132,7 +132,7 @@ _trigger setTriggerStatements [
     ""
 ];
 
-X_JIPH setVariable [QGVAR(target), _target, true];
+X_JIP setVariable [QGVAR(target), _target, true];
 
 gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) + [_target]];
 

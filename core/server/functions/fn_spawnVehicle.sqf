@@ -28,7 +28,7 @@ if (!isNil QMODULE(vehicle_uav) && {_object isKindOf "UAV"}) then {
     } forEach _crew;
 };
 
-X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
+X_JIP setVariable [QGVAR(groups), (X_JIP getVariable QGVAR(groups)) + [_group], true];
 
 if ([_height, 0] call BIS_fnc_areEqual) then {
     _object setVelocity [0, 0, 0];

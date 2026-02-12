@@ -15,7 +15,7 @@ if (((position _vehicle) select 2) > 5) exitWith {false};
 if !(_vehicle getVariable QGVAR(wreckable)) exitWith {false};
 
 if ([{_x distance GVAR(base_wreck) < 200} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) exitWith {false};
-if ([GVAR(wreck_hangars_occupied), count (X_JIPH getVariable QGVAR(wreck_hangars))] call BIS_fnc_areEqual) exitWith {false};
+if ([GVAR(wreck_hangars_occupied), count (X_JIP getVariable QGVAR(wreck_hangars))] call BIS_fnc_areEqual) exitWith {false};
 
 GVAR(wreck) = _vehicle;
 

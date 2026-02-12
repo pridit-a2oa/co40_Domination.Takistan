@@ -14,7 +14,7 @@ if (hasInterface) then {
 
         [
             _name,
-            X_JIPH getVariable QGVAR(air_taxi_progress)
+            X_JIP getVariable QGVAR(air_taxi_progress)
         ] call FUNC(helper,inProgress),
 
         [
@@ -48,7 +48,7 @@ if (hasInterface) then {
             _checks,
             [
                 "Crossroad communication",
-                X_JIPH getVariable QGVAR(conversation)
+                X_JIP getVariable QGVAR(conversation)
             ] call FUNC(helper,inProgress)
         ] call BIS_fnc_arrayPush;
     };
@@ -61,7 +61,7 @@ if (hasInterface) then {
 
     if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
-    X_JIPH setVariable [QGVAR(air_taxi_call), true, true];
+    X_JIP setVariable [QGVAR(air_taxi_call), true, true];
     player setVariable [QGVAR(air_taxi_cooldown), time + GVAR(air_taxi_time_cooldown)];
 
     if !(isServer) then {
@@ -69,8 +69,8 @@ if (hasInterface) then {
     };
 };
 
-if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
-    X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
+if (isServer && {X_JIP getVariable QGVAR(air_taxi_call)}) then {
+    X_JIP setVariable [QGVAR(air_taxi_call), false, true];
 
     if (!isNil QMODULE(conversation) && {[
         _unit,
@@ -78,7 +78,7 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
         "air taxi"
     ] call FUNC(conversation,request)}) exitWith {};
 
-    X_JIPH setVariable [QGVAR(air_taxi_progress), true, true];
+    X_JIP setVariable [QGVAR(air_taxi_progress), true, true];
 
     GVAR(air_taxi_type_smoke) createVehicle _position;
 
@@ -190,5 +190,5 @@ if (isServer && {X_JIPH getVariable QGVAR(air_taxi_call)}) then {
         deleteVehicle _helper;
     };
 
-    X_JIPH setVariable [QGVAR(air_taxi_progress), false, true];
+    X_JIP setVariable [QGVAR(air_taxi_progress), false, true];
 };

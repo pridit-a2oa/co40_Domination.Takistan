@@ -4,9 +4,9 @@ private ["_unit", "_position", "_type"];
 
 PARAMS_3(_unit, _position, _type);
 
-if (X_JIPH getVariable QGVAR(conversation)) exitWith {true};
+if (X_JIP getVariable QGVAR(conversation)) exitWith {true};
 
-X_JIPH setVariable [QGVAR(conversation), true, true];
+X_JIP setVariable [QGVAR(conversation), true, true];
 
 [_unit, mapGridPosition _position, _type] spawn {
     private ["_unit", "_position", "_type"];
@@ -31,7 +31,7 @@ X_JIPH setVariable [QGVAR(conversation), true, true];
     };
 
     if !(alive _unit) exitWith {
-        X_JIPH setVariable [QGVAR(conversation), false, true];
+        X_JIP setVariable [QGVAR(conversation), false, true];
     };
 
     sleep 1;
@@ -46,7 +46,7 @@ X_JIPH setVariable [QGVAR(conversation), true, true];
 
     sleep 3;
 
-    X_JIPH setVariable [QGVAR(conversation), false, true];
+    X_JIP setVariable [QGVAR(conversation), false, true];
 };
 
 false

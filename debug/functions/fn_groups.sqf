@@ -42,7 +42,7 @@ while {[GVAR(debug_groups), 1] call BIS_fnc_areEqual} do {
         format [
             "<t align='left'><t color='#5398b6'>&#160;WEST</t>: %1/144</t><t align='right'>Observed: %2&#160;</t>",
             {[side _x, west] call BIS_fnc_areEqual} count allGroups,
-            count (X_JIPH getVariable QGVAR(groups))
+            count (X_JIP getVariable QGVAR(groups))
         ],
         format [
             "<t align='left'><t color='#c54a30'>&#160;EAST</t>: %1/144</t><t align='right'>Total: %2&#160;</t>",

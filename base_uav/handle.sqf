@@ -43,7 +43,7 @@ if (isServer) then {
 
     _zone = (nearestObjects [GVAR(base_uav), ["ClutterCutter_small_EP1"], 25]) select 0;
 
-    X_JIPH setVariable [QGVAR(base_uav_zone), _zone, true];
+    X_JIP setVariable [QGVAR(base_uav_zone), _zone, true];
 
     {
         private ["_object"];
@@ -75,7 +75,7 @@ if (isServer) then {
     //     _vehicle setVariable [QGVAR(wreckable), true, true];
     // };
 
-    X_JIPH setVariable [QGVAR(base_uav), true, true];
+    X_JIP setVariable [QGVAR(base_uav), true, true];
 };
 
 if (hasInterface) then {
@@ -86,10 +86,10 @@ if (hasInterface) then {
     waitUntil {
         sleep 0.1;
 
-        !isNil {X_JIPH getVariable QGVAR(base_uav_zone)}
+        !isNil {X_JIP getVariable QGVAR(base_uav_zone)}
     };
 
-    _zone = X_JIPH getVariable QGVAR(base_uav_zone);
+    _zone = X_JIP getVariable QGVAR(base_uav_zone);
 
     GVAR(base_uav_trigger) = createTrigger ["EmptyDetector", position _zone];
     GVAR(base_uav_trigger) setTriggerArea [1.6, 2.5, direction _zone, true];

@@ -10,7 +10,7 @@ if (isServer && {isMultiplayer}) then {
         '20/12', '21/12', '22/12', '23/12', '24/12', '25/12', '26/12',
         '27/12', '28/12', '29/12', '30/12', '31/12', '01/01', '02/01'
     ]) then {
-        X_JIPH setVariable [QGVAR(holiday), true, true];
+        X_JIP setVariable [QGVAR(holiday), true, true];
     };
 
     0 spawn {

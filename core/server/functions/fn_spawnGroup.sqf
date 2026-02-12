@@ -5,7 +5,7 @@ PARAMS_3(_position, _side, _type);
 
 _group = [_position, _side, _type] call BIS_fnc_spawnGroup;
 
-X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
+X_JIP setVariable [QGVAR(groups), (X_JIP getVariable QGVAR(groups)) + [_group], true];
 
 {
     if ([faction _x, "BIS_US"] call BIS_fnc_areEqual && {_x distance (markerPos QGVAR(base_south)) < GVAR(server_distance_base_invulnerable)}) then {

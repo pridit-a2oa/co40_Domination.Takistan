@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(tasks)}};
+    waitUntil {sleep 0.1; !isNil {X_JIP getVariable QGVAR(tasks)}};
 
     {
         private ["_task"];
@@ -25,5 +25,5 @@ if (hasInterface) then {
         _task setTaskState (_x select 3);
 
         sleep 0.1;
-    } forEach (X_JIPH getVariable QGVAR(tasks));
+    } forEach (X_JIP getVariable QGVAR(tasks));
 };

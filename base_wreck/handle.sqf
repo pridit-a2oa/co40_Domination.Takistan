@@ -56,9 +56,9 @@ if (isServer) then {
             _hangar modelToWorld [-14, 0, 0]
         ];
 
-        X_JIPH setVariable [
+        X_JIP setVariable [
             QGVAR(wreck_hangars),
-            (X_JIPH getVariable QGVAR(wreck_hangars)) + [_hangar],
+            (X_JIP getVariable QGVAR(wreck_hangars)) + [_hangar],
             true
         ];
 
@@ -104,7 +104,7 @@ if (hasInterface) then {
         sleep 0.1;
 
         [
-            count (X_JIPH getVariable QGVAR(wreck_hangars)),
+            count (X_JIP getVariable QGVAR(wreck_hangars)),
             GVAR(base_wreck_amount_hangar)
         ] call BIS_fnc_areEqual
     };
@@ -115,5 +115,5 @@ if (hasInterface) then {
                 _x setDamage 1;
             };
         } forEach (nearestObjects [_x, [], 50]);
-    } forEach (X_JIPH getVariable QGVAR(wreck_hangars));
+    } forEach (X_JIP getVariable QGVAR(wreck_hangars));
 };

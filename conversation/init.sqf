@@ -17,7 +17,7 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(conversation), false, true];
+    X_JIP setVariable [QGVAR(conversation), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,location),THIS_MODULE\functions\fn_location.sqf);

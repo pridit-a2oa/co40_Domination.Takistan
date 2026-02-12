@@ -9,7 +9,7 @@
 #include "x_macros.sqf"
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(tasks), [], true];
+    X_JIP setVariable [QGVAR(tasks), [], true];
 };
 
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);

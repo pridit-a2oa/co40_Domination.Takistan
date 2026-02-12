@@ -23,8 +23,8 @@ _start ctrlShow false;
     _x ctrlEnable false;
 } forEach [_yes, _no];
 
-_vote = X_JIPH getVariable QGVAR(vote);
-_votes = [1, X_JIPH getVariable QGVAR(votes)] call FUNC(common,arrayValues);
+_vote = X_JIP getVariable QGVAR(vote);
+_votes = [1, X_JIP getVariable QGVAR(votes)] call FUNC(common,arrayValues);
 
 switch ([_vote, ""] call BIS_fnc_areEqual) do {
     case true: {
@@ -41,11 +41,11 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
     case false: {
         private ["_voted"];
 
-        _voted = [[X_JIPH getVariable QGVAR(votes), getPlayerUID player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual;
+        _voted = [[X_JIP getVariable QGVAR(votes), getPlayerUID player] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual;
 
         DIALOG("X_VOTE_DIALOG", 100) ctrlSetText format [
             "Active Vote: %1",
-            X_JIPH getVariable QGVAR(vote)
+            X_JIP getVariable QGVAR(vote)
         ];
 
         DIALOG("X_VOTE_DIALOG", 102) ctrlSetText (switch (false) do {
@@ -66,7 +66,7 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
             _count = {[_x, _choice] call BIS_fnc_areEqual} count _votes;
 
             if ([_choice, true] call BIS_fnc_areEqual) then {
-                _remain = (X_JIPH getVariable QGVAR(vote_players)) - _count;
+                _remain = (X_JIP getVariable QGVAR(vote_players)) - _count;
 
                 if (_remain < 1) exitWith {};
 
@@ -105,4 +105,4 @@ switch ([_vote, ""] call BIS_fnc_areEqual) do {
         }),
         (_x select 0) select 0
     ] call FUNC(THIS_MODULE,add);
-} forEach (X_JIPH getVariable QGVAR(votes));
+} forEach (X_JIP getVariable QGVAR(votes));

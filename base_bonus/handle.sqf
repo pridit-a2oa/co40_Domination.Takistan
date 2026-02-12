@@ -31,5 +31,5 @@ if (isServer) then {
         };
     };
 
-    X_JIPH setVariable [QGVAR(base_bonus), true, true];
+    X_JIP setVariable [QGVAR(base_bonus), true, true];
 };

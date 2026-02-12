@@ -74,7 +74,7 @@ if (!isNil QMODULE(task)) then {
                 _task = [_x select 0] call FUNC(task,get);
                 _task setTaskState "Failed";
             };
-        } forEach (X_JIPH getVariable QGVAR(tasks));
+        } forEach (X_JIP getVariable QGVAR(tasks));
 
         if !(isNil QMODULE(vote)) then {
             [false] call FUNC(vote,refresh);

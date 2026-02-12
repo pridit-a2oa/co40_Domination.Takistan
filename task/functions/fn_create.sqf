@@ -17,7 +17,7 @@ _task setSimpleTaskDescription _description;
 _task setTaskState _state;
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(tasks), (X_JIPH getVariable QGVAR(tasks)) + [_this], true];
+    X_JIP setVariable [QGVAR(tasks), (X_JIP getVariable QGVAR(tasks)) + [_this], true];
 };
 
 sleep 0.1;

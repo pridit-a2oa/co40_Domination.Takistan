@@ -14,7 +14,7 @@ if (hasInterface) then {
 
         [
             _name,
-            X_JIPH getVariable QGVAR(uav_progress)
+            X_JIP getVariable QGVAR(uav_progress)
         ] call FUNC(helper,inProgress),
 
         [
@@ -34,7 +34,7 @@ if (hasInterface) then {
             _checks,
             [
                 "Crossroad communication",
-                X_JIPH getVariable QGVAR(conversation)
+                X_JIP getVariable QGVAR(conversation)
             ] call FUNC(helper,inProgress)
         ] call BIS_fnc_arrayPush;
     };
@@ -47,7 +47,7 @@ if (hasInterface) then {
 
     if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
-    X_JIPH setVariable [QGVAR(uav_call), true, true];
+    X_JIP setVariable [QGVAR(uav_call), true, true];
     player setVariable [QGVAR(uav_cooldown), time + GVAR(uav_time_cooldown)];
 
     if !(isServer) then {
@@ -55,8 +55,8 @@ if (hasInterface) then {
     };
 };
 
-if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
-    X_JIPH setVariable [QGVAR(uav_call), false, true];
+if (isServer && {X_JIP getVariable QGVAR(uav_call)}) then {
+    X_JIP setVariable [QGVAR(uav_call), false, true];
 
     if (!isNil QMODULE(conversation) && {[
         _unit,
@@ -64,7 +64,7 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         "UAV"
     ] call FUNC(conversation,request)}) exitWith {};
 
-    X_JIPH setVariable [QGVAR(uav_progress), true, true];
+    X_JIP setVariable [QGVAR(uav_progress), true, true];
 
     _vehicle = [
         _position,
@@ -119,5 +119,5 @@ if (isServer && {X_JIPH getVariable QGVAR(uav_call)}) then {
         [_aircraft] call FUNC(vehicle,delete);
     };
 
-    X_JIPH setVariable [QGVAR(uav_progress), false, true];
+    X_JIP setVariable [QGVAR(uav_progress), false, true];
 };

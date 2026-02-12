@@ -21,17 +21,17 @@ if (isServer) then {
     [GVAR(crossroad2)] joinSilent _crossroad2;
     GVAR(crossroad2) enableSimulation false;
 
-    X_JIPH setVariable [QGVAR(crossroad), GVAR(crossroad), true];
-    X_JIPH setVariable [QGVAR(crossroad2), GVAR(crossroad2), true];
+    X_JIP setVariable [QGVAR(crossroad), GVAR(crossroad), true];
+    X_JIP setVariable [QGVAR(crossroad2), GVAR(crossroad2), true];
 };
 
 _path = format ["%1\speech\crossroad.bikb", QUOTE(THIS_MODULE)];
 
 if (hasInterface) then {
-    waitUntil {sleep 0.1; !isNil {X_JIPH getVariable QGVAR(crossroad2)}};
+    waitUntil {sleep 0.1; !isNil {X_JIP getVariable QGVAR(crossroad2)}};
 
-    GVAR(crossroad) = X_JIPH getVariable QGVAR(crossroad);
-    GVAR(crossroad2) = X_JIPH getVariable QGVAR(crossroad2);
+    GVAR(crossroad) = X_JIP getVariable QGVAR(crossroad);
+    GVAR(crossroad2) = X_JIP getVariable QGVAR(crossroad2);
 
     player kbAddTopic ["HQ", _path];
 };

@@ -252,7 +252,7 @@ switch (_type) do {
                 _entity setPos [_position select 0, _position select 1, 0];
                 _entity setVectorUp (surfaceNormal _position);
 
-                X_JIPH setVariable [QGVAR(groups), (X_JIPH getVariable QGVAR(groups)) + [_group], true];
+                X_JIP setVariable [QGVAR(groups), (X_JIP getVariable QGVAR(groups)) + [_group], true];
 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_fort]];
                 _target setVariable [QGVAR(units), (_target getVariable QGVAR(units)) + [_entity]];

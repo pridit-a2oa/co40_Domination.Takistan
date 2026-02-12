@@ -6,7 +6,7 @@
 #include "x_macros.sqf"
 private ["_options"];
 
-if (isNil QMODULE(task) || {[X_JIPH getVariable QGVAR(tasks), []] call BIS_fnc_areEqual}) exitWith {[]};
+if (isNil QMODULE(task) || {[X_JIP getVariable QGVAR(tasks), []] call BIS_fnc_areEqual}) exitWith {[]};
 
 _options = [];
 
@@ -24,7 +24,7 @@ _options = [];
             ]
         ] call BIS_fnc_arrayPush;
     };
-} forEach (X_JIPH getVariable QGVAR(tasks));
+} forEach (X_JIP getVariable QGVAR(tasks));
 
 if ([_options, []] call BIS_fnc_areEqual) exitWith {[]};
 

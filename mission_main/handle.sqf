@@ -40,7 +40,7 @@ if (isServer) then {
 if (hasInterface) then {
     private ["_target"];
 
-    _target = X_JIPH getVariable QGVAR(target);
+    _target = X_JIP getVariable QGVAR(target);
 
     if !(isNil "_target") then {
         {
