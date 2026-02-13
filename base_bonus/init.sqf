@@ -11,7 +11,7 @@
 GVAR(base_bonus_amount) = 5;
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(base_bonus), false, true];
+    X_JIP setVariable [QGVAR(base_bonus), false, true];
 };
 
 MODULE(THIS_MODULE) = true;

@@ -122,7 +122,7 @@ if (isServer) then {
     GVAR(mission_main_targets) = [];
     GVAR(mission_main_targets_completed) = [];
 
-    gameLogic setVariable [QGVAR(targets), []];
+    X_JIP setVariable [QGVAR(targets), [], true];
 };
 
 __cppfln(FUNC(THIS_MODULE,capture),THIS_MODULE\functions\fn_capture.sqf);

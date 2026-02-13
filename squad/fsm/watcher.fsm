@@ -41,9 +41,9 @@ class FSM
     {
       name = "_";
       init = "" \n
-       "_groups = X_JIPH getVariable ""d_squads"";" \n
+       "_groups = X_JIP getVariable ""d_squads"";" \n
        "if ([count _groups, 0] call BIS_fnc_areEqual || {grpNull in _groups}) then {" \n
-       "    X_JIPH setVariable [""d_squads"", [d_group_ids] call d_fnc_squad_groups, true];" \n
+       "    X_JIP setVariable [""d_squads"", [d_group_ids] call d_fnc_squad_groups, true];" \n
        "}";
       precondition = "";
       class Links

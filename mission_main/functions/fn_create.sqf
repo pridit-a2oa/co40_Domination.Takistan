@@ -50,7 +50,7 @@ if !(isNil QMODULE(conversation)) then {
         [GVAR(crossroad), GVAR(crossroad2)],
         [QUOTE(THIS_MODULE), "NewTarget"],
         [
-            ["Location", {}, _name, [[_name] call FUNC(conversation,location)]]
+            ["Location", {}, _name, [[_name] call FUNC(common,location)]]
         ]
     ] call FUNC(conversation,radio);
 
@@ -88,7 +88,7 @@ if (!isNil QMODULE(task)) then {
 
     if (!isNil QMODULE(marker)) then {
         [
-            format ["mission_main_%1", _target getVariable "name"],
+            format ["mission_main_%1", _name],
             position _target,
             "",
             "",
@@ -104,7 +104,7 @@ if (!isNil QMODULE(task)) then {
         _task = (_target getVariable QGVAR(tasks)) select 0;
         _task call FUNC(task,create);
 
-        [[_target getVariable "name"] call FUNC(task,get), "created"] call FUNC(task,hint);
+        [[_name] call FUNC(task,get), "created"] call FUNC(task,hint);
     };
 }]] call FUNC(network,mp);
 
@@ -128,15 +128,23 @@ _trigger setTriggerStatements [
     ""
 ];
 
-X_JIPH setVariable [QGVAR(target), _target, true];
+X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) + [_target], true];
 
-gameLogic setVariable [QGVAR(targets), (gameLogic getVariable QGVAR(targets)) + [_target]];
+if !(isNil QMODULE(vote)) then {
+    [true] call FUNC(vote,refresh);
+};
 
 __log format ["Seeded %1", _name]];
 
 waitUntil {sleep 5; [_target] call FUNC(THIS_MODULE,clear)};
 
 deleteVehicle _trigger;
+
+X_JIP setVariable [QGVAR(targets), (X_JIP getVariable QGVAR(targets)) - [_target], true];
+
+if !(isNil QMODULE(vote)) then {
+    [true] call FUNC(vote,refresh);
+};
 
 sleep GVAR(mission_main_time_complete);
 

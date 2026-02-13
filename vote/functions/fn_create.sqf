@@ -34,7 +34,7 @@ if (hasInterface) then {
 
         [
             _name,
-            X_JIPH getVariable QGVAR(vote_progress)
+            X_JIP getVariable QGVAR(vote_progress)
         ] call FUNC(helper,inProgress)
     ];
 
@@ -52,20 +52,20 @@ if (hasInterface) then {
     DIALOG("X_VOTE_DIALOG", 301) ctrlShow false;
     DIALOG("X_VOTE_DIALOG", 500) ctrlShow false;
 
-    X_JIPH setVariable [QGVAR(vote_call), true, true];
+    X_JIP setVariable [QGVAR(vote_call), true, true];
 
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(create)]] call FUNC(network,mp);
     };
 };
 
-if (isServer && {X_JIPH getVariable QGVAR(vote_call)}) then {
+if (isServer && {X_JIP getVariable QGVAR(vote_call)}) then {
     private ["_time"];
 
-    X_JIPH setVariable [QGVAR(vote), _format, true];
-    X_JIPH setVariable [QGVAR(vote_call), false, true];
-    X_JIPH setVariable [QGVAR(vote_progress), true, true];
-    X_JIPH setVariable [QGVAR(vote_players), call FUNC(THIS_MODULE,count), true];
+    X_JIP setVariable [QGVAR(vote), _format, true];
+    X_JIP setVariable [QGVAR(vote_call), false, true];
+    X_JIP setVariable [QGVAR(vote_progress), true, true];
+    X_JIP setVariable [QGVAR(vote_players), call FUNC(THIS_MODULE,count), true];
 
     gameLogic setVariable [QGVAR(vote), ((_types select 1) select _subtype) select 1];
 

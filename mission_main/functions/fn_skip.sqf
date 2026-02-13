@@ -10,7 +10,7 @@ if !(isServer) exitWith {};
     if ([_x getVariable "name", _name] call BIS_fnc_areEqual) exitWith {
         _target = _x
     };
-} forEach (gameLogic getVariable QGVAR(targets));
+} forEach (X_JIP getVariable QGVAR(targets));
 
 if (isNil "_target") exitWith {};
 

@@ -25,7 +25,7 @@ if (hasInterface) then {
 
         [
             _name,
-            X_JIPH getVariable QGVAR(airdrop_progress)
+            X_JIP getVariable QGVAR(airdrop_progress)
         ] call FUNC(helper,inProgress),
 
         [
@@ -57,7 +57,7 @@ if (hasInterface) then {
             _checks,
             [
                 "Crossroad communication",
-                X_JIPH getVariable QGVAR(conversation)
+                X_JIP getVariable QGVAR(conversation)
             ] call FUNC(helper,inProgress)
         ] call BIS_fnc_arrayPush;
     };
@@ -70,7 +70,7 @@ if (hasInterface) then {
 
     if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
-    X_JIPH setVariable [QGVAR(airdrop_call), true, true];
+    X_JIP setVariable [QGVAR(airdrop_call), true, true];
     player setVariable [QGVAR(airdrop_cooldown), time + ([_drop] call FUNC(THIS_MODULE,cooldown))];
 
     if !(isServer) then {
@@ -78,8 +78,8 @@ if (hasInterface) then {
     };
 };
 
-if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
-    X_JIPH setVariable [QGVAR(airdrop_call), false, true];
+if (isServer && {X_JIP getVariable QGVAR(airdrop_call)}) then {
+    X_JIP setVariable [QGVAR(airdrop_call), false, true];
 
     if (!isNil QMODULE(conversation) && {[
         _unit,
@@ -87,7 +87,7 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
         "airdrop"
     ] call FUNC(conversation,request)}) exitWith {};
 
-    X_JIPH setVariable [QGVAR(airdrop_progress), true, true];
+    X_JIP setVariable [QGVAR(airdrop_progress), true, true];
 
     if (!isNil QMODULE(database) && {!isNil "_caller"}) then {
         [_caller, 1] spawn FUNC(database,statistic);
@@ -150,5 +150,5 @@ if (isServer && {X_JIPH getVariable QGVAR(airdrop_call)}) then {
         sleep 1;
     };
 
-    X_JIPH setVariable [QGVAR(airdrop_progress), false, true];
+    X_JIP setVariable [QGVAR(airdrop_progress), false, true];
 };

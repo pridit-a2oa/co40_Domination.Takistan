@@ -26,7 +26,7 @@ GVAR(group_ids) = [];
 } forEach GVAR(group_names);
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(squads), [], true];
+    X_JIP setVariable [QGVAR(squads), [], true];
 };
 
 __cppfln(FUNC(THIS_MODULE,assign),THIS_MODULE\functions\fn_assign.sqf);

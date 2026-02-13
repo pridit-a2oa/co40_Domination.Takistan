@@ -41,8 +41,8 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(air_taxi_call), false, true];
-    X_JIPH setVariable [QGVAR(air_taxi_progress), false, true];
+    X_JIP setVariable [QGVAR(air_taxi_call), false, true];
+    X_JIP setVariable [QGVAR(air_taxi_progress), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,call),THIS_MODULE\functions\fn_call.sqf);

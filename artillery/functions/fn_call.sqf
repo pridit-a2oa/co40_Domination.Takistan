@@ -14,7 +14,7 @@ if (hasInterface) then {
 
         [
             _name,
-            X_JIPH getVariable QGVAR(artillery_progress)
+            X_JIP getVariable QGVAR(artillery_progress)
         ] call FUNC(helper,inProgress),
 
         [
@@ -48,7 +48,7 @@ if (hasInterface) then {
             _checks,
             [
                 "Crossroad communication",
-                X_JIPH getVariable QGVAR(conversation)
+                X_JIP getVariable QGVAR(conversation)
             ] call FUNC(helper,inProgress)
         ] call BIS_fnc_arrayPush;
     };
@@ -61,7 +61,7 @@ if (hasInterface) then {
 
     if ({[_x, true] call BIS_fnc_areEqual} count _checks < count _checks) exitWith {};
 
-    X_JIPH setVariable [QGVAR(artillery_call), true, true];
+    X_JIP setVariable [QGVAR(artillery_call), true, true];
     player setVariable [QGVAR(artillery_cooldown), time + GVAR(artillery_time_cooldown)];
 
     if !(isServer) then {
@@ -69,8 +69,8 @@ if (hasInterface) then {
     };
 };
 
-if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
-    X_JIPH setVariable [QGVAR(artillery_call), false, true];
+if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
+    X_JIP setVariable [QGVAR(artillery_call), false, true];
 
     if (!isNil QMODULE(conversation) && {[
         _unit,
@@ -82,7 +82,7 @@ if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
         ]
     ] call FUNC(conversation,request)}) exitWith {};
 
-    X_JIPH setVariable [QGVAR(artillery_progress), true, true];
+    X_JIP setVariable [QGVAR(artillery_progress), true, true];
 
     _smoke = GVAR(artillery_type_smoke) createVehicle _position;
 
@@ -107,5 +107,5 @@ if (isServer && {X_JIPH getVariable QGVAR(artillery_call)}) then {
         sleep 6;
     };
 
-    X_JIPH setVariable [QGVAR(artillery_progress), false, true];
+    X_JIP setVariable [QGVAR(artillery_progress), false, true];
 };

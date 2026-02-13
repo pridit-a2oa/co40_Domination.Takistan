@@ -5,6 +5,7 @@ private ["_network", "_expression"];
 PARAMS_1(_network);
 
 _expression = {
+    if !(hasInterface) exitWith {};
     if !([typeName (uiNamespace getVariable "X_VOTE_DIALOG"), "DISPLAY"] call BIS_fnc_areEqual) exitWith {};
 
     closeDialog 0;

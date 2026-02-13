@@ -4,7 +4,7 @@ private ["_state", "_vote"];
 
 PARAMS_1(_state);
 
-_vote = X_JIPH getVariable QGVAR(vote);
+_vote = X_JIP getVariable QGVAR(vote);
 
 if ([_vote, ""] call BIS_fnc_areEqual) exitWith {};
 

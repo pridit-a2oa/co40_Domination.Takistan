@@ -45,8 +45,8 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(airdrop_call), false, true];
-    X_JIPH setVariable [QGVAR(airdrop_progress), false, true];
+    X_JIP setVariable [QGVAR(airdrop_call), false, true];
+    X_JIP setVariable [QGVAR(airdrop_progress), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,add),THIS_MODULE\functions\fn_add.sqf);

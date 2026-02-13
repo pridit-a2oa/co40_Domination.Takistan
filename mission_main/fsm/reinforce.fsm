@@ -40,7 +40,7 @@ class FSM
           priority = 2.000000;
           to="End";
           precondition = "";
-          condition="count (call d_fnc_common_players) < 1";
+          condition="count (call d_fnc_common_players) < 1 || {!((_this select 0) in (X_JIP getVariable ""d_targets""))}";
           action="(_this select 0) setVariable [""d_detected"", false];";
         };
         class time_____timeend

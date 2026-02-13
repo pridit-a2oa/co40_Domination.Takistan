@@ -17,7 +17,7 @@ GVAR(base_uav_type_composition) = "HeliParking1_US_EP1";
 GVAR(base_uav_type_vehicle) = "MQ9PredatorB_US_EP1";
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(base_uav), false, true];
+    X_JIP setVariable [QGVAR(base_uav), false, true];
 };
 
 __cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);

@@ -1,7 +1,7 @@
 #include "x_macros.sqf"
 private ["_squads"];
 
-_squads = X_JIPH getVariable QGVAR(squads);
+_squads = X_JIP getVariable QGVAR(squads);
 
 {
     _x setGroupId [GVAR(group_names) select _forEachIndex];

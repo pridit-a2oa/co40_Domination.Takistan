@@ -19,7 +19,7 @@ if ([count _size, 2] call BIS_fnc_areEqual) then {
 };
 
 if (isServer) then {
-    X_JIPH setVariable [QGVAR(markers), (X_JIPH getVariable QGVAR(markers)) + [_this], true];
+    X_JIP setVariable [QGVAR(markers), (X_JIP getVariable QGVAR(markers)) + [_this], true];
 };
 
 _marker

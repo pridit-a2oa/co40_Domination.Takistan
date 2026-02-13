@@ -4,9 +4,9 @@ private ["_vote"];
 
 PARAMS_1(_vote);
 
-X_JIPH setVariable [
+X_JIP setVariable [
     QGVAR(votes),
-    (X_JIPH getVariable QGVAR(votes)) + [
+    (X_JIP getVariable QGVAR(votes)) + [
         [[name player, getPlayerUID player], _vote]
     ],
     true

@@ -4,20 +4,20 @@ private ["_uid", "_vote", "_count"];
 
 PARAMS_1(_uid);
 
-if ([X_JIPH getVariable QGVAR(vote), ""] call BIS_fnc_areEqual) exitWith {};
+if ([X_JIP getVariable QGVAR(vote), ""] call BIS_fnc_areEqual) exitWith {};
 
 // Cancel vote if new player count does not meet minimum
 if (count (call FUNC(common,players)) < GVAR(vote_amount_players)) exitWith {
     ["cancel"] call FUNC(THIS_MODULE,complete);
 };
 
-_vote = [X_JIPH getVariable QGVAR(votes), _uid] call BIS_fnc_findNestedElement;
+_vote = [X_JIP getVariable QGVAR(votes), _uid] call BIS_fnc_findNestedElement;
 
 if !([_vote, []] call BIS_fnc_areEqual) then {
     // Delete individual player vote
-    X_JIPH setVariable [
+    X_JIP setVariable [
         QGVAR(votes),
-        [X_JIPH getVariable QGVAR(votes), _vote select 0] call FUNC(common,deleteAt),
+        [X_JIP getVariable QGVAR(votes), _vote select 0] call FUNC(common,deleteAt),
         true
     ];
 };
@@ -25,8 +25,8 @@ if !([_vote, []] call BIS_fnc_areEqual) then {
 _count = call FUNC(THIS_MODULE,count);
 
 // Update player vote criteria to a lower possible minimum
-if (X_JIPH getVariable QGVAR(vote_players) > _count) then {
-    X_JIPH setVariable [QGVAR(vote_players), _count, true];
+if (X_JIP getVariable QGVAR(vote_players) > _count) then {
+    X_JIP setVariable [QGVAR(vote_players), _count, true];
 };
 
 [true] call FUNC(THIS_MODULE,refresh);

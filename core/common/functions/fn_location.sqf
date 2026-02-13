@@ -10,7 +10,7 @@ _name = switch (_name) do {
     case "Mulladost": {"Mulladoost"};
     case "Sakhe": {"Sakhee"};
     case "Sultansafe": {"Sultansafee"};
-    case default {_name};
+    default {_name};
 };
 
 _name

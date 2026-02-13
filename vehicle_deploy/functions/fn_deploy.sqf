@@ -84,7 +84,7 @@ switch (_state) do {
                     [
                         ["Vehicle", {}, [typeOf _vehicle] call FUNC(vehicle,name), []],
                         ["Type", {}, toUpper _type, []],
-                        ["Location", {}, _location, [[_location] call FUNC(conversation,location)]]
+                        ["Location", {}, _location, [[_location] call FUNC(common,location)]]
                     ],
                     true
                 ] call FUNC(conversation,radio);

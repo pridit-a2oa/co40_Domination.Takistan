@@ -4,7 +4,7 @@ private ["_vehicle", "_hangars"];
 
 PARAMS_1(_vehicle);
 
-_hangars = X_JIPH getVariable QGVAR(wreck_hangars);
+_hangars = X_JIP getVariable QGVAR(wreck_hangars);
 
 if !([typeOf _vehicle, "Mi17_TK_EP1"] call BIS_fnc_areEqual) then {
     if (isNil QMODULE(base_uav) || {!isNil QMODULE(base_uav) && {!([typeOf _vehicle, GVAR(base_uav_type_vehicle)] call BIS_fnc_areEqual)}}) then {

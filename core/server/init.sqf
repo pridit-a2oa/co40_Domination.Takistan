@@ -35,7 +35,7 @@ GVAR(server_objects_banned) = [
     "UralReammo_TK_EP1"
 ];
 
-X_JIPH setVariable [QGVAR(groups), [], true];
+X_JIP setVariable [QGVAR(groups), [], true];
 
 __cppfln(FUNC(THIS_MODULE,cleanup),core\THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
