@@ -91,7 +91,7 @@ class PerkIconBackground_General_10: XD_RscPicture
 class PerkIconBackground_Role1_1: XD_RscPicture
 {
     idc = 111;
-    text = "ca\ui\data\cmdbar_background_ca";
+    text = "";
     x = 0.281251;
     y = 0.375;
     w = 0.0722223;
@@ -100,7 +100,7 @@ class PerkIconBackground_Role1_1: XD_RscPicture
 class PerkIconBackground_Role1_2: XD_RscPicture
 {
     idc = 112;
-    text = "ca\ui\data\cmdbar_background_ca";
+    text = "";
     x = 0.281251;
     y = 0.475;
     w = 0.0722223;
@@ -127,7 +127,7 @@ class PerkIconBackground_Role1_4: XD_RscPicture
 class PerkIconBackground_Role1_5: XD_RscPicture
 {
     idc = 115;
-    text = "ca\ui\data\cmdbar_background_ca";
+    text = "";
     x = 0.281251;
     y = 0.775;
     w = 0.0722223;
