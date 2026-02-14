@@ -15,6 +15,7 @@ if (hasInterface) then {
 
         switch (true) do {
             case !(alive _unit);
+            case !(simulationEnabled _unit);
             case (_unit getVariable QGVAR(unconscious));
             // don't damage faked remote units
             case (!isNil QMODULE(vehicle_uav) && {typeOf (vehicle _unit) in GVAR(vehicle_uav_types)});

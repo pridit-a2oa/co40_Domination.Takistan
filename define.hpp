@@ -1061,3 +1061,13 @@ class RscFrame
     w = 0.3;
     h = 0.3;
 };
+class RscProgressBar
+{
+    type = CT_PROGRESS;
+    idc = -1;
+    style = 0x00;
+    colorFrame[] = {0.89,0.804,0.365,1};
+    colorBar[] = {0.89,0.804,0.365,1};
+    shadow = 2;
+    texture = "#(argb,8,8,3)color(0.639,0.576,0.427,1)";
+};

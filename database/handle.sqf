@@ -59,17 +59,22 @@ if (hasInterface) then {
         ]] call FUNC(database,query);
 
         _character = [format [
-            "SELECT id, user_id, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id, experience, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
 
         _id = (_character select 0) select 0;
         _user = (_character select 0) select 1;
-        _muted = (_character select 0) select 2;
+        _experience = (_character select 0) select 2;
+        _muted = (_character select 0) select 3;
 
         if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
             [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
+        };
+
+        if !(isNil QMODULE(accolade)) then {
+            [_unit, "execVM", [[_experience], __submoduleRE(accolade)]] call FUNC(network,mp);
         };
 
         _role = if ([_user, ""] call BIS_fnc_areEqual) then {
