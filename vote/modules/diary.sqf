@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Votes", [
-    "<img image='ca\missions_e\bootcamp\TE11_Team_command.Zargabad\overview_ca' width='200'/>",
+    "<img image='ca\missions_e\bootcamp\TE11_Team_command.Zargabad\overview_ca' width='175'/>",
     "<br />Use the context menu and select Options -> Voting to create and participate in votes.",
     format ["<br />Votes have a total running time of <marker name=''>%1</marker> minutes, but will end sooner if pass/fail criteria is met.", GVAR(vote_time_delay) / 60],
     format ["<br />Should the player count fall below the required minimum of <marker name=''>%1</marker> the vote will automatically <marker name=''>fail</marker>.", GVAR(vote_amount_players)],

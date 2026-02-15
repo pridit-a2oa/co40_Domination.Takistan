@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Vehicle Wrecks", [
-    "<img image='ca\missions_e\bootcamp\TE10_Attack_helicopter.Takistan\overview_ca' width='200'/>",
+    "<img image='ca\missions_e\bootcamp\TE10_Attack_helicopter.Takistan\overview_ca' width='175'/>",
     "<br />Some vehicles produce a <marker name=''>rebuildable</marker> wreck when they are destroyed.",
     "<br />Vehicle wrecks which are not being actively lifted will <marker name=''>always</marker> be visible on the map.",
     "<br />To restore these vehicles they need to be <marker name=''>airlifted</marker> onto the wreck rebuild pad near the <marker name='wreck_rebuild'>[South West]</marker> of the base.",

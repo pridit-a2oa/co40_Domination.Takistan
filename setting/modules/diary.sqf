@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Settings", [
-    "<img image='ca\missions_e\bootcamp\TE02_Tasks.Takistan\overview_ca' width='200'/>",
+    "<img image='ca\missions_e\bootcamp\TE02_Tasks.Takistan\overview_ca' width='175'/>",
     "<br />Through the context menu you can access a dialog to set your personal preferences. Some of these are:<br />",
     if !(isNil QMODULE(airdrop)) then {"- Airdrop Payload"} else {""},
     if !(isNil QMODULE(respawn)) then {"- Respawn Location"} else {""},

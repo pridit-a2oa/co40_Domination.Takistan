@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Mobile Respawn", [
-    "<img image='ca\missions_e\data\images\mpte06_ca' width='200'/>",
+    "<img image='ca\missions_e\data\images\mpte06_ca' width='175'/>",
     "<br />Some vehicles have the ability to be deployed, allowing them to act as a <marker name=''>mobile respawn</marker> point.",
     "<br />Through Options -> Settings you can select a preference as your respawn location.",
     "<br />You will <marker name=''>not</marker> respawn at a selected point if you die beyond the maximum distance specified.",
