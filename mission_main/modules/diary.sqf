@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Main Missions", [
-    "<img image='ca\ui\data\template_thumb_ca' width='200'/>",
+    "<img image='ca\ui\data\template_thumb_ca' width='175'/>",
     "<br />Main Missions are towns heavily occupied by Takistani forces, which you are tasked with <marker name=''>seizing</marker> control of.",
     "<br />They are also referred to as Main Targets or, more commonly known as, the ""AO"" (area of operations).",
     "<br />These missions are dynamically generated, and <marker name=''>do not</marker> have a defined end, with old completed targets periodically recycled.",

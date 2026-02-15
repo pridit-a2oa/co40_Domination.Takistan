@@ -5,7 +5,7 @@
 #include "x_macros.sqf"
 
 ["Research & Development", [
-    "<img image='ca\missions_e\scenarios\SPE1_Vehicles_TKA.Zargabad\overview_vehicles_ca' width='200'/>",
+    "<img image='ca\missions_e\scenarios\SPE1_Vehicles_TKA.Zargabad\overview_vehicles_ca' width='175'/>",
     "<br />Research is fundamentally performed via <marker name=''>reverse engineering</marker>, which means you need an existing vehicle to deconstruct.",
     "<br />By leaving an empty OPFOR vehicle on the R&amp;D pad it will automatically begin deconstructing, rendering it <marker name=''>unusable</marker>.",
     "<br />Each vehicle type has its own progress requirement (amount that <marker name=''>must</marker> be deconstructed) to be able to build.",
