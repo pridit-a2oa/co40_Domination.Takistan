@@ -22,6 +22,21 @@ _valid = call (call compile format ["d_fnc_menu_%1_show", _type select 0]);
 DIALOG("X_MENU_DIALOG", 1000) ctrlSetText (_type select 1);
 DIALOG("X_MENU_DIALOG", 1201) ctrlSetText (_type select 2);
 
+if (_target isKindOf "CAManBase" && {[side _target, west] call BIS_fnc_areEqual}) then {
+    private ["_rank"];
+
+    _rank = [_target] call FUNC(common,rank);
+
+    DIALOG("X_MENU_DIALOG", 1202) ctrlSetText format [
+        "\ca\warfare2\Images\rank_%1",
+        toLower _rank
+    ];
+
+    DIALOG("X_MENU_DIALOG", 1203) ctrlSetTooltip _rank;
+} else {
+    DIALOG("X_MENU_DIALOG", 1203) ctrlShow false;
+};
+
 if ([{[_x, false] call BIS_fnc_areEqual} count _valid, count _valid] call BIS_fnc_areEqual) exitWith {
     DIALOG("X_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
         "<t size='0.9'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
