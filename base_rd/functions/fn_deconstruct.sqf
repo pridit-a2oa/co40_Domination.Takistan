@@ -64,7 +64,7 @@ GVAR(base_rd) setVariable [QGVAR(progress), GVAR(base_rd) getVariable QGVAR(prog
 
 if !(isNil QMODULE(database)) then {
     [format [
-        "UPDATE game SET data = '%1' WHERE `key` = 'base_rd'",
+        "UPDATE game SET data = CAST(""%1"" AS JSON) WHERE `key` = 'base_rd'",
         [1, GVAR(base_rd) getVariable QGVAR(progress)] call FUNC(common,arrayValues)
     ]] call FUNC(database,query);
 };
