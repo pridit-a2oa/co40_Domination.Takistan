@@ -158,6 +158,10 @@ onPlayerDisconnected {
         };
     };
 
+    if !(isNil QMODULE(accolade)) then {
+        gameLogic setVariable [[_uid] call FUNC(accolade,key), nil];
+    };
+
     if !(isNil QMODULE(name)) then {
         [true, "deleteMarkerLocal", format ["player_%1", _name]] call FUNC(network,mp);
     };

@@ -19,57 +19,70 @@ scriptName "Functions\arrays\fn_findNestedElement.sqf";
 */
 
 private ["_array", "_query", "_path", "_found"];
+
 _array = _this select 0;
 _query = _this select 1;
 _path = [];
 _found = false;
 
-//Parameter checking.
-if ((typeName _array) != (typeName [])) exitWith {debugLog "Log: [findNestedElement] Array (0) should be an Array!"};
+// Parameter checking.
+if !([typeName _array, typeName []] call BIS_fnc_areEqual) exitWith {debugLog "Log: [findNestedElement] Array (0) should be an Array!"};
 
-//Find a value in an Array || one of its children.
+// Empty array, so nothing to be found.
+if ([_array, []] call BIS_fnc_areEqual) exitWith {[]};
+
+// Find a value in an Array || one of its children.
 private ["_searchArrayFunc"];
+
 _searchArrayFunc =
 {
     private ["_array", "_query", "_find"];
+
     _array = _this select 0;
     _query = _this select 1;
 
-    //See if the array itself contains the queried element.
+    // See if the array itself contains the queried element.
     _find = _array find _query;
-    if (_find != -1) exitWith
-    {
+
+    if !([_find, -1] call BIS_fnc_areEqual) exitWith {
         _path = _path + [_find];
         _found = true;
     };
 
-    //If not, search its children.
+    // If not, search its children.
     [_array, _query] call _searchArrayChildrenFunc;
 };
 
-//Find a value in an Array's children.
+// Find a value in an Array's children.
 private ["_searchArrayChildrenFunc"];
+
 _searchArrayChildrenFunc =
 {
     private ["_array", "_query"];
+
     _array = _this select 0;
     _query = _this select 1;
 
-    //Search all Array children for the queried element.
-    for "_i" from 0 to ((count _array) - 1) do
-    {
+    // Array itself matches queried (Array) element.
+    if ([typeName _query, typeName []] call BIS_fnc_areEqual && {[_array, _query] call BIS_fnc_areEqual}) exitWith {
+        _found = true;
+    };
+
+    // Search all Array children for the queried element.
+    for "_i" from 0 to ((count _array) - 1) do {
         private ["_sub"];
+
         _sub = _array select _i;
 
-        if (((typeName _sub) == (typeName [])) && !_found) then
-        {
+        if ([typeName _sub, typeName []] call BIS_fnc_areEqual && {!_found}) then {
             _path = _path + [_i];
             [_sub, _query] call _searchArrayFunc;
         };
     };
-    if(count _path > 0)then{
-        //Nothing was found, so take a step back.
-        if (!_found) then {_path resize ((count _path) - 1)};
+
+    if (count _path > 0) then {
+        // Nothing was found, so take a step back.
+        if !(_found) then {_path resize ((count _path) - 1)};
     };
 };
 

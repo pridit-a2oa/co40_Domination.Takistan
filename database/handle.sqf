@@ -59,18 +59,15 @@ if (hasInterface) then {
         ]] call FUNC(database,query);
 
         _character = [format [
-            "SELECT id, user_id, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
+            "SELECT id, user_id, experience, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
             _uid,
             _name
         ]] call FUNC(database,query);
 
         _id = (_character select 0) select 0;
         _user = (_character select 0) select 1;
-        _muted = (_character select 0) select 2;
-
-        if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
-            [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
-        };
+        _experience = call compile ((_character select 0) select 2);
+        _muted = call compile ((_character select 0) select 3);
 
         _role = if ([_user, ""] call BIS_fnc_areEqual) then {
             ""
@@ -86,5 +83,46 @@ if (hasInterface) then {
         };
 
         [GVAR(database_score), [_name, _score]] call BIS_fnc_arrayPush;
+
+        if (!isNil QMODULE(chat) && {[_muted, 1] call BIS_fnc_areEqual}) then {
+            [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
+        };
+
+        if !(isNil QMODULE(accolade)) then {
+            private ["_identifier", "_key"];
+
+            _identifier = [_id, _uid, _name];
+
+            if (isServer || {hasInterface && {isServer}}) then {
+                [gameLogic, "execVM", [[_identifier, _experience], __submoduleRE(accolade)]] call FUNC(network,mp);
+
+                if !([_experience, 0] call BIS_fnc_areEqual) then {
+                    [true, "setRank", [_unit, [_experience] call FUNC(accolade,rank)]] call FUNC(network,mp);
+                };
+            };
+
+            _key = [_uid] call FUNC(accolade,key);
+
+            if (isMultiplayer) then {
+                waitUntil {
+                    sleep 0.2;
+
+                    !isNil {gameLogic getVariable _key}
+                };
+            };
+
+            [
+                _unit,
+                "execVM",
+                [
+                    [
+                        _identifier,
+                        _experience,
+                        (gameLogic getVariable _key) select 1
+                    ],
+                    __submoduleRE(accolade)
+                ]
+            ] call FUNC(network,mp);
+        };
     }]] call FUNC(network,mp);
 };
