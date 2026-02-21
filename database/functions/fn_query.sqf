@@ -14,7 +14,9 @@ waitUntil {
 
 GVAR(database) = false;
 
-__log format ["%1", _query]];
+if !([_query, "SELECT 1"] call BIS_fnc_areEqual) then {
+    __log format ["%1", _query]];
+};
 
 _result = "";
 
@@ -28,7 +30,7 @@ while {[count (toArray _result), 0] call BIS_fnc_areEqual} do {
     ];
 
     if !([count (toArray _result), 0] call BIS_fnc_areEqual) exitWith {
-        if !([_result, "[[]]"] call BIS_fnc_areEqual) then {
+        if !([_result, "[[]]"] call BIS_fnc_areEqual || {[_query, "SELECT 1"] call BIS_fnc_areEqual}) then {
             __log format ["%1", _result]];
         };
 
@@ -39,5 +41,7 @@ while {[count (toArray _result), 0] call BIS_fnc_areEqual} do {
 };
 
 GVAR(database) = true;
+
+if (isNil "_result") exitWith {[[["Error"]]]};
 
 _result
