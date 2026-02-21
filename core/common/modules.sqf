@@ -4,7 +4,7 @@
 
 #define THIS_MODULE common
 #include "x_macros.sqf"
-private ["_config"];
+private ["_config", "_loaded", "_missing", "_expression"];
 
 GVAR(modules) = [
     "database" // Requires: @Arma2NET
@@ -49,12 +49,65 @@ GVAR(modules) = GVAR(modules) + [
 
 GVAR(modules) = GVAR(modules) - [""];
 
+_loaded = [];
+_missing = [];
+
 {
+    private ["_module", "_path"];
+
+    _module = _x;
+    _path = _x;
+
     if ([typeName _x, "ARRAY"] call BIS_fnc_areEqual) then {
-        _x = _x select 1;
+        _module = _x select 0;
+        _path = _x select 1;
     };
 
-    __module(_x);
+    __module(_path);
+
+    if !(isNil (format [QMODULE(%1), _module])) then {
+        _loaded = _loaded + [_module];
+    } else {
+        _missing = _missing + [_module];
+    };
 } forEach GVAR(modules);
 
-__log format ["%1 modules initialized", count GVAR(modules)]];
+_expression = {
+    private ["_loaded", "_missing", "_total", "_name", "_uid"];
+
+    PARAMS_4(_loaded, _missing, _total, _name);
+
+    _uid = [_this, 4, ""] call FUNC(common,param);
+
+    __log format [
+        "%1 %2initialized modules %3",
+        _name,
+        if !([_uid, ""] call BIS_fnc_areEqual) then {
+            format ["(%1) ", _uid]
+        } else {
+            ""
+        },
+        if ([_loaded, _total] call BIS_fnc_areEqual) then {
+            format ["(%1)", _total]
+        } else {
+            format ["(%1/%2) %3", _loaded, _total, _missing]
+        }
+    ]];
+};
+
+_this = [];
+
+_this set [0, count _loaded];
+_this set [1, _missing];
+_this set [2, count GVAR(modules)];
+
+if !(hasInterface) exitWith {
+    _this set [3, "Server"];
+
+    _this call _expression;
+};
+
+_this set [3, name player];
+_this set [4, getPlayerUID player];
+
+[gameLogic, "spawn", [_this, _expression]] call FUNC(network,mp);
