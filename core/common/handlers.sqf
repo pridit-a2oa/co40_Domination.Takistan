@@ -60,7 +60,7 @@ _count = count _handlers;
 if (hasInterface) then {
     [gameLogic, "spawn", [[name player, getPlayerUID player, _count], {
         __log format [
-            "Player %1 (%2) executed handlers (%3)",
+            "%1 (%2) executed handlers (%3)",
             _this select 0,
             _this select 1,
             _this select 2
