@@ -5,6 +5,10 @@ disableSerialization;
 
 createDialog "XD_HaloDialog";
 
+_map = DIALOG("X_HALO_DIALOG", 10000);
+
+[_map] call FUNC(client,cursorMap);
+
 if !(isNil QMODULE(mission_main)) then {
     private ["_targets"];
 
@@ -12,7 +16,6 @@ if !(isNil QMODULE(mission_main)) then {
 
     if ([_targets, []] call BIS_fnc_areEqual) exitWith {};
 
-    _map = DIALOG("X_HALO_DIALOG", 10000);
     _map ctrlMapAnimAdd [0, 0.35, position (_targets call BIS_fnc_selectRandom)];
 
     ctrlMapAnimCommit _map;
