@@ -26,6 +26,7 @@ __ccppfln(core\THIS_MODULE\scripts\common.sqf);
 __ccppfln(core\THIS_MODULE\scripts\KRON.sqf);
 
 __cppfln(FUNC(THIS_MODULE,arrayPushStack),core\THIS_MODULE\functions\fn_arrayPushStack.sqf);
+__cppfln(FUNC(THIS_MODULE,arrayShuffle),core\THIS_MODULE\functions\fn_arrayShuffle.sqf);
 __cppfln(FUNC(THIS_MODULE,arrayValues),core\THIS_MODULE\functions\fn_arrayValues.sqf);
 __cppfln(FUNC(THIS_MODULE,attachPoint),core\THIS_MODULE\functions\fn_attachPoint.sqf);
 __cppfln(FUNC(THIS_MODULE,canMove),core\THIS_MODULE\functions\fn_canMove.sqf);

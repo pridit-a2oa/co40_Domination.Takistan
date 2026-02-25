@@ -11,8 +11,13 @@
 // Valid types of items
 GVAR(item_types) = [];
 
+if (isServer) then {
+    X_JIP setVariable [QGVAR(item_objects), [], true];
+};
+
 __cppfln(FUNC(THIS_MODULE,consume),THIS_MODULE\functions\fn_consume.sqf);
 __cppfln(FUNC(THIS_MODULE,create),THIS_MODULE\functions\fn_create.sqf);
+__cppfln(FUNC(THIS_MODULE,model),THIS_MODULE\functions\fn_model.sqf);
 __cppfln(FUNC(THIS_MODULE,offset),THIS_MODULE\functions\fn_offset.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
