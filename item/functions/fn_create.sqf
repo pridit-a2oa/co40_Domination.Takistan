@@ -1,63 +1,105 @@
 #define THIS_MODULE item
 #include "x_macros.sqf"
-private ["_parent", "_item", "_objects"];
+private ["_parent", "_types", "_objects", "_holder", "_item"];
 
 PARAMS_1(_parent);
 
-_item = [GVAR(item_types), typeOf _parent] call BIS_fnc_findNestedElement;
-
-if ([_item, []] call BIS_fnc_areEqual) exitWith {};
-
-_item = GVAR(item_types) select (_item select 0);
-
 if ((position _parent) distance (markerPos QGVAR(base_south)) < 1000) exitWith {};
-if !((call compile format ["d_%1_%2_chance", QUOTE(THIS_MODULE), toLower (_item select 0)]) > floor (random 100)) exitWith {};
+
+_types = [
+    ["", "WeaponHolder", []]
+];
+
+{
+    if (typeOf _parent in ((GVAR(item_types) select _forEachIndex) select 2)) then {
+        _types = _types + [_x];
+    };
+} forEach (GVAR(item_types) call FUNC(common,arrayShuffle));
+
+if ([count _types, 1] call BIS_fnc_areEqual) exitWith {};
 
 _objects = [];
 
 {
-    private ["_offset", "_object"];
+    private ["_object"];
 
-    _offset = [typeOf _parent] call FUNC(THIS_MODULE,offset);
+    if (!([_x select 0, ""] call BIS_fnc_areEqual) && {!((call compile format ["d_%1_%2_chance", QUOTE(THIS_MODULE), toLower (_x select 0)]) > floor (random 100))}) exitWith {};
+    if (!isNil "_holder" && {[count ([0, getWeaponCargo _holder] call FUNC(common,arrayValues)), 2] call BIS_fnc_areEqual}) exitWith {};
 
-    if ([_x, _item select 1] call BIS_fnc_areEqual && {isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")}) then {
-        _offset = [0, 0, -1];
-    };
+    switch (true) do {
+        case ([_x select 1, "WeaponHolder"] call BIS_fnc_areEqual): {
+            private ["_offset"];
 
-    _object = createVehicle [_x, getPosATL _parent, [], 0, "CAN_COLLIDE"];
-    _object setDir (random 360);
-    _object setPos (_parent modelToWorld _offset);
+            _offset = [typeOf _parent] call FUNC(THIS_MODULE,offset);
 
-    if ([_x, "WeaponHolder"] call BIS_fnc_areEqual) then {
-        _object addWeaponCargoGlobal [_item select 1, 1];
+            _object = createVehicle [_x select 1, getPosATL _parent, [], 0, "NONE"];
+            _object setDir (random 360);
+            _object setPos (_parent modelToWorld _offset);
 
-        [_item, _parent, _object] spawn {
-            private ["_item", "_parent", "_container", "_position"];
+            _holder = _object;
 
-            PARAMS_3(_item, _parent, _container);
+            [_objects, _holder] call BIS_fnc_arrayPush;
+        };
 
-            _position = position _container;
+        default {
+            _item = _x;
 
-            waitUntil {
-                sleep 2 + (random 0.5);
+            [true, "execVM", [[_parent, _item select 1], __function(model)]] call FUNC(network,mp);
 
-                {[_x select 0, _item select 1] call BIS_fnc_areEqual} count (getWeaponCargo _container) < 1 || !alive _parent
-            };
+            X_JIP setVariable [
+                QGVAR(item_objects),
+                (X_JIP getVariable QGVAR(item_objects)) + [[_parent, _item select 1]],
+                true
+            ];
 
-            deleteVehicle (nearestObject [_position, _item select 1]);
-
-            if !(alive _parent) exitWith {
-                clearWeaponCargoGlobal _container;
-            };
-
-            __log format ["Found %1", _item select 0]];
+            _holder addWeaponCargoGlobal [_item select 1, 1];
         };
     };
+} forEach _types;
 
-    [_objects, _object] call BIS_fnc_arrayPush;
-} forEach [
-    "WeaponHolder",
-    _item select 1
-];
+if !(isNil "_item") then {
+    [_parent, _item, _holder] spawn {
+        private ["_parent", "_item", "_holder", "_position", "_objects"];
+
+        PARAMS_3(_parent, _item, _holder);
+
+        _position = position _holder;
+
+        waitUntil {
+            sleep 2 + (random 0.5);
+
+            [count ([0, getWeaponCargo _holder] call FUNC(common,arrayValues)), 0] call BIS_fnc_areEqual || {!alive _parent}
+        };
+
+        _objects = X_JIP getVariable QGVAR(item_objects);
+
+        X_JIP setVariable [
+            QGVAR(item_objects),
+            [
+                _objects,
+                ([_objects, _parent] call BIS_fnc_findNestedElement) select 0
+            ] call FUNC(common,deleteAt),
+            true
+        ];
+
+        [true, "spawn", [[_position, _item select 1], {
+            if !(hasInterface) exitWith {};
+
+            deleteVehicle (nearestObject _this);
+        }]] call FUNC(network,mp);
+
+        if !(alive _parent) exitWith {
+            clearWeaponCargoGlobal _holder;
+        };
+
+        __log format ["Found %1", _item select 0]];
+    };
+} else {
+    _objects = _objects - [_holder];
+
+    _holder setDamage 1;
+
+    deleteVehicle _holder;
+};
 
 _objects

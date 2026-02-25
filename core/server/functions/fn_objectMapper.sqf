@@ -194,6 +194,8 @@ if !(isNil QMODULE(tent)) then {
 
         if !(isNil QMODULE(item)) then {
             {
+                if ([_x, []] call BIS_fnc_areEqual) exitWith {};
+
                 [_newObjs, _x] call BIS_fnc_arrayPush;
             } forEach ([_newObj] call FUNC(item,create));
         };

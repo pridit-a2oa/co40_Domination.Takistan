@@ -6,7 +6,11 @@
 #include "x_macros.sqf"
 
 // Type, item, and parent object
-GVAR(item_money_type) = ["Money", "EvMoney", "FoldTable"];
+GVAR(item_money_type) = [
+    "Money",
+    "EvMoney",
+    ["FoldTable", "Fort_Crate_wood"]
+];
 
 // Chance the item spawns on a parent object
 GVAR(item_money_chance) = 10;
