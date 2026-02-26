@@ -118,6 +118,29 @@ if (isServer) then {
 
                 _unit setVehicleAmmo 1;
             }];
+
+            if ([typeOf _vehicle, "D30"] call KRON_StrInStr) then {
+                _vehicle lockCargo true;
+
+                _vehicle addEventHandler ["getin", {
+                    private ["_unit"];
+
+                    _unit = _this select 2;
+
+                    if !(isPlayer _unit) exitWith {};
+                    if !(str _unit in GVAR(artillery)) exitWith {};
+
+                    [_unit, "enableEngineArtillery", false] call FUNC(network,mp);
+
+                    _unit spawn {
+                        waitUntil {sleep 0.5; ([vehicle _this, _this] call BIS_fnc_areEqual)};
+
+                        if !(alive _this) exitWith {};
+
+                        [_this, "enableEngineArtillery", true] call FUNC(network,mp);
+                    };
+                }];
+            };
         };
     };
 

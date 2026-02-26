@@ -158,6 +158,7 @@ if (!isNil QMODULE(ammobox)) then {
         PARAMS_2(_unit, _corpse);
 
         setPlayerRespawnTime 30;
+        enableEngineArtillery (str _unit in GVAR(artillery));
 
         titleText ["", "BLACK FADED"];
 

@@ -15,6 +15,7 @@ __cppfln(FUNC(THIS_MODULE,addWeapon),core\THIS_MODULE\functions\library\fn_addWe
 __cppfln(FUNC(THIS_MODULE,addWeaponTurret),core\THIS_MODULE\functions\library\fn_addWeaponTurret.sqf);
 __cppfln(FUNC(THIS_MODULE,allowDamage),core\THIS_MODULE\functions\library\fn_allowDamage.sqf);
 __cppfln(FUNC(THIS_MODULE,deleteMarkerLocal),core\THIS_MODULE\functions\library\fn_deleteMarkerLocal.sqf);
+__cppfln(FUNC(THIS_MODULE,enableEngineArtillery),core\THIS_MODULE\functions\library\fn_enableEngineArtillery.sqf);
 __cppfln(FUNC(THIS_MODULE,enableSimulation),core\THIS_MODULE\functions\library\fn_enableSimulation.sqf);
 __cppfln(FUNC(THIS_MODULE,engineOn),core\THIS_MODULE\functions\library\fn_engineOn.sqf);
 __cppfln(FUNC(THIS_MODULE,execVM),core\THIS_MODULE\functions\library\fn_execVM.sqf);
