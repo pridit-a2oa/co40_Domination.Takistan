@@ -188,17 +188,25 @@ switch (_type) do {
 
         {
             for "_i" from 1 to (_x select 1) do {
+                private ["_replacements"];
+
                 if (_x select 2 < floor (random 100)) exitWith {};
 
                 _position = [position _target, 20, GVAR(mission_main_radius_zone) / 1.5, 5, 0, 0.7, 0] call FUNC(common,safePos);
+
+                _replacements = [
+                    ["TKLaunchers_EP1"]
+                ];
+
+                if ([_x select 0, "Firebase1_TK_EP1"] call BIS_fnc_areEqual) then {
+                    [_replacements, ["KORD_TK_EP1"]] call BIS_fnc_arrayPush;
+                };
 
                 _objects = [
                     _position,
                     random 360,
                     _x select 0,
-                    [
-                        ["TKLaunchers_EP1"]
-                    ]
+                    _replacements
                 ] call FUNC(server,objectMapper);
 
                 _group = [
