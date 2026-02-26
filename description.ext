@@ -34,6 +34,38 @@ class Params {
         texts[] = {"Enabled", "-"};
         default = 1;
     };
+    class accolade_combat
+    {
+        title = "|- Combat";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"accolade", "combat"};
+    };
+    class accolade_engineer
+    {
+        title = "|- Engineering";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"accolade", "engineer"};
+    };
+    class accolade_logistic
+    {
+        title = "|- Logistics";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"accolade", "logistic"};
+    };
+    class accolade_special
+    {
+        title = "|- Special Ops";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"accolade", "special"};
+    };
     class admin
     {
         title = "Admin";
@@ -376,6 +408,14 @@ class Params {
         default = 1;
         type[] = {"menu", "player"};
     };
+    class menu_unit
+    {
+        title = "|- Unit";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"menu", "unit"};
+    };
     class menu_vehicle
     {
         title = "|- Vehicle";
@@ -509,6 +549,13 @@ class Params {
     class squad
     {
         title = "Squad";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+    };
+    class statistic
+    {
+        title = "Statistic";
         values[] = {1, 0};
         texts[] = {"Enabled", "-"};
         default = 1;
@@ -848,6 +895,9 @@ class CfgSounds {
 
 #include "define.hpp"
 #include "core\interface\dialog\map_with_list.hpp"
+
+#include "accolade\dialog\discipline.hpp"
+#include "accolade\dialog\overview.hpp"
 #include "base_rd\dialog\base.hpp"
 #include "halo\dialog\base.hpp"
 #include "inventory\dialog\base.hpp"

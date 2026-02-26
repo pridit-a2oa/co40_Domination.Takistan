@@ -27,6 +27,10 @@ if (hasInterface) then {
     if !(isServer) then {
         [gameLogic, "execVM", [_this, __function(spawn)]] call FUNC(network,mp);
     };
+
+    if !(isNil QMODULE(accolade)) then {
+        [gameLogic, "execVM", [[["engineer", "Novice"], [getPlayerUID player, name player]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+    };
 };
 
 if (isServer) then {

@@ -67,8 +67,8 @@ gameLogic setVariable [QGVAR(bomber), true, true];
                         ] call FUNC(reward,score);
                     };
 
-                    if !(isNil QMODULE(database)) then {
-                        [getPlayerUID _killer, 7] spawn FUNC(database,statistic);
+                    if !(isNil QMODULE(statistic)) then {
+                        [7, [getPlayerUID _killer, name _killer]] spawn FUNC(statistic,set);
                     };
                 };
 

@@ -73,21 +73,30 @@ if (!isNil QMODULE(3d)) then {
     }]] call FUNC(network,mp);
 };
 
+if (!isNil "_lifter") then {
+    [_lifter, _vehicle] spawn {
+        private ["_lifter", "_vehicle"];
 
-if (!isNil QMODULE(reward) && {!isNil "_lifter"}) then {
-    _lifter spawn {
+        PARAMS_2(_lifter, _vehicle);
+
         sleep 2;
 
         {
-            if ([getPlayerUID _x, _this select 1] call BIS_fnc_areEqual) exitWith {
-                [
-                    _x,
-                    GVAR(base_wreck_amount_score_rebuild),
-                    "collecting a wreck"
-                ] call FUNC(reward,score);
+            if ([getPlayerUID _x, _lifter select 1] call BIS_fnc_areEqual) exitWith {
+                if (!isNil QMODULE(accolade) && {typeOf _vehicle in ["L39_TK_EP1", "Mi24_D_TK_EP1", "Su25_TK_EP1", "UH1H_TK_EP1"]}) then {
+                    [gameLogic, "execVM", [[["logistic", "Intermediate"], [getPlayerUID _x, name _x]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+                };
 
-                if !(isNil QMODULE(database)) then {
-                    [getPlayerUID _x, 10] spawn FUNC(database,statistic);
+                if !(isNil QMODULE(reward)) then {
+                    [
+                        _x,
+                        GVAR(base_wreck_amount_score_rebuild),
+                        "collecting a wreck"
+                    ] call FUNC(reward,score);
+                };
+
+                if !(isNil QMODULE(statistic)) then {
+                    [10, [getPlayerUID _x, name _x]] spawn FUNC(statistic,set);
                 };
             };
         } forEach (call FUNC(common,players));

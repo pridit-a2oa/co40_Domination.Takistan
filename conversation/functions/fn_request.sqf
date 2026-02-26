@@ -49,4 +49,8 @@ X_JIP setVariable [QGVAR(conversation), true, true];
     X_JIP setVariable [QGVAR(conversation), false, true];
 };
 
+if !(isNil QMODULE(statistic)) then {
+    [gameLogic, "execVM", [[2, [getPlayerUID _unit, name _unit]], FUNCTION(statistic,set)]] call FUNC(network,mp);
+};
+
 false

@@ -99,6 +99,16 @@ if (isServer) then {
         [_lifter, _vehicle] __submoduleVM(vehicle_marker);
     };
 
+    if !(isNil QMODULE(accolade)) then {
+        private ["_driver"];
+
+        _driver = driver _lifter;
+
+        if ([_driver, objNull] call BIS_fnc_areEqual) exitWith {};
+
+        [["logistic", "Entry"], [getPlayerUID _driver, name _driver]] call FUNC(accolade,set);
+    };
+
     if (_announce) then {
         [
             [GVAR(crossroad), GVAR(crossroad2)],

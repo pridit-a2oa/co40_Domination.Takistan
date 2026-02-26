@@ -89,10 +89,6 @@ if (isServer && {X_JIP getVariable QGVAR(airdrop_call)}) then {
 
     X_JIP setVariable [QGVAR(airdrop_progress), true, true];
 
-    if (!isNil QMODULE(database) && {!isNil "_caller"}) then {
-        [_caller, 1] spawn FUNC(database,statistic);
-    };
-
     GVAR(airdrop_type_smoke) createVehicle _position;
 
     _vehicle = [

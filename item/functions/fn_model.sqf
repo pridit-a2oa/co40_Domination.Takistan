@@ -14,4 +14,4 @@ if (isClass (configFile >> "CfgVehicles" >> "MV22" >> "UserActions")) then {
 
 _object = _item createVehicleLocal (getPosATL _parent);
 _object setDir (random 360);
-_object setPos (_parent modelToWorld _offset);
+_object setPosATL (_parent modelToWorld _offset);

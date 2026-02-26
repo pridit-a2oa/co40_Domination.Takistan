@@ -27,8 +27,8 @@ GVAR(mission_main_type_optional) = [
     ["barracks",                ["object",  "TK_WarfareBBarracks_Base_EP1"]],
     ["heavy factory",           ["object",  "TK_WarfareBHeavyFactory_Base_EP1"]],
     ["light factory",           ["object",  "TK_WarfareBLightFactory_base_EP1"]],
-    ["HQ",                      ["object",  "BMP2_HQ_TK_unfolded_Base_EP1"]],
-    ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
+    ["HQ",                      ["object",  "BMP2_HQ_TK_unfolded_Base_EP1"]]
+    // ["high ranking officer",    ["unit",    "TK_Soldier_Officer_EP1"]]
 ];
 
 // Crewed object compositions along with amount and chance they will spawn

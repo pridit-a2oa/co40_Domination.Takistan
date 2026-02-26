@@ -39,6 +39,7 @@ X_JIP setVariable [QGVAR(groups), [], true];
 
 __cppfln(FUNC(THIS_MODULE,cleanup),core\THIS_MODULE\functions\fn_cleanup.sqf);
 __cppfln(FUNC(THIS_MODULE,exitMap),core\THIS_MODULE\functions\fn_exitMap.sqf);
+__cppfln(FUNC(THIS_MODULE,nearPlayers),core\THIS_MODULE\functions\fn_nearPlayers.sqf);
 __cppfln(FUNC(THIS_MODULE,nearRoads),core\THIS_MODULE\functions\fn_nearRoads.sqf);
 __cppfln(FUNC(THIS_MODULE,objectId),core\THIS_MODULE\functions\fn_objectId.sqf);
 __cppfln(FUNC(THIS_MODULE,objectMapper),core\THIS_MODULE\functions\fn_objectMapper.sqf);
@@ -156,6 +157,23 @@ onPlayerDisconnected {
                 _stored select 0
             ] call FUNC(common,deleteAt);
         };
+    };
+
+    if !(isNil QMODULE(accolade)) then {
+        private ["_key", "_accolades"];
+
+        _key = [_uid] call FUNC(accolade,key);
+        _accolades = gameLogic getVariable _key;
+
+        if !([_accolades select 1, GVAR(accolade_defaults)] call BIS_fnc_areEqual) then {
+            [format [
+                "INSERT INTO character_accolade (character_id, data) VALUES (%1, CAST(""%2"" AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(""%2"" AS JSON)",
+                (_accolades select 0) select 0,
+                _accolades select 1
+            ]] spawn FUNC(database,query);
+        };
+
+        gameLogic setVariable [_key, nil];
     };
 
     if !(isNil QMODULE(name)) then {

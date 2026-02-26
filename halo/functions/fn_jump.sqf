@@ -16,6 +16,10 @@ if !([_unit, vehicle _unit] call BIS_fnc_areEqual) then {
     }
 ] spawn BIS_fnc_halo;
 
-if !(isNil QMODULE(database)) then {
-    [gameLogic, "execVM", [[getPlayerUID _unit, 3], FUNCTION(database,statistic)]] call FUNC(network,mp);
+if !(isNil QMODULE(accolade)) then {
+    [gameLogic, "execVM", [[["special", "Entry"], [getPlayerUID _unit, name _unit]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+};
+
+if !(isNil QMODULE(statistic)) then {
+    [gameLogic, "execVM", [[3, [getPlayerUID _unit, name _unit]], FUNCTION(statistic,set)]] call FUNC(network,mp);
 };

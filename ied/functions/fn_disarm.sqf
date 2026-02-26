@@ -21,6 +21,6 @@ if !(isNil QMODULE(reward)) then {
     ] call FUNC(reward,score);
 };
 
-if !(isNil QMODULE(database)) then {
-    [gameLogic, "execVM", [[getPlayerUID player, 4], FUNCTION(database,statistic)]] call FUNC(network,mp);
+if !(isNil QMODULE(statistic)) then {
+    [gameLogic, "execVM", [[4, [getPlayerUID player, name player]], FUNCTION(statistic,set)]] call FUNC(network,mp);
 };

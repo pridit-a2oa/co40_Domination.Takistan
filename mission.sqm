@@ -842,7 +842,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=308;
+		items=310;
 		class Item0
 		{
 			position[]={8332.1318,296.04001,2044.3177};
@@ -3786,6 +3786,27 @@ class Mission
 			vehicle="HeliH";
 			skill=1;
 			text="d_base_uav";
+		};
+		class Item308
+		{
+			position[]={7741.0049,348.49789,3018.75};
+			azimut=93.041786;
+			id=356;
+			side="EMPTY";
+			vehicle="BMP2_HQ_TK_EP1";
+			skill=0.60000002;
+		};
+		class Item309
+		{
+			position[]={7883.4902,296.04001,1820.436};
+			azimut=149.75;
+			special="NONE";
+			id=357;
+			side="EMPTY";
+			vehicle="L39_TK_EP1";
+			leader=1;
+			skill=1;
+			init="this call compile ""this spawn {_this setVariable [""""d_wreckable"""", true, true]; sleep 10; _this setDamage 1}"";";
 		};
 	};
 	class Markers

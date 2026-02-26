@@ -36,6 +36,13 @@ GVAR(tent_type_groups) = [
     ]
 ];
 
+// Set the type of enemy unit
+GVAR(tent_type_unit) = "TK_Soldier_Officer_EP1";
+
+// Set chance unit will occupy tent
+GVAR(tent_chance_unit) = 10;
+
 __cppfln(FUNC(THIS_MODULE,handle),THIS_MODULE\functions\fn_handle.sqf);
+__cppfln(FUNC(THIS_MODULE,unit),THIS_MODULE\functions\fn_unit.sqf);
 
 MODULE(THIS_MODULE) = true;

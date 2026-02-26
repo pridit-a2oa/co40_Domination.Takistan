@@ -81,3 +81,13 @@ if (!isNil QMODULE(3d)) then {
 
 _service setVariable [QGVAR(time), GVAR(vehicle_service_time_cooldown) + call FUNC(common,time)];
 _vehicle setVariable [QGVAR(servicing), false, true];
+
+if !(isNil QMODULE(accolade)) then {
+    private ["_driver"];
+
+    _driver = driver _vehicle;
+
+    if ([_driver, objNull] call BIS_fnc_areEqual) exitWith {};
+
+    [["engineer", "Entry"], [getPlayerUID _driver, name _driver]] call FUNC(accolade,set);
+};
