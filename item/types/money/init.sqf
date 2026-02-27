@@ -13,7 +13,7 @@ GVAR(item_money_type) = [
 ];
 
 // Chance the item spawns on a parent object
-GVAR(item_money_chance) = 10;
+GVAR(item_money_chance) = 7;
 
 [GVAR(item_types), GVAR(item_money_type)] call BIS_fnc_arrayPush;
 

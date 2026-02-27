@@ -13,7 +13,7 @@ GVAR(item_evidence_type) = [
 ];
 
 // Chance the item spawns on a parent object
-GVAR(item_evidence_chance) = 7;
+GVAR(item_evidence_chance) = 11;
 
 // Score to reward when delivered
 GVAR(item_evidence_score) = 10;

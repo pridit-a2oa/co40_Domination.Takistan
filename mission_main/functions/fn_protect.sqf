@@ -20,7 +20,7 @@ _object addEventHandler ["HandleDamage", {
             0
         };
 
-        case ([_type, "radio"] call BIS_fnc_areEqual && {[_projectile, "ARTY_Sh_105_HE"] call BIS_fnc_areEqual}): {
+        case ([_projectile, "ARTY_Sh_105_HE"] call BIS_fnc_areEqual): {
             if !(isNil QMODULE(artillery)) then {
                 private ["_killer"];
 

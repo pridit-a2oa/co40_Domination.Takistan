@@ -35,7 +35,7 @@ GVAR(accolade_types_proficiency) = [
 GVAR(accolade_type_rank) = "MAJOR";
 
 // Set cooldown time between client actions
-GVAR(accolade_time_cooldown) = 5;
+GVAR(accolade_time_cooldown) = 3;
 
 if (hasInterface) then {
     player setVariable [QGVAR(experience), 0, true];
