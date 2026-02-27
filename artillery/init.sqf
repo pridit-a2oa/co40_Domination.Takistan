@@ -42,6 +42,8 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
+    gameLogic setVariable [QGVAR(artillery_unit), []];
+
     X_JIP setVariable [QGVAR(artillery_call), false, true];
     X_JIP setVariable [QGVAR(artillery_progress), false, true];
 };

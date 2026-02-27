@@ -110,70 +110,40 @@ onPlayerDisconnected {
 
     if !(isNil QMODULE(database)) then {
         [_uid, _name] spawn {
-            private ["_uid", "_name", "_identifiers", "_score", "_stored", "_storedScore", "_addScore"];
+            private ["_key", "_variables"];
 
-            PARAMS_2(_uid, _name);
+            _key = [_this select 0] call FUNC(database,key);
+            _variables = gameLogic getVariable _key;
 
-            _identifiers = [GVAR(database_uid), _uid] call BIS_fnc_findNestedElement;
+            if (isNil "_variables") exitWith {};
+            if !([[(_variables select 0) select 1, (_variables select 0) select 2], _this] call BIS_fnc_areEqual) exitWith {};
 
-            if ([_identifiers, []] call BIS_fnc_areEqual) exitWith {};
+            [format [
+                "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE `id64` = '%2' AND name = '%3'",
+                ((_variables select 1) select 2) select 2,
+                _this select 0,
+                _this select 1
+            ]] call FUNC(database,query);
 
-            GVAR(database_uid) = [
-                GVAR(database_uid),
-                _identifiers select 0
-            ] call FUNC(common,deleteAt);
+            gameLogic setVariable [_key, nil];
 
-            _score = missionNamespace getVariable (format ["d_%1", _uid]);
+            if !(isNil QMODULE(accolade)) then {
+                private ["_key", "_accolades"];
 
-            missionNamespace setVariable [
-                format ["d_%1", _uid],
-                nil
-            ];
+                _key = [_this select 0] call FUNC(accolade,key);
+                _accolades = gameLogic getVariable _key;
 
-            _stored = [GVAR(database_score), _name] call BIS_fnc_findNestedElement;
-            _storedScore = (GVAR(database_score) select (_stored select 0)) select 1;
-
-            if !(isNil "_score") then {
-                _addScore = _score - _storedScore;
-
-                if (_addScore < 1) exitWith {
+                if !([_accolades select 1, GVAR(accolade_defaults)] call BIS_fnc_areEqual) then {
                     [format [
-                        "UPDATE characters SET last_seen_at = NOW() WHERE `id64` = '%1' AND name = '%2'",
-                        _uid,
-                        _name
+                        "INSERT INTO character_accolade (character_id, data) VALUES (%1, CAST(""%2"" AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(""%2"" AS JSON)",
+                        (_accolades select 0) select 0,
+                        _accolades select 1
                     ]] call FUNC(database,query);
                 };
 
-                [format [
-                    "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE `id64` = '%2' AND name = '%3'",
-                    _addScore,
-                    _uid,
-                    _name
-                ]] call FUNC(database,query);
+                gameLogic setVariable [_key, nil];
             };
-
-            GVAR(database_score) = [
-                GVAR(database_score),
-                _stored select 0
-            ] call FUNC(common,deleteAt);
         };
-    };
-
-    if !(isNil QMODULE(accolade)) then {
-        private ["_key", "_accolades"];
-
-        _key = [_uid] call FUNC(accolade,key);
-        _accolades = gameLogic getVariable _key;
-
-        if !([_accolades select 1, GVAR(accolade_defaults)] call BIS_fnc_areEqual) then {
-            [format [
-                "INSERT INTO character_accolade (character_id, data) VALUES (%1, CAST(""%2"" AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(""%2"" AS JSON)",
-                (_accolades select 0) select 0,
-                _accolades select 1
-            ]] spawn FUNC(database,query);
-        };
-
-        gameLogic setVariable [_key, nil];
     };
 
     if !(isNil QMODULE(name)) then {

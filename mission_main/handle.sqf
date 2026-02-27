@@ -56,19 +56,4 @@ if (hasInterface) then {
             ] spawn FUNC(3d,create);
         } forEach (_x getVariable QGVAR(camps));
     } forEach (X_JIP getVariable QGVAR(targets));
-
-    0 spawn {
-        {
-            {
-                {
-                    [_x] call FUNC(THIS_MODULE,protect);
-                } forEach (allMissionObjects _x);
-
-                sleep 0.5;
-            } forEach _x;
-        } forEach [
-            [GVAR(mission_main_type_radio)],
-            [1, [1, GVAR(mission_main_type_optional)] call FUNC(common,arrayValues)] call FUNC(common,arrayValues)
-        ];
-    };
 };

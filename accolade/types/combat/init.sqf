@@ -46,14 +46,14 @@ GVAR(accolade_combat_tasks) = [
     ],
     [
         [
-            "Complete optional main target objectives",
+            "Complete optional main target objectives (from within the AO)",
             [3, [11, "call d_fnc_statistic_get"]]
         ]
     ],
     [
         [
             "Accrue a total score of at least 1,000",
-            [1000, [[], "500"]]
+            [1000, [2, "call d_fnc_database_get"]]
         ]
     ]
 ];

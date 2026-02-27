@@ -14,8 +14,6 @@ if (isServer) then {
     private ["_health"];
 
     GVAR(database) = true;
-    GVAR(database_uid) = [];
-    GVAR(database_score) = [];
 
     __cppfln(FUNC(THIS_MODULE,query),THIS_MODULE\functions\fn_query.sqf);
 
@@ -30,6 +28,8 @@ if (isServer) then {
     X_JIP setVariable [QGVAR(database), _health, true];
 };
 
+__cppfln(FUNC(THIS_MODULE,get),THIS_MODULE\functions\fn_get.sqf);
+__cppfln(FUNC(THIS_MODULE,key),THIS_MODULE\functions\fn_key.sqf);
 __cppfln(FUNC(THIS_MODULE,sanitize),THIS_MODULE\functions\fn_sanitize.sqf);
 
 if (hasInterface) then {

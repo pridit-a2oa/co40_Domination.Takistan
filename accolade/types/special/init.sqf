@@ -43,7 +43,7 @@ GVAR(accolade_special_tasks) = [
     [
         [
             "Eliminate OPFOR roadblocks",
-            [3, [12, "call d_fnc_statistic_get"]]
+            [4, [12, "call d_fnc_statistic_get"]]
         ]
     ],
     [

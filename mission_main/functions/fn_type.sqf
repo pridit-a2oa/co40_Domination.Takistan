@@ -141,7 +141,7 @@ switch (_type) do {
                 _radio setVariable [QGVAR(id), [_radio] call FUNC(server,objectId), true];
                 _radio setVariable [QGVAR(target), _target];
 
-                [true, "execVM", [[_radio], __function(protect)]] call FUNC(network,mp);
+                ["radio", _radio] call FUNC(THIS_MODULE,protect);
 
                 _radio addEventHandler ["Killed", {
                     private ["_unit", "_target"];
@@ -241,7 +241,7 @@ switch (_type) do {
                 _entity setDir (random 360);
                 _entity setPos _position;
 
-                [true, "execVM", [[_entity], __function(protect)]] call FUNC(network,mp);
+                ["optional", _entity] call FUNC(THIS_MODULE,protect);
 
                 _target setVariable [QGVAR(cleanup), (_target getVariable QGVAR(cleanup)) + [_entity]];
             };
@@ -274,11 +274,11 @@ switch (_type) do {
 
             _task = [
                 _goal + str ((position _entity) select 0),
-                "",
+                position _target,
                 [
                     format ["%1 %2", _action, _goal],
                     format ["> Optional: %1 %2", _action, _goal],
-                    _action
+                    _target getVariable "name"
                 ],
                 "Created",
                 _target getVariable "name"
@@ -299,6 +299,12 @@ switch (_type) do {
 
                 if ([_task select 3, "Created"] call BIS_fnc_areEqual) then {
                     [_task, "Succeeded"] call FUNC(task,state);
+                };
+
+                if !(isNil QMODULE(statistic)) then {
+                    {
+                        [11, _x] spawn FUNC(statistic,set);
+                    } forEach ([_task select 1, GVAR(mission_main_radius_zone), false, false] call FUNC(server,nearPlayers));
                 };
             }];
 

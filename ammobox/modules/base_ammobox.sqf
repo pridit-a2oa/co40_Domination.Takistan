@@ -17,20 +17,16 @@ GVAR(base_ammobox) setVariable [QGVAR(immune), true];
 [GVAR(base_ammobox)] execFSM FSM(THIS_MODULE,respawn);
 
 if !(isNil QMODULE(database)) then {
-    [gameLogic, "spawn", [[player], {
-        private ["_unit", "_id"];
+    [gameLogic, "spawn", [[player, getPlayerUID player], {
+        private ["_unit", "_uid"];
 
-        PARAMS_1(_unit);
+        PARAMS_2(_unit, _uid);
 
-        waitUntil {
-            sleep 1;
+        _key = [_uid] call FUNC(database,key);
 
-            !([[GVAR(database_uid), getPlayerUID _unit] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual);
-        };
+        waitUntil {sleep 1; !isNil {gameLogic getVariable _key}};
 
-        _id = [GVAR(database_uid), getPlayerUID _unit] call BIS_fnc_findNestedElement;
-
-        if ([(GVAR(database_uid) select (_id select 0)) select 1, ""] call BIS_fnc_areEqual) exitWith {};
+        if ([((gameLogic getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
 
         [_unit, "spawn", [[], {
             if (isNil {GVAR(base_ammobox)}) exitWith {};

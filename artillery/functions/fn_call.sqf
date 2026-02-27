@@ -1,6 +1,6 @@
 #define THIS_MODULE artillery
 #include "x_macros.sqf"
-private ["_unit", "_position", "_salvoes", "_name", "_checks", "_smoke", "_strike", "_shell"];
+private ["_unit", "_position", "_salvoes", "_name", "_checks"];
 
 PARAMS_3(_unit, _position, _salvoes);
 
@@ -70,6 +70,8 @@ if (hasInterface) then {
 };
 
 if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
+    private ["_smoke"];
+
     X_JIP setVariable [QGVAR(artillery_call), false, true];
 
     if (!isNil QMODULE(conversation) && {[
@@ -82,6 +84,8 @@ if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
         ]
     ] call FUNC(conversation,request)}) exitWith {};
 
+    gameLogic setVariable [QGVAR(artillery_unit), [getPlayerUID _unit, name _unit]];
+
     X_JIP setVariable [QGVAR(artillery_progress), true, true];
 
     _smoke = GVAR(artillery_type_smoke) createVehicle _position;
@@ -92,6 +96,8 @@ if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
 
     for "_i" from 1 to _salvoes do {
         for "_i" from 1 to GVAR(artillery_amount_shell) do {
+            private ["_strike", "_shell"];
+
             _strike = [_position, random 40, random 360] call BIS_fnc_relPos;
 
             [[_strike select 0, _strike select 1, 150]] spawn FUNC(THIS_MODULE,trail);
@@ -108,4 +114,6 @@ if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
     };
 
     X_JIP setVariable [QGVAR(artillery_progress), false, true];
+
+    gameLogic setVariable [QGVAR(artillery_unit), []];
 };

@@ -36,4 +36,4 @@ waitUntil {
             deleteVehicle _x;
         };
     };
-} forEach _entities;
+} forEach (_entities - [objNull]);

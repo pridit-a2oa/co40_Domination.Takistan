@@ -19,14 +19,29 @@ if (isServer && {isMultiplayer}) then {
 
             _players = call FUNC(common,players);
 
-            if !([_players, []] call BIS_fnc_areEqual) then {
-                {
-                    missionNamespace setVariable [
-                        format ["d_%1", getPlayerUID _x],
-                        score _x
-                    ];
-                } forEach _players;
-            };
+            waitUntil {sleep 1; !([_players, []] call BIS_fnc_areEqual)};
+
+            {
+                private ["_key", "_variables"];
+
+                _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
+                _variables = gameLogic getVariable _key;
+
+                if !(isNil "_variables") then {
+                    private ["_stored", "_score"];
+
+                    _stored = (_variables select 1) select 2;
+                    _score = score _x - (_stored select 1);
+
+                    if ([_score, _stored select 2] call BIS_fnc_areEqual) exitWith {};
+
+                    _stored set [2, _score];
+
+                    [_x, "spawn", [_score, {
+                        ((player getVariable QGVAR(database)) select 2) set [2, _this];
+                    }]] call FUNC(network,mp);
+                };
+            } forEach _players;
 
             sleep 15;
         };
@@ -34,12 +49,12 @@ if (isServer && {isMultiplayer}) then {
 };
 
 if (hasInterface) then {
-    [gameLogic, "spawn", [[player, getPlayerUID player, name player, score player], {
-        private ["_unit", "_uid", "_name", "_score", "_character", "_id", "_user", "_muted", "_role"];
+    [gameLogic, "spawn", [[player, [-1, getPlayerUID player, name player], score player], {
+        private ["_unit", "_identifier", "_score", "_character", "_id", "_user", "_experience", "_muted", "_role", "_key", "_variables"];
 
-        PARAMS_4(_unit, _uid, _name, _score);
+        PARAMS_3(_unit, _identifier, _score);
 
-        if ([[_name] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
+        if ([[_identifier select 1] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
         [format [
             "INSERT INTO characters (`id64`, guid, name) VALUES ('%1', MD5(CONCAT('BE',
@@ -54,20 +69,21 @@ if (hasInterface) then {
                     (CAST('%1' AS UNSIGNED) >> 56) & 255
                 )
             )), '%2') ON DUPLICATE KEY UPDATE last_seen_at = NOW()",
-            _uid,
-            _name
+            _identifier select 1,
+            _identifier select 2
         ]] call FUNC(database,query);
 
         _character = [format [
-            "SELECT id, user_id, experience, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
-            _uid,
-            _name
+            "SELECT id, user_id, score, experience, EXISTS(SELECT `id64` FROM mutes WHERE `id64` = '%1') is_muted FROM characters WHERE `id64` = '%1' AND name = '%2' LIMIT 1",
+            _identifier select 1,
+            _identifier select 2
         ]] call FUNC(database,query);
 
         _id = (_character select 0) select 0;
         _user = (_character select 0) select 1;
-        _experience = call compile ((_character select 0) select 2);
-        _muted = call compile ((_character select 0) select 3);
+        _score = [(call compile ((_character select 0) select 2)) - _score, _score, 0];
+        _experience = call compile ((_character select 0) select 3);
+        _muted = (_character select 0) select 4;
 
         _role = if ([_user, ""] call BIS_fnc_areEqual) then {
             ""
@@ -78,20 +94,31 @@ if (hasInterface) then {
             ]] call FUNC(database,query)
         };
 
-        if ([[GVAR(database_uid), _uid] call BIS_fnc_findNestedElement, []] call BIS_fnc_areEqual) then {
-            [GVAR(database_uid), [_uid, _id, _role]] call BIS_fnc_arrayPush;
-        };
-
-        [GVAR(database_score), [_name, _score]] call BIS_fnc_arrayPush;
-
-        if (!isNil QMODULE(chat) && {[_muted, 1] call BIS_fnc_areEqual}) then {
+        if (!isNil QMODULE(chat) && {[_muted, "1"] call BIS_fnc_areEqual}) then {
             [_unit, "execVM", [[], __submoduleRE(chat)]] call FUNC(network,mp);
         };
 
-        if !(isNil QMODULE(accolade)) then {
-            private ["_identifier", "_key"];
+        if ([_id, -1] call BIS_fnc_areEqual) exitWith {};
 
-            _identifier = [_id, _uid, _name];
+        _identifier set [0, _id];
+
+        _key = [_identifier select 1] call FUNC(database,key);
+
+        if !(isNil {gameLogic getVariable _key}) exitWith {};
+
+        _variables = [_user, _role, _score];
+
+        gameLogic setVariable [
+            _key,
+            [_identifier, _variables]
+        ];
+
+        [_unit, "spawn", [_variables, {
+            player setVariable [QGVAR(database), _this];
+        }]] call FUNC(network,mp);
+
+        if !(isNil QMODULE(accolade)) then {
+            private ["_key"];
 
             if (isServer || {hasInterface && {isServer}}) then {
                 [gameLogic, "execVM", [[_identifier, _experience], __submoduleRE(accolade)]] call FUNC(network,mp);
@@ -101,7 +128,7 @@ if (hasInterface) then {
                 };
             };
 
-            _key = [_uid] call FUNC(accolade,key);
+            _key = [_identifier select 1] call FUNC(accolade,key);
 
             if (isMultiplayer) then {
                 waitUntil {
@@ -115,15 +142,13 @@ if (hasInterface) then {
         };
 
         if !(isNil QMODULE(statistic)) then {
-            private ["_identifier", "_key"];
-
-            _identifier = [_id, _uid, _name];
+            private ["_key"];
 
             if (isServer || {hasInterface && {isServer}}) then {
                 [gameLogic, "execVM", [[_identifier], __submoduleRE(statistic)]] call FUNC(network,mp);
             };
 
-            _key = [_uid] call FUNC(statistic,key);
+            _key = [_identifier select 1] call FUNC(statistic,key);
 
             if (isMultiplayer) then {
                 waitUntil {
