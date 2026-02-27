@@ -3957,7 +3957,7 @@ class Mission
 		class Item22
 		{
 			position[]={7833.7222,296.03094,1594.3376};
-			name="d_accolade";
+			name="d_base_artillery";
 			type="Empty";
 		};
 	};
