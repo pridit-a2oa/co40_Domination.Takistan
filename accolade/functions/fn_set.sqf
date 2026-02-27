@@ -6,8 +6,6 @@ PARAMS_2(_entry, _identifier);
 
 if !(isServer) exitWith {};
 
-// [true, "systemChat", format ["%1", _entry]] call FUNC(network,mp);
-
 _index = ([0, GVAR(accolade_types)] call FUNC(common,arrayValues)) find (_entry select 0);
 _task = ([0, GVAR(accolade_types_proficiency)] call FUNC(common,arrayValues)) find (_entry select 1);
 
@@ -90,7 +88,7 @@ if ([_array select _task, [2, 1]] call BIS_fnc_areEqual) then {
 
             if !(hasInterface) exitWith {};
 
-            player setVariable [QGVAR(experience), ((player getVariable QGVAR(experience)) + _experience) min (call FUNC(THIS_MODULE,max))];
+            player setVariable [QGVAR(experience), ((player getVariable QGVAR(experience)) + _experience) min (call FUNC(THIS_MODULE,max)), true];
             player setVariable [QGVAR(tasks), _tasks];
 
             [_type] call FUNC(THIS_MODULE,refresh);

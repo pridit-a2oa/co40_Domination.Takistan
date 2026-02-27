@@ -99,4 +99,16 @@ if (hasInterface) then {
         //     hintSilent format ["Ruins: %1", _ruins];
         // };
     };
+
+    {
+        if (!([_x, player] call BIS_fnc_areEqual) && {alive _x}) then {
+            private ["_rank"];
+
+            _rank = [_x getVariable QGVAR(experience)] call FUNC(THIS_MODULE,rank);
+
+            if ([_rank, "PRIVATE"] call BIS_fnc_areEqual) exitWith {};
+
+            _x setRank _rank;
+        };
+    } forEach call FUNC(common,players);
 };

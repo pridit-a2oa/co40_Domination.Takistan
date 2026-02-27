@@ -170,16 +170,26 @@ if (!isNil QMODULE(ammobox)) then {
             _this allowDamage true;
         };
 
-        if (!isNil QMODULE(respawn)) then {
+        if !(isNil QMODULE(respawn)) then {
             [_unit, position _corpse] call FUNC(respawn,spawn);
         };
 
-        if (!isNil QMODULE(setting)) then {
+        if !(isNil QMODULE(setting)) then {
             _unit switchCamera ((_unit getVariable QGVAR(camera)) select 1);
         };
 
-        if (!isNil QMODULE(revive)) then {
+        if !(isNil QMODULE(revive)) then {
             [_unit] call FUNC(revive,reset);
+        };
+
+        if !(isNil QMODULE(accolade)) then {
+            private ["_rank"];
+
+            _rank = [_unit getVariable QGVAR(experience)] call FUNC(accolade,rank);
+
+            if ([_rank, "PRIVATE"] call BIS_fnc_areEqual) exitWith {};
+
+            [true, "setRank", [_unit, _rank]] call FUNC(network,mp);
         };
 
         {
@@ -217,7 +227,7 @@ if (!isNil QMODULE(ammobox)) then {
             "vehicle_upgrade"
         ];
 
-        if (!isNil QMODULE(perk)) then {
+        if !(isNil QMODULE(perk)) then {
             [true] call FUNC(perk,calculate);
         };
 

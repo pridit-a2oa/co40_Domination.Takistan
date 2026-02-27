@@ -48,6 +48,6 @@ if (hasInterface && {!([_accolades, []] call BIS_fnc_areEqual)}) then {
     player setVariable [QGVAR(tasks), _accolades];
 
     if !([_experience, 0] call BIS_fnc_areEqual) then {
-        player setVariable [QGVAR(experience), _experience];
+        player setVariable [QGVAR(experience), _experience, true];
     };
 };
