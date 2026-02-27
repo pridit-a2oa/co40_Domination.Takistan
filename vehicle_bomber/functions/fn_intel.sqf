@@ -17,6 +17,10 @@ if (hasInterface) then {
 
         _this set [1, _alternate];
     };
+
+    if !(isNil QMODULE(accolade)) then {
+        [gameLogic, "execVM", [[["logistic", "Novice"], [getPlayerUID player, name player]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+    };
 };
 
 if !(isServer) exitWith {

@@ -3779,7 +3779,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=22;
+		items=23;
 		class Item0
 		{
 			position[]={8287.3184,296.04001,2121.9736};
@@ -3950,8 +3950,14 @@ class Mission
 		};
 		class Item21
 		{
+			position[]={8282.624,307.12479,2094.0422};
+			name="d_accolade";
+			type="Empty";
+		};
+		class Item22
+		{
 			position[]={7833.7222,296.03094,1594.3376};
-			name="d_base_artillery";
+			name="d_accolade";
 			type="Empty";
 		};
 	};

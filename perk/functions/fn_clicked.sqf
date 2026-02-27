@@ -28,7 +28,7 @@ if (_points > 0) then {
 };
 
 player setVariable [QGVAR(perk_ids), (_ids + [_id])];
-player setVariable [QGVAR(perks_unlocked), (_unlocked + [[_tier, _perk]])];
+player setVariable [QGVAR(perks_unlocked), (_unlocked + [[_tier, _perk]]), true];
 
 closeDialog 0;
 

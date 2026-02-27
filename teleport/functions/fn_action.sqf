@@ -17,6 +17,10 @@ if !(ctrlEnabled (DIALOG("X_TELEPORT_DIALOG", 300))) exitWith {};
     player setPos [_position select 0, _position select 1, 0];
 
     [50] call FUNC(client,reveal);
+
+    if (!isNil QMODULE(accolade) && {[typeOf _target, "BMP2_HQ_TK_EP1"] call BIS_fnc_areEqual}) then {
+        [gameLogic, "execVM", [[["engineer", "Intermediate"], [getPlayerUID player, name player]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+    };
 };
 
 closeDialog 0;

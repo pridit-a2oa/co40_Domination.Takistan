@@ -80,4 +80,8 @@ if (hasInterface) then {
     if (!isNil QMODULE(admin)) then {
         __submodulePP(admin);
     };
+
+    if (!isNil QMODULE(accolade)) then {
+        __submodulePP(accolade);
+    };
 };

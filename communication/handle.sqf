@@ -10,6 +10,10 @@ if (hasInterface) then {
         ["Options", false]
     ];
 
+    if (!isNil QMODULE(accolade)) then {
+        __submodulePP(accolade);
+    };
+
     if (!isNil QMODULE(construction)) then {
         __submodulePP(construction);
     };

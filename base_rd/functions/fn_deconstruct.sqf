@@ -105,8 +105,8 @@ if !([_player, objNull] call BIS_fnc_areEqual) then {
                 ] call FUNC(reward,score);
             };
 
-            if !(isNil QMODULE(database)) then {
-                [getPlayerUID _x, 9] spawn FUNC(database,statistic);
+            if !(isNil QMODULE(statistic)) then {
+                [9, [getPlayerUID _x, name _x]] spawn FUNC(statistic,set);
             };
         };
     } forEach (call FUNC(common,players));

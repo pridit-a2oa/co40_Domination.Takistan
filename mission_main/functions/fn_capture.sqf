@@ -47,8 +47,12 @@ if !(isNil "_trigger") then {
             ] call FUNC(reward,score);
         };
 
-        if !(isNil QMODULE(database)) then {
-            [getPlayerUID _x, 2] spawn FUNC(database,statistic);
+        if !(isNil QMODULE(accolade)) then {
+            [["combat", "Novice"], [getPlayerUID _x, name _x]] call FUNC(accolade,set);
+        };
+
+        if !(isNil QMODULE(statistic)) then {
+            [1, [getPlayerUID _x, name _x]] spawn FUNC(statistic,set);
         };
     };
 } forEach _units;

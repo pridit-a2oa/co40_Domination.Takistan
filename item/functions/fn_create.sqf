@@ -1,17 +1,23 @@
 #define THIS_MODULE item
 #include "x_macros.sqf"
-private ["_parent", "_types", "_objects", "_holder", "_item"];
+private ["_parent", "_override", "_types", "_objects", "_holder", "_item"];
 
 PARAMS_1(_parent);
 
-if ((position _parent) distance (markerPos QGVAR(base_south)) < 1000) exitWith {};
+_override = [_this, 1, []] call FUNC(common,param);
+
+if ([_override, []] call BIS_fnc_areEqual && {(position _parent) distance (markerPos QGVAR(base_south)) < 1000}) exitWith {};
 
 _types = [
     ["", "WeaponHolder", []]
 ];
 
 {
-    if (typeOf _parent in ((GVAR(item_types) select _forEachIndex) select 2)) then {
+    if (_x select 1 in _override) then {
+        _types = _types + [_x];
+    };
+
+    if ([_override, []] call BIS_fnc_areEqual && {typeOf _parent in ((GVAR(item_types) select _forEachIndex) select 2)}) then {
         _types = _types + [_x];
     };
 } forEach (GVAR(item_types) call FUNC(common,arrayShuffle));
@@ -21,9 +27,9 @@ if ([count _types, 1] call BIS_fnc_areEqual) exitWith {};
 _objects = [];
 
 {
-    private ["_object"];
+    private ["_chance", "_object"];
 
-    if (!([_x select 0, ""] call BIS_fnc_areEqual) && {!((call compile format ["d_%1_%2_chance", QUOTE(THIS_MODULE), toLower (_x select 0)]) > floor (random 100))}) exitWith {};
+    if (!([_x select 0, ""] call BIS_fnc_areEqual) && {!((call compile format ["d_%1_%2_chance", QUOTE(THIS_MODULE), toLower (_x select 0)]) > floor (random 100)) && {[_override, []] call BIS_fnc_areEqual}}) exitWith {};
     if (!isNil "_holder" && {[count ([0, getWeaponCargo _holder] call FUNC(common,arrayValues)), 2] call BIS_fnc_areEqual}) exitWith {};
 
     switch (true) do {
@@ -35,6 +41,8 @@ _objects = [];
             _object = createVehicle [_x select 1, getPosATL _parent, [], 0, "NONE"];
             _object setDir (random 360);
             _object setPos (_parent modelToWorld _offset);
+
+            [true, "reveal", _object] call FUNC(network,mp);
 
             _holder = _object;
 
@@ -58,10 +66,10 @@ _objects = [];
 } forEach _types;
 
 if !(isNil "_item") then {
-    [_parent, _item, _holder] spawn {
-        private ["_parent", "_item", "_holder", "_position", "_objects"];
+    [_parent, _item, _holder, _override] spawn {
+        private ["_parent", "_item", "_holder", "_override", "_position", "_objects"];
 
-        PARAMS_3(_parent, _item, _holder);
+        PARAMS_4(_parent, _item, _holder, _override);
 
         _position = position _holder;
 
@@ -82,6 +90,14 @@ if !(isNil "_item") then {
             true
         ];
 
+        if (!isNil QMODULE(accolade) && {[_item select 1, "EvMap"] call BIS_fnc_areEqual}) then {
+            if !([_override, []] call BIS_fnc_areEqual) exitWith {};
+
+            {
+                [["special", "Novice"], _x] call FUNC(accolade,set);
+            } forEach ([_position, 10] call FUNC(server,nearPlayers));
+        };
+
         [true, "spawn", [[_position, _item select 1], {
             if !(hasInterface) exitWith {};
 
@@ -91,6 +107,8 @@ if !(isNil "_item") then {
         if !(alive _parent) exitWith {
             clearWeaponCargoGlobal _holder;
         };
+
+        if !([_override, []] call BIS_fnc_areEqual) exitWith {};
 
         __log format ["Found %1", _item select 0]];
     };

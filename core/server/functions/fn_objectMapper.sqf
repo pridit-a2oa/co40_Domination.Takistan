@@ -187,6 +187,12 @@ if !(isNil QMODULE(tent)) then {
                 [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
             };
 
+            case ([typeOf _newObj, "Land_tent_east"] call BIS_fnc_areEqual): {
+                if !(isNil QMODULE(tent)) then {
+                    [_newObjs, [_newObj] call FUNC(tent,unit)] call BIS_fnc_arrayPush;
+                };
+            };
+
             case ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual): {
                 _newObj animate ["bargate", 1];
             };

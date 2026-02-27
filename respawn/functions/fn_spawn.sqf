@@ -33,6 +33,10 @@ _objects = nearestObjects [
 
     if (!isNil "_deployed" && {(_x getVariable QGVAR(deployed)) select 0}) exitWith {
         _object = _x;
+
+        if (!isNil QMODULE(accolade) && {[typeOf _x, "BMP2_HQ_TK_EP1"] call BIS_fnc_areEqual}) then {
+            [gameLogic, "execVM", [[["engineer", "Intermediate"], [getPlayerUID _unit, name _unit]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+        };
     };
 } forEach _objects;
 

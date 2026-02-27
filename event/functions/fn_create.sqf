@@ -53,6 +53,12 @@ _location setVariable [QGVAR(units), _target select 2];
         _objects = _target getVariable QGVAR(objects);
         _units = _target getVariable QGVAR(units);
 
+        if (!isNil QMODULE(statistic) && {[_type, "Checkpoint"] call BIS_fnc_areEqual}) then {
+            {
+                [12, _x] spawn FUNC(statistic,set);
+            } forEach ([_position, 500, false, false] call FUNC(server,nearPlayers));
+        };
+
         deleteVehicle _target;
 
         [

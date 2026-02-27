@@ -31,3 +31,7 @@ removeBackpack player;
 player addBackpack (_this select 3) select 0;
 
 clearMagazineCargo (unitBackpack player);
+
+if !(isNil QMODULE(accolade)) then {
+    [gameLogic, "execVM", [[["combat", "Entry"], [getPlayerUID player, name player]], FUNCTION(accolade,set)]] call FUNC(network,mp);
+};
