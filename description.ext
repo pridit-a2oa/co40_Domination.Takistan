@@ -76,6 +76,13 @@ class Params {
         texts[] = {"Enabled", "-"};
         default = 1;
     };
+    class base_artillery
+    {
+        title = "Base Artillery";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+    };
     class base_bonus
     {
         title = "Base Bonus (Attack Aircraft)";
