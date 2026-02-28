@@ -82,7 +82,7 @@ if (hasInterface) then {
 
         _id = (_character select 0) select 0;
         _user = (_character select 0) select 1;
-        _score = [(call compile ((_character select 0) select 2)) - _score, _score, 0];
+        _score = [((call compile ((_character select 0) select 2)) - _score) max 0, _score max 0, 0];
         _experience = call compile ((_character select 0) select 3);
         _muted = (_character select 0) select 4;
 
