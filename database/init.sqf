@@ -1,7 +1,9 @@
 /**
  * Database Module
  *
- * Description: This module facilitates database support.
+ * Description: This module facilitates database support. As a caveat, due to
+ * use of profileNamespace, make sure the *.vars.ArmA2OAProfile is read-only
+ * on the server to ensure variables cannot be stored long-term.
  */
 
 #define THIS_MODULE database

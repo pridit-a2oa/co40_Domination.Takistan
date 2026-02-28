@@ -15,33 +15,34 @@ if (isServer && {isMultiplayer}) then {
 
     0 spawn {
         while {true} do {
-            private ["_players"];
-
-            _players = call FUNC(common,players);
-
-            waitUntil {sleep 1; !([_players, []] call BIS_fnc_areEqual)};
-
             {
                 private ["_key", "_variables"];
 
-                _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
-                _variables = gameLogic getVariable _key;
+                if (isPlayer _x) then {
+                    _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
 
-                if !(isNil "_variables") then {
-                    private ["_stored", "_score"];
+                    if (isDedicated) then {
+                        waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+                    };
 
-                    _stored = (_variables select 1) select 2;
-                    _score = score _x - (_stored select 1);
+                    _variables = profileNamespace getVariable _key;
 
-                    if ([_score, _stored select 2] call BIS_fnc_areEqual) exitWith {};
+                    if !(isNil "_variables") then {
+                        private ["_stored", "_score"];
 
-                    _stored set [2, _score];
+                        _stored = (_variables select 1) select 2;
+                        _score = score _x - (_stored select 1);
 
-                    [_x, "spawn", [_score, {
-                        ((player getVariable QGVAR(database)) select 2) set [2, _this];
-                    }]] call FUNC(network,mp);
+                        if ([_score, _stored select 2] call BIS_fnc_areEqual) exitWith {};
+
+                        _stored set [2, _score];
+
+                        [_x, "spawn", [_score, {
+                            ((player getVariable QGVAR(database)) select 2) set [2, _this];
+                        }]] call FUNC(network,mp);
+                    };
                 };
-            } forEach _players;
+            } forEach call FUNC(common,players);
 
             sleep 15;
         };
@@ -104,11 +105,11 @@ if (hasInterface) then {
 
         _key = [_identifier select 1] call FUNC(database,key);
 
-        if !(isNil {gameLogic getVariable _key}) exitWith {};
+        waitUntil {sleep 0.1; isNil {profileNamespace getVariable _key}};
 
         _variables = [_user, _role, _score];
 
-        gameLogic setVariable [
+        profileNamespace setVariable [
             _key,
             [_identifier, _variables]
         ];
@@ -131,14 +132,10 @@ if (hasInterface) then {
             _key = [_identifier select 1] call FUNC(accolade,key);
 
             if (isMultiplayer) then {
-                waitUntil {
-                    sleep 0.2;
-
-                    !isNil {gameLogic getVariable _key}
-                };
+                waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
             };
 
-            [_unit, "execVM", [[_identifier, _experience, (gameLogic getVariable _key) select 1], __submoduleRE(accolade)]] call FUNC(network,mp);
+            [_unit, "execVM", [[_identifier, _experience, (profileNamespace getVariable _key) select 1], __submoduleRE(accolade)]] call FUNC(network,mp);
         };
 
         if !(isNil QMODULE(statistic)) then {
@@ -151,14 +148,10 @@ if (hasInterface) then {
             _key = [_identifier select 1] call FUNC(statistic,key);
 
             if (isMultiplayer) then {
-                waitUntil {
-                    sleep 0.2;
-
-                    !isNil {gameLogic getVariable _key}
-                };
+                waitUntil {sleep 0.5; !isNil {gameLogic getVariable _key}};
             };
 
-            [_unit, "execVM", [[_identifier, (gameLogic getVariable _key) select 1], __submoduleRE(statistic)]] call FUNC(network,mp);
+            [_unit, "execVM", [[_identifier, (profileNamespace getVariable _key) select 1], __submoduleRE(statistic)]] call FUNC(network,mp);
         };
     }]] call FUNC(network,mp);
 };

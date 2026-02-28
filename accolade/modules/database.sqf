@@ -18,7 +18,9 @@ if (isServer) then {
 
     _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
 
-    if !(isNil {gameLogic getVariable _key}) exitWith {};
+    if (isDedicated) then {
+        waitUntil {sleep 0.5; isNil {profileNamespace getVariable _key}};
+    };
 
     _data = [format [
         "SELECT data FROM character_accolade WHERE character_id = '%1' LIMIT 1",
@@ -31,7 +33,7 @@ if (isServer) then {
         _defaults set [_forEachIndex, _x];
     } forEach GVAR(accolade_defaults);
 
-    gameLogic setVariable [
+    profileNamespace setVariable [
         _key,
         [
             _identifier,

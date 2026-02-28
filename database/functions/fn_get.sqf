@@ -7,7 +7,7 @@ PARAMS_1(_index);
 _identifier = [_this, 1, [getPlayerUID player, name player]] call FUNC(common,param);
 
 _variables = if (isServer && {!hasInterface}) then {
-    (gameLogic getVariable ([_identifier select 0] call FUNC(THIS_MODULE,key))) select 1
+    (profileNamespace getVariable ([_identifier select 0] call FUNC(THIS_MODULE,key))) select 1
 } else {
     player getVariable QGVAR(database)
 };

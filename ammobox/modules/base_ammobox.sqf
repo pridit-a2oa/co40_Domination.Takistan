@@ -24,9 +24,11 @@ if !(isNil QMODULE(database)) then {
 
         _key = [_uid] call FUNC(database,key);
 
-        waitUntil {sleep 1; !isNil {gameLogic getVariable _key}};
+        if (isDedicated) then {
+            waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+        };
 
-        if ([((gameLogic getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
+        if ([((profileNamespace getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
 
         [_unit, "spawn", [[], {
             if (isNil {GVAR(base_ammobox)}) exitWith {};

@@ -8,7 +8,7 @@ if !(isServer) exitWith {};
 
 _key = [_identifier select 0] call FUNC(THIS_MODULE,key);
 
-_statistics = gameLogic getVariable _key;
+_statistics = profileNamespace getVariable _key;
 
 (_statistics select 1) set [
     _statistic - 1,

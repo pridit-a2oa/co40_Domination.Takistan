@@ -15,14 +15,19 @@ if (isServer) then {
 
     _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
 
-    if !(isNil {gameLogic getVariable _key}) exitWith {};
+    if (isDedicated) then {
+        waitUntil {sleep 0.5; isNil {profileNamespace getVariable _key}};
+    };
 
     _data = [format [
         "SELECT JSON_ARRAYAGG(JSON_ARRAY(statistics.id, IFNULL(character_statistic.value, 0))) AS value FROM statistics LEFT JOIN character_statistic ON statistics.id = character_statistic.statistic_id AND character_id = '%1' LIMIT 1",
         _identifier select 0
     ]] call FUNC(database,query);
 
-    gameLogic setVariable [_key, [_identifier, call compile ((_data select 0) select 0)]];
+    profileNamespace setVariable [
+        _key,
+        [_identifier, call compile ((_data select 0) select 0)]
+    ];
 };
 
 if (hasInterface && {!([_statistics, []] call BIS_fnc_areEqual)}) then {

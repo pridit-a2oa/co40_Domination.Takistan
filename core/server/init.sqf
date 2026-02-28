@@ -113,35 +113,44 @@ onPlayerDisconnected {
             private ["_key", "_variables"];
 
             _key = [_this select 0] call FUNC(database,key);
-            _variables = gameLogic getVariable _key;
 
-            if (isNil "_variables") exitWith {};
+            if (isDedicated && {isNil {profileNamespace getVariable _key}}) exitWith {};
+
+            _variables = +(profileNamespace getVariable _key);
+
+            profileNamespace setVariable [_key, nil];
+
             if !([[(_variables select 0) select 1, (_variables select 0) select 2], _this] call BIS_fnc_areEqual) exitWith {};
 
             [format [
                 "UPDATE characters SET score = score + %1, last_seen_at = NOW() WHERE `id64` = '%2' AND name = '%3'",
-                ((_variables select 1) select 2) select 2,
+                (((_variables select 1) select 2) select 2) max 0,
                 _this select 0,
                 _this select 1
-            ]] call FUNC(database,query);
-
-            gameLogic setVariable [_key, nil];
+            ]] spawn FUNC(database,query);
 
             if !(isNil QMODULE(accolade)) then {
                 private ["_key", "_accolades"];
 
                 _key = [_this select 0] call FUNC(accolade,key);
-                _accolades = gameLogic getVariable _key;
+
+                if (isDedicated && {isNil {profileNamespace getVariable _key}}) exitWith {};
+
+                _accolades = +(profileNamespace getVariable _key);
+
+                profileNamespace setVariable [_key, nil];
 
                 if !([_accolades select 1, GVAR(accolade_defaults)] call BIS_fnc_areEqual) then {
                     [format [
                         "INSERT INTO character_accolade (character_id, data) VALUES (%1, CAST(""%2"" AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(""%2"" AS JSON)",
                         (_accolades select 0) select 0,
                         _accolades select 1
-                    ]] call FUNC(database,query);
+                    ]] spawn FUNC(database,query);
                 };
+            };
 
-                gameLogic setVariable [_key, nil];
+            if !(isNil QMODULE(statistic)) then {
+                profileNamespace setVariable [[_this select 0] call FUNC(statistic,key), nil];
             };
         };
     };
