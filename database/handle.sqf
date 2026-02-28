@@ -131,7 +131,7 @@ if (hasInterface) then {
 
             _key = [_identifier select 1] call FUNC(accolade,key);
 
-            if (isMultiplayer) then {
+            if (isDedicated) then {
                 waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
             };
 
@@ -147,8 +147,8 @@ if (hasInterface) then {
 
             _key = [_identifier select 1] call FUNC(statistic,key);
 
-            if (isMultiplayer) then {
-                waitUntil {sleep 0.5; !isNil {gameLogic getVariable _key}};
+            if (isDedicated) then {
+                waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
             };
 
             [_unit, "execVM", [[_identifier, (profileNamespace getVariable _key) select 1], __submoduleRE(statistic)]] call FUNC(network,mp);
