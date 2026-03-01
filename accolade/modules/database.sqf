@@ -13,13 +13,13 @@ _accolades = [_this, 2, []] call FUNC(common,param);
 
 if !([typeName _experience, "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 
-if (isServer) then {
+if (isServer && {[_accolades, []] call BIS_fnc_areEqual}) then {
     private ["_key", "_data", "_defaults"];
 
     _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
 
     if (isMultiplayer) then {
-        waitUntil {sleep 0.5; isNil {profileNamespace getVariable _key}};
+        waitUntil {sleep 0.5; isNil {serverNamespace getVariable _key}};
     };
 
     _data = [format [
@@ -33,7 +33,7 @@ if (isServer) then {
         _defaults set [_forEachIndex, _x];
     } forEach GVAR(accolade_defaults);
 
-    profileNamespace setVariable [
+    serverNamespace setVariable [
         _key,
         [
             _identifier,

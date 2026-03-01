@@ -25,10 +25,10 @@ if !(isNil QMODULE(database)) then {
         _key = [_uid] call FUNC(database,key);
 
         if (isMultiplayer) then {
-            waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+            waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
         };
 
-        if ([((profileNamespace getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
+        if ([((serverNamespace getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
 
         [_unit, "spawn", [[], {
             if (isNil {GVAR(base_ammobox)}) exitWith {};

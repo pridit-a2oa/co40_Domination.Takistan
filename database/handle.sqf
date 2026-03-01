@@ -22,10 +22,10 @@ if (isServer && {isMultiplayer}) then {
                     _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
 
                     if (isMultiplayer) then {
-                        waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+                        waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
                     };
 
-                    _variables = profileNamespace getVariable _key;
+                    _variables = serverNamespace getVariable _key;
 
                     if !(isNil "_variables") then {
                         private ["_stored", "_score"];
@@ -106,12 +106,12 @@ if (hasInterface) then {
         _key = [_identifier select 1] call FUNC(database,key);
 
         if (isMultiplayer) then {
-            waitUntil {sleep 0.1; isNil {profileNamespace getVariable _key}};
+            waitUntil {sleep 0.1; isNil {serverNamespace getVariable _key}};
         };
 
         _variables = [_user, _role, _score];
 
-        profileNamespace setVariable [
+        serverNamespace setVariable [
             _key,
             [_identifier, _variables]
         ];
@@ -134,10 +134,10 @@ if (hasInterface) then {
             _key = [_identifier select 1] call FUNC(accolade,key);
 
             if (isMultiplayer) then {
-                waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+                waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
             };
 
-            [_unit, "execVM", [[_identifier, _experience, (profileNamespace getVariable _key) select 1], __submoduleRE(accolade)]] call FUNC(network,mp);
+            [_unit, "execVM", [[_identifier, _experience, (serverNamespace getVariable _key) select 1], __submoduleRE(accolade)]] call FUNC(network,mp);
         };
 
         if !(isNil QMODULE(statistic)) then {
@@ -150,10 +150,10 @@ if (hasInterface) then {
             _key = [_identifier select 1] call FUNC(statistic,key);
 
             if (isMultiplayer) then {
-                waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
+                waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
             };
 
-            [_unit, "execVM", [[_identifier, (profileNamespace getVariable _key) select 1], __submoduleRE(statistic)]] call FUNC(network,mp);
+            [_unit, "execVM", [[_identifier, (serverNamespace getVariable _key) select 1], __submoduleRE(statistic)]] call FUNC(network,mp);
         };
     }]] call FUNC(network,mp);
 };

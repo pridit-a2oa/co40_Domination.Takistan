@@ -10,13 +10,13 @@ PARAMS_1(_identifier);
 
 _statistics = [_this, 1, []] call FUNC(common,param);
 
-if (isServer) then {
+if (isServer && {[_statistics, []] call BIS_fnc_areEqual}) then {
     private ["_key", "_data"];
 
     _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
 
     if (isMultiplayer) then {
-        waitUntil {sleep 0.5; isNil {profileNamespace getVariable _key}};
+        waitUntil {sleep 0.5; isNil {serverNamespace getVariable _key}};
     };
 
     _data = [format [
@@ -24,7 +24,7 @@ if (isServer) then {
         _identifier select 0
     ]] call FUNC(database,query);
 
-    profileNamespace setVariable [
+    serverNamespace setVariable [
         _key,
         [_identifier, call compile ((_data select 0) select 0)]
     ];

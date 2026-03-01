@@ -8,7 +8,7 @@ _identifier = [_this, 2, []] call FUNC(common,param);
 
 // Fine for now but would have problems in local mp, player needs to be dynamic unit
 _tasks = if (isServer && {!hasInterface}) then {
-    (profileNamespace getVariable ([_identifier select 1] call FUNC(THIS_MODULE,key))) select 1
+    (serverNamespace getVariable ([_identifier select 1] call FUNC(THIS_MODULE,key))) select 1
 } else {
     player getVariable QGVAR(tasks)
 };

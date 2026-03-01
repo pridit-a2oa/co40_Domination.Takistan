@@ -17,7 +17,7 @@ if ([typeName _npc, "ARRAY"] call BIS_fnc_areEqual) then {
 
 _key = [_identifier select 0] call FUNC(THIS_MODULE,key);
 
-_accolades = profileNamespace getVariable _key;
+_accolades = serverNamespace getVariable _key;
 _tasks = _accolades select 1;
 
 _array = [];

@@ -5,6 +5,8 @@
 #define THIS_MODULE server
 #include "x_macros.sqf"
 
+serverNamespace = if (isDedicated) then {profileNamespace} else {missionNamespace};
+
 // Maximum distance from base friendly AI units should be invulnerable
 GVAR(server_distance_base_invulnerable) = 500;
 
@@ -114,11 +116,11 @@ onPlayerDisconnected {
 
             _key = [_this select 0] call FUNC(database,key);
 
-            if (isMultiplayer && {isNil {profileNamespace getVariable _key}}) exitWith {};
+            if (isMultiplayer && {isNil {serverNamespace getVariable _key}}) exitWith {};
 
-            _variables = +(profileNamespace getVariable _key);
+            _variables = +(serverNamespace getVariable _key);
 
-            profileNamespace setVariable [_key, nil];
+            serverNamespace setVariable [_key, nil];
 
             if !([[(_variables select 0) select 1, (_variables select 0) select 2], _this] call BIS_fnc_areEqual) exitWith {};
 
@@ -134,11 +136,11 @@ onPlayerDisconnected {
 
                 _key = [_this select 0] call FUNC(accolade,key);
 
-                if (isMultiplayer && {isNil {profileNamespace getVariable _key}}) exitWith {};
+                if (isMultiplayer && {isNil {serverNamespace getVariable _key}}) exitWith {};
 
-                _accolades = +(profileNamespace getVariable _key);
+                _accolades = +(serverNamespace getVariable _key);
 
-                profileNamespace setVariable [_key, nil];
+                serverNamespace setVariable [_key, nil];
 
                 if !([_accolades select 1, GVAR(accolade_defaults)] call BIS_fnc_areEqual) then {
                     [format [
@@ -150,7 +152,7 @@ onPlayerDisconnected {
             };
 
             if !(isNil QMODULE(statistic)) then {
-                profileNamespace setVariable [[_this select 0] call FUNC(statistic,key), nil];
+                serverNamespace setVariable [[_this select 0] call FUNC(statistic,key), nil];
             };
         };
     };
