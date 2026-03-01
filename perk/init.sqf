@@ -9,12 +9,12 @@
 
 // Role restrictions for role-based perks
 GVAR(perk_type_roles) = [
-    [GVAR(artillery),       [1]],
-    [GVAR(engineers),       [2]],
-    [GVAR(machine_gunners), [3]],
-    [GVAR(marksman),        [4]],
-    [GVAR(medics),          [5]],
-    [GVAR(pilots),          [6]]
+    [GVAR(ARTY), [1]],
+    [GVAR(ENGI), [2]],
+    [GVAR(MGUN), [3]],
+    [GVAR(MRKS), [4]],
+    [GVAR(MEDI), [5]],
+    [GVAR(PILT), [6]]
 ];
 
 // Increments of points rewarded

@@ -6,8 +6,6 @@
 #include "x_macros.sqf"
 
 if (hasInterface) then {
-    if (str player in GVAR(medics)) exitWith {};
-
     [
         markerPos QGVAR(heap),
         markerDir QGVAR(heap)

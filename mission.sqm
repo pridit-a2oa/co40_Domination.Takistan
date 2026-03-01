@@ -261,7 +261,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
-					text="ENGINEER1";
+					text="ENGI1";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (BAF)";
 				};
@@ -275,7 +275,7 @@ class Mission
 					vehicle="BAF_Soldier_FAC_MTP";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER2";
+					text="ENGI2";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (BAF)";
 				};
@@ -289,7 +289,7 @@ class Mission
 					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER3";
+					text="ENGI3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
@@ -303,7 +303,7 @@ class Mission
 					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER4";
+					text="ENGI4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
@@ -317,7 +317,7 @@ class Mission
 					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER5";
+					text="ENGI5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
@@ -331,7 +331,7 @@ class Mission
 					vehicle="US_Soldier_LAT_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER6";
+					text="ENGI6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US)";
 				};
@@ -345,7 +345,7 @@ class Mission
 					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER7";
+					text="ENGI7";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US Special Forces)";
 				};
@@ -359,7 +359,7 @@ class Mission
 					vehicle="US_Delta_Force_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="ENGINEER8";
+					text="ENGI8";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Engineer (US Special Forces)";
 				};
@@ -382,7 +382,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
-					text="MGUNNER1";
+					text="MGUN1";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (BAF)";
 				};
@@ -396,7 +396,7 @@ class Mission
 					vehicle="BAF_Soldier_MG_MTP";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER2";
+					text="MGUN2";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (BAF)";
 				};
@@ -410,7 +410,7 @@ class Mission
 					vehicle="US_Soldier_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER3";
+					text="MGUN3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
@@ -424,7 +424,7 @@ class Mission
 					vehicle="US_Soldier_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER4";
+					text="MGUN4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
@@ -438,7 +438,7 @@ class Mission
 					vehicle="US_Soldier_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER5";
+					text="MGUN5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
@@ -452,7 +452,7 @@ class Mission
 					vehicle="US_Soldier_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER6";
+					text="MGUN6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US)";
 				};
@@ -466,7 +466,7 @@ class Mission
 					vehicle="US_Delta_Force_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER7";
+					text="MGUN7";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US Special Forces)";
 				};
@@ -480,7 +480,7 @@ class Mission
 					vehicle="US_Delta_Force_MG_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MGUNNER8";
+					text="MGUN8";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Machine Gunner (US Special Forces)";
 				};
@@ -503,7 +503,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
-					text="MARKSMAN1";
+					text="MRKS1";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (BAF)";
 				};
@@ -517,7 +517,7 @@ class Mission
 					vehicle="BAF_Soldier_Marksman_MTP";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN2";
+					text="MRKS2";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (BAF)";
 				};
@@ -531,7 +531,7 @@ class Mission
 					vehicle="US_Soldier_Marksman_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN3";
+					text="MRKS3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US)";
 				};
@@ -545,7 +545,7 @@ class Mission
 					vehicle="US_Soldier_Marksman_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN4";
+					text="MRKS4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US)";
 				};
@@ -559,7 +559,7 @@ class Mission
 					vehicle="US_Soldier_Sniper_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN5";
+					text="MRKS5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Ghillie)";
 				};
@@ -573,7 +573,7 @@ class Mission
 					vehicle="US_Soldier_Sniper_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN6";
+					text="MRKS6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Ghillie)";
 				};
@@ -587,7 +587,7 @@ class Mission
 					vehicle="US_Delta_Force_Marksman_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN7";
+					text="MRKS7";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Special Forces)";
 				};
@@ -601,7 +601,7 @@ class Mission
 					vehicle="US_Delta_Force_Marksman_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MARKSMAN8";
+					text="MRKS8";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Marksman (US Special Forces)";
 				};
@@ -624,7 +624,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
-					text="MEDIC1";
+					text="MEDI1";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (BAF)";
 				};
@@ -638,7 +638,7 @@ class Mission
 					vehicle="BAF_Soldier_Medic_MTP";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC2";
+					text="MEDI2";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (BAF)";
 				};
@@ -652,7 +652,7 @@ class Mission
 					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC3";
+					text="MEDI3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
@@ -666,7 +666,7 @@ class Mission
 					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC4";
+					text="MEDI4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
@@ -680,7 +680,7 @@ class Mission
 					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC5";
+					text="MEDI5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
@@ -694,7 +694,7 @@ class Mission
 					vehicle="US_Soldier_Medic_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC6";
+					text="MEDI6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US)";
 				};
@@ -708,7 +708,7 @@ class Mission
 					vehicle="US_Delta_Force_Medic_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC7";
+					text="MEDI7";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US Special Forces)";
 				};
@@ -722,7 +722,7 @@ class Mission
 					vehicle="US_Delta_Force_Medic_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="MEDIC8";
+					text="MEDI8";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Medic (US Special Forces)";
 				};
@@ -745,7 +745,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
-					text="PILOT1";
+					text="PILT1";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (BAF)";
 				};
@@ -759,7 +759,7 @@ class Mission
 					vehicle="BAF_Pilot_MTP";
 					player="PLAY CDG";
 					skill=1;
-					text="PILOT2";
+					text="PILT2";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (BAF)";
 				};
@@ -773,7 +773,7 @@ class Mission
 					vehicle="US_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="PILOT3";
+					text="PILT3";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US)";
 				};
@@ -787,7 +787,7 @@ class Mission
 					vehicle="US_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="PILOT4";
+					text="PILT4";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US)";
 				};
@@ -801,7 +801,7 @@ class Mission
 					vehicle="US_Pilot_Light_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="PILOT5";
+					text="PILT5";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US Light)";
 				};
@@ -815,7 +815,7 @@ class Mission
 					vehicle="US_Pilot_Light_AllWeaponSlots_EP1";
 					player="PLAY CDG";
 					skill=1;
-					text="PILOT6";
+					text="PILT6";
 					init="removeAllWeapons this;removeBackpack this;this disableAI 'MOVE';";
 					description="Pilot (US Light)";
 				};

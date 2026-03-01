@@ -128,7 +128,7 @@ if (isServer) then {
                     _unit = _this select 2;
 
                     if !(isPlayer _unit) exitWith {};
-                    if !(str _unit in GVAR(artillery)) exitWith {};
+                    if !(str _unit in GVAR(ARTY)) exitWith {};
 
                     [_unit, "enableEngineArtillery", false] call FUNC(network,mp);
 

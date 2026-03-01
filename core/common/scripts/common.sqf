@@ -8,35 +8,26 @@ FUNC(THIS_MODULE,BlueText) = {"<t color='#5398b6'>" + _this + "</t>"};
 FUNC(THIS_MODULE,BrownText) = {"<t color='#806f43'>" + _this + "</t>"};
 FUNC(THIS_MODULE,KhakiText) = {"<t color='#809966'>" + _this + "</t>"};
 
-GVAR(artillery) = [];
-GVAR(engineers) = [];
-GVAR(machine_gunners) = [];
-GVAR(marksman) = [];
-GVAR(medics) = [];
-GVAR(pilots) = [];
+GVAR(roles) = [
+    [2, "ARTY"],
+    [8, "ENGI"],
+    [8, "MGUN"],
+    [8, "MRKS"],
+    [8, "MEDI"],
+    [6, "PILT"]
+];
 
-for "_i" from 1 to 2 do {
-    GVAR(artillery) = GVAR(artillery) + ["ARTY" + str _i];
-};
+{
+    private ["_role"];
 
-for "_i" from 1 to 8 do {
-    GVAR(engineers) = GVAR(engineers) + ["ENGINEER" + str _i];
-};
+    call compile format ["d_%1 = [];", _x select 1];
 
-for "_i" from 1 to 8 do {
-    GVAR(machine_gunners) = GVAR(machine_gunners) + ["MGUNNER" + str _i];
-};
+    _role = call compile format ["d_%1", _x select 1];
 
-for "_i" from 1 to 8 do {
-    GVAR(marksman) = GVAR(marksman) + ["MARKSMAN" + str _i];
-};
-
-for "_i" from 1 to 8 do {
-    GVAR(medics) = GVAR(medics) + ["MEDIC" + str _i];
-};
-
-for "_i" from 1 to 6 do {
-    GVAR(pilots) = GVAR(pilots) + ["PILOT" + str _i];
-};
-
-GVAR(playable) = GVAR(artillery) + GVAR(engineers) + GVAR(machine_gunners) + GVAR(marksman) + GVAR(medics) + GVAR(pilots);
+    for "_i" from 1 to (_x select 0) do {
+        [
+            _role,
+            (_x select 1) + str _i
+        ] call BIS_fnc_arrayPush;
+    };
+} forEach GVAR(roles);

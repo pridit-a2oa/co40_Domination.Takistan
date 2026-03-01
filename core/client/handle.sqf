@@ -15,7 +15,7 @@
     {
         player addWeapon _x;
     } forEach [
-        format ["Binocular%1", if (str player in GVAR(marksman)) then {"_Vector"} else {""}],
+        format ["Binocular%1", if (str player in GVAR(MRKS)) then {"_Vector"} else {""}],
         "ItemCompass",
         "ItemGPS",
         "ItemMap",
@@ -35,7 +35,7 @@
 
     enableRadio true;
     enableSentences false;
-    enableEngineArtillery (str player in GVAR(artillery));
+    enableEngineArtillery (str player in GVAR(ARTY));
 
     [100] call FUNC(THIS_MODULE,reveal);
 
@@ -159,7 +159,7 @@ if (!isNil QMODULE(ammobox)) then {
         PARAMS_2(_unit, _corpse);
 
         setPlayerRespawnTime 30;
-        enableEngineArtillery (str _unit in GVAR(artillery));
+        enableEngineArtillery (str _unit in GVAR(ARTY));
 
         titleText ["", "BLACK FADED"];
 

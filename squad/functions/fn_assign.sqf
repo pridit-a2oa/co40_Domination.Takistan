@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_squads"];
+private ["_squads", "_squad"];
 
 _squads = X_JIP getVariable QGVAR(squads);
 
@@ -11,38 +11,16 @@ _squads = X_JIP getVariable QGVAR(squads);
     };
 } forEach _squads;
 
-if (str player in GVAR(artillery)) exitWith {
-    [player] joinSilent (_squads select 0);
+{
+    private ["_role"];
 
-    (_squads select 0)
-};
+    _role = call compile format ["d_%1", _x];
 
-if (str player in GVAR(engineers)) exitWith {
-    [player] joinSilent (_squads select 1);
+    if (str player in _role) exitWith {
+        _squad = _squads select _forEachIndex;
 
-    (_squads select 1)
-};
+        [player] joinSilent _squad;
+    };
+} forEach ([1, GVAR(roles)] call FUNC(common,arrayValues));
 
-if (str player in GVAR(machine_gunners)) exitWith {
-    [player] joinSilent (_squads select 2);
-
-    (_squads select 2)
-};
-
-if (str player in GVAR(marksman)) exitWith {
-    [player] joinSilent (_squads select 3);
-
-    (_squads select 3)
-};
-
-if (str player in GVAR(medics)) exitWith {
-    [player] joinSilent (_squads select 4);
-
-    (_squads select 4)
-};
-
-if (str player in GVAR(pilots)) exitWith {
-    [player] joinSilent (_squads select 5);
-
-    (_squads select 5)
-};
+_squad

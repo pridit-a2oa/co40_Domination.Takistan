@@ -4,6 +4,8 @@ private ["_heap"];
 
 PARAMS_1(_heap);
 
+ if (str player in GVAR(MEDI)) exitWith {};
+
 {
     _heap addAction [
         format ["Take %1", [_x] call FUNC(vehicle,name)],
