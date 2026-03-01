@@ -114,7 +114,7 @@ onPlayerDisconnected {
 
             _key = [_this select 0] call FUNC(database,key);
 
-            if (isDedicated && {isNil {profileNamespace getVariable _key}}) exitWith {};
+            if (isMultiplayer && {isNil {profileNamespace getVariable _key}}) exitWith {};
 
             _variables = +(profileNamespace getVariable _key);
 
@@ -134,7 +134,7 @@ onPlayerDisconnected {
 
                 _key = [_this select 0] call FUNC(accolade,key);
 
-                if (isDedicated && {isNil {profileNamespace getVariable _key}}) exitWith {};
+                if (isMultiplayer && {isNil {profileNamespace getVariable _key}}) exitWith {};
 
                 _accolades = +(profileNamespace getVariable _key);
 

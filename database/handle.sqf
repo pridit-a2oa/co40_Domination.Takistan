@@ -21,7 +21,7 @@ if (isServer && {isMultiplayer}) then {
                 if (isPlayer _x) then {
                     _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
 
-                    if (isDedicated) then {
+                    if (isMultiplayer) then {
                         waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
                     };
 
@@ -105,7 +105,9 @@ if (hasInterface) then {
 
         _key = [_identifier select 1] call FUNC(database,key);
 
-        waitUntil {sleep 0.1; isNil {profileNamespace getVariable _key}};
+        if (isMultiplayer) then {
+            waitUntil {sleep 0.1; isNil {profileNamespace getVariable _key}};
+        };
 
         _variables = [_user, _role, _score];
 
@@ -131,7 +133,7 @@ if (hasInterface) then {
 
             _key = [_identifier select 1] call FUNC(accolade,key);
 
-            if (isDedicated) then {
+            if (isMultiplayer) then {
                 waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
             };
 
@@ -147,7 +149,7 @@ if (hasInterface) then {
 
             _key = [_identifier select 1] call FUNC(statistic,key);
 
-            if (isDedicated) then {
+            if (isMultiplayer) then {
                 waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
             };
 

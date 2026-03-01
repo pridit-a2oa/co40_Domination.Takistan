@@ -15,7 +15,7 @@ if (isServer) then {
 
     _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
 
-    if (isDedicated) then {
+    if (isMultiplayer) then {
         waitUntil {sleep 0.5; isNil {profileNamespace getVariable _key}};
     };
 

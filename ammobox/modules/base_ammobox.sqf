@@ -24,7 +24,7 @@ if !(isNil QMODULE(database)) then {
 
         _key = [_uid] call FUNC(database,key);
 
-        if (isDedicated) then {
+        if (isMultiplayer) then {
             waitUntil {sleep 0.5; !isNil {profileNamespace getVariable _key}};
         };
 
