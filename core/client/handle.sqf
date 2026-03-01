@@ -24,6 +24,7 @@
         "NVGoggles"
     ];
 
+    player setDamage 0;
     player disableConversation true;
 
     if ([sunOrMoon, 0] call BIS_fnc_areEqual) then {
