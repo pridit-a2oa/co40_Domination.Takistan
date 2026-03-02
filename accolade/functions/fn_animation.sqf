@@ -26,7 +26,7 @@ if (_loop) exitWith {
         _animation = animationState _unit;
 
         waitUntil {
-            sleep 2 + random (0.5);
+            sleep 0.5;
 
             !([{_x distance _unit < 200} count (call FUNC(common,players)), 0] call BIS_fnc_areEqual) && {!([_animation, animationState _unit] call BIS_fnc_areEqual) || {_unit distance _position > 0.3}}
         };
