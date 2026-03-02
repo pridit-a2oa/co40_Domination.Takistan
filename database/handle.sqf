@@ -19,7 +19,7 @@ if (isServer && {isMultiplayer}) then {
                 private ["_key", "_variables"];
 
                 if (isPlayer _x) then {
-                    _key = [getPlayerUID _x] call FUNC(THIS_MODULE,key);
+                    _key = [getPlayerUID _x, name _x] call FUNC(THIS_MODULE,key);
 
                     if (isMultiplayer) then {
                         waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
@@ -103,7 +103,7 @@ if (hasInterface) then {
 
         _identifier set [0, _id];
 
-        _key = [_identifier select 1] call FUNC(database,key);
+        _key = [_identifier select 1, _identifier select 2] call FUNC(database,key);
 
         if (isMultiplayer) then {
             waitUntil {sleep 0.1; isNil {serverNamespace getVariable _key}};
@@ -131,7 +131,7 @@ if (hasInterface) then {
                 };
             };
 
-            _key = [_identifier select 1] call FUNC(accolade,key);
+            _key = [_identifier select 1, _identifier select 2] call FUNC(accolade,key);
 
             if (isMultiplayer) then {
                 waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};
@@ -147,7 +147,7 @@ if (hasInterface) then {
                 [gameLogic, "execVM", [[_identifier], __submoduleRE(statistic)]] call FUNC(network,mp);
             };
 
-            _key = [_identifier select 1] call FUNC(statistic,key);
+            _key = [_identifier select 1, _identifier select 2] call FUNC(statistic,key);
 
             if (isMultiplayer) then {
                 waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};

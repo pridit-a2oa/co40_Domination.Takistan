@@ -17,12 +17,12 @@ GVAR(base_ammobox) setVariable [QGVAR(immune), true];
 [GVAR(base_ammobox)] execFSM FSM(THIS_MODULE,respawn);
 
 if !(isNil QMODULE(database)) then {
-    [gameLogic, "spawn", [[player, getPlayerUID player], {
-        private ["_unit", "_uid"];
+    [gameLogic, "spawn", [[player, [getPlayerUID player, name player]], {
+        private ["_unit", "_identifier"];
 
-        PARAMS_2(_unit, _uid);
+        PARAMS_2(_unit, _identifier);
 
-        _key = [_uid] call FUNC(database,key);
+        _key = _identifier call FUNC(database,key);
 
         if (isMultiplayer) then {
             waitUntil {sleep 0.5; !isNil {serverNamespace getVariable _key}};

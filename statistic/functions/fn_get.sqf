@@ -10,7 +10,7 @@ _index = _index - 1;
 
 // Fine for now but would have problems in local mp, player needs to be dynamic unit
 _statistics = if (isServer && {!hasInterface}) then {
-    (serverNamespace getVariable ([_identifier select 0] call FUNC(THIS_MODULE,key))) select 1
+    (serverNamespace getVariable (_identifier call FUNC(THIS_MODULE,key))) select 1
 } else {
     player getVariable QGVAR(statistics)
 };

@@ -15,7 +15,7 @@ if ([typeName _npc, "ARRAY"] call BIS_fnc_areEqual) then {
     _tracked = [_npc select 1, _identifier] call FUNC(THIS_MODULE,track);
 };
 
-_key = [_identifier select 0] call FUNC(THIS_MODULE,key);
+_key = _identifier call FUNC(THIS_MODULE,key);
 
 _accolades = serverNamespace getVariable _key;
 _tasks = _accolades select 1;

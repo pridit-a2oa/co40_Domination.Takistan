@@ -114,7 +114,7 @@ onPlayerDisconnected {
         [_uid, _name] spawn {
             private ["_key", "_variables"];
 
-            _key = [_this select 0] call FUNC(database,key);
+            _key = _this call FUNC(database,key);
 
             if (isMultiplayer && {isNil {serverNamespace getVariable _key}}) exitWith {};
 
@@ -134,7 +134,7 @@ onPlayerDisconnected {
             if !(isNil QMODULE(accolade)) then {
                 private ["_key", "_accolades"];
 
-                _key = [_this select 0] call FUNC(accolade,key);
+                _key = _this call FUNC(accolade,key);
 
                 if (isMultiplayer && {isNil {serverNamespace getVariable _key}}) exitWith {};
 
@@ -152,7 +152,7 @@ onPlayerDisconnected {
             };
 
             if !(isNil QMODULE(statistic)) then {
-                serverNamespace setVariable [[_this select 0] call FUNC(statistic,key), nil];
+                serverNamespace setVariable [_this call FUNC(statistic,key), nil];
             };
         };
     };

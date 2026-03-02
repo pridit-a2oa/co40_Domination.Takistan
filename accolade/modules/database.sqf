@@ -16,7 +16,7 @@ if !([typeName _experience, "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 if (isServer && {[_accolades, []] call BIS_fnc_areEqual}) then {
     private ["_key", "_data", "_defaults"];
 
-    _key = [_identifier select 1] call FUNC(THIS_MODULE,key);
+    _key = [_identifier select 1, _identifier select 2] call FUNC(THIS_MODULE,key);
 
     if (isMultiplayer) then {
         waitUntil {sleep 0.5; isNil {serverNamespace getVariable _key}};

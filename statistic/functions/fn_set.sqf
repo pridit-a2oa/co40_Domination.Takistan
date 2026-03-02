@@ -6,7 +6,7 @@ PARAMS_2(_statistic, _identifier);
 
 if !(isServer) exitWith {};
 
-_key = [_identifier select 0] call FUNC(THIS_MODULE,key);
+_key = _identifier call FUNC(THIS_MODULE,key);
 
 _statistics = serverNamespace getVariable _key;
 
