@@ -186,6 +186,8 @@ if (!isNil QMODULE(ammobox)) then {
         if !(isNil QMODULE(accolade)) then {
             private ["_rank"];
 
+            _unit setVariable [QGVAR(experience), _unit getVariable QGVAR(experience), true];
+
             _rank = [_unit getVariable QGVAR(experience)] call FUNC(accolade,rank);
 
             if ([_rank, "PRIVATE"] call BIS_fnc_areEqual) exitWith {};
