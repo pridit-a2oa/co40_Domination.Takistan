@@ -7,8 +7,10 @@
 #define THIS_MODULE artillery
 #include "x_macros.sqf"
 
-// Shell type
-GVAR(artillery_type_shell) = "ARTY_Sh_105_HE";
+// Ordnance type
+GVAR(artillery_type_ordnance) = [
+    ["High Explosive", "HE"]
+];
 
 // Smoke grenade type
 GVAR(artillery_type_smoke) = "SmokeShellRed";
@@ -20,7 +22,7 @@ GVAR(artillery_distance_base) = 500;
 GVAR(artillery_distance_friendly) = 150;
 
 // Maximum distance from player position
-GVAR(artillery_distance_range) = 500;
+GVAR(artillery_distance_range) = 1500;
 
 // Number of shells per salvo
 GVAR(artillery_amount_shell) = 3;
@@ -28,13 +30,14 @@ GVAR(artillery_amount_shell) = 3;
 // Time between requests
 GVAR(artillery_time_cooldown) = 1200;
 
-// Time before strikes initiate once called
-GVAR(artillery_time_wait) = 20;
-
 if (hasInterface) then {
     player setVariable [QGVAR(artillery), false];
-    player setVariable [QGVAR(artillery_range), GVAR(artillery_distance_range)];
     player setVariable [QGVAR(artillery_salvoes), 0];
+    player setVariable [QGVAR(artillery_types), GVAR(artillery_type_ordnance)];
+
+    if (isNil {player getVariable QGVAR(artillery_type)}) then {
+        player setVariable [QGVAR(artillery_type), [0, (GVAR(artillery_type_ordnance) select 0) select 1]];
+    };
 
     if (isNil {player getVariable QGVAR(artillery_cooldown)}) then {
         player setVariable [QGVAR(artillery_cooldown), time + GVAR(artillery_time_cooldown)];

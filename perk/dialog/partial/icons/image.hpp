@@ -88,7 +88,7 @@ class PerkIcon_Role1_1: XD_RscPicture
 };
 class PerkIcon_Role1_2: XD_RscPicture
 {
-    text = "ca\ui\data\icon_wf_support_artilery_ca";
+    text = "ca\ui\data\icon_wf_support_cas_ca";
     x = 0.281251;
     y = 0.475;
     w = 0.0419193;
@@ -96,7 +96,7 @@ class PerkIcon_Role1_2: XD_RscPicture
 };
 class PerkIcon_Role1_3: XD_RscPicture
 {
-    text = "ca\missions\armory\data\mouse_movement_ca";
+    text = "ca\ui\data\icon_wf_support_artilery_ca";
     x = 0.281251;
     y = 0.575;
     w = 0.0419193;

@@ -8,10 +8,18 @@ private ["_group"];
 
 if !(isServer) exitWith {};
 
+if !(isNil QMODULE(artillery)) then {
+    BIS_ARTY_Logic = (group gameLogic) createUnit ["BIS_ARTY_Logic", [0, 0, 0], [], 0, "NONE"];
+};
+
 {
     if ([typeOf _x, "M119_US_EP1"] call BIS_fnc_areEqual) then {
+        if !(isNil QMODULE(artillery)) then {
+            BIS_ARTY_Logic synchronizeObjectsAdd [_x];
+        };
+
         _x addEventHandler ["HandleDamage", {0}];
-        _x addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
+        _x addEventHandler ["Fired", {deleteVehicle (_this select 6); (_this select 0) setVehicleAmmo 1}];
     };
 } forEach ([
     markerPos QGVAR(base_artillery),
@@ -25,6 +33,12 @@ if !(isServer) exitWith {};
         ["USOrdnanceBox_EP1"]
     ]
 ] call FUNC(server,objectMapper));
+
+if !(isNil QMODULE(artillery)) then {
+    sleep 0.1;
+
+    [BIS_ARTY_Logic, true] call BIS_ARTY_F_SetShellSpawn;
+};
 
 _group = [
     markerPos QGVAR(base_artillery),

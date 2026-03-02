@@ -115,7 +115,7 @@ class PerkButton_Role1_2: XD_LinkButtonUpgradeBase
     y = 0.475;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Artillery salvo (+1)";
+    tooltip = "Additional ordnance types (sadarm, smoke)";
     action = "[1,2] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_3: XD_LinkButtonUpgradeBase
@@ -125,7 +125,7 @@ class PerkButton_Role1_3: XD_LinkButtonUpgradeBase
     y = 0.575;
     w = 0.0419193;
     h = 0.0562289;
-    tooltip = "Artillery range increased by 1km";
+    tooltip = "Artillery salvo (+1)";
     action = "[1,3] call d_fnc_perk_clicked";
 };
 class PerkButton_Role1_4: XD_LinkButtonUpgradeBase

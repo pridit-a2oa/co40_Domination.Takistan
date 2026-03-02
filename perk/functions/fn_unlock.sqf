@@ -93,7 +93,7 @@ switch (_tier) do {
                             BIS_MENU_Radio,
                             "Artillery Strike",
                             "CursorOnGround * PlayerOwnRadio",
-                            "0 = [player, screenToWorld [0.5, 0.5], player getVariable 'd_artillery_salvoes'] execVM 'artillery\functions\fn_call.sqf'",
+                            "0 = [player, screenToWorld [0.5, 0.5]] execVM 'artillery\functions\fn_call.sqf'",
                             "\ca\ui\data\cursor_attack_ca"
                         ] call FUNC(communication,add);
                     };
@@ -102,13 +102,20 @@ switch (_tier) do {
 
             case 2: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
+                    player setVariable [QGVAR(artillery_types), (player getVariable QGVAR(artillery_types)) + [
+                        ["(Perk) SADARM", "SADARM"],
+                        ["(Perk) Smoke", "SMOKE"]
+                    ]];
+
+                    if (!isNil QMODULE(setting)) then {
+                        ["artillery_type", false] call FUNC(setting,update);
+                    };
                 };
             };
 
             case 3: {
                 if (!isNil QMODULE(artillery)) then {
-                    player setVariable [QGVAR(artillery_range), GVAR(artillery_distance_range) + 1000];
+                    player setVariable [QGVAR(artillery_salvoes), (player getVariable QGVAR(artillery_salvoes)) + 1];
                 };
             };
 
