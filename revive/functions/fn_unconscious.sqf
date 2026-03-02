@@ -53,6 +53,8 @@ _unit spawn {
 
     [true, "systemChat", format ["%1 was incapacitated", name _this]] call FUNC(network,mp);
 
+    39672 cutRsc [QGVAR(revive_dirt), "PLAIN"];
+
     [gameLogic, "spawn", [[_this], {
         __log format ["Incapacitated %1", name (_this select 0)]];
 

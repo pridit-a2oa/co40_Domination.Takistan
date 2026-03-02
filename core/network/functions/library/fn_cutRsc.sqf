@@ -1,0 +1,1 @@
+((_this select 1) select 0) cutRsc ((_this select 1) select 1);
