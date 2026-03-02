@@ -3,7 +3,7 @@ private ["_position", "_side", "_type", "_group"];
 
 PARAMS_3(_position, _side, _type);
 
-_group = [_position, _side, _type] call BIS_fnc_spawnGroup;
+_group = _this call BIS_fnc_spawnGroup;
 
 X_JIP setVariable [QGVAR(groups), (X_JIP getVariable QGVAR(groups)) + [_group], true];
 

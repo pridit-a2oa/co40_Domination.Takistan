@@ -47,8 +47,6 @@ _group = [
 ] call FUNC(server,spawnGroup);
 
 {
-    _x setCaptive true;
-
     _x disableAI "MOVE";
     _x disableAI "AUTOTARGET";
     _x disableAI "TARGET";

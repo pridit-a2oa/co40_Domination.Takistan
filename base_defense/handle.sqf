@@ -35,10 +35,6 @@ if (isServer) then {
                 (configFile >> "CfgGroups" >> "West" >> "BIS_US" >> "Infantry" >> "US_TeamSupport")
             ] call FUNC(server,spawnGroup);
 
-            {
-                _x setCaptive true;
-            } forEach units _group;
-
             if (!isNil QMODULE(unit)) then {
                 [_group, markerPos _marker] call FUNC(unit,defend);
             };
