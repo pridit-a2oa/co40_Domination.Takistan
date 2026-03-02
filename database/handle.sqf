@@ -55,7 +55,7 @@ if (hasInterface) then {
 
         PARAMS_3(_unit, _identifier, _score);
 
-        if ([[_identifier select 1] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
+        if ([[_identifier select 2] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual) exitWith {};
 
         [format [
             "INSERT INTO characters (`id64`, guid, name) VALUES ('%1', MD5(CONCAT('BE',
