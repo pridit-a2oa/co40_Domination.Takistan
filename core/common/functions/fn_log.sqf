@@ -23,7 +23,7 @@ _expression = {
             __log format [
                 "Destroyed %1 {""killer"":""%2""%3}",
                 [typeOf _unit] call FUNC(vehicle,name),
-                if (isPlayer _killer) then {name _killer} else {side _killer},
+                if (isPlayer _killer && {alive _killer}) then {name _killer} else {side _killer},
                 if ([_crew, ""] call BIS_fnc_areEqual) then {
                     ""
                 } else {

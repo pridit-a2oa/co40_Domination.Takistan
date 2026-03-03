@@ -21,7 +21,7 @@ if ([count _vehicles, 0] call BIS_fnc_areEqual) exitWith {[]};
 
         case (!_foot && {[vehicle _x, _x] call BIS_fnc_areEqual && {{isPlayer _x} count crew _x > 0}}): {
             {
-                if (isPlayer _x) then {
+                if (isPlayer _x && {alive _x}) then {
                     [_players, [getPlayerUID _x, name _x]] call BIS_fnc_arrayPush;
                 };
             } forEach crew _x;

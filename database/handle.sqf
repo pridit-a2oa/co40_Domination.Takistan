@@ -18,7 +18,7 @@ if (isServer && {isMultiplayer}) then {
             {
                 private ["_key", "_variables"];
 
-                if (isPlayer _x) then {
+                if (isPlayer _x && {alive _x}) then {
                     _key = [getPlayerUID _x, name _x] call FUNC(THIS_MODULE,key);
 
                     if (isMultiplayer) then {
