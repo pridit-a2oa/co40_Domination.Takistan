@@ -121,7 +121,7 @@ if (isServer && {X_JIP getVariable QGVAR(artillery_call)}) then {
         _template
     ] call BIS_ARTY_F_ExecuteTemplateMission;
 
-    waitUntil {sleep 1; [BIS_ARTY_Logic, _template] call BIS_ARTY_F_Available};
+    waitUntil {sleep 1; [BIS_ARTY_Logic] call BIS_ARTY_F_Available};
 
     deleteVehicle _smoke;
 

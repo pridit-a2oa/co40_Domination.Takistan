@@ -35,7 +35,7 @@ if !(isNil QMODULE(artillery)) then {
 ] call FUNC(server,objectMapper));
 
 if !(isNil QMODULE(artillery)) then {
-    sleep 0.1;
+    waitUntil {sleep 0.1; !isNil {BIS_ARTY_Logic getVariable "ARTY_INITIALIZED"}};
 
     [BIS_ARTY_Logic, true] call BIS_ARTY_F_SetShellSpawn;
 };

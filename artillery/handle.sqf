@@ -17,7 +17,7 @@ for "_i" from 1 to GVAR(artillery_amount_shell) do {
 
     BIS_ARTY_Logic synchronizeObjectsAdd [_cannon];
 
-    sleep 0.1;
+    waitUntil {sleep 0.1; !isNil {BIS_ARTY_Logic getVariable "ARTY_INITIALIZED"}};
 
     [_cannon, "M119"] call BIS_ARTY_F_SetVirtualGun;
 };
