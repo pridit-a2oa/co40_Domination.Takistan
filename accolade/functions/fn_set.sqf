@@ -5,6 +5,7 @@ private ["_entry", "_identifier", "_index", "_task", "_npc", "_tracked", "_key",
 PARAMS_2(_entry, _identifier);
 
 if !(isServer) exitWith {};
+if (isNil QMODULE(database)) exitWith {};
 
 _index = ([0, GVAR(accolade_types)] call FUNC(common,arrayValues)) find (_entry select 0);
 _task = ([0, GVAR(accolade_types_proficiency)] call FUNC(common,arrayValues)) find (_entry select 1);

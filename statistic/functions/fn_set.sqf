@@ -5,6 +5,7 @@ private ["_statistic", "_identifier", "_key", "_statistics"];
 PARAMS_2(_statistic, _identifier);
 
 if !(isServer) exitWith {};
+if (isNil QMODULE(database)) exitWith {};
 
 _key = _identifier call FUNC(THIS_MODULE,key);
 
