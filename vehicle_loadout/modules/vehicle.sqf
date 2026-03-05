@@ -11,13 +11,19 @@ PARAMS_1(_vehicle);
 if !(typeOf _vehicle in ([0, GVAR(vehicle_loadout_types)] call FUNC(common,arrayValues))) exitWith {};
 
 if (isServer) then {
+    waitUntil {sleep 0.1; isNil {serverNamespace getVariable QMODULE(vehicle_loadout)}};
+
+    serverNamespace setVariable [QMODULE(vehicle_loadout), true];
+
     [_vehicle] call FUNC(THIS_MODULE,set);
 
-    sleep 1 + random 1;
+    sleep 0.5;
 
     [_vehicle] call FUNC(THIS_MODULE,addMagazines);
 
-    sleep 1 + random 1;
+    sleep 0.5;
 
     [_vehicle] call FUNC(THIS_MODULE,addWeapons);
+
+    serverNamespace setVariable [QMODULE(vehicle_loadout), nil];
 };

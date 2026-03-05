@@ -100,6 +100,7 @@ if (count _replace > 0) then {
 };
 
 _newObjs = [];
+_inanimate = [];
 
 private ["_posX", "_posY"];
 
@@ -184,13 +185,9 @@ if !(isNil QMODULE(tent)) then {
             };
 
             case (_newObj isKindOf "Thing"): {
-                [true, "enableSimulation", [_newObj, false], false] call FUNC(network,mp);
-            };
+                _newObj enableSimulation false;
 
-            case ([typeOf _newObj, "Land_tent_east"] call BIS_fnc_areEqual): {
-                if !(isNil QMODULE(tent)) then {
-                    [_newObjs, [_newObj] call FUNC(tent,unit)] call BIS_fnc_arrayPush;
-                };
+                [_inanimate, _newObj] call BIS_fnc_arrayPush;
             };
 
             case ([typeOf _newObj, "ZavoraAnim"] call BIS_fnc_areEqual): {
@@ -233,5 +230,13 @@ if !(isNil QMODULE(tent)) then {
         [_newObjs, _newObj] call BIS_fnc_arrayPush;
     };
 } forEach _objs;
+
+if !([_inanimate, []] call BIS_fnc_areEqual) then {
+    [true, "spawn", [_inanimate, {
+        {
+            _x enableSimulation false;
+        } forEach _this;
+    }]] call FUNC(network,mp);
+};
 
 _newObjs
