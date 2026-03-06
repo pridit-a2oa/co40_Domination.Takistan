@@ -22,6 +22,10 @@ if (hasInterface) then {
         __submodulePP(vehicle_uav);
     };
 
+    if (!isNil QMODULE(vehicle_service)) then {
+        __submodulePP(vehicle_service);
+    };
+
     if (!isNil QMODULE(setting)) then {
         __submodulePP(setting);
     };
