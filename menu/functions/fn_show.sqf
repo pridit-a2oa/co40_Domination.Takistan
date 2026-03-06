@@ -25,7 +25,7 @@ DIALOG("X_MENU_DIALOG", 1201) ctrlSetText (_type select 2);
 if (_target isKindOf "CAManBase" && {[side _target, west] call BIS_fnc_areEqual}) then {
     private ["_rank"];
 
-    _rank = [rank _target] call FUNC(common,rank);
+    _rank = [rank _target] call FUNC(common,capitalize);
 
     DIALOG("X_MENU_DIALOG", 1202) ctrlSetText format [
         "\ca\warfare2\Images\rank_%1",

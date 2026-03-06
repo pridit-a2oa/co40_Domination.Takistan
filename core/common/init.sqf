@@ -30,6 +30,7 @@ __cppfln(FUNC(THIS_MODULE,arrayShuffle),core\THIS_MODULE\functions\fn_arrayShuff
 __cppfln(FUNC(THIS_MODULE,arrayValues),core\THIS_MODULE\functions\fn_arrayValues.sqf);
 __cppfln(FUNC(THIS_MODULE,attachPoint),core\THIS_MODULE\functions\fn_attachPoint.sqf);
 __cppfln(FUNC(THIS_MODULE,canMove),core\THIS_MODULE\functions\fn_canMove.sqf);
+__cppfln(FUNC(THIS_MODULE,capitalize),core\THIS_MODULE\functions\fn_capitalize.sqf);
 __cppfln(FUNC(THIS_MODULE,deleteAt),core\THIS_MODULE\functions\fn_deleteAt.sqf);
 __cppfln(FUNC(THIS_MODULE,displayTime),core\THIS_MODULE\functions\fn_displayTime.sqf);
 __cppfln(FUNC(THIS_MODULE,empty),core\THIS_MODULE\functions\fn_empty.sqf);
@@ -41,7 +42,6 @@ __cppfln(FUNC(THIS_MODULE,numbersToWords),core\THIS_MODULE\functions\fn_numbersT
 __cppfln(FUNC(THIS_MODULE,paradrop),core\THIS_MODULE\functions\fn_paradrop.sqf);
 __cppfln(FUNC(THIS_MODULE,param),core\THIS_MODULE\functions\fn_param.sqf);
 __cppfln(FUNC(THIS_MODULE,players),core\THIS_MODULE\functions\fn_players.sqf);
-__cppfln(FUNC(THIS_MODULE,rank),core\THIS_MODULE\functions\fn_rank.sqf);
 __cppfln(FUNC(THIS_MODULE,ready),core\THIS_MODULE\functions\fn_ready.sqf);
 __cppfln(FUNC(THIS_MODULE,safePos),core\THIS_MODULE\functions\fn_safePos.sqf);
 __cppfln(FUNC(THIS_MODULE,time),core\THIS_MODULE\functions\fn_time.sqf);

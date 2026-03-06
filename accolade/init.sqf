@@ -38,7 +38,6 @@ GVAR(accolade_type_rank) = "MAJOR";
 GVAR(accolade_time_cooldown) = 3;
 
 if (hasInterface) then {
-    player setVariable [QGVAR(experience), 0, true];
     player setVariable [QGVAR(tasks), []];
 
     if (isNil {player getVariable QGVAR(accolade_cooldown)}) then {

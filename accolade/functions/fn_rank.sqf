@@ -2,9 +2,9 @@
 #include "x_macros.sqf"
 private ["_experience", "_ranks", "_rank"];
 
-PARAMS_1(_experience);
+_experience = ([_this, 0, 0] call FUNC(common,param)) min (call FUNC(THIS_MODULE,max));
 
-_experience = _experience min (call FUNC(THIS_MODULE,max));
+if ([_experience, 0] call BIS_fnc_areEqual) exitWith {"PRIVATE"};
 
 _ranks = GVAR(accolade_types_rank);
 

@@ -47,9 +47,12 @@ if (isServer && {[_accolades, []] call BIS_fnc_areEqual}) then {
 };
 
 if (hasInterface && {!([_accolades, []] call BIS_fnc_areEqual)}) then {
+    private ["_rank"];
+
+    player setVariable [QGVAR(experience), _experience, true];
     player setVariable [QGVAR(tasks), _accolades];
 
-    if !([_experience, 0] call BIS_fnc_areEqual) then {
-        player setVariable [QGVAR(experience), _experience, true];
-    };
+    _rank = [_experience] call FUNC(THIS_MODULE,rank);
+
+    [true, "setRank", [player, _rank]] call FUNC(network,mp);
 };

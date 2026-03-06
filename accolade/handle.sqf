@@ -101,14 +101,8 @@ if (hasInterface) then {
     };
 
     {
-        if (!([_x, player] call BIS_fnc_areEqual) && {isPlayer _x && {alive _x}}) then {
-            private ["_rank"];
-
-            _rank = [_x getVariable QGVAR(experience)] call FUNC(THIS_MODULE,rank);
-
-            if ([_rank, "PRIVATE"] call BIS_fnc_areEqual) exitWith {};
-
-            _x setRank _rank;
+        if (!([_x, player] call BIS_fnc_areEqual) && {isPlayer _x && {alive _x && {!isNil {_x getVariable QGVAR(experience)}}}}) then {
+            _x setRank ([_x getVariable QGVAR(experience)] call FUNC(THIS_MODULE,rank));
         };
     } forEach call FUNC(common,players);
 };

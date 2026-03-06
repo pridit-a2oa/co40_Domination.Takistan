@@ -102,7 +102,7 @@ if ([_array select _task, [2, 1]] call BIS_fnc_areEqual) then {
 
             systemChat format [
                 "You have been promoted to %1",
-                [_rank] call FUNC(common,rank)
+                [_rank] call FUNC(common,capitalize)
             ];
 
             playSound "beep";

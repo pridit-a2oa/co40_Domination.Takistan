@@ -184,13 +184,13 @@ if (!isNil QMODULE(ammobox)) then {
         };
 
         if !(isNil QMODULE(accolade)) then {
-            private ["_rank"];
+            private ["_experience", "_rank"];
 
-            _unit setVariable [QGVAR(experience), _unit getVariable QGVAR(experience), true];
+            _experience = _unit getVariable QGVAR(experience);
 
-            _rank = [_unit getVariable QGVAR(experience)] call FUNC(accolade,rank);
+            _unit setVariable [QGVAR(experience), _experience, true];
 
-            if ([_rank, "PRIVATE"] call BIS_fnc_areEqual) exitWith {};
+            _rank = [_experience] call FUNC(accolade,rank);
 
             [true, "setRank", [_unit, _rank]] call FUNC(network,mp);
         };
