@@ -1,4 +1,4 @@
-#define THIS_MODULE mission_mini
+#define THIS_MODULE investigation
 #include "x_macros.sqf"
 private ["_trigger"];
 
@@ -6,6 +6,7 @@ PARAMS_1(_trigger);
 
 if !(isNil QMODULE(marker)) then {
     [_trigger getVariable "marker"] call FUNC(marker,delete);
+    [format ["%1_radius", _trigger getVariable "marker"]] call FUNC(marker,delete);
 };
 
 if !(isNil QMODULE(vehicle_bomber)) then {
@@ -14,8 +15,8 @@ if !(isNil QMODULE(vehicle_bomber)) then {
 
 [
     position _trigger,
-    GVAR(mission_mini_distance_cleanup),
-    GVAR(mission_mini_time_cleanup),
+    GVAR(investigation_distance_cleanup),
+    GVAR(investigation_time_cleanup),
     _trigger getVariable "entities"
 ] spawn FUNC(server,cleanup);
 

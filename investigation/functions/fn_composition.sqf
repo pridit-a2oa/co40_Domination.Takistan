@@ -1,5 +1,5 @@
 #include "x_macros.sqf"
-private ["_type", "_position", "_direction", "_roads", "_objects", "_group", "_location", "_trigger"];
+private ["_type", "_position", "_direction", "_roads", "_objects", "_group", "_trigger"];
 
 PARAMS_3(_type, _position, _direction);
 
@@ -25,7 +25,7 @@ _trigger setVariable ["entities", _objects + units _group];
 _trigger setVariable ["units", units _group];
 _trigger setTriggerStatements [
     "({!alive _x} count (thisTrigger getVariable ""units"")) > 2",
-    "[thisTrigger] call d_fnc_mission_mini_complete",
+    "[thisTrigger] call d_fnc_investigation_complete",
     ""
 ];
 

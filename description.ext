@@ -356,6 +356,37 @@ class Params {
         default = 1;
         type[] = {"inventory", "repair"};
     };
+    class investigation
+    {
+        title = "Investigation";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+    };
+    class investigation_abandoned
+    {
+        title = "|- Abandoned Vehicle";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"investigation", "abandoned"};
+    };
+    class investigation_encampment
+    {
+        title = "|- OPFOR Encampment";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"investigation", "encampment"};
+    };
+    class investigation_weapons
+    {
+        title = "|- Weapons Cache";
+        values[] = {1, 0};
+        texts[] = {"Enabled", "-"};
+        default = 1;
+        type[] = {"investigation", "weapons"};
+    };
     class item
     {
         title = "Item";
@@ -437,37 +468,6 @@ class Params {
         values[] = {1, 0};
         texts[] = {"Enabled", "-"};
         default = 1;
-    };
-    class mission_mini
-    {
-        title = "Mission Mini";
-        values[] = {1, 0};
-        texts[] = {"Enabled", "-"};
-        default = 1;
-    };
-    class mission_mini_abandoned
-    {
-        title = "|- Abandoned (Vehicle)";
-        values[] = {1, 0};
-        texts[] = {"Enabled", "-"};
-        default = 1;
-        type[] = {"mission_mini", "abandoned"};
-    };
-    class mission_mini_cache
-    {
-        title = "|- Cache (Weapons)";
-        values[] = {1, 0};
-        texts[] = {"Enabled", "-"};
-        default = 1;
-        type[] = {"mission_mini", "cache"};
-    };
-    class mission_mini_encampment
-    {
-        title = "|- Encampment (OPFOR)";
-        values[] = {1, 0};
-        texts[] = {"Enabled", "-"};
-        default = 1;
-        type[] = {"mission_mini", "encampment"};
     };
     class name
     {

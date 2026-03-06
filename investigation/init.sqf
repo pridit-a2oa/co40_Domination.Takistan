@@ -1,23 +1,23 @@
 /**
- * Mission Mini Module
+ * Investigation Module
  *
  * Description: Manages handling of a small scope, untracked mission.
  */
 
-#define THIS_MODULE mission_mini
+#define THIS_MODULE investigation
 #include "x_macros.sqf"
 
-// Distance range from base a mini mission can generate between
-GVAR(mission_mini_distance_base) = [1100, 2300];
+// Distance range from base an investigation can generate between
+GVAR(investigation_distance_base) = [1100, 2300];
 
 // Minimum distance other players must be before cleaning
-GVAR(mission_mini_distance_cleanup) = 200;
+GVAR(investigation_distance_cleanup) = 200;
 
 // Amount of time following completion to clean up remaining entities
-GVAR(mission_mini_time_cleanup) = 600;
+GVAR(investigation_time_cleanup) = 600;
 
 if (isServer) then {
-    GVAR(mission_mini_types) = [];
+    GVAR(investigation_types) = [];
 };
 
 __cppfln(FUNC(THIS_MODULE,complete),THIS_MODULE\functions\fn_complete.sqf);

@@ -3,15 +3,15 @@ private ["_position", "_road", "_connectedRoads", "_connectedRoad", "_type", "_v
 
 PARAMS_1(_position);
 
-_road = (_position nearRoads (GVAR(mission_mini_distance_base) select 0)) call BIS_fnc_selectRandom;
+_road = (_position nearRoads (GVAR(investigation_distance_base) select 0)) call BIS_fnc_selectRandom;
 
-if ((markerPos QGVAR(base_south)) distance _road < (GVAR(mission_mini_distance_base) select 0)) exitWith {false};
-if ((markerPos QGVAR(base_south)) distance _road > (GVAR(mission_mini_distance_base) select 1)) exitWith {false};
+if ((markerPos QGVAR(base_south)) distance _road < (GVAR(investigation_distance_base) select 0)) exitWith {false};
+if ((markerPos QGVAR(base_south)) distance _road > (GVAR(investigation_distance_base) select 1)) exitWith {false};
 
 _connectedRoads = roadsConnectedTo _road;
 _connectedRoad = if ([count _connectedRoads, 0] call BIS_fnc_areEqual) then {_road} else {_connectedRoads select 0};
 
-_type = GVAR(mission_mini_abandoned_types_vehicle) call BIS_fnc_selectRandom;
+_type = GVAR(investigation_abandoned_types_vehicle) call BIS_fnc_selectRandom;
 
 _vehicle = _type createVehicle (getPos _road);
 _vehicle setDir ([getPos _vehicle, getPos _connectedRoad] call BIS_fnc_dirTo);
@@ -43,7 +43,7 @@ switch (round (random 3)) do {
     };
 };
 
-if (GVAR(mission_mini_abandoned_chance_flip) > floor (random 100)) then {
+if (GVAR(investigation_abandoned_chance_flip) > floor (random 100)) then {
     _pitchBank = _vehicle call BIS_fnc_getPitchBank;
 
     [_vehicle, _pitchBank select 0, (_pitchBank select 1) + 65] call BIS_fnc_setPitchBank;
@@ -54,11 +54,11 @@ _trigger setVariable ["entities", []];
 _trigger setVariable ["vehicle", _vehicle];
 _trigger setTriggerStatements [
     "!alive (thisTrigger getVariable ""vehicle"") || {(position (thisTrigger getVariable ""vehicle"")) distance ((thisTrigger getVariable ""vehicle"") getVariable 'd_position') > 5}",
-    "[thisTrigger] call d_fnc_mission_mini_complete",
+    "[thisTrigger] call d_fnc_investigation_complete",
     ""
 ];
 
-if (!isNil QMODULE(ied) && {GVAR(mission_mini_abandoned_chance_ied) > floor (random 100)}) then {
+if (!isNil QMODULE(ied) && {GVAR(investigation_abandoned_chance_ied) > floor (random 100)}) then {
     private ["_ied"];
 
     _ied = [_road] call FUNC(ied,create);

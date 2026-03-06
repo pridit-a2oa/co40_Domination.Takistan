@@ -28,7 +28,7 @@ if !(isServer) exitWith {
 };
 
 _type = switch (_alternate) do {
-    case true: {__submodulePP(mission_mini)};
+    case true: {__submodulePP(investigation)};
     case false: {[]};
 };
 
@@ -40,8 +40,8 @@ sleep 5;
 
 if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {};
 
-if !(isNil QMODULE(mission_mini)) then {
-    _type spawn FUNC(mission_mini,create);
+if !(isNil QMODULE(investigation)) then {
+    _type spawn FUNC(investigation,create);
 };
 
 sleep 2;

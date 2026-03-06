@@ -4,7 +4,7 @@ private ["_position"];
 PARAMS_1(_position);
 
 [[
-    GVAR(mission_mini_cache_type),
+    GVAR(investigation_weapons_type),
     [
         ["FoldChair"],
         ["FoldTable"],
@@ -16,4 +16,4 @@ PARAMS_1(_position);
         ["TKSpecialWeapons_EP1"],
         ["UAZ_AGS30_TK_EP1", "KORD_high_TK_EP1"]
     ]
-], _position, 90] call FUNC(mission_mini,composition);
+], _position, 90] call FUNC(investigation,composition);
