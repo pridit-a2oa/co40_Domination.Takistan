@@ -8,6 +8,18 @@ private ["_handlers", "_count"];
 
 _handlers = [];
 
+if (hasInterface && {!isServer}) then {
+    if !(isNil {X_JIP getVariable QGVAR(initialized)}) exitWith {};
+
+    titleText ["WAITING FOR SERVER", "BLACK FADED", 30];
+
+    [gameLogic, "spawn", [[name player, getPlayerUID player], {
+        __log format ["%1 (%2) waiting for server", _this select 0, _this select 1]];
+    }]] call FUNC(network,mp);
+
+    waitUntil {sleep 0.1; !isNil {X_JIP getVariable QGVAR(initialized)}};
+};
+
 {
     private ["_module", "_path"];
 
@@ -49,6 +61,10 @@ _count = count _handlers;
         titleText ["READY", "BLACK FADED", 1.6];
     };
 } forEach _handlers;
+
+if (isServer) then {
+    X_JIP setVariable [QGVAR(initialized), true, true];
+};
 
 if (hasInterface) then {
     [gameLogic, "spawn", [[name player, getPlayerUID player, _count], {

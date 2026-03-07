@@ -86,7 +86,7 @@ if (hasInterface) then {
         player spawn {
             if (!isNil QMODULE(database) && {[[name _this] call FUNC(database,sanitize), ""] call BIS_fnc_areEqual}) exitWith {
                 [gameLogic, "spawn", [[name _this, getPlayerUID _this], {
-                    __log format ["Player %1 (%2) ejected for invalid name", _this select 0, _this select 1]];
+                    __log format ["%1 (%2) ejected for invalid name", _this select 0, _this select 1]];
                 }]] call FUNC(network,mp);
 
                 [

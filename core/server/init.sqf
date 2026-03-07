@@ -68,11 +68,11 @@ resistance setFriend [east, 0.1];
 onPlayerConnected {
     if ([_name, "__SERVER__"] call BIS_fnc_areEqual) exitWith {};
 
-    __log format ["Player %1 (%2) entered the world", _name, _uid]];
+    __log format ["%1 (%2) entered the world", _name, _uid]];
 };
 
 onPlayerDisconnected {
-    __log format ["Player %1 (%2) returned to lobby", _name, _uid]];
+    __log format ["%1 (%2) returned to lobby", _name, _uid]];
 
     {
         if (!isNull _x && {[getPlayerUID _x, _uid] call BIS_fnc_areEqual}) exitWith {
