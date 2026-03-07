@@ -19,6 +19,7 @@ if (hasInterface) then {
 };
 
 __cppfln(FUNC(THIS_MODULE,action),menu\types\player\functions\fn_action.sqf);
+__cppfln(FUNC(THIS_MODULE,handle),menu\types\player\functions\fn_handle.sqf);
 __cppfln(FUNC(THIS_MODULE,show),menu\types\player\functions\fn_show.sqf);
 __cppfln(FUNC(THIS_MODULE,valid),menu\types\player\functions\fn_valid.sqf);
 

@@ -83,29 +83,6 @@ if (!isNil QMODULE(vehicle)) then {
     };
 };
 
-if (!isNil QMODULE(menu) && {!isNil QMODULE(menu_player) && {isMultiplayer}}) then {
-    ["init_action", {
-        ["init_action"] call FUNC(THIS_MODULE,removePerFrame);
-
-        {
-            private ["_action"];
-
-            if !([player, _x] call BIS_fnc_areEqual) then {
-                _action = GVAR(menu_player_action);
-                _action set [
-                    0,
-                    format [
-                        "[%1] %2", "Menu" call FUNC(common,BlueText),
-                        name _x
-                    ] call FUNC(common,GreyText)
-                ];
-
-                _x addAction _action;
-            };
-        } forEach (call FUNC(common,players));
-    }, 0] call FUNC(THIS_MODULE,addPerFrame);
-};
-
 if (!isNil QMODULE(ammobox)) then {
     ["init_ammobox", {
         ["init_ammobox"] call FUNC(THIS_MODULE,removePerFrame);
@@ -119,6 +96,18 @@ if (!isNil QMODULE(ammobox)) then {
                 [_x] call FUNC(ammobox,handle);
             } forEach (allMissionObjects (_type select 1));
         };
+    }, 0] call FUNC(THIS_MODULE,addPerFrame);
+};
+
+if (!isNil QMODULE(menu) && {!isNil QMODULE(menu_player) && {isMultiplayer}}) then {
+    ["init_action", {
+        ["init_action"] call FUNC(THIS_MODULE,removePerFrame);
+
+        {
+            if (isPlayer _x && {alive _x}) then {
+                [_x, false] call FUNC(menu_player,handle);
+            };
+        } forEach ((call FUNC(common,players)) - [player]);
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
