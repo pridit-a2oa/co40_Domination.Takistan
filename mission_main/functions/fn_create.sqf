@@ -79,12 +79,12 @@ if (!isNil QMODULE(task)) then {
     _target setVariable [QGVAR(tasks), (_target getVariable QGVAR(tasks)) + [_task], true];
 };
 
-[true, "playSound", QGVAR(sound_task)] call FUNC(network,mp);
-
 [true, "spawn", [[_target, _name], {
     private ["_target", "_name"];
 
     PARAMS_2(_target, _name);
+
+    playSound QGVAR(sound_task);
 
     if (!isNil QMODULE(marker)) then {
         [
