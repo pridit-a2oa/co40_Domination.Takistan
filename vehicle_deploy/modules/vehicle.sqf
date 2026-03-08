@@ -17,7 +17,6 @@ if (isServer) then {
     _vehicle setVariable [QGVAR(handled), false];
     _vehicle setVariable [QGVAR(deployed), [false, ""], true];
     _vehicle setVariable [QGVAR(deploy_cooldown), 0];
-    _vehicle setVariable [QGVAR(enable_simulation), true, true];
 
     if !(isNil QMODULE(teleport)) then {
         [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);

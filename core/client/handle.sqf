@@ -50,6 +50,10 @@
         };
     } forEach (allMissionObjects "Thing");
 
+    {
+        _x enableSimulation false;
+    } forEach ((X_JIP getVariable QGVAR(inanimate)) - [objNull]);
+
     [] exec "\ca\modules\Clouds\data\scripts\BIS_CloudSystem.sqs";
 };
 
