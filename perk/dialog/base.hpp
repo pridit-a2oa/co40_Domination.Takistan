@@ -1,3 +1,4 @@
+// $[1.03,[[0,0,1,1],0.01,0.01],[1201,"",[0,"ca\ui\data\ui_dsinterface_background_ca",[0.267525,0.015,0.817,1.72],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1001,"",[0,"Perks",[0.28,0.045,0.201547,0.0400432],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1000,"",[0,"Available Points:",[0.48,0.045,0.201547,0.0400432],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1200,"",[0,"ca\ui\data\cmdbar_background_ca",[0.68,0.045,0.0625,0.075],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1002,"",[0,"2",[0.685,0.015,0.0267678,0.101732],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1700,"",[0,"Close",[0.545,0.855,0.163131,0.113468],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]],[1003,"",[0,"",[0.275,0.87,0.25,0.1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],""],[]]]
 class XD_PerkDialog {
     idd = -1;
     movingEnable = 1;
@@ -7,18 +8,18 @@ class XD_PerkDialog {
     class controlsBackground {
         class PerksDialogBackground: XD_RscPicture
         {
-            text = "ca\ui\data\ui_background_controls_ca.paa";
-            x = 0.265624;
-            y = -2.98023e-008;
-            w = 0.596213;
-            h = 1.00236;
+            text = "ca\ui\data\ui_dsinterface_background_ca";
+            x = 0.265;
+            y = 0.015;
+            w = 0.817;
+            h = 1.72;
         };
         class PerksDialogBackgroundColor: XC_RscText
         {
-            x = 0.26751;
-            y = 0.101011;
-            w = 0.461276;
-            h = 0.768351;
+            x = 0.268935;
+            y = 0.0999998;
+            w = 0.459849;
+            h = 0.75974;
             colorBackground[] = {0.247,0.2,0.137,0.5};
         };
     };
@@ -31,32 +32,44 @@ class XD_PerkDialog {
         class MenuText: X3_RscText
         {
             text = "Perks";
-            x = 0.267878;
-            y = 0.0420879;
-            w = 0.0879105;
-            h = 0.0348484;
+            x = 0.28;
+            y = 0.045;
+            w = 0.201547;
+            h = 0.0400432;
+            style = ST_LEFT;
         };
         class AvailablePointsText: X3_RscText
         {
-            text = "Available Points:";
-            x = 0.504878;
-            y = 0.0420879;
-            w = 0.196496;
-            h = 0.0348484;
+            text = "Points:";
+            x = 0.48;
+            y = 0.045;
+            w = 0.201547;
+            h = 0.0400432;
+            style = ST_RIGHT;
         };
-        class AvailablePointsValue : X3_RscText {
+        class AvailablePointsValueText: X3_RscText {
             idc = 1;
-            x = 0.680878;
-            y = 0.0420879;
-            w = 0.0374055;
-            h = 0.0348484;
+            x = 0.685;
+            y = 0.015;
+            w = 0.0267678;
+            h = 0.101732;
+            style = ST_CENTER;
+        };
+        class AvailablePointsValueBackgroundPicture: XD_RscPicture
+        {
+            text = "ca\ui\data\cmdbar_background_ca";
+            x = 0.68;
+            y = 0.045;
+            w = 0.0625;
+            h = 0.075;
+            colorText[] = {0.1, 0.1, 0.1, 0.5};
         };
         class CloseButton: XD_ButtonBase
         {
             text = "Close";
             action = "CloseDialog 0";
-            x = 0.547506;
-            y = 0.86894;
+            x = 0.545;
+            y = 0.855;
             w = 0.163131;
             h = 0.113468;
         };
@@ -74,7 +87,7 @@ class XD_PerkDialog {
             idc = 10;
             style = ST_MULTI;
             x = 0.275;
-            y = 0.885;
+            y = 0.87;
             w = 0.25;
             h = 0.1;
             lineSpacing = 1;
@@ -85,7 +98,7 @@ class XD_PerkDialog {
             idc = 20;
             style = ST_MULTI + ST_CENTER;
             x = 0.275;
-            y = 0.885;
+            y = 0.87;
             w = 0.25;
             h = 0.1;
             lineSpacing = 1;

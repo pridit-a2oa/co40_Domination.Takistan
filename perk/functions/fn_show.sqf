@@ -40,6 +40,8 @@ _roles = [0, GVAR(perk_type_roles)] call FUNC(common,arrayValues);
 {
     private ["_unlockable"];
 
+    DIALOG("X_PERK_DIALOG", 510 + (_forEachIndex + 1)) ctrlSetTooltip ([2, GVAR(roles)] call FUNC(common,arrayValues) select _forEachIndex);
+
     if (str player in _x) then {
         _unlockable = switch (true) do {
             case (_override): {
