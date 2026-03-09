@@ -9,12 +9,12 @@ FUNC(THIS_MODULE,BrownText) = {"<t color='#806f43'>" + _this + "</t>"};
 FUNC(THIS_MODULE,KhakiText) = {"<t color='#809966'>" + _this + "</t>"};
 
 GVAR(roles) = [
-    [2, "ARTY"],
-    [8, "ENGI"],
-    [8, "MGUN"],
-    [8, "MRKS"],
-    [8, "MEDI"],
-    [6, "PILT"]
+    [2, "ARTY", "Artillery Operator"],
+    [8, "ENGI", "Engineer"],
+    [8, "MGUN", "Machine Gunner"],
+    [8, "MRKS", "Marksman"],
+    [8, "MEDI", "Medic"],
+    [6, "PILT", "Pilot"]
 ];
 
 {

@@ -4,7 +4,7 @@
 
 #include "x_macros.sqf"
 
-["Vehicle Upgrades", [
+["Vehicle Upgrades (Stryker)", [
     "<img image='vehicle_upgrade\textures\overview_ca.paa' width='175'/>",
     "<br />The Stryker (MHQ) vehicles can be upgraded (converted) into variants at the base.",
     "<br />These variants may have some unique armament and utility but <marker name=''>all</marker> can act as mobile respawn.",

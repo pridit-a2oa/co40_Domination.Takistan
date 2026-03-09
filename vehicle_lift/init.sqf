@@ -10,7 +10,7 @@
 
 // Vehicles able to lift other vehicles alongside types & alive state
 GVAR(vehicle_lift_types) = [
-    ["Vehicle Lifter (<t color='#c54a30' size='0.6'>not wrecks</t>)",
+    ["Vehicle Lifter<br /><t color='#c54a30' size='0.6'>(NOT WRECKS)</t>",
         [
             "BAF_Merlin_HC3_D",
             "CH_47F_EP1",
