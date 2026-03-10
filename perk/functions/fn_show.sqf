@@ -35,6 +35,8 @@ _override = call FUNC(THIS_MODULE,override);
     }
 ];
 
+DIALOG("X_PERK_DIALOG", 5) ctrlSetToolTip format ["Earn points every %1 score", GVAR(perk_amount_score)];
+
 if (_points > 0 || {_override}) then {
     for "_i" from 1 to 10 do {
         DIALOG("X_PERK_DIALOG", 200 + _i) ctrlSetText "\ca\ui\data\cmdbar_player_ca";
