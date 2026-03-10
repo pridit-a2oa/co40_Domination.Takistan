@@ -21,13 +21,19 @@ _unlocked = player getVariable QGVAR(perk_ids);
 
 _override = call FUNC(THIS_MODULE,override);
 
-DIALOG("X_PERK_DIALOG", 1) ctrlSetText (
+{
+    DIALOG("X_PERK_DIALOG", 1) ctrlSetText _x;
+
+    if !([_x, "0"] call BIS_fnc_areEqual) then {
+        DIALOG("X_PERK_DIALOG", 1) ctrlSetTextColor [1, 1, 1, 0.8];
+    };
+} forEach [
     if (_override) then {
         str (40 - count _unlocked)
     } else {
         str _points
     }
-);
+];
 
 if (_points > 0 || {_override}) then {
     for "_i" from 1 to 10 do {
