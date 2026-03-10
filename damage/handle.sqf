@@ -8,6 +8,28 @@
 if (hasInterface) then {
     player setVariable [QGVAR(structure), 0];
 
+    player addEventHandler ["AnimDone", {
+        private ["_unit", "_animation"];
+
+        PARAMS_2(_unit, _animation);
+
+        if (alive _unit && {[_animation, "healed"] call KRON_StrInStr}) then {
+            _unit setVariable [QGVAR(structure), 0];
+        };
+    }];
+
+    player addEventHandler ["HandleHeal", {
+        private ["_unit"];
+
+        PARAMS_1(_unit);
+
+        if (alive _unit) then {
+            _unit setVariable [QGVAR(structure), 0];
+        };
+
+        false
+    }];
+
     player addEventHandler ["HandleDamage", {
         private ["_unit", "_selection", "_damage", "_injurer", "_projectile"];
 
