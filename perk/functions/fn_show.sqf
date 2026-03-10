@@ -22,16 +22,22 @@ _unlocked = player getVariable QGVAR(perk_ids);
 _override = call FUNC(THIS_MODULE,override);
 
 {
-    DIALOG("X_PERK_DIALOG", 1) ctrlSetText _x;
+    private ["_allocatable"];
 
-    if !([_x, "0"] call BIS_fnc_areEqual) then {
-        DIALOG("X_PERK_DIALOG", 1) ctrlSetTextColor [1, 1, 1, 0.8];
-    };
+    _allocatable = (_x min 99) max 0;
+
+    DIALOG("X_PERK_DIALOG", 1) ctrlSetStructuredText parseText (
+        format [
+            "<t align='center' color='#80a49269'>%1%2</t>",
+            if (_allocatable < 10) then {"0"} else {""},
+            if (_allocatable > 0) then {format ["<t color='#cce3cd5d'>%1</t>", _allocatable]} else {"0"}
+        ]
+    );
 } forEach [
     if (_override) then {
-        str (40 - count _unlocked)
+        40 - count _unlocked
     } else {
-        str _points
+        _points
     }
 ];
 
