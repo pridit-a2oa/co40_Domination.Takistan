@@ -72,6 +72,12 @@ class XD_PerkDialog {
             w = 0.052;
             h = 0.0434633;
             size = 0.034;
+            text = "00";
+            class Attributes {
+                color = "#80a49269";
+                align = "center";
+                valign = "middle";
+            };
         };
         class AvailablePointsValueTooltipButton: XD_LinkButtonBase
         {
@@ -92,17 +98,7 @@ class XD_PerkDialog {
             h = 0.1;
             lineSpacing = 1;
             sizeEx = 0.028;
-        };
-        class HolidayText: X3_RscText
-        {
-            idc = 20;
-            style = ST_MULTI + ST_CENTER;
-            x = 0.275;
-            y = 0.87;
-            w = 0.25;
-            h = 0.1;
-            lineSpacing = 1;
-            sizeEx = 0.028;
+            text = "Left-click: Unlock perk\nHover: Show info\nReconnect to reset";
         };
         class CloseButton: XD_ButtonBase
         {
