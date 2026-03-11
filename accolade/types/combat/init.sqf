@@ -5,8 +5,6 @@
 #define THIS_MODULE accolade_combat
 #include "x_macros.sqf"
 
-if (isNil QMODULE(accolade)) exitWith {};
-
 // Set discipline and unit
 GVAR(accolade_combat_type) = [
     "combat",

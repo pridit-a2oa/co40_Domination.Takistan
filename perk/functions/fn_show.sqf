@@ -8,8 +8,6 @@ createDialog "XD_PerkDialog";
 0 spawn {
     private ["_points", "_unlocked", "_override"];
 
-
-
     _points = player getVariable QGVAR(perk_points);
     _unlocked = player getVariable QGVAR(perk_ids);
 

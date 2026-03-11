@@ -32,7 +32,7 @@ _vehicle setVectorUp surfaceNormal (position _vehicle);
 
 _vehicle lock false;
 
-if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
+if (!isNil QMODULE(menu_vehicle)) then {
     _vehicle setVariable [QGVAR(menu), true, true];
 };
 

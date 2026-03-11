@@ -19,7 +19,7 @@ if (hasInterface) then {
         __submodulePP(artillery);
     };
 
-    if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+    if (!isNil QMODULE(construction_fortification)) then {
         __submodulePP(construction\types\fortification);
     };
 

@@ -56,7 +56,7 @@ if !(isNil QMODULE(vehicle_deploy)) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
+if !(isNil QMODULE(inventory_medical)) then {
     case "inventory_medical": {
         ["medical"] call FUNC(inventory,replenish);
 
@@ -64,7 +64,7 @@ if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_refuel)}) then {
+if !(isNil QMODULE(inventory_refuel)) then {
     case "inventory_refuel": {
         ["refuel"] call FUNC(inventory,replenish);
 
@@ -72,7 +72,7 @@ if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_refuel)}) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
+if !(isNil QMODULE(inventory_repair)) then {
     case "inventory_repair": {
         ["repair"] call FUNC(inventory,replenish);
 

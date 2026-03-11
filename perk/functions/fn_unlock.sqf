@@ -8,14 +8,14 @@ switch (_tier) do {
     case 0: {
         switch (_perk) do {
             case 1: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) + 1, true];
                     player setVariable [QGVAR(inventory_medical_max), (player getVariable QGVAR(inventory_medical_max)) + 1, true];
                 };
             };
 
             case 2: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
+                if (!isNil QMODULE(inventory_repair)) then {
                     player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
                     player setVariable [QGVAR(inventory_repair_max), (player getVariable QGVAR(inventory_repair_max)) + 1, true];
                 };
@@ -136,7 +136,7 @@ switch (_tier) do {
     case 2: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_farp)}) then {
+                if (!isNil QMODULE(construction_farp)) then {
                     player setVariable [QGVAR(construction_farp), 1];
                     player setVariable [QGVAR(construction_farp_max), 1];
 
@@ -152,7 +152,7 @@ switch (_tier) do {
             };
 
             case 2: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
+                if (!isNil QMODULE(inventory_repair)) then {
                     player setVariable [QGVAR(inventory_repair), (player getVariable QGVAR(inventory_repair)) + 1, true];
                     player setVariable [QGVAR(inventory_repair_max), (player getVariable QGVAR(inventory_repair_max)) + 1, true];
                 };
@@ -189,7 +189,7 @@ switch (_tier) do {
     case 3: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
+                if (!isNil QMODULE(construction_nest)) then {
                     player setVariable [QGVAR(construction_nest), 1];
                     player setVariable [QGVAR(construction_nest_max), 1];
 
@@ -205,19 +205,19 @@ switch (_tier) do {
             };
 
             case 2: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
+                if (!isNil QMODULE(construction_nest)) then {
                     GVAR(construction_nest_time_cooldown) = GVAR(construction_nest_time_cooldown) - 300;
                 };
             };
 
             case 3: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
+                if (!isNil QMODULE(construction_nest)) then {
                     player setVariable [QGVAR(nest_ammo), 1];
                 };
             };
 
             case 4: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_nest)}) then {
+                if (!isNil QMODULE(construction_nest)) then {
                     player setVariable [QGVAR(construction_nest), (player getVariable QGVAR(construction_nest)) + 1];
                     player setVariable [QGVAR(construction_nest_max), (player getVariable QGVAR(construction_nest_max)) + 1];
                 };
@@ -234,7 +234,7 @@ switch (_tier) do {
     case 4: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+                if (!isNil QMODULE(construction_fortification)) then {
                     player setVariable [QGVAR(construction_fortification), 1];
                     player setVariable [QGVAR(construction_fortification_max), 1];
 
@@ -250,13 +250,13 @@ switch (_tier) do {
             };
 
             case 2: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+                if (!isNil QMODULE(construction_fortification)) then {
                     GVAR(construction_fortification_time_cooldown) = GVAR(construction_fortification_time_cooldown) - 300;
                 };
             };
 
             case 3: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+                if (!isNil QMODULE(construction_fortification)) then {
                     player setVariable [QGVAR(fortification_types), (player getVariable QGVAR(fortification_types)) + [
                         ["(Perk) Bunker", "Land_fortified_nest_small_EP1"],
                         ["(Perk) Rampart", "Land_fort_rampart_EP1"]
@@ -269,7 +269,7 @@ switch (_tier) do {
             };
 
             case 4: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_fortification)}) then {
+                if (!isNil QMODULE(construction_fortification)) then {
                     player setVariable [QGVAR(construction_fortification), (player getVariable QGVAR(construction_fortification)) + 1];
                     player setVariable [QGVAR(construction_fortification_max), (player getVariable QGVAR(construction_fortification_max)) + 1];
                 };
@@ -286,7 +286,7 @@ switch (_tier) do {
     case 5: {
         switch (_perk) do {
             case 1: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_mash)}) then {
+                if (!isNil QMODULE(construction_mash)) then {
                     player setVariable [QGVAR(construction_mash), 1];
                     player setVariable [QGVAR(construction_mash_max), 1];
 
@@ -302,7 +302,7 @@ switch (_tier) do {
             };
 
             case 2: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) + 1, true];
                     player setVariable [QGVAR(inventory_medical_max), (player getVariable QGVAR(inventory_medical_max)) + 1, true];
                 };
@@ -315,14 +315,14 @@ switch (_tier) do {
             };
 
             case 4: {
-                if (!isNil QMODULE(construction) && {!isNil QMODULE(construction_mash)}) then {
+                if (!isNil QMODULE(construction_mash)) then {
                     player setVariable [QGVAR(construction_mash), (player getVariable QGVAR(construction_mash)) + 1];
                     player setVariable [QGVAR(construction_mash_max), (player getVariable QGVAR(construction_mash_max)) + 1];
                 };
             };
 
             case 5: {
-                if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
+                if (!isNil QMODULE(inventory_medical)) then {
                     player setVariable [QGVAR(inventory_medical), (player getVariable QGVAR(inventory_medical)) + 1, true];
                     player setVariable [QGVAR(inventory_medical_max), (player getVariable QGVAR(inventory_medical_max)) + 1, true];
                 };

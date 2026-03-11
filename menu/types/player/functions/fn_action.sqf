@@ -10,7 +10,7 @@ if !(isNil QMODULE(drag)) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
+if !(isNil QMODULE(inventory_medical)) then {
     case "medical": {
         [_entity, "medical"] call FUNC(inventory,transfer);
 
@@ -18,7 +18,7 @@ if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_medical)}) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_refuel)}) then {
+if !(isNil QMODULE(inventory_refuel)) then {
     case "refuel": {
         [_entity, "refuel"] call FUNC(inventory,transfer);
 
@@ -26,7 +26,7 @@ if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_refuel)}) then {
     };
 };
 
-if !(isNil QMODULE(inventory) && {isNil QMODULE(inventory_repair)}) then {
+if !(isNil QMODULE(inventory_repair)) then {
     case "repair": {
         [_entity, "repair"] call FUNC(inventory,transfer);
 

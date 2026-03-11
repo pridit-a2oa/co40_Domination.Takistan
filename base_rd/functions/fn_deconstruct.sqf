@@ -41,7 +41,7 @@ if (!isNil QMODULE(3d)) then {
     }]] call FUNC(network,mp);
 };
 
-if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
+if (!isNil QMODULE(menu_vehicle)) then {
     _vehicle setVariable [QGVAR(menu), false, true];
 };
 

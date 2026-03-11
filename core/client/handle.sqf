@@ -103,7 +103,7 @@ if (!isNil QMODULE(ammobox)) then {
     }, 0] call FUNC(THIS_MODULE,addPerFrame);
 };
 
-if (!isNil QMODULE(menu) && {!isNil QMODULE(menu_player) && {isMultiplayer}}) then {
+if (!isNil QMODULE(menu_player) && {isMultiplayer}) then {
     ["init_action", {
         ["init_action"] call FUNC(THIS_MODULE,removePerFrame);
 

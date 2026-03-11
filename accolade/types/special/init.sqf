@@ -5,8 +5,6 @@
 #define THIS_MODULE accolade_special
 #include "x_macros.sqf"
 
-if (isNil QMODULE(accolade)) exitWith {};
-
 // Set discipline and unit
 GVAR(accolade_special_type) = [
     "special",

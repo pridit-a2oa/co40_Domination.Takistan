@@ -9,7 +9,6 @@
 #include "x_macros.sqf"
 
 if !(isServer) exitWith {};
-if (isNil QMODULE(investigation)) exitWith {};
 
 // Type of investigation
 GVAR(investigation_abandoned) = ["abandoned", "Abandoned Light Vehicle"];

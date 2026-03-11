@@ -217,7 +217,7 @@ if !(isNil QMODULE(tent)) then {
                     _newObj addEventHandler ["Fired", {(_this select 0) setVehicleAmmo 1}];
                 };
 
-                if !(isNil QMODULE(menu) && {isNil QMODULE(menu_vehicle)}) then {
+                if !(isNil QMODULE(menu_vehicle)) then {
                     _newObj setVariable [QGVAR(menu), false, true];
                 };
             };

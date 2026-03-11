@@ -54,7 +54,7 @@ if (hasInterface) then {
     };
 
     {
-        if !(isNil QMODULE(menu) && {isNil QMODULE(menu_unit)}) then {
+        if !(isNil QMODULE(menu_unit)) then {
             [_x] __submodulePP(menu);
         };
 
