@@ -106,6 +106,10 @@ if (hasInterface) then {
                 waitUntil {sleep 1; !GVAR(tutorial)};
             };
 
+            if !(isNil QMODULE(base_ammobox)) then {
+                player setDir ([player, markerPos QGVAR(player_ammobox_pos)] call BIS_fnc_dirTo);
+            };
+
             sleep 1;
 
             titleText ["", "BLACK IN", 4];
