@@ -10,24 +10,10 @@
 
     uiNamespace setVariable [QGVAR(notice), displayNull];
 
-    removeAllItems player;
-
-    {
-        player addWeapon _x;
-    } forEach [
-        format ["Binocular%1", if (str player in GVAR(MRKS)) then {"_Vector"} else {""}],
-        "ItemCompass",
-        "ItemGPS",
-        "ItemMap",
-        "ItemRadio",
-        "ItemWatch",
-        "NVGoggles"
-    ];
-
     player setDamage 0;
     player disableConversation true;
 
-    if ([sunOrMoon, 0] call BIS_fnc_areEqual) then {
+    if ([sunOrMoon, 0] call BIS_fnc_areEqual && {"NVGoggles" in (weapons player)}) then {
         if (!isNil QMODULE(setting) && {[(player getVariable QGVAR(nightvision)) select 1, 0] call BIS_fnc_areEqual}) exitWith {};
 
         player action ["NVGoggles", player];

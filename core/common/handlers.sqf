@@ -59,6 +59,10 @@ _count = count _handlers;
 
     if (hasInterface && {isMultiplayer && {[_forEachIndex + 1, _count] call BIS_fnc_areEqual}}) then {
         titleText ["READY", "BLACK FADED", 1.6];
+
+        if !(isNil QMODULE(gear)) then {
+            waitUntil {sleep 0.1; !([weapons player, []] call BIS_fnc_areEqual)};
+        };
     };
 } forEach _handlers;
 

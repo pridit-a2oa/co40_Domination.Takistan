@@ -152,6 +152,29 @@ onPlayerDisconnected {
                 };
             };
 
+            if !(isNil QMODULE(gear)) then {
+                private ["_key", "_gear"];
+
+                _key = _this call FUNC(gear,key);
+
+                if (isMultiplayer && {isNil {serverNamespace getVariable _key}}) exitWith {};
+
+                _gear = +(serverNamespace getVariable _key);
+
+                serverNamespace setVariable [_key, nil];
+
+                if ([_gear select 1, []] call BIS_fnc_areEqual) exitWith {};
+
+                [
+                    "UpsertCharacterGear",
+                    format [
+                        "[p_character_id=%1|p_data=%2]",
+                        (_gear select 0) select 0,
+                        _gear select 1
+                    ]
+                ] spawn FUNC(database,query);
+            };
+
             if !(isNil QMODULE(statistic)) then {
                 serverNamespace setVariable [_this call FUNC(statistic,key), nil];
             };

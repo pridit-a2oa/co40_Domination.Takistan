@@ -1,7 +1,7 @@
 /**
  * Gear Module
  *
- * Description: This module facilitates the governance of gear.
+ * Description: This module facilitates the governance and persistence of gear.
  */
 
 #define THIS_MODULE gear
@@ -27,6 +27,9 @@ GVAR(gear_exclude_weapons) = [
     "Strela"
 ];
 
+__cppfln(FUNC(THIS_MODULE,default),THIS_MODULE\functions\fn_default.sqf);
 __cppfln(FUNC(THIS_MODULE,items),THIS_MODULE\functions\fn_items.sqf);
+__cppfln(FUNC(THIS_MODULE,key),THIS_MODULE\functions\fn_key.sqf);
+__cppfln(FUNC(THIS_MODULE,restore),THIS_MODULE\functions\fn_restore.sqf);
 
 MODULE(THIS_MODULE) = true;

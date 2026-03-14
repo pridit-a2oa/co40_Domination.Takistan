@@ -140,6 +140,14 @@ if (hasInterface) then {
             [_unit, "execVM", [[_identifier, _experience, (serverNamespace getVariable _key) select 1], __submoduleRE(accolade)]] call FUNC(network,mp);
         };
 
+        if !(isNil QMODULE(gear)) then {
+            private ["_key"];
+
+            if (isServer || {hasInterface && {isServer}}) then {
+                [gameLogic, "execVM", [[_identifier], __submoduleRE(gear)]] call FUNC(network,mp);
+            };
+        };
+
         if !(isNil QMODULE(statistic)) then {
             private ["_key"];
 
