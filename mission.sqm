@@ -257,7 +257,7 @@ class Mission
 					special="NONE";
 					id=244;
 					side="WEST";
-					vehicle="BAF_Soldier_FAC_MTP";
+					vehicle="BAF_Soldier_FAC_DDPM";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -272,7 +272,7 @@ class Mission
 					special="NONE";
 					id=247;
 					side="WEST";
-					vehicle="BAF_Soldier_FAC_MTP";
+					vehicle="BAF_Soldier_FAC_DDPM";
 					player="PLAY CDG";
 					skill=1;
 					text="ENGI2";
@@ -378,7 +378,7 @@ class Mission
 					special="NONE";
 					id=250;
 					side="WEST";
-					vehicle="BAF_Soldier_MG_MTP";
+					vehicle="BAF_Soldier_MG_DDPM";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -393,7 +393,7 @@ class Mission
 					special="NONE";
 					id=257;
 					side="WEST";
-					vehicle="BAF_Soldier_MG_MTP";
+					vehicle="BAF_Soldier_MG_DDPM";
 					player="PLAY CDG";
 					skill=1;
 					text="MGUN2";
@@ -499,7 +499,7 @@ class Mission
 					special="NONE";
 					id=258;
 					side="WEST";
-					vehicle="BAF_Soldier_Marksman_MTP";
+					vehicle="BAF_Soldier_Marksman_DDPM";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -514,7 +514,7 @@ class Mission
 					special="NONE";
 					id=265;
 					side="WEST";
-					vehicle="BAF_Soldier_Marksman_MTP";
+					vehicle="BAF_Soldier_Marksman_DDPM";
 					player="PLAY CDG";
 					skill=1;
 					text="MRKS2";
@@ -620,7 +620,7 @@ class Mission
 					special="NONE";
 					id=266;
 					side="WEST";
-					vehicle="BAF_Soldier_Medic_MTP";
+					vehicle="BAF_Soldier_Medic_DDPM";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -635,7 +635,7 @@ class Mission
 					special="NONE";
 					id=273;
 					side="WEST";
-					vehicle="BAF_Soldier_Medic_MTP";
+					vehicle="BAF_Soldier_Medic_DDPM";
 					player="PLAY CDG";
 					skill=1;
 					text="MEDI2";
@@ -741,7 +741,7 @@ class Mission
 					special="NONE";
 					id=274;
 					side="WEST";
-					vehicle="BAF_Pilot_MTP";
+					vehicle="BAF_Pilot_DDPM";
 					player="PLAY CDG";
 					leader=1;
 					skill=1;
@@ -756,7 +756,7 @@ class Mission
 					special="NONE";
 					id=279;
 					side="WEST";
-					vehicle="BAF_Pilot_MTP";
+					vehicle="BAF_Pilot_DDPM";
 					player="PLAY CDG";
 					skill=1;
 					text="PILT2";
