@@ -42,6 +42,7 @@ _entities = [];
     _entity addEventHandler ["HandleDamage", {0}];
 
     removeAllWeapons _entity;
+    removeAllItems _entity;
 
     // _entity switchMove "";
     _entity disableAI "MOVE";
