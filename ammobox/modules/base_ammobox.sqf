@@ -31,12 +31,16 @@ if !(isNil QMODULE(database)) then {
         if ([((serverNamespace getVariable _key) select 1) select 0, ""] call BIS_fnc_areEqual) exitWith {};
 
         [_unit, "spawn", [[], {
-            if (isNil {GVAR(base_ammobox)}) exitWith {};
+            if !(isNil QMODULE(gear)) then {
+                GVAR(gear_exclude_weapons) = (GVAR(gear_exclude_weapons) - ["AKS_GOLD", "revolver_gold_EP1"]);
+            };
 
-            [GVAR(ammobox_type_rifles_assault), "AKS_GOLD"] call BIS_fnc_arrayPush;
-            [GVAR(ammobox_type_handguns), "revolver_gold_EP1"] call BIS_fnc_arrayPush;
+            if !(isNil QMODULE(base_ammobox)) then {
+                [GVAR(ammobox_type_rifles_assault), "AKS_GOLD"] call BIS_fnc_arrayPush;
+                [GVAR(ammobox_type_handguns), "revolver_gold_EP1"] call BIS_fnc_arrayPush;
 
-            [GVAR(base_ammobox), true] call FUNC(THIS_MODULE,replenish);
+                [GVAR(base_ammobox), true] call FUNC(THIS_MODULE,replenish);
+            };
         }]] call FUNC(network,mp);
     }]] call FUNC(network,mp);
 };

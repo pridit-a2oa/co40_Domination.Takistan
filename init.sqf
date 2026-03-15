@@ -22,6 +22,8 @@ if (hasInterface && {isMultiplayer}) then {
 
     player enableSimulation false;
 
+    removeAllItems player;
+
     0 spawn {
         while {!(simulationEnabled player)} do {
             waitUntil {sleep 0.01; !isNull (findDisplay 49)};

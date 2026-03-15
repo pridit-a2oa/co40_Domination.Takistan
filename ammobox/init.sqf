@@ -289,6 +289,11 @@ GVAR(ammobox_type_ammo_flare) = [
 GVAR(ammobox_type_equipment) = [
     "Binocular_Vector",
     "Binocular",
+    "ItemCompass",
+    "ItemGPS",
+    "ItemMap",
+    "ItemRadio",
+    "ItemWatch",
     "Laserdesignator",
     "NVGoggles"
 ];

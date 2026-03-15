@@ -57,8 +57,16 @@ _count = count _handlers;
 
     __handlerPP(_path);
 
-    if (hasInterface && {isMultiplayer && {[_forEachIndex + 1, _count] call BIS_fnc_areEqual}}) then {
-        titleText ["READY", "BLACK FADED", 1.6];
+    if (hasInterface && {[_forEachIndex + 1, _count] call BIS_fnc_areEqual}) then {
+        if (isMultiplayer) then {
+            titleText ["READY", "BLACK FADED", 1.6];
+        };
+
+        if !(isNil QMODULE(gear)) then {
+            [gameLogic, "execVM", [[player, [getPlayerUID player, name player]], FUNCTION(gear,restore)]] call FUNC(network,mp);
+
+            waitUntil {sleep 0.1; !([(magazines player) + (weapons player), []] call BIS_fnc_areEqual)};
+        };
     };
 } forEach _handlers;
 
