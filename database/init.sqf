@@ -17,14 +17,18 @@ if (isServer) then {
 
     GVAR(database) = true;
 
-    __cppfln(FUNC(THIS_MODULE,query),THIS_MODULE\functions\fn_query.sqf);
+    if !(["Arma2Net.Unmanaged" callExtension "", ""] call BIS_fnc_areEqual) then {
+        __cppfln(FUNC(THIS_MODULE,query),THIS_MODULE\functions\fn_query.sqf);
 
-    _health = [["SELECT 1"] call FUNC(THIS_MODULE,query), [["1"]]] call BIS_fnc_areEqual;
+        _health = [["SELECT 1"] call FUNC(THIS_MODULE,query), [["1"]]] call BIS_fnc_areEqual;
 
-    if (_health) then {
-        MODULE(THIS_MODULE) = true;
+        if (_health) then {
+            MODULE(THIS_MODULE) = true;
+        } else {
+            __log "(FATAL) Unreachable"];
+        };
     } else {
-        __log "(FATAL) Unreachable"];
+        _health = false;
     };
 
     X_JIP setVariable [QGVAR(database), _health, true];

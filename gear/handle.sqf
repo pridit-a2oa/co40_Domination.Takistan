@@ -6,7 +6,10 @@
 #include "x_macros.sqf"
 
 if !(hasInterface) exitWith {};
-if (isNil QMODULE(database)) exitWith {};
+
+if (isNil QMODULE(database)) exitWith {
+    call FUNC(THIS_MODULE,default);
+};
 
 0 spawn {
     while {true} do {
