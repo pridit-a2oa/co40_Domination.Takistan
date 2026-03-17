@@ -38,7 +38,11 @@ _addon = [_texture select 0] call FUNC(THIS_MODULE,addon);
 if !(_addon) then {
     DIALOG("X_MENU_DIALOG", 1100) ctrlSetStructuredText parseText format [
         "<t size='0.9'>&#160;</t><br/><t size='1' align='left' valign='bottom'>%1</t>",
-        format ["* MISSING ADDON: @%1", _name select 1]
+        format [
+            "* Missing %1: %2",
+            if ([_name select 1, "@"] call KRON_StrInStr) then {"addon"} else {"DLC"},
+            _name select 1
+        ]
     ];
 };
 

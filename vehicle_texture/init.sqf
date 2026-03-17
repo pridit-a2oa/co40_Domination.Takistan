@@ -11,24 +11,31 @@
 // Valid types of texture types: vehicle, name, (optional) addon, texture(s)
 GVAR(vehicle_texture_types) = [
     ["A10_US_EP1", [
-        [["Black", ["STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
+        [["Black", ["@STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
             "\sti_a10\black\a10_01_co_black",
             "\sti_a10\black\a10_02_co_black"
         ]],
 
-        [["Desert", ["STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
+        [["Desert", ["@STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
             "\sti_a10\desert\a10_01_co_desert",
             "\sti_a10\desert\a10_02_co_desert"
         ]],
 
-        [["Green", ["STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
+        [["Green", ["@STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
             "\sti_a10\green\a10_01_co_green",
             "\sti_a10\green\a10_02_co_green"
         ]],
 
-        [["Winter", ["STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
+        [["Winter", ["@STI_A10", isClass (configFile >> "CfgPatches" >> "STI_A10")]], [
             "\sti_a10\winter\a10_01_co_winter",
             "\sti_a10\winter\a10_02_co_winter"
+        ]]
+    ]],
+
+    ["C130J_US_EP1", [
+        [["Desert", ["Private Military Company", [getNumber (configFile >> "CfgMods" >> "PMC" >> "islite"), 0] call BIS_fnc_areEqual]], [
+            "ca\missions2_pmc\data\c130j_body_co",
+            "ca\missions2_pmc\data\c130j_wings_co"
         ]]
     ]]
 ];

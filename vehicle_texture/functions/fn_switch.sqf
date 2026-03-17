@@ -14,7 +14,7 @@ _options = [_textures select 1] call FUNC(THIS_MODULE,options);
 
 _texture = ((GVAR(vehicle_texture_types) select (_textures select 0)) select 1) select (_options find (_type select 0));
 
-if ([typeName (_texture select 0), "STRING"] call BIS_fnc_areEqual || {[_texture select 0] call FUNC(THIS_MODULE,addon)}) then {
+if ([typeName (_texture select 0), "STRING"] call BIS_fnc_areEqual || {[_texture select 0] call FUNC(THIS_MODULE,addon) || {!([_type select 1, "@"] call KRON_StrInStr)}}) then {
     {
         _vehicle setObjectTexture [_forEachIndex, format ["%1.paa", _x]];
     } forEach (_texture select 1);
