@@ -8,7 +8,6 @@ _network = [_this, 1, false] call FUNC(common,param);
 
 _expression = {
     if !(hasInterface) exitWith {};
-    if !(isNull (findDisplay 106)) exitWith {};
     if !([typeName (uiNamespace getVariable "X_ACCOLADE_DIALOG"), "DISPLAY"] call BIS_fnc_areEqual) exitWith {};
 
     closeDialog 0;

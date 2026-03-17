@@ -5,7 +5,7 @@ PARAMS_1(_object);
 
 _offset = switch (_object) do {
     case "Desk": {
-        [[0.15, -0.15] call BIS_fnc_selectRandom, 0, 0.43]
+        [[0.15, -0.15] call BIS_fnc_selectRandom, 0, 0.42]
     };
 
     case "FoldTable": {

@@ -1,6 +1,6 @@
 #define THIS_MODULE accolade
 #include "x_macros.sqf"
-private ["_entry", "_identifier", "_index", "_task", "_npc", "_tracked", "_key", "_accolades", "_tasks", "_array", "_experience"];
+private ["_entry", "_identifier", "_index", "_task", "_npc", "_tracked", "_key", "_accolades", "_tasks", "_array", "_holder", "_experience"];
 
 PARAMS_2(_entry, _identifier);
 
@@ -55,8 +55,10 @@ if ([_array select _task, [0, 0]] call BIS_fnc_areEqual) exitWith {};
 
 _tasks set [_index, _array];
 
+_holder = "";
+
 if ([_array select _task, [2, 1]] call BIS_fnc_areEqual) then {
-    [_entry select 0, _task] spawn FUNC(THIS_MODULE,item);
+    _holder = [_entry select 0, _task] call FUNC(THIS_MODULE,item);
 
     [format [
         "INSERT INTO character_accolade (character_id, data) VALUES (%1, CAST(""%2"" AS JSON)) ON DUPLICATE KEY UPDATE data = CAST(""%2"" AS JSON)",
@@ -81,18 +83,26 @@ if ([_array select _task, [2, 1]] call BIS_fnc_areEqual) then {
 };
 
 {
-    if ([[_identifier select 0, _identifier select 1], [getPlayerUID _x, name _x]] call BIS_fnc_areEqual) exitWith {
-        [_x, "spawn", [[_experience, _tasks, ["npc", GVAR(accolade_types) select _index]], {
-            private ["_experience", "_tasks", "_type", "_rank"];
+    if ([[getPlayerUID _x, name _x], _identifier] call BIS_fnc_areEqual) exitWith {
+        [_x, "spawn", [[_experience, _tasks, ["npc", GVAR(accolade_types) select _index], _holder], {
+            private ["_experience", "_tasks", "_type", "_holder", "_rank"];
 
-            PARAMS_3(_experience, _tasks, _type);
+            PARAMS_4(_experience, _tasks, _type, _holder);
 
             if !(hasInterface) exitWith {};
 
             player setVariable [QGVAR(experience), ((player getVariable QGVAR(experience)) + _experience) min (call FUNC(THIS_MODULE,max)), true];
             player setVariable [QGVAR(tasks), _tasks];
 
-            [_type] call FUNC(THIS_MODULE,refresh);
+            if ([] call FUNC(common,ready)) then {
+                if !([_holder, ""] call BIS_fnc_areEqual) then {
+                    player action ["Gear", _holder];
+                } else {
+                    [_type] call FUNC(THIS_MODULE,refresh);
+                };
+            } else {
+                closeDialog 0;
+            };
 
             _rank = [player getVariable QGVAR(experience)] call FUNC(THIS_MODULE,rank);
 

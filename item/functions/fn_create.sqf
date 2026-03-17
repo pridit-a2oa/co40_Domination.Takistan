@@ -35,18 +35,18 @@ _objects = [];
         // Holder
         _offset = [typeOf _parent] call FUNC(THIS_MODULE,offset);
 
-        _object = createVehicle ["WeaponHolder", getPosATL _parent, [], 0, "NONE"];
+        _object = createVehicle ["WeaponHolder", getPosATL _parent, [], 0, "CAN_COLLIDE"];
         _object setDir (random 360);
         _object setPos (_parent modelToWorld _offset);
 
         [_objects, _object] call BIS_fnc_arrayPush;
 
-        [true, "reveal", _object] call FUNC(network,mp);
-
         _holder = _object;
 
         // Item
         _item = _x;
+
+        _holder addWeaponCargoGlobal [_item select 1, 1];
 
         [true, "execVM", [[_parent, _item select 1], __function(model)]] call FUNC(network,mp);
 
@@ -55,8 +55,6 @@ _objects = [];
             (X_JIP getVariable QGVAR(item_objects)) + [[_parent, _item select 1]],
             true
         ];
-
-        _holder addWeaponCargoGlobal [_item select 1, 1];
     };
 } forEach _types;
 

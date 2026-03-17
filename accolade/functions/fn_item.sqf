@@ -1,12 +1,12 @@
 #define THIS_MODULE accolade
 #include "x_macros.sqf"
-private ["_type", "_index", "_npc", "_unit", "_parent", "_position", "_holder", "_nearest"];
+private ["_type", "_index", "_npc", "_unit", "_parent", "_holder"];
 
 PARAMS_2(_type, _index);
 
 _npc = (call compile format ["d_%1_%2_tasks", QUOTE(THIS_MODULE), _type]) select _index;
 
-if !([count _npc, 2] call BIS_fnc_areEqual) exitWith {};
+if !([count _npc, 2] call BIS_fnc_areEqual) exitWith {""};
 
 _unit = (X_JIP getVariable QGVAR(accolades)) select (([0, GVAR(accolade_types)] call FUNC(common,arrayValues)) find _type);
 
@@ -35,16 +35,8 @@ if (!isNil QMODULE(item) && {!([_parent, []] call BIS_fnc_areEqual)}) then {
     } forEach (_npc select 1);
 };
 
-_nearest = nearestObjects [_unit, ["CAManBase"], 5];
-
-if ([_nearest, []] call BIS_fnc_areEqual) exitWith {};
-
-{
-    if (isPlayer _x && {[_x] call FUNC(common,ready)}) exitWith {
-        sleep 0.1;
-
-        [_x, "action", ["Gear", _holder]] call FUNC(network,mp);
-    };
-} forEach _nearest;
+[true, "reveal", _holder] call FUNC(network,mp);
 
 __log format ["Rewarded %1", _npc select 1]];
+
+_holder
