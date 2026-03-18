@@ -7,6 +7,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(_vehicle in GVAR(vehicle_ammobox_types)) exitWith {""};
+if !(_vehicle in GVAR(vehicle_ammobox_types)) exitWith {[]};
 
-"<br />Ammobox Carrier"
+["Ammobox Carrier"]

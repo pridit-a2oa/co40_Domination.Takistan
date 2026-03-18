@@ -7,6 +7,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(_vehicle in GVAR(vehicle_uav_types)) exitWith {""};
+if !(_vehicle in GVAR(vehicle_uav_types)) exitWith {[]};
 
-"<br />Remote-Controlled"
+["Remote-Controlled"]

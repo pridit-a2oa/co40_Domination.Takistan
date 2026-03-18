@@ -3,16 +3,16 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_string"];
+private ["_vehicle", "_array"];
 
 PARAMS_1(_vehicle);
 
-_string = "";
+_array = [];
 
 {
-    if (_vehicle in (_x select 1)) exitWith {
-        _string = format ["<br />%1", _x select 0]
+    if (_vehicle in (_x select 1)) then {
+        _array = _array + [_x select 0]
     };
 } forEach GVAR(vehicle_lift_types);
 
-_string
+_array

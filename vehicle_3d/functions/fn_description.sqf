@@ -1,37 +1,39 @@
 #define THIS_MODULE vehicle_3d
 #include "x_macros.sqf"
-private ["_type", "_description"];
+private ["_type", "_array", "_description"];
 
 PARAMS_1(_type);
 
+_array = [];
+
+{
+    if !(isNil format ["d_mdl_%1", _x]) then {
+        [
+            _array,
+            [_type] call compile preprocessFileLineNumbers format [
+                "%1\modules\%2.sqf",
+                _x,
+                QUOTE(THIS_MODULE)
+            ]
+        ] call BIS_fnc_arrayPushStack;
+    };
+} forEach [
+    "inventory",
+    "vehicle_ammobox",
+    "vehicle_cargo",
+    "vehicle_create",
+    "vehicle_deploy",
+    "vehicle_lift",
+    "vehicle_ramp",
+    "vehicle_uav"
+];
+
+if ([_array, []] call BIS_fnc_areEqual) exitWith {""};
+
 _description = "";
 
-if (!isNil QMODULE(vehicle_ramp) && {!isNil QMODULE(halo)}) then {
-    _description = _description + ([_type] __submodulePP(vehicle_ramp));
-};
-
-if (!isNil QMODULE(vehicle_lift)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_lift));
-};
-
-if (!isNil QMODULE(vehicle_ammobox)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_ammobox));
-};
-
-if (!isNil QMODULE(vehicle_deploy)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_deploy));
-};
-
-if (!isNil QMODULE(inventory)) then {
-    _description = _description + ([_type] __submodulePP(inventory));
-};
-
-if (!isNil QMODULE(vehicle_uav)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_uav));
-};
-
-if (!isNil QMODULE(vehicle_create)) then {
-    _description = _description + ([_type] __submodulePP(vehicle_create));
-};
+{
+    _description = _description + format ["<br />%1", _x]
+} forEach ([_array] call KRON_ArraySort);
 
 _description

@@ -7,6 +7,6 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if !(_type in ([0, GVAR(vehicle_create_types)] call FUNC(common,arrayValues))) exitWith {""};
+if !(_type in ([0, GVAR(vehicle_create_types)] call FUNC(common,arrayValues))) exitWith {[]};
 
-"<br />Vehicle Spawner"
+["Vehicle Spawner"]
