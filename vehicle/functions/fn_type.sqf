@@ -10,6 +10,10 @@ if ([_type, "Airplane"] call BIS_fnc_areEqual) then {
 };
 
 _icon = switch (_type) do {
+    case "Bike": {
+        "\ca\ui\data\iconbike_ca.paa";
+    };
+
     case "Truck": {
         "\ca\ui\data\icontruck_ca.paa";
     };
@@ -19,7 +23,7 @@ _icon = switch (_type) do {
     };
 };
 
-if (isNil "_icon") then {
+if !([_icon, ".paa"] call KRON_StrInStr) then {
     _icon = getText (configFile >> "CfgVehicleIcons" >> format ["icon%1", _type]);
 };
 
