@@ -178,10 +178,6 @@ if (hasInterface) then {
         [_vehicle] __submodulePP(vehicle_3d);
     };
 
-    if (!isNil QMODULE(vehicle_marker)) then {
-        [_vehicle] __submodulePP(vehicle_marker);
-    };
-
     if (!isNil QMODULE(vehicle_protection)) then {
         [_vehicle] __submodulePP(vehicle_protection);
     };
@@ -209,6 +205,10 @@ if (!isNil QMODULE(vehicle_deploy)) then {
 
 if (!isNil QMODULE(vehicle_lift)) then {
     [_vehicle] __submodulePP(vehicle_lift);
+};
+
+if (!isNil QMODULE(vehicle_marker)) then {
+    [_vehicle] __submodulePP(vehicle_marker);
 };
 
 if (!isNil QMODULE(vehicle_pack)) then {

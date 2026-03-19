@@ -11,7 +11,7 @@ _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 _marker setMarkerPosLocal (getPosASL _vehicle);
 
 if (alive _vehicle) then {
-    _marker setMarkerTextLocal (format [" %1", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
+    _marker setMarkerTextLocal (_vehicle getVariable QGVAR(name));
     _marker setMarkerColorLocal "ColorBlack";
     _marker setMarkerAlphaLocal 0;
 
@@ -37,7 +37,5 @@ if (alive _vehicle) then {
         [_vehicle] __submoduleVM(vehicle_wreck);
     };
 };
-
-_vehicle setVariable [QGVAR(hidden), false, true];
 
 _marker

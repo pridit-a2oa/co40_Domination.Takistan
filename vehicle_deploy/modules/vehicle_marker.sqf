@@ -8,15 +8,15 @@ private ["_vehicle", "_marker"];
 
 PARAMS_1(_vehicle);
 
-if ([typeName ([_vehicle] call FUNC(THIS_MODULE,type)), "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 if !(alive _vehicle) exitWith {};
+if ([typeName ([_vehicle] call FUNC(THIS_MODULE,type)), "SCALAR"] call BIS_fnc_areEqual) exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
 
-if ((_vehicle getVariable QGVAR(deployed)) select 0) then {
+if ((_vehicle getVariable QGVAR(deployed)) select 0) exitWith {
     _marker setMarkerColorLocal "ColorYellow";
     _marker setMarkerTextLocal (markerText _marker + " (Deployed)");
-} else {
-    _marker setMarkerColorLocal "ColorBlack";
-    _marker setMarkerAlphaLocal 0;
 };
+
+_marker setMarkerColorLocal "ColorBlack";
+_marker setMarkerAlphaLocal 0;

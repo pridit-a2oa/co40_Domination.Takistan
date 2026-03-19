@@ -15,16 +15,12 @@ if (hasInterface) then {
             _marker = [_x] call FUNC(THIS_MODULE,valid);
 
             if !(isNil "_marker") then {
-                private ["_alive", "_distance", "_hidden", "_alpha"];
+                private ["_alpha"];
 
                 _marker setMarkerPosLocal (getPosASL _x);
 
-                _alive = alive _x;
-                _distance = _x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible);
-                _hidden = _x getVariable QGVAR(hidden);
-
                 if ([markerColor _marker, "ColorBlack"] call BIS_fnc_areEqual || {!(_x call FUNC(common,empty))}) then {
-                    private ["_sides", "_colors", "_side", "_color"];
+                    private ["_sides", "_colors", "_side"];
 
                     _sides = [0, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
                     _colors = [1, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
@@ -32,6 +28,8 @@ if (hasInterface) then {
                     _side = str (side _x);
 
                     if (_side in _sides) then {
+                        private ["_color"];
+
                         _color = _colors select (_sides find _side);
 
                         if !(markerColor _marker in [_color, "ColorYellow"]) then {
@@ -40,8 +38,21 @@ if (hasInterface) then {
                     };
                 };
 
-                _alpha = if (!_hidden && {!_alive || {_alive && {_distance || {{alive _x && {isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}}} count crew _x > 0}}}}) then {
-                    if (alive _x && {!canMove _x}) then {0.45} else {1};
+                _alpha = if !(_x getVariable QGVAR(hidden)) then {
+                    switch (true) do {
+                        case (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible));
+                        case ({alive _x && {isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}}} count crew _x > 0): {
+                            if (alive _x && {!canMove _x}) then {
+                                0.45
+                            } else {
+                                1
+                            };
+                        };
+
+                        default {
+                            0
+                        };
+                    };
                 } else {
                     0
                 };

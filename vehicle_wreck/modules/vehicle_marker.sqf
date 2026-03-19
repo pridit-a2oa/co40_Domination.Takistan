@@ -12,7 +12,7 @@ if !(_vehicle getVariable QGVAR(wreckable)) exitWith {};
 
 _marker = _vehicle getVariable QGVAR(id);
 _marker setMarkerPosLocal (getPosASL _vehicle);
-_marker setMarkerTextLocal (format ["%1 Wreck", [typeOf (_vehicle)] call FUNC(vehicle,name)]);
+_marker setMarkerTextLocal (format ["%1 Wreck", [typeOf _vehicle] call FUNC(vehicle,name)]);
 _marker setMarkerTypeLocal "DOT";
 
 _color = switch (faction _vehicle) do {

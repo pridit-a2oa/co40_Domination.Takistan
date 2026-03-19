@@ -8,22 +8,25 @@ private ["_vehicle"];
 
 PARAMS_1(_vehicle);
 
-if (typeOf _vehicle isKindOf "ParachuteBase") exitWith {};
+if (_vehicle isKindOf "ParachuteBase") exitWith {};
+if ([{_vehicle isKindOf _x} count GVAR(vehicle_marker_types), 0] call BIS_fnc_areEqual) exitWith {};
 
-{
-    private ["_marker"];
+if (isServer) then {
+    _vehicle setVariable [QGVAR(name), format [" %1", [typeOf _vehicle] call FUNC(vehicle,name)], true];
 
-    if (typeOf _vehicle isKindOf _x) exitWith {
-        _marker = [_vehicle] call FUNC(THIS_MODULE,create);
-
-        if (isNil "_marker") exitWith {};
-
-        if !(isNil QMODULE(vehicle_deploy)) then {
-            [_vehicle] __submoduleVM(vehicle_deploy);
-        };
-
-        if !(isNil QMODULE(vehicle_wreck)) then {
-            [_vehicle] __submoduleVM(vehicle_wreck);
-        };
+    if (isNil {_vehicle getVariable QGVAR(hidden)}) then {
+        _vehicle setVariable [QGVAR(hidden), false, true];
     };
-} forEach GVAR(vehicle_marker_types);
+};
+
+if (hasInterface) then {
+    if (isNil {[_vehicle] call FUNC(THIS_MODULE,create)}) exitWith {};
+
+    if !(isNil QMODULE(vehicle_deploy)) then {
+        [_vehicle] __submoduleVM(vehicle_deploy);
+    };
+
+    if !(isNil QMODULE(vehicle_wreck)) then {
+        [_vehicle] __submoduleVM(vehicle_wreck);
+    };
+};
