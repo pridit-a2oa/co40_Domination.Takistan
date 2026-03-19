@@ -9,6 +9,10 @@ _offset = switch (_entity) do {
         [0, 2, -2]
     };
 
+    case "BMP2_HQ_TK_EP1": {
+        [0, -0.5, -5]
+    };
+
     case "C130J_US_EP1": {
         [0, 5, -2]
     };
