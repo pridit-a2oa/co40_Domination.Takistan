@@ -13,7 +13,6 @@ if !(typeOf _vehicle in GVAR(vehicle_bomber_type_vehicles)) exitWith {false};
 _bomber = _vehicle getVariable QGVAR(bomber);
 
 if (isNil "_bomber" || {!_bomber}) exitWith {false};
-
 if !([_vehicle] call FUNC(THIS_MODULE,valid)) exitWith {false};
 
 [

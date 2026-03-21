@@ -170,9 +170,11 @@ if !(isNil QMODULE(vehicle_texture)) then {
 
 if !(isNil QMODULE(vehicle_unflip)) then {
     case "unflip": {
+        closeDialog 0;
+
         [_entity] call FUNC(vehicle_unflip,unflip);
 
-        true
+        false
     };
 };
 
