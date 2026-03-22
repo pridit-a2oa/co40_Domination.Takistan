@@ -14,7 +14,7 @@ _types = GVAR(vehicle_texture_types);
     _type = (_types select _forEachIndex) select 0;
 
     _textures = [
-        ["Default", [_type] call FUNC(THIS_MODULE,default)]
+        ["None", [_type] call FUNC(THIS_MODULE,default)]
     ];
 
     {

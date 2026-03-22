@@ -26,7 +26,7 @@ _addon = [_texture select 0] call FUNC(THIS_MODULE,addon);
 
 [
     format [
-        "Texture: %1%2 (%3/%4)",
+        "Camo: %1%2 (%3/%4)",
         _name select 0,
         if !(_addon) then {"*"} else {""},
         (_options find (_name select 0)) + 1,

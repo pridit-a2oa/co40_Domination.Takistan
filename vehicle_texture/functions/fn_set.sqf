@@ -10,12 +10,12 @@ if (hasInterface) then {
     _name = [typeOf _vehicle] call FUNC(vehicle,name);
     _checks = [
         [
-            [format ["%1 texture", _name], "changed"],
+            [format ["%1 camo", _name], "changed"],
             _vehicle
         ] call FUNC(helper,isOccupied),
 
         [
-            [format ["%1 texture", _name], "changed"],
+            [format ["%1 camo", _name], "changed"],
             markerPos QGVAR(base_south),
             position _vehicle,
             [GVAR(vehicle_texture_distance_base), "of base", "within"]
