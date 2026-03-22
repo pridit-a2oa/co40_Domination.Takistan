@@ -22,6 +22,10 @@ if !(isNil QMODULE(vehicle_bomber)) then {
     [_valid, [GVAR(menu_entity)] __submodulePP(vehicle_bomber)] call BIS_fnc_arrayPush;
 };
 
+if !(isNil QMODULE(vehicle_cargo)) then {
+    [_valid, [GVAR(menu_entity)] __submodulePP(vehicle_cargo)] call BIS_fnc_arrayPush;
+};
+
 if !(isNil QMODULE(vehicle_create)) then {
     if ((GVAR(menu_entity) getVariable QGVAR(deployed)) select 0) then {
         [_valid, [GVAR(menu_entity)] __submodulePP(vehicle_create)] call BIS_fnc_arrayPush;

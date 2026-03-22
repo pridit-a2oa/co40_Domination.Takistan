@@ -11,11 +11,9 @@ _marker = createMarkerLocal [_vehicle getVariable QGVAR(id), position _vehicle];
 _marker setMarkerPosLocal (getPosASL _vehicle);
 
 if (alive _vehicle) then {
-    _marker setMarkerTextLocal (_vehicle getVariable QGVAR(name));
+    _marker setMarkerTypeLocal ([_vehicle] call FUNC(THIS_MODULE,type));
     _marker setMarkerColorLocal "ColorBlack";
     _marker setMarkerAlphaLocal 0;
-
-    _marker setMarkerTypeLocal ([_vehicle] call FUNC(THIS_MODULE,type));
 
     _vehicle addMPEventHandler ["MPKilled", {
         private ["_vehicle"];
@@ -24,18 +22,12 @@ if (alive _vehicle) then {
 
         _wreckable = _vehicle getVariable QGVAR(wreckable);
 
-        if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {
-            [_vehicle] __submoduleVM(vehicle_wreck);
-        };
+        if (!isNil QMODULE(vehicle_wreck) && {_wreckable}) exitWith {};
 
         if (!isNil QMODULE(vehicle_marker) && {!([markerPos (_vehicle getVariable QGVAR(id)), [0,0,0]] call BIS_fnc_areEqual)}) then {
             deleteMarkerLocal (_vehicle getVariable QGVAR(id));
         };
     }];
-} else {
-    if (!isNil QMODULE(vehicle_wreck) && {_vehicle getVariable QGVAR(wreckable)}) exitWith {
-        [_vehicle] __submoduleVM(vehicle_wreck);
-    };
 };
 
 _marker

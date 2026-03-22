@@ -3,22 +3,23 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_marker", "_color"];
+private ["_vehicle", "_marker"];
 
-PARAMS_1(_vehicle);
+PARAMS_2(_vehicle, _marker);
 
-if (alive _vehicle) exitWith {};
-if !(_vehicle getVariable QGVAR(wreckable)) exitWith {};
+if (alive _vehicle) exitWith {_marker};
+if !(_vehicle getVariable QGVAR(wreckable)) exitWith {_marker};
 
-_marker = _vehicle getVariable QGVAR(id);
-_marker setMarkerPosLocal (getPosASL _vehicle);
-_marker setMarkerTextLocal (format ["%1 Wreck", [typeOf _vehicle] call FUNC(vehicle,name)]);
-_marker setMarkerTypeLocal "DOT";
+(_vehicle getVariable QGVAR(id)) setMarkerTypeLocal "DOT";
 
-_color = switch (faction _vehicle) do {
-    case "BIS_TK": {"ColorRed"};
-    case "BIS_TK_INS": {"ColorRed"};
-    default {"ColorBlue"};
-};
+_marker set [0, [typeOf _vehicle] call FUNC(vehicle,name)];
+_marker set [1, "Wreck"];
+_marker set [2,
+    switch (faction _vehicle) do {
+        case "BIS_TK";
+        case "BIS_TK_INS": {"Red"};
+        default {"Blue"};
+    }
+];
 
-_marker setMarkerColorLocal _color;
+_marker

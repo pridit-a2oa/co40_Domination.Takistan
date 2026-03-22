@@ -651,13 +651,12 @@ class Params {
         texts[] = {"Enabled", "-"};
         default = 1;
     };
-    // TODO: Refactor (legacy RE use, possible dupe vector, tie with vehicle menu)
     class vehicle_cargo
     {
         title = "|- Cargo";
         values[] = {1, 0};
         texts[] = {"Enabled", "-"};
-        default = 0;
+        default = 1;
     };
     class vehicle_create
     {

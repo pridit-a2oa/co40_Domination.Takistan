@@ -52,6 +52,18 @@ switch (_state) do {
                 ] call FUNC(helper,isOccupied)
             ];
 
+            if !(isNil QMODULE(vehicle_cargo)) then {
+                [
+                    _checks,
+                    if (!isNil {_vehicle getVariable QGVAR(cargo)} && {!([count (_vehicle getVariable QGVAR(cargo)), 0] call BIS_fnc_areEqual)}) then {
+                        format [
+                            "%1 cannot be deployed with an occupied cargo bay",
+                            _name
+                        ];
+                    } else {true}
+                ] call BIS_fnc_arrayPush;
+            };
+
             {
                 if ([typeName _x, "STRING"] call BIS_fnc_areEqual) exitWith {
                     [_x] call FUNC(client,hint);
@@ -103,10 +115,6 @@ switch (_state) do {
                 [_vehicle, true] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
             };
 
-            if (!isNil QMODULE(vehicle_marker)) then {
-                [true, "execVM", [[_vehicle, true], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
-            };
-
             if !(isNil QMODULE(teleport)) then {
                 [true, "execVM", [[], FUNCTION(teleport,populate)]] call FUNC(network,mp);
             };
@@ -148,10 +156,6 @@ switch (_state) do {
 
             if (!isNil format ["d_mdl_vehicle_%1", _type]) then {
                 [_vehicle, false] call compile preprocessFileLineNumbers format ["vehicle_%1\modules\%2.sqf", _type, QUOTE(THIS_MODULE)];
-            };
-
-            if (!isNil QMODULE(vehicle_marker)) then {
-                [true, "execVM", [[_vehicle, false], __submoduleRE(vehicle_marker)]] call FUNC(network,mp);
             };
 
             if !(isNil QMODULE(teleport)) then {

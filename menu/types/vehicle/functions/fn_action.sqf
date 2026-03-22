@@ -28,6 +28,28 @@ if !(isNil QMODULE(vehicle_bomber)) then {
     };
 };
 
+if !(isNil QMODULE(vehicle_cargo)) then {
+    case "cargo_load": {
+        if !([_entity, _lbData select 1] call FUNC(vehicle_cargo,load)) exitWith {
+            true
+        };
+
+        closeDialog 0;
+
+        false
+    };
+
+    case "cargo_unload": {
+        if !([_entity, _lbData select 1] call FUNC(vehicle_cargo,unload)) exitWith {
+            true
+        };
+
+        closeDialog 0;
+
+        false
+    };
+};
+
 if !(isNil QMODULE(vehicle_create)) then {
     case "create": {
         if !([_entity, _lbData select 1] call FUNC(vehicle_create,spawn)) exitWith {

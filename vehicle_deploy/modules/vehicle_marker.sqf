@@ -2,21 +2,15 @@
  * Vehicle Deploy Module - Vehicle Marker Submodule
  */
 
-#define THIS_MODULE vehicle_deploy
 #include "x_macros.sqf"
 private ["_vehicle", "_marker"];
 
-PARAMS_1(_vehicle);
+PARAMS_2(_vehicle, _marker);
 
-if !(alive _vehicle) exitWith {};
-if ([typeName ([_vehicle] call FUNC(THIS_MODULE,type)), "SCALAR"] call BIS_fnc_areEqual) exitWith {};
+if !(typeOf _vehicle in GVAR(vehicle_deploy_types)) exitWith {_marker};
+if !((_vehicle getVariable QGVAR(deployed)) select 0) exitWith {_marker};
 
-_marker = _vehicle getVariable QGVAR(id);
+_marker set [1, "Deployed"];
+_marker set [2, "Yellow"];
 
-if ((_vehicle getVariable QGVAR(deployed)) select 0) exitWith {
-    _marker setMarkerColorLocal "ColorYellow";
-    _marker setMarkerTextLocal (markerText _marker + " (Deployed)");
-};
-
-_marker setMarkerColorLocal "ColorBlack";
-_marker setMarkerAlphaLocal 0;
+_marker

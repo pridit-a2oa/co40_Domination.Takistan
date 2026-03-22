@@ -116,7 +116,7 @@ if (isServer && {X_JIP getVariable QGVAR(airdrop_call)}) then {
 
     while {alive _aircraft && {canMove _aircraft}} do {
         if (_aircraft distance _position < 650) exitWith {
-            _load = [_aircraft, _position, _drop, ""] call FUNC(common,paradrop);
+            _load = [_aircraft, _position, _drop] call FUNC(common,paradrop);
 
             if !((typeOf _load) isKindOf "ReammoBox") then {
                 if !(isNil "_caller") then {

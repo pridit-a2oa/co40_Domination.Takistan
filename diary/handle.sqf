@@ -28,6 +28,10 @@ if (hasInterface) then {
         __submodulePP(vehicle_service);
     };
 
+    if (!isNil QMODULE(vehicle_cargo)) then {
+        __submodulePP(vehicle_cargo);
+    };
+
     if (!isNil QMODULE(setting)) then {
         __submodulePP(setting);
     };

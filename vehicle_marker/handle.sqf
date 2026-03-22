@@ -10,51 +10,77 @@ if (hasInterface) then {
         if (!visibleMap && {!ctrlVisible 10000}) exitWith {};
 
         {
-            private ["_marker"];
+            private ["_marker", "_vehicle"];
 
             _marker = [_x] call FUNC(THIS_MODULE,valid);
 
             if !(isNil "_marker") then {
-                private ["_alpha"];
+                private ["_vehicle", "_name", "_color", "_alpha"];
 
-                _marker setMarkerPosLocal (getPosASL _x);
+                if !([[(getPosASL _x) select 0, (getPosASL _x) select 1, 0], markerPos _marker] call BIS_fnc_areEqual) then {
+                    _marker setMarkerPosLocal (getPosASL _x);
+                };
 
-                if ([markerColor _marker, "ColorBlack"] call BIS_fnc_areEqual || {!(_x call FUNC(common,empty))}) then {
-                    private ["_sides", "_colors", "_side"];
+                _vehicle = +(_x getVariable QGVAR(marker));
 
-                    _sides = [0, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
-                    _colors = [1, GVAR(vehicle_marker_types_side)] call FUNC(common,arrayValues);
+                if !(isNil QMODULE(vehicle_cargo)) then {
+                    _vehicle = [_x, _vehicle] __submodulePP(vehicle_cargo);
+                };
 
-                    _side = str (side _x);
+                if !(isNil QMODULE(vehicle_deploy)) then {
+                    _vehicle = [_x, _vehicle] __submodulePP(vehicle_deploy);
+                };
 
-                    if (_side in _sides) then {
-                        private ["_color"];
+                if !(isNil QMODULE(vehicle_wreck)) then {
+                    _vehicle = [_x, _vehicle] __submodulePP(vehicle_wreck);
+                };
 
-                        _color = _colors select (_sides find _side);
+                _name = _vehicle select 0;
 
-                        if !(markerColor _marker in [_color, "ColorYellow"]) then {
-                            _marker setMarkerColorLocal _color;
+                if (count _vehicle > 1) then {
+                    _name = _name + format [" (%1)", _vehicle select 1];
+                };
+
+                if !([_name, markerText _marker] call BIS_fnc_areEqual) then {
+                    _marker setMarkerTextLocal _name;
+                };
+
+                switch (true) do {
+                    case (count _vehicle > 2): {
+                        _color = format ["Color%1", _vehicle select 2];
+                    };
+
+                    default {
+                        if (markerColor _marker in ["ColorBlack", "ColorYellow"] || {!(_x call FUNC(common,empty))}) exitWith {
+                            _color = [side _x] call FUNC(THIS_MODULE,side);
                         };
+
+                        _color = markerColor _marker;
                     };
                 };
 
-                _alpha = if !(_x getVariable QGVAR(hidden)) then {
-                    switch (true) do {
-                        case (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible));
-                        case ({alive _x && {isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}}} count crew _x > 0): {
-                            if (alive _x && {!canMove _x}) then {
-                                0.45
-                            } else {
-                                1
-                            };
-                        };
+                if !([_color, markerColor _marker] call BIS_fnc_areEqual) then {
+                    _marker setMarkerColorLocal _color;
+                };
 
-                        default {
+                _alpha = switch (true) do {
+                    case (_x distance (_x getVariable QGVAR(position)) > GVAR(vehicle_marker_visible));
+                    case ({alive _x && {isPlayer _x || {[side _x, east] call BIS_fnc_areEqual}}} count crew _x > 0);
+                    case (!isNil {_x getVariable QGVAR(cargo)} && {!([count (_x getVariable QGVAR(cargo)), 0] call BIS_fnc_areEqual)}): {
+                        if (!isNil QMODULE(vehicle_marker) && {_x getVariable QGVAR(hidden)}) exitWith {
                             0
                         };
+
+                        if (alive _x && {!canMove _x}) then {
+                            0.45
+                        } else {
+                            1
+                        };
                     };
-                } else {
-                    0
+
+                    default {
+                        0
+                    };
                 };
 
                 if !([_alpha, markerAlpha _marker] call BIS_fnc_areEqual) then {
