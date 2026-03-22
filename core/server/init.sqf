@@ -4,6 +4,7 @@
 
 #define THIS_MODULE server
 #include "x_macros.sqf"
+private ["_sides"];
 
 serverNamespace = if (isDedicated) then {profileNamespace} else {missionNamespace};
 
@@ -52,19 +53,30 @@ __cppfln(FUNC(THIS_MODULE,spawnVehicle),core\THIS_MODULE\functions\fn_spawnVehic
 enableSaving [false, false];
 enableTeamSwitch false;
 
-createCenter west;
-createCenter east;
-createCenter civilian;
-createCenter resistance;
+_sides = [
+    east,
+    west,
+    civilian,
+    resistance
+];
 
-west setFriend [east, 0.1];
-west setFriend [resistance, 1];
+{
+    createCenter _x;
+} forEach _sides;
 
-east setFriend [west, 0.1];
-east setFriend [resistance, 0.1];
+{
+    if !([_x, east] call BIS_fnc_areEqual) then {
+        east setFriend [_x, 0.1];
+    };
 
-resistance setFriend [west, 1];
-resistance setFriend [east, 0.1];
+    if !([_x, west] call BIS_fnc_areEqual) then {
+        west setFriend [_x, 0.1];
+    };
+
+    if !([_x, resistance] call BIS_fnc_areEqual) then {
+        resistance setFriend [_x, 0.1];
+    };
+} forEach _sides - [civilian];
 
 onPlayerConnected {
     if ([_name, "__SERVER__"] call BIS_fnc_areEqual) exitWith {};
