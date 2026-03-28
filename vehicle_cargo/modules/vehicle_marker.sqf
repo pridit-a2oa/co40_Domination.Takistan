@@ -8,12 +8,10 @@ private ["_vehicle", "_marker", "_cargo"];
 
 PARAMS_2(_vehicle, _marker);
 
-if !(typeOf _vehicle in ([0, GVAR(vehicle_cargo_types)] call FUNC(common,arrayValues))) exitWith {_marker};
+if !(typeOf _vehicle in ([0, GVAR(vehicle_cargo_types)] call FUNC(common,arrayValues))) exitWith {};
 
 _cargo = _vehicle getVariable QGVAR(cargo);
 
-if ([count _cargo, 0] call BIS_fnc_areEqual) exitWith {_marker};
+if (isNil "_cargo" || {[count _cargo, 0] call BIS_fnc_areEqual}) exitWith {};
 
 _marker set [1, format ["+%1", count _cargo]];
-
-_marker

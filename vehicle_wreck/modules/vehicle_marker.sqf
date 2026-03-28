@@ -3,12 +3,15 @@
  */
 
 #include "x_macros.sqf"
-private ["_vehicle", "_marker"];
+private ["_vehicle", "_marker", "_wreckable"];
 
 PARAMS_2(_vehicle, _marker);
 
-if (alive _vehicle) exitWith {_marker};
-if !(_vehicle getVariable QGVAR(wreckable)) exitWith {_marker};
+if (alive _vehicle) exitWith {};
+
+_wreckable = _vehicle getVariable QGVAR(wreckable);
+
+if (isNil "_wreckable" || {!_wreckable}) exitWith {};
 
 (_vehicle getVariable QGVAR(id)) setMarkerTypeLocal "DOT";
 
@@ -21,5 +24,3 @@ _marker set [2,
         default {"Blue"};
     }
 ];
-
-_marker

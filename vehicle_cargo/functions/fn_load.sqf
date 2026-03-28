@@ -19,7 +19,7 @@ if (hasInterface) then {
     _name = [typeOf _entity] call FUNC(vehicle,name);
     _checks = [
         [
-            [_name, "unloaded"],
+            [_name, "loaded"],
             player getVariable QGVAR(vehicle_cargo_cooldown)
         ] call FUNC(helper,timeExceeded)
     ];

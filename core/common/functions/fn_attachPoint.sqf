@@ -8,8 +8,16 @@ _attachment = switch (true) do {
         [0, -0.5, -0.9]
     };
 
+    case (_vehicle isKindOf "BAF_Jackal2_BASE_D"): {
+        [0, 2, -2.9]
+    };
+
     case (_vehicle isKindOf "BMP2_HQ_Base"): {
         [0, 2, 1.15];
+    };
+
+    case (_vehicle isKindOf "HMMWV_Ambulance"): {
+        [0, 2, -2.5]
     };
 
     case (_vehicle isKindOf "HMMWV_Base"): {
