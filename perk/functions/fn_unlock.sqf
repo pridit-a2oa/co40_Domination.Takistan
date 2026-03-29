@@ -173,9 +173,9 @@ switch (_tier) do {
             case 5: {
                 if (!isNil QMODULE(vehicle_upgrade)) then {
                     player setVariable [QGVAR(vehicle_upgrade_types), (player getVariable QGVAR(vehicle_upgrade_types)) + [
-                        ["(Perk) MC", "M1129_MC_EP1"],
-                        ["(Perk) MGS", "M1128_MGS_EP1"],
-                        ["(Perk) TOW", "M1135_ATGMV_EP1"]
+                        ["(Perk) Anti-Tank", "M1135_ATGMV_EP1"],
+                        ["(Perk) Mobile Gun System", "M1128_MGS_EP1"],
+                        ["(Perk) Mortar", "M1129_MC_EP1"]
                     ]];
 
                     if (!isNil QMODULE(setting)) then {
