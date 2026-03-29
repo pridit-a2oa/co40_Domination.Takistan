@@ -1,8 +1,8 @@
 /**
  * Vehicle Pack Module
  *
- * Description: This module enables players to pack certain types of
- * aircraft.
+ * Description: This module enables cosmetically packing certain vehicles,
+ * where animations exist for this state.
  */
 
 #define THIS_MODULE vehicle_pack
@@ -15,6 +15,7 @@ GVAR(vehicle_pack_types) = [
     "UH1Y"
 ];
 
-__cppfln(FUNC(THIS_MODULE,fold),THIS_MODULE\functions\fn_fold.sqf);
+__cppfln(FUNC(THIS_MODULE,toggle),THIS_MODULE\functions\fn_toggle.sqf);
+__cppfln(FUNC(THIS_MODULE,valid),THIS_MODULE\functions\fn_valid.sqf);
 
 MODULE(THIS_MODULE) = true;
