@@ -56,8 +56,3 @@ if !([_interaction, ""] call BIS_fnc_areEqual) then {
 };
 
 [_type, _interaction] call FUNC(THIS_MODULE,view);
-
-// TODO: Remove when stable
-if ([_type, "npc"] call BIS_fnc_areEqual && {[{[_x, [[0, 0], [0, 0], [0, 0], [0,0], [0, 0]]] call BIS_fnc_areEqual} count (player getVariable QGVAR(tasks)), count GVAR(accolade_types)] call BIS_fnc_areEqual}) then {
-    hint parseText "<br /><t size='1.1'>Accolades is a new, very <t color='#a3ae55'>experimental</t> system, and lacks exhaustive testing.<br /><br />Expect problems or entire <t color='#c54a30'>progress wipes</t> until this feature is stable.<br /><br />";
-};

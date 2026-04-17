@@ -50,7 +50,7 @@ GVAR(accolade_combat_tasks) = [
     ],
     [
         [
-            "Accrue a total score of at least 1,000",
+            "Accrue a total score of at least 1,000 (all sessions)",
             [1000, [2, "call d_fnc_database_get"]]
         ]
     ]
