@@ -203,6 +203,12 @@ if !(isNil QMODULE(tent)) then {
             } forEach ([_newObj] call FUNC(item,create));
         };
 
+        if !(isNil QMODULE(tent)) then {
+            if !([_type, GVAR(tent_type_object)] call BIS_fnc_areEqual) exitWith {};
+
+            [_newObj] call FUNC(tent,unit);
+        };
+
         // If fuel and damage were grabbed, map them
         if (!isNil "_fuel") then {_newObj setFuel _fuel};
         if (!isNil "_damage") then {_newObj setDamage _damage;};
