@@ -1,0 +1,1 @@
+find . -type d \( -regex '\./[^/]*' -o -path "*/types/*" \) -not -path "*.git*" -not -path "*.vscode*" -not -path "*fsm*" -not -path "*dialog*" -not -path "*sounds*" -not -path "*speech*" -not -path "*textures*" -not -path "./core" -not -path "*/core/*" -not -path "*functions*" -not -path "*modules*" -exec touch {}/handle.sqf \;
