@@ -1,0 +1,55 @@
+name: Build Domination
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  TARGET: co40_Domination_Rebuilt_West.Takistan
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ env.TARGET }}
+          submodules: recursive
+
+      - uses: actions/checkout@v4
+        with:
+          repository: pridit-a2oa/sqf-minifier
+          path: sqf-minifier
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Set environment
+        run: |
+          echo "VERSION=$(tr -d '[:space:]' < "$TARGET/version.txt")" >> "$GITHUB_ENV"
+          echo "DEPBO=docker run --rm --user $(id -u):$(id -g) -v $GITHUB_WORKSPACE:/home jerryhopper/depbo-tools:latest" >> "$GITHUB_ENV"
+
+      - name: Prepare mission
+        run: |
+          sed -i -E "s|^(\s*briefingName\s*=\s*).*;|\1\"COOP 40 Domination Rebuilt - West [${VERSION}]\";|" "$TARGET/mission.sqm"
+          $DEPBO rapify "$TARGET/mission.sqm"
+          mv "$TARGET/mission.sqm.bin" "$TARGET/mission.sqm"
+          cd "$TARGET"
+          bash handle.sh
+
+      - name: Minify SQF
+        run: |
+          find "$TARGET" -type f -name '*.sqf' ! -name 'x_macros.sqf' -print0 |
+            while IFS= read -r -d '' f; do
+              python sqf-minifier/minify.py "$f" "$f"
+            done
+
+      - name: Build PBO
+        run: $DEPBO makepbo -A -X=".git,.github,.editorconfig,.gitattributes,.gitignore,README.md,version.txt,handle.sh,x_macros.sh,x_macros.bat" "$TARGET"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ env.TARGET }}.pbo
+          archive: false
