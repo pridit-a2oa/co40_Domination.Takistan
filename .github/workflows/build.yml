@@ -1,0 +1,59 @@
+name: Build Domination
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  TARGET: co40_Domination_Rebuilt_West.Takistan
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: ${{ env.TARGET }}
+          submodules: recursive
+
+      - uses: actions/checkout@v7
+        with:
+          repository: pridit-a2oa/sqf-minifier
+          path: sqf-minifier
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+
+      - uses: pridit-a2oa/mikero-tools@latest
+
+      - name: Set environment
+        run: echo "VERSION=$(tr -d '[:space:]' < "$TARGET/version.txt")" >> "$GITHUB_ENV"
+
+      - name: Prepare mission
+        run: |
+          sed -i -E "s|^(\s*briefingName\s*=\s*).*;|\1\"COOP 40 Domination Rebuilt - West [${VERSION}]\";|" "$TARGET/mission.sqm"
+          rapify "$TARGET/mission.sqm"
+          mv "$TARGET/mission.sqm.bin" "$TARGET/mission.sqm"
+          cd "$TARGET"
+          bash handle.sh
+          bash x_macros.sh
+          rm -rf .[^.]* README.md
+
+      - name: Minify SQF
+        run: |
+          find "$TARGET" -type f -name '*.sqf' ! -name 'x_macros.sqf' -print0 |
+            while IFS= read -r -d '' file; do
+              python -u sqf-minifier/minify.py "$file" "$file"
+            done
+
+      - name: Build PBO
+        run: makepbo -A -X="handle.sh,x_macros.sh" "$TARGET"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ env.TARGET }}.pbo
+          archive: false

@@ -23,8 +23,7 @@ class FSM
     class Delay
     {
       name = "Delay";
-      init = "_timenow = time + (d_vehicle_bomber_time_spawn / 2);" \n
-       "";
+      init = "_timenow = time + (d_vehicle_bomber_time_spawn / 2);";
       precondition = "";
       class Links
       {

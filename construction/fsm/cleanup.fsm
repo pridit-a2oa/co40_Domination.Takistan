@@ -40,13 +40,7 @@ class FSM
     class _
     {
       name = "_";
-      init = "" \n
-       "{" \n
-       "    _object = _x select 0;" \n
-       "    if (call d_fnc_common_time > (_x select 1) && {{_x distance _object < d_construction_distance_cleanup} count (call d_fnc_common_players) < 1}) then {" \n
-       "        deleteVehicle _object;" \n
-       "    };" \n
-       "} forEach (gameLogic getVariable 'd_constructed');";
+      init = "{_object = _x select 0;if (call d_fnc_common_time > (_x select 1) && {{_x distance _object < d_construction_distance_cleanup} count (call d_fnc_common_players) < 1}) then {deleteVehicle _object;};} forEach (gameLogic getVariable 'd_constructed');";
       precondition = "";
       class Links
       {

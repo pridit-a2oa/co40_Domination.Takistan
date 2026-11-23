@@ -6,8 +6,7 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_ammobox"", ""_timeend""];" \n
-       "_ammobox = _this select 0;";
+      init = "private [""_ammobox"", ""_timeend""];_ammobox = _this select 0;";
       precondition = "";
       class Links
       {
@@ -41,11 +40,7 @@ class FSM
     class _
     {
       name = "_";
-      init = "if (!isNull _ammobox) then {deleteVehicle _ammobox;};" \n
-       "_ammobox = [faction player, markerPos ""d_player_ammobox_pos"", markerDir ""d_player_ammobox_pos"", true] call d_fnc_ammobox_create;" \n
-       "_ammobox setVariable [""immune"", true];" \n
-       "player reveal _ammobox;" \n
-       "[_ammobox, true] call d_fnc_ammobox_handle;";
+      init = "if (!isNull _ammobox) then {deleteVehicle _ammobox;};_ammobox = [faction player, markerPos ""d_player_ammobox_pos"", markerDir ""d_player_ammobox_pos"", true] call d_fnc_ammobox_create;_ammobox setVariable [""immune"", true];player reveal _ammobox;[_ammobox, true] call d_fnc_ammobox_handle;";
       precondition = "";
       class Links
       {

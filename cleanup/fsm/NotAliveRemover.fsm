@@ -6,9 +6,7 @@ class FSM
     class Start
     {
       name = "Start";
-      init = "private [""_allunits"", ""_timenow""];" \n
-       "_allunits = [];" \n
-       "_timenow = time + 240;";
+      init = "private [""_allunits"", ""_timenow""];_allunits = [];_timenow = time + 240;";
       precondition = "";
       class Links
       {
@@ -59,17 +57,7 @@ class FSM
     class Add_new
     {
       name = "Add_new";
-      init = "private [""_counter""];" \n
-       "_counter = 0;" \n
-       "" \n
-       "if (count d_allunits_add > 0) then {" \n
-       "	d_allunits_add = d_allunits_add - [objNull, nil];" \n
-       "	[_allunits, d_allunits_add] call d_fnc_common_arrayPushStack;" \n
-       "	d_allunits_add = [];" \n
-       "	_allunits = _allunits - [objNull];" \n
-       "};" \n
-       "_timenow = time + 30;" \n
-       "";
+      init = "private [""_counter""];_counter = 0;if (count d_allunits_add > 0) then {d_allunits_add = d_allunits_add - [objNull, nil];[_allunits, d_allunits_add] call d_fnc_common_arrayPushStack;d_allunits_add = [];_allunits = _allunits - [objNull];};_timenow = time + 30;";
       precondition = "";
       class Links
       {
@@ -119,8 +107,7 @@ class FSM
     class Clear_array
     {
       name = "Clear_array";
-      init = "_allunits = _allunits - [-1,objNull];" \n
-       "_timenow = time + 30;";
+      init = "_allunits = _allunits - [-1,objNull];_timenow = time + 30;";
       precondition = "";
       class Links
       {
@@ -137,47 +124,7 @@ class FSM
     class Check_one_object
     {
       name = "Check_one_object";
-      init = "private ""_element"";" \n
-       "_element = _allunits select _counter;" \n
-       "" \n
-       "if (!isNil ""_element"") then {" \n
-       "	if (isNull _element) then {" \n
-       "		deleteVehicle _element;" \n
-       "		_allunits set [_counter, -1];" \n
-       "	} else {" \n
-       "		if (!alive _element) then {" \n
-       "			if (_element isKindOf ""CAManBase"") then {" \n
-       "				deleteVehicle _element;" \n
-       "				_allunits set [_counter, -1];" \n
-       "			} else {" \n
-       "				if (_element call d_fnc_common_empty) then {" \n
-       "					deleteVehicle _element;" \n
-       "					_allunits set [_counter, -1];" \n
-       "				};" \n
-       "			};" \n
-       "		} else {" \n
-       "			if !(_element isKindOf ""CAManBase"") then {" \n
-       "				private ""_hastime"";" \n
-       "				_hastime = _element getVariable ""d_end_time"";" \n
-       "				if (!isNil ""_hastime"" && {time > _hastime}) then {" \n
-       "					if (_element call d_fnc_common_empty) then {" \n
-       "						deleteVehicle _element;" \n
-       "						_allunits set [_counter, -1];" \n
-       "					} else {" \n
-       "						if (({isPlayer _x} count (crew _element)) > 0) then {" \n
-       "							_element setVariable [""d_end_time"", time + 600];" \n
-       "						};" \n
-       "					};" \n
-       "				};" \n
-       "			};" \n
-       "		};" \n
-       "	};" \n
-       "} else {" \n
-       "	_allunits set [_counter, -1];" \n
-       "};" \n
-       "" \n
-       "_counter = _counter + 1;" \n
-       "_timenow = time + 1 + random 1;";
+      init = "private ""_element"";_element = _allunits select _counter;if (!isNil ""_element"") then {if (isNull _element) then {deleteVehicle _element;_allunits set [_counter, -1];} else {if (!alive _element) then {if (_element isKindOf ""CAManBase"") then {deleteVehicle _element;_allunits set [_counter, -1];} else {if (_element call d_fnc_common_empty) then {deleteVehicle _element;_allunits set [_counter, -1];};};} else {if !(_element isKindOf ""CAManBase"") then {private ""_hastime"";_hastime = _element getVariable ""d_end_time"";if (!isNil ""_hastime"" && {time > _hastime}) then {if (_element call d_fnc_common_empty) then {deleteVehicle _element;_allunits set [_counter, -1];} else {if (({isPlayer _x} count (crew _element)) > 0) then {_element setVariable [""d_end_time"", time + 600];};};};};};};} else {_allunits set [_counter, -1];};_counter = _counter + 1;_timenow = time + 1 + random 1;";
       precondition = "";
       class Links
       {
