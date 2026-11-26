@@ -1,1 +1,1 @@
-find . -type d -not -path "*.git*" -not -path "*.vscode*" -not -path "*fsm*" -not -path "*dialog*" -not -path "*fsm*" -not -path "*sounds*" -not -path "*speech*" -not -path "*textures*" -not -path "*types" -exec cp x_macros.sqf {} \;
+find . -type d -not -path "*.git*" -not -path "*.vscode*" -not -path "./core" -not -path "*fsm*" -not -path "*dialog*" -not -path "*library*" -not -path "*sounds*" -not -path "*speech*" -not -path "*textures*" -not -path "*types" -not -path . -exec ln -f x_macros.sqf {}/x_macros.sqf \;
